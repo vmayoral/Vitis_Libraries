@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>XF Database Library &mdash; XF Database Library 2.0 beta documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/xf-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Requirements" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="usecase.html">Typical Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gqe_guide/L2.html">L2 GQE Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gqe_guide/L3.html">L3 GQE Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="benchmark/tpc_h.html">TPC-H Queries with GQE</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">XF Database Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>XF Database Library</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="xf-database-library">
+<h1>XF Database Library<a class="headerlink" href="#xf-database-library" title="Permalink to this headline">¶</a></h1>
+<p>XF Database Library is an open-sourced Vitis library written in C++ for
+accelerating database applications in a variety of use cases.
+It now covers two levels of acceleration: the module level and the pre-defined kernel level,
+and will evolve to offer the third level as pure software APIs working with pre-defined hardware overlays.</p>
+<ul class="simple">
+<li>At module level, it provides optimized hardware implementation of most common relational database execution plan steps,
+like hash-join and aggregation.</li>
+<li>In kernel level, the post-bitstream-programmable kernel can be used to map a sequence of execution plan steps,
+without having to compile FPGA binaries for each query.</li>
+<li>The upcoming software API level will wrap the details of offloading acceleration with prebuilt binary (overlay)
+and allow users to accelerate supported database tasks on Alveo cards without hardware development.</li>
+</ul>
+<p>Since all the kernel code is developed in HLS C++ with the permissive Apache 2.0 license,
+advanced users can easily tailor, optimize or combine with property logic at any levels.
+Demo/examples of different database acceleration approach are also provided with the library for easy on-boarding.</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Release Note</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="usecase.html">Typical Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/L1.html">L1 Module User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide/hw_sql_guide.html">Primitive Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/hw_api.html">Primitive APIs in <code class="docutils literal notranslate"><span class="pre">xf::database</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/internals.html">Primitive Design Internals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/query_demo.html">Query-Specific Acceleration Demo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gqe_guide/L2.html">L2 GQE Kernel User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gqe_guide/gqe_overview.html">GQE Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gqe_guide/kernel_design.html">GQE Kernel Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gqe_guide/kernel_api.html">GQE Kernel APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gqe_guide/kernel_demo.html">GQE Kernel Acceleration Demo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gqe_guide/L3.html">L3 GQE Overlay User Guide</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="benchmark/tpc_h.html">TPC-H Queries with GQE</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="overview.html" class="btn btn-neutral float-right" title="Requirements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GQE Kernel APIs &mdash; XF Database Library 2.0 beta documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xf-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="GQE Kernel Acceleration Demo" href="kernel_demo.html" />
+    <link rel="prev" title="GQE Kernel Design" href="kernel_design.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usecase.html">Typical Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="L2.html">L2 GQE Kernel User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="gqe_overview.html">GQE Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kernel_design.html">GQE Kernel Design</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">GQE Kernel APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gqeaggr">gqeAggr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gqejoin">gqeJoin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gqepart">gqePart</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="kernel_demo.html">GQE Kernel Acceleration Demo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="L3.html">L3 GQE Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/tpc_h.html">TPC-H Queries with GQE</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XF Database Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="L2.html">L2 GQE Kernel User Guide</a> &raquo;</li>
+        
+      <li>GQE Kernel APIs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gqe-kernel-apis">
+<span id="gqe-kernel-api"></span><h1>GQE Kernel APIs<a class="headerlink" href="#gqe-kernel-apis" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="gqeaggr">
+<span id="cid-gqeaggr"></span><h2>gqeAggr<a class="headerlink" href="#gqeaggr" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;gqe_aggr.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">gqeAggr</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">16</span><span class="o">&gt;</span> <span class="n">buf_in</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">16</span><span class="o">&gt;</span> <span class="n">buf_out</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">buf_cfg</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">buf_result_info</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">16</span><span class="o">&gt;</span> <span class="n">ping_buf0</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">16</span><span class="o">&gt;</span> <span class="n">ping_buf1</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">16</span><span class="o">&gt;</span> <span class="n">ping_buf2</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">16</span><span class="o">&gt;</span> <span class="n">ping_buf3</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">16</span><span class="o">&gt;</span> <span class="n">pong_buf0</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">16</span><span class="o">&gt;</span> <span class="n">pong_buf1</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">16</span><span class="o">&gt;</span> <span class="n">pong_buf2</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">16</span><span class="o">&gt;</span> <span class="n">pong_buf3</span> <span class="p">[]</span>
+    <span class="p">)</span>
+</pre>
+<p>GQE Aggr Kernel.</p>
+<p>For detailed document, see <a class="reference internal" href="kernel_design.html#gqe-kernel-design"><span class="std std-ref">GQE Kernel Design</span></a>.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>buf_in</td>
+<td>input table buffer.</td>
+</tr>
+<tr class="row-even"><td>buf_out</td>
+<td>output table buffer.</td>
+</tr>
+<tr class="row-odd"><td>buf_cfg</td>
+<td>input configuration buffer.</td>
+</tr>
+<tr class="row-even"><td>buf_result_info</td>
+<td>output information buffer.</td>
+</tr>
+<tr class="row-odd"><td>buf0</td>
+<td>hash-join’s temporal buffer for storing overflow.</td>
+</tr>
+<tr class="row-even"><td>buf1</td>
+<td>hash-join’s temporal buffer for storing overflow.</td>
+</tr>
+<tr class="row-odd"><td>buf2</td>
+<td>hash-join’s temporal buffer for storing overflow.</td>
+</tr>
+<tr class="row-even"><td>buf3</td>
+<td>hash-join’s temporal buffer for storing overflow.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gqejoin">
+<span id="cid-gqejoin"></span><span id="doxid-gqe-join-8hpp-1ae0e3488d13c9fd303688f903f4ae6072"></span><h2>gqeJoin<a class="headerlink" href="#gqejoin" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;gqe_join.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">gqeJoin</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">16</span><span class="o">&gt;</span> <span class="n">buf_A</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">16</span><span class="o">&gt;</span> <span class="n">buf_B</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">16</span><span class="o">&gt;</span> <span class="n">buf_C</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">16</span><span class="o">&gt;</span> <span class="n">buf_D</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">htb_buf0</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">htb_buf1</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">htb_buf2</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">htb_buf3</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">htb_buf4</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">htb_buf5</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">htb_buf6</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">htb_buf7</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">stb_buf0</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">stb_buf1</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">stb_buf2</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">stb_buf3</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">stb_buf4</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">stb_buf5</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">stb_buf6</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="k">sizeof</span> <span class="p">(</span><span class="n">TPCH_INT</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">stb_buf7</span> <span class="p">[]</span>
+    <span class="p">)</span>
+</pre>
+<p>GQE Join Kernel.</p>
+<p>For detailed document, see <a class="reference internal" href="kernel_design.html#gqe-kernel-design"><span class="std std-ref">GQE Kernel Design</span></a>.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>buf_A</td>
+<td>input table A buffer.</td>
+</tr>
+<tr class="row-even"><td>buf_B</td>
+<td>input table B buffer.</td>
+</tr>
+<tr class="row-odd"><td>buf_C</td>
+<td>output table C buffer.</td>
+</tr>
+<tr class="row-even"><td>buf_D</td>
+<td>configuration buffer.</td>
+</tr>
+<tr class="row-odd"><td>buf0</td>
+<td>hash-join’s temporal buffer for storing small table.</td>
+</tr>
+<tr class="row-even"><td>buf1</td>
+<td>hash-join’s temporal buffer for storing small table.</td>
+</tr>
+<tr class="row-odd"><td>buf2</td>
+<td>hash-join’s temporal buffer for storing small table.</td>
+</tr>
+<tr class="row-even"><td>buf3</td>
+<td>hash-join’s temporal buffer for storing small table.</td>
+</tr>
+<tr class="row-odd"><td>buf4</td>
+<td>hash-join’s temporal buffer for storing small table.</td>
+</tr>
+<tr class="row-even"><td>buf5</td>
+<td>hash-join’s temporal buffer for storing small table.</td>
+</tr>
+<tr class="row-odd"><td>buf6</td>
+<td>hash-join’s temporal buffer for storing small table.</td>
+</tr>
+<tr class="row-even"><td>buf7</td>
+<td>hash-join’s temporal buffer for storing small table.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gqepart">
+<span id="cid-gqepart"></span><span id="doxid-gqe-part-8hpp-1a55283a2ee85b80e51fbb6898415c82e2"></span><h2>gqePart<a class="headerlink" href="#gqepart" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;gqe_part.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">gqePart</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">k_depth</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">col_index</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">bit_num</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">16</span><span class="o">&gt;</span> <span class="n">buf_A</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">16</span><span class="o">&gt;</span> <span class="n">buf_B</span> <span class="p">[],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">16</span><span class="o">&gt;</span> <span class="n">buf_D</span> <span class="p">[]</span>
+    <span class="p">)</span>
+</pre>
+<p>GQE partition kernel</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>k_depth</td>
+<td>depth of each hash bucket in URAM</td>
+</tr>
+<tr class="row-even"><td>col_index</td>
+<td>index of input column</td>
+</tr>
+<tr class="row-odd"><td>bit_num</td>
+<td>number of defined partition, log2(number of partition)</td>
+</tr>
+<tr class="row-even"><td>buf_A</td>
+<td>input table buffer</td>
+</tr>
+<tr class="row-odd"><td>buf_B</td>
+<td>output table buffer</td>
+</tr>
+<tr class="row-even"><td>buf_D</td>
+<td>configuration buffer</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="kernel_demo.html" class="btn btn-neutral float-right" title="GQE Kernel Acceleration Demo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="kernel_design.html" class="btn btn-neutral float-left" title="GQE Kernel Design" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
