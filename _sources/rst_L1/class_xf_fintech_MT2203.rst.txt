@@ -1,0 +1,133 @@
+.. index:: pair: class; xf::fintech::MT2203
+.. _doxid-classxf_1_1fintech_1_1_m_t2203:
+.. _cid-xf::fintech::mt2203:
+
+class xf::fintech::MT2203
+=========================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <rng.hpp>
+
+
+Overview
+~~~~~~~~
+
+Mersenne Twister to generate uniform random number. Although its period is shorter than :ref:`MT19937 <doxid-classxf_1_1fintech_1_1_m_t19937>` but also long enough in most cases. It also offers flexcilibily in parrelel computing which may demand indepenency in multiple instance of random number generators. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_m_t2203>`
+
+.. _doxid-classxf_1_1fintech_1_1_m_t2203_1a7b9d64b3d07a8bdbdfd6209e57c20a1b:
+.. _cid-xf::fintech::mt2203::mt2203:
+.. _doxid-classxf_1_1fintech_1_1_m_t2203_1ac2a4af05eec43079f25199ef5f5c584c:
+.. _cid-xf::fintech::mt2203::mt2203-2:
+.. _doxid-classxf_1_1fintech_1_1_m_t2203_1a524e869bb3343405c8d22a1d44416ec9:
+.. _cid-xf::fintech::mt2203::seedinitialization:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// construction
+
+	MT2203 ()
+	MT2203 (ap_uint <W> seed)
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1fintech_1_1_m_t2203_1acc4504d7533e1432ab69fee5c8740019:
+.. _cid-xf::fintech::mt2203::statussetup:
+
+statusSetup
+-----------
+
+
+Defined in <xf_fintech/rng.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void statusSetup (
+	    ap_uint <W> A,
+	    ap_uint <W> B,
+	    ap_uint <W> C
+	    )
+
+statusSetup
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - A
+
+        - 
+
+    *
+        - B
+
+        - 
+
+    *
+        - C
+
+        -
+
+.. _doxid-classxf_1_1fintech_1_1_m_t2203_1aa8c17316a5b0f48d94877527edb6f141:
+.. _cid-xf::fintech::mt2203::statussetup-2:
+
+Defined in <xf_fintech/rng.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void statusSetup (ap_uint <W> data [N])
+
+statusSetup
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - data
+
+        -
+
+.. _doxid-classxf_1_1fintech_1_1_m_t2203_1ab25c4ed1778bb9076e842d80bd9d448b:
+.. _cid-xf::fintech::mt2203::next:
+
+next
+----
+
+
+Defined in <xf_fintech/rng.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	ap_ufixed <W, 0> next ()
+
+next
+
+
+
+.. rubric:: Returns:
+

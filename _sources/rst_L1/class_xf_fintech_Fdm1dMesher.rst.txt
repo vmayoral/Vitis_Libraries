@@ -1,0 +1,136 @@
+.. index:: pair: class; xf::fintech::Fdm1dMesher
+.. _doxid-classxf_1_1fintech_1_1_fdm1d_mesher:
+.. _cid-xf::fintech::fdm1dmesher:
+
+template class xf::fintech::Fdm1dMesher
+=======================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <fdmmesher.hpp>
+
+
+Overview
+~~~~~~~~
+
+One-dimensional simple FDM mesher object working on an index. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_fdm1d_mesher>`
+
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    typename DT,
+	    unsigned int _sizeMax
+	    >
+	class Fdm1dMesher
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1fintech_1_1_fdm1d_mesher_1a8c55de696d2b893a2b461939861fd62e:
+.. _cid-xf::fintech::fdm1dmesher::init:
+
+init
+----
+
+
+Defined in <xf_fintech/fdmmesher.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void init (
+	    const :ref:`OrnsteinUhlenbeckProcess<doxid-classxf_1_1fintech_1_1_ornstein_uhlenbeck_process>` <DT>& process,
+	    DT maturity,
+	    DT eps,
+	    unsigned int size,
+	    DT _locations [_sizeMax]
+	    )
+
+Calulate the mesher using Ornstein-Uhlenbeck process. The implementation is modified for minimum resource utilizations.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - process
+
+        - The initialized Ornstein-Uhlenbeck process.
+
+    *
+        - maturity
+
+        - The maturity of the swaption in years.
+
+    *
+        - eps
+
+        - The default Epsilon should be 1.0e-5.
+
+    *
+        - _locations
+
+        - The result of coordinates.
+
+    *
+        - size
+
+        - The actual size of the coordinates.
+
+.. _doxid-classxf_1_1fintech_1_1_fdm1d_mesher_1a07da305bc33f16db51e02202de80e160:
+.. _cid-xf::fintech::fdm1dmesher::inversecumulativenormalacklamareaopt:
+
+inverseCumulativeNormalAcklamAreaOpt
+------------------------------------
+
+
+Defined in <xf_fintech/fdmmesher.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <typename mType>
+	mType inverseCumulativeNormalAcklamAreaOpt (mType input)
+
+Inverse CumulativeNormal using Acklam's approximation to transform uniform random number to normal random number. As this process will only be executed for once in the pricing engine, so it is optimized for minimum resource utilization while having a reasonable latency.
+
+Reference: Acklam's approximation: by Peter J. Acklam, University of Oslo, Statistics Division.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - mType
+
+        - data type.
+
+    *
+        - input
+
+        - input uniform random number
+
+
+
+.. rubric:: Returns:
+
+normal random number
+

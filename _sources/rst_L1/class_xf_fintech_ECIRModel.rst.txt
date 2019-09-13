@@ -1,0 +1,205 @@
+.. index:: pair: class; xf::fintech::ECIRModel
+.. _doxid-classxf_1_1fintech_1_1_e_c_i_r_model:
+.. _cid-xf::fintech::ecirmodel:
+
+template class xf::fintech::ECIRModel
+=====================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <ecir_model.hpp>
+
+
+Overview
+~~~~~~~~
+
+Extended Cox-Ingersoll-Ross model. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_e_c_i_r_model>`
+
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    typename DT,
+	    typename Tree,
+	    int LEN2
+	    >
+	class ECIRModel
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1fintech_1_1_e_c_i_r_model_1aea37d8200908301a9af339d415fd18f6:
+.. _cid-xf::fintech::ecirmodel::initialization:
+
+initialization
+--------------
+
+
+Defined in <xf_fintech/ecir_model.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void initialization (
+	    DT r,
+	    DT spread
+	    )
+
+initialization initialize parameter
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - r
+
+        - floating benchmark annual interest rate
+
+    *
+        - spread
+
+        - spreads on interest rates
+
+.. _doxid-classxf_1_1fintech_1_1_e_c_i_r_model_1a5cbc2d7787068fd064fb2fc9ab14396a:
+.. _cid-xf::fintech::ecirmodel::discount:
+
+discount
+--------
+
+
+Defined in <xf_fintech/ecir_model.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	DT discount (
+	    DT t,
+	    DT dt,
+	    DT* x,
+	    DT r
+	    )
+
+discount calculate the discount after time dt
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - t
+
+        - the current timepoint
+
+    *
+        - dt
+
+        - The difference between the next timepoint and the current timepoint
+
+    *
+        - x
+
+        - underlying
+
+    *
+        - r
+
+        - shortrate
+
+
+
+.. rubric:: Returns:
+
+discount
+
+.. _doxid-classxf_1_1fintech_1_1_e_c_i_r_model_1ac12ab398228f45a5869a3d7e02eceeaa:
+.. _cid-xf::fintech::ecirmodel::treeshortrate:
+
+treeShortRate
+-------------
+
+
+Defined in <xf_fintech/ecir_model.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void treeShortRate (
+	    Tree& tree,
+	    int endCnt,
+	    DT* time,
+	    DT* dtime,
+	    DT tmp_values1 [3][LEN2],
+	    DT tmp_values2 [3][LEN2],
+	    DT* statePrices,
+	    DT* rates
+	    )
+
+treeShortRate calcutate short-rate of dt at t for TreeEngine
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - tree
+
+        - class :ref:`TrinomialTree <doxid-classxf_1_1fintech_1_1_trinomial_tree>`
+
+    *
+        - endCnt
+
+        - end counter of timepoints
+
+    *
+        - time
+
+        - array timepoints
+
+    *
+        - dtime
+
+        - array the difference between the next timepoint and the current timepoint
+
+    *
+        - tmp_values1
+
+        - process values
+
+    *
+        - tmp_values2
+
+        - process values
+
+    *
+        - statePrices
+
+        - state prices
+
+    *
+        - rates
+
+        - array short-rates
+

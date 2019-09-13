@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sobol Sequence Generator &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Brownian Bridge Transform" href="../brownian/bb.html" />
+    <link rel="prev" title="Pentadiagonal Matrix Solver" href="../Pentadiag/Pentadiag.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../L1.html">L1 Module User Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../L1.html#core-utility">Core Utility</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../RNGs/RNG.html">Random Number Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SVD/SVD.html">Singular Value Decomposition (SVD)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../TRSV/TRSV.html">Tridiagonal Matrix Solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Pentadiag/Pentadiag.html">Pentadiagonal Matrix Solver</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Sobol Sequence Generator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#algorithm">Algorithm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gray-code-implementation">Gray code implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../brownian/bb.html">Brownian Bridge Transform</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L1.html#l1-module-apis">L1 Module APIs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../L1.html">L1 Module User Guide</a> &raquo;</li>
+        
+      <li>Sobol Sequence Generator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide_L1/SobolRsg/sobolrsg.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sobol-sequence-generator">
+<h1>Sobol Sequence Generator<a class="headerlink" href="#sobol-sequence-generator" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><cite>Sobol sequence generator(SSG)</cite> is one of importent utilities needed by Monte Carlo Simulation. We provide SSG that generator determined distribution. The <cite>Sobol sequence</cite> is the most popular quasiramdom sequence because of its simplicity and efficiency in implementation. Specifically, sobol sequence in base <cite>b=2</cite> ,it can be implemented efficiently using bit-vector operations to compute the radical inverse and there is only one point in the field <cite>[0,1)</cite> .</p>
+</div>
+<div class="section" id="algorithm">
+<h2>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this headline">¶</a></h2>
+<p>LD(Low-Discrepancy) Sequence is a measure indicating how evenly a random sequence is distributed in sample space. The definition of discrepancy,</p>
+<div class="math notranslate nohighlight">
+\[D_{N}(P) = \underset{B \in J} {sup} \lvert \frac {A(B)}{N} - \lambda _{s}(B) \rvert\]</div>
+<p>A digital radical inverse</p>
+<div class="math notranslate nohighlight">
+\[\Phi _{b,C}(i) = (b^{-1} \cdots b^{-M}) \begin{bmatrix} C( a_{0}(i) \cdots a_{M-1}(i))^{T} \end{bmatrix}\]</div>
+<p>where <span class="math notranslate nohighlight">\(i =\sum_{l=0}^{M-1} a_{l}(i)b^{l}\)</span> , b is a nonnegative integers. Sobol’ sequence is a <span class="math notranslate nohighlight">\(b=2\)</span> of radical inversion and each dimensional radical inversion exists a identity matrices C.</p>
+</div>
+<div class="section" id="gray-code-implementation">
+<h2>Gray code implementation<a class="headerlink" href="#gray-code-implementation" title="Permalink to this headline">¶</a></h2>
+<p>Here we give a brief outline of the details. With a generator matrix C, where the matrix-vector multiplications are performed in the finite field <span class="math notranslate nohighlight">\(Z_{b}\)</span> see <a class="reference external" href="http://web.maths.unsw.edu.au/~fkuo/sobol/">my reference</a>. To generate the jth component of the points in a Sobol’ sequence, we need to choose a primitive polynomial of some degree <span class="math notranslate nohighlight">\(S_{j}\)</span> in the field <span class="math notranslate nohighlight">\(Z\)</span> , where <span class="math notranslate nohighlight">\(Z_{2}={0,1}\)</span> ,</p>
+<div class="math notranslate nohighlight">
+\[x^{S_{j}} + a_{1,j} x^{S_{j}-1} + a_{2,j} x^{S_{j}-2} + \cdots + a_{S_{j}-1,j} x^{1} + 1            (1)\]</div>
+<p>where the coefficients <span class="math notranslate nohighlight">\(a_{1,j} , a_{2,j} , \cdots , a_{S_{j}-1,j}\)</span> are either 0 or 1. We define a sequence of positive integers <span class="math notranslate nohighlight">\(\{ m_{1,j}, m_{2,j} , \cdots \}\)</span> by the recurrence relation,</p>
+<div class="math notranslate nohighlight">
+\[m_{k,j} := 2a_{1,j} m_{k-1,j} \oplus 2^{2} a_{2,j} m_{k-2,j} \oplus \cdots \oplus \
+    2^{ S_{j}-1 } a_{S_{j}-1,j} m_{ k-S_{j} + 1, j} \oplus 2^{S_j} m_{k-S_j,j} \oplus m_{k-S_j,j},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\oplus\)</span> is the bit-by-bit exclusive-or operator. The initial values <span class="math notranslate nohighlight">\(m_{1,j} , m_{2,j} , \cdots , m_{ S_{j},j}\)</span> can be chosen freely provided that each <span class="math notranslate nohighlight">\(m_{k,j} , 1 \le k \le S_{j}\)</span> , is odd and less than <span class="math notranslate nohighlight">\(2^{k}\)</span> . The so-called direction numbers <span class="math notranslate nohighlight">\(\{ \nu_{1,j}, \nu_{2,j}, \cdots \}\)</span> are defined by</p>
+<div class="math notranslate nohighlight">
+\[\nu_{1,j} :=\frac { m_{k,j} } { 2^{k} }\]</div>
+<p>Then the <span class="math notranslate nohighlight">\(x_{i,j}\)</span> element of the jth dimension of the ith point in a Sobol sequence, can be generated by</p>
+<div class="math notranslate nohighlight">
+\[x_{i,j} := i_{1} \nu_{1,j} \oplus i_{2} \nu_{2,j} \oplus \cdots \nu_{n,j}    (3)\]</div>
+<p>where <span class="math notranslate nohighlight">\(i_{k}\)</span> is the nth digit from the right when <span class="math notranslate nohighlight">\(i\)</span> is written in binary <span class="math notranslate nohighlight">\(i = ( \cdots i_{3} i_{2} i_{1} )_{2}\)</span> . Here and elsewhere in this article, we use the notation <span class="math notranslate nohighlight">\((.)_{2}\)</span> to denote the binary representation of numbers.
+The formula (3) corresponds to the original implementation of Sobol’. The (binary-reflected) Gray code of an integer <span class="math notranslate nohighlight">\(i\)</span> is defined as</p>
+<div class="math notranslate nohighlight">
+\[gray(i) := i \oplus \lfloor \frac {i}{2} \rfloor =(\cdots i_3 i_2 i_1)_2 \oplus ( \cdots i_{4}  i_{3} i_{2})_{2}\]</div>
+<p>It has the property that the binary representations of <span class="math notranslate nohighlight">\(gray(i)\)</span> and <span class="math notranslate nohighlight">\(gray(i-1)\)</span> differ in only one position, namely, the index of the first 0 digit from the right in the binary representation of <span class="math notranslate nohighlight">\(i-1\)</span> .</p>
+<p>Instead of (3), we generate the Sobol’ points using</p>
+<div class="math notranslate nohighlight">
+\[\bar{x}_{i,j} := g_{i,1} \nu_{1,j} \oplus g_{i,2} \nu_{2,j} \oplus \cdots ,            (4)\]</div>
+<p>where <span class="math notranslate nohighlight">\(g_{i,k}\)</span> is the kth digit from the right of the Gray code of <span class="math notranslate nohighlight">\(i\)</span> in binary, i.e., <span class="math notranslate nohighlight">\(gray(i) = ( \cdots g_{3} g_{2} g_{1})_{2}\)</span> . Equivalenttly, since <span class="math notranslate nohighlight">\(gray(i)\)</span> and <span class="math notranslate nohighlight">\(gray(i-1)\)</span> differ in one known position, we can generate the points recursively using</p>
+<div class="math notranslate nohighlight">
+\[\bar{x}_{0,j} := 0 , \bar{x}_{i,j} := \bar{x}_{i-1,j} \oplus \bar{x}_{c_{i-1},j} ,(5)\]</div>
+<p>where <span class="math notranslate nohighlight">\(c_{i}\)</span> is the index of the first 0 digit from the right in the binary representation of <span class="math notranslate nohighlight">\(i = ( \cdots i_{3} i_{2} i_{1})_{2}\)</span> . We have <span class="math notranslate nohighlight">\(c_{0}=1, c_{1}=2, c_{2}=1, c_{3}=3, c_{4}=1, c_{5}=2\)</span> , etc.</p>
+<p>With the Gray code implementation, we simply obtain the points in a different order, while still preservig their uniformity properties. This is because every block of <span class="math notranslate nohighlight">\(2^{m}\)</span> points for <span class="math notranslate nohighlight">\(m=0,1, \cdots\)</span> is the same as the original implementation. We stress that <span class="math notranslate nohighlight">\((4)\)</span> and <span class="math notranslate nohighlight">\((5)\)</span> generate exactly the same sequence; <span class="math notranslate nohighlight">\((4)\)</span> allows one to start from any position in the sequence, while <span class="math notranslate nohighlight">\((5)\)</span> is recusive and is more computationally efficient.</p>
+<div class="section" id="sobol-workflow">
+<h3>Sobol workflow:<a class="headerlink" href="#sobol-workflow" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="id1">
+<span id="my-figure-ssg-1d"></span><a class="reference internal image-reference" href="../../_images/ssg_1d.png"><img alt="sobol sequence generator workflow" src="../../_images/ssg_1d.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Figure 4 </span><span class="caption-text"><span class="xref std std-ref">sobol sequence generator 1d workflow</span></span></p>
+</div>
+<p>The initialization function will be process at the beginning. Here it executes a operation for <span class="math notranslate nohighlight">\(addr=0\)</span>.</p>
+<div class="figure align-center" id="id2">
+<span id="my-figure-ssg-nd"></span><a class="reference internal image-reference" href="../../_images/ssg_nd.PNG"><img alt="sobol sequence generator workflow" src="../../_images/ssg_nd.PNG" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Figure 5 </span><span class="caption-text"><span class="xref std std-ref">sobol sequence generator nd workflow</span></span></p>
+</div>
+<p>The initialization function will execute operation for <span class="math notranslate nohighlight">\(addr=0\)</span> and read paralist to initialize <span class="math notranslate nohighlight">\(m_{ S_{j},j}\)</span> polynomial. The parameter reference file <cite>new-joe-kuo-6.21201</cite> is given by <cite>my reference</cite> mentioned above. The parameter field correspondence are showed in <cite>bit-list</cite>.</p>
+<div class="figure align-center" id="id3">
+<span id="my-figure-param"></span><a class="reference internal image-reference" href="../../_images/param.png"><img alt="bit field" src="../../_images/param.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Figure 6 </span><span class="caption-text"><span class="xref std std-ref">bit-field of parameter</span></span></p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../brownian/bb.html" class="btn btn-neutral float-right" title="Brownian Bridge Transform" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Pentadiag/Pentadiag.html" class="btn btn-neutral" title="Pentadiagonal Matrix Solver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

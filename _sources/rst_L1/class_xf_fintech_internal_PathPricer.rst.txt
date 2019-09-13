@@ -1,0 +1,76 @@
+.. index:: pair: class; xf::fintech::internal::PathPricer <LongstaffSchwartz, DT, StepFirst, SampNum, WithAntithetic, MaxSteps>
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f:
+.. _cid-xf::fintech::internal::pathpricer:
+
+template class xf::fintech::internal::PathPricer <LongstaffSchwartz, DT, StepFirst, SampNum, WithAntithetic, MaxSteps>
+======================================================================================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <path_pricer.hpp>
+
+
+The pathpricer that used in MCAmericanEngine Option Pricing process.
+
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1a039846415e36aef05d906c922de3515b:
+.. _cid-xf::fintech::internal::pathpricer::inn:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1ad16ccb51966e11881712ecbea1ee7c28:
+.. _cid-xf::fintech::internal::pathpricer::outn:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1a677e2f82b987747d2e5174aa853c1eb2:
+.. _cid-xf::fintech::internal::pathpricer::bypassgen:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1aef18e210b9f2b88f8e5535f605f0df87:
+.. _cid-xf::fintech::internal::pathpricer::strike:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1a6b7e9759f36c5dcd5c2e9d4409b4dbe4:
+.. _cid-xf::fintech::internal::pathpricer::optiontype:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1a0b59f981a95ea16b95a9d32091091cce:
+.. _cid-xf::fintech::internal::pathpricer::riskconst:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1a474b0622d7560e2fbbf2817935ab17b8:
+.. _cid-xf::fintech::internal::pathpricer::riskrate:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1af5bd30e842f8ef5e77f5a9d5fb0cc89f:
+.. _cid-xf::fintech::internal::pathpricer::recipunderlying:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1a4456a8fa2b80130d6b2dde54bf41a78c:
+.. _cid-xf::fintech::internal::pathpricer::recipstrike:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1a2b31e37e210ced5d87e0fcb22a434822:
+.. _cid-xf::fintech::internal::pathpricer::coefbuff_0:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1ae75eafd36df411f6c9f877c17bb1be5f:
+.. _cid-xf::fintech::internal::pathpricer::coefbuff_1:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1a0cfb5f962b1215a02b4b5bf0fccf2237:
+.. _cid-xf::fintech::internal::pathpricer::coefbuff_2:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1aabc1e02d932e40ee37fec67cf83b9ded:
+.. _cid-xf::fintech::internal::pathpricer::coefbuff_3:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1a6b4c764c41daf73cfe75238cdc96f07c:
+.. _cid-xf::fintech::internal::pathpricer::pe:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1ab8d67409e919f273648c80d984ce1d47:
+.. _cid-xf::fintech::internal::pathpricer::pricing:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    typename DT,
+	    bool StepFirst,
+	    int SampNum,
+	    bool WithAntithetic,
+	    int MaxSteps
+	    >
+	class PathPricer <LongstaffSchwartz, DT, StepFirst, SampNum, WithAntithetic, MaxSteps>
+
+	// fields
+
+	static const unsigned int InN
+	static const unsigned int OutN
+	static const bool byPassGen
+	DT strike
+	bool optionType
+	DT riskConst
+	DT riskRate
+	DT recipUnderLying
+	DT recipStrike
+	DT coefBuff_0[MaxSteps]
+	DT coefBuff_1[MaxSteps]
+	DT coefBuff_2[MaxSteps]
+	DT coefBuff_3[MaxSteps]
+

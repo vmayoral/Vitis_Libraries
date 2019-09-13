@@ -1,0 +1,23 @@
+.. index:: pair: enum; xf::fintech::enums::ModelType
+.. _doxid-namespacexf_1_1fintech_1_1enums_1ab736204c706de6ad0d854e8ae79ca582:
+.. _cid-xf::fintech::enums::modeltype:
+
+enum xf::fintech::enums::ModelType
+==================================
+
+
+
+Model type.
+
+.. _doxid-namespacexf_1_1fintech_1_1enums_1ab736204c706de6ad0d854e8ae79ca582a9413e02b11594404c5c7afa520c62aef:
+.. _cid-xf::fintech::enums::modeltype::bs:
+.. _doxid-namespacexf_1_1fintech_1_1enums_1ab736204c706de6ad0d854e8ae79ca582a9f2c93f44f8aee81a5c1a1f1c78bc80f:
+.. _cid-xf::fintech::enums::modeltype::heston:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// enum values
+
+	BS 
+	Heston 
+

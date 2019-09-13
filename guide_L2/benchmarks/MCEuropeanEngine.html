@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Benchmark of European Option Pricing Engine &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Benchmark of American Option Pricing Engine" href="MCAmericanEngine.html" />
+    <link rel="prev" title="Pricing Engines Demo" href="../kernel_benchmark.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide_L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../L2.html">L2 Pricing Engine Kernel User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../overview.html">Pricing Engine Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kernel_design.html">Pricing Engine Kernel Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kernel_api.html">Pricing Engine Kernel APIs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../kernel_benchmark.html">Pricing Engines Demo</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Benchmark of European Option Pricing Engine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#highlights">Highlights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiling">Profiling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MCAmericanEngine.html">Benchmark of American Option Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TreeHWModelEngine.html">Benchmark of Tree Hull-White-Model Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TreeSwaptionEngine.html">Benchmark of Tree Swaption Engine</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../L2.html">L2 Pricing Engine Kernel User Guide</a> &raquo;</li>
+        
+          <li><a href="../kernel_benchmark.html">Pricing Engines Demo</a> &raquo;</li>
+        
+      <li>Benchmark of European Option Pricing Engine</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide_L2/benchmarks/MCEuropeanEngine.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="benchmark-of-european-option-pricing-engine">
+<h1>Benchmark of European Option Pricing Engine<a class="headerlink" href="#benchmark-of-european-option-pricing-engine" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This is a benchmark of MC (Monte-Carlo) European Engine using the SDx environment to compare with QuantLib.  It supports software and hardware emulation as well as running the hardware accelerator on the Alveo U250.</p>
+</div>
+<div class="section" id="highlights">
+<h2>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h2>
+<p>The performance of the MCEuropeanEngine is shown in the table below, our cold run has 488X and warn run has 1954X compared to baseline.
+Baseline is Quantlib, a Widely Used C++ Open Source Library, running on platform with 2 Intel(R) Xeon(R) CPU E5-2690 v4 &#64;3.20GHz, 8 cores per processor and 2 threads per core.</p>
+<span id="tab-input-parameter"></span><table border="1" class="docutils" id="id2">
+<caption><span class="caption-number">Table 11 </span><span class="caption-text">performance
+ :align: center</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="38%" />
+<col width="26%" />
+<col width="35%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td rowspan="2">platform</td>
+<td colspan="2">Execution time</td>
+</tr>
+<tr class="row-even"><td>cold run</td>
+<td>warm run</td>
+</tr>
+<tr class="row-odd"><td>Baseline</td>
+<td>25.9ms</td>
+<td>25.9m</td>
+</tr>
+<tr class="row-even"><td>FinTech on U250</td>
+<td>0.053ms</td>
+<td>0.01325ms</td>
+</tr>
+<tr class="row-odd"><td>Accelaration Ratio</td>
+<td>488X</td>
+<td>1954X</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="profiling">
+<h2>Profiling<a class="headerlink" href="#profiling" title="Permalink to this headline">¶</a></h2>
+<p>The resource utilization and performance of MCEuropeanEngine on U250 FPGA card is listed in the following tables.</p>
+<span id="tab-mcee-resource"></span><table border="1" class="docutils align-center" id="id3">
+<caption><span class="caption-number">Table 12 </span><span class="caption-text">Resource utilization report of European Option APIs on U250</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="20%" />
+<col width="37%" />
+<col width="11%" />
+<col width="11%" />
+<col width="8%" />
+<col width="8%" />
+<col width="7%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Implemetation</td>
+<td>Kernels</td>
+<td>LUT</td>
+<td>FF</td>
+<td>BRAM</td>
+<td>URAM</td>
+<td>DSP</td>
+</tr>
+<tr class="row-even"><td rowspan="4">4-kernel</td>
+<td><blockquote class="first">
+<div>kernel_mc_0</div></blockquote>
+<p class="last">(UN config: 8)</p>
+</td>
+<td>234072</td>
+<td>376207</td>
+<td>49</td>
+<td>0</td>
+<td>1594</td>
+</tr>
+<tr class="row-odd"><td><blockquote class="first">
+<div>kernle_mc_1</div></blockquote>
+<p class="last">(UN config: 8)</p>
+</td>
+<td>234072</td>
+<td>376208</td>
+<td>49</td>
+<td>0</td>
+<td>1594</td>
+</tr>
+<tr class="row-even"><td><blockquote class="first">
+<div>kernel_mc_2</div></blockquote>
+<p class="last">(UN config: 8)</p>
+</td>
+<td>234072</td>
+<td>376208</td>
+<td>49</td>
+<td>0</td>
+<td>1594</td>
+</tr>
+<tr class="row-odd"><td><blockquote class="first">
+<div>kernel_mc_3</div></blockquote>
+<p class="last">(UN config: 8)</p>
+</td>
+<td>234072</td>
+<td>376210</td>
+<td>49</td>
+<td>0</td>
+<td>1594</td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="#tab-mcee-resource"><span class="std std-numref">Table 12</span></a> gives the resource utilization report of four MCEuropeanEngine PUs. Note that the resource statistics are under specific UN configurations. These UN configurations are the templated parameters of the corresponding API.</p>
+<p>The complete Vitis demos of European Option Engine are executed with a U250 card on Nimbix.
+The performance of this demo is listed in <code class="xref std std-numref docutils literal notranslate"><span class="pre">tab_MCEE_performance</span></code>. In this table, kernel execution time and end-to-end execution time are calculated.</p>
+<p>Because only output data is transferred from device to host, The kernel execution time doesn’t differentiate so much to E2E time.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>What is cold run and warm run?</p>
+<ul class="last simple">
+<li>Cold run means to run one application on board 1 time.</li>
+<li>Warm run means to run the application multiple times on board. The E2E is calculated as the average time of multiple runs.</li>
+</ul>
+</div>
+<p>In order to maximize the resource utilization on FPGA, the MCEuropeanEngine PU is duplicated.
+There four MCEuropeaEngine PUs are placed different SLRs on U250. Due to place and route on FPGA, the kernel runs at 250MHz finally.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><strong>Analyzation of the execution time of MCEuropeanEngine</strong></p>
+<p class="last">There are four PUs. Each PU could execution one application at one time. When there are multiple applications, they are distributed on different PUs and could by executed at the same time. So the warm run time is 1/4 of the cold run.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MCAmericanEngine.html" class="btn btn-neutral float-right" title="Benchmark of American Option Pricing Engine" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../kernel_benchmark.html" class="btn btn-neutral" title="Pricing Engines Demo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
