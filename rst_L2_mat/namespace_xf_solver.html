@@ -1,0 +1,608 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>namespace solver &mdash; XF Solver Library 1.0 release documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> XF Solver Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Module User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XF Solver Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>namespace solver</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rst_L2_mat/namespace_xf_solver.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="namespace-solver">
+<span id="cid-xf-solver"></span><span id="doxid-namespacexf-1-1solver"></span><span id="index-0"></span><h1>namespace solver<a class="headerlink" href="#namespace-solver" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-solver-gesvdj-2d">
+<span id="doxid-namespacexf-1-1solver-1a8ecb1461853ba5c894f3578e79f0ed1c"></span><span id="cid-xf-solver-geqrf"></span><span id="doxid-namespacexf-1-1solver-1a5caf13f50af104347f5d38641bcba07a"></span><span></span><span class="c1">// namespaces</span>
+
+<span class="k">namespace</span> <a class="reference internal" href="namespace_xf_solver_internal.html#doxid-namespacexf-1-1solver-1-1internal"><span class="std std-ref">xf::solver::internal</span></a>
+</pre>
+<div class="section" id="geqrf">
+<span id="cid-xf-solver-geqrf-2"></span><span id="doxid-namespacexf-1-1solver-1ad20787b69560c5ca2a142826bc697a43"></span><h2>geqrf<a class="headerlink" href="#geqrf" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="defined-in-matrixdecomposition-geqrf-hpp">
+<h3>Defined in &lt;MatrixDecomposition/geqrf.hpp&gt;<a class="headerlink" href="#defined-in-matrixdecomposition-geqrf-hpp" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">class</span> <span class="n">T</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NRMAX</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NCMAX</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NCU</span>
+    <span class="o">&gt;</span>
+<span class="kt">int</span> <span class="n">geqrf</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">m</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span>
+    <span class="n">T</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span>
+    <span class="n">T</span><span class="o">*</span> <span class="n">tau</span>
+    <span class="p">)</span>
+</pre>
+<p>This function computes QR factorization of matrix <span class="math notranslate nohighlight">\(A\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{equation*} {A = Q R, }\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is a dense matrix of size <span class="math notranslate nohighlight">\(m \times n\)</span> , <span class="math notranslate nohighlight">\(Q\)</span> is a <span class="math notranslate nohighlight">\(m \times n\)</span> matrix with orthonormal columns, and <span class="math notranslate nohighlight">\(R\)</span> is an upper triangular matrix.</p>
+<p>The maximum matrix size supported in FPGA is templated by NRMAX and NCMAX.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>T</td>
+<td>data type (support float and double)</td>
+</tr>
+<tr class="row-even"><td>NRMAX</td>
+<td>maximum number of rows for input matrix</td>
+</tr>
+<tr class="row-odd"><td>NCMAX</td>
+<td>maximum number of columns for input matrix</td>
+</tr>
+<tr class="row-even"><td>NCU</td>
+<td>number of computation unit</td>
+</tr>
+<tr class="row-odd"><td>m</td>
+<td>real row number of input matrix</td>
+</tr>
+<tr class="row-even"><td>n</td>
+<td>real column number of input matrix</td>
+</tr>
+<tr class="row-odd"><td>A</td>
+<td>input matrix, which contains the triangular R matrix and min(m,n) elementary reflectors in return</td>
+</tr>
+<tr class="row-even"><td>lda</td>
+<td>leading dimension of input matrix</td>
+</tr>
+<tr class="row-odd"><td>tau</td>
+<td>the scalar factors for elementary reflectors</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="gesvdj">
+<span id="cid-xf-solver-gesvdj"></span><span id="doxid-namespacexf-1-1solver-1ab2657b17f70e04a8e4173d6f0b3d0661"></span><h2>gesvdj<a class="headerlink" href="#gesvdj" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="defined-in-matrixdecomposition-gesvdj-hpp">
+<h3>Defined in &lt;MatrixDecomposition/gesvdj.hpp&gt;<a class="headerlink" href="#defined-in-matrixdecomposition-gesvdj-hpp" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">typename</span> <span class="n">T</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NMAX</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NCU</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">gesvdj</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">m</span><span class="p">,</span>
+    <span class="n">T</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span>
+    <span class="n">T</span><span class="o">*</span> <span class="n">S</span><span class="p">,</span>
+    <span class="n">T</span><span class="o">*</span> <span class="n">U</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">ldu</span><span class="p">,</span>
+    <span class="n">T</span><span class="o">*</span> <span class="n">V</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">ldv</span><span class="p">,</span>
+    <span class="kt">int</span><span class="o">&amp;</span> <span class="n">info</span>
+    <span class="p">)</span>
+</pre>
+<p>Symmetric Matrix Jacobi based Singular Value Decomposition (GESVDJ) .</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation*} {A = U \Sigma {V}^T, }\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is a dense symmetric matrix of size <span class="math notranslate nohighlight">\(m \times m\)</span> , <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span> are <span class="math notranslate nohighlight">\(m \times m\)</span> matrix with orthonormal columns, and <span class="math notranslate nohighlight">\(\Sigma\)</span> is diagonal matrix.</p>
+<p>The maximum matrix size supported in FPGA is templated by NMAX.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>T</td>
+<td>data type (support float and double).</td>
+</tr>
+<tr class="row-even"><td>NMAX</td>
+<td>maximum number of input symmetric matrix size</td>
+</tr>
+<tr class="row-odd"><td>NCU</td>
+<td>number of computation unit</td>
+</tr>
+<tr class="row-even"><td>m</td>
+<td>symmetric matrix real size.</td>
+</tr>
+<tr class="row-odd"><td>A</td>
+<td>input matrix of size <span class="math notranslate nohighlight">\(m \times m\)</span></td>
+</tr>
+<tr class="row-even"><td>S</td>
+<td>the decomposed diagonal singular matrix of size <span class="math notranslate nohighlight">\(m \times m\)</span></td>
+</tr>
+<tr class="row-odd"><td>U</td>
+<td>the left U matrix of SVD</td>
+</tr>
+<tr class="row-even"><td>V</td>
+<td>the right V matrix of SVD</td>
+</tr>
+<tr class="row-odd"><td>lda</td>
+<td>the leading dimension of matrix A</td>
+</tr>
+<tr class="row-even"><td>ldu</td>
+<td>the leading dimension of matrix U</td>
+</tr>
+<tr class="row-odd"><td>ldv</td>
+<td>the leading dimension of matrix V</td>
+</tr>
+<tr class="row-even"><td>info</td>
+<td>the ouput info</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="gesvj">
+<span id="cid-xf-solver-gesvj"></span><span id="doxid-namespacexf-1-1solver-1a43adb910d0841bff748420db9bb2df81"></span><h2>gesvj<a class="headerlink" href="#gesvj" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="defined-in-matrixdecomposition-gesvj-hpp">
+<h3>Defined in &lt;MatrixDecomposition/gesvj.hpp&gt;<a class="headerlink" href="#defined-in-matrixdecomposition-gesvj-hpp" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">typename</span> <span class="n">DT</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">MAXM</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">MAXN</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">MCU</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NCU</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">gesvj</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">rows</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">cols</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">input_mat</span> <span class="p">[</span><span class="n">MAXM</span> <span class="o">*</span><span class="n">MAXN</span><span class="p">],</span>
+    <span class="n">DT</span> <span class="n">output_U</span> <span class="p">[</span><span class="n">MAXM</span> <span class="o">*</span><span class="n">MAXM</span><span class="p">],</span>
+    <span class="n">DT</span> <span class="n">output_S</span> <span class="p">[</span><span class="n">MAXN</span><span class="p">],</span>
+    <span class="n">DT</span> <span class="n">output_V</span> <span class="p">[</span><span class="n">MAXN</span> <span class="o">*</span><span class="n">MAXN</span><span class="p">]</span>
+    <span class="p">)</span>
+</pre>
+<p>This function implements singular value decomposition of matrix A using one-sided Jacobi algorihtm.</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation*} {A = U \Sigma {V}^T, }\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is a dense matrix of size <span class="math notranslate nohighlight">\(rows \times cols\)</span> , <span class="math notranslate nohighlight">\(U\)</span> is <span class="math notranslate nohighlight">\(rows \times rows\)</span> matrix with orthonormal columns, <span class="math notranslate nohighlight">\(V\)</span> is <span class="math notranslate nohighlight">\(cols \times cols\)</span> matrix with orthonormal columns, and <span class="math notranslate nohighlight">\(\Sigma\)</span> is diagonal matrix.</p>
+<p>The maximum matrix size supported in FPGA is templated by MAXN, MAXM.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>DT</td>
+<td>the data type of gesvj</td>
+</tr>
+<tr class="row-even"><td>MAXM</td>
+<td>the maximum size (rows) of supported gesvj</td>
+</tr>
+<tr class="row-odd"><td>MAXN</td>
+<td>the maximum size (cols) of supported gesvj</td>
+</tr>
+<tr class="row-even"><td>MCU</td>
+<td>the partition number of M</td>
+</tr>
+<tr class="row-odd"><td>NCU</td>
+<td>the partition number of N</td>
+</tr>
+<tr class="row-even"><td>rows</td>
+<td>the size of matrix row</td>
+</tr>
+<tr class="row-odd"><td>cols</td>
+<td>the size of matrix col</td>
+</tr>
+<tr class="row-even"><td>input_mat</td>
+<td>input matrix</td>
+</tr>
+<tr class="row-odd"><td>output_U</td>
+<td>the output U of svd</td>
+</tr>
+<tr class="row-even"><td>output_S</td>
+<td>the output S of svd</td>
+</tr>
+<tr class="row-odd"><td>output_V</td>
+<td>the output V of svd</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="getrf">
+<span id="cid-xf-solver-getrf"></span><span id="doxid-namespacexf-1-1solver-1af6151f867717942eaf3e33bdd2c3c3a9"></span><h2>getrf<a class="headerlink" href="#getrf" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="defined-in-matrixdecomposition-getrf-hpp">
+<h3>Defined in &lt;MatrixDecomposition/getrf.hpp&gt;<a class="headerlink" href="#defined-in-matrixdecomposition-getrf-hpp" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">class</span> <span class="n">T</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NRMAX</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NCMAX</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NCU</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">getrf</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">m</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span>
+    <span class="n">T</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span>
+    <span class="kt">int</span><span class="o">&amp;</span> <span class="n">info</span>
+    <span class="p">)</span>
+</pre>
+<p>This function computes the LU decomposition (with partial pivoting) of matrix <span class="math notranslate nohighlight">\(A\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{equation*} {A = L U, }\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is a dense matrix of size <span class="math notranslate nohighlight">\(m \times n\)</span> , <span class="math notranslate nohighlight">\(L\)</span> is a lower triangular matrix with unit diagonal, and <span class="math notranslate nohighlight">\(U\)</span> is a upper triangular matrix. This function implement partial pivoting.</p>
+<p>The maximum matrix size supported in FPGA is templated by NRMAX and NCMAX.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>T</td>
+<td>data type (support float and double)</td>
+</tr>
+<tr class="row-even"><td>NRMAX</td>
+<td>maximum number of rows for input matrix</td>
+</tr>
+<tr class="row-odd"><td>NCMAX</td>
+<td>maximum number of columns for input matrix</td>
+</tr>
+<tr class="row-even"><td>NCU</td>
+<td>number of computation unit</td>
+</tr>
+<tr class="row-odd"><td>m</td>
+<td>real row number of input matrix</td>
+</tr>
+<tr class="row-even"><td>n</td>
+<td>real column number of input matrix</td>
+</tr>
+<tr class="row-odd"><td>A</td>
+<td>input matrix</td>
+</tr>
+<tr class="row-even"><td>lda</td>
+<td>leading dimention of input matrix</td>
+</tr>
+<tr class="row-odd"><td>info</td>
+<td>return value, if info=0, the LU factorization is successful</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="getrf-nopivot">
+<span id="cid-xf-solver-getrf-nopivot"></span><span id="doxid-namespacexf-1-1solver-1a41ec1e19c8d2f509660aba74fa2ff84a"></span><h2>getrf_nopivot<a class="headerlink" href="#getrf-nopivot" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="defined-in-matrixdecomposition-getrf-nopivot-hpp">
+<h3>Defined in &lt;MatrixDecomposition/getrf_nopivot.hpp&gt;<a class="headerlink" href="#defined-in-matrixdecomposition-getrf-nopivot-hpp" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">class</span> <span class="n">T</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NRMAX</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NCMAX</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NCU</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">getrf_nopivot</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">m</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span>
+    <span class="n">T</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span>
+    <span class="kt">int</span><span class="o">&amp;</span> <span class="n">info</span>
+    <span class="p">)</span>
+</pre>
+<p>This function computes the LU decomposition (without pivoting) of matrix <span class="math notranslate nohighlight">\(A\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{equation*} {A = L U, }\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is a dense matrix of size <span class="math notranslate nohighlight">\(m \times n\)</span> , <span class="math notranslate nohighlight">\(L\)</span> is a lower triangular matrix with unit diagonal, and <span class="math notranslate nohighlight">\(U\)</span> is a upper triangular matrix. This function does not implement pivoting.</p>
+<p>The maximum matrix size supported in FPGA is templated by NRMAX and NCMAX.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>T</td>
+<td>data type (support float and double)</td>
+</tr>
+<tr class="row-even"><td>NRMAX</td>
+<td>maximum number of rows for input matrix</td>
+</tr>
+<tr class="row-odd"><td>NCMAX</td>
+<td>maximum number of columns for input matrix</td>
+</tr>
+<tr class="row-even"><td>NCU</td>
+<td>number of computation unit</td>
+</tr>
+<tr class="row-odd"><td>m</td>
+<td>real row number of input matrix</td>
+</tr>
+<tr class="row-even"><td>n</td>
+<td>real column number of input matrix</td>
+</tr>
+<tr class="row-odd"><td>A</td>
+<td>input matrix</td>
+</tr>
+<tr class="row-even"><td>lda</td>
+<td>leading dimention of input matrix A</td>
+</tr>
+<tr class="row-odd"><td>info</td>
+<td>return value, if info=0, the LU factorization is successful</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="potrf">
+<span id="cid-xf-solver-potrf"></span><span id="doxid-namespacexf-1-1solver-1a86d85c78cb26ccbc608e10f2140c297b"></span><h2>potrf<a class="headerlink" href="#potrf" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="defined-in-matrixdecomposition-potrf-hpp">
+<h3>Defined in &lt;MatrixDecomposition/potrf.hpp&gt;<a class="headerlink" href="#defined-in-matrixdecomposition-potrf-hpp" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">typename</span> <span class="n">T</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NMAX</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NCU</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">potrf</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">m</span><span class="p">,</span>
+    <span class="n">T</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span>
+    <span class="kt">int</span><span class="o">&amp;</span> <span class="n">info</span>
+    <span class="p">)</span>
+</pre>
+<p>This function computes the Cholesky decomposition of matrix <span class="math notranslate nohighlight">\(A\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{equation*} {A = L {L}^T, }\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is a dense symmetric positive-definite matrix of size <span class="math notranslate nohighlight">\(m \times m\)</span> , <span class="math notranslate nohighlight">\(L\)</span> is a lower triangular matrix, and <span class="math notranslate nohighlight">\({L}^T\)</span> is the transposed matrix of <span class="math notranslate nohighlight">\(L\)</span> .</p>
+<p>The maximum matrix size supported in FPGA is templated by NMAX.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>T</td>
+<td>data type (support float and double)</td>
+</tr>
+<tr class="row-even"><td>NMAX</td>
+<td>maximum number of input symmetric matrix size</td>
+</tr>
+<tr class="row-odd"><td>NCU</td>
+<td>number of computation unit</td>
+</tr>
+<tr class="row-even"><td>m</td>
+<td>number of symmetric matrix A size</td>
+</tr>
+<tr class="row-odd"><td>A</td>
+<td>input matrix of size <span class="math notranslate nohighlight">\(m \times m\)</span></td>
+</tr>
+<tr class="row-even"><td>lda</td>
+<td>leading dimention of input matrix A</td>
+</tr>
+<tr class="row-odd"><td>info</td>
+<td>return value, if info=0, the Cholesky factorization is successful</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
