@@ -1,0 +1,781 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GQE Kernel Design &mdash; XF Database Library 2.0 beta documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xf-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="GQE Kernel APIs" href="kernel_api.html" />
+    <link rel="prev" title="GQE Overview" href="gqe_overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usecase.html">Typical Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="L2.html">L2 GQE Kernel User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="gqe_overview.html">GQE Overview</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">GQE Kernel Design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#join-kernel">Join Kernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aggregate-kernel">Aggregate Kernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#partition-kernel">Partition Kernel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="kernel_api.html">GQE Kernel APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kernel_demo.html">GQE Kernel Acceleration Demo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="L3.html">L3 GQE Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/tpc_h.html">TPC-H Queries with GQE</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XF Database Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="L2.html">L2 GQE Kernel User Guide</a> &raquo;</li>
+        
+      <li>GQE Kernel Design</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gqe-kernel-design">
+<span id="id1"></span><h1>GQE Kernel Design<a class="headerlink" href="#gqe-kernel-design" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="join-kernel">
+<span id="gqe-join-kernel-design"></span><h2>Join Kernel<a class="headerlink" href="#join-kernel" title="Permalink to this headline">¶</a></h2>
+<p>The GQE join kernel is a compound of multiple post-bitstream programmable primitives,
+and can execute not only hash-join but also a number of primitives often found as
+prologue or epilogue of join operations. With its all-bypassable data path,
+it can even perform execution step sequence without a join.</p>
+<a class="reference internal image-reference" href="../_images/gqe_join_kernel.png"><img alt="GQE Join Kernel" class="align-center" src="../_images/gqe_join_kernel.png" style="width: 1105.6000000000001px; height: 389.6px;" /></a>
+<p>The internal of this kernel is illustrate in the figure above. Internal multi-join supports
+three reconfigurable modes, namely inner join, anti-join and semi-join.
+This kernel works with three input buffers, two for data and one for configuration,
+and it emits result to one output buffer, with same data structure as its data input buffers.</p>
+<p>The uniformed buffer content structure design allows this kernel to be seamlessly scheduled,
+using one’s output as successor’s input. Basically, a buffer contains an input table
+or an intermediate result table, and each table has a list of data columns,
+placed one after another and aligned to 512b boundaries.</p>
+<p>Each column’s data structure is essentially a 512bit header, followed by raw data.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In current release, all columns are expected to have the same number of elements of same type,
+so only the first columns header is used by kernel. This will likely change in future release.</p>
+</div>
+<p>The buffer and column’s data structure is shown in the figure below.</p>
+<a class="reference internal image-reference" href="../_images/gqe_2.0_data.png"><img alt="GQE 2.0 Data Buffer Content" class="align-center" src="../_images/gqe_2.0_data.png" style="width: 452.0px; height: 575.2px;" /></a>
+<p>The configuration buffer basically programs the kernel at runtime. It toggles execution step
+primitives on or off, and defines the filter and/or evaluation expressions.
+The details are documented in the following table:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="15%" />
+<col width="14%" />
+<col width="14%" />
+<col width="8%" />
+<col width="10%" />
+<col width="10%" />
+<col width="9%" />
+<col width="9%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">192-512</th>
+<th class="head">191-184</th>
+<th class="head">120-183</th>
+<th class="head">56-119</th>
+<th class="head">6</th>
+<th class="head">3-5</th>
+<th class="head">2</th>
+<th class="head">1</th>
+<th class="head">0</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Shuffle</td>
+<td>Tab C col sel</td>
+<td>Tab B col-id</td>
+<td>Tab A col-id</td>
+<td>append</td>
+<td>join sel</td>
+<td>dual key</td>
+<td>aggr on</td>
+<td>join on</td>
+</tr>
+<tr class="row-odd"><td colspan="9">(padding at MSB) eval-0 config</td>
+</tr>
+<tr class="row-even"><td colspan="9">(padding at MSB) eval-1 config</td>
+</tr>
+<tr class="row-odd"><td colspan="9">filter Tab A config</td>
+</tr>
+<tr class="row-even"><td colspan="9">filter Tab A config (cont’)</td>
+</tr>
+<tr class="row-odd"><td colspan="9">(padding at MSB) filter Tab A config (cont’)</td>
+</tr>
+<tr class="row-even"><td colspan="9">filter Tab B config</td>
+</tr>
+<tr class="row-odd"><td colspan="9">filter Tab B config (cont’)</td>
+</tr>
+<tr class="row-even"><td colspan="9">(padding at MSB) filter Tab B config (cont’)</td>
+</tr>
+</tbody>
+</table>
+<p>Both input table A and B can support up to 8 columns.
+The selection and order of columns in pipeline is appointed via the column index.
+Within each buffer, the columns are indexed starting from 0.
+<code class="docutils literal notranslate"><span class="pre">-1</span></code> is used as a special value to instruct the table scanner to feed zero for that column.</p>
+<p>For example, suppose Table A’s column indices are <code class="docutils literal notranslate"><span class="pre">[3,2,1,-1,-1]</span></code>.
+Then Column 3 will be the first in data path, and Column 2 the second and Column 1 the third.
+Column 0 and other columns if exists are ignored.
+The last two slots in data path will be filled with zeros.</p>
+<p>The filter config is aligned to lower bits, and each filter’s config fully covers the first two
+512-bit slots, and partially use the third one.</p>
+<p>Here the <code class="docutils literal notranslate"><span class="pre">join_on</span></code> option toggles whether hash-join is enabled or by-passed in the pipeline.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">dual_key</span></code> option instruct the kernel to use
+both first and second column as join key in hash-join, and when it is asserted, the thrid column
+becomes the first part of the payload input.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">join</span> <span class="pre">sel</span></code> option indicates the work mode of multi-join, 0 for normal hash join, 1 for semi-join and
+2 for anti-join.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">append</span></code> option toggles whether the append mode is enable during writing out consecutive joined table.
+This option would be usually used when it joins two sub-tables after hash partition.</p>
+<p>The eval config is for the <a class="reference internal" href="../guide/hw_api.html#cid-xf-database-dynamiceval"><span class="std std-ref">dynamicEval</span></a> primitive,
+and aligns to the lower bits of the 512-bit allocated for it.</p>
+<p>The aggregation always performs the calculation of min, max, sum and count for each of its input column.
+When <code class="docutils literal notranslate"><span class="pre">aggr_on</span></code> is set, aggregation values will write instead of the original rows.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">To support large sum and count, the output data width of these two fields are doubled.
+So that the aggregation value for each column is be <code class="docutils literal notranslate"><span class="pre">min,</span> <span class="pre">max,</span> <span class="pre">sum</span> <span class="pre">LSB,</span> <span class="pre">sum</span> <span class="pre">MSB,</span> <span class="pre">count</span> <span class="pre">LSB,</span> <span class="pre">count</span> <span class="pre">MSB</span></code>.</p>
+</div>
+<p>The write option is basically a bit mask for 8 slots in data path.
+Only when the corresponding one-hot bit is asserted, will then column being write to output buffer.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Due to limitation in current <code class="docutils literal notranslate"><span class="pre">write_out</span></code>, the output buffer must always
+provide 8 column slots, even not all used.</p>
+</div>
+<p>The hardware resource utilizations of join kernel is shown in the table below (work as 182MHz).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="11%" />
+<col width="8%" />
+<col width="16%" />
+<col width="15%" />
+<col width="11%" />
+<col width="9%" />
+<col width="7%" />
+<col width="5%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Primitive</td>
+<td>Quantity</td>
+<td>LUT</td>
+<td>LUT as memory</td>
+<td>LUT as logic</td>
+<td>Register</td>
+<td>BRAM36</td>
+<td>URAM</td>
+<td>DSP</td>
+</tr>
+<tr class="row-even"><td>Scan</td>
+<td>1</td>
+<td>12814</td>
+<td>4758</td>
+<td>8056</td>
+<td>18968</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>Filter</td>
+<td>4</td>
+<td>2155</td>
+<td>13</td>
+<td>2142</td>
+<td>1776</td>
+<td>0.5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>Hash join</td>
+<td>1</td>
+<td>118625</td>
+<td>30396</td>
+<td>88229</td>
+<td>171852</td>
+<td>254.5</td>
+<td>192</td>
+<td>80</td>
+</tr>
+<tr class="row-odd"><td>Eval</td>
+<td>2</td>
+<td>2362</td>
+<td>315</td>
+<td>2047</td>
+<td>2325</td>
+<td>0</td>
+<td>0</td>
+<td>21</td>
+</tr>
+<tr class="row-even"><td>Direct aggr</td>
+<td>1</td>
+<td>1958</td>
+<td>0</td>
+<td>1958</td>
+<td>3307</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>Write</td>
+<td>1</td>
+<td>20604</td>
+<td>5693</td>
+<td>14911</td>
+<td>30275</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>AXI DDR</td>
+<td>1</td>
+<td>6803</td>
+<td>1370</td>
+<td>5433</td>
+<td>15045</td>
+<td>60</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>AXI HBM</td>
+<td>1</td>
+<td>25734</td>
+<td>3321</td>
+<td>22413</td>
+<td>31290</td>
+<td>32</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>Total</td>
+<td>&#160;</td>
+<td>236692</td>
+<td>63384</td>
+<td>173608</td>
+<td>330108</td>
+<td>348.5</td>
+<td>192</td>
+<td>124</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="aggregate-kernel">
+<h2>Aggregate Kernel<a class="headerlink" href="#aggregate-kernel" title="Permalink to this headline">¶</a></h2>
+<p>The GQE Aggregate kernel is one of foundamental programmable modules in General Query Engine (GQE),
+which can process both group and aggregate operations.</p>
+<a class="reference internal image-reference" href="../_images/gqe_aggr_kernel.png"><img alt="GQE Aggregate Kernel" class="align-center" src="../_images/gqe_aggr_kernel.png" style="width: 1068.8px; height: 464.0px;" /></a>
+<p>The internal structure of this kernel is shown in the figure above. It consists of one scan and write,
+two evalutions, one filter, hash group aggregate as well as one aggregate primitive. Raw input table are
+scanned in or write out by column. Before entering into hash group aggregate module, each element in each
+row will be evaluated and filterd. Thus, some new elements can be generated and some rows will be
+left behind. Moreover, two cascaded evaluation modules are added to support more complex expression.</p>
+<p>Hash group aggregate is the key module in this kernel, which is a multiple PU implementation and given
+in the following diagram. Each PU requires 2 HBM banks and some URAM memory blocks to buffer distinct
+keys as well as payloads after aggregate operations. And one internal loop are implemented to consume
+all input rows with each iteration. Furthermore, all PUs are working in parallel to achieve higher
+performance.</p>
+<a class="reference internal image-reference" href="../_images/gqe_aggr_detail.png"><img alt="Detais Diagram of Hash Group Aggregate" class="align-center" src="../_images/gqe_aggr_detail.png" style="width: 887.2px; height: 562.4px;" /></a>
+<p>Also, both input and output table’s data structure is same as join kernel. The whole configuration are
+composed of 128 32bit slot. And the detail map of configuration buffer are listed in the table:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="37%" />
+<col width="41%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Module</td>
+<td>Module Config Width</td>
+<td>Position</td>
+</tr>
+<tr class="row-even"><td>Scan</td>
+<td>64 bit</td>
+<td>config[0]~config[1]</td>
+</tr>
+<tr class="row-odd"><td>Eval0</td>
+<td>289 bit</td>
+<td>config[1]~config[11]</td>
+</tr>
+<tr class="row-even"><td>Eval1</td>
+<td>289 bit</td>
+<td>config[12]~config[21]</td>
+</tr>
+<tr class="row-odd"><td>Filter</td>
+<td>45*32 bit</td>
+<td>config[22]~config[66]</td>
+</tr>
+<tr class="row-even"><td>Shuffle0</td>
+<td>64 bit</td>
+<td>config[67]~config[68]</td>
+</tr>
+<tr class="row-odd"><td>Shuffle1</td>
+<td>64 bit</td>
+<td>config[69]~config[70]</td>
+</tr>
+<tr class="row-even"><td>Shuffle2</td>
+<td>64 bit</td>
+<td>config[71]~config[72]</td>
+</tr>
+<tr class="row-odd"><td>Shuffle3</td>
+<td>64 bit</td>
+<td>config[73]~config[74]</td>
+</tr>
+<tr class="row-even"><td>Group Aggr</td>
+<td>4*32 bit</td>
+<td>config[75]~config[78]</td>
+</tr>
+<tr class="row-odd"><td>Column Merge</td>
+<td>64 bit</td>
+<td>config[79]~config[80]</td>
+</tr>
+<tr class="row-even"><td>Aggregate</td>
+<td>1 bit</td>
+<td>config[81]</td>
+</tr>
+<tr class="row-odd"><td>Write</td>
+<td>16 bit</td>
+<td>config[82]</td>
+</tr>
+<tr class="row-even"><td>Reserved</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>config[83]~config[127]</td>
+</tr>
+</tbody>
+</table>
+<p>The hardware resource utilizations of hash group aggregate is shown in the table below (work as 193MHz).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="11%" />
+<col width="8%" />
+<col width="16%" />
+<col width="15%" />
+<col width="11%" />
+<col width="9%" />
+<col width="7%" />
+<col width="5%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Primitive</td>
+<td>Quantity</td>
+<td>LUT</td>
+<td>LUT as memory</td>
+<td>LUT as logic</td>
+<td>Register</td>
+<td>BRAM36</td>
+<td>URAM</td>
+<td>DSP</td>
+</tr>
+<tr class="row-even"><td>Scan</td>
+<td>1</td>
+<td>12209</td>
+<td>4758</td>
+<td>7451</td>
+<td>18974</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>Eval</td>
+<td>8</td>
+<td>2153</td>
+<td>426</td>
+<td>1727</td>
+<td>2042</td>
+<td>4</td>
+<td>0</td>
+<td>21</td>
+</tr>
+<tr class="row-even"><td>Filter</td>
+<td>4</td>
+<td>2168</td>
+<td>13</td>
+<td>2155</td>
+<td>1764</td>
+<td>0.5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>Group Aggr</td>
+<td>1</td>
+<td>162202</td>
+<td>27819</td>
+<td>134383</td>
+<td>210926</td>
+<td>62</td>
+<td>256</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>Direct Aggr</td>
+<td>1</td>
+<td>4349</td>
+<td>0</td>
+<td>4349</td>
+<td>6611</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>Write</td>
+<td>1</td>
+<td>30938</td>
+<td>9490</td>
+<td>21448</td>
+<td>43579</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>AXI DDR</td>
+<td>1</td>
+<td>4586</td>
+<td>1313</td>
+<td>3273</td>
+<td>78855</td>
+<td>18</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>AXI HBM</td>
+<td>1</td>
+<td>20528</td>
+<td>4456</td>
+<td>16072</td>
+<td>45416</td>
+<td>124</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>Total</td>
+<td>&#160;</td>
+<td>298470</td>
+<td>60402</td>
+<td>238068</td>
+<td>399737</td>
+<td>255</td>
+<td>256</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="partition-kernel">
+<h2>Partition Kernel<a class="headerlink" href="#partition-kernel" title="Permalink to this headline">¶</a></h2>
+<p>The GQE partition kernel is one of foundamental programmable modules in GQE, which can partition one table’s
+rows into corresponding clusters using predefined hash function. It can work alone or incorporate with join kernel as
+well as aggregate kernel. Meanwhile, dynamic filter is also supported before partition process.</p>
+<a class="reference internal image-reference" href="../_images/gqe_part_kernel.png"><img alt="GQE Part Kernel" class="align-center" src="../_images/gqe_part_kernel.png" style="width: 750.4000000000001px; height: 314.40000000000003px;" /></a>
+<p>The internal of this kernel is illustrated in the figure above. It consists of two input buffer and one output buffer.
+Firsyly, input table are scanned into multiple columns and then perform filter if related condition is given
+in configuration buffer. After that, each row will be dispatched into various buckets based on the hash value of
+primary key. Finally, every full hash bucket will trigger on one burst write into output buffer.</p>
+<p>The details for hash parition is shown in the following figure. One URAM array is used to buffer one burst lengh rows
+for each hash part. And the following module behind build PU will spilt each row into multiple columns for compatible
+output format with other kernels.</p>
+<a class="reference internal image-reference" href="../_images/gqe_part_detail.png"><img alt="Detais Diagram of Hash Partition" class="align-center" src="../_images/gqe_part_detail.png" style="width: 913.6px; height: 405.6px;" /></a>
+<p>For simplicity of use, GQE partition kernel cane resue the scan and filter configuration with GQE join kernel. Also,
+as mentioned above, both input and output table’s data structure is same as join kernel.</p>
+<p>The hardware resource utilizations of single hash partition is shown in the table below (work as 200MHz).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="11%" />
+<col width="8%" />
+<col width="16%" />
+<col width="15%" />
+<col width="11%" />
+<col width="9%" />
+<col width="7%" />
+<col width="5%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Primitive</td>
+<td>Quantity</td>
+<td>LUT</td>
+<td>LUT as memory</td>
+<td>LUT as logic</td>
+<td>Register</td>
+<td>BRAM36</td>
+<td>URAM</td>
+<td>DSP</td>
+</tr>
+<tr class="row-even"><td>Scan</td>
+<td>1</td>
+<td>12032</td>
+<td>4752</td>
+<td>7280</td>
+<td>19383</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>Filter</td>
+<td>4</td>
+<td>3551</td>
+<td>809</td>
+<td>2742</td>
+<td>3809</td>
+<td>0.5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>Hash partition</td>
+<td>1</td>
+<td>26363</td>
+<td>1521</td>
+<td>27496</td>
+<td>45762</td>
+<td>20</td>
+<td>256</td>
+<td>5</td>
+</tr>
+<tr class="row-odd"><td>Write</td>
+<td>1</td>
+<td>26083</td>
+<td>5082</td>
+<td>21286</td>
+<td>33202</td>
+<td>1</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr class="row-even"><td>AXI DDR</td>
+<td>1</td>
+<td>5046</td>
+<td>1010</td>
+<td>4036</td>
+<td>11303</td>
+<td>59.5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>Total</td>
+<td>&#160;</td>
+<td>76091</td>
+<td>14102</td>
+<td>61989</td>
+<td>116884</td>
+<td>81</td>
+<td>256</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">To use the GQE Partition kernel, host must pass the number of partitions through a kernel argument,
+create corresponding number of sub-buffers on Partition kernel’s output,
+and invoke GQE Join or Aggregate kernel multiple times accordingly.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="kernel_api.html" class="btn btn-neutral float-right" title="GQE Kernel APIs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="gqe_overview.html" class="btn btn-neutral float-left" title="GQE Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

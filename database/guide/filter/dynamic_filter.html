@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Internals of Dynamic Filter &mdash; XF Database Library 2.0 beta documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xf-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Internals of Dynamic Evaluation" href="../eval/dynamic_eval.html" />
+    <link rel="prev" title="Primitive Design Internals" href="../internals.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usecase.html">Typical Use Cases</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../L1.html">L1 Module User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../hw_sql_guide.html">Primitive Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hw_api.html">Primitive APIs in <code class="docutils literal notranslate"><span class="pre">xf::database</span></code></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../internals.html">Primitive Design Internals</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Internals of Dynamic Filter</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#internal-structure">Internal Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#limitations">Limitations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generating-config-bits">Generating Config Bits</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../eval/dynamic_eval.html">Internals of Dynamic Evaluation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../group_aggr/group_aggr.html">Internals of Group Aggregate (Using Sorted Rows)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../group_aggr/direct_group_aggr.html">Internals of Direct-Group-Aggregate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../group_aggr/hash_group_aggr.html">Internals of Hash Group Aggregate (Generic Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_join_mpu.html">Internals of Hash-Join (Multi-Process-Unit Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_semi_join.html">Implementation of Hash-Semi-Join (Multi-Process-Unit Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_join_v3.html">Internals of Hash-Join-v3 and Hash-Build-Probe-v3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_join_v4.html">Internals of Hash-Join-v4 and Hash-Build-Probe-v4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../non_hash_join/merge_join.html">Internals of Merge-Join and Merge-Left-Join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../non_hash_join/nested_loop_join.html">Internals of Nested-Loop-Join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../combine_split/combine_split_unit.html">Internals of Combine-Split-Unit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sort/bitonic_sort.html">Internals of Bitonic Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sort/insert_sort.html">Internals of Insert Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sort/merge_sort.html">Internals of Merge Sort</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../query_demo.html">Query-Specific Acceleration Demo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../gqe_guide/L2.html">L2 GQE Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gqe_guide/L3.html">L3 GQE Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/tpc_h.html">TPC-H Queries with GQE</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XF Database Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../L1.html">L1 Module User Guide</a> &raquo;</li>
+        
+          <li><a href="../internals.html">Primitive Design Internals</a> &raquo;</li>
+        
+      <li>Internals of Dynamic Filter</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="internals-of-dynamic-filter">
+<span id="guide-dynamic-filter"></span><h1>Internals of Dynamic Filter<a class="headerlink" href="#internals-of-dynamic-filter" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="internal-structure">
+<h2>Internal Structure<a class="headerlink" href="#internal-structure" title="Permalink to this headline">¶</a></h2>
+<p>The following figure illustrates the internal of the dynamic filter.
+On the left a group of range-checker compares each column data with
+upper and lower bounds specified by two constants, and two operators
+while on the right each pair of columns is assigned to a comparator.
+The final condition is yield by looking into a true-table using
+address consists of bits from these two parts.</p>
+<a class="reference internal image-reference" href="../../_images/dynamic_filter.png"><img alt="Dynamic Filter Structure" class="align-center" src="../../_images/dynamic_filter.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<p>Currently, up to <strong>four</strong> condition columns of <strong>integral types</strong> are supported.
+Wrappers for less input columns are provided, the configuration structure
+<strong>remains the same as the four-input version</strong>.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Filter operator has signed or unsigned version, check <code class="docutils literal notranslate"><span class="pre">enum</span> <span class="pre">FilterOp</span></code> in <code class="docutils literal notranslate"><span class="pre">enums.h</span></code>
+for details.</p>
+</div>
+</div>
+<div class="section" id="generating-config-bits">
+<h2>Generating Config Bits<a class="headerlink" href="#generating-config-bits" title="Permalink to this headline">¶</a></h2>
+<p>Currently, there is no expression-string to config bits compiler yet.
+For generating the raw config bits, see the demo project in
+<code class="docutils literal notranslate"><span class="pre">L1/demos/q6_mod/host/filter_test.cpp</span></code>.</p>
+<p>The layout of the configuration bits is illustrated in the figure below.
+As the figures shows, the immediates are always aligned to 32bit boundaries,
+and comes in <em>little-endian</em>. (In the figure, the immediates are 48bit wide,
+and thus occupies one and a half row.)</p>
+<a class="reference internal image-reference" href="../../_images/dynamic_filter_config.png"><img alt="Dynamic Filter Configuration Bits Layout" class="align-center" src="../../_images/dynamic_filter_config.png" style="width: 90%;" /></a>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../eval/dynamic_eval.html" class="btn btn-neutral float-right" title="Internals of Dynamic Evaluation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../internals.html" class="btn btn-neutral float-left" title="Primitive Design Internals" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

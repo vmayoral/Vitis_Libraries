@@ -1,0 +1,425 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Primitive Overview &mdash; XF Database Library 2.0 beta documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xf-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Primitive APIs in xf::database" href="hw_api.html" />
+    <link rel="prev" title="L1 Module User Guide" href="L1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usecase.html">Typical Use Cases</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="L1.html">L1 Module User Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Primitive Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#stream-based-interface">Stream-based Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementing-join">Implementing Join</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#join-implementation-summary">Join Implementation Summary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hash-join">Hash-Join</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#merge-join-and-merge-left-join">Merge-Join and Merge-Left-Join</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nested-loop">Nested-Loop</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#implementing-filter">Implementing Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementing-evaluation">Implementing Evaluation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementing-group-by-aggregation">Implementing Group-by Aggregation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#group-aggregate-sorted-rows">Group Aggregate Sorted Rows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-chip-group-aggregate">On-Chip Group-Aggregate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#off-chip-hash-aggregate">Off-chip Hash-Aggregate</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#implementing-sort">Implementing Sort</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sort-implementation-summary">Sort Implementation Summary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bitonic-sort">Bitonic-Sort</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#insert-sort">Insert-Sort</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#merge-sort">Merge-Sort</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#glue-logic">Glue Logic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#combine-and-split-columns">Combine and Split Columns</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html">Primitive APIs in <code class="docutils literal notranslate"><span class="pre">xf::database</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals.html">Primitive Design Internals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query_demo.html">Query-Specific Acceleration Demo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../gqe_guide/L2.html">L2 GQE Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gqe_guide/L3.html">L3 GQE Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/tpc_h.html">TPC-H Queries with GQE</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XF Database Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="L1.html">L1 Module User Guide</a> &raquo;</li>
+        
+      <li>Primitive Overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="primitive-overview">
+<span id="hw-sql-guide"></span><h1>Primitive Overview<a class="headerlink" href="#primitive-overview" title="Permalink to this headline">¶</a></h1>
+<p>The Algorithm Library provides a range of primitives for implementing SQL queries in C++ for Vitis.
+Headers for these hardware APIs can be found in <code class="docutils literal notranslate"><span class="pre">include</span></code> directory of the package.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="stream-based-interface">
+<h2>Stream-based Interface<a class="headerlink" href="#stream-based-interface" title="Permalink to this headline">¶</a></h2>
+<p>The interface of primitives in this library are mostly HLS streams, with a single bit stream
+along with the main data stream throughout the dataflow.</p>
+<div class="code cpp highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hls</span><span class="p">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">ap_uint</span><span class="o">&lt;</span><span class="n">W</span><span class="o">&gt;</span> <span class="o">&gt;&amp;</span> <span class="n">data_strm</span><span class="p">,</span>
+<span class="n">hls</span><span class="p">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="nb">bool</span><span class="o">&gt;&amp;</span>        <span class="n">e_data_strm</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>The benefits of this interface are</p>
+<ul class="simple">
+<li>Within a HLS dataflow region, all primitives connected via HLS streams can work in
+parallel, and this is the key to FPGA acceleration.</li>
+<li>Using the single bit stream to mark <em>end of operation</em> can trigger stream consumer
+as soon as the first row data becomes available, without known how many rows will be
+generated later. Moreover, it can represent empty table.</li>
+</ul>
+<p>Some primitives work with separate columns, so their interface are naturally design
+to receive multiple data streams, one for each column. As these columns are from the
+same table and always pass through same number of items, they would share one
+end signal stream in the interface.</p>
+<p>Other primitives’ semantic may treat multiple-columns as one concept,
+For example, Hash-Join only cares about key and payload.
+For such primitives, <a class="reference internal" href="hw_api.html#cid-xf-database-combinecol"><span class="std std-ref">combineCol</span></a> and
+<a class="reference internal" href="hw_api.html#cid-xf-database-splitcol"><span class="std std-ref">splitCol</span></a> helpers can be used to combine or split columns.
+For more details on helper utilities, see <a class="reference internal" href="#guide-glue"><span class="std std-ref">Glue Logic</span></a>.</p>
+</div>
+<div class="section" id="implementing-join">
+<h2>Implementing Join<a class="headerlink" href="#implementing-join" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="join-implementation-summary">
+<h3>Join Implementation Summary<a class="headerlink" href="#join-implementation-summary" title="Permalink to this headline">¶</a></h3>
+<p>Join primitives are summaries in the following table:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Hash-Join:</th><td class="field-body">It performs inner join, but with a multi-process-unit design,
+and stores only hash-table on chip. The small table is cached in
+DDR/HBM banks during execution.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Merge-Join:</th><td class="field-body">It performs inner join with two tables both pre-sorted with the join key.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Merge-Left-Join:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">It performs left join with two tables both pre-sorted with the join key.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nested-Loop:</th><td class="field-body">On FPGA, hash-based joins are typically perferred with unique keys,
+and nested loop is often used to join table with duplications with
+another table.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hash-join">
+<h3>Hash-Join<a class="headerlink" href="#hash-join" title="Permalink to this headline">¶</a></h3>
+<p>The hash-join primitive performs innner-join. When the key is unique, use the default 8M version,
+which can tolerate hash-collision up to 512 times.
+When the key is not unique, the chance in which different rows falls into the same hash entry
+is significantly boosted, and thus the 2M version should be used. It allows up to 2^18 rows
+to be hashed in the same hash-table slot, including both hash collision and key duplication.</p>
+<p>For internal structure and execution flow, see <a class="reference internal" href="hash_join/hash_join_mpu.html#guide-hash-join-mpu"><span class="std std-ref">Internals of Hash-Join (Multi-Process-Unit Version)</span></a>.</p>
+</div>
+<div class="section" id="merge-join-and-merge-left-join">
+<h3>Merge-Join and Merge-Left-Join<a class="headerlink" href="#merge-join-and-merge-left-join" title="Permalink to this headline">¶</a></h3>
+<p>The merge-join performs inner-join of two tables. The merge-left-join performs left join of two tables. The limitation includes:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Left table should not contatin duplicated keys.</li>
+<li>Both input tables should be sorted.</li>
+</ul>
+</div></blockquote>
+<p>See <a class="reference internal" href="non_hash_join/merge_join.html#guide-merge-join"><span class="std std-ref">Internals of Merge-Join and Merge-Left-Join</span></a>.</p>
+</div>
+<div class="section" id="nested-loop">
+<h3>Nested-Loop<a class="headerlink" href="#nested-loop" title="Permalink to this headline">¶</a></h3>
+<p>See <a class="reference internal" href="non_hash_join/nested_loop_join.html#guide-nested-loop-join"><span class="std std-ref">Internals of Nested-Loop-Join</span></a>.</p>
+</div>
+</div>
+<div class="section" id="implementing-filter">
+<h2>Implementing Filter<a class="headerlink" href="#implementing-filter" title="Permalink to this headline">¶</a></h2>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Filter works with boolean conditions, so to build an expression based filter, the <a class="reference internal" href="eval/dynamic_eval.html#guide-dynamic-eval"><span class="std std-ref">Internals of Dynamic Evaluation</span></a>
+primitive can be used to implementing the evaluation part. With evaluated expression value pipelined to
+filter, the payload can be conditionally kept or dropped.</p>
+</div>
+<p>This primitive allow the filter condition to be specified via some config bits at run time,
+so that the xclbin does not need to be recompiled to implement a different filter logic.</p>
+<p>See <a class="reference internal" href="filter/dynamic_filter.html#guide-dynamic-filter"><span class="std std-ref">Internals of Dynamic Filter</span></a>.</p>
+</div>
+<div class="section" id="implementing-evaluation">
+<h2>Implementing Evaluation<a class="headerlink" href="#implementing-evaluation" title="Permalink to this headline">¶</a></h2>
+<p>The Dynamic Evaluation primitive can calculate different expressions using data columns,
+based on post-bitstream configurations set during run-time.</p>
+<p>See <a class="reference internal" href="eval/dynamic_eval.html#guide-dynamic-eval"><span class="std std-ref">Internals of Dynamic Evaluation</span></a>.</p>
+</div>
+<div class="section" id="implementing-group-by-aggregation">
+<h2>Implementing Group-by Aggregation<a class="headerlink" href="#implementing-group-by-aggregation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="group-aggregate-sorted-rows">
+<h3>Group Aggregate Sorted Rows<a class="headerlink" href="#group-aggregate-sorted-rows" title="Permalink to this headline">¶</a></h3>
+<p>This library provides group-aggregate operator for sorted data. It assumes the input has already
+been sorted by group-keys, and simply emit aggregation result for continuous same group-key.</p>
+<p>See <a class="reference internal" href="group_aggr/group_aggr.html#guide-group-aggregate"><span class="std std-ref">Internals of Group Aggregate (Using Sorted Rows)</span></a>.</p>
+</div>
+<div class="section" id="on-chip-group-aggregate">
+<h3>On-Chip Group-Aggregate<a class="headerlink" href="#on-chip-group-aggregate" title="Permalink to this headline">¶</a></h3>
+<p>When the group key is of limited width, it can be used directly as address of on-chip storage in which
+group aggregation can be implemented. This scenario is describe as a “direct group aggregate”.
+Although the retirement on group key limits its use case, this algorithm is light on LUTs,
+and the URAM usage could be optimized to fit the expected key width.</p>
+<p>See <a class="reference internal" href="group_aggr/direct_group_aggr.html#guide-direct-aggregate"><span class="std std-ref">Internals of Direct-Group-Aggregate</span></a></p>
+</div>
+<div class="section" id="off-chip-hash-aggregate">
+<h3>Off-chip Hash-Aggregate<a class="headerlink" href="#off-chip-hash-aggregate" title="Permalink to this headline">¶</a></h3>
+<p>This primitive performs multi-round Hash-Aggregate, flushing the overflow entries to
+DDR temporally. Thus it enforces no limitation on the number of unique keys to be grouped.</p>
+<p>See <a class="reference internal" href="group_aggr/hash_group_aggr.html#guide-hash-aggr-general"><span class="std std-ref">Internals of Hash Group Aggregate (Generic Version)</span></a></p>
+</div>
+</div>
+<div class="section" id="implementing-sort">
+<h2>Implementing Sort<a class="headerlink" href="#implementing-sort" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sort-implementation-summary">
+<h3>Sort Implementation Summary<a class="headerlink" href="#sort-implementation-summary" title="Permalink to this headline">¶</a></h3>
+<p>Sort primitives are summaries in the following table:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Bitonic-Sort:</th><td class="field-body">It performs sort by bitonic sort algorithm.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Insert-Sort:</th><td class="field-body">It performs sort by insert sort algorithm.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Merge-Sort:</th><td class="field-body">It merge two sorted stream into one sorted stream.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="bitonic-sort">
+<h3>Bitonic-Sort<a class="headerlink" href="#bitonic-sort" title="Permalink to this headline">¶</a></h3>
+<p>This algorithm can offer very high-throughput, but is not resource-efficient when the I/O rate is limited.</p>
+<p>See <a class="reference internal" href="sort/bitonic_sort.html#guide-bitonic-sort"><span class="std std-ref">Internals of Bitonic Sort</span></a></p>
+</div>
+<div class="section" id="insert-sort">
+<h3>Insert-Sort<a class="headerlink" href="#insert-sort" title="Permalink to this headline">¶</a></h3>
+<p>This algorithm fits the scenarios where I/O rate is low, and uses the FPGA resources efficiently.
+However, the resource is linear to the max number of elements allowed to be sorted once,
+so to scale to large input, it should be used together with merge-sort.</p>
+<p>See <a class="reference internal" href="sort/insert_sort.html#guide-insert-sort"><span class="std std-ref">Internals of Insert Sort</span></a></p>
+</div>
+<div class="section" id="merge-sort">
+<h3>Merge-Sort<a class="headerlink" href="#merge-sort" title="Permalink to this headline">¶</a></h3>
+<p>This algorithm simply zips two <em>sorted</em> streams into one sorted stream.</p>
+<p>See <a class="reference internal" href="sort/merge_sort.html#guide-merge-sort"><span class="std std-ref">Internals of Merge Sort</span></a></p>
+</div>
+</div>
+<div class="section" id="glue-logic">
+<span id="guide-glue"></span><h2>Glue Logic<a class="headerlink" href="#glue-logic" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="combine-and-split-columns">
+<h3>Combine and Split Columns<a class="headerlink" href="#combine-and-split-columns" title="Permalink to this headline">¶</a></h3>
+<p>See <a class="reference internal" href="combine_split/combine_split_unit.html#guide-combine-split-unit"><span class="std std-ref">Internals of Combine-Split-Unit</span></a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hw_api.html" class="btn btn-neutral float-right" title="Primitive APIs in xf::database" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="L1.html" class="btn btn-neutral float-left" title="L1 Module User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
