@@ -1,0 +1,104 @@
+.. index:: pair: class; xf::fintech::BrownianBridge
+.. _doxid-classxf_1_1fintech_1_1_brownian_bridge:
+.. _cid-xf::fintech::brownianbridge:
+
+template class xf::fintech::BrownianBridge
+==========================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <brownian_bridge.hpp>
+
+
+Overview
+~~~~~~~~
+
+brownian bridge transform using inverse simulation. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_brownian_bridge>`
+
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    typename DT,
+	    int SZ
+	    >
+	class BrownianBridge
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1fintech_1_1_brownian_bridge_1a7e2a7e28c32aea6df641c4919c6821ce:
+.. _cid-xf::fintech::brownianbridge::transform:
+
+transform
+---------
+
+
+Defined in <xf_fintech/brownian_bridge.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void transform (
+	    hls::stream <DT>& in_strm,
+	    hls::stream <DT>& out_strm
+	    )
+
+transform in_strm to out_strm using browain bridge transformation
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - in_strm
+
+        - transform a input sequence to a output sequence.
+
+    *
+        - out_strm
+
+        - the output applys to brownian bride disribution.
+
+.. _doxid-classxf_1_1fintech_1_1_brownian_bridge_1a51d288f93b235640afcd995005fc4a3e:
+.. _cid-xf::fintech::brownianbridge::initialize:
+
+initialize
+----------
+
+
+Defined in <xf_fintech/brownian_bridge.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void initialize (ap_uint <W> size_in)
+
+initialize
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - size_in
+
+        - the lenght of sequence to be transformed.
+

@@ -1,0 +1,37 @@
+.. index:: pair: class; xf::fintech::internal::MultiAssetPathPricer
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_path_pricer:
+.. _cid-xf::fintech::internal::multiassetpathpricer:
+
+template class xf::fintech::internal::MultiAssetPathPricer
+==========================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <path_pricer.hpp>
+
+
+
+
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_path_pricer_1a9bbb7315d92f6ab17853acd0d25ea1d4:
+.. _cid-xf::fintech::internal::multiassetpathpricer::inn:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_path_pricer_1a12926a79ecdb7a39aa74db0ce291d46c:
+.. _cid-xf::fintech::internal::multiassetpathpricer::pricing:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    OptionStyle style,
+	    typename DT,
+	    int ASSETS,
+	    int SampleNum
+	    >
+	class MultiAssetPathPricer
+
+	// fields
+
+	static const unsigned int InN
+

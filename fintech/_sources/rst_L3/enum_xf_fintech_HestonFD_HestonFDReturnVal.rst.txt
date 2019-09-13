@@ -1,0 +1,23 @@
+.. index:: pair: enum; xf::fintech::HestonFD::HestonFDReturnVal
+.. _doxid-classxf_1_1fintech_1_1_heston_f_d_1aacc204df2b155ac920b8db5eecbeb15f:
+.. _cid-xf::fintech::hestonfd::hestonfdreturnval:
+
+enum xf::fintech::HestonFD::HestonFDReturnVal
+=============================================
+
+
+
+
+
+.. _doxid-classxf_1_1fintech_1_1_heston_f_d_1aacc204df2b155ac920b8db5eecbeb15fab9d8b6213c899b10ca0ba3c3f12844b1:
+.. _cid-xf::fintech::hestonfd::hestonfdreturnval::xlnxok:
+.. _doxid-classxf_1_1fintech_1_1_heston_f_d_1aacc204df2b155ac920b8db5eecbeb15fa3f54dd4b390ce9b0594d035a941d18a9:
+.. _cid-xf::fintech::hestonfd::hestonfdreturnval::xlnxalgorithmnotexecuted:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// enum values
+
+	XLNXOK = 0
+	XLNXAlgorithmNotExecuted 
+

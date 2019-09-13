@@ -1,0 +1,47 @@
+.. index:: pair: struct; xf::fintech::FdG2SwaptionEngine::NinePointLinear
+.. _doxid-structxf_1_1fintech_1_1_fd_g2_swaption_engine_1_1_nine_point_linear:
+.. _cid-xf::fintech::fdg2swaptionengine::ninepointlinear:
+
+struct xf::fintech::FdG2SwaptionEngine::NinePointLinear
+=======================================================
+
+.. toctree::
+	:hidden:
+
+
+
+the round up the basic operators using in mixed-derivative
+
+.. _doxid-structxf_1_1fintech_1_1_fd_g2_swaption_engine_1_1_nine_point_linear_1a12d3a4972285c14fbcad7cc4bcbc67f9:
+.. _cid-xf::fintech::fdg2swaptionengine::ninepointlinear::a00:
+.. _doxid-structxf_1_1fintech_1_1_fd_g2_swaption_engine_1_1_nine_point_linear_1aed62e2684c8060f2e232ed90a07f6f71:
+.. _cid-xf::fintech::fdg2swaptionengine::ninepointlinear::a01:
+.. _doxid-structxf_1_1fintech_1_1_fd_g2_swaption_engine_1_1_nine_point_linear_1a6e59c07cdd568dd51d34189769d3aaba:
+.. _cid-xf::fintech::fdg2swaptionengine::ninepointlinear::a02:
+.. _doxid-structxf_1_1fintech_1_1_fd_g2_swaption_engine_1_1_nine_point_linear_1ad598f53709d5c20f6a3b9750802a1cd3:
+.. _cid-xf::fintech::fdg2swaptionengine::ninepointlinear::a10:
+.. _doxid-structxf_1_1fintech_1_1_fd_g2_swaption_engine_1_1_nine_point_linear_1a9aad718b8777fa243dfb371aa14c860e:
+.. _cid-xf::fintech::fdg2swaptionengine::ninepointlinear::a11:
+.. _doxid-structxf_1_1fintech_1_1_fd_g2_swaption_engine_1_1_nine_point_linear_1a1090688d8ca065b89c40fc626bdb3f90:
+.. _cid-xf::fintech::fdg2swaptionengine::ninepointlinear::a12:
+.. _doxid-structxf_1_1fintech_1_1_fd_g2_swaption_engine_1_1_nine_point_linear_1ae61349742ec24094bd177aa0b0118e8f:
+.. _cid-xf::fintech::fdg2swaptionengine::ninepointlinear::a20:
+.. _doxid-structxf_1_1fintech_1_1_fd_g2_swaption_engine_1_1_nine_point_linear_1a6cc18e5e1f202cd5a1a20aaf5bf7c905:
+.. _cid-xf::fintech::fdg2swaptionengine::ninepointlinear::a21:
+.. _doxid-structxf_1_1fintech_1_1_fd_g2_swaption_engine_1_1_nine_point_linear_1acd08797c196cd05577797aa1d0547de3:
+.. _cid-xf::fintech::fdg2swaptionengine::ninepointlinear::a22:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// fields
+
+	DT a00[_layoutSizeMax]
+	DT a01[_layoutSizeMax]
+	DT a02[_layoutSizeMax]
+	DT a10[_layoutSizeMax]
+	DT a11[_layoutSizeMax]
+	DT a12[_layoutSizeMax]
+	DT a20[_layoutSizeMax]
+	DT a21[_layoutSizeMax]
+	DT a22[_layoutSizeMax]
+

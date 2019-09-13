@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>template class xf::fintech::FdHullWhiteEngine &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>template class xf::fintech::FdHullWhiteEngine</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rst_L2/class_xf_fintech_FdHullWhiteEngine.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-xf-fintech-fdhullwhiteengine">
+<span id="cid-xf-fintech-fdhullwhiteengine"></span><span id="doxid-classxf-1-1fintech-1-1-fd-hull-white-engine"></span><span id="index-0"></span><h1>template class xf::fintech::FdHullWhiteEngine<a class="headerlink" href="#template-class-xf-fintech-fdhullwhiteengine" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&lt;fd_hullwhite_engine.hpp&gt;</span>
+</pre>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Bermudan swaption pricing engine using Finite-difference methods. <span class="xref std std-ref">More…</span></p>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-fdhullwhiteengine-array">
+<span id="doxid-classxf-1-1fintech-1-1-fd-hull-white-engine-1a073a536e8d2149441dbcb4c93ee0f1cc"></span><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">typename</span> <span class="n">DT</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">_ETSizeMax</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">_xGridMax</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">_legPSizeMax</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">_legRSizeMax</span>
+    <span class="o">&gt;</span>
+<span class="k">class</span> <span class="n">FdHullWhiteEngine</span>
+
+<span class="c1">// fields</span>
+
+<span class="n">DT</span> <span class="n">array_</span><span class="p">[</span><span class="n">_xGridMax</span><span class="p">]</span>
+</pre>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="engineinitialization">
+<span id="cid-xf-fintech-fdhullwhiteengine-engineinitialization"></span><span id="doxid-classxf-1-1fintech-1-1-fd-hull-white-engine-1af9c784788543e40463765c7843544cb7"></span><h3>engineInitialization<a class="headerlink" href="#engineinitialization" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="defined-in-xf-fintech-fd-hullwhite-engine-hpp">
+<h4>Defined in &lt;xf_fintech/fd_hullwhite_engine.hpp&gt;<a class="headerlink" href="#defined-in-xf-fintech-fd-hullwhite-engine-hpp" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">engineInitialization</span> <span class="p">(</span>
+    <span class="n">DT</span> <span class="n">stoppingTimes</span> <span class="p">[</span><span class="n">_ETSizeMax</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">DT</span> <span class="n">payerAccrualTime</span> <span class="p">[</span><span class="n">_legPSizeMax</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">DT</span> <span class="n">receiverAccrualTime</span> <span class="p">[</span><span class="n">_legRSizeMax</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">DT</span> <span class="n">receiverAccrualPeriod</span> <span class="p">[</span><span class="n">_legRSizeMax</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">DT</span> <span class="n">iborTime</span> <span class="p">[</span><span class="n">_legRSizeMax</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">DT</span> <span class="n">iborPeriod</span> <span class="p">[</span><span class="n">_legRSizeMax</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">ETSize</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">xGrid</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">legPSize</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">legRSize</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">a</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">sigma</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">theta</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">nominal</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">fixedRate</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">floatingRate</span>
+    <span class="p">)</span>
+</pre>
+<p>This function is used to build up the FDM equation, and calculate the initialValues(NPVs at maturity), meanwhile, read several initial values from DDR to RAMs or registers.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>stoppingTimes</td>
+<td>The array which contains every exercise time in sequence with a 0.99 day time point at the front. (the unit should be year)</td>
+</tr>
+<tr class="row-even"><td>payerAccrualTime</td>
+<td>The array which contains every payment time in fixed rate. (the unit should be year)</td>
+</tr>
+<tr class="row-odd"><td>receiverAccrualTime</td>
+<td>The array which contains every payment time in floating rate. (the unit should be year)</td>
+</tr>
+<tr class="row-even"><td>receiverAccrualPeriod</td>
+<td>We support multiple day count convention, so this port is given to users to let them decide what kind of day count convention should be applied when calculating the amount of money in a period.</td>
+</tr>
+<tr class="row-odd"><td>iborTime</td>
+<td>This array is used to calculate the discount at a specific time point.</td>
+</tr>
+<tr class="row-even"><td>iborPeriod</td>
+<td>This port is also given to users to let them decide what kind of day count convention should be applied when calculating the actual floating rate in a period.</td>
+</tr>
+<tr class="row-odd"><td>ETSize</td>
+<td>The actual number of exercise time in the bermudan swaption.</td>
+</tr>
+<tr class="row-even"><td>xGrid</td>
+<td>The actual number of NPVs for each time step to calculate.</td>
+</tr>
+<tr class="row-odd"><td>legPSize</td>
+<td>The actual number of times that payer should pay for the swaption in fixed rate. (depends on payment period)</td>
+</tr>
+<tr class="row-even"><td>legRSize</td>
+<td>The actual number of times that payer should receive from the swaption in floating rate. (depends on payment period)</td>
+</tr>
+<tr class="row-odd"><td>a</td>
+<td>Spreads on interest rates.</td>
+</tr>
+<tr class="row-even"><td>sigma</td>
+<td>Overall level of volatility on interest rates.</td>
+</tr>
+<tr class="row-odd"><td>theta</td>
+<td>Parameter used to build up the differential equation, the pricing engine uses crank-nicolson algorithm, so default value of theta should be 0.5</td>
+</tr>
+<tr class="row-even"><td>nominal</td>
+<td>The nominal value of the swap.</td>
+</tr>
+<tr class="row-odd"><td>fixedRate</td>
+<td>Fixed rate of the swaption. (per year)</td>
+</tr>
+<tr class="row-even"><td>floatingRate</td>
+<td>Floating rate of the swaption. (per yaer)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="rollbackimplementation">
+<span id="cid-xf-fintech-fdhullwhiteengine-rollbackimplementation"></span><span id="doxid-classxf-1-1fintech-1-1-fd-hull-white-engine-1ae816b9729150e5dff36f851fc5b1fa69"></span><h3>rollbackImplementation<a class="headerlink" href="#rollbackimplementation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>Defined in &lt;xf_fintech/fd_hullwhite_engine.hpp&gt;<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="n">DT</span> <span class="n">rollbackImplementation</span> <span class="p">(</span>
+    <span class="n">DT</span> <span class="n">array</span> <span class="p">[</span><span class="n">_xGridMax</span><span class="p">],</span>
+    <span class="n">DT</span> <span class="n">from</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">to</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">tGrid</span>
+    <span class="p">)</span>
+</pre>
+<p>This function perform the main rolling back process in bermudan swaption pricing.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>array</td>
+<td>NPVs at a specific time point.</td>
+</tr>
+<tr class="row-even"><td>from</td>
+<td>Start time point of evolve back process.</td>
+</tr>
+<tr class="row-odd"><td>to</td>
+<td>End time point of evolve back process.</td>
+</tr>
+<tr class="row-even"><td>tGrid</td>
+<td>Number of time steps from maturity to settlement date.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+.. index:: pair: enum; xf::fintech::enums::DiscreType
+.. _doxid-namespacexf_1_1fintech_1_1enums_1af4e28e3dd5545bc5f60584da0bd75b04:
+.. _cid-xf::fintech::enums::discretype:
+
+enum xf::fintech::enums::DiscreType
+===================================
+
+
+
+Discrete type.
+
+.. _doxid-namespacexf_1_1fintech_1_1enums_1af4e28e3dd5545bc5f60584da0bd75b04a2bae5d39b35c774a645a18c80a196c59:
+.. _cid-xf::fintech::enums::discretype::kdtpartialtruncation:
+.. _doxid-namespacexf_1_1fintech_1_1enums_1af4e28e3dd5545bc5f60584da0bd75b04a03e5ae6e3a7fb6603f6f9af11298c168:
+.. _cid-xf::fintech::enums::discretype::kdtfulltruncation:
+.. _doxid-namespacexf_1_1fintech_1_1enums_1af4e28e3dd5545bc5f60584da0bd75b04ae44cc87d0c4854ff0b6b147e6b33bd50:
+.. _cid-xf::fintech::enums::discretype::kdtreflection:
+.. _doxid-namespacexf_1_1fintech_1_1enums_1af4e28e3dd5545bc5f60584da0bd75b04ac2fa90d0bf3843e529ccac6522598de3:
+.. _cid-xf::fintech::enums::discretype::kdtquadraticexponential:
+.. _doxid-namespacexf_1_1fintech_1_1enums_1af4e28e3dd5545bc5f60584da0bd75b04a34dad5a300d97d6d3999e6f07c982cd5:
+.. _cid-xf::fintech::enums::discretype::kdtquadraticexponentialmartingale:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// enum values
+
+	kDTPartialTruncation 
+	kDTFullTruncation 
+	kDTReflection 
+	kDTQuadraticExponential 
+	kDTQuadraticExponentialMartingale 
+

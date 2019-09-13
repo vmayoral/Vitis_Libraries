@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>class xf::fintech::MT_19937 &mdash; XF FinTech Library 0.5 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>class xf::fintech::MT_19937</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rst_L1/class_xf_fintech_MT_19937.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-xf-fintech-mt-19937">
+<span id="cid-xf-fintech-mt-19937"></span><span id="doxid-classxf-1-1fintech-1-1-m-t-19937"></span><span id="index-0"></span><h1>class xf::fintech::MT_19937<a class="headerlink" href="#class-xf-fintech-mt-19937" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;rng.h&gt;</span></pre>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Mersenne Twister to generate uniform random number. <a class="reference internal" href="#details-doxid-classxf-1-1fintech-1-1-m-t-19937"><span class="std std-ref">More…</span></a></p>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-mt-19937-status-setup"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1a4d158bc23f2fe508d92aaa4223f7ef63"></span><span id="cid-xf-fintech-mt-19937-mt-19937-2"></span><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1a7ef9b5de99c027965a99e4ac920c2c2c"></span><span id="cid-xf-fintech-mt-19937-mt-19937"></span><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1a29143619234875622308d3ebc84153e0"></span><span></span><span class="c1">// fields</span>
+
+<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60426da30fc4192cb4f7936b2647c2cd"><span class="std std-ref">W</span></a><span></span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1ab3e7f664a729981c5110150daa3d8567"><span class="std std-ref">N</span></a><span></span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a4eade861e9a8a26d8d80d42cb0e9dd4e"><span class="std std-ref">M</span></a><span></span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a4a19ac34c805aa860d7301ca1ed4708a"><span class="std std-ref">R</span></a><span></span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1ad32b562df36655278c3d97817da71ccb"><span class="std std-ref">U</span></a><span></span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1ae590ee17d10863a84028990dfad680c7"><span class="std std-ref">S</span></a><span></span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a95e8af38c61fe389ac1179407a931122"><span class="std std-ref">T</span></a><span></span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a202eb2719d1534612c06f06bc10cdb6c"><span class="std std-ref">L</span></a><span></span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a6152942fd466fee1c5afe4a05a314e3b"><span class="std std-ref">S_W</span></a><span></span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1abe051a43f4c242f11b5e78026c6b863a"><span class="std std-ref">A_W</span></a><span></span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1acb9122247666f668f87f4307a9c140f0"><span class="std std-ref">N_W</span></a><span></span>
+<span class="n">ap_uint</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60426da30fc4192cb4f7936b2647c2cd"><span class="std std-ref">W</span></a><span></span><span class="o">&gt;</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1acc43b3bf59dd2040faff623fdd9a508f"><span class="std std-ref">mt</span></a><span></span><span class="p">[</span><span class="n">N_W</span><span class="p">]</span>
+<span class="n">ap_uint</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60426da30fc4192cb4f7936b2647c2cd"><span class="std std-ref">W</span></a><span></span><span class="o">&gt;</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a9764636f777251cff2e82329ec68b0d7"><span class="std std-ref">mt_1</span></a><span></span><span class="p">[</span><span class="n">N_W</span><span class="p">]</span>
+<span class="n">ap_uint</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60426da30fc4192cb4f7936b2647c2cd"><span class="std std-ref">W</span></a><span></span><span class="o">&gt;</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a15017101e4bc4a28e31cf8b88374d0ee"><span class="std std-ref">x_k_p_0</span></a><span></span>
+<span class="n">ap_uint</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60426da30fc4192cb4f7936b2647c2cd"><span class="std std-ref">W</span></a><span></span><span class="o">&gt;</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a9c26abde4b2a0902a8c22acf878410e1"><span class="std std-ref">x_k_p_1</span></a><span></span>
+<span class="n">ap_uint</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60426da30fc4192cb4f7936b2647c2cd"><span class="std std-ref">W</span></a><span></span><span class="o">&gt;</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1ab551aba72d1c8363f8d839da58d6f560"><span class="std std-ref">x_k_p_2</span></a><span></span>
+<span class="n">ap_uint</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60426da30fc4192cb4f7936b2647c2cd"><span class="std std-ref">W</span></a><span></span><span class="o">&gt;</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a884312770662010400f174a7d5f66948"><span class="std std-ref">x_k_p_m</span></a><span></span>
+<span class="n">ap_uint</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1abe051a43f4c242f11b5e78026c6b863a"><span class="std std-ref">A_W</span></a><span></span><span class="o">&gt;</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1ae17313a7c2e95a96d29fa2401a183730"><span class="std std-ref">addr_head</span></a><span></span>
+
+<span class="c1">// methods</span>
+
+<span class="kt">void</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a5690260516b75d7147c55d13f228aaf1"><span class="std std-ref">seedInitialization</span></a><span></span> <span class="p">(</span><span class="n">ap_uint</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60426da30fc4192cb4f7936b2647c2cd"><span class="std std-ref">W</span></a><span></span><span class="o">&gt;</span> <span class="n">seed</span><span class="p">)</span>
+<span class="n">MT_19937</span> <span class="p">()</span>
+<span class="n">MT_19937</span> <span class="p">(</span><span class="n">ap_uint</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60426da30fc4192cb4f7936b2647c2cd"><span class="std std-ref">W</span></a><span></span><span class="o">&gt;</span> <span class="n">seed</span><span class="p">)</span>
+<span class="kt">void</span> <span class="n">status_setup</span> <span class="p">(</span><span class="n">ap_uint</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60426da30fc4192cb4f7936b2647c2cd"><span class="std std-ref">W</span></a><span></span><span class="o">&gt;</span> <span class="n">data</span> <span class="p">[</span><span class="n">N</span><span class="p">])</span>
+<span class="n">ap_ufixed</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60426da30fc4192cb4f7936b2647c2cd"><span class="std std-ref">W</span></a><span></span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60f413034ec86c031ea77558c892c58d"><span class="std std-ref">next</span></a><span></span> <span class="p">()</span></pre>
+</div>
+<div class="section" id="detailed-documentation">
+<span id="details-doxid-classxf-1-1fintech-1-1-m-t-19937"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this headline">¶</a></h2>
+<p>Mersenne Twister to generate uniform random number.</p>
+<p>Reference:Mersenne Twister: A 623-Dimensionally Equidistributed Uniform Pseudo-Random Number Generator</p>
+<div class="section" id="fields">
+<h3>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt-19937-w"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1a60426da30fc4192cb4f7936b2647c2cd"></span><span></span><span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">W</span></pre>
+<p>Bit width of element in state vector.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt-19937-n"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1ab3e7f664a729981c5110150daa3d8567"></span><span></span><span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">N</span></pre>
+<p>Number of elements in state vector.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt-19937-m"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1a4eade861e9a8a26d8d80d42cb0e9dd4e"></span><span></span><span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">M</span></pre>
+<p>Bias in state vector to calculate new state element.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt-19937-r"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1a4a19ac34c805aa860d7301ca1ed4708a"></span><span></span><span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">R</span></pre>
+<p>Bitmask for lower R bits.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt-19937-u"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1ad32b562df36655278c3d97817da71ccb"></span><span></span><span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">U</span></pre>
+<p>First right shift length.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt-19937-s"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1ae590ee17d10863a84028990dfad680c7"></span><span></span><span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">S</span></pre>
+<p>First left shift length.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt-19937-t"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1a95e8af38c61fe389ac1179407a931122"></span><span></span><span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">T</span></pre>
+<p>Second left shift length.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt-19937-l"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1a202eb2719d1534612c06f06bc10cdb6c"></span><span></span><span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">L</span></pre>
+<p>Second right shift length.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt-19937-s-w"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1a6152942fd466fee1c5afe4a05a314e3b"></span><span></span><span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">S_W</span></pre>
+<p>Right shift length in seed initilization.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt-19937-a-w"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1abe051a43f4c242f11b5e78026c6b863a"></span><span></span><span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">A_W</span></pre>
+<p>Address width of state vector.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt-19937-n-w"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1acb9122247666f668f87f4307a9c140f0"></span><span></span><span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">N_W</span></pre>
+<p>Use 1024 depth array to hold a 624 state vector.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt-19937-mt"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1acc43b3bf59dd2040faff623fdd9a508f"></span><span></span><span class="n">ap_uint</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60426da30fc4192cb4f7936b2647c2cd"><span class="std std-ref">W</span></a><span></span><span class="o">&gt;</span> <span class="n">mt</span> <span class="p">[</span><span class="n">N_W</span><span class="p">]</span></pre>
+<p>Array to store state vector.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt-19937-mt-1"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1a9764636f777251cff2e82329ec68b0d7"></span><span></span><span class="n">ap_uint</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60426da30fc4192cb4f7936b2647c2cd"><span class="std std-ref">W</span></a><span></span><span class="o">&gt;</span> <span class="n">mt_1</span> <span class="p">[</span><span class="n">N_W</span><span class="p">]</span></pre>
+<p>Duplicate of array mt to solve limited memory port issue.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt-19937-x-k-p-0"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1a15017101e4bc4a28e31cf8b88374d0ee"></span><span></span><span class="n">ap_uint</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60426da30fc4192cb4f7936b2647c2cd"><span class="std std-ref">W</span></a><span></span><span class="o">&gt;</span> <span class="n">x_k_p_0</span></pre>
+<p>Element 0 of state vector.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt-19937-x-k-p-1"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1a9c26abde4b2a0902a8c22acf878410e1"></span><span></span><span class="n">ap_uint</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60426da30fc4192cb4f7936b2647c2cd"><span class="std std-ref">W</span></a><span></span><span class="o">&gt;</span> <span class="n">x_k_p_1</span></pre>
+<p>Element 1 of state vector.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt-19937-x-k-p-2"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1ab551aba72d1c8363f8d839da58d6f560"></span><span></span><span class="n">ap_uint</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60426da30fc4192cb4f7936b2647c2cd"><span class="std std-ref">W</span></a><span></span><span class="o">&gt;</span> <span class="n">x_k_p_2</span></pre>
+<p>Element 2 of state vector.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt-19937-x-k-p-m"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1a884312770662010400f174a7d5f66948"></span><span></span><span class="n">ap_uint</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60426da30fc4192cb4f7936b2647c2cd"><span class="std std-ref">W</span></a><span></span><span class="o">&gt;</span> <span class="n">x_k_p_m</span></pre>
+<p>Element m of state vector.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt-19937-addr-head"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1ae17313a7c2e95a96d29fa2401a183730"></span><span></span><span class="n">ap_uint</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1abe051a43f4c242f11b5e78026c6b863a"><span class="std std-ref">A_W</span></a><span></span><span class="o">&gt;</span> <span class="n">addr_head</span></pre>
+<p>Address of head of state vector in array mt/mt_1.</p>
+</div>
+<div class="section" id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt-19937-seedinitialization"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1a5690260516b75d7147c55d13f228aaf1"></span><span></span><span class="kt">void</span> <span class="n">seedInitialization</span> <span class="p">(</span><span class="n">ap_uint</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60426da30fc4192cb4f7936b2647c2cd"><span class="std std-ref">W</span></a><span></span><span class="o">&gt;</span> <span class="n">seed</span><span class="p">)</span></pre>
+<p>using seed to initialize mt and mt_1</p>
+<p>initialization seed</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt-19937-next"><span id="doxid-classxf-1-1fintech-1-1-m-t-19937-1a60f413034ec86c031ea77558c892c58d"></span><span></span><span class="n">ap_ufixed</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60426da30fc4192cb4f7936b2647c2cd"><span class="std std-ref">W</span></a><span></span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="n">next</span> <span class="p">()</span></pre>
+<p>each call of <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t-19937-1a60f413034ec86c031ea77558c892c58d"><span class="std std-ref">next()</span></a> generate a uniformed distributed random number</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

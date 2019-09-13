@@ -1,0 +1,14 @@
+.. index:: pair: namespace; internal
+.. _doxid-namespaceinternal:
+.. _cid-internal:
+
+namespace internal
+==================
+
+.. toctree::
+	:hidden:
+
+
+
+
+

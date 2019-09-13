@@ -1,0 +1,1571 @@
+.. index:: pair: namespace; internal
+.. _doxid-namespacexf_1_1fintech_1_1internal:
+.. _cid-xf::fintech::internal:
+
+namespace internal
+==================
+
+.. toctree::
+	:hidden:
+
+	struct_xf_fintech_internal_xf_2D_array.rst
+	union_xf_fintech_internal_double_cast_new.rst
+	class_xf_fintech_internal_BSPathGenerator.rst
+	class_xf_fintech_internal_CORRAND.rst
+	class_xf_fintech_internal_CORRAND_2.rst
+	class_xf_fintech_internal_CORRAND_2_Sequence.rst
+	class_xf_fintech_internal_CORRAND_2_Sequence-2.rst
+	class_xf_fintech_internal_CORRAND_2_Sequence-3.rst
+	class_xf_fintech_internal_CapFloorPathPricer.rst
+	class_xf_fintech_internal_GaussUniformSequence.rst
+	class_xf_fintech_internal_HestonPathGenerator.rst
+	class_xf_fintech_internal_HestonPathGenerator-2.rst
+	class_xf_fintech_internal_HestonPathGenerator-3.rst
+	class_xf_fintech_internal_HestonPathGenerator-4.rst
+	class_xf_fintech_internal_HestonPathGenerator-5.rst
+	class_xf_fintech_internal_HestonPathGenerator-6.rst
+	class_xf_fintech_internal_HullWhitePathGen.rst
+	class_xf_fintech_internal_MultiAssetHestonPathGenerator.rst
+	class_xf_fintech_internal_MultiAssetPathPricer.rst
+	class_xf_fintech_internal_MultiAssetPathPricer-2.rst
+	class_xf_fintech_internal_PathPricer.rst
+	class_xf_fintech_internal_PathPricer-2.rst
+	class_xf_fintech_internal_PathPricer-3.rst
+	class_xf_fintech_internal_PathPricer-4.rst
+	class_xf_fintech_internal_PathPricer-5.rst
+	class_xf_fintech_internal_PathPricer-6.rst
+	class_xf_fintech_internal_PathPricer-7.rst
+	class_xf_fintech_internal_PathPricer-8.rst
+	class_xf_fintech_internal_PathPricer-9.rst
+	class_xf_fintech_internal_PathPricer-10.rst
+	class_xf_fintech_internal_PathPricer-11.rst
+	class_xf_fintech_internal_PathPricer-12.rst
+	class_xf_fintech_internal_RNGSequence.rst
+	class_xf_fintech_internal_RNGSequence_2.rst
+	class_xf_fintech_internal_RNGSequence_Heston_QuadraticExponential.rst
+	class_xf_fintech_internal_TimeGrid.rst
+	class_xf_fintech_internal_TreeInstrument.rst
+	class_xf_fintech_internal_TreeInstrument-2.rst
+	class_xf_fintech_internal_TreeInstrument-3.rst
+	class_xf_fintech_internal_TreeInstrument-4.rst
+	class_xf_fintech_internal_TreeInstrument-5.rst
+
+
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a5c2eb8c7097d97d3e5151ab528cfec11:
+.. _cid-xf::fintech::internal::initpara:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a6e45b1ab51d6562ef7185404eb353e34:
+.. _cid-xf::fintech::internal::martixmul:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1ad4e0e2764aa886c1d391c026d9f1521a:
+.. _cid-xf::fintech::internal::merges:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a122443a85f9ef9fb224150e9340a08f0:
+.. _cid-xf::fintech::internal::corrand:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a5ca4681c7f47d8c1076f81520ac5cb38:
+.. _cid-xf::fintech::internal::calclinear:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a5762c04ff4440963f2062eed8093ee01:
+.. _cid-xf::fintech::internal::calculatelinear:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a8214a551f4e402e94f73873dbfad618b:
+.. _cid-xf::fintech::internal::multgenaty:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1afd4ac8ac92e444add8b9b0fd33b314cd:
+.. _cid-xf::fintech::internal::read_merge:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1ab8f0c6102af856004381dffd3234163e:
+.. _cid-xf::fintech::internal::mcamericanenginecalibrate_dataflow:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a00dd44046e6f250577310362805b71d9:
+.. _cid-xf::fintech::internal::submax:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1abf66237c41e5a520794e6b4855e91e00:
+.. _cid-xf::fintech::internal::maxmatrix:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a4e45f94ebeb35d438bb85bd2b682eb10:
+.. _cid-xf::fintech::internal::applyjacobi2x2kjl:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a5ab79ca9c3eef1d7d8ede9344acb538e:
+.. _cid-xf::fintech::internal::applyonmatrix4x4:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a22c1d540782962283fda5d58f66b5cba:
+.. _cid-xf::fintech::internal::applymatrixright:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a753a05f987c37fe41db2b672c5d54936:
+.. _cid-xf::fintech::internal::applymatrixall:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1ae7db82e835b7a0fa0c9b00c82fd9707d:
+.. _cid-xf::fintech::internal::copymatrix:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a61852e12989cc1a20b0a79af3e57cdfa:
+.. _cid-xf::fintech::internal::copymatrix-2:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a8f70bef466f61e70f2f682bcdf27ad75:
+.. _cid-xf::fintech::internal::jacobi_rotation_2x2:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a52e7dba11835ec53a0a36b07993b1e4e:
+.. _cid-xf::fintech::internal::jacobi_rotation_2_sided_2x2:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1af96139554f49364128fe598fe64763d7:
+.. _cid-xf::fintech::internal::jacobi_svd:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a481ebfe7aba20edf0f63a659ae75b892:
+.. _cid-xf::fintech::internal::jacobi_svd< double, 4 >:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1ae9a661a2a2c7cc04aee52c2eafb49b07:
+.. _cid-xf::fintech::internal::divideoperation:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a7283e21cfa0ec16b220a00ff7717429e:
+.. _cid-xf::fintech::internal::addoperation:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a5e5153a1672a20aa21827361519f032d:
+.. _cid-xf::fintech::internal::multoperation:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1ada65006112fb385aa4efdd687894579c:
+.. _cid-xf::fintech::internal::antithetic:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a1ba0780f9da9251dd64b73ff3c9c6e23:
+.. _cid-xf::fintech::internal::accumulator:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a6a3e583e87d839d01dd56b6a2b8202a2:
+.. _cid-xf::fintech::internal::montecarlomodel:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a30c513651e2a90c0b2bb4ffbb788af4f:
+.. _cid-xf::fintech::internal::multiplemontecarlomodel:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a8591336199747a331b1f512a1d4726eb:
+.. _cid-xf::fintech::internal::samplemean:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1acc229506d6784136cdd93df8017f3776:
+.. _cid-xf::fintech::internal::sampleerrorestimate:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1afac498f149dc5aefa3d23d7f28a11f76:
+.. _cid-xf::fintech::internal::initwrap:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1ad7afb44f36b772b8c0837a822f2172f3:
+.. _cid-xf::fintech::internal::_antithetic:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a83cae7dd7ea67480e021e27f243395f9:
+.. _cid-xf::fintech::internal::cumulativenormal:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1ac1830aa0838321a159f6e25b0be5d683:
+.. _cid-xf::fintech::internal::bitstofloat:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1acc61305ec2effca525228292cb2277aa:
+.. _cid-xf::fintech::internal::floattobits:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1ad1a4c2c24f513a0298af5679813ea93a:
+.. _cid-xf::fintech::internal::bitstodouble:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a8b2c86312aa4d0765e1e5453b1ca771c:
+.. _cid-xf::fintech::internal::doubletobits:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a623aefa352c20ba46c19f47a35362773:
+.. _cid-xf::fintech::internal::fptwoadd:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a1c4a64ff7b99c1be1d0eeea8aa03e897:
+.. _cid-xf::fintech::internal::fptwosub:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a2bbe26be184823ebb81415142baa33dc:
+.. _cid-xf::fintech::internal::fptwomul:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1af92e25c018ab0b474f6efdb22686ea50:
+.. _cid-xf::fintech::internal::fpexp:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1afc3abdd1b8c94a2f232b0306f8d79dbe:
+.. _cid-xf::fintech::internal::divide_by_2:
+.. _doxid-namespacexf_1_1fintech_1_1internal_1ac43448f5782853df112520dce1c78ac5:
+.. _cid-xf::fintech::internal::mul_by_2:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// structs
+
+	template <
+	    typename DT,
+	    int N,
+	    int M
+	    >
+	struct :ref:`xf_2D_array<doxid-structxf_1_1fintech_1_1internal_1_1xf__2_d__array>` 
+
+	// unions
+
+	union :ref:`double_cast_new<doxid-unionxf_1_1fintech_1_1internal_1_1double__cast__new>` 
+
+	// classes
+
+	template <
+	    typename DT,
+	    bool StepFirst,
+	    int SampNum,
+	    bool WithAntithetic
+	    >
+	class :ref:`BSPathGenerator<doxid-classxf_1_1fintech_1_1internal_1_1_b_s_path_generator>` 
+
+	template <
+	    typename DT,
+	    int SampleNm,
+	    int ASSETS
+	    >
+	class :ref:`CORRAND<doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d>` 
+
+	template <
+	    typename DT,
+	    int PathNm,
+	    int ASSETS
+	    >
+	class :ref:`CORRAND_2<doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2>` 
+
+	template <
+	    typename DT,
+	    typename RNG,
+	    int SampleNum,
+	    int ASSETS
+	    >
+	class :ref:`CORRAND_2_Sequence <DT, RNG, SampleNum, ASSETS, true><doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2___sequence_3_01_d_t_00_01_r_n_g_00_01_sample3f65050f76c4f3e86aa2de797a41a770>` 
+
+	template <
+	    typename DT,
+	    typename RNG,
+	    int SampleNum,
+	    int ASSETS,
+	    bool Antithetic
+	    >
+	class :ref:`CORRAND_2_Sequence<doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2___sequence>` 
+
+	template <
+	    typename DT,
+	    typename RNG,
+	    int SampleNum,
+	    int ASSETS
+	    >
+	class :ref:`CORRAND_2_Sequence <DT, RNG, SampleNum, ASSETS, false><doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2___sequence_3_01_d_t_00_01_r_n_g_00_01_sample124f6bc6a6a93404ff0ad47ba4111577>` 
+
+	template <
+	    typename DT,
+	    int SampNum
+	    >
+	class :ref:`CapFloorPathPricer<doxid-classxf_1_1fintech_1_1internal_1_1_cap_floor_path_pricer>` 
+
+	template <
+	    typename DT,
+	    typename RNG,
+	    bool WithAntithetic
+	    >
+	class :ref:`GaussUniformSequence<doxid-classxf_1_1fintech_1_1internal_1_1_gauss_uniform_sequence>` 
+
+	template <
+	    typename DT,
+	    int SampNum,
+	    bool WithAntithetic
+	    >
+	class :ref:`HestonPathGenerator <kDTQuadraticExponentialMartingale, DT, SampNum, WithAntithetic><doxid-classxf_1_1fintech_1_1internal_1_1_heston_path_generator_3_01k_d_t_quadratic_exponential_martinge37e41063c893e81f60058bc87aaaa8a>` 
+
+	template <
+	    typename DT,
+	    int SampNum,
+	    bool WithAntithetic
+	    >
+	class :ref:`HestonPathGenerator <kDTReflection, DT, SampNum, WithAntithetic><doxid-classxf_1_1fintech_1_1internal_1_1_heston_path_generator_3_01k_d_t_reflection_00_01_d_t_00_01_sad6279ea1c82cf1e352e0dd5ae33d7d89>` 
+
+	template <
+	    typename DT,
+	    int SampNum,
+	    bool WithAntithetic
+	    >
+	class :ref:`HestonPathGenerator <kDTPartialTruncation, DT, SampNum, WithAntithetic><doxid-classxf_1_1fintech_1_1internal_1_1_heston_path_generator_3_01k_d_t_partial_truncation_00_01_d_t_e2011991d9757d6443cce2317b315b82>` 
+
+	template <
+	    typename DT,
+	    int SampNum,
+	    bool WithAntithetic
+	    >
+	class :ref:`HestonPathGenerator <kDTQuadraticExponential, DT, SampNum, WithAntithetic><doxid-classxf_1_1fintech_1_1internal_1_1_heston_path_generator_3_01k_d_t_quadratic_exponential_00_01_d8eac8e7962c92fefedf58f8a06477809>` 
+
+	template <
+	    typename DT,
+	    int SampNum,
+	    bool WithAntithetic
+	    >
+	class :ref:`HestonPathGenerator <kDTFullTruncation, DT, SampNum, WithAntithetic><doxid-classxf_1_1fintech_1_1internal_1_1_heston_path_generator_3_01k_d_t_full_truncation_00_01_d_t_00_63e00cc59c6f74eb783f50163a6c7a6c>` 
+
+	template <
+	    DiscreType discrT,
+	    typename DT,
+	    int SampNum,
+	    bool WithAntithetic
+	    >
+	class :ref:`HestonPathGenerator<doxid-classxf_1_1fintech_1_1internal_1_1_heston_path_generator>` 
+
+	template <
+	    typename DT,
+	    int SampNum
+	    >
+	class :ref:`HullWhitePathGen<doxid-classxf_1_1fintech_1_1internal_1_1_hull_white_path_gen>` 
+
+	template <
+	    typename DT,
+	    int SampNum,
+	    int ASSETS,
+	    DiscreType discrT
+	    >
+	class :ref:`MultiAssetHestonPathGenerator<doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_heston_path_generator>` 
+
+	template <
+	    OptionStyle style,
+	    typename DT,
+	    int ASSETS,
+	    int SampleNum
+	    >
+	class :ref:`MultiAssetPathPricer<doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_path_pricer>` 
+
+	template <
+	    typename DT,
+	    int ASSETS,
+	    int SampleNum
+	    >
+	class :ref:`MultiAssetPathPricer <European, DT, ASSETS, SampleNum><doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_path_pricer_3_01_european_00_01_d_t_00_01_a_s_s_e_t_s_00_01_sample_num_01_4>` 
+
+	template <
+	    typename DT,
+	    bool StepFirst,
+	    int SampNum,
+	    bool WithAntithetic,
+	    int MaxSteps
+	    >
+	class :ref:`PathPricer <LongstaffSchwartz, DT, StepFirst, SampNum, WithAntithetic, MaxSteps><doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f>` 
+
+	template <
+	    typename DT,
+	    bool StepFirst,
+	    int SampNum,
+	    bool WithAntithetic
+	    >
+	class :ref:`PathPricer <Digital, DT, StepFirst, SampNum, WithAntithetic><doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_digital_00_01_d_t_00_01_step_first_00_01_sam2c52fa89c418be28d81330485c828cab>` 
+
+	template <
+	    typename DT,
+	    bool StepFirst,
+	    int SampNum
+	    >
+	class :ref:`PathPricer <Cliquet, DT, StepFirst, SampNum, false><doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_cliquet_00_01_d_t_00_01_step_first_00_01_samp_num_00_01false_01_4>` 
+
+	template <
+	    typename DT,
+	    bool StepFirst,
+	    int SampNum,
+	    bool WithAntithetic
+	    >
+	class :ref:`PathPricer <European, DT, StepFirst, SampNum, WithAntithetic><doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_european_00_01_d_t_00_01_step_first_00_01_sa69d1d4e2c1a5575d37e0fe9c1177744c>` 
+
+	template <
+	    typename DT,
+	    bool StepFirst,
+	    int SampNum,
+	    bool WithAntithetic
+	    >
+	class :ref:`PathPricer <EuropeanBypass, DT, StepFirst, SampNum, WithAntithetic><doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_european_bypass_00_01_d_t_00_01_step_first_09043c369bf22614c91564bc79e8e1195>` 
+
+	template <
+	    typename DT,
+	    bool StepFirst,
+	    int SampNum,
+	    bool WithAntithetic
+	    >
+	class :ref:`PathPricer <BarrierNoBiased, DT, StepFirst, SampNum, WithAntithetic><doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_barrier_no_biased_00_01_d_t_00_01_step_first0ee9b4294132c1084195d0482f64cc98>` 
+
+	template <
+	    typename DT,
+	    bool StepFirst,
+	    int SampNum,
+	    bool WithAntithetic
+	    >
+	class :ref:`PathPricer <American, DT, StepFirst, SampNum, WithAntithetic><doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_american_00_01_d_t_00_01_step_first_00_01_sa121e2085d6ad9f2a383440709ecb496b>` 
+
+	template <
+	    typename DT,
+	    bool StepFirst,
+	    int SampNum,
+	    bool WithAntithetic
+	    >
+	class :ref:`PathPricer <Asian_GP, DT, StepFirst, SampNum, WithAntithetic><doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_asian___g_p_00_01_d_t_00_01_step_first_00_01db3a9b700f9cd2f595ca54fea0787d00>` 
+
+	template <
+	    typename DT,
+	    bool StepFirst,
+	    int SampNum,
+	    bool WithAntithetic
+	    >
+	class :ref:`PathPricer <BarrierBiased, DT, StepFirst, SampNum, WithAntithetic><doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_barrier_biased_00_01_d_t_00_01_step_first_003a611054cd5fc9652dcb047126841ccc>` 
+
+	template <
+	    OptionStyle style,
+	    typename DT,
+	    bool StepFirst,
+	    int SampNum,
+	    bool WithAntithetic,
+	    int MaxSteps = 1024
+	    >
+	class :ref:`PathPricer<doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer>` 
+
+	template <
+	    typename DT,
+	    bool StepFirst,
+	    int SampNum,
+	    bool WithAntithetic
+	    >
+	class :ref:`PathPricer <Asian_AP, DT, StepFirst, SampNum, WithAntithetic><doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_asian___a_p_00_01_d_t_00_01_step_first_00_01a162ae7027a1fd5d8414218924acf2d2>` 
+
+	template <
+	    typename DT,
+	    bool StepFirst,
+	    int SampNum,
+	    bool WithAntithetic
+	    >
+	class :ref:`PathPricer <Asian_AS, DT, StepFirst, SampNum, WithAntithetic><doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_asian___a_s_00_01_d_t_00_01_step_first_00_018f6552c32ac9c98697db1a4334db3634>` 
+
+	template <
+	    typename DT,
+	    typename RNG
+	    >
+	class :ref:`RNGSequence<doxid-classxf_1_1fintech_1_1internal_1_1_r_n_g_sequence>` 
+
+	template <
+	    typename DT,
+	    typename RNG
+	    >
+	class :ref:`RNGSequence_2<doxid-classxf_1_1fintech_1_1internal_1_1_r_n_g_sequence__2>` 
+
+	template <
+	    typename DT,
+	    typename RNG
+	    >
+	class :ref:`RNGSequence_Heston_QuadraticExponential<doxid-classxf_1_1fintech_1_1internal_1_1_r_n_g_sequence___heston___quadratic_exponential>` 
+
+	template <
+	    typename DT,
+	    int LEN
+	    >
+	class :ref:`TimeGrid<doxid-classxf_1_1fintech_1_1internal_1_1_time_grid>` 
+
+	template <
+	    typename DT,
+	    int LEN2
+	    >
+	class :ref:`TreeInstrument <DT, 1, LEN2><doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument_3_01_d_t_00_011_00_01_l_e_n2_01_4>` 
+
+	template <
+	    typename DT,
+	    int LEN2
+	    >
+	class :ref:`TreeInstrument <DT, 2, LEN2><doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument_3_01_d_t_00_012_00_01_l_e_n2_01_4>` 
+
+	template <
+	    typename DT,
+	    int LEN2
+	    >
+	class :ref:`TreeInstrument <DT, 0, LEN2><doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument_3_01_d_t_00_010_00_01_l_e_n2_01_4>` 
+
+	template <
+	    typename DT,
+	    int IT,
+	    int LEN2
+	    >
+	class :ref:`TreeInstrument<doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument>` 
+
+	template <
+	    typename DT,
+	    int LEN2
+	    >
+	class :ref:`TreeInstrument <DT, 3, LEN2><doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument_3_01_d_t_00_013_00_01_l_e_n2_01_4>` 
+
+	// global variables
+
+	const ap_uint <63> initPara[128]
+
+
+.. FunctionSection
+
+
+
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a628df20c209a12a8feb9d46e4380d962:
+.. _cid-xf::fintech::internal::genata:
+
+GenAtA
+------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    int COEFNM,
+	    int SampNum,
+	    bool StepFirst
+	    >
+	void GenAtA (
+	    ap_uint <16> steps,
+	    DT underlying,
+	    DT strike,
+	    DT invStk,
+	    hls::stream <DT>& priceStrmIn,
+	    hls::stream <DT>& outStrm,
+	    hls::stream <DT> matrixOut [3 *(COEFNM - 1)]
+	    )
+
+generate the AtA from price data
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a2d1c3b2660dbef0e30ba2dfa5ccdac0f:
+.. _cid-xf::fintech::internal::mergebuff:
+
+MergeBuff
+---------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    int COEFNM
+	    >
+	void MergeBuff (
+	    ap_uint <27> steps,
+	    hls::stream <DT> matrixIn [3 *(COEFNM - 1)],
+	    hls::stream <DT>& outStrm
+	    )
+
+accumulate the AtA matrix data to a new AtA and output as stream
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a7d715ea4eb267f5826579ba4c36fce78:
+.. _cid-xf::fintech::internal::montecarlomodel-2:
+
+MonteCarloModel
+---------------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    typename RNG,
+	    typename PathGeneratorT,
+	    typename PathPricerT,
+	    typename RNGSeqT,
+	    int VariateNum,
+	    int SampNum,
+	    int COEFNM
+	    >
+	void MonteCarloModel (
+	    ap_uint <16> steps,
+	    DT underlying,
+	    DT strike,
+	    DT invStk,
+	    RNG rngInst [VariateNum],
+	    PathGeneratorT pathGenInst [1],
+	    PathPricerT pathPriInst [1],
+	    RNGSeqT rngSeqInst [1],
+	    hls::stream <DT>& priceStrm,
+	    hls::stream <DT>& matrixStrm
+	    )
+
+The American engine Monte Carlo Model for calibration. Process 1024 paths (samples) per time step.
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a2e7d39db16b7b298c846f2c367c8884a:
+.. _cid-xf::fintech::internal::multimontecarlomodel:
+
+MultiMonteCarloModel
+--------------------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    typename RNG,
+	    int UN,
+	    typename PathGeneratorT,
+	    typename PathPricerT,
+	    typename RNGSeqT,
+	    int VariateNum,
+	    int SampNum,
+	    int COEFNM
+	    >
+	void MultiMonteCarloModel (
+	    ap_uint <16> steps,
+	    DT underlying,
+	    DT strike,
+	    DT invStk,
+	    RNG rngInst [UN][VariateNum],
+	    PathGeneratorT pathGenInst [UN][1],
+	    PathPricerT pathPriInst [UN][1],
+	    RNGSeqT rngSeqInst [UN][1],
+	    hls::stream <DT> priceOutStrm [UN],
+	    hls::stream <DT> matrixStrm [UN]
+	    )
+
+Monte Carlo with an unroll number UN,.
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a00523a498787fea18b3b7a0dd5ed4b07:
+.. _cid-xf::fintech::internal::write_ddr_price:
+
+write_ddr_price
+---------------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    int UN,
+	    int Size
+	    >
+	void write_ddr_price (
+	    int depth,
+	    int offset,
+	    hls::stream <DT> in_strm [UN],
+	    ap_uint <UN*Size>* Out
+	    )
+
+write the priceMat data to DDR
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a227235a02c83e0c9f97aafd3a84d0c8a:
+.. _cid-xf::fintech::internal::write_ddr_matrix:
+
+write_ddr_matrix
+----------------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    int Size
+	    >
+	void write_ddr_matrix (
+	    int depth,
+	    DT* Buffer,
+	    ap_uint <Size>* Out
+	    )
+
+write matrix data to DDR,
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a7e5f365c3480ed1197c393196ee97a75:
+.. _cid-xf::fintech::internal::mergematrixun:
+
+MergeMatrixUN
+-------------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    int UN
+	    >
+	void MergeMatrixUN (
+	    int depth,
+	    hls::stream <DT> matrixIn [UN],
+	    hls::stream <DT>& outStrm
+	    )
+
+convert the UN streams from MultiMonteCarloModel to
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a2a87ba2c62a2f0c674bffae03a169ec6:
+.. _cid-xf::fintech::internal::mergematrixiter:
+
+MergeMatrixIter
+---------------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <typename DT>
+	void MergeMatrixIter (
+	    int depth,
+	    hls::stream <DT>& matrixIn,
+	    DT* Buffer,
+	    int k
+	    )
+
+save iterations of matdata to Buffer
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a1afeb17efb1b63ced49697fc0fe528e5:
+.. _cid-xf::fintech::internal::mcprocess:
+
+MCProcess
+---------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    typename RNG,
+	    int UN,
+	    typename PathGeneratorT,
+	    typename PathPricerT,
+	    typename RNGSeqT,
+	    int VariateNum,
+	    int SampNum,
+	    int COEFNM,
+	    int SZ
+	    >
+	void MCProcess (
+	    ap_uint <16> steps,
+	    DT underlying,
+	    DT strike,
+	    DT invStk,
+	    int mat_nm,
+	    RNG rngInst [UN][VariateNum],
+	    PathGeneratorT pathGenInst [UN][1],
+	    PathPricerT pathPriInst [UN][1],
+	    RNGSeqT rngSeqInst [UN][1],
+	    DT* Buffer,
+	    int k,
+	    int offset,
+	    ap_uint <UN*8*sizeof (DT)>* pOut
+	    )
+
+Monte Carlo Process.
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a58fd44e1676dc50537fa93c93f3d795d:
+.. _cid-xf::fintech::internal::mciteration:
+
+MCIteration
+-----------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    typename RNG,
+	    int UN,
+	    typename PathGeneratorT,
+	    typename PathPricerT,
+	    typename RNGSeqT,
+	    int VariateNum,
+	    int SampNum,
+	    int COEFNM,
+	    int ITER,
+	    int SZ
+	    >
+	void MCIteration (
+	    ap_uint <16> steps,
+	    DT underlying,
+	    DT strike,
+	    DT invStk,
+	    int mat_nm,
+	    int iter,
+	    RNG rngInst [UN][VariateNum],
+	    PathGeneratorT pathGenInst [UN][1],
+	    PathPricerT pathPriInst [UN][1],
+	    RNGSeqT rngSeqInst [UN][1],
+	    ap_uint <UN*8*sizeof (DT)>* pOut,
+	    ap_uint <8*sizeof (DT)>* mOut,
+	    hls::stream <int>& phase_end
+	    )
+
+Run multiple times of Monte Carlo Process,.
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a887383155ef9f2d8791f8337c9ef867c:
+.. _cid-xf::fintech::internal::genaty:
+
+GenAty
+------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    int COEFNM,
+	    int MAXPATH
+	    >
+	void GenAty (
+	    hls::stream <DT>& pStrm,
+	    ap_uint <16> paths,
+	    DT dF,
+	    DT y [MAXPATH],
+	    DT pBuff [MAXPATH],
+	    DT coef [COEFNM],
+	    DT outAty [COEFNM],
+	    bool optionType,
+	    DT strike,
+	    DT invStk
+	    )
+
+Read samples for external memory.
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1ab381f0dc63e192edb2212896844fd58c:
+.. _cid-xf::fintech::internal::svddec:
+
+SVDDec
+------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    int COEFNM
+	    >
+	void SVDDec (
+	    ap_uint <16> steps,
+	    hls::stream <DT>& inStrm,
+	    hls::stream <DT>& Ustrm,
+	    hls::stream <DT>& Vstrm,
+	    hls::stream <DT>& Sstrm
+	    )
+
+SVD process.
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a51b032d39a89248e35f89c3cd133ebbe:
+.. _cid-xf::fintech::internal::multisvd:
+
+MultiSVD
+--------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    int COEFNM,
+	    int UN
+	    >
+	void MultiSVD (
+	    ap_uint <16> steps,
+	    hls::stream <DT> inStrm [UN],
+	    hls::stream <DT> Ustrm [UN],
+	    hls::stream <DT> Vstrm [UN],
+	    hls::stream <DT> Sstrm [UN]
+	    )
+
+execute SVD in parallel
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1ac73d578bdd9f655106394e6ef91fc474:
+.. _cid-xf::fintech::internal::readin_ddr:
+
+readin_ddr
+----------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    int UN,
+	    int samplesNm
+	    >
+	void readin_ddr (
+	    const int loopNm,
+	    const int steps,
+	    ap_uint <8*sizeof (DT)*UN>* in_data,
+	    hls::stream <ap_uint <8*sizeof (DT)*UN>>& outStrm
+	    )
+
+read in the price mat data from DDR to stream
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a4bac4a01460bee8b05487c9727e9deb2:
+.. _cid-xf::fintech::internal::read_ata:
+
+read_AtA
+--------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    int UN,
+	    int ORDER
+	    >
+	void read_AtA (
+	    int steps,
+	    ap_uint <8*sizeof (DT)>* in_data,
+	    hls::stream <DT>& dout_strm
+	    )
+
+read in matrix B data from DDR
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a03e181c5ec142014b65c9f87fce04d93:
+.. _cid-xf::fintech::internal::splitstrm:
+
+SplitStrm
+---------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    int COEFNM,
+	    int UN
+	    >
+	void SplitStrm (
+	    ap_uint <16> steps,
+	    hls::stream <DT>& inStrm,
+	    hls::stream <DT> outStrm [UN]
+	    )
+
+split the matdata by UN_STEP, prepare the data for svd
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1ad8548be16e9f383acc87c317127a7f2c:
+.. _cid-xf::fintech::internal::mergestrm:
+
+MergeStrm
+---------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    int COEFNM,
+	    int UN
+	    >
+	void MergeStrm (
+	    ap_uint <16> steps,
+	    hls::stream <DT> mUstrm [UN],
+	    hls::stream <DT> mVstrm [UN],
+	    hls::stream <DT> mSstrm [UN],
+	    hls::stream <DT>& Ustrm,
+	    hls::stream <DT>& Vstrm,
+	    hls::stream <DT>& Sstrm
+	    )
+
+convert svd result from UN(UN_STEP) streams to 1 stream
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1abf243bc32467fe6e685d3af84180b802:
+.. _cid-xf::fintech::internal::calcoef:
+
+CalCoef
+-------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    int COEFNM,
+	    int SamplesNm,
+	    int UN
+	    >
+	void CalCoef (
+	    ap_uint <16> steps,
+	    ap_uint <16> paths,
+	    bool optionType,
+	    DT dF,
+	    DT strike,
+	    DT invStk,
+	    hls::stream <DT>& Ustrm,
+	    hls::stream <DT>& Vstrm,
+	    hls::stream <DT>& Sstrm,
+	    hls::stream <DT> pStrm [UN],
+	    hls::stream <DT> coefStrm [COEFNM]
+	    )
+
+calculate the coefficients and output as streams
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1aaea04e9a9366594a874feb4cb985cc07:
+.. _cid-xf::fintech::internal::write_ddr:
+
+write_ddr
+---------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    int UN,
+	    int Size
+	    >
+	void write_ddr (
+	    int depth,
+	    hls::stream <DT> in_strm [UN],
+	    ap_uint <UN*Size>* Out
+	    )
+
+write the coeff data to DDR, the data width is COEFNM*double
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a11317dde8c6cc12b034686f463a33337:
+.. _cid-xf::fintech::internal::read_coef:
+
+read_coef
+---------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    int UN,
+	    int Size,
+	    int COEFNM,
+	    bool SF,
+	    int SN,
+	    int MaxSteps,
+	    bool Antithetic
+	    >
+	void read_coef (
+	    hls::stream <int>& phase_start,
+	    int depth,
+	    ap_uint <COEFNM*Size>* In,
+	    :ref:`PathPricer<doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer>` <LongstaffSchwartz, DT, SF, SN, Antithetic, MaxSteps> pathPriInst [UN][1]
+	    )
+
+Read the coefficients from DDR,.
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1affde14923ea6f52513de6a4613e4a91b:
+.. _cid-xf::fintech::internal::mcamericanenginecalibratecalc:
+
+MCAmericanEngineCalibrateCalc
+-----------------------------
+
+
+Defined in <xf_fintech/early_exercise.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT = double,
+	    int UN = 2,
+	    int UN_STEP = 2
+	    >
+	void MCAmericanEngineCalibrateCalc (
+	    hls::stream <int>& phase_start,
+	    hls::stream <int>& phase_end,
+	    DT timeLength,
+	    DT riskFreeRate,
+	    DT strike,
+	    bool optionType,
+	    ap_uint <8*sizeof (DT)*UN>* priceIn,
+	    ap_uint <8*sizeof (DT)>* matIn,
+	    ap_uint <8*sizeof (DT)*4>* coefOut,
+	    unsigned int calibSamples = 4096,
+	    unsigned int timeSteps = 100
+	    )
+
+American Option Pricing Engine using Monte Carlo Method. Calibrate kernel: this kernel reads the sample price data from external memory and use them to calculate the coefficient.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - DT
+
+        - supported data type including double and float data type, which decides the precision of result, default double-precision data type.
+
+    *
+        - UN
+
+        - number of Monte Carlo Module in parallel (in path dimension), which affects the latency and resources utilization, default 2. [this unroll number should be equal to UN in MCAmericanEnginePresample]
+
+    *
+        - UN_STEP
+
+        - number of Monte Carlo Module in parallel (in time steps dimension), which affects the latency and resources utilization, default 2. [this Unroll is completely resource bounded, unrelated to other params]
+
+    *
+        - phase_start
+
+        - phase start
+
+    *
+        - phase_end
+
+        - phase end
+
+    *
+        - timeLength
+
+        - the time length of constract from start to end.
+
+    *
+        - riskFreeRate
+
+        - risk-free interest rate.
+
+    *
+        - strike
+
+        - the strike price also known as exericse price, which is settled in the contract.
+
+    *
+        - optionType
+
+        - option type. 1: call option, 0: put option.
+
+    *
+        - priceIn
+
+        - the price data, read in from DDR or HBM
+
+    *
+        - matIn
+
+        - the matrix data, read in from DDR or HBM
+
+    *
+        - coefOut
+
+        - the coef data that calculated by this kernel, the data can be stored to DDR or HBM
+
+    *
+        - calibSamples
+
+        - sample numbers that used in calibration, default 4096.
+
+    *
+        - timeSteps
+
+        - the number of discrete steps from 0 to T, T is the expiry time, default 100.
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a6fd2513bfd1151c0b672797f6c6d92e2:
+.. _cid-xf::fintech::internal::linearinterpolation:
+
+linearInterpolation
+-------------------
+
+
+Defined in <xf_fintech/linear_interpolation.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <typename DT>
+	DT linearInterpolation (
+	    DT x,
+	    int len,
+	    DT* arrX,
+	    DT* arrY
+	    )
+
+linearInterpolation 1D linear interpolation
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - DT
+
+        - data type supported include float and double.
+
+    *
+        - x
+
+        - interpolation coordinate x
+
+    *
+        - len
+
+        - array of length
+
+    *
+        - arrX
+
+        - array of coordinate x
+
+    *
+        - arrY
+
+        - array of coordinate y
+
+
+
+.. rubric:: Returns:
+
+return interpolation coordinate y
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a0e055151f295f2766ab5ce55a49a6123:
+.. _cid-xf::fintech::internal::linearinterpolation2d:
+
+linearInterpolation2D
+---------------------
+
+
+Defined in <xf_fintech/linear_interpolation.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <typename DT>
+	DT linearInterpolation2D (
+	    DT x,
+	    DT y,
+	    int xLen,
+	    int yLen,
+	    DT* arrX,
+	    DT* arrY,
+	    DT* arrZ
+	    )
+
+linearInterpolation 2D linear interpolation
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - DT
+
+        - data type supported include float and double.
+
+    *
+        - x
+
+        - interpolation coordinate x
+
+    *
+        - y
+
+        - interpolation coordinate y
+
+    *
+        - xLen
+
+        - array of coordinate x of length
+
+    *
+        - yLen
+
+        - array of coordinate y of length
+
+    *
+        - arrX
+
+        - array of coordinate x
+
+    *
+        - arrY
+
+        - array of coordinate y
+
+    *
+        - arrZ
+
+        - array of coordinate z
+
+
+
+.. rubric:: Returns:
+
+return interpolation coordinate z
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1ae02b0aa592f6fd0b481455aa31928a6f:
+.. _cid-xf::fintech::internal::pentadiag_step:
+
+pentadiag_step
+--------------
+
+
+Defined in <xf_fintech/pentadiag_cr.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename T,
+	    unsigned int P_SIZE
+	    >
+	void pentadiag_step (
+	    T a [P_SIZE],
+	    T b [P_SIZE],
+	    T c [P_SIZE],
+	    T d [P_SIZE],
+	    T e [P_SIZE],
+	    T r [P_SIZE],
+	    T a_out [P_SIZE],
+	    T b_out [P_SIZE],
+	    T c_out [P_SIZE],
+	    T d_out [P_SIZE],
+	    T e_out [P_SIZE],
+	    T r_out [P_SIZE],
+	    int k
+	    )
+
+Executes one step of odd-even elimination. For each row it calculates new diagonal element and right hand side element based on the paper.
+
+Structure of input matrix:
+
+| c d e 0 0 |
+
+| b c d e 0 |
+
+| a b c d e |
+
+| 0 a b c d |
+
+| 0 0 a b c |
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - T
+
+        - data type used in whole function (double by default)
+
+    *
+        - P_SIZE
+
+        - Size of the operating matrix
+
+    *
+        - c
+
+        - - Main diagonal
+
+    *
+        - b
+
+        - - First lower
+
+    *
+        - a
+
+        - - Second lower
+
+    *
+        - d
+
+        - - First upper
+
+    *
+        - e
+
+        - - Second upper
+
+    *
+        - r
+
+        - - Right hand side vector of length n
+
+    *
+        - k
+
+        - - Number of current calculating step. It is used to calculate indexes of diagonals
+
+    *
+        - c_out
+
+        - - Main diagonal output
+
+    *
+        - b_out
+
+        - - First lower output
+
+    *
+        - a_out
+
+        - - Second lower output
+
+    *
+        - d_out
+
+        - - First upper output
+
+    *
+        - e_out
+
+        - - Second upper output
+
+    *
+        - r_out
+
+        - - Right hand side vector of length n
+
+.. _doxid-namespacexf_1_1fintech_1_1internal_1a510219e026d0d1ac0de380072311b46a:
+.. _cid-xf::fintech::internal::trsv_step:
+
+trsv_step
+---------
+
+
+Defined in <xf_fintech/trsv.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    class T,
+	    unsigned int N,
+	    unsigned int NCU
+	    >
+	void trsv_step (
+	    T inlow [N],
+	    T indiag [N],
+	    T inup [N],
+	    T inrhs [N],
+	    T outlow [N],
+	    T outdiag [N],
+	    T outup [N],
+	    T outrhs [N]
+	    )
+
+Executes one step of odd-even elimination.
+
+For each row it calculates new diagonal element and right hand side element.
+
+
+
+.
+
+Please note the algorithm is very sensitive to zeros in main diagonal.
+
+Any zeros in main diagonal will lead to division by zero and algorithm fail.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - T
+
+        - data type used in whole function (double by default)
+
+    *
+        - N
+
+        - Size of the operating matrix
+
+    *
+        - NCU
+
+        - Number of compute units working in parallel
+
+    *
+        - inlow
+
+        - Input vector of lower diagonal
+
+    *
+        - indiag
+
+        - Input vector of main diagonal
+
+    *
+        - inup
+
+        - Input vector of upper diagonal
+
+    *
+        - inrhs
+
+        - Input vector of Right hand side
+
+    *
+        - outlow
+
+        - Output vector of lower diagonal
+
+    *
+        - outdiag
+
+        - Output vector of main diagonal
+
+    *
+        - outup
+
+        - Output vector of upper diagonal
+
+    *
+        - outrhs
+
+        - Output vector of Right hand side
+

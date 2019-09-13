@@ -1,0 +1,38 @@
+.. index:: pair: enum; xf::fintech::BusinessDayConvention
+.. _doxid-namespacexf_1_1fintech_1a304a11c3c5d84c560ecd3a482cc3e9e1:
+.. _cid-xf::fintech::businessdayconvention:
+
+enum xf::fintech::BusinessDayConvention
+=======================================
+
+
+
+
+
+.. _doxid-namespacexf_1_1fintech_1a304a11c3c5d84c560ecd3a482cc3e9e1af9ff8b680a469dfaaf919488e8950c88:
+.. _cid-xf::fintech::businessdayconvention::following:
+.. _doxid-namespacexf_1_1fintech_1a304a11c3c5d84c560ecd3a482cc3e9e1aa6ba193149b429fe4a97a5a3bf330017:
+.. _cid-xf::fintech::businessdayconvention::modifiedfollowing:
+.. _doxid-namespacexf_1_1fintech_1a304a11c3c5d84c560ecd3a482cc3e9e1a1ddabf20125af90729946dcf160080b2:
+.. _cid-xf::fintech::businessdayconvention::preceding:
+.. _doxid-namespacexf_1_1fintech_1a304a11c3c5d84c560ecd3a482cc3e9e1a0e991e93634bf679f8d33c8f8de5b2e8:
+.. _cid-xf::fintech::businessdayconvention::modifiedpreceding:
+.. _doxid-namespacexf_1_1fintech_1a304a11c3c5d84c560ecd3a482cc3e9e1ace5f5cbe80b5aa8e7206a7c5ac3c07f8:
+.. _cid-xf::fintech::businessdayconvention::unadjusted:
+.. _doxid-namespacexf_1_1fintech_1a304a11c3c5d84c560ecd3a482cc3e9e1a0c7f70f19e1550b6791388cd7eec5d88:
+.. _cid-xf::fintech::businessdayconvention::halfmonthmodifiedfollowing:
+.. _doxid-namespacexf_1_1fintech_1a304a11c3c5d84c560ecd3a482cc3e9e1a2746232f6cf33fe7a1a1c9e11ffb6180:
+.. _cid-xf::fintech::businessdayconvention::nearest:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// enum values
+
+	Following 
+	ModifiedFollowing 
+	Preceding 
+	ModifiedPreceding 
+	Unadjusted 
+	HalfMonthModifiedFollowing 
+	Nearest 
+

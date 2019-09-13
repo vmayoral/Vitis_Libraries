@@ -1,0 +1,30 @@
+.. index:: pair: union; xf::fintech::internal::double_cast_new
+.. _doxid-unionxf_1_1fintech_1_1internal_1_1double__cast__new:
+.. _cid-xf::fintech::internal::double_cast_new:
+
+union xf::fintech::internal::double_cast_new
+============================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <jacobi_svd.hpp>
+
+
+
+
+.. _doxid-unionxf_1_1fintech_1_1internal_1_1double__cast__new_1a8c0424a3ec806f7c10bddf71c289f1e1:
+.. _cid-xf::fintech::internal::double_cast_new::d:
+.. _doxid-unionxf_1_1fintech_1_1internal_1_1double__cast__new_1a6e5a2eecdb973cc2e1440a27169bf7b4:
+.. _cid-xf::fintech::internal::double_cast_new::i:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// fields
+
+	double d
+	uint64_t i
+

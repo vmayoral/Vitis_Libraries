@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Internal Design of Closed Form Black-Scholes-Merton &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Internal Design of Closed Form Heston" href="CFHeston.html" />
+    <link rel="prev" title="Internal Design of MCEuropeanHestonGreeksEngine" href="MCEuropeanHestonGreeksEngine.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide_L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../L2.html">L2 Pricing Engine Kernel User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../overview.html">Pricing Engine Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../kernel_design.html">Pricing Engine Kernel Design</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="MCEuropeanEngine.html">Internal Design of MCEuropeanEngine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCEuropeanHestonEngine.html">Internal Design of MCEuropeanHestonEngine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCAsianEngines.html">Internal Design of Asian Option Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCDigitalEngine.html">Internal Design of Digital Option Pricing Engines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCBarrierEngine.html">Internal Design of Barrier Option Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCCliquetEngine.html">Internal Design of Cliquet Option Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCAmericanEngine.html">Internal Design of American Option Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCMultiAssetEuropeanHestonEngine.html">Internal Design of MCMultiAssetEuropeanHestonEngine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCEuropeanHestonGreeksEngine.html">Internal Design of MCEuropeanHestonGreeksEngine</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Internal Design of Closed Form Black-Scholes-Merton</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#design-structure">Design Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cfbsmengine-cf-bsm-h">cfBSMEngine (cf_bsm.h)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bsm-kernel-bsm-kernel-cpp">bsm_kernel (bsm_kernel.cpp)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#theoretical-throughput">Theoretical throughput</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resource-utilization">Resource Utilization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#throughput">Throughput</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CFHeston.html">Internal Design of Closed Form Heston</a></li>
+<li class="toctree-l3"><a class="reference internal" href="M76.html">Internal Design of Closed Form Merton 76</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BTCRR.html">Internal Design of Cox-Ross-Rubinstein Binomial Tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FDHullWhiteEngine.html">Internal Design of Finite-difference Hull-White Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TreeEngine.html">Internal Design of Tree Bermudan Swaption Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CPICapFloorEngine.html">Internal Design of CPI CapFloor Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="InflationCapFloorEngine.html">Internal Design of Inflation CapFloor Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZCDiscountingBondEngine.html">Internal Design of Zero Coupon Bond Engine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kernel_api.html">Pricing Engine Kernel APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kernel_benchmark.html">Pricing Engines Demo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../L2.html">L2 Pricing Engine Kernel User Guide</a> &raquo;</li>
+        
+          <li><a href="../kernel_design.html">Pricing Engine Kernel Design</a> &raquo;</li>
+        
+      <li>Internal Design of Closed Form Black-Scholes-Merton</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide_L2/engines/CFBlackScholesMerton.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="internal-design-of-closed-form-black-scholes-merton">
+<h1>Internal Design of Closed Form Black-Scholes-Merton<a class="headerlink" href="#internal-design-of-closed-form-black-scholes-merton" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Black-Scholes-Merton models the dynamics of a financial market containing derivative investment instruments.</p>
+<p>In the specific case of pricing European Options, the Black-Scholes-Merton (BSM) model has a closed-form solution for the price and the associated ‘Greeks’ which measure the sensitivity of the price to changes in the parameter.  The availability of such a solution means that the results can be found by direct evaluation rather than, for example, a Monte-Carlo simulation or otherwise. This allows for considerably greater throughput and the possibility to produce multiple results on every clock cycle by evaluating the equations in parallel.</p>
+<p>The closed-form equations for the price and associated Greeks can be found online (see for example <a class="reference external" href="https://en.wikipedia.org/wiki/Black-Scholes_model">https://en.wikipedia.org/wiki/Black-Scholes_model</a>) and will not be reproduced here.</p>
+</div>
+<div class="section" id="design-structure">
+<h2>Design Structure<a class="headerlink" href="#design-structure" title="Permalink to this headline">¶</a></h2>
+<p>The heart of the BSM closed-form solver is the solver which implements the closed-form equations.  It takes one set of input parameters (S,V,r,t,K) and a flag to control which type of option (call or put) should be calculated.  It then returns the appropriate price, and the associated Greeks.  This function is mostly standard C++ with the exception of using the HLS maths library in place of the standard C++ library.</p>
+<p>Layered on top of this is the HLS specific kernel wrapper which is responsible for gathering the input data sets (from DDR or HBM for example), converting to parallel streams and passing into the kernel.  It then writes the results back out.  This level is where the HLS #pragmas are used to control the amount of pipelining and unrolling.</p>
+</div>
+<div class="section" id="cfbsmengine-cf-bsm-h">
+<h2>cfBSMEngine (cf_bsm.h)<a class="headerlink" href="#cfbsmengine-cf-bsm-h" title="Permalink to this headline">¶</a></h2>
+<p>This the code for the solver itself and is templated to accept different data types.  With the exception of the use of the HLS math library, it uses standard C++ and allows the code to be easily used in a software only environment by swapping to the standard math namespace.  The code is a very straighforward implementation of the closed form equations above, with some small optimizations for FPGA implementation.  In particular, it is clear from looking at the equations that the price and Greeks contain many of the same elements, so the code is structured to calculate these sub-components once and then reuse them in the subsequent calculations.  This breaks the computation into a number of smaller steps which are computed in parallel where possible.  This improves throughput and reduces resource utilization.  The second optimization is that the calculations which require the Normal CDF (often called Phi) use an approximation instead of the more accurate, but very resource heavy methods used in for example the standard math library.</p>
+</div>
+<div class="section" id="bsm-kernel-bsm-kernel-cpp">
+<h2>bsm_kernel (bsm_kernel.cpp)<a class="headerlink" href="#bsm-kernel-bsm-kernel-cpp" title="Permalink to this headline">¶</a></h2>
+<p>The kernel is the HLS wrapper level which implements the pipelining and parallelization to allow high throughput.  The kernel uses a dataflow methodology with streams to pass the data through the design.</p>
+<p>The top level in and out ports are 512 bit wide, designed to match the whole DDR bus width and allowing vector access.  In the case of float data type (4 bytes), sixteen parameters can be accessed from the bus in parallel.  Each port is connected to its own AXI master with arbitration handled by the AXI switch and DDR controller under the hood.</p>
+<p>These ports are interfaced via functions in bus_interface.h which convert between the wide bus and a [compile time] programmable number of streams.  Once in stream form, each stream is passed to a separate instance of the cfBSMEngine engine.  The cfBSMEngine engine is wrapped inside bsm_stream_wrapper() which handles the stream processing and hand-off to the cfBSMEngine engine.  Here the II and loop unrolling is controlled.  One cfBSMEngine engine is instanced per stream allowing for parallel processing of multiple parameter sets.  Additionally, the engines are in an II=1 loop, so each engine can produce one price and associated Greeks on each cycle.</p>
+</div>
+<div class="section" id="theoretical-throughput">
+<h2>Theoretical throughput<a class="headerlink" href="#theoretical-throughput" title="Permalink to this headline">¶</a></h2>
+<p>The BSM solver demonstration is configured to build one kernel (consisting of some number of cfBSMEngine engines) connected to a single DDR bank.  This particular design is bandwidth constrained, so the number of usable engines can be determined by considering the data requirements as follows: one single cfBSMEngine instance requires 5 input parameters and returns 6 values (price and Greeks) for a total of 11 float values (44 bytes) transferred every clock cycle.  At 200MHz for example, this requires a data bandwidth of 200e6 * 44 = 8.8GB/s.  The theoretical bandwith of a single DDR bank as used in the U200 is 19.2 GB/s so two cfBSMEngine engines in parallel could achieve 17.6GB/s at perfect utilization.  Three engines would exceed the capabilities of one DDR, as would two engines and a higher FMAX, so a two cfBSMEngine engine design is the configuration selected for the demonstration design.  In practice of course, it will not be possible to achieve the theoretical maximum due to limitations in the AXI interconnect, DDR controller, access patterns and so on.</p>
+</div>
+<div class="section" id="resource-utilization">
+<h2>Resource Utilization<a class="headerlink" href="#resource-utilization" title="Permalink to this headline">¶</a></h2>
+<p>The hardware resources are listed in <a class="reference internal" href="#tab1cfbsm"><span class="std std-numref">Table 4</span></a>.  This is for the demonstration as configured by default (two cfBSMEngine engines) achieving a 300 MHz clock rate.</p>
+<span id="tab1cfbsm"></span><table border="1" class="docutils align-center" id="id1">
+<caption><span class="caption-number">Table 4 </span><span class="caption-text">Hardware resources for single kernel with two parallel cfBSMEngine engines.</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="28%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="18%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Engines</td>
+<td>BRAM</td>
+<td>DSP</td>
+<td>Register</td>
+<td>LUT</td>
+<td>Latency</td>
+<td>clock period(ns)</td>
+</tr>
+<tr class="row-even"><td>bsm_kernel</td>
+<td>374</td>
+<td>520</td>
+<td>101830</td>
+<td>80272</td>
+<td>334</td>
+<td>3.333</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="throughput">
+<h2>Throughput<a class="headerlink" href="#throughput" title="Permalink to this headline">¶</a></h2>
+<p>The hardware implementation, running on the U200 displays the kernel throughput (this is the kernel execution time but not the host-&gt;device and device-&gt;host copies of the data).  A large data set of over 4 million parameters is used to overcome any initial pipeline latency and fully occupy the device buffers.</p>
+<blockquote>
+<div>[bash]$ ./bsm_test ./xclbin/bsm_kernel.hw.u200.xclbin 4194304</div></blockquote>
+<p>This achieves around 203 million options per second, which is approximately 8.9GB/s of data transferred.  This is about half of the theoretical DDR bandwith, but around 80% of that achieved by the ‘xbutil validate’ DDR bandwidth test.  This can be taken as a more realistic target as it includes any platform overhead which is also incurred in the BSM solver.</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CFHeston.html" class="btn btn-neutral float-right" title="Internal Design of Closed Form Heston" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MCEuropeanHestonGreeksEngine.html" class="btn btn-neutral" title="Internal Design of MCEuropeanHestonGreeksEngine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
