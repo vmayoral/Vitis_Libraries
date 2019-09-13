@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>namespace internal &mdash; XF Security Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> XF Security Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/hw_guide.html">L1 Module User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/result.html">Benchmark of AES256 Encryption/Decryption in CBC Mode</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XF Security Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>namespace internal</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rst_L1/namespace_xf_security_internal.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="namespace-internal">
+<span id="cid-xf-security-internal"></span><span id="doxid-namespacexf-1-1security-1-1internal"></span><span id="index-0"></span><h1>namespace internal<a class="headerlink" href="#namespace-internal" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-security-internal-keyscheduleoriginal">
+<span id="doxid-namespacexf-1-1security-1-1internal-1a7f3b947579038787d0b257368f7305c6"></span><span id="cid-xf-security-internal-keyindexschedule"></span><span id="doxid-namespacexf-1-1security-1-1internal-1af9c374a862fcddd2fa2e8ed0359ff8e1"></span><span id="cid-xf-security-internal-process"></span><span id="doxid-namespacexf-1-1security-1-1internal-1af9b4876f159ad444b1099ce425916480"></span><span id="cid-xf-security-internal-finalperm"></span><span id="doxid-namespacexf-1-1security-1-1internal-1a8e2b5924706b3291abae76e115258f1f"></span><span id="cid-xf-security-internal-initperm"></span><span id="doxid-namespacexf-1-1security-1-1internal-1a342bfffc8e0d9e411bdd54e1d79f20fd"></span><span id="cid-xf-security-internal-f"></span><span id="doxid-namespacexf-1-1security-1-1internal-1a2c79ef2e09d2ce329aa13765737f66f0"></span><span id="cid-xf-security-internal-perm"></span><span id="doxid-namespacexf-1-1security-1-1internal-1a302825b34cf28fedf9c15113370bbf52"></span><span id="cid-xf-security-internal-substitute"></span><span id="doxid-namespacexf-1-1security-1-1internal-1abd21d4a2f60410fb011255f136ff520b"></span><span id="cid-xf-security-internal-extend"></span><span id="doxid-namespacexf-1-1security-1-1internal-1a7990d98e33815b92702af7564de082d2"></span><span id="cid-xf-security-internal-getsubkey"></span><span id="doxid-namespacexf-1-1security-1-1internal-1a2c6a8ee5a0b2eded1c34f373451e2cf7"></span><span id="cid-xf-security-internal-leftrotateshift"></span><span id="doxid-namespacexf-1-1security-1-1internal-1a3b15fc24cd072345beefcfb52e015fc8"></span><span id="cid-xf-security-internal-getsubkeyindex"></span><span id="doxid-namespacexf-1-1security-1-1internal-1a034fdee07e4ff7ab18910949529df9da"></span><span id="cid-xf-security-internal-leftrotateshiftarray"></span><span id="doxid-namespacexf-1-1security-1-1internal-1a7e12c265157d35763e78e5ebbea23358"></span><span id="cid-xf-security-internal-initsubkeyindex"></span><span id="doxid-namespacexf-1-1security-1-1internal-1a3e89234f159cd663ae70aebfbe268fe9"></span><span id="cid-xf-security-internal-initsubkeycd"></span><span id="doxid-namespacexf-1-1security-1-1internal-1ace786c0c4252b6c2302970961c48c0bf"></span><span id="cid-xf-security-internal-convert"></span><span id="doxid-namespacexf-1-1security-1-1internal-1aa47565a8ef7fa4208200cc4a3812374b"></span><span id="cid-xf-security-internal-convertendian"></span><span id="doxid-namespacexf-1-1security-1-1internal-1ab7fdb87f4700c36ad9c2d9a4968f912a"></span><span id="cid-xf-security-internal-printarray"></span><span id="doxid-namespacexf-1-1security-1-1internal-1a3fc08762026284b9b07c50ae29a97814"></span><span id="cid-xf-security-internal-print-2"></span><span id="doxid-namespacexf-1-1security-1-1internal-1a59bd10fdfc50eec51e07152e9e45342e"></span><span id="cid-xf-security-internal-print"></span><span id="doxid-namespacexf-1-1security-1-1internal-1ae7f958e343b6b4569a54b40f64b2ec73"></span><span id="cid-xf-security-internal-subkeyindex"></span><span id="doxid-namespacexf-1-1security-1-1internal-1ae6d8c7068b7a9e91f171e850030261e3"></span><span id="cid-xf-security-internal-pc2map"></span><span id="doxid-namespacexf-1-1security-1-1internal-1a618f8ee526aaf779856dd72b19c4cea5"></span><span id="cid-xf-security-internal-pcmapd"></span><span id="doxid-namespacexf-1-1security-1-1internal-1a7f5887a3851ff642c737a07a0c7c8b3b"></span><span id="cid-xf-security-internal-pcmapc"></span><span id="doxid-namespacexf-1-1security-1-1internal-1aafee4f536f80ea933ef27c2cf228d4d5"></span><span id="cid-xf-security-internal-fpermmap"></span><span id="doxid-namespacexf-1-1security-1-1internal-1a480b0b2a8ca5c5dca9d7908c22b24c9f"></span><span id="cid-xf-security-internal-sp"></span><span id="doxid-namespacexf-1-1security-1-1internal-1a4a70a89514e3b4b1071e47643926b4bc"></span><span id="cid-xf-security-internal-extmap"></span><span id="doxid-namespacexf-1-1security-1-1internal-1a22d6c13d06629aa99cf78c3dfe802084"></span><span id="cid-xf-security-internal-ipermmap"></span><span id="doxid-namespacexf-1-1security-1-1internal-1a9b3e7abd47c20704dfe70e06a0219e4a"></span><span id="cid-xf-security-internal-permmap"></span><span id="doxid-namespacexf-1-1security-1-1internal-1aa207faaaefd24fcf1dbeb8027b040ea1"></span><span></span><span class="c1">// global variables</span>
+
+<span class="k">const</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">PermMap</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span>
+<span class="k">const</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">IPermMap</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span>
+<span class="k">const</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">ExtMap</span><span class="p">[</span><span class="mi">48</span><span class="p">]</span>
+<span class="k">const</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">4</span><span class="o">&gt;</span> <span class="n">SP</span><span class="p">[</span><span class="mi">8</span><span class="p">][</span><span class="mi">64</span><span class="p">]</span>
+<span class="k">const</span> <span class="n">ap_int</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">FPermMap</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span>
+<span class="k">const</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">PCMapC</span><span class="p">[</span><span class="mi">28</span><span class="p">]</span>
+<span class="k">const</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">PCMapD</span><span class="p">[</span><span class="mi">28</span><span class="p">]</span>
+<span class="k">const</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">PC2Map</span><span class="p">[</span><span class="mi">48</span><span class="p">]</span>
+<span class="k">const</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">subkeyIndex</span><span class="p">[</span><span class="mi">16</span><span class="p">][</span><span class="mi">48</span><span class="p">]</span>
+</pre>
+<div class="section" id="aesencrypt">
+<span id="cid-xf-security-internal-aesencrypt"></span><span id="doxid-namespacexf-1-1security-1-1internal-1a576c552d09e6524457e08ba481d40236"></span><h2>aesEncrypt<a class="headerlink" href="#aesencrypt" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/aes.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">W</span><span class="o">&gt;</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="n">aesEncrypt</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;</span> <span class="n">plaintext</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">W</span><span class="o">&gt;</span> <span class="n">cipherkey</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&amp;</span> <span class="n">ciphertext</span>
+    <span class="p">)</span>
+</pre>
+<p>aesEncrypt is the basic function for ciphering one block with one cipher key</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>W</td>
+<td>cipher key width</td>
+</tr>
+<tr class="row-even"><td>plaintext</td>
+<td>input one word plain text to be encrypted, 128 bits.</td>
+</tr>
+<tr class="row-odd"><td>cipherkey</td>
+<td>input cipher key, W bits.</td>
+</tr>
+<tr class="row-even"><td>ciphertext</td>
+<td>output one word encrypted text, 128 bit.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="aesdecrypt">
+<span id="cid-xf-security-internal-aesdecrypt"></span><span id="doxid-namespacexf-1-1security-1-1internal-1a964318b2374b08bbd23038ee9e5b1fe3"></span><h2>aesDecrypt<a class="headerlink" href="#aesdecrypt" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/aes.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">W</span><span class="o">&gt;</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="n">aesDecrypt</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;</span> <span class="n">ciphertext</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">W</span><span class="o">&gt;</span> <span class="n">cipherkey</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&amp;</span> <span class="n">plaintext</span>
+    <span class="p">)</span>
+</pre>
+<p>aesDecrypt is the basic function for decrypting one block with one cipher key</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>W</td>
+<td>cipher key width</td>
+</tr>
+<tr class="row-even"><td>ciphertext</td>
+<td>input one word cipher text to be decrypted, 128 bits.</td>
+</tr>
+<tr class="row-odd"><td>plainkey</td>
+<td>input plain key, W bits.</td>
+</tr>
+<tr class="row-even"><td>plaintext</td>
+<td>output one word encrypted text, 128 bit.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="keyschedule">
+<span id="cid-xf-security-internal-keyschedule"></span><span id="doxid-namespacexf-1-1security-1-1internal-1abafad92b08745206ea244df38e0dd1bf"></span><h2>keySchedule<a class="headerlink" href="#keyschedule" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/des.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">keySchedule</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;</span> <span class="n">key</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">48</span><span class="o">&gt;</span> <span class="n">subkeys</span> <span class="p">[</span><span class="mi">16</span><span class="p">]</span>
+    <span class="p">)</span>
+</pre>
+<p>keySchedule is to schedule subkeys used in DES and 3DES</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>key</td>
+<td>input original key, 64 bits.</td>
+</tr>
+<tr class="row-even"><td>subkeys</td>
+<td>output subkeys in encryption or decryption.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

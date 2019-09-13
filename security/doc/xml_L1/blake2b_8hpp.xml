@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="blake2b_8hpp" kind="file">
+    <compoundname>blake2b.hpp</compoundname>
+    <includes local="no">ap_int.h</includes>
+    <includes local="no">hls_stream.h</includes>
+    <includes local="no">iostream</includes>
+    <incdepgraph>
+      <node id="17">
+        <label>/wrk/xsjhdnobkup4/tuol/benchmark_data/xf_security/L1/include/xf_security/blake2b.hpp</label>
+        <link refid="blake2b.hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>hls_stream.h</label>
+      </node>
+      <node id="18">
+        <label>ap_int.h</label>
+      </node>
+      <node id="20">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structxf_1_1security_1_1details_1_1block_type" prot="public">xf::security::details::blockType</innerclass>
+    <innernamespace refid="namespacexf">xf</innernamespace>
+    <innernamespace refid="namespacexf_1_1security">xf::security</innernamespace>
+    <innernamespace refid="namespacexf_1_1security_1_1details">xf::security::details</innernamespace>
+    <briefdescription>
+<para>header file for BLAKE2B related functions, including mixing, compression, padding, and computing functions. This file is part of XF Security Library. </para>    </briefdescription>
+    <detaileddescription>
+<para>The algorithm takes a message and a key of arbitrary length (0 &lt;= message length &lt;= 2^128 bytes, 0 &lt;= key length &lt;= 64 bytes) as its input, and produces a specified length (1 &lt;= output length &lt;= 64 bytes) digest". Notice that the key is optional to be added to the hash process, you can get an unkeyed hashing by simply setting the key length to zero. A special case is that both key and message length are set to zero, which means an unkeyed hashing with an empty message will be executed. </para>    </detaileddescription>
+    <location file="/wrk/xsjhdnobkup4/tuol/benchmark_data/xf_security/L1/include/xf_security/blake2b.hpp"/>
+  </compounddef>
+</doxygen>

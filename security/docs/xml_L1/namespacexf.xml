@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="namespacexf" kind="namespace">
+    <compoundname>xf</compoundname>
+    <innernamespace refid="namespacexf_1_1security">xf::security</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/aes.hpp" line="33" column="1"/>
+  </compounddef>
+</doxygen>

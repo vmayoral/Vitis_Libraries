@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="asymmetric_8hpp" kind="file">
+    <compoundname>asymmetric.hpp</compoundname>
+    <includes local="no">ap_int.h</includes>
+    <incdepgraph>
+      <node id="14">
+        <label>/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/asymmetric.hpp</label>
+        <link refid="asymmetric.hpp"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>ap_int.h</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacexf">xf</innernamespace>
+    <innernamespace refid="namespacexf_1_1security">xf::security</innernamespace>
+    <innernamespace refid="namespacexf_1_1security_1_1details">xf::security::details</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="asymmetric_8hpp_1ad9653c591fbd864b038c036f0af70311" prot="public" static="no">
+        <name>AP_INT_MAX_W</name>
+        <initializer>8192</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/asymmetric.hpp" line="20" column="9" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/asymmetric.hpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/asymmetric.hpp"/>
+  </compounddef>
+</doxygen>

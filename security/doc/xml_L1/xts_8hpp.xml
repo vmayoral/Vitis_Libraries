@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="xts_8hpp" kind="file">
+    <compoundname>xts.hpp</compoundname>
+    <includes local="no">ap_int.h</includes>
+    <includes local="no">hls_stream.h</includes>
+    <includes refid="aes_8hpp" local="yes">aes.hpp</includes>
+    <includes local="no">iostream</includes>
+    <incdepgraph>
+      <node id="152">
+        <label>hls_stream.h</label>
+      </node>
+      <node id="153">
+        <label>aes.hpp</label>
+        <link refid="aes_8hpp"/>
+        <childnode refid="151" relation="include">
+        </childnode>
+        <childnode refid="152" relation="include">
+        </childnode>
+        <childnode refid="154" relation="include">
+        </childnode>
+      </node>
+      <node id="151">
+        <label>ap_int.h</label>
+      </node>
+      <node id="150">
+        <label>/wrk/xsjhdnobkup4/tuol/benchmark_data/xf_security/L1/include/xf_security/xts.hpp</label>
+        <link refid="xts.hpp"/>
+        <childnode refid="151" relation="include">
+        </childnode>
+        <childnode refid="152" relation="include">
+        </childnode>
+        <childnode refid="153" relation="include">
+        </childnode>
+        <childnode refid="154" relation="include">
+        </childnode>
+      </node>
+      <node id="154">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacexf">xf</innernamespace>
+    <innernamespace refid="namespacexf_1_1security">xf::security</innernamespace>
+    <innernamespace refid="namespacexf_1_1security_1_1details">xf::security::details</innernamespace>
+    <briefdescription>
+<para>header file for XEX-based tweaked-codebook mode with ciphertext stealing (XTS) block cipher mode of operation. This file is part of XF Security Library. </para>    </briefdescription>
+    <detaileddescription>
+<para>Containing XTS mode with AES-128/256. There is no loop-carried dependency in both encryption and decryption parts of XTS mode. </para>    </detaileddescription>
+    <location file="/wrk/xsjhdnobkup4/tuol/benchmark_data/xf_security/L1/include/xf_security/xts.hpp"/>
+  </compounddef>
+</doxygen>

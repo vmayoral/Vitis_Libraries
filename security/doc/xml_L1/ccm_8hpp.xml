@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="ccm_8hpp" kind="file">
+    <compoundname>ccm.hpp</compoundname>
+    <includes local="no">ap_int.h</includes>
+    <includes local="no">hls_stream.h</includes>
+    <includes refid="aes_8hpp" local="yes">aes.hpp</includes>
+    <includes local="no">iostream</includes>
+    <incdepgraph>
+      <node id="32">
+        <label>hls_stream.h</label>
+      </node>
+      <node id="33">
+        <label>aes.hpp</label>
+        <link refid="aes_8hpp"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>ap_int.h</label>
+      </node>
+      <node id="34">
+        <label>iostream</label>
+      </node>
+      <node id="30">
+        <label>/wrk/xsjhdnobkup4/tuol/benchmark_data/xf_security/L1/include/xf_security/ccm.hpp</label>
+        <link refid="ccm.hpp"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacexf">xf</innernamespace>
+    <innernamespace refid="namespacexf_1_1security">xf::security</innernamespace>
+    <innernamespace refid="namespacexf_1_1security_1_1details">xf::security::details</innernamespace>
+    <briefdescription>
+<para>header file for Counter with Cipher Block Chaining-Message Authentication Code (CCM) block cipher mode of operation. This file is part of XF Security Library. </para>    </briefdescription>
+    <detaileddescription>
+<para>Containing CCM mode with AES-128/192/256. CCM = CTR + CBC-MAC. Please be noticed that the counter block generation process of CCM is quite different from the original CTR mode. </para>    </detaileddescription>
+    <location file="/wrk/xsjhdnobkup4/tuol/benchmark_data/xf_security/L1/include/xf_security/ccm.hpp"/>
+  </compounddef>
+</doxygen>

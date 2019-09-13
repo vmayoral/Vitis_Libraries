@@ -1,0 +1,818 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="namespacexf_1_1security_1_1internal" kind="namespace">
+    <compoundname>xf::security::internal</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacexf_1_1security_1_1internal_1aa207faaaefd24fcf1dbeb8027b040ea1" prot="public" static="no" mutable="no">
+        <type>const ap_uint&lt; 8 &gt;</type>
+        <definition>const ap_uint&lt;8&gt; xf::security::internal::PermMap[64]</definition>
+        <argsstring>[64]</argsstring>
+        <name>PermMap</name>
+        <initializer>= {58, 50, 42, 34, 26, 18, 10, 2,  60, 52, 44, 36, 28, 20, 12, 4,  62, 54, 46, 38, 30, 22,
+                                14, 6,  64, 56, 48, 40, 32, 24, 16, 8,  57, 49, 41, 33, 25, 17, 9,  1,  59, 51, 43, 35,
+                                27, 19, 11, 3,  61, 53, 45, 37, 29, 21, 13, 5,  63, 55, 47, 39, 31, 23, 15, 7}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="82" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacexf_1_1security_1_1internal_1a9b3e7abd47c20704dfe70e06a0219e4a" prot="public" static="no" mutable="no">
+        <type>const ap_uint&lt; 8 &gt;</type>
+        <definition>const ap_uint&lt;8&gt; xf::security::internal::IPermMap[64]</definition>
+        <argsstring>[64]</argsstring>
+        <name>IPermMap</name>
+        <initializer>= {40, 8,  48, 16, 56, 24, 64, 32, 39, 7,  47, 15, 55, 23, 63, 31, 38, 6,  46, 14, 54, 22,
+                                 62, 30, 37, 5,  45, 13, 53, 21, 61, 29, 36, 4,  44, 12, 52, 20, 60, 28, 35, 3,  43, 11,
+                                 51, 19, 59, 27, 34, 2,  42, 10, 50, 18, 58, 26, 33, 1,  41, 9,  49, 17, 57, 25}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="87" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacexf_1_1security_1_1internal_1a22d6c13d06629aa99cf78c3dfe802084" prot="public" static="no" mutable="no">
+        <type>const ap_uint&lt; 8 &gt;</type>
+        <definition>const ap_uint&lt;8&gt; xf::security::internal::ExtMap[48]</definition>
+        <argsstring>[48]</argsstring>
+        <name>ExtMap</name>
+        <initializer>= {32, 1,  2,  3,  4,  5,  4,  5,  6,  7,  8,  9,  8,  9,  10, 11,
+                               12, 13, 12, 13, 14, 15, 16, 17, 16, 17, 18, 19, 20, 21, 20, 21,
+                               22, 23, 24, 25, 24, 25, 26, 27, 28, 29, 28, 29, 30, 31, 32, 1}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="91" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacexf_1_1security_1_1internal_1a4a70a89514e3b4b1071e47643926b4bc" prot="public" static="no" mutable="no">
+        <type>const ap_uint&lt; 4 &gt;</type>
+        <definition>const ap_uint&lt;4&gt; xf::security::internal::SP[8][64]</definition>
+        <argsstring>[8][64]</argsstring>
+        <name>SP</name>
+        <initializer>= {
+    {14, 4,  13, 1, 2,  15, 11, 8, 3, 10, 6, 12, 5,  9,  0,  7,  0,  15, 7,  4,  14, 2,
+     13, 1,  10, 6, 12, 11, 9,  5, 3, 8,  4, 1,  14, 8,  13, 6,  2,  11, 15, 12, 9,  7,
+     3,  10, 5,  0, 15, 12, 8,  2, 4, 9,  1, 7,  5,  11, 3,  14, 10, 0,  6,  13},
+    {15, 1,  8, 14, 6,  11, 3,  4, 9, 7, 2,  13, 12, 0, 5, 10, 3,  13, 4,  7, 15, 2,  8, 14, 12, 0, 1, 10, 6, 9, 11, 5,
+     0,  14, 7, 11, 10, 4,  13, 1, 5, 8, 12, 6,  9,  3, 2, 15, 13, 8,  10, 1, 3,  15, 4, 2,  11, 6, 7, 12, 0, 5, 14, 9},
+    {10, 0,  9,  14, 6, 3,  15, 5,  1,  13, 12, 7, 11, 4,  2,  8,  13, 7, 0,  9, 3, 4,
+     6,  10, 2,  8,  5, 14, 12, 11, 15, 1,  13, 6, 4,  9,  8,  15, 3,  0, 11, 1, 2, 12,
+     5,  10, 14, 7,  1, 10, 13, 0,  6,  9,  8,  7, 4,  15, 14, 3,  11, 5, 2,  12},
+    {7, 13, 14, 3, 0, 6,  9, 10, 1,  2, 8,  5, 11, 12, 4,  15, 13, 8,  11, 5, 6, 15,
+     0, 3,  4,  7, 2, 12, 1, 10, 14, 9, 10, 6, 9,  0,  12, 11, 7,  13, 15, 1, 3, 14,
+     5, 2,  8,  4, 3, 15, 0, 6,  10, 1, 13, 8, 9,  4,  5,  11, 12, 7,  2,  14},
+    {2,  12, 4, 1,  7,  10, 11, 6, 8, 5,  3, 15, 13, 0,  14, 9,  14, 11, 2,  12, 4,  7,
+     13, 1,  5, 0,  15, 10, 3,  9, 8, 6,  4, 2,  1,  11, 10, 13, 7,  8,  15, 9,  12, 5,
+     6,  3,  0, 14, 11, 8,  12, 7, 1, 14, 2, 13, 6,  15, 0,  9,  10, 4,  5,  3},
+    {12, 1,  10, 15, 9,  2,  6, 8,  0, 13, 3,  4,  14, 7,  5, 11, 10, 15, 4, 2, 7, 12,
+     9,  5,  6,  1,  13, 14, 0, 11, 3, 8,  9,  14, 15, 5,  2, 8,  12, 3,  7, 0, 4, 10,
+     1,  13, 11, 6,  4,  3,  2, 12, 9, 5,  15, 10, 11, 14, 1, 7,  6,  0,  8, 13},
+    {4, 11, 2,  14, 15, 0, 8, 13, 3,  12, 9, 7, 5, 10, 6, 1, 13, 0,  11, 7, 4, 9, 1,  10, 14, 3, 5, 12, 2,  15, 8, 6,
+     1, 4,  11, 13, 12, 3, 7, 14, 10, 15, 6, 8, 0, 5,  9, 2, 6,  11, 13, 8, 1, 4, 10, 7,  9,  5, 0, 15, 14, 2,  3, 12},
+    {13, 2, 8, 4, 6,  15, 11, 1, 10, 9,  3,  14, 5, 0, 12, 7, 1, 15, 13, 8, 10, 3, 7,  4,  12, 5, 6, 11, 0, 14, 9, 2, 7,
+     11, 4, 1, 9, 12, 14, 2,  0, 6,  10, 13, 15, 3, 5, 8,  2, 1, 14, 7,  4, 10, 8, 13, 15, 12, 9, 0, 3,  5, 6,  11}}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="95" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacexf_1_1security_1_1internal_1a480b0b2a8ca5c5dca9d7908c22b24c9f" prot="public" static="no" mutable="no">
+        <type>const ap_int&lt; 8 &gt;</type>
+        <definition>const ap_int&lt;8&gt; xf::security::internal::FPermMap[32]</definition>
+        <argsstring>[32]</argsstring>
+        <name>FPermMap</name>
+        <initializer>= {16, 7, 20, 21, 29, 12, 28, 17, 1,  15, 23, 26, 5,  18, 31, 10,
+                                2,  8, 24, 14, 32, 27, 3,  9,  19, 13, 30, 6,  22, 11, 4,  25}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="118" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacexf_1_1security_1_1internal_1aafee4f536f80ea933ef27c2cf228d4d5" prot="public" static="no" mutable="no">
+        <type>const ap_uint&lt; 8 &gt;</type>
+        <definition>const ap_uint&lt;8&gt; xf::security::internal::PCMapC[28]</definition>
+        <argsstring>[28]</argsstring>
+        <name>PCMapC</name>
+        <initializer>= {57, 49, 41, 33, 25, 17, 9,  1,  58, 50, 42, 34, 26, 18,
+                               10, 2,  59, 51, 43, 35, 27, 19, 11, 3,  60, 52, 44, 36}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="121" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacexf_1_1security_1_1internal_1a7f5887a3851ff642c737a07a0c7c8b3b" prot="public" static="no" mutable="no">
+        <type>const ap_uint&lt; 8 &gt;</type>
+        <definition>const ap_uint&lt;8&gt; xf::security::internal::PCMapD[28]</definition>
+        <argsstring>[28]</argsstring>
+        <name>PCMapD</name>
+        <initializer>= {63, 55, 47, 39, 31, 23, 15, 7,  62, 54, 46, 38, 30, 22,
+                               14, 6,  61, 53, 45, 37, 29, 21, 13, 5,  28, 20, 12, 4}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="124" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacexf_1_1security_1_1internal_1a618f8ee526aaf779856dd72b19c4cea5" prot="public" static="no" mutable="no">
+        <type>const ap_uint&lt; 8 &gt;</type>
+        <definition>const ap_uint&lt;8&gt; xf::security::internal::PC2Map[48]</definition>
+        <argsstring>[48]</argsstring>
+        <name>PC2Map</name>
+        <initializer>= {14, 17, 11, 24, 1,  5,  3,  28, 15, 6,  21, 10, 23, 19, 12, 4,
+                               26, 8,  16, 7,  27, 20, 13, 2,  41, 52, 31, 37, 47, 55, 30, 40,
+                               51, 45, 33, 48, 44, 49, 39, 56, 34, 53, 46, 42, 50, 36, 29, 32}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="127" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacexf_1_1security_1_1internal_1ae6d8c7068b7a9e91f171e850030261e3" prot="public" static="no" mutable="no">
+        <type>const ap_uint&lt; 8 &gt;</type>
+        <definition>const ap_uint&lt;8&gt; xf::security::internal::subkeyIndex[16][48]</definition>
+        <argsstring>[16][48]</argsstring>
+        <name>subkeyIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="131" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1a576c552d09e6524457e08ba481d40236" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>W</declname>
+            <defname>W</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>static void xf::security::internal::aesEncrypt</definition>
+        <argsstring>(ap_uint&lt; 128 &gt; plaintext, ap_uint&lt; W &gt; cipherkey, ap_uint&lt; 128 &gt; &amp;ciphertext)</argsstring>
+        <name>aesEncrypt</name>
+        <param>
+          <type>ap_uint&lt; 128 &gt;</type>
+          <declname>plaintext</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; W &gt;</type>
+          <declname>cipherkey</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; 128 &gt; &amp;</type>
+          <declname>ciphertext</declname>
+        </param>
+        <briefdescription>
+<para>aesEncrypt is the basic function for ciphering one block with one cipher key </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>W</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>cipher key width </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>plaintext</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input one word plain text to be encrypted, 128 bits. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cipherkey</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input cipher key, W bits. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ciphertext</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output one word encrypted text, 128 bit. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/aes.hpp" line="1589" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/aes.hpp" bodystart="1589" bodyend="1597"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1a964318b2374b08bbd23038ee9e5b1fe3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>W</declname>
+            <defname>W</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>static void xf::security::internal::aesDecrypt</definition>
+        <argsstring>(ap_uint&lt; 128 &gt; ciphertext, ap_uint&lt; W &gt; cipherkey, ap_uint&lt; 128 &gt; &amp;plaintext)</argsstring>
+        <name>aesDecrypt</name>
+        <param>
+          <type>ap_uint&lt; 128 &gt;</type>
+          <declname>ciphertext</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; W &gt;</type>
+          <declname>cipherkey</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; 128 &gt; &amp;</type>
+          <declname>plaintext</declname>
+        </param>
+        <briefdescription>
+<para>aesDecrypt is the basic function for decrypting one block with one cipher key </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>W</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>cipher key width </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ciphertext</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input one word cipher text to be decrypted, 128 bits. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>plainkey</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input plain key, W bits. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>plaintext</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output one word encrypted text, 128 bit. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/aes.hpp" line="1610" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/aes.hpp" bodystart="1610" bodyend="1618"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1ae7f958e343b6b4569a54b40f64b2ec73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>W</declname>
+            <defname>W</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::security::internal::print</definition>
+        <argsstring>(ap_uint&lt; W &gt; a)</argsstring>
+        <name>print</name>
+        <param>
+          <type>ap_uint&lt; W &gt;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="39" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="39" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1a59bd10fdfc50eec51e07152e9e45342e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>W</declname>
+            <defname>W</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::security::internal::print</definition>
+        <argsstring>(std::string var, ap_uint&lt; W &gt; a)</argsstring>
+        <name>print</name>
+        <param>
+          <type>std::string</type>
+          <declname>var</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; W &gt;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="52" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="52" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1a3fc08762026284b9b07c50ae29a97814" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void xf::security::internal::printArray</definition>
+        <argsstring>(int arr[], int size, int interval)</argsstring>
+        <name>printArray</name>
+        <param>
+          <type>int</type>
+          <declname>arr</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>interval</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="65" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="65" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1ab7fdb87f4700c36ad9c2d9a4968f912a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>W</declname>
+            <defname>W</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>static void xf::security::internal::convertEndian</definition>
+        <argsstring>(ap_uint&lt; W &gt; in, ap_uint&lt; W &gt; &amp;out)</argsstring>
+        <name>convertEndian</name>
+        <param>
+          <type>ap_uint&lt; W &gt;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; W &gt; &amp;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="166" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="166" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1aa47565a8ef7fa4208200cc4a3812374b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void xf::security::internal::convert</definition>
+        <argsstring>(ap_uint&lt; 64 &gt; in, ap_uint&lt; 64 &gt; &amp;out)</argsstring>
+        <name>convert</name>
+        <param>
+          <type>ap_uint&lt; 64 &gt;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; 64 &gt; &amp;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="188" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="188" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1ace786c0c4252b6c2302970961c48c0bf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void xf::security::internal::initSubkeyCD</definition>
+        <argsstring>(ap_uint&lt; 64 &gt; key, ap_uint&lt; 28 &gt; &amp;subkeyC, ap_uint&lt; 28 &gt; &amp;subkeyD)</argsstring>
+        <name>initSubkeyCD</name>
+        <param>
+          <type>ap_uint&lt; 64 &gt;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; 28 &gt; &amp;</type>
+          <declname>subkeyC</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; 28 &gt; &amp;</type>
+          <declname>subkeyD</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="203" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="203" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1a3e89234f159cd663ae70aebfbe268fe9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void xf::security::internal::initSubkeyIndex</definition>
+        <argsstring>(int cIndexArray[28], int dIndexArray[28])</argsstring>
+        <name>initSubkeyIndex</name>
+        <param>
+          <type>int</type>
+          <declname>cIndexArray</declname>
+          <array>[28]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dIndexArray</declname>
+          <array>[28]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="214" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="214" bodyend="222"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1a7e12c265157d35763e78e5ebbea23358" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>W</declname>
+            <defname>W</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>static void xf::security::internal::leftRotateShiftArray</definition>
+        <argsstring>(int in[W], int numShift)</argsstring>
+        <name>leftRotateShiftArray</name>
+        <param>
+          <type>int</type>
+          <declname>in</declname>
+          <array>[W]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>numShift</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="226" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="226" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1a034fdee07e4ff7ab18910949529df9da" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void xf::security::internal::getSubkeyIndex</definition>
+        <argsstring>(int iter, int cIndexArray[28], int dIndexArray[28], int subkeyIndex[48])</argsstring>
+        <name>getSubkeyIndex</name>
+        <param>
+          <type>int</type>
+          <declname>iter</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>cIndexArray</declname>
+          <array>[28]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dIndexArray</declname>
+          <array>[28]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>subkeyIndex</declname>
+          <array>[48]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="238" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="238" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1a3b15fc24cd072345beefcfb52e015fc8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void xf::security::internal::leftRotateShift</definition>
+        <argsstring>(ap_uint&lt; 28 &gt; &amp;in, int numShift)</argsstring>
+        <name>leftRotateShift</name>
+        <param>
+          <type>ap_uint&lt; 28 &gt; &amp;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>numShift</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="259" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="259" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1a2c6a8ee5a0b2eded1c34f373451e2cf7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void xf::security::internal::getSubkey</definition>
+        <argsstring>(int iter, ap_uint&lt; 28 &gt; &amp;subkeyC, ap_uint&lt; 28 &gt; &amp;subkeyD, ap_uint&lt; 48 &gt; &amp;subkey)</argsstring>
+        <name>getSubkey</name>
+        <param>
+          <type>int</type>
+          <declname>iter</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; 28 &gt; &amp;</type>
+          <declname>subkeyC</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; 28 &gt; &amp;</type>
+          <declname>subkeyD</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; 48 &gt; &amp;</type>
+          <declname>subkey</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="271" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="271" bodyend="289"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1a7990d98e33815b92702af7564de082d2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void xf::security::internal::extend</definition>
+        <argsstring>(ap_uint&lt; 32 &gt; in, ap_uint&lt; 48 &gt; &amp;out)</argsstring>
+        <name>extend</name>
+        <param>
+          <type>ap_uint&lt; 32 &gt;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; 48 &gt; &amp;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="291" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="291" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1abd21d4a2f60410fb011255f136ff520b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void xf::security::internal::substitute</definition>
+        <argsstring>(ap_uint&lt; 48 &gt; in, ap_uint&lt; 32 &gt; &amp;out)</argsstring>
+        <name>substitute</name>
+        <param>
+          <type>ap_uint&lt; 48 &gt;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; 32 &gt; &amp;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="298" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="298" bodyend="328"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1a302825b34cf28fedf9c15113370bbf52" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void xf::security::internal::perm</definition>
+        <argsstring>(ap_uint&lt; 32 &gt; in, ap_uint&lt; 32 &gt; &amp;out)</argsstring>
+        <name>perm</name>
+        <param>
+          <type>ap_uint&lt; 32 &gt;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; 32 &gt; &amp;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="330" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="330" bodyend="335"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1a2c79ef2e09d2ce329aa13765737f66f0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ap_uint&lt; 32 &gt;</type>
+        <definition>static ap_uint&lt;32&gt; xf::security::internal::f</definition>
+        <argsstring>(ap_uint&lt; 32 &gt; hb, ap_uint&lt; 48 &gt; subkey)</argsstring>
+        <name>f</name>
+        <param>
+          <type>ap_uint&lt; 32 &gt;</type>
+          <declname>hb</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; 48 &gt;</type>
+          <declname>subkey</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="338" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="338" bodyend="355"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1a342bfffc8e0d9e411bdd54e1d79f20fd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void xf::security::internal::initPerm</definition>
+        <argsstring>(ap_uint&lt; 64 &gt; in, ap_uint&lt; 64 &gt; &amp;out)</argsstring>
+        <name>initPerm</name>
+        <param>
+          <type>ap_uint&lt; 64 &gt;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; 64 &gt; &amp;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="358" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="358" bodyend="363"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1a8e2b5924706b3291abae76e115258f1f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void xf::security::internal::finalPerm</definition>
+        <argsstring>(ap_uint&lt; 64 &gt; in, ap_uint&lt; 64 &gt; &amp;out)</argsstring>
+        <name>finalPerm</name>
+        <param>
+          <type>ap_uint&lt; 64 &gt;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; 64 &gt; &amp;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="366" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="366" bodyend="372"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1af9b4876f159ad444b1099ce425916480" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void xf::security::internal::process</definition>
+        <argsstring>(ap_uint&lt; 32 &gt; &amp;l, ap_uint&lt; 32 &gt; &amp;r, ap_uint&lt; 48 &gt; subkeys, bool enc)</argsstring>
+        <name>process</name>
+        <param>
+          <type>ap_uint&lt; 32 &gt; &amp;</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; 32 &gt; &amp;</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; 48 &gt;</type>
+          <declname>subkeys</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="374" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="374" bodyend="386"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1af9c374a862fcddd2fa2e8ed0359ff8e1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void xf::security::internal::keyIndexSchedule</definition>
+        <argsstring>(ap_uint&lt; 64 &gt; key, int subkeyIndex[16][48])</argsstring>
+        <name>keyIndexSchedule</name>
+        <param>
+          <type>ap_uint&lt; 64 &gt;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>subkeyIndex</declname>
+          <array>[16][48]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="388" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="388" bodyend="410"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1a7f3b947579038787d0b257368f7305c6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void xf::security::internal::keyScheduleOriginal</definition>
+        <argsstring>(ap_uint&lt; 64 &gt; key, ap_uint&lt; 48 &gt; subkeys[16])</argsstring>
+        <name>keyScheduleOriginal</name>
+        <param>
+          <type>ap_uint&lt; 64 &gt;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; 48 &gt;</type>
+          <declname>subkeys</declname>
+          <array>[16]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="412" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="412" bodyend="420"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1security_1_1internal_1abafad92b08745206ea244df38e0dd1bf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void xf::security::internal::keySchedule</definition>
+        <argsstring>(ap_uint&lt; 64 &gt; key, ap_uint&lt; 48 &gt; subkeys[16])</argsstring>
+        <name>keySchedule</name>
+        <param>
+          <type>ap_uint&lt; 64 &gt;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>ap_uint&lt; 48 &gt;</type>
+          <declname>subkeys</declname>
+          <array>[16]</array>
+        </param>
+        <briefdescription>
+<para>keySchedule is to schedule subkeys used in DES and 3DES </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input original key, 64 bits. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>subkeys</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output subkeys in encryption or decryption. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" line="429" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/des.hpp" bodystart="429" bodyend="438"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/aes.hpp" line="1576" column="1"/>
+  </compounddef>
+</doxygen>
