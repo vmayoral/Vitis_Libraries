@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="sha512__t_8hpp" kind="file">
+    <compoundname>sha512_t.hpp</compoundname>
+    <includes local="no">ap_int.h</includes>
+    <includes local="no">hls_stream.h</includes>
+    <includes local="no">iostream</includes>
+    <incdepgraph>
+      <node id="136">
+        <label>/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/sha512_t.hpp</label>
+        <link refid="sha512_t.hpp"/>
+        <childnode refid="137" relation="include">
+        </childnode>
+        <childnode refid="138" relation="include">
+        </childnode>
+        <childnode refid="139" relation="include">
+        </childnode>
+      </node>
+      <node id="138">
+        <label>hls_stream.h</label>
+      </node>
+      <node id="137">
+        <label>ap_int.h</label>
+      </node>
+      <node id="139">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structxf_1_1security_1_1details_1_1block_type" prot="public">xf::security::details::blockType</innerclass>
+    <innernamespace refid="namespacexf">xf</innernamespace>
+    <innernamespace refid="namespacexf_1_1security">xf::security</innernamespace>
+    <innernamespace refid="namespacexf_1_1security_1_1details">xf::security::details</innernamespace>
+    <briefdescription>
+<para>header file for SHA-384, SHA-512, and SHA-512/t related functions, including both pre-processing and digest functions. This file is part of XF Security Library. </para>    </briefdescription>
+    <detaileddescription>
+<para>The algorithm takes a message of arbitrary length as its input, and produces a 512-bit final hash value. The message digest of SHA-384, SHA-512, and SHA-512/t is obtained by truncating the final hash value to its left-most 384, 512, and t bits respectively. The standard uses the big-endian convention. </para>    </detaileddescription>
+    <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/sha512_t.hpp"/>
+  </compounddef>
+</doxygen>

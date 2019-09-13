@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>L1 Module User Guide &mdash; XF Security Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API Functions of xf::security" href="hw_api.html" />
+    <link rel="prev" title="Release Note" href="../release.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> XF Security Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">L1 Module User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals.html">Design Internals</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/result.html">Benchmark of AES256 Encryption/Decryption in CBC Mode</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XF Security Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>L1 Module User Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/guide_L1/hw_guide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="l1-module-user-guide">
+<h1>L1 Module User Guide<a class="headerlink" href="#l1-module-user-guide" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256encrypt">aes256Encrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256decrypt">aes256Decrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128decrypt">aes128Decrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192decrypt">aes192Decrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#rsa">rsa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#blake2b">blake2b</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#descbcencrypt">desCbcEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#descbcdecrypt">desCbcDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128cbcencrypt">aes128CbcEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128cbcdecrypt">aes128CbcDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192cbcencrypt">aes192CbcEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192cbcdecrypt">aes192CbcDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256cbcencrypt">aes256CbcEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256cbcdecrypt">aes256CbcDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128ccmencrypt">aes128CcmEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128ccmdecrypt">aes128CcmDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192ccmencrypt">aes192CcmEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192ccmdecrypt">aes192CcmDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256ccmencrypt">aes256CcmEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256ccmdecrypt">aes256CcmDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#descfb1encrypt">desCfb1Encrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#descfb1decrypt">desCfb1Decrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128cfb1encrypt">aes128Cfb1Encrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128cfb1decrypt">aes128Cfb1Decrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192cfb1encrypt">aes192Cfb1Encrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192cfb1decrypt">aes192Cfb1Decrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256cfb1encrypt">aes256Cfb1Encrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256cfb1decrypt">aes256Cfb1Decrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#descfb8encrypt">desCfb8Encrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#descfb8decrypt">desCfb8Decrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128cfb8encrypt">aes128Cfb8Encrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128cfb8decrypt">aes128Cfb8Decrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192cfb8encrypt">aes192Cfb8Encrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192cfb8decrypt">aes192Cfb8Decrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256cfb8encrypt">aes256Cfb8Encrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256cfb8decrypt">aes256Cfb8Decrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#descfb128encrypt">desCfb128Encrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#descfb128decrypt">desCfb128Decrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128cfb128encrypt">aes128Cfb128Encrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128cfb128decrypt">aes128Cfb128Decrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192cfb128encrypt">aes192Cfb128Encrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192cfb128decrypt">aes192Cfb128Decrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256cfb128encrypt">aes256Cfb128Encrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256cfb128decrypt">aes256Cfb128Decrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#chacha20">chacha20</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128ctrencrypt">aes128CtrEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128ctrdecrypt">aes128CtrDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192ctrencrypt">aes192CtrEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192ctrdecrypt">aes192CtrDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256ctrencrypt">aes256CtrEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256ctrdecrypt">aes256CtrDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#keyschedule">keySchedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#desencrypt">desEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#desdecrypt">desDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#des3encrypt">des3Encrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#des3decrypt">des3Decrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#desecbencrypt">desEcbEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#desecbdecrypt">desEcbDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128ecbencrypt">aes128EcbEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128ecbdecrypt">aes128EcbDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192ecbencrypt">aes192EcbEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192ecbdecrypt">aes192EcbDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256ecbencrypt">aes256EcbEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256ecbdecrypt">aes256EcbDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128gcmencrypt">aes128GcmEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128gcmdecrypt">aes128GcmDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192gcmencrypt">aes192GcmEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192gcmdecrypt">aes192GcmDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256gcmencrypt">aes256GcmEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256gcmdecrypt">aes256GcmDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256gmac">aes256Gmac</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#hmac">hmac</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#md4">md4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#md5">md5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#desofbencrypt">desOfbEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#desofbdecrypt">desOfbDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128ofbencrypt">aes128OfbEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128ofbdecrypt">aes128OfbDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192ofbencrypt">aes192OfbEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192ofbdecrypt">aes192OfbDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256ofbencrypt">aes256OfbEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256ofbdecrypt">aes256OfbDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#poly1305">poly1305</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#rc4">rc4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#sha1">sha1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#sha224">sha224</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#sha256">sha256</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#sha3-224">sha3_224</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#sha3-256">sha3_256</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#sha3-384">sha3_384</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#sha3-512">sha3_512</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#shake128">shake128</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#shake256">shake256</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#sha384">sha384</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#sha512">sha512</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#sha512-t">sha512_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128xtsencrypt">aes128XtsEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128xtsdecrypt">aes128XtsDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256xtsencrypt">aes256XtsEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256xtsdecrypt">aes256XtsDecrypt</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="internals.html">Design Internals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="internals/md4_5.html">The MD4/MD5 Message-Digest Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/sha1.html">SHA-1 Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/sha2.html">SHA-2 Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/sha3.html">SHA-3 Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/blake2b.html">BLAKE2 Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/aes.html">AES-256 Encryption Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/iaes.html">AES-256 Decryption Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/cbc.html">CBC Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/cfb.html">CFB Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/ctr.html">CTR Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/ecb.html">ECB Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/gcm.html">GCM Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/ofb.html">OFB Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/xts.html">XTS mode</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hw_api.html" class="btn btn-neutral float-right" title="API Functions of xf::security" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../release.html" class="btn btn-neutral float-left" title="Release Note" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

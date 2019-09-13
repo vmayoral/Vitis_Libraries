@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="structxf_1_1security_1_1details_1_1_s_h_a256_block" kind="struct" prot="public">
+    <compoundname>xf::security::details::SHA256Block</compoundname>
+    <includes refid="sha224__256_8hpp" local="no">sha224_256.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structxf_1_1security_1_1details_1_1_s_h_a256_block_1a3cc5429cbef5cb460f66a693ddfb9ebc" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t xf::security::details::SHA256Block::M[16]</definition>
+        <argsstring>[16]</argsstring>
+        <name>M</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/sha224_256.hpp" line="56" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/sha224_256.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Processing block. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/sha224_256.hpp" line="55" column="1" bodyfile="/wrk/xsjhdnobkup4/tuol/xf_security/L1/include/xf_security/sha224_256.hpp" bodystart="55" bodyend="57"/>
+    <listofallmembers>
+      <member refid="structxf_1_1security_1_1details_1_1_s_h_a256_block_1a3cc5429cbef5cb460f66a693ddfb9ebc" prot="public" virt="non-virtual"><scope>xf::security::details::SHA256Block</scope><name>M</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

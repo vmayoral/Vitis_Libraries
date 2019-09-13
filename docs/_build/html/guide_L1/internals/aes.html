@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AES-256 Encryption Algorithms &mdash; XF Security Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="AES-256 Decryption Algorithms" href="iaes.html" />
+    <link rel="prev" title="BLAKE2 Algorithms" href="blake2b.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> XF Security Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../hw_guide.html">L1 Module User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../hw_api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../internals.html">Design Internals</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="md4_5.html">The MD4/MD5 Message-Digest Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha1.html">SHA-1 Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha2.html">SHA-2 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha3.html">SHA-3 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blake2b.html">BLAKE2 Algorithms</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">AES-256 Encryption Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#original-implementation">Original Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#optimized-implementation-on-fpga">Optimized Implementation on FPGA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#performance-device-vu9p">Performance(Device: VU9P)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iaes.html">AES-256 Decryption Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cbc.html">CBC Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfb.html">CFB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctr.html">CTR Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ecb.html">ECB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gcm.html">GCM Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ofb.html">OFB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="xts.html">XTS mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/result.html">Benchmark of AES256 Encryption/Decryption in CBC Mode</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XF Security Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../hw_guide.html">L1 Module User Guide</a> &raquo;</li>
+        
+          <li><a href="../internals.html">Design Internals</a> &raquo;</li>
+        
+      <li>AES-256 Encryption Algorithms</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide_L1/internals/aes.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aes-256-encryption-algorithms">
+<h1>AES-256 Encryption Algorithms<a class="headerlink" href="#aes-256-encryption-algorithms" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>AES-256 is one of AES Algorithms which processes plain data blocks of 128 bits,
+generates cipher data blocks of 128 bits using cipher keys of 256 bits.
+Basic unit of AES algorithms operation is a two dimensional array of 16 bytes called states.
+Its mapping relation is as illustrated in the figure below.</p>
+<a class="reference internal image-reference" href="../../_images/state_of_bytes.png"><img alt="state of bytes" class="align-center" src="../../_images/state_of_bytes.png" style="width: 100%;" /></a>
+<div class="section" id="original-implementation">
+<h2>Original Implementation<a class="headerlink" href="#original-implementation" title="Permalink to this headline">¶</a></h2>
+<p>AES-256 consist of 5 part: KeyExpansion, SubBytes, ShiftRows, MixColumns and AddRoundKey.</p>
+<p>KeyExpansion generates 15 round keys from original cipher key and they maps to 2-D array as states do.</p>
+<p>AES-256 first does XOR add to input plain data blocks with first roundkey.
+Then AES-256 performs 14 round of processing with the last 14 round keys, each at a time.
+Each round sequentially does SubBytes, ShiftRows, MixColumns and AddRoundKey.</p>
+<a class="reference internal image-reference" href="../../_images/original_flow.png"><img alt="original flow" class="align-center" src="../../_images/original_flow.png" style="width: 100%;" /></a>
+<p>During SubBytes, each bytes of states is transformed by looking up table S-box using their value as address.</p>
+<a class="reference internal image-reference" href="../../_images/subbytes.png"><img alt="subbytes" class="align-center" src="../../_images/subbytes.png" style="width: 100%;" /></a>
+<p>During ShiftRows, last 3 rows of states are cyclically shifted over different number of bytes based on row number.</p>
+<a class="reference internal image-reference" href="../../_images/shiftrows.png"><img alt="shiftrows" class="align-center" src="../../_images/shiftrows.png" style="width: 100%;" /></a>
+<p>During MixColumns, perform operation on each column of states.
+Basicallly it’s use matrix multiplication to transform each column of states.
+Transform matrix is fixed and calculation treats each bytes as polynomials with coefficients in GF(2^8), modulo x^4 + 1.</p>
+<a class="reference internal image-reference" href="../../_images/mixcolumns.png"><img alt="mixcolumns" class="align-center" src="../../_images/mixcolumns.png" style="width: 100%;" /></a>
+<p>During AddRoundKey, states are XOR with roundkey of this round.</p>
+<a class="reference internal image-reference" href="../../_images/addroundkey.png"><img alt="addroundkey" class="align-center" src="../../_images/addroundkey.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="optimized-implementation-on-fpga">
+<h2>Optimized Implementation on FPGA<a class="headerlink" href="#optimized-implementation-on-fpga" title="Permalink to this headline">¶</a></h2>
+<p>Since each round of procee only needs one round key and KeyExpansion is independent of process,
+we put KeyExpansion into each round to save an overhead.</p>
+<p>Because SubBytes is independent of each byte’s location in states and ShiftRows only shifts in integer of bytes, these two part could exchange their position in processing sequence without changing the result. Thoough no improvement is achieved here, this will benefit later optimizaiton.</p>
+<a class="reference internal image-reference" href="../../_images/new_flow.png"><img alt="new flow" class="align-center" src="../../_images/new_flow.png" style="width: 100%;" /></a>
+<p>The matrix multiplication in MixColumns is actually two parts: multiply bytes in column of states with bytes in row of the matrix, then add the result. Value of matrix elements could only be 01, 02 or 03. we can get the original result of SubBytes and its muplication of 01, 02 or 03 by one time table look up of a new S-Box called “sbox_mix_col_1”. This could save a lot of logics to do multiplication.</p>
+<a class="reference internal image-reference" href="../../_images/sbox_mix_col_1.png"><img alt="merge SubByte with MixColumns" class="align-center" src="../../_images/sbox_mix_col_1.png" style="width: 100%;" /></a>
+<p>Based on similar consideration, we also merge such multiplication in KeyExpansion into one time table look up of another new S-Box called “sbox_Rcon”. Although sbox_Rcon and sbox_mix_col_1 are bigger than original S-Box, they all could be stored in 1 BRAM on chip. Such merges saves logics without additional resource cost.</p>
+</div>
+<div class="section" id="performance-device-vu9p">
+<h2>Performance(Device: VU9P)<a class="headerlink" href="#performance-device-vu9p" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="10%" />
+<col width="12%" />
+<col width="10%" />
+<col width="12%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">II</th>
+<th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>963</td>
+<td>3422</td>
+<td>4628</td>
+<td>0</td>
+<td>138</td>
+<td>417</td>
+<td>0</td>
+<td>2.857</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="iaes.html" class="btn btn-neutral float-right" title="AES-256 Decryption Algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="blake2b.html" class="btn btn-neutral float-left" title="BLAKE2 Algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
