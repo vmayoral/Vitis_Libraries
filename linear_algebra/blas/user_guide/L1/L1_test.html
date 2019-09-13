@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>L1 Test &mdash; XF BLAS Library 1.0 beta documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xf-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/target-highlight.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Python environment setup guide" href="pyenvguide.html" />
+    <link rel="prev" title="L1 Data mover" href="L1_data_mover.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> XF BLAS Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="L1.html">L1 Primitives User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="L1_overview.html">L1 API Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L1_compute_api.html">L1 Compute APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L1_data_mover.html">L1 Data mover</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">L1 Test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-python-environment">1. Set up Python environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-vivado-hls-environment">2. Set up Vivado_hls environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-l1-primitives">3. Test L1 primitives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-configuration">4. Test configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-outputs">5. Test outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyenvguide.html">Python environment setup guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/L3.html">L3 API User Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XF BLAS Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="L1.html">L1 Primitives User Guide</a> &raquo;</li>
+        
+      <li>L1 Test</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="l1-test">
+<span id="user-guide-test-l1"></span><h1>L1 Test<a class="headerlink" href="#l1-test" title="Permalink to this headline">¶</a></h1>
+<p>All L1 primitives’ implementations have been tested against numpy functions. That is, a python based testing environment has been developed to generate random test inputs for each primitive and its corresponding function in numpy, compute the golden reference via the numpy function call, and finally compare the golden reference with the csim and cosim outputs of the primitive to verify the correctness of the implementation.
+To run the testing process of L1 primitives, please follow the steps below.</p>
+<div class="section" id="set-up-python-environment">
+<h2>1. Set up Python environment<a class="headerlink" href="#set-up-python-environment" title="Permalink to this headline">¶</a></h2>
+<p>Please follow the instructions described in <a class="reference internal" href="pyenvguide.html"><span class="doc">Python environment setup guide</span></a> to install anaconda3 and setup xf_blas environment. All testing should be run under xf_blas environment. Please deactivate xf_blas environment after testing.</p>
+</div>
+<div class="section" id="set-up-vivado-hls-environment">
+<h2>2. Set up Vivado_hls environment<a class="headerlink" href="#set-up-vivado-hls-environment" title="Permalink to this headline">¶</a></h2>
+<p>Please navigate to directory L1/tests, and change the setting of environment variable <strong>TA_PATH</strong> to point to the installation path of your Vitis 2019.2, and run following command to set up Vivado_hls environment.</p>
+<pre class="highlight literal-block"><span></span><span class="nb">source</span> ./set_env.sh</pre>
+</div>
+<div class="section" id="test-l1-primitives">
+<h2>3. Test L1 primitives<a class="headerlink" href="#test-l1-primitives" title="Permalink to this headline">¶</a></h2>
+<p>The L1 primitives can be tested individually or as a group. To launch the testing process, please navigate to the directory <strong>L1/tests</strong>, and enter the following command.</p>
+<pre class="highlight literal-block"><span></span>$ python ./run_test.py --operator amax amin asum axpy copy dot nrm2 scal swap gemv gbmv sbmvLo sbmvUp tbmvLo tbmvUp trmvLo trmvUp symvLo symvUp spmvUp spmvLo tpmvLo tpmvUp</pre>
+<p>The above command will test and verify all L1 primitvies’ implementation in both csim and cosim modes. Hence, it can take a very long time. The following commands show examples for quickly testing some primitives in pure csim or cosim mode.</p>
+<pre class="highlight literal-block"><span></span>$ python ./run_test.py --operator amax amin --csim
+$ python ./run_test.py --operator copy dot --cosim</pre>
+<p>By default, the testing process only runs in a single thread mode. To speed up the process, users can run the testing with multiple thread via <strong>–parallel</strong> option. For example,</p>
+<pre class="highlight literal-block"><span></span>$ python ./run_test --operator gemv gbmv --parallel <span class="m">4</span></pre>
+</div>
+<div class="section" id="test-configuration">
+<h2>4. Test configuration<a class="headerlink" href="#test-configuration" title="Permalink to this headline">¶</a></h2>
+<p>For each primitive, a test configuration file <strong>profile.json</strong> has been provided to specify the test inputs range, the size of the input vector or matrix, the template parameter value used for instantiating the primitive and the simulation mode (csim or cosim) used for testing. Users can find the profile.json file under directory <strong>L1/include/hw/primitive_name</strong>. For example, the profile.json file under <strong>L1/include/hw</strong> contains the following code.</p>
+<pre class="highlight literal-block"><span></span> <span class="o">{</span>
+  <span class="s2">&quot;b_csim&quot;</span>: true,
+  <span class="s2">&quot;b_synth&quot;</span>: true,
+  <span class="s2">&quot;b_cosim&quot;</span>: true,
+  <span class="s2">&quot;dataTypes&quot;</span>: <span class="o">[</span>
+    <span class="s2">&quot;float64&quot;</span>,
+    <span class="s2">&quot;uint16&quot;</span>,
+    <span class="s2">&quot;int32&quot;</span>
+  <span class="o">]</span>,
+  <span class="s2">&quot;retTypes&quot;</span>: <span class="o">[</span>
+    <span class="s2">&quot;int32&quot;</span>,
+    <span class="s2">&quot;int32&quot;</span>,
+    <span class="s2">&quot;int32&quot;</span>
+  <span class="o">]</span>,
+  <span class="s2">&quot;op&quot;</span>: <span class="s2">&quot;amax&quot;</span>,
+  <span class="s2">&quot;logParEntries&quot;</span>: <span class="m">2</span>,
+  <span class="s2">&quot;vectorDims&quot;</span>: <span class="o">[</span>
+    <span class="m">1024</span>,
+    <span class="m">4096</span>,
+    <span class="m">8192</span>
+  <span class="o">]</span>,
+  <span class="s2">&quot;valueRange&quot;</span>: <span class="o">[</span>
+    -1024,
+    <span class="m">1024</span>
+  <span class="o">]</span>,
+  <span class="s2">&quot;numSimulation&quot;</span>: <span class="m">2</span>
+<span class="o">}</span></pre>
+<p>The configuragion file will instruct our testing infrastructure to generate following tests.</p>
+</div>
+<div class="section" id="test-outputs">
+<h2>5. Test outputs<a class="headerlink" href="#test-outputs" title="Permalink to this headline">¶</a></h2>
+<p>At the end of the testing process, users will find a file called <strong>statistics.rpt</strong> that summarizes the test results, <strong>Passed</strong> or <strong>Failed</strong> for each primitive under test. For each primitive, there is also a file called <strong>report.rpt</strong> in the primitive’s folder under directory <strong>out_test/</strong>. This file summarizes the quality of the implementation, namely the resource usage and the efficiency of the implementation. Where efficiency is calculated by equation <strong>theoretical_cycles / measured_cosim_cycles</strong>. The higher the efficiency, the better performance the implementation will provide.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pyenvguide.html" class="btn btn-neutral float-right" title="Python environment setup guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="L1_data_mover.html" class="btn btn-neutral float-left" title="L1 Data mover" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

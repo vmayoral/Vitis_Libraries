@@ -1,0 +1,1700 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Introduction &mdash; XF BLAS Library 1.0 beta documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xf-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/target-highlight.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="L3 API example" href="L3_example.html" />
+    <link rel="prev" title="L3 API Overview" href="L3_overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> XF BLAS Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../L1/L1.html">L1 Primitives User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="L3.html">L3 API User Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="L3_overview.html">L3 API Overview</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1. Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#data-layout">1.1 Data layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#memory-allocation">1.2 Memory Allocation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#supported-datatypes">1.3 Supported Datatypes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-xfblas-api">2. Using the XFBLAS API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general-description">2.1 General description</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#error-status">2.1.1 Error status</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblas-initialization">2.1.2 XFBLAS initialization</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#datatypes-reference">2.2 Datatypes Reference</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#xfblasstatus-t">2.2.1 xfblasStatus_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblasengine-t">2.2.2 xfblasEngine_t</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblasoperation-t">2.2.3 xfblasOperation_t</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#xfblas-helper-function-reference">2.3 XFBLAS Helper Function Reference</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#xfblascreate">2.3.1 xfblasCreate</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblasfree">2.3.2 xfblasFree</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblasdestroy">2.3.3 xfblasDestroy</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblasmalloc">2.3.4 xfblasMalloc</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblassetvector">2.3.5 xfblasSetVector</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblasgetvector">2.3.6 xfblasGetVector</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblassetmatrix">2.3.7 xfblasSetMatrix</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblasgetmatrix">2.3.8 xfblasGetMatrix</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblassetvectorasync">2.3.9 xfblasSetVectorAsync</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblasgetvectorasync">2.3.10 xfblasGetVectorAsync</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblassetmatrixasync">2.3.11 xfblasSetMatrixAsync</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblasgetmatrixasync">2.3.12 xfblasGetMatrixAsync</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblasmallocrestricted">2.3.13 xfblasMallocRestricted</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblassetvectorrestricted">2.3.14 xfblasSetVectorRestricted</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblasgetvectorrestricted">2.3.15 xfblasGetVectorRestricted</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblassetmatrixrestricted">2.3.16 xfblasSetMatrixRestricted</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblasgetmatrixrestricted">2.3.17 xfblasGetMatrixRestricted</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblassetvectorrestrictedasync">2.3.18 xfblasSetVectorRestrictedAsync</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblasgetvectorrestrictedasync">2.3.19 xfblasGetVectorRestrictedAsync</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblassetmatrixrestrictedasync">2.3.20 xfblasSetMatrixRestrictedAsync</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblasgetmatrixrestrictedasync">2.3.21 xfblasGetMatrixRestrictedAsync</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblasmallocmanaged">2.3.22 xfblasMallocManaged</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblaskernelsynchronize">2.3.23 xfblasKernelSynchronize</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblasdevicesynchronize">2.3.24 xfblasDeviceSynchronize</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#xfblas-function-reference">2.4 XFBLAS Function Reference</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#xfblasgemm">2.4.1 xfblasGemm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#xfblasgemv">2.4.2 xfblasGemv</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#obtain-fpga-bitstream">3. Obtain FPGA bitstream</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="L3_example.html">L3 API example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L3_benchmark.html">L3 API benchmark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L3_test.html">L3 API test</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XF BLAS Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="L3.html">L3 API User Guide</a> &raquo;</li>
+        
+          <li><a href="L3_overview.html">L3 API Overview</a> &raquo;</li>
+        
+      <li>1. Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p id="user-guide-overview-content-l3">XFBLAS level 3 provides software API functions to offload BLAS operations to pre-built FPGA images.</p>
+<div class="section" id="introduction">
+<h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>The XFBLAS level 3 library is an implementation of BLAS on top of the XILINX runtime (XRT). It allows software developers to use XFBLAS library without writing any runtime functions and hardware configurations.</p>
+<div class="section" id="data-layout">
+<h2>1.1 Data layout<a class="headerlink" href="#data-layout" title="Permalink to this headline">¶</a></h2>
+<p>XFBLAS library uses row-major storage. The array index of a matrix element could be calculated by the following macro.</p>
+<pre class="highlight literal-block"><span></span><span class="c1"># define IDX2R(i,j,ld) ( ( (i)*(ld) ) + (j) )</span></pre>
+</div>
+<div class="section" id="memory-allocation">
+<h2>1.2 Memory Allocation<a class="headerlink" href="#memory-allocation" title="Permalink to this headline">¶</a></h2>
+<p>XFBLAS level 3 library supports three different versions of APIs to support memory allocation in device. Users could choose from different versions to better support their application based on the cases. Examples for using three different versions could be found in <a class="reference internal" href="L3_example.html"><span class="doc">BLAS Level 3 example</span></a>.</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 37%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Already have host memory input</p></th>
+<th class="head"><p>Host memory matrix sizes are padded</p></th>
+<th class="head"><p>Version to choose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Restricted memory version</p></td>
+</tr>
+<tr class="row-odd"><td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>Default memory version</p></td>
+</tr>
+<tr class="row-even"><td><p>No</p></td>
+<td><p>Does not apply</p></td>
+<td><p>Pre-allocated memory version</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Restricted memory version
+To use restricted memory version, user’s input matrix sizes must be multiplier of certain configuration values that are used to build the FPGA bitstreams. Also, host memory is encouaged to be 4k aligned when using restricted memory version. Compared to the default memory version, even though there are requirement on the matrix sizes, restricted memory version could save extra memory copy in host side.</p></li>
+<li><p>Default memory version
+This version has no limitations on user host memory, and it is easy to use. API functions will do the padding internally so this will lead to extra memory copy in host side. The result output matrix will also be the same sizes.</p></li>
+<li><p>Pre-allocated memory version
+To use this version, users need to call API functions to allocate the device memory first, then fill in host memory that is mapped to device memory with values. There is no extra memory copy and the programming is easier compared to the other two versions. However, when filling in the matrices, users need to use the padded sizes, also the result output matrix’s sizes are padded instead of the original ones. Please see examples for more usage information.</p></li>
+</ul>
+</div>
+<div class="section" id="supported-datatypes">
+<h2>1.3 Supported Datatypes<a class="headerlink" href="#supported-datatypes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>short</p></li>
+<li><p>float</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="using-the-xfblas-api">
+<h1>2. Using the XFBLAS API<a class="headerlink" href="#using-the-xfblas-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="general-description">
+<h2>2.1 General description<a class="headerlink" href="#general-description" title="Permalink to this headline">¶</a></h2>
+<p>This section describes how to use the XFBLAS library API level.</p>
+<div class="section" id="error-status">
+<h3>2.1.1 Error status<a class="headerlink" href="#error-status" title="Permalink to this headline">¶</a></h3>
+<p>XFBLAS API function calls return the error status of datatype <a class="reference internal" href="#xfblasstatus-t">xfblasStatus_t</a>.</p>
+</div>
+<div class="section" id="xfblas-initialization">
+<h3>2.1.2 XFBLAS initialization<a class="headerlink" href="#xfblas-initialization" title="Permalink to this headline">¶</a></h3>
+<p>To initialize the library, xfblasCreate() function must be called. This function will open the device, download the FPGA image to the device  and create context on the selected compute unit. For a multi-kernels xclbin, contexts will be opened on the corresponding compute units. Please refer to <a class="reference internal" href="L3_example_gemm.html"><span class="doc">gemm example</span></a> for detail usage.</p>
+</div>
+</div>
+<div class="section" id="datatypes-reference">
+<h2>2.2 Datatypes Reference<a class="headerlink" href="#datatypes-reference" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="xfblasstatus-t">
+<h3>2.2.1 xfblasStatus_t<a class="headerlink" href="#xfblasstatus-t" title="Permalink to this headline">¶</a></h3>
+<p>The type is used for function status returns. All XFBLAS level 3 library functions return status which has the following values.</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 75%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Item</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XFBLAS_STATUS_SUCCESS</p></td>
+<td><p>The function is completed successfully</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>XFBLAS_STATUS_NOT_INITIALIZED</p></td>
+<td><p>The XFBLAS library was not initialized. This is usually caused by not calling function xfblasCreate previously.</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>XFBLAS_STATUS_INVALID_VALUE</p></td>
+<td><p>An unsupported value or parameter was passed to the function for example an negative matrix size.</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>XFBLAS_STATUS_ALLOC_FAILED</p></td>
+<td><p>Memory allocation failed inside the XFBLAS library.</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>XFBLAS_STATUS_NOT_SUPPORTED</p></td>
+<td><p>The functionality requested is not supported yet.</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>XFBLAS_STATUS_NOT_PADDED</p></td>
+<td><p>For restricted mode, matrix sizes are not padded correctly.</p></td>
+<td><p>5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblasengine-t">
+<h3>2.2.2 xfblasEngine_t<a class="headerlink" href="#xfblasengine-t" title="Permalink to this headline">¶</a></h3>
+<p>The xfblasEngine_t type indicates which engine needs to be performed when initializes the XFBLAS library. xfblasEngine_t type should be matched with the FPGA bitstream.</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Value</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XFBLAS_ENGINE_GEMM</p></td>
+<td><p>The GEMM engine is selected</p></td>
+</tr>
+<tr class="row-odd"><td><p>XFBLAS_ENGINE_GEMV</p></td>
+<td><p>The GEMV engine is selected</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblasoperation-t">
+<h3>2.2.3 xfblasOperation_t<a class="headerlink" href="#xfblasoperation-t" title="Permalink to this headline">¶</a></h3>
+<p>The xfblasOperation_t type indicates which operation needs to be performed with the matrix.</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 78%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Value</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>XFBLAS_OP_N</p></td>
+<td><p>The non-transpose operation is selected</p></td>
+</tr>
+<tr class="row-odd"><td><p>XFBLAS_OP_T</p></td>
+<td><p>The transpose operation is selected</p></td>
+</tr>
+<tr class="row-even"><td><p>XFBLAS_OP_C</p></td>
+<td><p>The conjugate transpose operation is selected</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="xfblas-helper-function-reference">
+<h2>2.3 XFBLAS Helper Function Reference<a class="headerlink" href="#xfblas-helper-function-reference" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="xfblascreate">
+<h3>2.3.1 xfblasCreate<a class="headerlink" href="#xfblascreate" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="n">xfblasStatus_t</span> <span class="n">xfblasCreate</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">xclbin</span><span class="p">,</span> <span class="n">string</span> <span class="n">configFile</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">logFile</span><span class="p">,</span> <span class="n">xfblasEngine_t</span> <span class="n">engineName</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelNumber</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function initializes the XFBLAS library and creates a handle for the specific engine. It must be called prior to any other XFBLAS library calls.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xclbin</p></td>
+<td><p>file path to FPGA bitstream</p></td>
+</tr>
+<tr class="row-even"><td><p>configFile</p></td>
+<td><p>file path to config_info.dat file</p></td>
+</tr>
+<tr class="row-odd"><td><p>logFile</p></td>
+<td><p>file path to log file</p></td>
+</tr>
+<tr class="row-even"><td><p>engineName</p></td>
+<td><p>XFBLAS engine to run</p></td>
+</tr>
+<tr class="row-odd"><td><p>kernelNumber</p></td>
+<td><p>number of kernels that is being used, default is 1</p></td>
+</tr>
+<tr class="row-even"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>0 if the initialization succeeded</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>1 if the opencl runtime initialization failed</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>2 if the xclbin doesn’t contain the engine</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>4 if the engine is not supported for now</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblasfree">
+<h3>2.3.2 xfblasFree<a class="headerlink" href="#xfblasfree" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="n">xfblasStatus_t</span> <span class="n">xfblasFree</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function frees memory in FPGA device.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>A</p></td>
+<td><p>pointer to matrix A in the host memory</p></td>
+</tr>
+<tr class="row-even"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>0 if the operation completed successfully</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>1 if the library was not initialized</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>3 if there is no FPGA device memory allocated for the matrix</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblasdestroy">
+<h3>2.3.3 xfblasDestroy<a class="headerlink" href="#xfblasdestroy" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="n">xfblasStatus_t</span> <span class="n">xfblasDestroy</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelNumber</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function releases handle used by the XFBLAS library.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>kernelNumber</p></td>
+<td><p>number of kernels that is being used, default is 1</p></td>
+</tr>
+<tr class="row-even"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>0 if the shut down succeeded</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>1 if the library was not initialized</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblasmalloc">
+<h3>2.3.4 xfblasMalloc<a class="headerlink" href="#xfblasmalloc" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="n">xfblasStatus_t</span> <span class="n">xfblasMalloc</span><span class="p">(</span><span class="kt">short</span><span class="o">**</span> <span class="n">devPtr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">xfblasStatus_t</span> <span class="n">xfblasMalloc</span><span class="p">(</span><span class="kt">float</span><span class="o">**</span> <span class="n">devPtr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function allocates memory on the FPGA device.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>devPtr</p></td>
+<td><p>pointer to mapped memory</p></td>
+</tr>
+<tr class="row-even"><td><p>rows</p></td>
+<td><p>number of rows in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>lda</p></td>
+<td><p>leading dimension of the matrix that indicates the total number of cols in the matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>elemSize</p></td>
+<td><p>number of bytes required to store each element in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-even"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>0 if the allocation completed successfully</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>1 if the library was not initialized</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>2 if parameters rows, cols, elemSize, lda &lt;= 0 or cols &gt; lda or data types are not matched</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>3 if there is memory already allocated to the same matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>4 if the engine is not supported for now</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblassetvector">
+<h3>2.3.5 xfblasSetVector<a class="headerlink" href="#xfblassetvector" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="n">xfblasStatus_t</span> <span class="n">xfblasSetVector</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">short</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">incx</span><span class="p">,</span> <span class="kt">short</span><span class="o">*</span> <span class="n">d_x</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">xfblasStatus_t</span> <span class="n">xfblasSetVector</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">float</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">incx</span><span class="p">,</span> <span class="kt">float</span><span class="o">*</span> <span class="n">d_x</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function copies a vector in host memory to FPGA device memory. <a class="reference internal" href="#xfblasmalloc">xfblasMalloc()</a> need to be called prior to this function.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>n</p></td>
+<td><p>number of elements in vector</p></td>
+</tr>
+<tr class="row-even"><td><p>elemSize</p></td>
+<td><p>number of bytes required to store each element in the vector</p></td>
+</tr>
+<tr class="row-odd"><td><p>x</p></td>
+<td><p>pointer to the vector in the host memory</p></td>
+</tr>
+<tr class="row-even"><td><p>incx</p></td>
+<td><p>the storage spacing between consecutive elements of vector x</p></td>
+</tr>
+<tr class="row-odd"><td><p>d_x</p></td>
+<td><p>pointer to mapped memory</p></td>
+</tr>
+<tr class="row-even"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>0 if the operation completed successfully</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>1 if the library was not initialized</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>2 if parameters rows, cols, elemSize, lda &lt;= 0 or cols &gt; lda or data types are not matched</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>3 if there is no FPGA device memory allocated for the vector</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>4 if the engine is not supported for now</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblasgetvector">
+<h3>2.3.6 xfblasGetVector<a class="headerlink" href="#xfblasgetvector" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="n">xfblasStatus_t</span> <span class="n">xfblasGetVector</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">short</span><span class="o">*</span> <span class="n">d_x</span><span class="p">,</span> <span class="kt">short</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">incx</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">xfblasStatus_t</span> <span class="n">xfblasGetVector</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">float</span><span class="o">*</span> <span class="n">d_x</span><span class="p">,</span> <span class="kt">float</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">incx</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function copies a vector in FPGA device memory to host memory.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>n</p></td>
+<td><p>number of elements in vector</p></td>
+</tr>
+<tr class="row-even"><td><p>elemSize</p></td>
+<td><p>number of bytes required to store each element in the vector</p></td>
+</tr>
+<tr class="row-odd"><td><p>d_x</p></td>
+<td><p>pointer to mapped memory</p></td>
+</tr>
+<tr class="row-even"><td><p>x</p></td>
+<td><p>pointer to the vector in the host memory</p></td>
+</tr>
+<tr class="row-odd"><td><p>incx</p></td>
+<td><p>the storage spacing between consecutive elements of vector x</p></td>
+</tr>
+<tr class="row-even"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>0 if the operation completed successfully</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>1 if the library was not initialized</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>3 if there is no FPGA device memory allocated for the vector</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblassetmatrix">
+<h3>2.3.7 xfblasSetMatrix<a class="headerlink" href="#xfblassetmatrix" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="n">xfblasStatus_t</span> <span class="n">xfblasSetMatrix</span><span class="p">(</span><span class="kt">int</span> <span class="n">rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cols</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">short</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span> <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span> <span class="kt">short</span><span class="o">*</span> <span class="n">d_A</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">xfblasStatus_t</span> <span class="n">xfblasSetMatrix</span><span class="p">(</span><span class="kt">int</span> <span class="n">rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cols</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">float</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span> <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span> <span class="kt">float</span><span class="o">*</span> <span class="n">d_A</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function copies a matrix in host memory to FPGA device memory. <a class="reference internal" href="#xfblasmalloc">xfblasMalloc()</a> need to be called prior to this function.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>rows</p></td>
+<td><p>number of rows in the matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>cols</p></td>
+<td><p>number of cols in the matrix that is being used</p></td>
+</tr>
+<tr class="row-odd"><td><p>elemSize</p></td>
+<td><p>number of bytes required to store each element in the matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>pointer to the matrix array in the host memory</p></td>
+</tr>
+<tr class="row-odd"><td><p>lda</p></td>
+<td><p>leading dimension of the matrix that indicates the total number of cols in the matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>d_A</p></td>
+<td><p>pointer to mapped memory</p></td>
+</tr>
+<tr class="row-odd"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-even"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>0 if the operation completed successfully</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>1 if the library was not initialized</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>2 if parameters rows, cols, elemSize, lda &lt;= 0 or cols &gt; lda or data types are not matched</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>3 if there is no FPGA device memory allocated for the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>4 if the engine is not supported for now</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblasgetmatrix">
+<h3>2.3.8 xfblasGetMatrix<a class="headerlink" href="#xfblasgetmatrix" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="n">xfblasStatus_t</span> <span class="n">xfblasGetMatrix</span><span class="p">(</span><span class="kt">int</span> <span class="n">rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cols</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">short</span><span class="o">*</span> <span class="n">d_A</span><span class="p">,</span> <span class="kt">short</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span> <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">xfblasStatus_t</span> <span class="n">xfblasGetMatrix</span><span class="p">(</span><span class="kt">int</span> <span class="n">rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cols</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">float</span><span class="o">*</span> <span class="n">d_A</span><span class="p">,</span> <span class="kt">float</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span> <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function copies a matrix in FPGA device memory to host memory.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>rows</p></td>
+<td><p>number of rows in the matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>cols</p></td>
+<td><p>number of cols in the matrix that is being used</p></td>
+</tr>
+<tr class="row-odd"><td><p>elemSize</p></td>
+<td><p>number of bytes required to store each element in the matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>d_A</p></td>
+<td><p>pointer to mapped memory</p></td>
+</tr>
+<tr class="row-odd"><td><p>A</p></td>
+<td><p>pointer to the matrix array in the host memory</p></td>
+</tr>
+<tr class="row-even"><td><p>lda</p></td>
+<td><p>leading dimension of the matrix that indicates the total number of cols in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-even"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>0 if the operation completed successfully</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>1 if the library was not initialized</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>3 if there is no FPGA device memory allocated for the matrix</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblassetvectorasync">
+<h3>2.3.9 xfblasSetVectorAsync<a class="headerlink" href="#xfblassetvectorasync" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xfblasSetVectorAsync</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">short</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">incx</span><span class="p">,</span> <span class="kt">short</span><span class="o">*</span> <span class="n">d_x</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="kt">void</span> <span class="n">xfblasSetVectorAsync</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">float</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">incx</span><span class="p">,</span> <span class="kt">float</span><span class="o">*</span> <span class="n">d_x</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function has the same functionality as <a class="reference internal" href="#xfblassetvector">xfblasSetVector()</a>, with the data transfered asynchronously (with respect to the host).</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>n</p></td>
+<td><p>number of elements in vector</p></td>
+</tr>
+<tr class="row-even"><td><p>elemSize</p></td>
+<td><p>number of bytes required to store each element in the vector</p></td>
+</tr>
+<tr class="row-odd"><td><p>x</p></td>
+<td><p>pointer to the vector in the host memory</p></td>
+</tr>
+<tr class="row-even"><td><p>incx</p></td>
+<td><p>the storage spacing between consecutive elements of vector x</p></td>
+</tr>
+<tr class="row-odd"><td><p>d_x</p></td>
+<td><p>pointer to mapped memory</p></td>
+</tr>
+<tr class="row-even"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>none</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblasgetvectorasync">
+<h3>2.3.10 xfblasGetVectorAsync<a class="headerlink" href="#xfblasgetvectorasync" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xfblasGetVectorAsync</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">short</span><span class="o">*</span> <span class="n">d_x</span><span class="p">,</span> <span class="kt">short</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">incx</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="kt">void</span> <span class="n">xfblasGetVectorAsync</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">float</span><span class="o">*</span> <span class="n">d_x</span><span class="p">,</span> <span class="kt">float</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">incx</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function has the same functionality as <a class="reference internal" href="#xfblasgetvector">xfblasGetVector()</a>, with the data transfered asynchronously (with respect to the host).</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>n</p></td>
+<td><p>number of elements in vector</p></td>
+</tr>
+<tr class="row-even"><td><p>elemSize</p></td>
+<td><p>number of bytes required to store each element in the vector</p></td>
+</tr>
+<tr class="row-odd"><td><p>d_x</p></td>
+<td><p>pointer to mapped memory</p></td>
+</tr>
+<tr class="row-even"><td><p>x</p></td>
+<td><p>pointer to the vector in the host memory</p></td>
+</tr>
+<tr class="row-odd"><td><p>incx</p></td>
+<td><p>the storage spacing between consecutive elements of vector x</p></td>
+</tr>
+<tr class="row-even"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>none</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblassetmatrixasync">
+<h3>2.3.11 xfblasSetMatrixAsync<a class="headerlink" href="#xfblassetmatrixasync" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xfblasSetMatrixAsync</span><span class="p">(</span><span class="kt">int</span> <span class="n">rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cols</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">short</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span> <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span> <span class="kt">short</span><span class="o">*</span> <span class="n">d_A</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="kt">void</span> <span class="n">xfblasSetMatrixAsync</span><span class="p">(</span><span class="kt">int</span> <span class="n">rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cols</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">float</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span> <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span> <span class="kt">float</span><span class="o">*</span> <span class="n">d_A</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function has the same functionality as <a class="reference external" href="2.3.7xfblasSetMatrix">xfblasSetMatrix()</a>, with the data transfered asynchronously (with respect to the host).</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>rows</p></td>
+<td><p>number of rows in the matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>cols</p></td>
+<td><p>number of cols in the matrix that is being used</p></td>
+</tr>
+<tr class="row-odd"><td><p>elemSize</p></td>
+<td><p>number of bytes required to store each element in the matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>pointer to the matrix array in the host memory</p></td>
+</tr>
+<tr class="row-odd"><td><p>lda</p></td>
+<td><p>leading dimension of the matrix that indicates the total number of cols in the matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>d_A</p></td>
+<td><p>pointer to mapped memory</p></td>
+</tr>
+<tr class="row-odd"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-even"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>none</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblasgetmatrixasync">
+<h3>2.3.12 xfblasGetMatrixAsync<a class="headerlink" href="#xfblasgetmatrixasync" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xfblasGetMatrixAsync</span><span class="p">(</span><span class="kt">int</span> <span class="n">rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cols</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">short</span><span class="o">*</span> <span class="n">d_A</span><span class="p">,</span> <span class="kt">short</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span> <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="kt">void</span> <span class="n">xfblasGetMatrixAsync</span><span class="p">(</span><span class="kt">int</span> <span class="n">rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cols</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">float</span><span class="o">*</span> <span class="n">d_A</span><span class="p">,</span> <span class="kt">float</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span> <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function has the same functionality as <a class="reference external" href="2.3.8xfblasGetMatrix">xfblasGetMatrix()</a>, with the data transfered asynchronously (with respect to the host).</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>rows</p></td>
+<td><p>number of rows in the matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>cols</p></td>
+<td><p>number of cols in the matrix that is being used</p></td>
+</tr>
+<tr class="row-odd"><td><p>elemSize</p></td>
+<td><p>number of bytes required to store each element in the matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>d_A</p></td>
+<td><p>pointer to mapped memory</p></td>
+</tr>
+<tr class="row-odd"><td><p>A</p></td>
+<td><p>pointer to the matrix array in the host memory</p></td>
+</tr>
+<tr class="row-even"><td><p>lda</p></td>
+<td><p>leading dimension of the matrix that indicates the total number of cols in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-even"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>none</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblasmallocrestricted">
+<h3>2.3.13 xfblasMallocRestricted<a class="headerlink" href="#xfblasmallocrestricted" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="n">xfblasStatus_t</span> <span class="n">xfblasMallocRestricted</span><span class="p">(</span><span class="kt">int</span> <span class="n">rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cols</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span> <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function allocates memory for host row-major format matrix on the FPGA device.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>rows</p></td>
+<td><p>number of rows in the matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>cols</p></td>
+<td><p>number of cols in the matrix that is being used</p></td>
+</tr>
+<tr class="row-odd"><td><p>elemSize</p></td>
+<td><p>number of bytes required to store each element in the matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>pointer to the matrix array in the host memory</p></td>
+</tr>
+<tr class="row-odd"><td><p>lda</p></td>
+<td><p>leading dimension of the matrix that indicates the total number of cols in the matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>0 if the allocation completed successfully</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>1 if the library was not initialized</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>2 if parameters rows, cols, elemSize, lda &lt;= 0 or cols &gt; lda or data types are not matched</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>3 if there is memory already allocated to the same matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>4 if the engine is not supported for now</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>5 if rows, cols or lda is not padded correctly</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblassetvectorrestricted">
+<h3>2.3.14 xfblasSetVectorRestricted<a class="headerlink" href="#xfblassetvectorrestricted" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="n">xfblasStatus_t</span> <span class="n">xfblasSetVectorRestricted</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function copies a vector in host memory to FPGA device memory. <a class="reference internal" href="#xfblasmallocrestricted">xfblasMallocRestricted()</a> need to be called prior to this function.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>x</p></td>
+<td><p>pointer to the vector in the host memory</p></td>
+</tr>
+<tr class="row-even"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>0 if the operation completed successfully</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>1 if the library was not initialized</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>3 if there is no FPGA device memory allocated for the vector</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblasgetvectorrestricted">
+<h3>2.3.15 xfblasGetVectorRestricted<a class="headerlink" href="#xfblasgetvectorrestricted" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="n">xfblasStatus_t</span> <span class="n">xfblasGetVectorRestricted</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function copies a matrix in FPGA device memory to host memory.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>x</p></td>
+<td><p>pointer to vetcor x in the host memory</p></td>
+</tr>
+<tr class="row-even"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>0 if the operation completed successfully</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>1 if the library was not initialized</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>3 if there is no FPGA device memory allocated for the matrix</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblassetmatrixrestricted">
+<h3>2.3.16 xfblasSetMatrixRestricted<a class="headerlink" href="#xfblassetmatrixrestricted" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="n">xfblasStatus_t</span> <span class="n">xfblasSetMatrixRestricted</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function copies a matrix in host memory to FPGA device memory. <a class="reference internal" href="#xfblasmallocrestricted">xfblasMallocRestricted()</a> need to be called prior to this function.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>A</p></td>
+<td><p>pointer to the matrix array in the host memory</p></td>
+</tr>
+<tr class="row-even"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>0 if the operation completed successfully</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>1 if the library was not initialized</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>3 if there is no FPGA device memory allocated for the matrix</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblasgetmatrixrestricted">
+<h3>2.3.17 xfblasGetMatrixRestricted<a class="headerlink" href="#xfblasgetmatrixrestricted" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="n">xfblasStatus_t</span> <span class="n">xfblasGetMatrixRestricted</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function copies a matrix in FPGA device memory to host memory.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>A</p></td>
+<td><p>pointer to matrix A in the host memory</p></td>
+</tr>
+<tr class="row-even"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>0 if the operation completed successfully</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>1 if the library was not initialized</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>3 if there is no FPGA device memory allocated for the matrix</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblassetvectorrestrictedasync">
+<h3>2.3.18 xfblasSetVectorRestrictedAsync<a class="headerlink" href="#xfblassetvectorrestrictedasync" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xfblasSetVectorRestrictedAsync</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function has the same functionality as <a class="reference external" href="2.3.14xfblasSetVectorRestricted">xfblasSetVectorRestricted()</a>, with the data transfered asynchronously (with respect to the host).</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>x</p></td>
+<td><p>pointer to the vector in the host memory</p></td>
+</tr>
+<tr class="row-even"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>none</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblasgetvectorrestrictedasync">
+<h3>2.3.19 xfblasGetVectorRestrictedAsync<a class="headerlink" href="#xfblasgetvectorrestrictedasync" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xfblasGetVectorRestrictedAsync</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function has the same functionality as <a class="reference external" href="2.3.15xfblasGetVectorRestricted">xfblasGetVectorRestricted()</a>, with the data transfered asynchronously (with respect to the host).</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>x</p></td>
+<td><p>pointer to vetcor x in the host memory</p></td>
+</tr>
+<tr class="row-even"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>none</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblassetmatrixrestrictedasync">
+<h3>2.3.20 xfblasSetMatrixRestrictedAsync<a class="headerlink" href="#xfblassetmatrixrestrictedasync" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xfblasSetMatrixRestrictedAsync</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function has the same functionality as <a class="reference external" href="2.3.16xfblasSetMatrixRestricted">xfblasSetMatrixRestricted()</a>, with the data transfered asynchronously (with respect to the host).</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>A</p></td>
+<td><p>pointer to the matrix array in the host memory</p></td>
+</tr>
+<tr class="row-even"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>none</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblasgetmatrixrestrictedasync">
+<h3>2.3.21 xfblasGetMatrixRestrictedAsync<a class="headerlink" href="#xfblasgetmatrixrestrictedasync" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xfblasGetMatrixRestrictedAsync</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function has the same functionality as <a class="reference external" href="2.3.17xfblasGetMatrixRestricted">xfblasGetMatrixRestricted()</a>, with the data transfered asynchronously (with respect to the host).</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>A</p></td>
+<td><p>pointer to matrix A in the host memory</p></td>
+</tr>
+<tr class="row-even"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>none</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblasmallocmanaged">
+<h3>2.3.22 xfblasMallocManaged<a class="headerlink" href="#xfblasmallocmanaged" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="n">xfblasStatus_t</span> <span class="n">xfblasMallocManaged</span><span class="p">(</span><span class="kt">short</span><span class="o">**</span> <span class="n">devPtr</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">paddedLda</span><span class="p">,</span> <span class="kt">int</span> <span class="n">rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">xfblasStatus_t</span> <span class="n">xfblasMallocManaged</span><span class="p">(</span><span class="kt">float</span><span class="o">**</span> <span class="n">devPtr</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">paddedLda</span><span class="p">,</span> <span class="kt">int</span> <span class="n">rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span> <span class="kt">int</span> <span class="n">elemSize</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function allocates memory on the FPGA device, rewrites the leading dimension size after padding.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>devPtr</p></td>
+<td><p>pointer to mapped memory</p></td>
+</tr>
+<tr class="row-even"><td><p>paddedLda</p></td>
+<td><p>leading dimension of the matrix after padding</p></td>
+</tr>
+<tr class="row-odd"><td><p>rows</p></td>
+<td><p>number of rows in the matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>lda</p></td>
+<td><p>leading dimension of the matrix that indicates the total number of cols in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>elemSize</p></td>
+<td><p>number of bytes required to store each element in the matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>0 if the allocation completed successfully</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>1 if the library was not initialized</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>2 if parameters rows, cols, elemSize, lda &lt;= 0 or cols &gt; lda or data types are not matched</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>3 if there is memory already allocated to the same matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>4 if the engine is not supported for now</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblaskernelsynchronize">
+<h3>2.3.23 xfblasKernelSynchronize<a class="headerlink" href="#xfblaskernelsynchronize" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xfblasKernelSynchronize</span><span class="p">()</span></pre>
+<p>This function will wait until all pending commands in all kernels have completed.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>none</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>none</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblasdevicesynchronize">
+<h3>2.3.24 xfblasDeviceSynchronize<a class="headerlink" href="#xfblasdevicesynchronize" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="n">xfblasStatus_t</span> <span class="n">xfblasDeviceSynchronize</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function will synchronize all the device memory to host memory.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-even"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>0 if the operation completed successfully</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>1 if the library was not initialized</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>3 if there is no FPGA device memory allocated for some of the matrices in the host memory</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="xfblas-function-reference">
+<h2>2.4 XFBLAS Function Reference<a class="headerlink" href="#xfblas-function-reference" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="xfblasgemm">
+<h3>2.4.1 xfblasGemm<a class="headerlink" href="#xfblasgemm" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="n">xfblasStatus_t</span> <span class="n">xfblasGemm</span><span class="p">(</span><span class="n">xfblasOperation_t</span> <span class="n">transa</span><span class="p">,</span> <span class="n">xfblasOperation_t</span> <span class="n">transb</span><span class="p">,</span> <span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="kt">int</span> <span class="n">alpha</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span> <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">B</span><span class="p">,</span> <span class="kt">int</span> <span class="n">ldb</span><span class="p">,</span> <span class="kt">int</span> <span class="n">beta</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">C</span><span class="p">,</span> <span class="kt">int</span> <span class="n">ldc</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function performs the matrix-matrix multiplication C = alpha*op(A)op(B) + beta*C. See <a class="reference internal" href="L3_example_gemm.html"><span class="doc">gemm example</span></a> for detail usage.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>transa</p></td>
+<td><p>operation op(A) that is non- or (conj.) transpose</p></td>
+</tr>
+<tr class="row-even"><td><p>transb</p></td>
+<td><p>operation op(B) that is non- or (conj.) transpose</p></td>
+</tr>
+<tr class="row-odd"><td><p>m</p></td>
+<td><p>number of rows in matrix A, matrix C</p></td>
+</tr>
+<tr class="row-even"><td><p>n</p></td>
+<td><p>number of cols in matrix B, matrix C</p></td>
+</tr>
+<tr class="row-odd"><td><p>k</p></td>
+<td><p>number of cols in matrix A, number of rows in matrix B</p></td>
+</tr>
+<tr class="row-even"><td><p>alpha</p></td>
+<td><p>scalar used for multiplication</p></td>
+</tr>
+<tr class="row-odd"><td><p>A</p></td>
+<td><p>pointer to matrix A in the host memory</p></td>
+</tr>
+<tr class="row-even"><td><p>lda</p></td>
+<td><p>leading dimension of matirx A</p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td><p>pointer to matrix B in the host memory</p></td>
+</tr>
+<tr class="row-even"><td><p>ldb</p></td>
+<td><p>leading dimension of matrix B</p></td>
+</tr>
+<tr class="row-odd"><td><p>beta</p></td>
+<td><p>scalar used for multiplication</p></td>
+</tr>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>pointer to matrix C in the host memory</p></td>
+</tr>
+<tr class="row-odd"><td><p>ldc</p></td>
+<td><p>leading dimension of matrix C</p></td>
+</tr>
+<tr class="row-even"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>0 if the operation completed successfully</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>1 if the library was not initialized</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>3 if not all the matrices have FPGA devie memory allocated</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>4 if the engine is not supported for now</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xfblasgemv">
+<h3>2.4.2 xfblasGemv<a class="headerlink" href="#xfblasgemv" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="n">xfblasStatus_t</span> <span class="n">xfblasGemv</span><span class="p">(</span><span class="n">xfblasOperation_t</span> <span class="n">trans</span><span class="p">,</span> <span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">alpha</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span> <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">incx</span><span class="p">,</span> <span class="kt">int</span> <span class="n">beta</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">incy</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></pre>
+<p>This function performs the matrix-vector multiplication y = alpha*op(A) x+ beta*y.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>transa</p></td>
+<td><p>operation op(A) that is non- or (conj.) transpose</p></td>
+</tr>
+<tr class="row-even"><td><p>m</p></td>
+<td><p>number of rows in matrix A</p></td>
+</tr>
+<tr class="row-odd"><td><p>n</p></td>
+<td><p>number of cols in matrix A</p></td>
+</tr>
+<tr class="row-even"><td><p>alpha</p></td>
+<td><p>scalar used for multiplication</p></td>
+</tr>
+<tr class="row-odd"><td><p>A</p></td>
+<td><p>pointer to matrix A in the host memory</p></td>
+</tr>
+<tr class="row-even"><td><p>lda</p></td>
+<td><p>leading dimension of matirx A</p></td>
+</tr>
+<tr class="row-odd"><td><p>x</p></td>
+<td><p>pointer to vector x in the host memory</p></td>
+</tr>
+<tr class="row-even"><td><p>incx</p></td>
+<td><p>stride between consecutive elements of x</p></td>
+</tr>
+<tr class="row-odd"><td><p>beta</p></td>
+<td><p>scalar used for multiplication</p></td>
+</tr>
+<tr class="row-even"><td><p>y</p></td>
+<td><p>pointer to vector y in the host memory</p></td>
+</tr>
+<tr class="row-odd"><td><p>incy</p></td>
+<td><p>stride between consecutive elements of y</p></td>
+</tr>
+<tr class="row-even"><td><p>kernelIndex</p></td>
+<td><p>index of kernel that is being used, default is 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>deviceIndex</p></td>
+<td><p>index of device that is being used, default is 0</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Return:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>0 if the operation completed successfully</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>1 if the library was not initialized</p></td>
+</tr>
+<tr class="row-odd"><td><p>xfblasStatus_t</p></td>
+<td><p>3 if not all the matrices have FPGA devie memory allocated</p></td>
+</tr>
+<tr class="row-even"><td><p>xfblasStatus_t</p></td>
+<td><p>4 if the engine is not supported for now</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="obtain-fpga-bitstream">
+<h1>3. Obtain FPGA bitstream<a class="headerlink" href="#obtain-fpga-bitstream" title="Permalink to this headline">¶</a></h1>
+<p>FPGA bitstreams (xclbins) will be available to download from Xilinx websites in the future. Currtenly, xclbins could be found in <a class="reference external" href="https://gitenterprise.xilinx.com/FaaSApps/xf_blas/tree/master/L3/overlay">xf_blas/L3/overlay</a></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="L3_example.html" class="btn btn-neutral float-right" title="L3 API example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="L3_overview.html" class="btn btn-neutral float-left" title="L3 API Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
