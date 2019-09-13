@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Internals of streamOneToN &mdash; XF Hardware Utility Library 1.0 alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xf-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Internals of streamNToOne" href="stream_n_to_one.html" />
+    <link rel="prev" title="Internals of UramArray" href="../uram_array.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../toc.html">L1 Module User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../stream_based.html">Stream-Based API Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_class.html">API Class of <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helper.html">Template Helpers in <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tag.html">Tag Types in <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../internals.html">Module Design Internals</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../m_axi/axi_to_stream.html">Internals of axiToStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../m_axi/axi_to_multi_stream.html">Internals of axiToMultiStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../m_axi/stream_to_axi.html">Internals of streamToAxi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uram_array.html">Internals of UramArray</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Internals of streamOneToN</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#round-robin">Round-Robin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#load-balancing">Load-Balancing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tag-select">Tag-Select</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="stream_n_to_one.html">Internals of streamNToOne</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stream_discard.html">Internals of streamDiscard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../synced/stream_split.html">Internals of streamSplit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../synced/stream_combine.html">Internals of streamCombine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../synced/stream_sync.html">Internals of streamSync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../windowed/stream_reorder.html">Internals of streamReorder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples.html">Examples</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/result.html">Throughput Tests</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XF Hardware Utility Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../toc.html">L1 Module User Guide</a> &raquo;</li>
+        
+          <li><a href="../internals.html">Module Design Internals</a> &raquo;</li>
+        
+      <li>Internals of streamOneToN</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="internals-of-streamoneton">
+<span id="guide-stream-one-to-n"></span><h1><a class="toc-backref" href="#id3">Internals of streamOneToN</a><a class="headerlink" href="#internals-of-streamoneton" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="../api.html#cid-xf-common-utils-hw-streamoneton"><span class="std std-ref">streamOneToN</span></a> API
+is designed for distributing data from one source to multiple processor units.
+Three different algorithms have been implemented, <code class="docutils literal notranslate"><span class="pre">RoundRobinT</span></code>,
+<code class="docutils literal notranslate"><span class="pre">LoadBalanceT</span></code> and <code class="docutils literal notranslate"><span class="pre">TagSelectT</span></code>.</p>
+<p>To ensure the throughput, it is very common to pass a vector of elements in
+FPGA data paths, so <code class="docutils literal notranslate"><span class="pre">streamOneToN</span></code> supports element vector input, if the
+data elements are passed in the form of <code class="docutils literal notranslate"><span class="pre">ap_uint</span></code>.
+It also offers overload for generic template type for non-vector input.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#internals-of-streamoneton" id="id3">Internals of streamOneToN</a><ul>
+<li><a class="reference internal" href="#round-robin" id="id4">Round-Robin</a></li>
+<li><a class="reference internal" href="#load-balancing" id="id5">Load-Balancing</a></li>
+<li><a class="reference internal" href="#tag-select" id="id6">Tag-Select</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="round-robin">
+<h2><a class="toc-backref" href="#id4">Round-Robin</a><a class="headerlink" href="#round-robin" title="Permalink to this headline">¶</a></h2>
+<p>The round-robin algorithm distributes elements to output streams in circular
+order, starting from the output stream with index 0.</p>
+<div class="section" id="generic-type">
+<h3>Generic Type<a class="headerlink" href="#generic-type" title="Permalink to this headline">¶</a></h3>
+<p>With generic type input, the function dispatches one element per cycle.
+This mode works best for sharing the multi-cycle processing work across
+an array of units.</p>
+<a class="reference internal image-reference" href="../../_images/stream_one_to_n_round_robin_type.png"><img alt="one-to-n round-robin" class="align-center" src="../../_images/stream_one_to_n_round_robin_type.png" style="width: 80%;" /></a>
+</div>
+<div class="section" id="vector-input">
+<h3>Vector Input<a class="headerlink" href="#vector-input" title="Permalink to this headline">¶</a></h3>
+<p>With input casted to a long <code class="docutils literal notranslate"><span class="pre">ap_uint</span></code> vector, higher input rate can be done.
+This implementation consists of two dataflow processes working in parallel.
+The first one breaks the vector into a ping-pong buffer,
+while the second one reads from the buffers and schedules output in
+round-robin order.</p>
+<a class="reference internal image-reference" href="../../_images/stream_one_to_n_round_robin_detail.png"><img alt="design details of n streams to one distribution on round robin" class="align-center" src="../../_images/stream_one_to_n_round_robin_detail.png" style="width: 100%;" /></a>
+<p>The ping-pong buffers are implemented as two <code class="docutils literal notranslate"><span class="pre">ap_uint</span></code> of width as least
+common multiple (LCM) of input width and total output stream width.
+This imposes a limitation, as the LCM should be no more than
+<code class="docutils literal notranslate"><span class="pre">AP_INT_MAX_W</span></code>, which is default to 1024 in HLS.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p>Though <code class="docutils literal notranslate"><span class="pre">AP_INT_MAX_W</span></code> can be set to larger values, it may slow down HLS
+synthesis, and to effectively override <code class="docutils literal notranslate"><span class="pre">AP_INT_MAX_W</span></code>, the macro must be
+set before first inclusion of <code class="docutils literal notranslate"><span class="pre">ap_int.h</span></code> header.</p>
+<p class="last">This library tries to override <code class="docutils literal notranslate"><span class="pre">AP_INT_MAX_W</span></code> to 4096, but it’s only
+effective when <code class="docutils literal notranslate"><span class="pre">ap_int.h</span></code> has not be included before utility library
+headers.</p>
+</div>
+</div>
+</div>
+<div class="section" id="load-balancing">
+<h2><a class="toc-backref" href="#id5">Load-Balancing</a><a class="headerlink" href="#load-balancing" title="Permalink to this headline">¶</a></h2>
+<p>The load-balancing algorithm does not keep a fixed order in dispatching,
+instead, it skips successors that cannot read, and tries to feed as much
+as possible to outputs.</p>
+<div class="section" id="id1">
+<h3>Generic Type<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../../_images/stream_one_to_n_load_balance_type.png"><img alt="stream_one_to_n distribution on load balance Structure" class="align-center" src="../../_images/stream_one_to_n_load_balance_type.png" style="width: 80%;" /></a>
+</div>
+<div class="section" id="id2">
+<h3>Vector Input<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>The design of the primitive includes 3 modules:</p>
+<ol class="arabic simple">
+<li>read: Read data from the input stream then output data by one stream whose
+width is <code class="docutils literal notranslate"><span class="pre">lcm(Win,</span> <span class="pre">N</span> <span class="pre">*</span> <span class="pre">Wout)</span></code> bits.
+Here, the least common multiple of  <code class="docutils literal notranslate"><span class="pre">Win</span></code> and <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">*</span> <span class="pre">Wout</span></code> is the inner
+buffer size in order to solve the different input width and output width.</li>
+<li>reduce: split the large width to a array of <code class="docutils literal notranslate"><span class="pre">N</span></code> elements of <code class="docutils literal notranslate"><span class="pre">Wout</span></code> bits.</li>
+<li>distribute: Read the array of elements, and distibute them to output streams which
+are not full yet.</li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/stream_one_to_n_load_balance_detail.png"><img alt="design details of n streams to one distribution on load balance" class="align-center" src="../../_images/stream_one_to_n_load_balance_detail.png" style="width: 100%;" /></a>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p>Current implementation has the following limitations:</p>
+<ul class="last simple">
+<li>It uses a wide <code class="docutils literal notranslate"><span class="pre">ap_uint</span></code> as internal buffer. The buffer is as wide as
+the least common multiple (LCM) of input width and total output width.
+The width is limited by <code class="docutils literal notranslate"><span class="pre">AP_INT_MAX_W</span></code>, which defaults to 1024.</li>
+<li>This library will try to override <code class="docutils literal notranslate"><span class="pre">AP_INT_MAX_W</span></code> to 4096, but user
+should ensure that <code class="docutils literal notranslate"><span class="pre">ap_int.h</span></code> has not be included before the library
+headers.</li>
+<li>Too large <code class="docutils literal notranslate"><span class="pre">AP_INT_MAX_W</span></code> will significantly slow down HLS synthesis.</li>
+</ul>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">The depth of output streams must be no less than 4 due to internal delay.</p>
+</div>
+</div>
+</div>
+<div class="section" id="tag-select">
+<h2><a class="toc-backref" href="#id6">Tag-Select</a><a class="headerlink" href="#tag-select" title="Permalink to this headline">¶</a></h2>
+<p>This algorithm dispatches data elements according to provided tags.
+The tags are used as index of output streams, and it is expected that
+each input element is accompanied by a tag.</p>
+<a class="reference internal image-reference" href="../../_images/stream_one_to_n_tag_select_type.png"><img alt="one stream to n distribution on tag Structure" class="align-center" src="../../_images/stream_one_to_n_tag_select_type.png" style="width: 80%;" /></a>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="stream_n_to_one.html" class="btn btn-neutral float-right" title="Internals of streamNToOne" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../uram_array.html" class="btn btn-neutral float-left" title="Internals of UramArray" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

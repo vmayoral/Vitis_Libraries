@@ -1,0 +1,377 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Helpers in xf::common::utils_hw &mdash; XF Hardware Utility Library 1.0 alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xf-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tag Types in xf::common::utils_hw" href="tag.html" />
+    <link rel="prev" title="API Class of xf::common::utils_hw" href="api_class.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="toc.html">L1 Module User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="stream_based.html">Stream-Based API Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_class.html">API Class of <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Template Helpers in <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#template-struct-xf-common-utils-hw-powerof2">template struct xf::common::utils_hw::PowerOf2</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#template-struct-xf-common-utils-hw-gcd">template struct xf::common::utils_hw::GCD</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#template-struct-xf-common-utils-hw-lcm">template struct xf::common::utils_hw::LCM</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Overview</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tag.html">Tag Types in <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals.html">Module Design Internals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/result.html">Throughput Tests</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XF Hardware Utility Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="toc.html">L1 Module User Guide</a> &raquo;</li>
+        
+      <li>Template Helpers in <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-helpers-in-xf-common-utils-hw">
+<span id="helper"></span><h1>Template Helpers in <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code><a class="headerlink" href="#template-helpers-in-xf-common-utils-hw" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="template-struct-xf-common-utils-hw-powerof2">
+<span id="cid-xf-common-utils-hw-powerof2"></span><span id="doxid-structxf-1-1common-1-1utils-hw-1-1-power-of2"></span><span id="index-0"></span><h2>template struct xf::common::utils_hw::PowerOf2<a class="headerlink" href="#template-struct-xf-common-utils-hw-powerof2" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_utils_hw/common.hpp&quot;</span>
+</pre>
+<div class="section" id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<p>Template to calculate power of 2.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>_N</td>
+<td>the power to be calculated.</td>
+</tr>
+</tbody>
+</table>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">_N</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">PowerOf2</span>
+
+<span class="c1">// fields</span>
+
+<span class="k">static</span> <span class="k">const</span> <span class="kt">unsigned</span> <a class="reference internal" href="#doxid-structxf-1-1common-1-1utils-hw-1-1-power-of2-1aefe579a9f201f4b9da07161d8bf05423"><span class="std std-ref">value</span></a>
+</pre>
+<div class="section" id="fields">
+<h4>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="cid-xf-common-utils-hw-powerof2-value">
+<span id="doxid-structxf-1-1common-1-1utils-hw-1-1-power-of2-1aefe579a9f201f4b9da07161d8bf05423"></span><span></span><span class="k">static</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="n">value</span>
+</pre>
+<p>value of 2^(_N)</p>
+</div>
+</div>
+</div>
+<div class="section" id="template-struct-xf-common-utils-hw-gcd">
+<span id="cid-xf-common-utils-hw-gcd"></span><span id="doxid-structxf-1-1common-1-1utils-hw-1-1-g-c-d"></span><span id="index-1"></span><h2>template struct xf::common::utils_hw::GCD<a class="headerlink" href="#template-struct-xf-common-utils-hw-gcd" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_utils_hw/common.hpp&quot;</span>
+</pre>
+<div class="section" id="id1">
+<h3>Overview<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Template to calculate Greatest Common Divisor ( <a class="reference internal" href="#doxid-structxf-1-1common-1-1utils-hw-1-1-g-c-d"><span class="std std-ref">GCD</span></a> ) of two integers.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>_A</td>
+<td>integer</td>
+</tr>
+<tr class="row-even"><td>_B</td>
+<td>the other integer</td>
+</tr>
+</tbody>
+</table>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">_A</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">_B</span>
+    <span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">GCD</span>
+
+<span class="c1">// fields</span>
+
+<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <a class="reference internal" href="#doxid-structxf-1-1common-1-1utils-hw-1-1-g-c-d-1ac074664cab6b1c2ee7ebd9bb3ab2f9d9"><span class="std std-ref">value</span></a>
+</pre>
+<div class="section" id="id2">
+<h4>Fields<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="cid-xf-common-utils-hw-gcd-value">
+<span id="doxid-structxf-1-1common-1-1utils-hw-1-1-g-c-d-1ac074664cab6b1c2ee7ebd9bb3ab2f9d9"></span><span></span><span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">value</span>
+</pre>
+<p>value of <a class="reference internal" href="#doxid-structxf-1-1common-1-1utils-hw-1-1-g-c-d"><span class="std std-ref">GCD</span></a> of _A and _B</p>
+</div>
+</div>
+</div>
+<div class="section" id="template-struct-xf-common-utils-hw-lcm">
+<span id="cid-xf-common-utils-hw-lcm"></span><span id="doxid-structxf-1-1common-1-1utils-hw-1-1-l-c-m"></span><span id="index-2"></span><h2>template struct xf::common::utils_hw::LCM<a class="headerlink" href="#template-struct-xf-common-utils-hw-lcm" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_utils_hw/common.hpp&quot;</span>
+</pre>
+<div class="section" id="id3">
+<h3>Overview<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Template to calculate Least Common Multiple(LCM) of two integers.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>_A</td>
+<td>integer</td>
+</tr>
+<tr class="row-even"><td>_B</td>
+<td>the other integer</td>
+</tr>
+</tbody>
+</table>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">_A</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">_B</span>
+    <span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">LCM</span>
+
+<span class="c1">// fields</span>
+
+<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <a class="reference internal" href="#doxid-structxf-1-1common-1-1utils-hw-1-1-l-c-m-1a8f8ac302ef660e7f7c5ba900fe8cef90"><span class="std std-ref">value</span></a>
+</pre>
+<div class="section" id="id4">
+<h4>Fields<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="cid-xf-common-utils-hw-lcm-value">
+<span id="doxid-structxf-1-1common-1-1utils-hw-1-1-l-c-m-1a8f8ac302ef660e7f7c5ba900fe8cef90"></span><span></span><span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">value</span>
+</pre>
+<p>value of <a class="reference internal" href="#doxid-structxf-1-1common-1-1utils-hw-1-1-l-c-m"><span class="std std-ref">LCM</span></a> of _A and _B</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tag.html" class="btn btn-neutral float-right" title="Tag Types in xf::common::utils_hw" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="api_class.html" class="btn btn-neutral float-left" title="API Class of xf::common::utils_hw" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

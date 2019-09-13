@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tag Types in xf::common::utils_hw &mdash; XF Hardware Utility Library 1.0 alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xf-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Module Design Internals" href="internals.html" />
+    <link rel="prev" title="Template Helpers in xf::common::utils_hw" href="helper.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="toc.html">L1 Module User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="stream_based.html">Stream-Based API Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_class.html">API Class of <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="helper.html">Template Helpers in <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tag Types in <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#struct-xf-common-utils-hw-loadbalancet">struct xf::common::utils_hw::LoadBalanceT</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#struct-xf-common-utils-hw-roundrobint">struct xf::common::utils_hw::RoundRobinT</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#struct-xf-common-utils-hw-tagselectt">struct xf::common::utils_hw::TagSelectT</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#struct-xf-common-utils-hw-lsbsidet">struct xf::common::utils_hw::LSBSideT</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#struct-xf-common-utils-hw-msbsidet">struct xf::common::utils_hw::MSBSideT</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="internals.html">Module Design Internals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/result.html">Throughput Tests</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XF Hardware Utility Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="toc.html">L1 Module User Guide</a> &raquo;</li>
+        
+      <li>Tag Types in <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tag-types-in-xf-common-utils-hw">
+<span id="tag-structs"></span><h1>Tag Types in <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code><a class="headerlink" href="#tag-types-in-xf-common-utils-hw" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="struct-xf-common-utils-hw-loadbalancet">
+<span id="cid-xf-common-utils-hw-loadbalancet"></span><span id="doxid-structxf-1-1common-1-1utils-hw-1-1-load-balance-t"></span><span id="index-0"></span><h2>struct xf::common::utils_hw::LoadBalanceT<a class="headerlink" href="#struct-xf-common-utils-hw-loadbalancet" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_utils_hw/enums.hpp&quot;</span>
+</pre>
+<p>Distribute or collect according to back-pressure.</p>
+</div>
+<div class="section" id="struct-xf-common-utils-hw-roundrobint">
+<span id="cid-xf-common-utils-hw-roundrobint"></span><span id="doxid-structxf-1-1common-1-1utils-hw-1-1-round-robin-t"></span><span id="index-1"></span><h2>struct xf::common::utils_hw::RoundRobinT<a class="headerlink" href="#struct-xf-common-utils-hw-roundrobint" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_utils_hw/enums.hpp&quot;</span>
+</pre>
+<p>Distribute or collect in round-robin order.</p>
+</div>
+<div class="section" id="struct-xf-common-utils-hw-tagselectt">
+<span id="cid-xf-common-utils-hw-tagselectt"></span><span id="doxid-structxf-1-1common-1-1utils-hw-1-1-tag-select-t"></span><span id="index-2"></span><h2>struct xf::common::utils_hw::TagSelectT<a class="headerlink" href="#struct-xf-common-utils-hw-tagselectt" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_utils_hw/enums.hpp&quot;</span>
+</pre>
+<p>Distribute or collect by external tags.</p>
+</div>
+<div class="section" id="struct-xf-common-utils-hw-lsbsidet">
+<span id="cid-xf-common-utils-hw-lsbsidet"></span><span id="doxid-structxf-1-1common-1-1utils-hw-1-1-l-s-b-side-t"></span><span id="index-3"></span><h2>struct xf::common::utils_hw::LSBSideT<a class="headerlink" href="#struct-xf-common-utils-hw-lsbsidet" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_utils_hw/enums.hpp&quot;</span>
+</pre>
+<p>Use the LSB side first.</p>
+</div>
+<div class="section" id="struct-xf-common-utils-hw-msbsidet">
+<span id="cid-xf-common-utils-hw-msbsidet"></span><span id="doxid-structxf-1-1common-1-1utils-hw-1-1-m-s-b-side-t"></span><span id="index-4"></span><h2>struct xf::common::utils_hw::MSBSideT<a class="headerlink" href="#struct-xf-common-utils-hw-msbsidet" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_utils_hw/enums.hpp&quot;</span>
+</pre>
+<p>Use the MSB side first.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="internals.html" class="btn btn-neutral float-right" title="Module Design Internals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="helper.html" class="btn btn-neutral float-left" title="Template Helpers in xf::common::utils_hw" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
