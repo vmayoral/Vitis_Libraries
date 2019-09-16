@@ -1,0 +1,1113 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>namespace xf::linear_algebra::blas &mdash; XF BLAS Library 1.0 beta documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xf-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/target-highlight.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> XF BLAS Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="L1.html">L1 Primitives User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/L3.html">L3 API User Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XF BLAS Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>namespace xf::linear_algebra::blas</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="namespace-xf-linear-algebra-blas">
+<span id="doxid-namespacexf-1-1linear-algebra-1-1blas"></span><span id="index-0"></span><h1>namespace xf::linear_algebra::blas<a class="headerlink" href="#namespace-xf-linear-algebra-blas" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a954b1bce5720e5d344c6d113c19981a7"><span id="index-1"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a151f2444626a97809d5e9f6ca6d28876"><span id="index-2"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a724421c7ae56fd8854a8c70be802c8e5"><span id="index-3"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1afcf00dfd51e0211317c6dca75b724ba2"><span id="index-4"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a2f567d5e89ba8f333b0d11b861428cba"><span id="index-5"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1af1de8f0dfad5a3097732f72e3e51fa88"><span id="index-6"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1aac15db8a3d7546e1cf7f1b66dbb2544a"><span id="index-7"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a4879e4430c6014619045c3f6e892a972"><span id="index-8"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a6747be392623be3685d9720614f123c9"><span id="index-9"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1ad17f98f106d111d84506324fa494cf23"><span id="index-10"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a74588e4466d0bc977ce25fcda25cfb94"><span id="index-11"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1adc64d99b1f94aecbc54b68edb548ffd3"><span id="index-12"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a53e824699103a47b646b7789b0a421b2"><span id="index-13"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1af28cc33fda8c604e40337f13b7236c4f"><span id="index-14"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a31e525dfc12d9bcfcaaa674907da5c1f"><span id="index-15"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1aacd151535afc939e00965a142f7f9d37"><span id="index-16"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a1cffa56cc05a4a4e0b94155057a02a2f"><span id="index-17"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a61a446c9f4280cb33e3bcc7721111e1f"><span id="index-18"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1affb1496cebb654781e1db3f71008a111"><span id="index-19"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1ab826dd24fdc7d87f0ba23c028f38146e"><span id="index-20"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a371247cbacd11bc14c88e8b4cb56f49f"><span id="index-21"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1aa587308c59f1e6617d210fa1375ff09c"><span id="index-22"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a5cb91e4f099e05e5ebcc1b9588d67da7"><span id="index-23"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1ad449cb772b7b5afe898fda1c3f31faeb"><span id="index-24"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a3cb793be1c60214b0da185abe3e04711"><span id="index-25"></span></span><span class="target" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1aaf1824fd6502db676b0bfce97d233db2"><span id="index-26"></span></span><pre class="highlight overview-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a56e8ae76249d44d1c1f2d5288ad12e91"><span id="index-27"></span><span></span><span class="k">namespace</span> <span class="n">blas</span> <span class="p">{</span>
+
+<span class="c1">// global functions</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="kt">int</span> <span class="n">t_LastRowIdx</span> <span class="o">=</span> <span class="mi">0</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">processUpSbMatStream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_k</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_in</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">processLoSbMatStream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_k</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_in</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">forwardSbMatStream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_k</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_in</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">mergeGbMatStream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_ku</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_kl</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_inUp</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_inLo</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">readUpSbMat2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_k</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_outUp</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_outLo</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">readLoSbMat2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_k</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_outUp</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_outLo</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">readVec2GbStream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_ku</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_kl</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_outUp</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_outLo</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">readGbMat2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_ku</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_kl</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_outUp</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_outLo</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParBlocks</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1a1a3044957a69e10be52a38e12f73c96d"><span class="std std-ref">sbmSuper2Stream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_k</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParBlocks</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1a7fa5ede53334360121342c756cbe1274"><span class="std std-ref">sbmSub2Stream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_k</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParBlocks</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1a68143f3cf719d0c1419622c5bb1ea555"><span class="std std-ref">gbm2Stream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_kl</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_ku</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1a69fef4d3a5fd2e704c94d7d3024d45e9"><span class="std std-ref">vec2GbMatStream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_kl</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_ku</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">readTbMat2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_k</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">readVec2TbStream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_k</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParBlocks</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1ae3da7c03cd80db55a51a498c22079ce2"><span class="std std-ref">tbmSuper2Stream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_k</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParBlocks</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1a88850487baf47635a45f7bbc630f47dc"><span class="std std-ref">tbmSub2Stream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_k</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1ae7499f0f9c75c3842239c758155bbcd3"><span class="std std-ref">vec2TbUpMatStream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_k</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1a52398b3f9b40b9c6cd149eb77d40bba2"><span class="std std-ref">vec2TbLoMatStream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_k</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1afbba4a95c789b0cc7d613eb0b100e705"><span class="std std-ref">gem2Stream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_m</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_in</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1a0aed84d333c3d762deb7e081c8f00726"><span class="std std-ref">vec2GemStream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_m</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_in</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">readSymUp2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_outSymUpTransp</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_outTransp</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_outForward</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">mergeSymUpMat</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_inSymUpTransp</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_inTransp</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_inForward</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">readSymLo2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_outSymUpTransp</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_outTransp</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_outForward</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">mergeSymLoMat</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_inSymUpTransp</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_inTransp</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_inForward</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">readSpmUp2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_outSymUpTransp</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_outTransp</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_outForward</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">readSpmLo2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_outSymUpTransp</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_outTransp</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_outForward</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1a44f6cef37546e91ba7ad853d88a4533a"><span class="std std-ref">symUp2Stream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1ab99b1bd6a155a9fe7f11c59df85a4584"><span class="std std-ref">symLo2Stream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1a82fecd7e39d57c68d729be4aecd2a197"><span class="std std-ref">spmUp2Stream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1a11825b8bdf64152a90d4f89cf339f86d"><span class="std std-ref">spmLo2Stream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1a56fd2f6abf9e6237c4dfc7e42007617d"><span class="std std-ref">vec2SymStream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">transpSymUpMatBlocks</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_blocks</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_in</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">transpSymLoMatBlocks</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_blocks</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_in</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">transpMatBlocks</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_blocks</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_in</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">fwdMatBlocks</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_blocks</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_in</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_MemWidth</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_Rows</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_Cols</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">transpMemWordBlocks</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_blocks</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_MemWidth</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_in</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_MemWidth</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_MemWidth</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_Rows</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_Cols</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">transpMemBlocks</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_blocks</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_MemWidth</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_in</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_MemWidth</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1a2726ba59d9ae971a1a5e74b966f4482e"><span class="std std-ref">trmUp2Stream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1a24a7a0c9380a8d06c1be6e5c2dbf4e8f"><span class="std std-ref">trmLo2Stream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1a518a24e3393238916be6b4eb9ad1e7fa"><span class="std std-ref">tpmUp2Stream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1a9c2f0e4fed02c8faf35bd46fcd7434e2"><span class="std std-ref">tpmLo2Stream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1aa4d0bcf824058ca8b55034787019dbc1"><span class="std std-ref">vec2TrmUpStream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1abb9e836baa437e3b8092d1fba39056ad"><span class="std std-ref">vec2TrmLoStream</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_NumStreams</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_DataType</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">duplicateStream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="o">&gt;&amp;</span> <span class="n">p_inputStream</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="o">&gt;</span> <span class="n">p_streams</span> <span class="p">[</span><span class="n">t_NumStreams</span><span class="p">]);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_NumStreams</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_DataType</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">splitStream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_NumStreams</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_wideStream</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;</span> <span class="n">p_stream</span> <span class="p">[</span><span class="n">t_NumStreams</span><span class="p">]);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_NumStreams</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_DataType</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">combineStream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;</span> <span class="n">p_stream</span> <span class="p">[</span><span class="n">t_NumStreams</span><span class="p">],</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_NumStreams</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_wideStream</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">mem2stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_in</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="o">&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">stream2mem</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="o">&gt;&amp;</span> <span class="n">p_in</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1aed318603cc8ebb717d1125a882ee0113"><span class="std std-ref">readVec2Stream</span></a><span></span><span class="p">(</span><span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_in</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1linear-algebra-1-1blas-1ab875e116bdda28387f38e2b9ccbf8c0c"><span class="std std-ref">writeStream2Vec</span></a><span></span><span class="p">(</span><span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_in</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_out</span><span class="p">);</span>
+
+<span class="p">}</span> <span class="c1">// namespace blas</span></pre>
+</div>
+<div class="section" id="detailed-documentation">
+<span id="details-doxid-namespacexf-1-1linear-algebra-1-1blas"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="global-functions">
+<h3>Global Functions<a class="headerlink" href="#global-functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="sbmsuper2stream">
+<h4>sbmSuper2Stream<a class="headerlink" href="#sbmsuper2stream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a1a3044957a69e10be52a38e12f73c96d"><span id="index-28"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParBlocks</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">sbmSuper2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_k</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>sbmSuper2Stream function that moves symmetric banded matrix with super diagonals from memory to stream</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallelly processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_ParBlocks</p></td>
+<td><p>number of t_ParEntries, p_n must be multiple t_ParEntries * t_ParBlocks</p></td>
+</tr>
+<tr class="row-even"><td><p>p_n</p></td>
+<td><p>number of rows/cols in a square matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_k</p></td>
+<td><p>number of superdiagonals</p></td>
+</tr>
+<tr class="row-even"><td><p>p_a</p></td>
+<td><p>a p_n x p_n symmetric banded matrix with on-chip column-major storage and corresponding 0 paddings</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_out</p></td>
+<td><p>output stream, which is row-aligned with 0 paddings along subdiagonals</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sbmsub2stream">
+<h4>sbmSub2Stream<a class="headerlink" href="#sbmsub2stream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a7fa5ede53334360121342c756cbe1274"><span id="index-29"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParBlocks</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">sbmSub2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_k</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>sbmSub2Stream function that moves symmetric banded matrix with sub diagonals from memory to stream</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallelly processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_ParBlocks</p></td>
+<td><p>number of t_ParEntries, p_n must be multiple t_ParEntries * t_ParBlocks</p></td>
+</tr>
+<tr class="row-even"><td><p>p_n</p></td>
+<td><p>number of rows/cols in a square matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_k</p></td>
+<td><p>number of subdiagonals</p></td>
+</tr>
+<tr class="row-even"><td><p>p_a</p></td>
+<td><p>a p_n x p_n symmetric banded matrix with on-chip column-major storage and corresponding 0 paddings</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_out</p></td>
+<td><p>output stream, which is row-aligned with 0 paddings along subdiagonals</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gbm2stream">
+<h4>gbm2Stream<a class="headerlink" href="#gbm2stream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a68143f3cf719d0c1419622c5bb1ea555"><span id="index-30"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParBlocks</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">gbm2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_kl</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_ku</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>gbm2Stream function that moves symmetric banded matrix with from memory to stream</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallelly processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_ParBlocks</p></td>
+<td><p>number of t_ParEntries, p_n must be multiple t_ParEntries * t_ParBlocks</p></td>
+</tr>
+<tr class="row-even"><td><p>p_n</p></td>
+<td><p>number of rows/cols in a square matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_kl</p></td>
+<td><p>number of subdiagonals</p></td>
+</tr>
+<tr class="row-even"><td><p>p_ku</p></td>
+<td><p>number of superdiagonals</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_a</p></td>
+<td><p>a p_m x p_n symmetric banded matrix with on-chip column-major storage and corresponding 0 paddings</p></td>
+</tr>
+<tr class="row-even"><td><p>p_out</p></td>
+<td><p>output stream, which is row-aligned with 0 paddings along subdiagonals</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="vec2gbmatstream">
+<h4>vec2GbMatStream<a class="headerlink" href="#vec2gbmatstream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a69fef4d3a5fd2e704c94d7d3024d45e9"><span id="index-31"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">vec2GbMatStream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_kl</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_ku</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>vec2SbMatStream function that moves vector from memory to stream that matches the sbMat2Stream outputs</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallelly processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_n</p></td>
+<td><p>number of rows/cols in a square matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>p_ku</p></td>
+<td><p>number of superdiagonals</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_kl</p></td>
+<td><p>number of subdiagonals</p></td>
+</tr>
+<tr class="row-even"><td><p>p_x</p></td>
+<td><p>vector input</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_out</p></td>
+<td><p>output stream, which matches the outputs of gbMat2Stream or sbMat2Stream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="tbmsuper2stream">
+<h4>tbmSuper2Stream<a class="headerlink" href="#tbmsuper2stream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1ae3da7c03cd80db55a51a498c22079ce2"><span id="index-32"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParBlocks</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">tbmSuper2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_k</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>tbmSuper2Stream function that moves triangular banded matrix with super diagonals from memory to stream</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallelly processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_ParBlocks</p></td>
+<td><p>number of t_ParEntries, p_n must be multiple t_ParEntries * t_ParBlocks</p></td>
+</tr>
+<tr class="row-even"><td><p>p_n</p></td>
+<td><p>number of rows/cols in a square matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_k</p></td>
+<td><p>number of superdiagonals</p></td>
+</tr>
+<tr class="row-even"><td><p>p_a</p></td>
+<td><p>a p_n x p_n triangular banded matrix with on-chip column-major storage and corresponding 0 paddings</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_out</p></td>
+<td><p>output stream, which is row-aligned with 0 paddings along subdiagonals</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="tbmsub2stream">
+<h4>tbmSub2Stream<a class="headerlink" href="#tbmsub2stream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a88850487baf47635a45f7bbc630f47dc"><span id="index-33"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParBlocks</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">tbmSub2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_k</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>tbmSub2Stream function that moves triangular banded matrix with sub diagonals from memory to stream</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallelly processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_ParBlocks</p></td>
+<td><p>number of t_ParEntries, p_n must be multiple t_ParEntries * t_ParBlocks</p></td>
+</tr>
+<tr class="row-even"><td><p>p_n</p></td>
+<td><p>number of rows/cols in a square matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_k</p></td>
+<td><p>number of subdiagonals</p></td>
+</tr>
+<tr class="row-even"><td><p>p_a</p></td>
+<td><p>a p_n x p_n triangular banded matrix with on-chip column-major storage and corresponding 0 paddings</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_out</p></td>
+<td><p>output stream, which is row-aligned with 0 paddings along subdiagonals</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="vec2tbupmatstream">
+<h4>vec2TbUpMatStream<a class="headerlink" href="#vec2tbupmatstream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1ae7499f0f9c75c3842239c758155bbcd3"><span id="index-34"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">vec2TbUpMatStream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_k</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>vec2TbUpMatStream function that moves vector from memory to stream that matches the sbMat2Stream outputs</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallelly processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_n</p></td>
+<td><p>number of rows/cols in a square matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>p_k</p></td>
+<td><p>number of super/sub-diagonals</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_x</p></td>
+<td><p>vector input</p></td>
+</tr>
+<tr class="row-even"><td><p>p_out</p></td>
+<td><p>output stream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="vec2tblomatstream">
+<h4>vec2TbLoMatStream<a class="headerlink" href="#vec2tblomatstream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a52398b3f9b40b9c6cd149eb77d40bba2"><span id="index-35"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">vec2TbLoMatStream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_k</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>vec2TbLoMatStream function that moves vector from memory to stream that matches the sbMat2Stream outputs</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallelly processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_n</p></td>
+<td><p>number of rows/cols in a square matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>p_k</p></td>
+<td><p>number of sub-diagonals</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_x</p></td>
+<td><p>vector input</p></td>
+</tr>
+<tr class="row-even"><td><p>p_out</p></td>
+<td><p>output stream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gem2stream">
+<h4>gem2Stream<a class="headerlink" href="#gem2stream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1afbba4a95c789b0cc7d613eb0b100e705"><span id="index-36"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">gem2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_m</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_in</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>gem2Stream function that moves row-major matrix from memory to stream</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallelly processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_m</p></td>
+<td><p>number of rows in a matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>p_n</p></td>
+<td><p>number of cols in a matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_in</p></td>
+<td><p>a p_m x p_n matrix with on-chip row-major storage</p></td>
+</tr>
+<tr class="row-even"><td><p>p_out</p></td>
+<td><p>output stream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="vec2gemstream">
+<h4>vec2GemStream<a class="headerlink" href="#vec2gemstream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a0aed84d333c3d762deb7e081c8f00726"><span id="index-37"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">vec2GemStream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_m</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_in</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>vec2GemStream function that moves vector from memory to stream that matches the gem2Stream outputs</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallelly processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_m</p></td>
+<td><p>number of rows in a matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>p_n</p></td>
+<td><p>number of cols in a matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_in</p></td>
+<td><p>vector input</p></td>
+</tr>
+<tr class="row-even"><td><p>p_out</p></td>
+<td><p>output stream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="symup2stream">
+<h4>symUp2Stream<a class="headerlink" href="#symup2stream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a44f6cef37546e91ba7ad853d88a4533a"><span id="index-38"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">symUp2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>symUp2Stream function that moves super-symmetric matrix from memory to stream</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallel processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_n</p></td>
+<td><p>number of rows/cols in a symmetric matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>p_a</p></td>
+<td><p>point to a p_n x p_n symmetric matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_out</p></td>
+<td><p>output stream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="symlo2stream">
+<h4>symLo2Stream<a class="headerlink" href="#symlo2stream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1ab99b1bd6a155a9fe7f11c59df85a4584"><span id="index-39"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">symLo2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>symLo2Stream function that moves sub-symmetric matrix from memory to stream</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallel processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_n</p></td>
+<td><p>number of rows/cols in a symmetric matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>p_a</p></td>
+<td><p>point to a p_n x p_n symmetric matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_out</p></td>
+<td><p>output stream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="spmup2stream">
+<h4>spmUp2Stream<a class="headerlink" href="#spmup2stream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a82fecd7e39d57c68d729be4aecd2a197"><span id="index-40"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">spmUp2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>spmUp2Stream function that moves packed super-symmetric matrix from memory to stream</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallel processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_n</p></td>
+<td><p>number of rows/cols in a symmetric matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>p_a</p></td>
+<td><p>point to a p_n x p_n symmetric matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_out</p></td>
+<td><p>output stream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="spmlo2stream">
+<h4>spmLo2Stream<a class="headerlink" href="#spmlo2stream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a11825b8bdf64152a90d4f89cf339f86d"><span id="index-41"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">spmLo2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>spmLo2Stream function that moves packed sub-symmetric matrix from memory to stream</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallel processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_n</p></td>
+<td><p>number of rows/cols in a symmetric matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>p_a</p></td>
+<td><p>point to a p_n x p_n symmetric matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_out</p></td>
+<td><p>output stream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="vec2symstream">
+<h4>vec2SymStream<a class="headerlink" href="#vec2symstream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a56fd2f6abf9e6237c4dfc7e42007617d"><span id="index-42"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">vec2SymStream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>vec2SymStream function that moves vector from memory to stream that matches the symatrix matrix data mover outputs</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallelly processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_n</p></td>
+<td><p>number of rows/cols in a square matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>p_x</p></td>
+<td><p>vector input</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_out</p></td>
+<td><p>output stream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="trmup2stream">
+<h4>trmUp2Stream<a class="headerlink" href="#trmup2stream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a2726ba59d9ae971a1a5e74b966f4482e"><span id="index-43"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">trmUp2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>trmUp2Stream function that read the super-triangular matrix from memory to stream</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>the number of parallelly processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_n</p></td>
+<td><p>number of rows/cols in a symmetric matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>p_a</p></td>
+<td><p>memory location of a p_n x p_n symmetric matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_out</p></td>
+<td><p>the streams of matrix entries</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="trmlo2stream">
+<h4>trmLo2Stream<a class="headerlink" href="#trmlo2stream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a24a7a0c9380a8d06c1be6e5c2dbf4e8f"><span id="index-44"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">trmLo2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>trmLo2Stream function that read the sub-tridiagonal matrix with from memory to stream</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>the number of parallelly processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_n</p></td>
+<td><p>number of rows/cols in a symmetric matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>p_a</p></td>
+<td><p>memory location of a p_n x p_n symmetric matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_out</p></td>
+<td><p>the streams of matrix entries</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="tpmup2stream">
+<h4>tpmUp2Stream<a class="headerlink" href="#tpmup2stream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a518a24e3393238916be6b4eb9ad1e7fa"><span id="index-45"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">tpmUp2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>tpmUp2Stream function that read the packed super-triangular matrix from memory to stream</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>the number of parallelly processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_n</p></td>
+<td><p>number of rows/cols in a symmetric matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>p_a</p></td>
+<td><p>memory location of a p_n x p_n symmetric matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_out</p></td>
+<td><p>the streams of matrix entries</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="tpmlo2stream">
+<h4>tpmLo2Stream<a class="headerlink" href="#tpmlo2stream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a9c2f0e4fed02c8faf35bd46fcd7434e2"><span id="index-46"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">tpmLo2Stream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_a</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>tpmLo2Stream function that read the packed sub-symmetric matrix with from memory to stream</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>the number of parallelly processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_n</p></td>
+<td><p>number of rows/cols in a symmetric matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>p_a</p></td>
+<td><p>memory location of a p_n x p_n symmetric matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_out</p></td>
+<td><p>the streams of matrix entries</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="vec2trmupstream">
+<h4>vec2TrmUpStream<a class="headerlink" href="#vec2trmupstream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1aa4d0bcf824058ca8b55034787019dbc1"><span id="index-47"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">vec2TrmUpStream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>vec2TrmUpStream function that moves vector from memory to stream that matches the trmUp2Stream/tpmUp2Stream outputs</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallelly processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_n</p></td>
+<td><p>number of rows/cols in a square matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>p_x</p></td>
+<td><p>vector input</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_out</p></td>
+<td><p>output stream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="vec2trmlostream">
+<h4>vec2TrmLoStream<a class="headerlink" href="#vec2trmlostream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1abb9e836baa437e3b8092d1fba39056ad"><span id="index-48"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">vec2TrmLoStream</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>vec2TrmLoStream function that moves vector from memory to stream that matches the trmLo2Stream/tpmLo2Stream outputs</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallelly processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_n</p></td>
+<td><p>number of rows/cols in a square matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>p_x</p></td>
+<td><p>vector input</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_out</p></td>
+<td><p>output stream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="readvec2stream">
+<h4>readVec2Stream<a class="headerlink" href="#readvec2stream" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1aed318603cc8ebb717d1125a882ee0113"><span id="index-49"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">readVec2Stream</span><span class="p">(</span><span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_in</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>readVec2Stream function that moves vector from memory to stream</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallelly processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_n</p></td>
+<td><p>number of entries in a vectpr</p></td>
+</tr>
+<tr class="row-even"><td><p>p_in</p></td>
+<td><p>vector input</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_out</p></td>
+<td><p>output stream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="writestream2vec">
+<h4>writeStream2Vec<a class="headerlink" href="#writestream2vec" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1ab875e116bdda28387f38e2b9ccbf8c0c"><span id="index-50"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">writeStream2Vec</span><span class="p">(</span><span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_in</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">*</span> <span class="n">p_out</span><span class="p">)</span></pre>
+<p>writeStream2Vec function that moves vector from stream to vector</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallelly processed entries in the matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_n</p></td>
+<td><p>number of entries in a vectpr</p></td>
+</tr>
+<tr class="row-even"><td><p>p_in</p></td>
+<td><p>vector stream input</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_out</p></td>
+<td><p>vector output memory</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

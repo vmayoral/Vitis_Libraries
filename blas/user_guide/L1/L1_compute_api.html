@@ -1,0 +1,745 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>L1 Compute APIs &mdash; XF BLAS Library 1.0 beta documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xf-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/target-highlight.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="L1 Data mover" href="L1_data_mover.html" />
+    <link rel="prev" title="1. Introduction" href="L1_overview_content.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> XF BLAS Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="L1.html">L1 Primitives User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="L1_overview.html">L1 API Overview</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">L1 Compute APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#amax">amax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amin">amin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asum">asum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#axpy">axpy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#copy">copy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dot">dot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gbmv">gbmv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gemv">gemv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nrm2">nrm2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scal">scal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#swap">swap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#symv">symv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trmv">trmv</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="L1_data_mover.html">L1 Data mover</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L1_test.html">L1 Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyenvguide.html">Python environment setup guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/L3.html">L3 API User Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XF BLAS Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="L1.html">L1 Primitives User Guide</a> &raquo;</li>
+        
+      <li>L1 Compute APIs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="l1-compute-apis">
+<span id="user-guide-compute-api-l1"></span><h1>L1 Compute APIs<a class="headerlink" href="#l1-compute-apis" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<hr class="docutils" />
+<div class="section" id="amax">
+<h2>amax<a class="headerlink" href="#amax" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1abd20b28a989c26e4bd5d528bf67ebea2"><span id="index-0"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">amax</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><a class="reference internal" href="namespace_xf_linear_algebra_blas_compute.html#doxid-namespacexf-1-1linear-algebra-1-1blas-1a8a8b8c839994b5b2887df891844917de"><span class="std std-ref">t_LogParEntries</span></a><span></span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">t_IndexType</span><span class="o">&amp;</span> <span class="n">p_result</span><span class="p">)</span></pre>
+<p>amax function that returns the position of the vector element that has the maximum magnitude.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the vector entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_LogParEntries</p></td>
+<td><p>log2 of the number of parallelly processed entries in the input vector</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_IndexType</p></td>
+<td><p>the datatype of the index</p></td>
+</tr>
+<tr class="row-even"><td><p>p_n</p></td>
+<td><p>the number of stided entries entries in the input vector p_x, p_n % l_ParEntries == 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_x</p></td>
+<td><p>the input stream of packed vector entries</p></td>
+</tr>
+<tr class="row-even"><td><p>p_result</p></td>
+<td><p>the resulting index, which is 0 if p_n &lt;= 0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="amin">
+<h2>amin<a class="headerlink" href="#amin" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a401cfc76276132b7c8a58886098402c2"><span id="index-1"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">amin</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><a class="reference internal" href="namespace_xf_linear_algebra_blas_compute.html#doxid-namespacexf-1-1linear-algebra-1-1blas-1a8a8b8c839994b5b2887df891844917de"><span class="std std-ref">t_LogParEntries</span></a><span></span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">t_IndexType</span><span class="o">&amp;</span> <span class="n">p_result</span><span class="p">)</span></pre>
+<p>amin function that returns the position of the vector element that has the minimum magnitude.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the vector entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_LogParEntries</p></td>
+<td><p>log2 of the number of parallelly processed entries in the input vector</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_IndexType</p></td>
+<td><p>the datatype of the index</p></td>
+</tr>
+<tr class="row-even"><td><p>p_n</p></td>
+<td><p>the number of entries in the input vector p_x, p_n % l_ParEntries == 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_x</p></td>
+<td><p>the input stream of packed vector entries</p></td>
+</tr>
+<tr class="row-even"><td><p>p_result</p></td>
+<td><p>the resulting index, which is 0 if p_n &lt;= 0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="asum">
+<h2>asum<a class="headerlink" href="#asum" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1af4e5b7396fd154b38ae063f60cc9f0cb"><span id="index-2"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">asum</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><a class="reference internal" href="namespace_xf_linear_algebra_blas_compute.html#doxid-namespacexf-1-1linear-algebra-1-1blas-1a8a8b8c839994b5b2887df891844917de"><span class="std std-ref">t_LogParEntries</span></a><span></span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">&amp;</span> <span class="n">p_sum</span><span class="p">)</span></pre>
+<p>asum function that returns the sum of the magnitude of vector elements.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the vector entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_LogParEntries</p></td>
+<td><p>log2 of the number of parallelly processed entries in the input vector</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_IndexType</p></td>
+<td><p>the datatype of the index</p></td>
+</tr>
+<tr class="row-even"><td><p>p_n</p></td>
+<td><p>the number of entries in the input vector p_x, p_n % l_ParEntries == 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_x</p></td>
+<td><p>the input stream of packed vector entries</p></td>
+</tr>
+<tr class="row-even"><td><p>p_sum</p></td>
+<td><p>the sum, which is 0 if p_n &lt;= 0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="axpy">
+<h2>axpy<a class="headerlink" href="#axpy" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1affd2cbe50983ea31c07c03845e3a28c4"><span id="index-3"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">axpy</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_alpha</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_r</span><span class="p">)</span></pre>
+<p>axpy function that compute Y = alpha*X + Y.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the vector entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_LogParEntries</p></td>
+<td><p>log2 of the number of parallelly processed entries in the input vector</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_IndexType</p></td>
+<td><p>the datatype of the index</p></td>
+</tr>
+<tr class="row-even"><td><p>p_n</p></td>
+<td><p>the number of entries in the input vector p_x, p_n % t_ParEntries == 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_x</p></td>
+<td><p>the input stream of packed entries of vector X</p></td>
+</tr>
+<tr class="row-even"><td><p>p_y</p></td>
+<td><p>the input stream of packed entries of vector Y</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_r</p></td>
+<td><p>the output stream of packed entries of result vector Y</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="copy">
+<h2>copy<a class="headerlink" href="#copy" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1abc1e802e40cf7f7e0e8106fb7d6f102e"><span id="index-4"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">copy</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">)</span></pre>
+<p>copy function that compute Y = X</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the vector entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallelly processed entries in the packed input vector stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_IndexType</p></td>
+<td><p>the datatype of the index</p></td>
+</tr>
+<tr class="row-even"><td><p>p_n</p></td>
+<td><p>the number of entries in vector X and Y</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_x</p></td>
+<td><p>the packed input vector stream</p></td>
+</tr>
+<tr class="row-even"><td><p>p_y</p></td>
+<td><p>the packed output vector stream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dot">
+<h2>dot<a class="headerlink" href="#dot" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1ae529068e5f8a2780987fa6263d609e5a"><span id="index-5"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">dot</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><a class="reference internal" href="namespace_xf_linear_algebra_blas_compute.html#doxid-namespacexf-1-1linear-algebra-1-1blas-1a8a8b8c839994b5b2887df891844917de"><span class="std std-ref">t_LogParEntries</span></a><span></span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><a class="reference internal" href="namespace_xf_linear_algebra_blas_compute.html#doxid-namespacexf-1-1linear-algebra-1-1blas-1a8a8b8c839994b5b2887df891844917de"><span class="std std-ref">t_LogParEntries</span></a><span></span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">&amp;</span> <span class="n">p_res</span><span class="p">)</span></pre>
+<p>dot function that returns the dot product of vector x and y.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the vector entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_LogParEntries</p></td>
+<td><p>log2 of the number of parallelly processed entries in the input vector</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_IndexType</p></td>
+<td><p>the datatype of the index</p></td>
+</tr>
+<tr class="row-even"><td><p>p_n</p></td>
+<td><p>the number of entries in the input vector p_x, p_n % l_ParEntries == 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_x</p></td>
+<td><p>the input stream of packed vector entries</p></td>
+</tr>
+<tr class="row-even"><td><p>p_res</p></td>
+<td><p>the dot product of x and y</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gbmv">
+<h2>gbmv<a class="headerlink" href="#gbmv" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a31d94a92d733f4cf399f814f9106bb3b"><span id="index-6"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_MaxRows</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_MacType</span> <span class="o">=</span> <span class="n">t_DataType</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">gbmv</span><span class="p">(</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_m</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_kl</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_ku</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_alpha</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_M</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_beta</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_yr</span><span class="p">)</span></pre>
+<p>gbmv function performs general banded matrix-vector multiplication matrix and a vector y = alpha * M * x + beta * y</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the vector entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>the number of parallelly processed entries in the input vector</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_MaxRows</p></td>
+<td><p>the maximum size of buffers for output vector</p></td>
+</tr>
+<tr class="row-even"><td><p>t_IndexType</p></td>
+<td><p>the datatype of the index</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_MacType</p></td>
+<td><p>the datatype of the output stream</p></td>
+</tr>
+<tr class="row-even"><td><p>p_m</p></td>
+<td><p>the number of rows of input matrix p_M</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_alpha</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>scalar</p></td>
+<td><p>alpha</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_M</p></td>
+<td><p>the input stream of packed Matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>p_x</p></td>
+<td><p>the input stream of packed vector entries</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_beta</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>scalar</p></td>
+<td><p>beta</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_y</p></td>
+<td><p>the output vector</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gemv">
+<h2>gemv<a class="headerlink" href="#gemv" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a4809493026ae2969f50665f611379657"><span id="index-7"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">gemv</span><span class="p">(</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_m</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_alpha</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_M</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_beta</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_yr</span><span class="p">)</span></pre>
+<p>gemv function that returns the result vector of the mutiplication of a matrix and a vector y = alpha * M * x + beta * y</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the vector entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_LogParEntries</p></td>
+<td><p>log2 of the number of parallelly processed entries in the input vector</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_IndexType</p></td>
+<td><p>the datatype of the index</p></td>
+</tr>
+<tr class="row-even"><td><p>p_m</p></td>
+<td><p>the number of rows of input matrix p_M</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_n</p></td>
+<td><p>the number of cols of input matrix p_M, as well as the number of entries in the input vector p_x, p_n % l_ParEntries == 0</p></td>
+</tr>
+<tr class="row-even"><td><p>p_alpha</p></td>
+<td><p>scalar alpha</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_M</p></td>
+<td><p>the input stream of packed Matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>p_x</p></td>
+<td><p>the input stream of packed vector entries</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_beta</p></td>
+<td><p>scalar beta</p></td>
+</tr>
+<tr class="row-even"><td><p>p_y</p></td>
+<td><p>the output vector</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="nrm2">
+<h2>nrm2<a class="headerlink" href="#nrm2" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1a048b14da86cf49591f68457007a8a1da"><span id="index-8"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">nrm2</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><a class="reference internal" href="namespace_xf_linear_algebra_blas_compute.html#doxid-namespacexf-1-1linear-algebra-1-1blas-1a8a8b8c839994b5b2887df891844917de"><span class="std std-ref">t_LogParEntries</span></a><span></span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">&amp;</span> <span class="n">p_res</span><span class="p">)</span></pre>
+<p>nrm2 function that returns the Euclidean norm of the vector x.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the vector entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_LogParEntries</p></td>
+<td><p>log2 of the number of parallelly processed entries in the input vector</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_IndexType</p></td>
+<td><p>the datatype of the index</p></td>
+</tr>
+<tr class="row-even"><td><p>p_n</p></td>
+<td><p>the number of entries in the input vector p_x, p_n % (1&lt;&lt;l_LogParEntries) == 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_x</p></td>
+<td><p>the input stream of packed vector entries</p></td>
+</tr>
+<tr class="row-even"><td><p>p_res</p></td>
+<td><p>the nrm2 of x</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="scal">
+<h2>scal<a class="headerlink" href="#scal" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1aee44ac6a6a4df8cc69d63e1ea8381f40"><span id="index-9"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">scal</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span> <span class="n">p_alpha</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_res</span><span class="p">)</span></pre>
+<p>scal function that compute X = alpha * X</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the vector entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallelly processed entries in the packed input vector stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_IndexType</p></td>
+<td><p>the datatype of the index</p></td>
+</tr>
+<tr class="row-even"><td><p>p_n</p></td>
+<td><p>the number of entries in vector X, p_n % t_ParEntries == 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_x</p></td>
+<td><p>the packed input vector stream</p></td>
+</tr>
+<tr class="row-even"><td><p>p_res</p></td>
+<td><p>the packed output vector stream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="swap">
+<h2>swap<a class="headerlink" href="#swap" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1aa7d231959e217bc6288ee4fd60274445"><span id="index-10"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">swap</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_xRes</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_yRes</span><span class="p">)</span></pre>
+<p>swap function taht swap vector x and y</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the vector entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_ParEntries</p></td>
+<td><p>number of parallelly processed entries in the packed input vector stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_IndexType</p></td>
+<td><p>the datatype of the index</p></td>
+</tr>
+<tr class="row-even"><td><p>p_n</p></td>
+<td><p>the number of entries in vector X and Y, p_n % t_ParEntries == 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_x</p></td>
+<td><p>the packed input vector stream</p></td>
+</tr>
+<tr class="row-even"><td><p>p_y</p></td>
+<td><p>the packed input vector stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_xRes</p></td>
+<td><p>the packed output stream</p></td>
+</tr>
+<tr class="row-even"><td><p>p_yRes</p></td>
+<td><p>the packed output stream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="symv">
+<h2>symv<a class="headerlink" href="#symv" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1aa0f4cd1d5ddd38ec0bea4431ada7604c"><span id="index-11"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">symv</span><span class="p">(</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_alpha</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><a class="reference internal" href="namespace_xf_linear_algebra_blas_compute.html#doxid-namespacexf-1-1linear-algebra-1-1blas-1a8a8b8c839994b5b2887df891844917de"><span class="std std-ref">t_LogParEntries</span></a><span></span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_M</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><a class="reference internal" href="namespace_xf_linear_algebra_blas_compute.html#doxid-namespacexf-1-1linear-algebra-1-1blas-1a8a8b8c839994b5b2887df891844917de"><span class="std std-ref">t_LogParEntries</span></a><span></span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_beta</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><a class="reference internal" href="namespace_xf_linear_algebra_blas_compute.html#doxid-namespacexf-1-1linear-algebra-1-1blas-1a8a8b8c839994b5b2887df891844917de"><span class="std std-ref">t_LogParEntries</span></a><span></span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><a class="reference internal" href="namespace_xf_linear_algebra_blas_compute.html#doxid-namespacexf-1-1linear-algebra-1-1blas-1a8a8b8c839994b5b2887df891844917de"><span class="std std-ref">t_LogParEntries</span></a><span></span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_yr</span><span class="p">)</span></pre>
+<p>symv function that returns the result vector of the mutiplication of a symmetric matrix and a vector y = alpha * M * x + beta * y</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the vector entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_LogParEntries</p></td>
+<td><p>log2 of the number of parallelly processed entries in the input vector</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_IndexType</p></td>
+<td><p>the datatype of the index</p></td>
+</tr>
+<tr class="row-even"><td><p>p_n</p></td>
+<td><p>the dimention of input matrix p_M, as well as the number of entries in the input vector p_x, p_n % l_ParEntries == 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_alpha</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>scalar</p></td>
+<td><p>alpha</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_M</p></td>
+<td><p>the input stream of packed Matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>p_x</p></td>
+<td><p>the input stream of packed vector entries</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_beta</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>scalar</p></td>
+<td><p>beta</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_y</p></td>
+<td><p>the output vector</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="trmv">
+<h2>trmv<a class="headerlink" href="#trmv" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1linear-algebra-1-1blas-1aa7a9cb6d049a99fe8786a943d3a8ad40"><span id="index-12"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">trmv</span><span class="p">(</span><span class="k">const</span> <span class="kt">bool</span> <span class="n">uplo</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_alpha</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><a class="reference internal" href="namespace_xf_linear_algebra_blas_compute.html#doxid-namespacexf-1-1linear-algebra-1-1blas-1a8a8b8c839994b5b2887df891844917de"><span class="std std-ref">t_LogParEntries</span></a><span></span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_M</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><a class="reference internal" href="namespace_xf_linear_algebra_blas_compute.html#doxid-namespacexf-1-1linear-algebra-1-1blas-1a8a8b8c839994b5b2887df891844917de"><span class="std std-ref">t_LogParEntries</span></a><span></span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_beta</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_yr</span><span class="p">)</span></pre>
+<p>function that returns the result vector of the mutiplication of a triangular matrix and a vector y = alpha * M * x + beta * y</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>t_DataType</p></td>
+<td><p>the data type of the vector entries</p></td>
+</tr>
+<tr class="row-even"><td><p>t_LogParEntries</p></td>
+<td><p>log2 of the number of parallelly processed entries in the input vector</p></td>
+</tr>
+<tr class="row-odd"><td><p>t_IndexType</p></td>
+<td><p>the datatype of the index</p></td>
+</tr>
+<tr class="row-even"><td><p>p_n</p></td>
+<td><p>the number of cols of input matrix p_M, as well as the number of entries in the input vector p_x, p_n % l_ParEntries == 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_alpha</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>scalar</p></td>
+<td><p>alpha</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_M</p></td>
+<td><p>the input stream of packed Matrix entries</p></td>
+</tr>
+<tr class="row-even"><td><p>p_x</p></td>
+<td><p>the input stream of packed vector entries</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_beta</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>scalar</p></td>
+<td><p>beta</p></td>
+</tr>
+<tr class="row-odd"><td><p>p_y</p></td>
+<td><p>the output vector</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="L1_data_mover.html" class="btn btn-neutral float-right" title="L1 Data mover" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="L1_overview_content.html" class="btn btn-neutral float-left" title="1. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
