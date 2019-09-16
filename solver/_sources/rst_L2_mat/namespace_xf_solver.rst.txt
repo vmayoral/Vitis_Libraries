@@ -1,0 +1,581 @@
+.. index:: pair: namespace; solver
+.. _doxid-namespacexf_1_1solver:
+.. _cid-xf::solver:
+
+namespace solver
+================
+
+.. toctree::
+	:hidden:
+
+	namespace_xf_solver_internal.rst
+	namespace_xf_solver_internalgetrf.rst
+
+
+
+.. _doxid-namespacexf_1_1solver_1a5caf13f50af104347f5d38641bcba07a:
+.. _cid-xf::solver::geqrf:
+.. _doxid-namespacexf_1_1solver_1a8ecb1461853ba5c894f3578e79f0ed1c:
+.. _cid-xf::solver::gesvdj_2d:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// namespaces
+
+	namespace :ref:`xf::solver::internal<doxid-namespacexf_1_1solver_1_1internal>`
+	namespace :ref:`xf::solver::internalgetrf<doxid-namespacexf_1_1solver_1_1internalgetrf>`
+
+
+.. FunctionSection
+
+
+
+
+.. _doxid-namespacexf_1_1solver_1ad20787b69560c5ca2a142826bc697a43:
+.. _cid-xf::solver::geqrf-2:
+
+geqrf
+-----
+
+
+Defined in <MatrixDecomposition/geqrf.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    class T,
+	    int NRMAX,
+	    int NCMAX,
+	    int NCU
+	    >
+	int geqrf (
+	    int m,
+	    int n,
+	    T* A,
+	    int lda,
+	    T* tau
+	    )
+
+This function computes QR factorization of matrix :math:`A`
+
+
+
+.. math::
+
+    \begin{equation*} {A = Q R, }\end{equation*}
+
+where :math:`A` is a dense matrix of size :math:`m \times n` , :math:`Q` is a :math:`m \times n` matrix with orthonormal columns, and :math:`R` is an upper triangular matrix.
+
+The maximum matrix size supported in FPGA is templated by NRMAX and NCMAX.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - T
+
+        - data type (support float and double)
+
+    *
+        - NRMAX
+
+        - maximum number of rows for input matrix
+
+    *
+        - NCMAX
+
+        - maximum number of columns for input matrix
+
+    *
+        - NCU
+
+        - number of computation unit
+
+    *
+        - m
+
+        - real row number of input matrix
+
+    *
+        - n
+
+        - real column number of input matrix
+
+    *
+        - A
+
+        - input matrix, which contains the triangular R matrix and min(m,n) elementary reflectors in return
+
+    *
+        - lda
+
+        - leading dimension of input matrix
+
+    *
+        - tau
+
+        - the scalar factors for elementary reflectors
+
+.. _doxid-namespacexf_1_1solver_1ab2657b17f70e04a8e4173d6f0b3d0661:
+.. _cid-xf::solver::gesvdj:
+
+gesvdj
+------
+
+
+Defined in <MatrixDecomposition/gesvdj.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename T,
+	    int NMAX,
+	    int NCU
+	    >
+	void gesvdj (
+	    int m,
+	    T* A,
+	    int lda,
+	    T* S,
+	    T* U,
+	    int ldu,
+	    T* V,
+	    int ldv,
+	    int& info
+	    )
+
+Symmetric Matrix Jacobi based Singular Value Decomposition (GESVDJ) .
+
+.. math::
+
+    \begin{equation*} {A = U \Sigma {V}^T, }\end{equation*}
+
+where :math:`A` is a dense symmetric matrix of size :math:`m \times m` , :math:`U` and :math:`V` are :math:`m \times m` matrix with orthonormal columns, and :math:`\Sigma` is diagonal matrix.
+
+The maximum matrix size supported in FPGA is templated by NMAX.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - T
+
+        - data type (support float and double).
+
+    *
+        - NMAX
+
+        - maximum number of input symmetric matrix size
+
+    *
+        - NCU
+
+        - number of computation unit
+
+    *
+        - m
+
+        - symmetric matrix real size.
+
+    *
+        - A
+
+        - input matrix of size :math:`m \times m`
+
+    *
+        - S
+
+        - the decomposed diagonal singular matrix of size :math:`m \times m`
+
+    *
+        - U
+
+        - the left U matrix of SVD
+
+    *
+        - V
+
+        - the right V matrix of SVD
+
+    *
+        - lda
+
+        - the leading dimension of matrix A
+
+    *
+        - ldu
+
+        - the leading dimension of matrix U
+
+    *
+        - ldv
+
+        - the leading dimension of matrix V
+
+    *
+        - info
+
+        - the ouput info
+
+.. _doxid-namespacexf_1_1solver_1a43adb910d0841bff748420db9bb2df81:
+.. _cid-xf::solver::gesvj:
+
+gesvj
+-----
+
+
+Defined in <MatrixDecomposition/gesvj.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    int MAXM,
+	    int MAXN,
+	    int MCU,
+	    int NCU
+	    >
+	void gesvj (
+	    int rows,
+	    int cols,
+	    DT input_mat [MAXM *MAXN],
+	    DT output_U [MAXM *MAXM],
+	    DT output_S [MAXN],
+	    DT output_V [MAXN *MAXN]
+	    )
+
+This function implements singular value decomposition of matrix A using one-sided Jacobi algorihtm.
+
+.. math::
+
+    \begin{equation*} {A = U \Sigma {V}^T, }\end{equation*}
+
+where :math:`A` is a dense matrix of size :math:`rows \times cols` , :math:`U` is :math:`rows \times rows` matrix with orthonormal columns, :math:`V` is :math:`cols \times cols` matrix with orthonormal columns, and :math:`\Sigma` is diagonal matrix.
+
+The maximum matrix size supported in FPGA is templated by MAXN, MAXM.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - DT
+
+        - the data type of gesvj
+
+    *
+        - MAXM
+
+        - the maximum size (rows) of supported gesvj
+
+    *
+        - MAXN
+
+        - the maximum size (cols) of supported gesvj
+
+    *
+        - MCU
+
+        - the partition number of M
+
+    *
+        - NCU
+
+        - the partition number of N
+
+    *
+        - rows
+
+        - the size of matrix row
+
+    *
+        - cols
+
+        - the size of matrix col
+
+    *
+        - input_mat
+
+        - input matrix
+
+    *
+        - output_U
+
+        - the output U of svd
+
+    *
+        - output_S
+
+        - the output S of svd
+
+    *
+        - output_V
+
+        - the output V of svd
+
+.. _doxid-namespacexf_1_1solver_1a499a10417278f4d2c8dd86f0d2efa045:
+.. _cid-xf::solver::getrf:
+
+getrf
+-----
+
+
+Defined in <MatrixDecomposition/getrf.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    class T,
+	    int NMAX,
+	    int NCU
+	    >
+	void getrf (
+	    int n,
+	    T* A,
+	    int lda,
+	    int* ipiv,
+	    int& info
+	    )
+
+This function computes the LU decomposition (with partial pivoting) of matrix :math:`A`
+
+
+
+.. math::
+
+    \begin{equation*} {P A = L U, }\end{equation*}
+
+where where :math:`P` is a permutation matrix, :math:`A` is a dense matrix of size :math:`m \times n` , :math:`L` is a lower triangular matrix with unit diagonal, and :math:`U` is a upper triangular matrix. This function does not implement pivoting.
+
+The maximum matrix size supported in FPGA is templated by NMAX.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - T
+
+        - data type (support float and double)
+
+    *
+        - NMAX
+
+        - maximum number of rows/columns for input matrix
+
+    *
+        - NCU
+
+        - number of computation unit
+
+    *
+        - n
+
+        - number of rows/cols of input matrix
+
+    *
+        - A
+
+        - input matrix
+
+    *
+        - lda
+
+        - leading dimention of input matrix A
+
+    *
+        - pivot
+
+        - indices, row i of matrix A is stored in row[i]
+
+    *
+        - info
+
+        - return value, if info=0, the LU factorization is successful
+
+.. _doxid-namespacexf_1_1solver_1a8620e2ea1438eed2d5f042cff3463473:
+.. _cid-xf::solver::getrf_nopivot:
+
+getrf_nopivot
+-------------
+
+
+Defined in <MatrixDecomposition/getrf_nopivot.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    class T,
+	    int NMAX,
+	    int NCU
+	    >
+	void getrf_nopivot (
+	    int n,
+	    T* A,
+	    int lda,
+	    int& info
+	    )
+
+This function computes the LU decomposition (without pivoting) of matrix :math:`A`
+
+
+
+.. math::
+
+    \begin{equation*} {A = L U, }\end{equation*}
+
+where :math:`A` is a dense matrix of size :math:`m \times n` , :math:`L` is a lower triangular matrix with unit diagonal, and :math:`U` is a upper triangular matrix. This function does not implement pivoting.
+
+The maximum matrix size supported in FPGA is templated by NRMAX and NCMAX.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - T
+
+        - data type (support float and double)
+
+    *
+        - NRMAX
+
+        - maximum number of rows/cols for input matrix
+
+    *
+        - NCU
+
+        - number of computation unit
+
+    *
+        - n
+
+        - real row/col number of input matrix
+
+    *
+        - A
+
+        - input matrix
+
+    *
+        - lda
+
+        - leading dimention of input matrix A
+
+    *
+        - info
+
+        - return value, if info=0, the LU factorization is successful
+
+.. _doxid-namespacexf_1_1solver_1a86d85c78cb26ccbc608e10f2140c297b:
+.. _cid-xf::solver::potrf:
+
+potrf
+-----
+
+
+Defined in <MatrixDecomposition/potrf.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename T,
+	    int NMAX,
+	    int NCU
+	    >
+	void potrf (
+	    int m,
+	    T* A,
+	    int lda,
+	    int& info
+	    )
+
+This function computes the Cholesky decomposition of matrix :math:`A`
+
+
+
+.. math::
+
+    \begin{equation*} {A = L {L}^T, }\end{equation*}
+
+where :math:`A` is a dense symmetric positive-definite matrix of size :math:`m \times m` , :math:`L` is a lower triangular matrix, and :math:`{L}^T` is the transposed matrix of :math:`L` .
+
+The maximum matrix size supported in FPGA is templated by NMAX.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - T
+
+        - data type (support float and double)
+
+    *
+        - NMAX
+
+        - maximum number of input symmetric matrix size
+
+    *
+        - NCU
+
+        - number of computation unit
+
+    *
+        - m
+
+        - number of symmetric matrix A size
+
+    *
+        - A
+
+        - input matrix of size :math:`m \times m`
+
+    *
+        - lda
+
+        - leading dimention of input matrix A
+
+    *
+        - info
+
+        - return value, if info=0, the Cholesky factorization is successful
+
