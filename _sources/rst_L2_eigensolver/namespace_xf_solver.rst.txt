@@ -1,0 +1,117 @@
+.. index:: pair: namespace; solver
+.. _doxid-namespacexf_1_1solver:
+.. _cid-xf::solver:
+
+namespace solver
+================
+
+.. toctree::
+	:hidden:
+
+
+
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+
+.. FunctionSection
+
+
+
+
+.. _doxid-namespacexf_1_1solver_1a3bce76e5bb20982327a6f075442c6694:
+.. _cid-xf::solver::syevj:
+
+syevj
+-----
+
+
+Defined in <EigenSolver/syevj.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename T,
+	    int NMAX,
+	    int NCU
+	    >
+	void syevj (
+	    int m,
+	    T* A,
+	    int lda,
+	    T* S,
+	    T* U,
+	    int ldu,
+	    int& info
+	    )
+
+Symmetric Matrix Jacobi based Eigen Value Decomposition (SYEVJ) .
+
+.. math::
+
+    \begin{equation*} {A = U \Sigma {U}^T, }\end{equation*}
+
+where :math:`A` is a dense symmetric matrix of size :math:`m \times m` , :math:`U` is a :math:`m \times m` matrix with orthonormal columns, and :math:`\Sigma` is diagonal matrix.
+
+The maximum matrix size supported in FPGA is templated by NMAX.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - T
+
+        - data type (support float and double).
+
+    *
+        - NMAX
+
+        - maximum number of input symmetric matrix size
+
+    *
+        - NCU
+
+        - number of computation unit
+
+    *
+        - m
+
+        - symmetric matrix real size.
+
+    *
+        - A
+
+        - input matrix of size :math:`m \times m`
+
+    *
+        - S
+
+        - the decomposed diagonal singular matrix of size :math:`m \times m`
+
+    *
+        - U
+
+        - the left U matrix of SVD
+
+    *
+        - lda
+
+        - the leading dimension of matrix A
+
+    *
+        - ldu
+
+        - the leading dimension of matrix U
+
+    *
+        - info
+
+        - the ouput info
+
