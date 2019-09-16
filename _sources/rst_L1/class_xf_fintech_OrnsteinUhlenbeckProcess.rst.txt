@@ -1,0 +1,283 @@
+.. index:: pair: class; xf::fintech::OrnsteinUhlenbeckProcess
+.. _doxid-classxf_1_1fintech_1_1_ornstein_uhlenbeck_process:
+.. _cid-xf::fintech::ornsteinuhlenbeckprocess:
+
+template class xf::fintech::OrnsteinUhlenbeckProcess
+====================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <ornstein_uhlenbeck_process.hpp>
+
+
+Overview
+~~~~~~~~
+
+Ornstein-Uhlenbeck Process is one of the basic stochastic processes. This class describes the Ornstein-Uhlenbeck process. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_ornstein_uhlenbeck_process>`
+
+.. _doxid-classxf_1_1fintech_1_1_ornstein_uhlenbeck_process_1a0fac95f644ad1ea51b85ffbbf51b8700:
+.. _cid-xf::fintech::ornsteinuhlenbeckprocess::_x0:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <typename DT = double>
+	class OrnsteinUhlenbeckProcess
+
+	// fields
+
+	DT _x0
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1fintech_1_1_ornstein_uhlenbeck_process_1ab3467343b51ff9a6a0e5ea8c2d9b908e:
+.. _cid-xf::fintech::ornsteinuhlenbeckprocess::init:
+
+init
+----
+
+
+Defined in <xf_fintech/ornstein_uhlenbeck_process.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void init (
+	    DT speed,
+	    DT vola,
+	    DT x0,
+	    DT level = 0.0
+	    )
+
+Initialize parameters.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - speed
+
+        - Spreads on interest rates.
+
+    *
+        - vola
+
+        - The overall level of volatility.
+
+    *
+        - x0
+
+        - The initial value of the state variable.
+
+    *
+        - level
+
+        - The initial value of level.
+
+.. _doxid-classxf_1_1fintech_1_1_ornstein_uhlenbeck_process_1a30b55653743d0c7df8e0eddcf006587c:
+.. _cid-xf::fintech::ornsteinuhlenbeckprocess::expectation:
+
+expectation
+-----------
+
+
+Defined in <xf_fintech/ornstein_uhlenbeck_process.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	DT expectation (
+	    DT t0,
+	    DT x0,
+	    DT dt
+	    ) const
+
+The expertation E of the process.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - t0
+
+        - the time at the begin of processing
+
+    *
+        - x0
+
+        - the state of current value
+
+    *
+        - dt
+
+        - the step of processing
+
+
+
+.. rubric:: Returns:
+
+the result of expectation
+
+.. _doxid-classxf_1_1fintech_1_1_ornstein_uhlenbeck_process_1af0c50b2646db7a81084f6550b4422a9d:
+.. _cid-xf::fintech::ornsteinuhlenbeckprocess::stddeviation:
+
+stdDeviation
+------------
+
+
+Defined in <xf_fintech/ornstein_uhlenbeck_process.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	DT stdDeviation (
+	    DT t0,
+	    DT x0,
+	    DT dt
+	    ) const
+
+The standard deviation S of the process.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - t0
+
+        - the time at the begin of processing
+
+    *
+        - x0
+
+        - the state of current value
+
+    *
+        - dt
+
+        - the step of processing
+
+
+
+.. rubric:: Returns:
+
+the result of standard deviation
+
+.. _doxid-classxf_1_1fintech_1_1_ornstein_uhlenbeck_process_1a5f5ca5cf17f090cf63dbf29897b588e2:
+.. _cid-xf::fintech::ornsteinuhlenbeckprocess::variance:
+
+variance
+--------
+
+
+Defined in <xf_fintech/ornstein_uhlenbeck_process.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	DT variance (
+	    DT t0,
+	    DT x0,
+	    DT dt
+	    ) const
+
+The variance of the process.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - t0
+
+        - the time at the begin of processing
+
+    *
+        - x0
+
+        - the state of current value
+
+    *
+        - dt
+
+        - the step of processing
+
+
+
+.. rubric:: Returns:
+
+the result of variance
+
+.. _doxid-classxf_1_1fintech_1_1_ornstein_uhlenbeck_process_1aac1b757e5a1c0c3c610bfe4dbfac957d:
+.. _cid-xf::fintech::ornsteinuhlenbeckprocess::evolve:
+
+evolve
+------
+
+
+Defined in <xf_fintech/ornstein_uhlenbeck_process.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	DT evolve (
+	    DT dt,
+	    DT dw
+	    ) const
+
+As this process will only be excuted for once in the prcing engine and it is not the critical time consumer,then it is optimized for minimum resource utilization while having a reasonable latency.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - dt
+
+        - the step of processing
+
+    *
+        - dw
+
+        - the step of evoleing
+
+
+
+.. rubric:: Returns:
+
+Returns the asset value after a time interval Δt according to the given discretization.
+

@@ -1,0 +1,40 @@
+.. index:: pair: class; xf::fintech::internal::RNGSequence_Heston_QuadraticExponential
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_r_n_g_sequence___heston___quadratic_exponential:
+.. _cid-xf::fintech::internal::rngsequence_heston_quadraticexponential:
+
+template class xf::fintech::internal::RNGSequence_Heston_QuadraticExponential
+=============================================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <rng_sequence.hpp>
+
+
+
+
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_r_n_g_sequence___heston___quadratic_exponential_1a2a7504447a952582299d127b73ded8f5:
+.. _cid-xf::fintech::internal::rngsequence_heston_quadraticexponential::outn:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_r_n_g_sequence___heston___quadratic_exponential_1a9d7e760f844333e5f9879f668135ac2e:
+.. _cid-xf::fintech::internal::rngsequence_heston_quadraticexponential::seed:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_r_n_g_sequence___heston___quadratic_exponential_1ae0a74a773512fc23a807f422a2f8431e:
+.. _cid-xf::fintech::internal::rngsequence_heston_quadraticexponential::init:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_r_n_g_sequence___heston___quadratic_exponential_1a34cf4175248141361bccb81e3e99b53d:
+.. _cid-xf::fintech::internal::rngsequence_heston_quadraticexponential::nextseq:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    typename DT,
+	    typename RNG
+	    >
+	class RNGSequence_Heston_QuadraticExponential
+
+	// fields
+
+	static const int OutN
+	ap_uint <32> seed[2]
+

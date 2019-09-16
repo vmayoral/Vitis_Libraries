@@ -1,0 +1,54 @@
+.. index:: pair: struct; xf::fintech::hestonfd::model_parameters_t
+.. _doxid-structxf_1_1fintech_1_1hestonfd_1_1model__parameters__t:
+.. _cid-xf::fintech::hestonfd::model_parameters_t-2:
+
+struct xf::fintech::hestonfd::model_parameters_t
+================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <xf_fintech_heston_types.hpp>
+
+
+
+
+.. _doxid-structxf_1_1fintech_1_1hestonfd_1_1model__parameters__t_1aa5de57b3d317b8e21962847622aba709:
+.. _cid-xf::fintech::hestonfd::model_parameters_t::k:
+.. _doxid-structxf_1_1fintech_1_1hestonfd_1_1model__parameters__t_1aca0004fc8fd77a3a8d9823cc8cc1705b:
+.. _cid-xf::fintech::hestonfd::model_parameters_t::s:
+.. _doxid-structxf_1_1fintech_1_1hestonfd_1_1model__parameters__t_1a1601432e42b063a308026071b6a7c363:
+.. _cid-xf::fintech::hestonfd::model_parameters_t::v:
+.. _doxid-structxf_1_1fintech_1_1hestonfd_1_1model__parameters__t_1aeb0f3d66488861842b6d9598ba0a6176:
+.. _cid-xf::fintech::hestonfd::model_parameters_t::t:
+.. _doxid-structxf_1_1fintech_1_1hestonfd_1_1model__parameters__t_1a27af6f52f0df5e1c3192812021aececb:
+.. _cid-xf::fintech::hestonfd::model_parameters_t::kappa:
+.. _doxid-structxf_1_1fintech_1_1hestonfd_1_1model__parameters__t_1a58044a264485a6516ccec13e3a63237a:
+.. _cid-xf::fintech::hestonfd::model_parameters_t::sig:
+.. _doxid-structxf_1_1fintech_1_1hestonfd_1_1model__parameters__t_1af31be7907bee28cd1affedc79f43f587:
+.. _cid-xf::fintech::hestonfd::model_parameters_t::rho:
+.. _doxid-structxf_1_1fintech_1_1hestonfd_1_1model__parameters__t_1a8b8c9b028cdb466fce3ad035846042a4:
+.. _cid-xf::fintech::hestonfd::model_parameters_t::eta:
+.. _doxid-structxf_1_1fintech_1_1hestonfd_1_1model__parameters__t_1a64f9fa6faa51556044bc429df3bd1c6e:
+.. _cid-xf::fintech::hestonfd::model_parameters_t::rd:
+.. _doxid-structxf_1_1fintech_1_1hestonfd_1_1model__parameters__t_1a2812623fd5624419e0c60c84702bdac7:
+.. _cid-xf::fintech::hestonfd::model_parameters_t::rf:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// fields
+
+	double K
+	double S
+	double V
+	double T
+	double kappa
+	double sig
+	double rho
+	double eta
+	double rd
+	double rf
+

@@ -1,0 +1,118 @@
+.. index:: pair: class; xf::fintech::HestonFDPriceRam
+.. _doxid-classxf_1_1fintech_1_1_heston_f_d_price_ram:
+.. _cid-xf::fintech::hestonfdpriceram:
+
+class xf::fintech::HestonFDPriceRam
+===================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <xf_fintech_heston_price_ram.hpp>
+
+
+Overview
+~~~~~~~~
+
+Heston FD Model Price Ram Class. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_heston_f_d_price_ram>`
+
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// construction
+
+	:ref:`HestonFDPriceRam<doxid-classxf_1_1fintech_1_1_heston_f_d_price_ram_1a4925cba7c95f2baff85f546b74bf298c>` (:ref:`HestonFDSolverParameters<doxid-classxf_1_1fintech_1_1_heston_f_d_solver_parameters>`& AnySolverParameters)
+
+Construction
+------------
+
+.. _doxid-classxf_1_1fintech_1_1_heston_f_d_price_ram_1a4925cba7c95f2baff85f546b74bf298c:
+.. _cid-xf::fintech::hestonfdpriceram::hestonfdpriceram:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	HestonFDPriceRam (:ref:`HestonFDSolverParameters<doxid-classxf_1_1fintech_1_1_heston_f_d_solver_parameters>`& AnySolverParameters)
+
+Class Constructor for memory allocation.
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1fintech_1_1_heston_f_d_price_ram_1ac9449911fafa3ebda7b8a9719866f322:
+.. _cid-xf::fintech::hestonfdpriceram::ram_is_acquired:
+
+RAM_Is_Acquired
+---------------
+
+
+Defined in <xf_fintech_heston_price_ram.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	bool RAM_Is_Acquired ()
+
+Check if memory has been successfully aquired.
+
+.. _doxid-classxf_1_1fintech_1_1_heston_f_d_price_ram_1aa807d59c9c32f39d2a976b789174dae2:
+.. _cid-xf::fintech::hestonfdpriceram::get_m1_gridsize:
+
+Get_m1_GridSize
+---------------
+
+
+Defined in <xf_fintech_heston_price_ram.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int Get_m1_GridSize ()
+
+return m1 grid size
+
+.. _doxid-classxf_1_1fintech_1_1_heston_f_d_price_ram_1a6bad6b3ddb07f5a2a418e3a74f6347ae:
+.. _cid-xf::fintech::hestonfdpriceram::get_m2_gridsize:
+
+Get_m2_GridSize
+---------------
+
+
+Defined in <xf_fintech_heston_price_ram.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int Get_m2_GridSize ()
+
+return m2 grid size
+
+.. _doxid-classxf_1_1fintech_1_1_heston_f_d_price_ram_1a473c8d9fc7e01a6eedbecb468f5cc31b:
+.. _cid-xf::fintech::hestonfdpriceram::get_pricegrid:
+
+Get_PriceGrid
+-------------
+
+
+Defined in <xf_fintech_heston_price_ram.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	double* Get_PriceGrid ()
+
+return pointer to the price grid
+

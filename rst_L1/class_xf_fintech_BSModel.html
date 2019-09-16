@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>template class xf::fintech::BSModel &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>template class xf::fintech::BSModel</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rst_L1/class_xf_fintech_BSModel.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-xf-fintech-bsmodel">
+<span id="cid-xf-fintech-bsmodel"></span><span id="doxid-classxf-1-1fintech-1-1-b-s-model"></span><span id="index-0"></span><h1>template class xf::fintech::BSModel<a class="headerlink" href="#template-class-xf-fintech-bsmodel" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&lt;bs_model.hpp&gt;</span>
+</pre>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Black-Scholes process. <span class="xref std std-ref">More…</span></p>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">DT</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="n">BSModel</span>
+
+<span class="c1">// fields</span>
+
+<span class="n">DT</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-b-s-model-1a2a3a7de00e3c98898c97e07e6581bdd0"><span class="std std-ref">riskFreeRate</span></a><span></span>
+<span class="n">DT</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-b-s-model-1ad302da967592f191eecdb22f4ae4b323"><span class="std std-ref">dividendYield</span></a><span></span>
+<span class="n">DT</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-b-s-model-1af7b327e53a099fa9b36a1bcde18a94a0"><span class="std std-ref">volatility</span></a><span></span>
+<span class="n">DT</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-b-s-model-1a76fdc42a8af54268697013827909540a"><span class="std std-ref">var</span></a><span></span>
+<span class="n">DT</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-b-s-model-1a88f5b841fafb5dd968293fac20be5c19"><span class="std std-ref">stdDev</span></a><span></span>
+<span class="n">DT</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-b-s-model-1a794d5642153d8269b8f2c066393a3111"><span class="std std-ref">drift</span></a>
+</pre>
+<div class="section" id="fields">
+<h3>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-bsmodel-riskfreerate">
+<span id="doxid-classxf-1-1fintech-1-1-b-s-model-1a2a3a7de00e3c98898c97e07e6581bdd0"></span><span></span><span class="n">DT</span> <span class="n">riskFreeRate</span>
+</pre>
+<p>risk-free interest rate.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-bsmodel-dividendyield">
+<span id="doxid-classxf-1-1fintech-1-1-b-s-model-1ad302da967592f191eecdb22f4ae4b323"></span><span></span><span class="n">DT</span> <span class="n">dividendYield</span>
+</pre>
+<p>the constant dividend rate for continuous dividends.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-bsmodel-volatility">
+<span id="doxid-classxf-1-1fintech-1-1-b-s-model-1af7b327e53a099fa9b36a1bcde18a94a0"></span><span></span><span class="n">DT</span> <span class="n">volatility</span>
+</pre>
+<p>volatility of stock price.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-bsmodel-var">
+<span id="doxid-classxf-1-1fintech-1-1-b-s-model-1a76fdc42a8af54268697013827909540a"></span><span></span><span class="n">DT</span> <span class="n">var</span>
+</pre>
+<p>variance of change in stock price after time interval dt.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-bsmodel-stddev">
+<span id="doxid-classxf-1-1fintech-1-1-b-s-model-1a88f5b841fafb5dd968293fac20be5c19"></span><span></span><span class="n">DT</span> <span class="n">stdDev</span>
+</pre>
+<p>standard deviation of change in stock price after time interval dt according to the given discretization.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-bsmodel-drift">
+<span id="doxid-classxf-1-1fintech-1-1-b-s-model-1a794d5642153d8269b8f2c066393a3111"></span><span></span><span class="n">DT</span> <span class="n">drift</span>
+</pre>
+<p>drift of stock price after time interval dt.</p>
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="variance">
+<span id="cid-xf-fintech-bsmodel-variance"></span><span id="doxid-classxf-1-1fintech-1-1-b-s-model-1a4ef1bb1c89204bbbb5c0d6f67254212b"></span><h3>variance<a class="headerlink" href="#variance" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="defined-in-xf-fintech-bs-model-hpp">
+<h4>Defined in &lt;xf_fintech/bs_model.hpp&gt;<a class="headerlink" href="#defined-in-xf-fintech-bs-model-hpp" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">variance</span> <span class="p">(</span><span class="n">DT</span> <span class="n">dt</span><span class="p">)</span>
+</pre>
+<p>variance calculate the variance</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>dt</td>
+<td>time interval according to the given discretization</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="stddeviation">
+<span id="cid-xf-fintech-bsmodel-stddeviation"></span><span id="doxid-classxf-1-1fintech-1-1-b-s-model-1a82ed9adff6d6a5f8c72bbf0a32633295"></span><h3>stdDeviation<a class="headerlink" href="#stddeviation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>Defined in &lt;xf_fintech/bs_model.hpp&gt;<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">stdDeviation</span> <span class="p">()</span>
+</pre>
+<p>calculate standard variance</p>
+</div>
+</div>
+<div class="section" id="updatedrift">
+<span id="cid-xf-fintech-bsmodel-updatedrift"></span><span id="doxid-classxf-1-1fintech-1-1-b-s-model-1aa50f4406f8b69a7a274a83baa79e1d51"></span><h3>updateDrift<a class="headerlink" href="#updatedrift" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>Defined in &lt;xf_fintech/bs_model.hpp&gt;<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">updateDrift</span> <span class="p">(</span><span class="n">DT</span> <span class="n">dt</span><span class="p">)</span>
+</pre>
+<p>updateDrift calculate the drfit of expectation</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>dt</td>
+<td>time interval according to the given discretization.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="evolve">
+<span id="cid-xf-fintech-bsmodel-evolve"></span><span id="doxid-classxf-1-1fintech-1-1-b-s-model-1a094fdefaedd8dbd4de15b5b67bf3f03d"></span><h3>evolve<a class="headerlink" href="#evolve" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h4>Defined in &lt;xf_fintech/bs_model.hpp&gt;<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="n">DT</span> <span class="n">evolve</span> <span class="p">(</span>
+    <span class="n">DT</span> <span class="n">x0</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">dt</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">dw</span>
+    <span class="p">)</span>
+</pre>
+<p>calcuate the price value after time dt.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>x0</td>
+<td>initial value</td>
+</tr>
+<tr class="row-even"><td>dt</td>
+<td>time interval</td>
+</tr>
+<tr class="row-odd"><td>dw</td>
+<td>random number</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="logevolve">
+<span id="cid-xf-fintech-bsmodel-logevolve"></span><span id="doxid-classxf-1-1fintech-1-1-b-s-model-1ad24b8ca199843f4438223223283c2ee3"></span><h3>logEvolve<a class="headerlink" href="#logevolve" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h4>Defined in &lt;xf_fintech/bs_model.hpp&gt;<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="n">DT</span> <span class="n">logEvolve</span> <span class="p">(</span><span class="n">DT</span> <span class="n">dw</span><span class="p">)</span>
+</pre>
+<p>calcualte the change of logS after time dt.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>dw</td>
+<td>randon number</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

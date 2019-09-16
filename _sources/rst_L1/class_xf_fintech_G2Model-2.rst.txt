@@ -1,0 +1,195 @@
+.. index:: pair: class; xf::fintech::G2Model <DT, void, 0>
+.. _doxid-classxf_1_1fintech_1_1_g2_model_3_01_d_t_00_01void_00_010_01_4:
+.. _cid-xf::fintech::g2model-2:
+
+template class xf::fintech::G2Model <DT, void, 0>
+=================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <g2_model.hpp>
+
+
+Overview
+~~~~~~~~
+
+Two-additive-factor gaussian model. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_g2_model_3_01_d_t_00_01void_00_010_01_4>`
+
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <typename DT>
+	class G2Model <DT, void, 0>
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1fintech_1_1_g2_model_3_01_d_t_00_01void_00_010_01_4_1a56b4703652a0689178e6eb291fbfa76d:
+.. _cid-xf::fintech::g2model::initialization-2:
+
+initialization
+--------------
+
+
+Defined in <xf_fintech/g2_model.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void initialization (
+	    DT r,
+	    DT a,
+	    DT sigma,
+	    DT b,
+	    DT eta,
+	    DT rho
+	    )
+
+initialization initialize parameter
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - r
+
+        - floating benchmark annual interest rate
+
+    *
+        - a
+
+        - initial volatility of stock.
+
+    *
+        - sigma
+
+        - the volatility of volatility.
+
+    *
+        - b
+
+        - initial volatility of stock.
+
+    *
+        - eta
+
+        - the volatility of volatility.
+
+    *
+        - rho
+
+        - the correlation coefficient between price and variance.
+
+.. _doxid-classxf_1_1fintech_1_1_g2_model_3_01_d_t_00_01void_00_010_01_4_1ad1a71ecfbec2591f855dbb9bcf58935c:
+.. _cid-xf::fintech::g2model::discountbond:
+
+discountBond
+------------
+
+
+Defined in <xf_fintech/g2_model.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	DT discountBond (
+	    DT t,
+	    DT T,
+	    DT* x
+	    )
+
+discount calculate the discount after time dt
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - t
+
+        - the current timepoint
+
+    *
+        - T
+
+        - the timepoint
+
+    *
+        - x
+
+        - underlying
+
+
+
+.. rubric:: Returns:
+
+discount bond
+
+.. _doxid-classxf_1_1fintech_1_1_g2_model_3_01_d_t_00_01void_00_010_01_4_1a63d206b1d008b7fdc12115c1df1d1e32:
+.. _cid-xf::fintech::g2model::shortrate:
+
+shortRate
+---------
+
+
+Defined in <xf_fintech/g2_model.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	DT shortRate (
+	    DT t,
+	    DT* x,
+	    DT r
+	    )
+
+shortRate calculate the short-rate
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - t
+
+        - the current timepoint
+
+    *
+        - x
+
+        - underlying
+
+    *
+        - r
+
+        - float rate
+
+
+
+.. rubric:: Returns:
+
+short-rate
+

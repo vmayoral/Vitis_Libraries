@@ -1,0 +1,235 @@
+.. index:: pair: class; xf::fintech::HestonModel <ASSETS, DT, enums::kDTQuadraticExponentialMartingale>
+.. _doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4:
+.. _cid-xf::fintech::hestonmodel-2:
+
+template class xf::fintech::HestonModel <ASSETS, DT, enums::kDTQuadraticExponentialMartingale>
+==============================================================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <heston_model.hpp>
+
+
+Overview
+~~~~~~~~
+
+Heston process. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4>`
+
+.. _doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4_1a7eb8f85eb382492987261f0f98245bb5:
+.. _cid-xf::fintech::hestonmodel::riskfreerate-2:
+.. _doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4_1aca035f245a956ab803b032508878c8b7:
+.. _cid-xf::fintech::hestonmodel::dt-2:
+.. _doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4_1a2a65c0fbbd24d172da208f580e346667:
+.. _cid-xf::fintech::hestonmodel::sdt-2:
+.. _doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4_1ab11d70e1d2c4ac933567b2a563d9a57f:
+.. _cid-xf::fintech::hestonmodel::kappa_vec-2:
+.. _doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4_1ade22d2f09d354e4aa6779a0c2b9c0c3f:
+.. _cid-xf::fintech::hestonmodel::theta_vec-2:
+.. _doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4_1a850eff82dfff17df70aeec6d725e8343:
+.. _cid-xf::fintech::hestonmodel::sigma_vec-2:
+.. _doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4_1a592c0f1ac5303bb2864aad374b78f1fc:
+.. _cid-xf::fintech::hestonmodel::kappa_dt_vec-2:
+.. _doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4_1a482b29ef9f6a303757d6a2defd890f20:
+.. _cid-xf::fintech::hestonmodel::sigma_sdt_vec-2:
+.. _doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4_1adb44e61473516737139481daa148c17b:
+.. _cid-xf::fintech::hestonmodel::drift_vec-2:
+.. _doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4_1afad987fbc410bb9664b8d43e74ba7448:
+.. _cid-xf::fintech::hestonmodel::ex_vec-2:
+.. _doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4_1ab757bec3afd821427818baa12071cd40:
+.. _cid-xf::fintech::hestonmodel::k0_vec-2:
+.. _doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4_1a5e29e2e534bff665efa30806e413cff7:
+.. _cid-xf::fintech::hestonmodel::k1_vec-2:
+.. _doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4_1aa71814c6415972125dbbdf9b010da86b:
+.. _cid-xf::fintech::hestonmodel::k2_vec-2:
+.. _doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4_1aff3b73bc5177eb8e74c46b4b38086697:
+.. _cid-xf::fintech::hestonmodel::k3_vec-2:
+.. _doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4_1a063da94618737aa49081cf383a6221a2:
+.. _cid-xf::fintech::hestonmodel::k4_vec-2:
+.. _doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4_1a3b0b548ae19e15b400ba191936a6559c:
+.. _cid-xf::fintech::hestonmodel::a_vec-2:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    int ASSETS,
+	    typename DT
+	    >
+	class HestonModel <ASSETS, DT, enums::kDTQuadraticExponentialMartingale>
+
+	// fields
+
+	DT riskFreeRate
+	DT dt
+	DT sdt
+	DT kappa_vec[ASSETS]
+	DT theta_vec[ASSETS]
+	DT sigma_vec[ASSETS]
+	DT kappa_dt_vec[ASSETS]
+	DT sigma_sdt_vec[ASSETS]
+	DT drift_vec[ASSETS]
+	DT ex_vec[ASSETS]
+	DT k0_vec[ASSETS]
+	DT k1_vec[ASSETS]
+	DT k2_vec[ASSETS]
+	DT k3_vec[ASSETS]
+	DT k4_vec[ASSETS]
+	DT A_vec[ASSETS]
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4_1a99683ad050212ca89f940052ae665860:
+.. _cid-xf::fintech::hestonmodel::initparam-2:
+
+initParam
+---------
+
+
+Defined in <xf_fintech/heston_model.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void initParam (
+	    int asset_nm,
+	    DT timeLength,
+	    DT timeSteps,
+	    DT riskFreeRate_input,
+	    DT* dividendYield,
+	    DT* kappa,
+	    DT* theta,
+	    DT* sigma,
+	    DT* rho
+	    )
+
+initParam
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - asset_nm
+
+        - 
+
+    *
+        - timeLength
+
+        - 
+
+    *
+        - timeSteps
+
+        - 
+
+    *
+        - riskFreeRate_input
+
+        - 
+
+    *
+        - dividendYield
+
+        - 
+
+    *
+        - kappa
+
+        - 
+
+    *
+        - theta
+
+        - 
+
+    *
+        - sigma
+
+        - 
+
+    *
+        - rho
+
+        -
+
+.. _doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4_1a6016a96e71064fe43cc16c3207df8b78:
+.. _cid-xf::fintech::hestonmodel::logevolve-2:
+
+logEvolve
+---------
+
+
+Defined in <xf_fintech/heston_model.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void logEvolve (
+	    int asset_itr,
+	    DT s,
+	    DT v,
+	    DT& s_next,
+	    DT& v_next,
+	    DT z0,
+	    DT z1
+	    )
+
+logEvolve
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - asset_itr
+
+        - 
+
+    *
+        - s
+
+        - 
+
+    *
+        - v
+
+        - 
+
+    *
+        - s_next
+
+        - 
+
+    *
+        - v_next
+
+        - 
+
+    *
+        - z0
+
+        - 
+
+    *
+        - z1
+
+        -
+

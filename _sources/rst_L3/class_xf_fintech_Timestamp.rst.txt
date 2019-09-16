@@ -1,0 +1,25 @@
+.. index:: pair: class; xf::fintech::Timestamp
+.. _doxid-classxf_1_1fintech_1_1_timestamp:
+.. _cid-xf::fintech::timestamp:
+
+class xf::fintech::Timestamp
+============================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <xf_fintech_timestamp.hpp>
+
+
+
+
+.. _doxid-classxf_1_1fintech_1_1_timestamp_1a207f0eceefc7245d2588f4ad22b64e90:
+.. _cid-xf::fintech::timestamp::generatetimestamp:
+.. _doxid-classxf_1_1fintech_1_1_timestamp_1af9156fa05d5ec14cb5f9139c753995d3:
+.. _cid-xf::fintech::timestamp::calculateduration:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+

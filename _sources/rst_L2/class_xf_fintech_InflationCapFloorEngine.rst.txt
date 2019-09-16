@@ -1,0 +1,152 @@
+.. index:: pair: class; xf::fintech::InflationCapFloorEngine
+.. _doxid-classxf_1_1fintech_1_1_inflation_cap_floor_engine:
+.. _cid-xf::fintech::inflationcapfloorengine:
+
+template class xf::fintech::InflationCapFloorEngine
+===================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <inflation_capfloor_engine.hpp>
+
+
+Overview
+~~~~~~~~
+
+:ref:`InflationCapFloorEngine <doxid-classxf_1_1fintech_1_1_inflation_cap_floor_engine>` Inflation Cap/Floor Engine. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_inflation_cap_floor_engine>`
+
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    typename DT,
+	    int LEN
+	    >
+	class InflationCapFloorEngine
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1fintech_1_1_inflation_cap_floor_engine_1a4de371511db6ea5b7749a22f9e106d3d:
+.. _cid-xf::fintech::inflationcapfloorengine::init:
+
+init
+----
+
+
+Defined in <xf_fintech/inflation_capfloor_engine.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void init (
+	    int typeIn,
+	    DT forwardRateIn,
+	    DT* cfRateIn,
+	    DT nominalIn,
+	    DT gearingIn,
+	    DT accrualTimeIn,
+	    int size,
+	    DT* timeIn,
+	    DT* rateIn
+	    )
+
+init initialize array and parameters
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - typeIn
+
+        - 0: Cap, 1: Floor. For Collar mode, it is actually the result of Cap mode minus the result of Floor mode.
+
+    *
+        - forwardRateIn
+
+        - base of forward rate
+
+    *
+        - cfRateIn
+
+        - cfRateIn[0]: Cap strike rate, cfRateIn[1]: Floor strike rate
+
+    *
+        - nominalIn
+
+        - nominal principal
+
+    *
+        - gearingIn
+
+        - gearing
+
+    *
+        - accrualTimeIn
+
+        - accrual time
+
+    *
+        - size
+
+        - the actual size of array timeIn
+
+    *
+        - timeIn
+
+        - array time, the difference between the maturity date and the reference date, unit is year.
+
+    *
+        - rateIn
+
+        - array rate
+
+.. _doxid-classxf_1_1fintech_1_1_inflation_cap_floor_engine_1a180b1def74aa38f3f8229b3dc6e7b207:
+.. _cid-xf::fintech::inflationcapfloorengine::calcunpv:
+
+calcuNPV
+--------
+
+
+Defined in <xf_fintech/inflation_capfloor_engine.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	DT calcuNPV (int len)
+
+calcuNPV calculate NPV function
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - len
+
+        - length of year
+
+
+
+.. rubric:: Returns:
+
+return the NPV result
+
