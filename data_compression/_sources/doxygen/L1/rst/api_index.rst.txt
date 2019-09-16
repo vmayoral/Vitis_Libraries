@@ -1,0 +1,22 @@
+My Project Documentation
+========================
+
+.. toctree::
+	:hidden:
+
+	page_md__wrk_xhdhdnobkup1_hatchuta_git_repo_compression_compression_library_documentation_xf_compression_L1_README.rst
+
+.. rubric:: Related Pages:
+
+|	:doc:`page_md__wrk_xhdhdnobkup1_hatchuta_git_repo_compression_compression_library_documentation_xf_compression_L1_README`
+
+
+.. rubric:: Reference and Index:
+
+.. toctree::
+	:hidden:
+
+	global.rst
+
+|	:doc:`global`
+|	:ref:`genindex`

@@ -1,0 +1,1194 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Primitive APIs in xf::compression &mdash; LZ Compression Library 1.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xf-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="L2 Kernel User Guide" href="../L2/L2.html" />
+    <link rel="prev" title="Primitive Overview" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usecase.html">Typical Use Cases</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="L1.html">L1 Module User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Primitive Overview</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Primitive APIs in <code class="docutils literal notranslate"><span class="pre">xf::compression</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#axis2s">axis2s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#s2axis">s2axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#s2axis2">s2axis2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lz4compress">lz4Compress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lz4divide">lz4Divide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lz4decompress">lz4Decompress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lzcompress">lzCompress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lzdecompress">lzDecompress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lzbestmatchfilter">lzBestMatchFilter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lzbooster">lzBooster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lzfilter">lzFilter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mm2snb">mm2sNb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mm2snbroundoff">mm2sNbRoundOff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#s2mmeosnb">s2mmEosNb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#s2mmnb">s2mmNb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#snappycompress">snappyCompress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#snappydivide">snappyDivide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#snappydecompress">snappyDecompress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#streamdownsizer">streamDownsizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#streamdownsizerp2p">streamDownsizerP2P</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#streamupsizer">streamUpsizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upsizereos">upsizerEos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/L2.html">L2 Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Results</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../results.html">Benchmark Results</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">LZ Compression Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="L1.html">L1 Module User Guide</a> &raquo;</li>
+        
+      <li>Primitive APIs in <code class="docutils literal notranslate"><span class="pre">xf::compression</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/source/L1/api_reference.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="primitive-apis-in-xf-compression">
+<span id="l1-api-reference"></span><h1>Primitive APIs in <code class="docutils literal notranslate"><span class="pre">xf::compression</span></code><a class="headerlink" href="#primitive-apis-in-xf-compression" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="axis2s">
+<span id="cid-xf-compression-axis2s"></span><span id="doxid-namespacexf-1-1compression-1acbd2eae227cad9ace20e3d88ea1559ff"></span><h2>axis2s<a class="headerlink" href="#axis2s" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;axi_stream_utils.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">axis2s</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">pkt1b</span><span class="o">&gt;&amp;</span> <span class="n">inputAxiStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">streamDt</span><span class="o">&gt;&amp;</span> <span class="n">inputStream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">inputSize</span>
+    <span class="p">)</span></pre>
+<p>axis2s Read data from axi stream and write to internal streams for compression modules.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>inputAxisStream</p></td>
+<td><p>Incoming stream from qdma</p></td>
+</tr>
+<tr class="row-even"><td><p>inputStream</p></td>
+<td><p>internal hls stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>inputSize</p></td>
+<td><p>Size of the data coming from input axi stream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="s2axis">
+<span id="cid-xf-compression-s2axis"></span><span id="doxid-namespacexf-1-1compression-1a169a873d4bff868e6783f86c6b155391"></span><h2>s2axis<a class="headerlink" href="#s2axis" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;axi_stream_utils.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">s2axis</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">streamDt</span><span class="o">&gt;&amp;</span> <span class="n">outputStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">outStreamEos</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">pkt1b</span><span class="o">&gt;&amp;</span> <span class="n">outputAxiStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">outStreamSize</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">pkt4b</span><span class="o">&gt;&amp;</span> <span class="n">outAxiStreamSize</span>
+    <span class="p">)</span></pre>
+<p>s2axis Read data from internal streams output by compression modules and write to output axi stream.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>outputStream</p></td>
+<td><p>internal hls stream</p></td>
+</tr>
+<tr class="row-even"><td><p>outStreamEos</p></td>
+<td><p>Stream to specify the end of stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>outputAxisStream</p></td>
+<td><p>Output stream going to axi</p></td>
+</tr>
+<tr class="row-even"><td><p>outStreamSize</p></td>
+<td><p>Size of the data coming to output from stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>outAxiStreamSize</p></td>
+<td><p>Size of the data to go through output axi stream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="s2axis2">
+<span id="cid-xf-compression-s2axis2"></span><span id="doxid-namespacexf-1-1compression-1afe86efba2cd8708cfc9ca38aadd603fd"></span><h2>s2axis2<a class="headerlink" href="#s2axis2" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;axi_stream_utils.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">s2axis2</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">streamDt</span><span class="o">&gt;&amp;</span> <span class="n">outputStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">pkt1b</span><span class="o">&gt;&amp;</span> <span class="n">outputAxiStream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">originalSize</span>
+    <span class="p">)</span></pre>
+<p>s2axis2 Read data from internal streams output by compression modules and write to output axi stream.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>outputStream</p></td>
+<td><p>Internal hls output stream</p></td>
+</tr>
+<tr class="row-even"><td><p>outputAxisStream</p></td>
+<td><p>Output stream going to axi</p></td>
+</tr>
+<tr class="row-odd"><td><p>originalSize</p></td>
+<td><p>Output data size written to output stream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="lz4compress">
+<span id="cid-xf-compression-lz4compress"></span><span id="doxid-namespacexf-1-1compression-1aec51f097d8730e92b29f49e4d2cafd63"></span><h2>lz4Compress<a class="headerlink" href="#lz4compress" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_compress.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">lz4Compress</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;&amp;</span> <span class="n">in_lit_inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">lz4_compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">in_lenOffset_Stream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endOfStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">compressdSizeStream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span>
+    <span class="p">)</span></pre>
+<p>This module does the lz4 encoding by starting from WRITE_TOKEN state and based on the input read from stream the processing state changes.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in_lit_inStream</p></td>
+<td><p>Read Literals</p></td>
+</tr>
+<tr class="row-even"><td><p>in_lenOffset_Stream</p></td>
+<td><p>Read Offset-length</p></td>
+</tr>
+<tr class="row-odd"><td><p>outStream</p></td>
+<td><p>Output data stream</p></td>
+</tr>
+<tr class="row-even"><td><p>endOfStream</p></td>
+<td><p>Stream indicating that all data is processed or not</p></td>
+</tr>
+<tr class="row-odd"><td><p>compressdSizeStream</p></td>
+<td><p>Gives the compressed size for each 64K block</p></td>
+</tr>
+<tr class="row-even"><td><p>input_size</p></td>
+<td><p>Size of input</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="lz4divide">
+<span id="cid-xf-compression-lz4divide"></span><span id="doxid-namespacexf-1-1compression-1a6d894e598a08ce551be1ea538540a767"></span><h2>lz4Divide<a class="headerlink" href="#lz4divide" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_compress.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">lz4Divide</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;&amp;</span> <span class="n">lit_outStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">lz4_compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">lenOffset_Stream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">max_lit_limit</span> <span class="p">[</span><span class="n">PARALLEL_BLOCK</span><span class="p">],</span>
+    <span class="kt">uint32_t</span> <span class="n">index</span>
+    <span class="p">)</span></pre>
+<p>This is an intermediate module that seperates the input stream into two output streams, one literal stream and the other matchlen and offset stream.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>inStream</p></td>
+<td><p>reference of input literals stream</p></td>
+</tr>
+<tr class="row-even"><td><p>lit_outStream</p></td>
+<td><p>Offset-length stream for literals in input stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>lenOffset_Stream</p></td>
+<td><p>output data stream</p></td>
+</tr>
+<tr class="row-even"><td><p>input_size</p></td>
+<td><p>end flag for stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_lit_limit</p></td>
+<td><p>Size for compressed stream</p></td>
+</tr>
+<tr class="row-even"><td><p>index</p></td>
+<td><p>size of input</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="lz4decompress">
+<span id="cid-xf-compression-lz4decompress"></span><span id="doxid-namespacexf-1-1compression-1a1710109f73f8732aa47f9f32ce48ffb1"></span><h2>lz4Decompress<a class="headerlink" href="#lz4decompress" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_decompress.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">lz4Decompress</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span>
+    <span class="p">)</span></pre>
+<p>This module reads the compressed data from input stream and decodes the offset, match length and literals by processing in various decompress states.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>inStream</p></td>
+<td><p>Input stream 8bit</p></td>
+</tr>
+<tr class="row-even"><td><p>outStream</p></td>
+<td><p>Output stream 32bit</p></td>
+</tr>
+<tr class="row-odd"><td><p>input_size</p></td>
+<td><p>Input size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="lzcompress">
+<span id="cid-xf-compression-lzcompress"></span><span id="doxid-namespacexf-1-1compression-1af5497dbaf33a90230a0ff12efaa1f921"></span><h2>lzCompress<a class="headerlink" href="#lzcompress" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz_compress.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">MATCH_LEN</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">MATCH_LEVEL</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">LZ_DICT_SIZE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">BIT</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">MIN_OFFSET</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">MIN_MATCH</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">LZ_MAX_OFFSET_LIMIT</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">lzCompress</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">BIT</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">left_bytes</span>
+    <span class="p">)</span></pre>
+<p>This module reads input literals from stream and updates match length and offset of each literal.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>MATCH_LEN</p></td>
+<td><p>match length</p></td>
+</tr>
+<tr class="row-even"><td><p>MATCH_LEVEL</p></td>
+<td><p>match level</p></td>
+</tr>
+<tr class="row-odd"><td><p>LZ_DICT_SIZE</p></td>
+<td><p>dictionary size</p></td>
+</tr>
+<tr class="row-even"><td><p>BIT</p></td>
+<td><p>bit</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIN_OFFSET</p></td>
+<td><p>minimum offset</p></td>
+</tr>
+<tr class="row-even"><td><p>MIN_MATCH</p></td>
+<td><p>minimum match</p></td>
+</tr>
+<tr class="row-odd"><td><p>LZ_MAX_OFFSET_LIMIT</p></td>
+<td><p>maximum offset limit</p></td>
+</tr>
+<tr class="row-even"><td><p>inStream</p></td>
+<td><p>input stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>outStream</p></td>
+<td><p>output stream</p></td>
+</tr>
+<tr class="row-even"><td><p>input_size</p></td>
+<td><p>input size</p></td>
+</tr>
+<tr class="row-odd"><td><p>left_bytes</p></td>
+<td><p>left bytes in block</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="lzdecompress">
+<span id="cid-xf-compression-lzdecompress"></span><span id="doxid-namespacexf-1-1compression-1ae02088f889b35880f0ca0da17a5f4a63"></span><h2>lzDecompress<a class="headerlink" href="#lzdecompress" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz_decompress.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">HISTORY_SIZE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">READ_STATE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">MATCH_STATE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">LOW_OFFSET_STATE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">LOW_OFFSET</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">lzDecompress</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">original_size</span>
+    <span class="p">)</span></pre>
+<p>This module writes the literals to the output stream as is and when match length and offset are read, the literals will be read from the local dictionary based on offset until match length.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>HISTORY_SIZE</p></td>
+<td><p>history size</p></td>
+</tr>
+<tr class="row-even"><td><p>READ_STATE</p></td>
+<td><p>read state</p></td>
+</tr>
+<tr class="row-odd"><td><p>MATCH_STATE</p></td>
+<td><p>match state</p></td>
+</tr>
+<tr class="row-even"><td><p>LOW_OFFSET_STATE</p></td>
+<td><p>low offset state</p></td>
+</tr>
+<tr class="row-odd"><td><p>LOW_OFFSET</p></td>
+<td><p>low offset</p></td>
+</tr>
+<tr class="row-even"><td><p>inStream</p></td>
+<td><p>input stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>outStream</p></td>
+<td><p>output stream</p></td>
+</tr>
+<tr class="row-even"><td><p>original_size</p></td>
+<td><p>original size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="lzbestmatchfilter">
+<span id="cid-xf-compression-lzbestmatchfilter"></span><span id="doxid-namespacexf-1-1compression-1ac009ea0c6deba998a4eec5ad2fa23d2b"></span><h2>lzBestMatchFilter<a class="headerlink" href="#lzbestmatchfilter" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz_optional.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">MATCH_LEN</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">OFFSET_WINDOW</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">lzBestMatchFilter</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">left_bytes</span>
+    <span class="p">)</span></pre>
+<p>Objective of this module is to pick character with higher match length in the offset window range.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>MATCH_LEN</p></td>
+<td><p>length of matched segment</p></td>
+</tr>
+<tr class="row-even"><td><p>OFFSET_WINDOW</p></td>
+<td><p>output window</p></td>
+</tr>
+<tr class="row-odd"><td><p>inStream</p></td>
+<td><p>intput stream</p></td>
+</tr>
+<tr class="row-even"><td><p>outStream</p></td>
+<td><p>output stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>input_size</p></td>
+<td><p>intput stream size</p></td>
+</tr>
+<tr class="row-even"><td><p>left_bytes</p></td>
+<td><p>bytes left in block</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="lzbooster">
+<span id="cid-xf-compression-lzbooster"></span><span id="doxid-namespacexf-1-1compression-1a18026639223349e8757bb45c2ded2ef0"></span><h2>lzBooster<a class="headerlink" href="#lzbooster" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz_optional.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">MAX_MATCH_LEN</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">BOOSTER_OFFSET_WINDOW</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">lzBooster</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">left_bytes</span>
+    <span class="p">)</span></pre>
+<p>This module helps in improving the compression ratio. Finds a better match length by performing more character matches with supported max match, while maintaining an offset window.</p>
+<p>Following is simple demonstartion of booster input and output.</p>
+<p><strong>Input:</strong> even though HAPPY BIRTHDAY can be matched fully but match length is still 6 due to MATCH_LEN Input stream each data is 32bit and contains following:</p>
+<ul class="simple">
+<li><p>character data (8bit) - …..HAPPY BIRTHDAY ………. HAPPY BIRTHDAY</p></li>
+<li><p>match length (8bit) - …..000000000000001……….060000000000000</p></li>
+<li><p>offset (16bit) - …..xy….p……k…………x0000000000000</p></li>
+</ul>
+<p><strong>Output</strong> - with booster technique match length is increased to 14</p>
+<ul class="simple">
+<li><p>character data (8bit) - …..HAPPY BIRTHDAY ………. HAPPY BIRTHDAY</p></li>
+<li><p>match length (8bit) - …..000000000000001……….0140000000000000</p></li>
+<li><p>offset (16bit) - …..xy….p……k…………x0000000000000</p></li>
+<li><p>Improves Compression Ratio</p></li>
+<li><p>Increase in BRAM resources for BOOSTER_OFFSET_WINDOW local memory</p></li>
+</ul>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>MAX_MATCH_LEN</p></td>
+<td><p>maximum length allowed for character match</p></td>
+</tr>
+<tr class="row-even"><td><p>BOOSTER_OFFSET_WINDOW</p></td>
+<td><p>offset window to store/match the character</p></td>
+</tr>
+<tr class="row-odd"><td><p>inStream</p></td>
+<td><p>input stream 32bit per read</p></td>
+</tr>
+<tr class="row-even"><td><p>outStream</p></td>
+<td><p>output stream 32bit per write</p></td>
+</tr>
+<tr class="row-odd"><td><p>input_size</p></td>
+<td><p>intput size</p></td>
+</tr>
+<tr class="row-even"><td><p>left_bytes</p></td>
+<td><p>last 64 left over bytes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="lzfilter">
+<span id="cid-xf-compression-lzfilter"></span><span id="doxid-namespacexf-1-1compression-1ae86722f675ee482734f547af7170cc8b"></span><h2>lzFilter<a class="headerlink" href="#lzfilter" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz_optional.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">lzFilter</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">left_bytes</span>
+    <span class="p">)</span></pre>
+<p>This module checks if match length exists, and if match length exists it filters the match length -1 characters writing to output stream.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>MATCH_LEN</p></td>
+<td><p>length of matched segment</p></td>
+</tr>
+<tr class="row-even"><td><p>OFFSET_WINDOW</p></td>
+<td><p>output window</p></td>
+</tr>
+<tr class="row-odd"><td><p>inStream</p></td>
+<td><p>intput stream</p></td>
+</tr>
+<tr class="row-even"><td><p>outStream</p></td>
+<td><p>output stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>input_size</p></td>
+<td><p>intput stream size</p></td>
+</tr>
+<tr class="row-even"><td><p>left_bytes</p></td>
+<td><p>bytes left in block</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="mm2snb">
+<span id="cid-xf-compression-mm2snb"></span><span id="doxid-namespacexf-1-1compression-1aa7ee9a50a179566a67c1ad18180cc1a6"></span><h2>mm2sNb<a class="headerlink" href="#mm2snb" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;mm2s.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">DATAWIDTH</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">BURST_SIZE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NUM_BLOCKS</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">mm2sNb</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">DATAWIDTH</span><span class="o">&gt;*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">_input_idx</span> <span class="p">[</span><span class="n">PARALLEL_BLOCK</span><span class="p">],</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">DATAWIDTH</span><span class="o">&gt;&gt;</span> <span class="n">outStream</span> <span class="p">[</span><span class="n">PARALLEL_BLOCK</span><span class="p">],</span>
+    <span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">_input_size</span> <span class="p">[</span><span class="n">PARALLEL_BLOCK</span><span class="p">]</span>
+    <span class="p">)</span></pre>
+<p>This module reads 512bit data from memory interface and writes to the stream. Writing to the multiple data streams is non-blocking call which is done using is_full() API.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>DATAWIDTH</p></td>
+<td><p>width of data bus</p></td>
+</tr>
+<tr class="row-even"><td><p>BURST_SIZE</p></td>
+<td><p>burst size of the data transfers</p></td>
+</tr>
+<tr class="row-odd"><td><p>NUM_BLOCKS</p></td>
+<td><p>number of blocks</p></td>
+</tr>
+<tr class="row-even"><td><p>in</p></td>
+<td><p>input memory address</p></td>
+</tr>
+<tr class="row-odd"><td><p>_input_idx</p></td>
+<td><p>input index</p></td>
+</tr>
+<tr class="row-even"><td><p>outStream</p></td>
+<td><p>output stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>_input_size</p></td>
+<td><p>intput stream size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="mm2snbroundoff">
+<span id="cid-xf-compression-mm2snbroundoff"></span><span id="doxid-namespacexf-1-1compression-1a04a8396c062eb130c73c6156e8f57f83"></span><h2>mm2sNbRoundOff<a class="headerlink" href="#mm2snbroundoff" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;mm2s.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">DATAWIDTH</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">BURST_SIZE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NUM_BLOCKS</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">mm2sNbRoundOff</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">DATAWIDTH</span><span class="o">&gt;*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">_input_idx</span> <span class="p">[</span><span class="n">PARALLEL_BLOCK</span><span class="p">],</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">DATAWIDTH</span><span class="o">&gt;&gt;</span> <span class="n">outStream</span> <span class="p">[</span><span class="n">PARALLEL_BLOCK</span><span class="p">],</span>
+    <span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">_input_size</span> <span class="p">[</span><span class="n">PARALLEL_BLOCK</span><span class="p">]</span>
+    <span class="p">)</span></pre>
+<p>This module is same as mm2sNb API but with an extra handling rounding off the indexing to maximum buffer size for P2P decompression.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>DATAWIDTH</p></td>
+<td><p>width of data bus</p></td>
+</tr>
+<tr class="row-even"><td><p>BURST_SIZE</p></td>
+<td><p>burst size of the data transfers</p></td>
+</tr>
+<tr class="row-odd"><td><p>NUM_BLOCKS</p></td>
+<td><p>number of blocks</p></td>
+</tr>
+<tr class="row-even"><td><p>in</p></td>
+<td><p>input memory address</p></td>
+</tr>
+<tr class="row-odd"><td><p>_input_idx</p></td>
+<td><p>input index</p></td>
+</tr>
+<tr class="row-even"><td><p>outStream</p></td>
+<td><p>output stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>_input_size</p></td>
+<td><p>intput stream size</p></td>
+</tr>
+<tr class="row-even"><td><p>max_buffer_size_in_bytes</p></td>
+<td><p>Maximum buffer size for indexing</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="s2mmeosnb">
+<span id="cid-xf-compression-s2mmeosnb"></span><span id="doxid-namespacexf-1-1compression-1abf8c23016af9dd2af0991eba67b001db"></span><h2>s2mmEosNb<a class="headerlink" href="#s2mmeosnb" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;s2mm.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">class</span> <span class="n">STREAM_SIZE_DT</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">BURST_SIZE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">DATAWIDTH</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NUM_BLOCKS</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">s2mmEosNb</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">DATAWIDTH</span><span class="o">&gt;*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">output_idx</span> <span class="p">[</span><span class="n">PARALLEL_BLOCK</span><span class="p">],</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">DATAWIDTH</span><span class="o">&gt;&gt;</span> <span class="n">inStream</span> <span class="p">[</span><span class="n">PARALLEL_BLOCK</span><span class="p">],</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">endOfStream</span> <span class="p">[</span><span class="n">PARALLEL_BLOCK</span><span class="p">],</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span> <span class="n">compressedSize</span> <span class="p">[</span><span class="n">PARALLEL_BLOCK</span><span class="p">],</span>
+    <span class="n">STREAM_SIZE_DT</span> <span class="n">output_size</span> <span class="p">[</span><span class="n">PARALLEL_BLOCK</span><span class="p">]</span>
+    <span class="p">)</span></pre>
+<p>This module reads DATAWIDTH data from stream until end of stream happens and writes the data to DDR. Reading data from multiple data streams is non-blocking which is done using empty() API.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>STREAM_SIZE_DT</p></td>
+<td><p>Stream size class instance</p></td>
+</tr>
+<tr class="row-even"><td><p>BURST_SIZE</p></td>
+<td><p>burst size of the data transfers</p></td>
+</tr>
+<tr class="row-odd"><td><p>DATAWIDTH</p></td>
+<td><p>width of data bus</p></td>
+</tr>
+<tr class="row-even"><td><p>NUM_BLOCKS</p></td>
+<td><p>number of blocks</p></td>
+</tr>
+<tr class="row-odd"><td><p>out</p></td>
+<td><p>output memory address</p></td>
+</tr>
+<tr class="row-even"><td><p>output_idx</p></td>
+<td><p>output index</p></td>
+</tr>
+<tr class="row-odd"><td><p>inStream</p></td>
+<td><p>input stream</p></td>
+</tr>
+<tr class="row-even"><td><p>endOfStream</p></td>
+<td><p>end flag for stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>compressedSize</p></td>
+<td><p>size of compressed stream</p></td>
+</tr>
+<tr class="row-even"><td><p>output_size</p></td>
+<td><p>output size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="s2mmnb">
+<span id="cid-xf-compression-s2mmnb"></span><span id="doxid-namespacexf-1-1compression-1a8f2df948c53a68705acb3f76da89525f"></span><h2>s2mmNb<a class="headerlink" href="#s2mmnb" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;s2mm.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">class</span> <span class="n">STREAM_SIZE_DT</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">BURST_SIZE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">DATAWIDTH</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NUM_BLOCKS</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">s2mmNb</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">DATAWIDTH</span><span class="o">&gt;*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">output_idx</span> <span class="p">[</span><span class="n">PARALLEL_BLOCK</span><span class="p">],</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">DATAWIDTH</span><span class="o">&gt;&gt;</span> <span class="n">inStream</span> <span class="p">[</span><span class="n">PARALLEL_BLOCK</span><span class="p">],</span>
+    <span class="k">const</span> <span class="n">STREAM_SIZE_DT</span> <span class="n">input_size</span> <span class="p">[</span><span class="n">PARALLEL_BLOCK</span><span class="p">]</span>
+    <span class="p">)</span></pre>
+<p>This module reads DATAWIDTH data from stream based on size stream and writes the data to DDR. Reading data from multiple data streams is non-blocking which is done using empty() API.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>STREAM_SIZE_DT</p></td>
+<td><p>Stream size class instance</p></td>
+</tr>
+<tr class="row-even"><td><p>BURST_SIZE</p></td>
+<td><p>burst size of the data transfers</p></td>
+</tr>
+<tr class="row-odd"><td><p>DATAWIDTH</p></td>
+<td><p>width of data bus</p></td>
+</tr>
+<tr class="row-even"><td><p>NUM_BLOCKS</p></td>
+<td><p>number of blocks</p></td>
+</tr>
+<tr class="row-odd"><td><p>out</p></td>
+<td><p>output memory address</p></td>
+</tr>
+<tr class="row-even"><td><p>output_idx</p></td>
+<td><p>output index</p></td>
+</tr>
+<tr class="row-odd"><td><p>inStream</p></td>
+<td><p>input stream</p></td>
+</tr>
+<tr class="row-even"><td><p>input_size</p></td>
+<td><p>input size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="snappycompress">
+<span id="cid-xf-compression-snappycompress"></span><span id="doxid-namespacexf-1-1compression-1a6c557befca577c72f320e66870a4241b"></span><h2>snappyCompress<a class="headerlink" href="#snappycompress" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;snappy_compress.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">snappyCompress</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;&amp;</span> <span class="n">in_lit_inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">snappy_compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">in_lenOffset_Stream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endOfStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">compressdSizeStream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span>
+    <span class="p">)</span></pre>
+<p>This module encodes the input data based on the snappy algorithm.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in_lit_inStream</p></td>
+<td><p>reference of input literals stream</p></td>
+</tr>
+<tr class="row-even"><td><p>in_lenOffset_Stream</p></td>
+<td><p>Offset-length stream for literals in input stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>outStream</p></td>
+<td><p>output data stream</p></td>
+</tr>
+<tr class="row-even"><td><p>endOfStream</p></td>
+<td><p>end flag for stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>compressdSizeStream</p></td>
+<td><p>Size for compressed stream</p></td>
+</tr>
+<tr class="row-even"><td><p>input_size</p></td>
+<td><p>size of input</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="snappydivide">
+<span id="cid-xf-compression-snappydivide"></span><span id="doxid-namespacexf-1-1compression-1a7e0ce1861ebf042566bf6186274129c1"></span><h2>snappyDivide<a class="headerlink" href="#snappydivide" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;snappy_compress.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">snappyDivide</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;&amp;</span> <span class="n">lit_outStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">snappy_compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">lenOffset_Stream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">max_lit_limit</span> <span class="p">[</span><span class="n">PARALLEL_BLOCK</span><span class="p">],</span>
+    <span class="kt">uint32_t</span> <span class="n">index</span>
+    <span class="p">)</span></pre>
+<p>This is an intermediate module that seperates the input stream into two output streams, one literal stream and the other matchlen and offset stream.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>inStream</p></td>
+<td><p>reference of input literals stream</p></td>
+</tr>
+<tr class="row-even"><td><p>lit_outStream</p></td>
+<td><p>Offset-length stream for literals in input stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>lenOffset_Stream</p></td>
+<td><p>output data stream</p></td>
+</tr>
+<tr class="row-even"><td><p>input_size</p></td>
+<td><p>end flag for stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_lit_limit</p></td>
+<td><p>Size for compressed stream</p></td>
+</tr>
+<tr class="row-even"><td><p>index</p></td>
+<td><p>size of input</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="snappydecompress">
+<span id="cid-xf-compression-snappydecompress"></span><span id="doxid-namespacexf-1-1compression-1afaff624736a65e4b128f3ebc325c1a03"></span><h2>snappyDecompress<a class="headerlink" href="#snappydecompress" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;snappy_decompress.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">snappyDecompress</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">uintV_t</span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">encoded_dt</span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span>
+    <span class="p">)</span></pre>
+<p>This module decodes the compressed data based on the snappy decompression format.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>inStream</p></td>
+<td><p>input stream</p></td>
+</tr>
+<tr class="row-even"><td><p>outStream</p></td>
+<td><p>output stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>input_size</p></td>
+<td><p>input size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="streamdownsizer">
+<span id="cid-xf-compression-streamdownsizer"></span><span id="doxid-namespacexf-1-1compression-1af0dd6df2dd3def8fe03cf1bcb0242fea"></span><h2>streamDownsizer<a class="headerlink" href="#streamdownsizer" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;stream_downsizer.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">class</span> <span class="n">SIZE_DT</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">IN_WIDTH</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">OUT_WIDTH</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">streamDownsizer</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">IN_WIDTH</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">OUT_WIDTH</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="n">SIZE_DT</span> <span class="n">input_size</span>
+    <span class="p">)</span></pre>
+<p>This module reads the IN_WIDTH size from the data stream and downsizes the data to OUT_WIDTH size and writes to output stream.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>SIZE_DT</p></td>
+<td><p>data size</p></td>
+</tr>
+<tr class="row-even"><td><p>IN_WIDTH</p></td>
+<td><p>input width</p></td>
+</tr>
+<tr class="row-odd"><td><p>OUT_WIDTH</p></td>
+<td><p>output width</p></td>
+</tr>
+<tr class="row-even"><td><p>inStream</p></td>
+<td><p>input stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>outStream</p></td>
+<td><p>output stream</p></td>
+</tr>
+<tr class="row-even"><td><p>input_size</p></td>
+<td><p>input size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="streamdownsizerp2p">
+<span id="cid-xf-compression-streamdownsizerp2p"></span><span id="doxid-namespacexf-1-1compression-1a6a8abb131866b2039b8a790cdb03b3ec"></span><h2>streamDownsizerP2P<a class="headerlink" href="#streamdownsizerp2p" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;stream_downsizer.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">class</span> <span class="n">SIZE_DT</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">IN_WIDTH</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">OUT_WIDTH</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">streamDownsizerP2P</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">IN_WIDTH</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">OUT_WIDTH</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="n">SIZE_DT</span> <span class="n">input_size</span><span class="p">,</span>
+    <span class="n">SIZE_DT</span> <span class="n">input_start_idx</span>
+    <span class="p">)</span></pre>
+<p>This module reads the IN_WIDTH size from the data stream and downsizes the data to OUT_WIDTH size and writes to output stream.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>SIZE_DT</p></td>
+<td><p>data size</p></td>
+</tr>
+<tr class="row-even"><td><p>IN_WIDTH</p></td>
+<td><p>input width</p></td>
+</tr>
+<tr class="row-odd"><td><p>OUT_WIDTH</p></td>
+<td><p>output width</p></td>
+</tr>
+<tr class="row-even"><td><p>inStream</p></td>
+<td><p>input stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>outStream</p></td>
+<td><p>output stream</p></td>
+</tr>
+<tr class="row-even"><td><p>input_size</p></td>
+<td><p>input size</p></td>
+</tr>
+<tr class="row-odd"><td><p>input_start_idx</p></td>
+<td><p>input starting index</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="streamupsizer">
+<span id="cid-xf-compression-streamupsizer"></span><span id="doxid-namespacexf-1-1compression-1af54dd9dffdf3f3c37bde15680737b3b1"></span><h2>streamUpsizer<a class="headerlink" href="#streamupsizer" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;stream_upsizer.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">class</span> <span class="n">SIZE_DT</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">IN_WIDTH</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">OUT_WIDTH</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">streamUpsizer</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">IN_WIDTH</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">OUT_WIDTH</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="n">SIZE_DT</span> <span class="n">original_size</span>
+    <span class="p">)</span></pre>
+<p>This module reads IN_WIDTH from the input stream and accumulate the consecutive reads until OUT_WIDTH and writes the OUT_WIDTH data to output stream.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>SIZE_DT</p></td>
+<td><p>stream size class instance</p></td>
+</tr>
+<tr class="row-even"><td><p>IN_WIDTH</p></td>
+<td><p>input data width</p></td>
+</tr>
+<tr class="row-odd"><td><p>OUT_WIDTH</p></td>
+<td><p>output data width</p></td>
+</tr>
+<tr class="row-even"><td><p>inStream</p></td>
+<td><p>input stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>outStream</p></td>
+<td><p>output stream</p></td>
+</tr>
+<tr class="row-even"><td><p>original_size</p></td>
+<td><p>original stream size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="upsizereos">
+<span id="cid-xf-compression-upsizereos"></span><span id="doxid-namespacexf-1-1compression-1a36b991468a0b84916b936ba15b7bb28e"></span><h2>upsizerEos<a class="headerlink" href="#upsizereos" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;stream_upsizer.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">class</span> <span class="n">SIZE_DT</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">IN_WIDTH</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">OUT_WIDTH</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">upsizerEos</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">IN_WIDTH</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">inStream_eos</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">OUT_WIDTH</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">outStream_eos</span>
+    <span class="p">)</span></pre>
+<p>This module reads IN_WIDTH data from input stream based on end of stream and accumulate the consecutive reads until OUT_WIDTH and then writes OUT_WIDTH data to output stream.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>SIZE_DT</p></td>
+<td><p>stream size class instance</p></td>
+</tr>
+<tr class="row-even"><td><p>IN_WIDTH</p></td>
+<td><p>input data width</p></td>
+</tr>
+<tr class="row-odd"><td><p>OUT_WIDTH</p></td>
+<td><p>output data width</p></td>
+</tr>
+<tr class="row-even"><td><p>inStream</p></td>
+<td><p>input stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>inStream_eos</p></td>
+<td><p>input end of stream flag</p></td>
+</tr>
+<tr class="row-even"><td><p>outStream</p></td>
+<td><p>output stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>outStream_eos</p></td>
+<td><p>output end of stream flag</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../L2/L2.html" class="btn btn-neutral float-right" title="L2 Kernel User Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="overview.html" class="btn btn-neutral float-left" title="Primitive Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

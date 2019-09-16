@@ -1,0 +1,473 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Kernel APIs Reference &mdash; LZ Compression Library 1.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xf-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Demo" href="demo.html" />
+    <link rel="prev" title="Kernel Design" href="design.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usecase.html">Typical Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="L2.html">L2 Kernel User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="design.html">Kernel Design</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Kernel APIs Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#global-functions">Global Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#xillz4compress">xilLz4Compress</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xillz4compressstream">xilLz4CompressStream</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xillz4decompress">xilLz4Decompress</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xillz4decompressstream">xilLz4DecompressStream</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xilsnappycompress">xilSnappyCompress</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xilsnappydecompress">xilSnappyDecompress</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="demo.html">Demo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Results</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../results.html">Benchmark Results</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">LZ Compression Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="L2.html">L2 Kernel User Guide</a> &raquo;</li>
+        
+      <li>Kernel APIs Reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/source/L2/api_reference.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="kernel-apis-reference">
+<h1>Kernel APIs Reference<a class="headerlink" href="#kernel-apis-reference" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="global-functions">
+<h2>Global Functions<a class="headerlink" href="#global-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="xillz4compress">
+<span id="cid-xillz4compress"></span><span id="doxid-lz4-compress-kernel-8hpp-1aa11e26152bb864a14a1b2019faf0dee9"></span><h3>xilLz4Compress<a class="headerlink" href="#xillz4compress" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_compress_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilLz4Compress</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">compressd_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_block_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">block_size_in_kb</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span>
+    <span class="p">)</span></pre>
+<p>LZ4 compression kernel takes the raw data as input and compresses the data in block based fashion and writes the output to global memory.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>input raw data</p></td>
+</tr>
+<tr class="row-even"><td><p>out</p></td>
+<td><p>output compressed data</p></td>
+</tr>
+<tr class="row-odd"><td><p>compressd_size</p></td>
+<td><p>compressed output size of each block</p></td>
+</tr>
+<tr class="row-even"><td><p>in_block_size</p></td>
+<td><p>input block size of each block</p></td>
+</tr>
+<tr class="row-odd"><td><p>block_size_in_kb</p></td>
+<td><p>input block size in bytes</p></td>
+</tr>
+<tr class="row-even"><td><p>input_size</p></td>
+<td><p>input data size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xillz4compressstream">
+<span id="cid-xillz4compressstream"></span><span id="doxid-lz4-compress-stream-kernel-8hpp-1a4f204b665d5848a33e09416c6d6f3c13"></span><h3>xilLz4CompressStream<a class="headerlink" href="#xillz4compressstream" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_compress_stream_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilLz4CompressStream</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">pkt1b</span><span class="o">&gt;&amp;</span> <span class="n">inAxiStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">pkt1b</span><span class="o">&gt;&amp;</span> <span class="n">outAxiStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">pkt4b</span><span class="o">&gt;&amp;</span> <span class="n">compressedSizeAxis</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">inputSize</span>
+    <span class="p">)</span></pre>
+<p>LZ4 compression streaming kernel.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>inAxiStream</p></td>
+<td><p>Input axi stream</p></td>
+</tr>
+<tr class="row-even"><td><p>outAxiStream</p></td>
+<td><p>Output axi stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>compressedSizeAxis</p></td>
+<td><p>Axi stream to transfer compressed data size</p></td>
+</tr>
+<tr class="row-even"><td><p>inputSize</p></td>
+<td><p>Input data size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xillz4decompress">
+<span id="cid-xillz4decompress"></span><span id="doxid-lz4-decompress-kernel-8hpp-1acf6728ba62074fd173cb146ecb59433e"></span><h3>xilLz4Decompress<a class="headerlink" href="#xillz4decompress" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_decompress_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilLz4Decompress</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_block_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_compress_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">block_size_in_kb</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">no_blocks</span>
+    <span class="p">)</span></pre>
+<p>LZ4 decompression kernel takes compressed data as input and process in block based fashion and writes the raw data to global memory.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>input compressed data</p></td>
+</tr>
+<tr class="row-even"><td><p>out</p></td>
+<td><p>output raw data</p></td>
+</tr>
+<tr class="row-odd"><td><p>in_block_size</p></td>
+<td><p>input block size of each block</p></td>
+</tr>
+<tr class="row-even"><td><p>in_compress_size</p></td>
+<td><p>compress size of each block</p></td>
+</tr>
+<tr class="row-odd"><td><p>block_size_in_kb</p></td>
+<td><p>block size in bytes</p></td>
+</tr>
+<tr class="row-even"><td><p>no_blocks</p></td>
+<td><p>number of blocks</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xillz4decompressstream">
+<span id="cid-xillz4decompressstream"></span><span id="doxid-lz4-decompress-stream-kernel-8hpp-1a41099ca97bd6b6ee2e5d8efe8e7ec57d"></span><h3>xilLz4DecompressStream<a class="headerlink" href="#xillz4decompressstream" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_decompress_stream_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilLz4DecompressStream</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">pkt1b</span><span class="o">&gt;&amp;</span> <span class="n">inAxiStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">pkt1b</span><span class="o">&gt;&amp;</span> <span class="n">outAxiStream</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">inputSize</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">outputSize</span>
+    <span class="p">)</span></pre>
+<p>LZ4 decompression streaming kernel.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>inAxiStream</p></td>
+<td><p>Input axi stream</p></td>
+</tr>
+<tr class="row-even"><td><p>outAxiStream</p></td>
+<td><p>Output axi stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>inputSize</p></td>
+<td><p>Input compressed data size</p></td>
+</tr>
+<tr class="row-even"><td><p>outputSize</p></td>
+<td><p>Output decompressed data size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xilsnappycompress">
+<span id="cid-xilsnappycompress"></span><span id="doxid-snappy-compress-kernel-8hpp-1a32ebd0013229e97db7baeba58ba3a54a"></span><h3>xilSnappyCompress<a class="headerlink" href="#xilsnappycompress" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;snappy_compress_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilSnappyCompress</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">compressd_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_block_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">block_size_in_kb</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span>
+    <span class="p">)</span></pre>
+<p>Snappy compression kernel takes the raw data as input and compresses the data in block based fashion and writes the output to global memory.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>input raw data</p></td>
+</tr>
+<tr class="row-even"><td><p>out</p></td>
+<td><p>output compressed data</p></td>
+</tr>
+<tr class="row-odd"><td><p>compressd_size</p></td>
+<td><p>compressed output size of each block</p></td>
+</tr>
+<tr class="row-even"><td><p>in_block_size</p></td>
+<td><p>input block size of each block</p></td>
+</tr>
+<tr class="row-odd"><td><p>block_size_in_kb</p></td>
+<td><p>input block size in bytes</p></td>
+</tr>
+<tr class="row-even"><td><p>input_size</p></td>
+<td><p>input data size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xilsnappydecompress">
+<span id="cid-xilsnappydecompress"></span><span id="doxid-snappy-decompress-kernel-8hpp-1a70f1512f5f9d55b4aadc6baf57f6d6d6"></span><h3>xilSnappyDecompress<a class="headerlink" href="#xilsnappydecompress" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;snappy_decompress_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilSnappyDecompress</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_block_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_compress_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">block_size_in_kb</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">no_blocks</span>
+    <span class="p">)</span></pre>
+<p>Snappy decompression kernel takes compressed data as input and process in block based fashion and writes the raw data to global memory.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>input compressed data</p></td>
+</tr>
+<tr class="row-even"><td><p>out</p></td>
+<td><p>output raw data</p></td>
+</tr>
+<tr class="row-odd"><td><p>in_block_size</p></td>
+<td><p>input block size of each block</p></td>
+</tr>
+<tr class="row-even"><td><p>in_compress_size</p></td>
+<td><p>compress size of each block</p></td>
+</tr>
+<tr class="row-odd"><td><p>block_size_in_kb</p></td>
+<td><p>block size in bytes</p></td>
+</tr>
+<tr class="row-even"><td><p>no_blocks</p></td>
+<td><p>number of blocks</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="demo.html" class="btn btn-neutral float-right" title="Demo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="design.html" class="btn btn-neutral float-left" title="Kernel Design" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,666 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Global Namespace &mdash; LZ Compression Library 1.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/xf-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/overview.html#trademark-notice">Trademark Notice</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/usecase.html">Typical Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/L2/L2.html">L2 Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Results</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/results.html">Benchmark Results</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">LZ Compression Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Global Namespace</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/doxygen/L2/rst/global.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="global-namespace">
+<span id="id1"></span><h1>Global Namespace<a class="headerlink" href="#global-namespace" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound" id="index-0">
+</div>
+<pre class="highlight overview-code-block literal-block" id="cid-findmin"><span id="doxid-treegen-kernel-8hpp-1af255f1f25b11497e0fe987a88c2a5f6c"></span><span id="cid-d-code-2"></span><span id="doxid-lz77-compress-kernel-8hpp-1a3a3a3795eafe60850be8b44dad7bdcf7"></span><span id="cid-d-code"></span><span id="doxid-huffman-kernel-8hpp-1a3a3a3795eafe60850be8b44dad7bdcf7"></span><span id="cid-z-deflated"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a27a96226f3dc88e4743131c632adf32f"></span><span id="cid-wrong"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a2f2c9b4b416a1754ea8a01b68798b175"></span><span id="cid-write-token-2"></span><span id="doxid-huffman-kernel-8hpp-1aef9947c0b7fc7a3c0ce3ebf616a651bb"></span><span id="cid-write-token"></span><span id="doxid-lz77-compress-kernel-8hpp-1aef9947c0b7fc7a3c0ce3ebf616a651bb"></span><span id="cid-write-offset1"></span><span id="doxid-lz77-compress-kernel-8hpp-1ad8c1b2524b781fb92e0d114831d7f14e"></span><span id="cid-write-offset0"></span><span id="doxid-lz77-compress-kernel-8hpp-1ab09994a83f23f00f7fdfee6ef9a5d7a9"></span><span id="cid-write-match-len"></span><span id="doxid-lz77-compress-kernel-8hpp-1aa66d01587d4d0ab028e7674a35b14443"></span><span id="cid-write-lit-len"></span><span id="doxid-lz77-compress-kernel-8hpp-1af7fd34aa2775a02cf2abdcdca2e1ba4e"></span><span id="cid-write-literal"></span><span id="doxid-lz77-compress-kernel-8hpp-1ab6b5088bacf94b3eae3469d19bd4f584"></span><span id="cid-vec-2"></span><span id="doxid-lz77-compress-kernel-8hpp-1a4749c5f07d5b90ecf9f3d53002f45b0b"></span><span id="cid-vec"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a4749c5f07d5b90ecf9f3d53002f45b0b"></span><span id="cid-total-lens"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a0be95ec9fb19394c4655b6ebf7745e2c"></span><span id="cid-total-dists"></span><span id="doxid-zlib-decompress-kernel-8hpp-1ad8ed3651a4baa9662e74ab93564de63e"></span><span id="cid-top"></span><span id="doxid-zlib-decompress-kernel-8hpp-1afc0eef637f1016e8786e45e106a4881e"></span><span id="cid-tcodesize"></span><span id="doxid-zlib-decompress-kernel-8hpp-1afcd3bd454f91a270d002dbcb4fe5ebc6"></span><span id="cid-table"></span><span id="doxid-zlib-decompress-kernel-8hpp-1acadaccd8321f8569f31a11bdad1829da"></span><span id="cid-stored"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a1f104a4798c99e65adde445b937bfe81"></span><span id="cid-send-output"></span><span id="doxid-huffman-kernel-8hpp-1a15de9bbd20c76f6a84a71769060100a4"></span><span id="cid-rep-3-6"></span><span id="doxid-zlib-config-8h-1a5d39bc5068c496733ec81b9d5543db40"></span><span id="cid-repz-3-10"></span><span id="doxid-zlib-config-8h-1a39f77126525d41c0155506e942365da8"></span><span id="cid-repz-11-138"></span><span id="doxid-zlib-config-8h-1a350267bb8ca6269fac9ba06057336788"></span><span id="cid-read-state"></span><span id="doxid-zlib-decompress-kernel-8hpp-1af24d57192c431f4e3554b6c6be093153"></span><span id="cid-pathdo"></span><span id="doxid-zlib-decompress-kernel-8hpp-1ab1641d88e38bafd63cfa1c5dcbd61473"></span><span id="cid-path"></span><span id="doxid-zlib-decompress-kernel-8hpp-1ab0139008fdda107456f13f837872b410"></span><span id="cid-out-bytes-2"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a589b7a395b2f5673eff3157cd143f349"></span><span id="cid-out-bytes"></span><span id="doxid-lz77-compress-kernel-8hpp-1a589b7a395b2f5673eff3157cd143f349"></span><span id="cid-offset-window-2"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a52cab5c557e96dc15148629e854d6d5e"></span><span id="cid-offset-window"></span><span id="doxid-lz77-compress-kernel-8hpp-1a52cab5c557e96dc15148629e854d6d5e"></span><span id="cid-ml-extra"></span><span id="doxid-huffman-kernel-8hpp-1a421123d90e9b0e3cf508f5c0ae513297"></span><span id="cid-ml-dist-rep"></span><span id="doxid-huffman-kernel-8hpp-1aa16a8c3e8f342a8bb54cb6ece1ea97a5"></span><span id="cid-min-offset-2"></span><span id="doxid-lz77-compress-kernel-8hpp-1a265e5b42d1cd6061c3d4a4e3723a338a"></span><span id="cid-min-offset"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a265e5b42d1cd6061c3d4a4e3723a338a"></span><span id="cid-min-match-3"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a7984ceb1ff48ac91172976b91ed43f60"></span><span id="cid-min-match-2"></span><span id="doxid-gzip-tables-8h-1a7984ceb1ff48ac91172976b91ed43f60"></span><span id="cid-min-match"></span><span id="doxid-lz77-compress-kernel-8hpp-1a7984ceb1ff48ac91172976b91ed43f60"></span><span id="cid-min-block-size-3"></span><span id="doxid-huffman-kernel-8hpp-1ac1f29ba54415975a2fa23e276fdf8a0f"></span><span id="cid-min-block-size-2"></span><span id="doxid-lz77-compress-kernel-8hpp-1ac1f29ba54415975a2fa23e276fdf8a0f"></span><span id="cid-min-block-size"></span><span id="doxid-zlib-decompress-kernel-8hpp-1ac1f29ba54415975a2fa23e276fdf8a0f"></span><span id="cid-max-match-len-2"></span><span id="doxid-lz77-compress-kernel-8hpp-1a773437eda00419e55ebcf14bf1ef5a4d"></span><span id="cid-max-match-len"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a773437eda00419e55ebcf14bf1ef5a4d"></span><span id="cid-max-match-3"></span><span id="doxid-lz77-compress-kernel-8hpp-1ab7a9188dce25dac8d3a970c01b89b0c6"></span><span id="cid-max-match-2"></span><span id="doxid-gzip-tables-8h-1ab7a9188dce25dac8d3a970c01b89b0c6"></span><span id="cid-max-match"></span><span id="doxid-zlib-decompress-kernel-8hpp-1ab7a9188dce25dac8d3a970c01b89b0c6"></span><span id="cid-max-bl-bits"></span><span id="doxid-zlib-config-8h-1a8f9fea0ddde71a75c6caf59ba993ca4e"></span><span id="cid-max-bits"></span><span id="doxid-treegen-kernel-8hpp-1a51c241e7ad52441b8d4c1fd5f498b3b9"></span><span id="cid-maxcode-size"></span><span id="doxid-zlib-config-8h-1a589eefe5223c5fd3dba28cee344d4922"></span><span id="cid-maxbits"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a6fcad31e688110d9d61bdcc99b2a59d7"></span><span id="cid-match-state"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a36f419731c0d40403a0b2accb2982599"></span><span id="cid-match-level-2"></span><span id="doxid-lz77-compress-kernel-8hpp-1a32e585b69aa9798cd0335f8e8ff8404d"></span><span id="cid-match-level"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a32e585b69aa9798cd0335f8e8ff8404d"></span><span id="cid-match-len-2"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a113fb963ba98e31e3c41eb9599b1497d"></span><span id="cid-match-len"></span><span id="doxid-lz77-compress-kernel-8hpp-1a113fb963ba98e31e3c41eb9599b1497d"></span><span id="cid-l-codes"></span><span id="doxid-zlib-config-8h-1a2b0cc00cc6a7d521fba8d208a1cae477"></span><span id="cid-lz-max-offset-limit-2"></span><span id="doxid-lz77-compress-kernel-8hpp-1af2cda7e0f4a90b5bd73b287e9a52cb24"></span><span id="cid-lz-max-offset-limit"></span><span id="doxid-zlib-decompress-kernel-8hpp-1af2cda7e0f4a90b5bd73b287e9a52cb24"></span><span id="cid-lz-hash-bit-2"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a9147cd813d2460298aa6dc78122c6498"></span><span id="cid-lz-hash-bit"></span><span id="doxid-lz77-compress-kernel-8hpp-1a9147cd813d2460298aa6dc78122c6498"></span><span id="cid-lz-dict-size-2"></span><span id="doxid-lz77-compress-kernel-8hpp-1ab093d1684c2f65f96339d0378a178aa0"></span><span id="cid-lz-dict-size"></span><span id="doxid-zlib-decompress-kernel-8hpp-1ab093d1684c2f65f96339d0378a178aa0"></span><span id="cid-ltree-size-3"></span><span id="doxid-treegen-kernel-8hpp-1a5b89ad0599c454b953aab3bb714067a7"></span><span id="cid-ltree-size-2"></span><span id="doxid-huffman-kernel-8hpp-1a5b89ad0599c454b953aab3bb714067a7"></span><span id="cid-ltree-size"></span><span id="doxid-zlib-config-8h-1a5b89ad0599c454b953aab3bb714067a7"></span><span id="cid-low-offset-state"></span><span id="doxid-zlib-decompress-kernel-8hpp-1af0f756bfd33c38e7b36c1f10dcb0ba99"></span><span id="cid-low-offset"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a2b8f8e3bbe3f6e707f3f920dfeb2be7b"></span><span id="cid-lit-rep"></span><span id="doxid-huffman-kernel-8hpp-1a4a091988fcfd7b626880400fcd40376b"></span><span id="cid-literals"></span><span id="doxid-zlib-config-8h-1a3f59145500c9de746e7dc49fb98c29ef"></span><span id="cid-length-codes-4"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a8dd3b78c666b6592944b2acf1706e611"></span><span id="cid-length-codes-3"></span><span id="doxid-gzip-tables-8h-1a8dd3b78c666b6592944b2acf1706e611"></span><span id="cid-length-codes-2"></span><span id="doxid-lz77-compress-kernel-8hpp-1a8dd3b78c666b6592944b2acf1706e611"></span><span id="cid-length-codes"></span><span id="doxid-zlib-config-8h-1a8dd3b78c666b6592944b2acf1706e611"></span><span id="cid-len"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a05b49c662c073f89e86804f7856622a0"></span><span id="cid-history-size"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a43034bdd0ae7c6267b05ff35ae97cddf"></span><span id="cid-heap-size"></span><span id="doxid-zlib-config-8h-1a1b45302695680930829cac31d65e41e1"></span><span id="cid-gmem-dwidth-3"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a1512e047741436f48d2ee378518f724f"></span><span id="cid-gmem-dwidth-2"></span><span id="doxid-lz77-compress-kernel-8hpp-1a1512e047741436f48d2ee378518f724f"></span><span id="cid-gmem-dwidth"></span><span id="doxid-huffman-kernel-8hpp-1a1512e047741436f48d2ee378518f724f"></span><span id="cid-gmem-burst-size-3"></span><span id="doxid-huffman-kernel-8hpp-1a339363060eacccb8cf32c45034c8fde5"></span><span id="cid-gmem-burst-size-2"></span><span id="doxid-lz77-compress-kernel-8hpp-1a339363060eacccb8cf32c45034c8fde5"></span><span id="cid-gmem-burst-size"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a339363060eacccb8cf32c45034c8fde5"></span><span id="cid-get-diff-if-big-2"></span><span id="doxid-lz77-compress-kernel-8hpp-1a4ef9636ea91e8374d90b2df0834b35a3"></span><span id="cid-get-diff-if-big"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a4ef9636ea91e8374d90b2df0834b35a3"></span><span id="cid-extra-lcodes"></span><span id="doxid-zlib-config-8h-1a0ea47ce476b845613b877a110dad982f"></span><span id="cid-extra-dcodes"></span><span id="doxid-zlib-config-8h-1ae5ff8e171d249fa2b6fce8d66c4274d8"></span><span id="cid-extra-blcodes"></span><span id="doxid-zlib-config-8h-1a9e7596921a3a653bf68d7049f1cfbf24"></span><span id="cid-d-codes-2"></span><span id="doxid-zlib-config-8h-1a8798a9a526623abbd88fedb0727e21aa"></span><span id="cid-d-codes"></span><span id="doxid-gzip-tables-8h-1a8798a9a526623abbd88fedb0727e21aa"></span><span id="cid-dtree-size-3"></span><span id="doxid-huffman-kernel-8hpp-1a55382a9a0b26bb7dfc5df2ecd43cb500"></span><span id="cid-dtree-size-2"></span><span id="doxid-zlib-config-8h-1a55382a9a0b26bb7dfc5df2ecd43cb500"></span><span id="cid-dtree-size"></span><span id="doxid-treegen-kernel-8hpp-1a55382a9a0b26bb7dfc5df2ecd43cb500"></span><span id="cid-done"></span><span id="doxid-zlib-decompress-kernel-8hpp-1abe6b865c045f3e7c6892ef4f15ff5779"></span><span id="cid-dist-rep"></span><span id="doxid-huffman-kernel-8hpp-1abab81c1ada38fed9923f8dc69b38d439"></span><span id="cid-dist-extra"></span><span id="doxid-huffman-kernel-8hpp-1a339221efc337bd8f704993fa62cdc2fe"></span><span id="cid-dict-ele-width-2"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a05216c357020a68f3aa13417f0f28417"></span><span id="cid-dict-ele-width"></span><span id="doxid-lz77-compress-kernel-8hpp-1a05216c357020a68f3aa13417f0f28417"></span><span id="id2"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a460d396dc2973a3dc63478dcaf21baa2"></span><span id="cid-copy"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a9e77d621548de2a80bc9c5909bfa2b8a"></span><span id="cid-codelens"></span><span id="doxid-zlib-decompress-kernel-8hpp-1af0e86dcd490d17570f09975b7b3905b5"></span><span id="cid-check"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a4ccc9878008def89d325d0bb7efdbd6b"></span><span id="cid-bl-codes"></span><span id="doxid-zlib-config-8h-1a9e19158a493307d4f211cdf223da8319"></span><span id="cid-bltree-size-3"></span><span id="doxid-zlib-config-8h-1a9cb9f49d4ce20962a777d05bc7e530ca"></span><span id="cid-bltree-size-2"></span><span id="doxid-treegen-kernel-8hpp-1a9cb9f49d4ce20962a777d05bc7e530ca"></span><span id="cid-bltree-size"></span><span id="doxid-huffman-kernel-8hpp-1a9cb9f49d4ce20962a777d05bc7e530ca"></span><span id="cid-bitlenhuff"></span><span id="doxid-zlib-decompress-kernel-8hpp-1af444b6f442c623c21ec7087ed08c37aa"></span><span id="cid-bitlength"></span><span id="doxid-zlib-decompress-kernel-8hpp-1ae4f697e7464ebc5d2138a8607d1d5855"></span><span id="cid-bit-5"></span><span id="doxid-treegen-kernel-8hpp-1a7b846473f310e6962ca8b763772cf862"></span><span id="cid-bit-4"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a7b846473f310e6962ca8b763772cf862"></span><span id="cid-bit-3"></span><span id="doxid-lz77-compress-kernel-8hpp-1a7b846473f310e6962ca8b763772cf862"></span><span id="cid-bit-2"></span><span id="doxid-lz4-decompress-stream-kernel-8hpp-1a7b846473f310e6962ca8b763772cf862"></span><span id="cid-bit"></span><span id="doxid-huffman-kernel-8hpp-1a7b846473f310e6962ca8b763772cf862"></span><span id="cid-input-size-4"></span><span id="doxid-zlib-decompress-kernel-8hpp-1af9dbb3dde00c1b5e85d00538b3ca0f1f"></span><span id="cid-encoded-size"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a0c3cf165c72569f066f56f2252eefd05"></span><span id="cid-out-3"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a49c0705b8b9b834edbb3c949ed1f548a"></span><span id="cid-in-3"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a4d66a6d94453a075969915398c49c388"></span><span id="cid-gz-max-literal-count"></span><span id="doxid-zlib-config-8h-1ad9b35bd5633acb11aa4db5c956cccf89"></span><span id="cid-blocks-per-chunk"></span><span id="doxid-treegen-kernel-8hpp-1a850a59f2f80fb157a81fcd3b4220c254"></span><span id="cid-input-size-3"></span><span id="doxid-treegen-kernel-8hpp-1aca4bc0a7ff057fac780058a14890f5fc"></span><span id="cid-block-size-in-kb-3"></span><span id="doxid-treegen-kernel-8hpp-1ac010d2545685cfe4d38383096da7ee0b"></span><span id="cid-max-codes"></span><span id="doxid-treegen-kernel-8hpp-1a9c97949dd48f5f84a84c04dc77a73f3d"></span><span id="cid-dyn-bltree-blen"></span><span id="doxid-treegen-kernel-8hpp-1a48db95ab2e01cf0e267718aa3f1008e2"></span><span id="cid-dyn-dtree-blen-2"></span><span id="doxid-treegen-kernel-8hpp-1a051421a174203b260bf6b88aa73df72e"></span><span id="cid-dyn-ltree-blen"></span><span id="doxid-treegen-kernel-8hpp-1ab266ba50d287d00916c87686c5518ef5"></span><span id="cid-dyn-bltree-codes"></span><span id="doxid-treegen-kernel-8hpp-1aa4f3c9288e7819f9e8b266bf838a676b"></span><span id="cid-dyn-dtree-codes"></span><span id="doxid-treegen-kernel-8hpp-1a3af304e63afcb76e97ad406101ec0896"></span><span id="cid-dyn-ltree-codes"></span><span id="doxid-treegen-kernel-8hpp-1aae57eb95a569ac2855d1ee4fd15506f2"></span><span id="cid-dyn-bltree-freq"></span><span id="doxid-treegen-kernel-8hpp-1a5f04e5a30b05ef071f6785811efd60a3"></span><span id="cid-dyn-dtree-freq-2"></span><span id="doxid-treegen-kernel-8hpp-1a1d3d3b941537f29c9a4b17b89730be58"></span><span id="cid-dyn-ltree-freq-2"></span><span id="doxid-treegen-kernel-8hpp-1a4a8db7302822eb581a475b01c215f0b8"></span><span id="cid-input-size-2"></span><span id="doxid-lz77-compress-kernel-8hpp-1aff874e812107094cee53231ebbaaaee0"></span><span id="cid-block-size-in-kb-2"></span><span id="doxid-lz77-compress-kernel-8hpp-1a3136f74c3bb27ea2eb19d34d0cfe5d98"></span><span id="cid-dyn-dtree-freq"></span><span id="doxid-lz77-compress-kernel-8hpp-1a5f2a73740b7fd3ac02a9d838997d096d"></span><span id="cid-dyn-ltree-freq"></span><span id="doxid-lz77-compress-kernel-8hpp-1a744a69fbf137bc33bc1a1559cd074a42"></span><span id="cid-in-block-size-2"></span><span id="doxid-lz77-compress-kernel-8hpp-1a23f23d5454fd78b0aa077373c5fae895"></span><span id="cid-compressd-size-2"></span><span id="doxid-lz77-compress-kernel-8hpp-1a9674b3af4a9c28ca848af6e29f0a5d45"></span><span id="cid-out-2"></span><span id="doxid-lz77-compress-kernel-8hpp-1ac9806d4b4c5037a6340ea356aee64c73"></span><span id="cid-in-2"></span><span id="doxid-lz77-compress-kernel-8hpp-1a1d2f112774f521217624ddab362504cd"></span><span id="cid-input-size"></span><span id="doxid-huffman-kernel-8hpp-1ae95d91a453faf55403a06da61c492813"></span><span id="cid-block-size-in-kb"></span><span id="doxid-huffman-kernel-8hpp-1a44eb6ef205332effe0f9080cb2941fa9"></span><span id="cid-dyn-max-codes"></span><span id="doxid-huffman-kernel-8hpp-1a1656b9e8ea6907df9293ac17fd69c691"></span><span id="cid-dyn-bitlentree-blen"></span><span id="doxid-huffman-kernel-8hpp-1aea376e739bf6cd066b46448588162f20"></span><span id="cid-dyn-dtree-blen"></span><span id="doxid-huffman-kernel-8hpp-1a8eb88344d2c0655eec9de7ff45c6ada1"></span><span id="cid-dyn-litmtree-blen"></span><span id="doxid-huffman-kernel-8hpp-1a247e0870d31850233c760409391cf694"></span><span id="cid-dyn-bitlentree-codes"></span><span id="doxid-huffman-kernel-8hpp-1ad7c20e726e69ee608fa3aa44b381689e"></span><span id="cid-dyn-distree-codes"></span><span id="doxid-huffman-kernel-8hpp-1a0687350d2dbc300acc41fca7395d0774"></span><span id="cid-dyn-litmtree-codes"></span><span id="doxid-huffman-kernel-8hpp-1aa881e96a89c236b000ad7c86401bd0e2"></span><span id="cid-compressd-size"></span><span id="doxid-huffman-kernel-8hpp-1a1868a4a3f3113ad9c3201f2294acb8ab"></span><span id="cid-in-block-size"></span><span id="doxid-huffman-kernel-8hpp-1abed4d283f1073de7e21fe3dbd967de8f"></span><span id="cid-out"></span><span id="doxid-huffman-kernel-8hpp-1a49c0705b8b9b834edbb3c949ed1f548a"></span><span id="cid-in"></span><span id="doxid-huffman-kernel-8hpp-1a4d66a6d94453a075969915398c49c388"></span><span id="cid-fixed-len-code"></span><span id="doxid-huffman-fixed-table-8h-1a396758d099d1dc5705e588cb45d63b00"></span><span id="cid-fixed-dist-bl"></span><span id="doxid-huffman-fixed-table-8h-1a445275b799be96d6ed0497c5e9ee7e1b"></span><span id="cid-fixed-dist-table"></span><span id="doxid-huffman-fixed-table-8h-1a39fc2755197b9179a4af6b4f2c19b326"></span><span id="cid-fixed-lenlit-bl"></span><span id="doxid-huffman-fixed-table-8h-1a7875864b4e2d6248045fb44326faa3c8"></span><span id="cid-fixed-lenlit-table"></span><span id="doxid-huffman-fixed-table-8h-1a667c4fc94bcc4f4c83ca36544e44ca2f"></span><span id="cid-base-length"></span><span id="doxid-gzip-tables-8h-1a533c4010941c7701cb6d664cc256c9ba"></span><span id="cid-base-dist"></span><span id="doxid-gzip-tables-8h-1acb734e0235c80854ce92ee3dbcc0aaf5"></span><span id="cid-dist-code"></span><span id="doxid-gzip-tables-8h-1a1a7094161bcabeeded287fabe1074db8"></span><span id="cid-length-code"></span><span id="doxid-gzip-tables-8h-1abb6ae328cade6261f3eb20713d5f0e9f"></span><span id="cid-gzip-decompress-compressd-dt"></span><span id="doxid-zlib-decompress-kernel-8hpp-1ab00c138e72733cd7dd25ea02bca2784d"></span><span id="cid-compressdv-dt-2"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a6ba973876d54bf6fb25fa0c00bc07a08"></span><span id="cid-compressd-dt-2"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a488a8f4be3eaad5790117e9b3297c9b5"></span><span id="cid-uint512-t-3"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a294ce21f5608a3ce72fab891321a3542"></span><span id="cid-uintdoubleout-t-2"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a904fa8302631220bbf18a8b8846fa271"></span><span id="cid-uintout-t-2"></span><span id="doxid-zlib-decompress-kernel-8hpp-1aa44ed4c1078f603b201ed6d696aeba8f"></span><span id="cid-uintdictv-t-2"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a8680a1a42efc8f60e93e766931ae07ea"></span><span id="cid-uintdict-t-2"></span><span id="doxid-zlib-decompress-kernel-8hpp-1acca9daef8bc4a2c4f8f1a36550042454"></span><span id="cid-uintmatchv-t-2"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a29eae7d97bfbcc6be5570632860dee8d"></span><span id="cid-lz77-compressd-dt"></span><span id="doxid-lz77-compress-kernel-8hpp-1afdc9c6b5d98603a9b6cc50ee49bfc7de"></span><span id="cid-compressdv-dt"></span><span id="doxid-lz77-compress-kernel-8hpp-1a6ba973876d54bf6fb25fa0c00bc07a08"></span><span id="cid-compressd-dt"></span><span id="doxid-lz77-compress-kernel-8hpp-1a488a8f4be3eaad5790117e9b3297c9b5"></span><span id="cid-uint512-t-2"></span><span id="doxid-lz77-compress-kernel-8hpp-1a294ce21f5608a3ce72fab891321a3542"></span><span id="cid-uintdoubleout-t"></span><span id="doxid-lz77-compress-kernel-8hpp-1a904fa8302631220bbf18a8b8846fa271"></span><span id="cid-uintout-t"></span><span id="doxid-lz77-compress-kernel-8hpp-1aa44ed4c1078f603b201ed6d696aeba8f"></span><span id="cid-uintdictv-t"></span><span id="doxid-lz77-compress-kernel-8hpp-1a8680a1a42efc8f60e93e766931ae07ea"></span><span id="cid-uintdict-t"></span><span id="doxid-lz77-compress-kernel-8hpp-1acca9daef8bc4a2c4f8f1a36550042454"></span><span id="cid-uintmatchv-t"></span><span id="doxid-lz77-compress-kernel-8hpp-1a29eae7d97bfbcc6be5570632860dee8d"></span><span id="cid-uintvt"></span><span id="doxid-lz4-decompress-stream-kernel-8hpp-1acb180f0fdfcc276ac9840c75f9107795"></span><span id="cid-encodedv-dt"></span><span id="doxid-huffman-kernel-8hpp-1aa44f246e6506babd2430ee8e07e9b831"></span><span id="cid-encoded-dt"></span><span id="doxid-huffman-kernel-8hpp-1ab805d07be734b0dfbb9070be4cbb458f"></span><span id="cid-uintoutv-t"></span><span id="doxid-huffman-kernel-8hpp-1a54b6be14e64e0a9dbaeb592ed55909c9"></span><span id="cid-uint512-t"></span><span id="doxid-huffman-kernel-8hpp-1a294ce21f5608a3ce72fab891321a3542"></span><span></span><span class="c1">// typedefs</span>
+
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">GMEM_DWIDTH</span><span class="o">&gt;</span> <span class="n">uint512_t</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">16</span><span class="o">&gt;</span> <span class="n">uintOutV_t</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span> <span class="n">encoded_dt</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span> <span class="n">encodedV_dt</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">BIT</span><span class="o">&gt;</span> <span class="n">uintVt</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">MATCH_LEN</span><span class="o">*</span><span class="n">BIT</span><span class="o">&gt;</span> <span class="n">uintMatchV_t</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">DICT_ELE_WIDTH</span><span class="o">&gt;</span> <span class="n">uintDict_t</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">MATCH_LEVEL</span><span class="o">*</span><span class="n">DICT_ELE_WIDTH</span><span class="o">&gt;</span> <span class="n">uintDictV_t</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">OUT_BYTES</span><span class="o">*</span><span class="n">BIT</span><span class="o">&gt;</span> <span class="n">uintOut_t</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">2</span><span class="o">*</span><span class="n">OUT_BYTES</span><span class="o">*</span><span class="n">BIT</span><span class="o">&gt;</span> <span class="n">uintDoubleOut_t</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">GMEM_DWIDTH</span><span class="o">&gt;</span> <span class="n">uint512_t</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span> <span class="n">compressd_dt</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">VEC</span><span class="o">*</span><span class="mi">32</span><span class="o">&gt;</span> <span class="n">compressdV_dt</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;</span> <span class="n">lz77_compressd_dt</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">MATCH_LEN</span><span class="o">*</span><span class="n">BIT</span><span class="o">&gt;</span> <span class="n">uintMatchV_t</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">DICT_ELE_WIDTH</span><span class="o">&gt;</span> <span class="n">uintDict_t</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">MATCH_LEVEL</span><span class="o">*</span><span class="n">DICT_ELE_WIDTH</span><span class="o">&gt;</span> <span class="n">uintDictV_t</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">OUT_BYTES</span><span class="o">*</span><span class="n">BIT</span><span class="o">&gt;</span> <span class="n">uintOut_t</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">2</span><span class="o">*</span><span class="n">OUT_BYTES</span><span class="o">*</span><span class="n">BIT</span><span class="o">&gt;</span> <span class="n">uintDoubleOut_t</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">GMEM_DWIDTH</span><span class="o">&gt;</span> <span class="n">uint512_t</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span> <span class="n">compressd_dt</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">VEC</span><span class="o">*</span><span class="mi">32</span><span class="o">&gt;</span> <span class="n">compressdV_dt</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;</span> <span class="n">gzip_decompress_compressd_dt</span>
+
+<span class="c1">// enums</span>
+
+<span class="k">enum</span> <a class="reference internal" href="enum_packcodedata.html#doxid-zlib-decompress-kernel-8hpp-1a0258f92e64d83b16698b5cd273d4971d"><span class="std std-ref">packcodedata</span></a><span></span>
+
+<span class="c1">// structs</span>
+
+<span class="k">struct</span> <a class="reference internal" href="struct_code.html#doxid-structcode"><span class="std std-ref">code</span></a><span></span>
+
+<span class="c1">// global variables</span>
+
+<span class="k">const</span> <span class="kt">uint8_t</span> <span class="n">length_code</span><span class="p">[</span><span class="n">MAX_MATCH</span><span class="o">-</span><span class="n">MIN_MATCH</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">const</span> <span class="kt">uint8_t</span> <span class="n">dist_code</span><span class="p">[</span><span class="mi">512</span><span class="p">]</span>
+<span class="k">const</span> <span class="kt">uint16_t</span> <span class="n">base_dist</span><span class="p">[</span><span class="n">D_CODES</span><span class="p">]</span>
+<span class="k">const</span> <span class="kt">uint8_t</span> <span class="n">base_length</span><span class="p">[</span><span class="n">LENGTH_CODES</span><span class="p">]</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">fixed_lenlit_table</span><span class="p">[]</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">fixed_lenlit_bl</span><span class="p">[]</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">fixed_dist_table</span><span class="p">[]</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">fixed_dist_bl</span><span class="p">[]</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">fixed_len_code</span><span class="p">[]</span>
+<span class="n">uint512_t</span><span class="o">*</span> <span class="n">in</span>
+<span class="n">uint512_t</span> <span class="n">uint512_t</span><span class="o">*</span> <span class="n">out</span>
+<span class="n">uint512_t</span> <span class="n">uint512_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_block_size</span>
+<span class="n">uint512_t</span> <span class="n">uint512_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">compressd_size</span>
+<span class="n">uint512_t</span> <span class="n">uint512_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_litmtree_codes</span>
+<span class="n">uint512_t</span> <span class="n">uint512_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_distree_codes</span>
+<span class="n">uint512_t</span> <span class="n">uint512_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_bitlentree_codes</span>
+<span class="n">uint512_t</span> <span class="n">uint512_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_litmtree_blen</span>
+<span class="n">uint512_t</span> <span class="n">uint512_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_dtree_blen</span>
+<span class="n">uint512_t</span> <span class="n">uint512_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_bitlentree_blen</span>
+<span class="n">uint512_t</span> <span class="n">uint512_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_max_codes</span>
+<span class="n">uint512_t</span> <span class="n">uint512_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="n">block_size_in_kb</span>
+<span class="n">uint512_t</span> <span class="n">uint512_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="n">input_size</span>
+<span class="k">const</span> <span class="n">uint512_t</span><span class="o">*</span> <span class="n">in</span>
+<span class="k">const</span> <span class="n">uint512_t</span> <span class="n">uint512_t</span><span class="o">*</span> <span class="n">out</span>
+<span class="k">const</span> <span class="n">uint512_t</span> <span class="n">uint512_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">compressd_size</span>
+<span class="k">const</span> <span class="n">uint512_t</span> <span class="n">uint512_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_block_size</span>
+<span class="k">const</span> <span class="n">uint512_t</span> <span class="n">uint512_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_ltree_freq</span>
+<span class="k">const</span> <span class="n">uint512_t</span> <span class="n">uint512_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_dtree_freq</span>
+<span class="k">const</span> <span class="n">uint512_t</span> <span class="n">uint512_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="n">block_size_in_kb</span>
+<span class="k">const</span> <span class="n">uint512_t</span> <span class="n">uint512_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="n">input_size</span>
+<span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_ltree_freq</span>
+<span class="kt">uint32_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_dtree_freq</span>
+<span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_bltree_freq</span>
+<span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_ltree_codes</span>
+<span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_dtree_codes</span>
+<span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_bltree_codes</span>
+<span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_ltree_blen</span>
+<span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_dtree_blen</span>
+<span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_bltree_blen</span>
+<span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">max_codes</span>
+<span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="n">block_size_in_kb</span>
+<span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="n">input_size</span>
+<span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="n">blocks_per_chunk</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">gz_max_literal_count</span>
+<span class="n">uint512_t</span><span class="o">*</span> <span class="n">in</span>
+<span class="n">uint512_t</span> <span class="n">uint512_t</span><span class="o">*</span> <span class="n">out</span>
+<span class="n">uint512_t</span> <span class="n">uint512_t</span> <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">encoded_size</span>
+<span class="n">uint512_t</span> <span class="n">uint512_t</span> <span class="kt">uint32_t</span> <span class="kt">uint32_t</span> <span class="n">input_size</span>
+
+<span class="c1">// macros</span>
+
+<span class="cp">#define BIT</span>
+<span class="cp">#define BIT</span>
+<span class="cp">#define BIT</span>
+<span class="cp">#define BIT</span>
+<span class="cp">#define BIT</span>
+<span class="cp">#define BITLENGTH</span>
+<span class="cp">#define BITLENHUFF</span>
+<span class="cp">#define BLTREE_SIZE</span>
+<span class="cp">#define BLTREE_SIZE</span>
+<span class="cp">#define BLTREE_SIZE</span>
+<span class="cp">#define BL_CODES</span>
+<span class="cp">#define CHECK</span>
+<span class="cp">#define CODELENS</span>
+<span class="cp">#define COPY</span>
+<span class="cp">#define COPY_</span>
+<span class="cp">#define DICT_ELE_WIDTH</span>
+<span class="cp">#define DICT_ELE_WIDTH</span>
+<span class="cp">#define DIST_EXTRA</span>
+<span class="cp">#define DIST_REP</span>
+<span class="cp">#define DONE</span>
+<span class="cp">#define DTREE_SIZE</span>
+<span class="cp">#define DTREE_SIZE</span>
+<span class="cp">#define DTREE_SIZE</span>
+<span class="cp">#define D_CODES</span>
+<span class="cp">#define D_CODES</span>
+<span class="cp">#define EXTRA_BLCODES</span>
+<span class="cp">#define EXTRA_DCODES</span>
+<span class="cp">#define EXTRA_LCODES</span>
+
+<span class="cp">#define GET_DIFF_IF_BIG( \</span>
+<span class="cp">    x, \</span>
+<span class="cp">    y \</span>
+<span class="cp">    )</span>
+
+<span class="cp">#define GET_DIFF_IF_BIG( \</span>
+<span class="cp">    x, \</span>
+<span class="cp">    y \</span>
+<span class="cp">    )</span>
+
+<span class="cp">#define GMEM_BURST_SIZE</span>
+<span class="cp">#define GMEM_BURST_SIZE</span>
+<span class="cp">#define GMEM_BURST_SIZE</span>
+<span class="cp">#define GMEM_DWIDTH</span>
+<span class="cp">#define GMEM_DWIDTH</span>
+<span class="cp">#define GMEM_DWIDTH</span>
+<span class="cp">#define HEAP_SIZE</span>
+<span class="cp">#define HISTORY_SIZE</span>
+<span class="cp">#define LEN</span>
+<span class="cp">#define LENGTH_CODES</span>
+<span class="cp">#define LENGTH_CODES</span>
+<span class="cp">#define LENGTH_CODES</span>
+<span class="cp">#define LENGTH_CODES</span>
+<span class="cp">#define LITERALS</span>
+<span class="cp">#define LIT_REP</span>
+<span class="cp">#define LOW_OFFSET</span>
+<span class="cp">#define LOW_OFFSET_STATE</span>
+<span class="cp">#define LTREE_SIZE</span>
+<span class="cp">#define LTREE_SIZE</span>
+<span class="cp">#define LTREE_SIZE</span>
+<span class="cp">#define LZ_DICT_SIZE</span>
+<span class="cp">#define LZ_DICT_SIZE</span>
+<span class="cp">#define LZ_HASH_BIT</span>
+<span class="cp">#define LZ_HASH_BIT</span>
+<span class="cp">#define LZ_MAX_OFFSET_LIMIT</span>
+<span class="cp">#define LZ_MAX_OFFSET_LIMIT</span>
+<span class="cp">#define L_CODES</span>
+<span class="cp">#define MATCH_LEN</span>
+<span class="cp">#define MATCH_LEN</span>
+<span class="cp">#define MATCH_LEVEL</span>
+<span class="cp">#define MATCH_LEVEL</span>
+<span class="cp">#define MATCH_STATE</span>
+<span class="cp">#define MAXBITS</span>
+<span class="cp">#define MAXCODE_SIZE</span>
+<span class="cp">#define MAX_BITS</span>
+<span class="cp">#define MAX_BL_BITS</span>
+<span class="cp">#define MAX_MATCH</span>
+<span class="cp">#define MAX_MATCH</span>
+<span class="cp">#define MAX_MATCH</span>
+<span class="cp">#define MAX_MATCH_LEN</span>
+<span class="cp">#define MAX_MATCH_LEN</span>
+<span class="cp">#define MIN_BLOCK_SIZE</span>
+<span class="cp">#define MIN_BLOCK_SIZE</span>
+<span class="cp">#define MIN_BLOCK_SIZE</span>
+<span class="cp">#define MIN_MATCH</span>
+<span class="cp">#define MIN_MATCH</span>
+<span class="cp">#define MIN_MATCH</span>
+<span class="cp">#define MIN_OFFSET</span>
+<span class="cp">#define MIN_OFFSET</span>
+<span class="cp">#define ML_DIST_REP</span>
+<span class="cp">#define ML_EXTRA</span>
+<span class="cp">#define OFFSET_WINDOW</span>
+<span class="cp">#define OFFSET_WINDOW</span>
+<span class="cp">#define OUT_BYTES</span>
+<span class="cp">#define OUT_BYTES</span>
+<span class="cp">#define PATH</span>
+<span class="cp">#define PATHDO</span>
+<span class="cp">#define READ_STATE</span>
+<span class="cp">#define REPZ_11_138</span>
+<span class="cp">#define REPZ_3_10</span>
+<span class="cp">#define REP_3_6</span>
+<span class="cp">#define SEND_OUTPUT</span>
+<span class="cp">#define STORED</span>
+<span class="cp">#define TABLE</span>
+<span class="cp">#define TCODESIZE</span>
+<span class="cp">#define TOP</span>
+<span class="cp">#define TOTAL_DISTS</span>
+<span class="cp">#define TOTAL_LENS</span>
+<span class="cp">#define VEC</span>
+<span class="cp">#define VEC</span>
+<span class="cp">#define WRITE_LITERAL</span>
+<span class="cp">#define WRITE_LIT_LEN</span>
+<span class="cp">#define WRITE_MATCH_LEN</span>
+<span class="cp">#define WRITE_OFFSET0</span>
+<span class="cp">#define WRITE_OFFSET1</span>
+<span class="cp">#define WRITE_TOKEN</span>
+<span class="cp">#define WRITE_TOKEN</span>
+<span class="cp">#define WRONG</span>
+<span class="cp">#define Z_DEFLATED</span>
+
+<span class="cp">#define d_code( \</span>
+<span class="cp">    dist, \</span>
+<span class="cp">    dist_code \</span>
+<span class="cp">    )</span>
+
+<span class="cp">#define d_code( \</span>
+<span class="cp">    dist, \</span>
+<span class="cp">    dist_code \</span>
+<span class="cp">    )</span>
+
+<span class="cp">#define findmin( \</span>
+<span class="cp">    tree_freq, \</span>
+<span class="cp">    n, \</span>
+<span class="cp">    m, \</span>
+<span class="cp">    depth \</span>
+<span class="cp">    )</span></pre>
+<div class="section" id="global-functions">
+<h2>Global Functions<a class="headerlink" href="#global-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="xillz4compress">
+<span id="cid-xillz4compress"></span><span id="doxid-lz4-compress-kernel-8hpp-1aa11e26152bb864a14a1b2019faf0dee9"></span><h3>xilLz4Compress<a class="headerlink" href="#xillz4compress" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_compress_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilLz4Compress</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">compressd_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_block_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">block_size_in_kb</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span>
+    <span class="p">)</span></pre>
+<p>LZ4 compression kernel takes the raw data as input and compresses the data in block based fashion and writes the output to global memory.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>input raw data</p></td>
+</tr>
+<tr class="row-even"><td><p>out</p></td>
+<td><p>output compressed data</p></td>
+</tr>
+<tr class="row-odd"><td><p>compressd_size</p></td>
+<td><p>compressed output size of each block</p></td>
+</tr>
+<tr class="row-even"><td><p>in_block_size</p></td>
+<td><p>input block size of each block</p></td>
+</tr>
+<tr class="row-odd"><td><p>block_size_in_kb</p></td>
+<td><p>input block size in bytes</p></td>
+</tr>
+<tr class="row-even"><td><p>input_size</p></td>
+<td><p>input data size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xillz4compressstream">
+<span id="cid-xillz4compressstream"></span><span id="doxid-lz4-compress-stream-kernel-8hpp-1a4f204b665d5848a33e09416c6d6f3c13"></span><h3>xilLz4CompressStream<a class="headerlink" href="#xillz4compressstream" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_compress_stream_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilLz4CompressStream</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">pkt1b</span><span class="o">&gt;&amp;</span> <span class="n">inAxiStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">pkt1b</span><span class="o">&gt;&amp;</span> <span class="n">outAxiStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">pkt4b</span><span class="o">&gt;&amp;</span> <span class="n">compressedSizeAxis</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">inputSize</span>
+    <span class="p">)</span></pre>
+<p>LZ4 compression streaming kernel.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>inAxiStream</p></td>
+<td><p>Input axi stream</p></td>
+</tr>
+<tr class="row-even"><td><p>outAxiStream</p></td>
+<td><p>Output axi stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>compressedSizeAxis</p></td>
+<td><p>Axi stream to transfer compressed data size</p></td>
+</tr>
+<tr class="row-even"><td><p>inputSize</p></td>
+<td><p>Input data size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xillz4decompress">
+<span id="cid-xillz4decompress"></span><span id="doxid-lz4-decompress-kernel-8hpp-1acf6728ba62074fd173cb146ecb59433e"></span><h3>xilLz4Decompress<a class="headerlink" href="#xillz4decompress" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_decompress_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilLz4Decompress</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_block_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_compress_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">block_size_in_kb</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">no_blocks</span>
+    <span class="p">)</span></pre>
+<p>LZ4 decompression kernel takes compressed data as input and process in block based fashion and writes the raw data to global memory.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>input compressed data</p></td>
+</tr>
+<tr class="row-even"><td><p>out</p></td>
+<td><p>output raw data</p></td>
+</tr>
+<tr class="row-odd"><td><p>in_block_size</p></td>
+<td><p>input block size of each block</p></td>
+</tr>
+<tr class="row-even"><td><p>in_compress_size</p></td>
+<td><p>compress size of each block</p></td>
+</tr>
+<tr class="row-odd"><td><p>block_size_in_kb</p></td>
+<td><p>block size in bytes</p></td>
+</tr>
+<tr class="row-even"><td><p>no_blocks</p></td>
+<td><p>number of blocks</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xillz4decompressstream">
+<span id="cid-xillz4decompressstream"></span><span id="doxid-lz4-decompress-stream-kernel-8hpp-1a41099ca97bd6b6ee2e5d8efe8e7ec57d"></span><h3>xilLz4DecompressStream<a class="headerlink" href="#xillz4decompressstream" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_decompress_stream_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilLz4DecompressStream</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">pkt1b</span><span class="o">&gt;&amp;</span> <span class="n">inAxiStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">pkt1b</span><span class="o">&gt;&amp;</span> <span class="n">outAxiStream</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">inputSize</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">outputSize</span>
+    <span class="p">)</span></pre>
+<p>LZ4 decompression streaming kernel.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>inAxiStream</p></td>
+<td><p>Input axi stream</p></td>
+</tr>
+<tr class="row-even"><td><p>outAxiStream</p></td>
+<td><p>Output axi stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>inputSize</p></td>
+<td><p>Input compressed data size</p></td>
+</tr>
+<tr class="row-even"><td><p>outputSize</p></td>
+<td><p>Output decompressed data size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xilsnappycompress">
+<span id="cid-xilsnappycompress"></span><span id="doxid-snappy-compress-kernel-8hpp-1a32ebd0013229e97db7baeba58ba3a54a"></span><h3>xilSnappyCompress<a class="headerlink" href="#xilsnappycompress" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;snappy_compress_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilSnappyCompress</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">compressd_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_block_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">block_size_in_kb</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span>
+    <span class="p">)</span></pre>
+<p>Snappy compression kernel takes the raw data as input and compresses the data in block based fashion and writes the output to global memory.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>input raw data</p></td>
+</tr>
+<tr class="row-even"><td><p>out</p></td>
+<td><p>output compressed data</p></td>
+</tr>
+<tr class="row-odd"><td><p>compressd_size</p></td>
+<td><p>compressed output size of each block</p></td>
+</tr>
+<tr class="row-even"><td><p>in_block_size</p></td>
+<td><p>input block size of each block</p></td>
+</tr>
+<tr class="row-odd"><td><p>block_size_in_kb</p></td>
+<td><p>input block size in bytes</p></td>
+</tr>
+<tr class="row-even"><td><p>input_size</p></td>
+<td><p>input data size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xilsnappydecompress">
+<span id="cid-xilsnappydecompress"></span><span id="doxid-snappy-decompress-kernel-8hpp-1a70f1512f5f9d55b4aadc6baf57f6d6d6"></span><h3>xilSnappyDecompress<a class="headerlink" href="#xilsnappydecompress" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;snappy_decompress_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilSnappyDecompress</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_block_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_compress_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">block_size_in_kb</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">no_blocks</span>
+    <span class="p">)</span></pre>
+<p>Snappy decompression kernel takes compressed data as input and process in block based fashion and writes the raw data to global memory.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>input compressed data</p></td>
+</tr>
+<tr class="row-even"><td><p>out</p></td>
+<td><p>output raw data</p></td>
+</tr>
+<tr class="row-odd"><td><p>in_block_size</p></td>
+<td><p>input block size of each block</p></td>
+</tr>
+<tr class="row-even"><td><p>in_compress_size</p></td>
+<td><p>compress size of each block</p></td>
+</tr>
+<tr class="row-odd"><td><p>block_size_in_kb</p></td>
+<td><p>block size in bytes</p></td>
+</tr>
+<tr class="row-even"><td><p>no_blocks</p></td>
+<td><p>number of blocks</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

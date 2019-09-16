@@ -1,0 +1,29 @@
+.. index:: pair: struct; code
+.. _doxid-structcode:
+.. _cid-code:
+
+struct code
+===========
+
+.. toctree::
+	:hidden:
+
+
+
+
+
+.. _doxid-structcode_1aa56b8f507ef153fc5a5b9512a5e51c9e:
+.. _cid-code::op:
+.. _doxid-structcode_1afdbd998650bcde4e4f5fb75e38374b52:
+.. _cid-code::bits:
+.. _doxid-structcode_1ade7316124da87fb131ec60fe6ed0e4da:
+.. _cid-code::val:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// fields
+
+	uint8_t op
+	uint8_t bits
+	uint16_t val
+
