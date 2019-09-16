@@ -1,0 +1,117 @@
+.. _global-namespace:
+
+Global Namespace
+================
+
+.. index:: pair: namespace; global
+
+.. toctree::
+	:hidden:
+
+	namespace_xf.rst
+
+
+
+
+
+.. _doxid-snappy__decompress_8hpp_1af681c220c8c571aa4bfbc318238e68ab:
+.. _cid-uintv_t:
+.. _doxid-snappy__decompress_8hpp_1ab805d07be734b0dfbb9070be4cbb458f:
+.. _cid-encoded_dt:
+.. _doxid-snappy__decompress_8hpp_1a7b846473f310e6962ca8b763772cf862:
+.. _cid-bit:
+.. _doxid-axi__stream__utils_8hpp_1a7f32e26ea2ffbc0c5408e65b30d4f0c8:
+.. _cid-dwidth:
+.. _doxid-axi__stream__utils_8hpp_1a9aabd719746bc86bc49fce2cf91a52cf:
+.. _cid-dwidth2:
+.. _doxid-zlib__stream__utils_8hpp_1a4ef9636ea91e8374d90b2df0834b35a3:
+.. _cid-get_diff_if_big:
+.. _doxid-common_8h_1a339363060eacccb8cf32c45034c8fde5:
+.. _cid-gmem_burst_size:
+.. _doxid-common_8h_1a1512e047741436f48d2ee378518f724f:
+.. _cid-gmem_dwidth:
+.. _doxid-snappy__compress_8hpp_1aa97b62b50c39c309ceca39ddaeed7027:
+.. _cid-insize_range_14bit:
+.. _doxid-snappy__compress_8hpp_1a0d98fd116626aa66a21993825b219cc0:
+.. _cid-insize_range_21bit:
+.. _doxid-snappy__compress_8hpp_1aaac531efcf6147e702ff7c51cde9996d:
+.. _cid-insize_range_7bit:
+.. _doxid-snappy__decompress_8hpp_1a2b8f8e3bbe3f6e707f3f920dfeb2be7b:
+.. _cid-low_offset:
+.. _doxid-snappy__compress_8hpp_1a1a9ea1ca92a8c051263ff8018004ad91:
+.. _cid-marker:
+.. _doxid-zlib__stream__utils_8hpp_1af822cc6d6c80c4dc0f9272f962956e02:
+.. _cid-stream_utils_mm2s_if_not_full:
+.. _doxid-zlib__stream__utils_8hpp_1ab8ced84c942524ccde42548b018916d3:
+.. _cid-stream_utils_s2mm_dec_if_not_empty:
+.. _doxid-zlib__stream__utils_8hpp_1aaf549fd2531abbabcac7248e9ea6f123:
+.. _cid-stream_utils_s2mm_if_not_empty:
+.. _doxid-zlib__stream__utils_8hpp_1ac41d4db060c4e595bac71a508f88b1ed:
+.. _cid-stream_utils_s2mm_read_size:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// namespaces
+
+	namespace :ref:`xf<doxid-namespacexf>`
+	    namespace :ref:`xf::compression<doxid-namespacexf_1_1compression>`
+
+	// typedefs
+
+	typedef ap_uint <BIT> uintV_t
+	typedef ap_uint <32> encoded_dt
+
+	// macros
+
+	#define BIT
+	#define DWIDTH
+	#define DWIDTH2
+
+	#define GET_DIFF_IF_BIG( \
+	    x, \
+	    y \
+	    )
+
+	#define GMEM_BURST_SIZE
+	#define GMEM_DWIDTH
+	#define INSIZE_RANGE_14BIT
+	#define INSIZE_RANGE_21BIT
+	#define INSIZE_RANGE_7BIT
+	#define LOW_OFFSET
+	#define MARKER
+
+	#define STREAM_UTILS_MM2S_IF_NOT_FULL( \
+	    bIdx, \
+	    outStream, \
+	    is_full, \
+	    read_idx, \
+	    write_idx, \
+	    local_buffer \
+	    )
+
+	#define STREAM_UTILS_S2MM_DEC_IF_NOT_EMPTY( \
+	    i, \
+	    instream, \
+	    burst_size, \
+	    input_size, \
+	    read_size, \
+	    write_size, \
+	    write_idx \
+	    )
+
+	#define STREAM_UTILS_S2MM_IF_NOT_EMPTY( \
+	    i, \
+	    instream, \
+	    burst_size, \
+	    input_size, \
+	    read_size, \
+	    write_size, \
+	    write_idx \
+	    )
+
+	#define STREAM_UTILS_S2MM_READ_SIZE( \
+	    i, \
+	    instream, \
+	    end_of_stream \
+	    )
+
