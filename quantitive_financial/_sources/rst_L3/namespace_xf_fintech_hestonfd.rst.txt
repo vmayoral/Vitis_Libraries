@@ -1,0 +1,53 @@
+.. index:: pair: namespace; hestonfd
+.. _doxid-namespacexf_1_1fintech_1_1hestonfd:
+.. _cid-xf::fintech::hestonfd:
+
+namespace hestonfd
+==================
+
+.. toctree::
+	:hidden:
+
+	struct_xf_fintech_hestonfd_model_parameters_t.rst
+	struct_xf_fintech_hestonfd_solver_parameters_t.rst
+	class_xf_fintech_hestonfd_AdiSolver.rst
+	class_xf_fintech_hestonfd_Coeffs.rst
+	class_xf_fintech_hestonfd_Matrices.rst
+
+
+
+
+
+.. _doxid-namespacexf_1_1fintech_1_1hestonfd_1a0759c6b75beb43b37fa60be0a77e9965:
+.. _cid-xf::fintech::hestonfd::model_parameters_t:
+.. _doxid-namespacexf_1_1fintech_1_1hestonfd_1aa6f1785ca49e8ba88f3e8bbcf4dfba58:
+.. _cid-xf::fintech::hestonfd::solver_parameters_t:
+.. _doxid-namespacexf_1_1fintech_1_1hestonfd_1a04bde3e63cc7367d5fc9d861562616e2:
+.. _cid-xf::fintech::hestonfd::xlnx_heston_solve:
+.. _doxid-namespacexf_1_1fintech_1_1hestonfd_1ab310b5db11275356e6a9b3b55c38b1cc:
+.. _cid-xf::fintech::hestonfd::kernel_call:
+.. _doxid-namespacexf_1_1fintech_1_1hestonfd_1a5a6d83f5e004ac998500ade03af93bd1:
+.. _cid-xf::fintech::hestonfd::kernel_call-2:
+.. _doxid-namespacexf_1_1fintech_1_1hestonfd_1a7a2d9af1f9c9cb898d615c818023d97c:
+.. _cid-xf::fintech::hestonfd::diff:
+.. _doxid-namespacexf_1_1fintech_1_1hestonfd_1a13458edee9e5b3549a163e269d91904f:
+.. _cid-xf::fintech::hestonfd::concatenate:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// typedefs
+
+	typedef struct :ref:`xf::fintech::hestonfd::model_parameters_t<doxid-structxf_1_1fintech_1_1hestonfd_1_1model__parameters__t>` model_parameters_t
+	typedef struct :ref:`xf::fintech::hestonfd::solver_parameters_t<doxid-structxf_1_1fintech_1_1hestonfd_1_1solver__parameters__t>` solver_parameters_t
+
+	// structs
+
+	struct :ref:`model_parameters_t<doxid-structxf_1_1fintech_1_1hestonfd_1_1model__parameters__t>` 
+	struct :ref:`solver_parameters_t<doxid-structxf_1_1fintech_1_1hestonfd_1_1solver__parameters__t>` 
+
+	// classes
+
+	class :ref:`AdiSolver<doxid-classxf_1_1fintech_1_1hestonfd_1_1_adi_solver>` 
+	class :ref:`Coeffs<doxid-classxf_1_1fintech_1_1hestonfd_1_1_coeffs>` 
+	class :ref:`Matrices<doxid-classxf_1_1fintech_1_1hestonfd_1_1_matrices>` 
+

@@ -1,0 +1,32 @@
+.. index:: pair: enum; xf::fintech::Device::DeviceType
+.. _doxid-classxf_1_1fintech_1_1_device_1a0cd9c9631b3d22b05c26cc26284b8485:
+.. _cid-xf::fintech::device::devicetype:
+
+enum xf::fintech::Device::DeviceType
+====================================
+
+
+
+Recognised Xilinx device types.
+
+.. _doxid-classxf_1_1fintech_1_1_device_1a0cd9c9631b3d22b05c26cc26284b8485a2d3b39953fce99084d689ee16fb469cf:
+.. _cid-xf::fintech::device::devicetype::u50:
+.. _doxid-classxf_1_1fintech_1_1_device_1a0cd9c9631b3d22b05c26cc26284b8485a7af79bbbe2e81e50e6cdde15402fd110:
+.. _cid-xf::fintech::device::devicetype::u200:
+.. _doxid-classxf_1_1fintech_1_1_device_1a0cd9c9631b3d22b05c26cc26284b8485a6d5b203a6bbe5dae1041a5928ef21c8a:
+.. _cid-xf::fintech::device::devicetype::u250:
+.. _doxid-classxf_1_1fintech_1_1_device_1a0cd9c9631b3d22b05c26cc26284b8485a9ec918de045bd7fcec58db98290f78ce:
+.. _cid-xf::fintech::device::devicetype::u280:
+.. _doxid-classxf_1_1fintech_1_1_device_1a0cd9c9631b3d22b05c26cc26284b8485a753e513b5dce8d2a6aff12849ef119ce:
+.. _cid-xf::fintech::device::devicetype::unknown:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// enum values
+
+	U50 
+	U200 
+	U250 
+	U280 
+	UNKNOWN 
+

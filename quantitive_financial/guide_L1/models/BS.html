@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Black-Scholes Model &mdash; XF FinTech Library 0.5 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Heston Model" href="HT.html" />
+    <link rel="prev" title="L1 Module User Guide" href="../L1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../L1.html">L1 Module User Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../L1.html#models">Models</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Black-Scholes Model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Black-Scholes Model</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="HT.html">Heston Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L1.html#numerical-methods">Numerical Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1.html#core-utility">Core Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1.html#l1-module-apis">L1 Module APIs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../L1.html">L1 Module User Guide</a> &raquo;</li>
+        
+      <li>Black-Scholes Model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide_L1/models/BS.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="black-scholes-model">
+<h1>Black-Scholes Model<a class="headerlink" href="#black-scholes-model" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The Black-Scholes Model is a mathematical model for the dynamics of a financial market containing the
+deviation investment instrument (from viki).</p>
+<p>This section explains the stochastic differential equation (stock price process) in continue form and in discrete form (used as stock price process).
+They are core part for option pricing.</p>
+</div>
+<div class="section" id="id1">
+<h2>Black-Scholes Model<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>The Continue form of Black-Scholes is:</p>
+<div class="math notranslate nohighlight">
+\[dS_t = \mu S_t dt + \sigma S_t dz\]</div>
+<p>where <span class="math notranslate nohighlight">\(S_t\)</span> is the stock price at time t. <span class="math notranslate nohighlight">\(\mu\)</span> is the stock’s expected rate of return. <span class="math notranslate nohighlight">\(\sigma\)</span> is the volatility of the stock price.
+The random variable <span class="math notranslate nohighlight">\(z\)</span> follows Winear process, i.e. <span class="math notranslate nohighlight">\(z\)</span> satisfies the follows the equation.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>The change of <span class="math notranslate nohighlight">\(\Delta z\)</span> during a sample period of time <span class="math notranslate nohighlight">\(\Delta t\)</span> is <span class="math notranslate nohighlight">\(\Delta z = \epsilon \sqrt{\Delta t}\)</span>, where <span class="math notranslate nohighlight">\(\epsilon\)</span> has a standardized normal distribution <span class="math notranslate nohighlight">\(\phi(0,1)\)</span>.</p></li>
+<li><p>The value of <span class="math notranslate nohighlight">\(\Delta z\)</span> for any two different short intervals of time, <span class="math notranslate nohighlight">\(\Delta t\)</span>, are independent.</p></li>
+</ol>
+</div></blockquote>
+<p>It follows that <span class="math notranslate nohighlight">\(\Delta z\)</span> has a normal distribution with the mean of <span class="math notranslate nohighlight">\(0\)</span> and the variance of <span class="math notranslate nohighlight">\(\Delta t\)</span>.</p>
+<p>The Discrete form of Black-Scholes is:</p>
+<div class="math notranslate nohighlight">
+\[\Delta S_t = \mu S_t \Delta t + \sigma S_t \epsilon \sqrt{\Delta t} =&gt; \frac{\Delta S_t}{S_t} = \mu \Delta t + \sigma \epsilon \sqrt{\Delta t}\]</div>
+<p>The left side of the equation is the return provided by the stock in a short period of time, <span class="math notranslate nohighlight">\(\Delta t\)</span>. The term <span class="math notranslate nohighlight">\(\mu \Delta t\)</span> is the expected value of this return,
+and the <span class="math notranslate nohighlight">\(\sigma \epsilon \sqrt{\Delta t}\)</span> is the stochastic component of the return. It is easy to see that <span class="math notranslate nohighlight">\(\frac{\Delta S_t}{S_t} \sim \phi (\mu \Delta t, \sigma^2 \Delta t)\)</span>,
+i.e. the mean of <span class="math notranslate nohighlight">\(\frac{\Delta S_t}{S_t}\)</span> is <span class="math notranslate nohighlight">\(\mu \Delta t\)</span> and the variance is <span class="math notranslate nohighlight">\(\sigma^2 \Delta t\)</span>.</p>
+<div class="section" id="ito-lemma-and-direct-corollary">
+<h3><span class="math notranslate nohighlight">\(Ito\)</span> lemma and direct corollary<a class="headerlink" href="#ito-lemma-and-direct-corollary" title="Permalink to this headline">¶</a></h3>
+<p>Suppose that the value of a variable <span class="math notranslate nohighlight">\(x\)</span> follows the <span class="math notranslate nohighlight">\(Ito\)</span> process</p>
+<div class="math notranslate nohighlight">
+\[dx = a(x,t) dt + b(x,t) dz\]</div>
+<p>where <span class="math notranslate nohighlight">\(dz\)</span> is a Wiener process and <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are functions of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(t\)</span>. The variable <span class="math notranslate nohighlight">\(x\)</span> has a drift rate of <span class="math notranslate nohighlight">\(a\)</span> and a variance rate of <span class="math notranslate nohighlight">\(b^2\)</span>. <span class="math notranslate nohighlight">\(Ito\)</span> lemma shows that a function <span class="math notranslate nohighlight">\(G(x,t)\)</span> follows the process</p>
+<div class="math notranslate nohighlight">
+\[dG = (\frac{\partial G}{\partial x} a + \frac{\partial G}{\partial t} + \frac{1}{2} \frac{\partial^2 G}{\partial x^2} b^2) dt + \frac{\partial G}{\partial x} b dz.\]</div>
+<p>Thus <span class="math notranslate nohighlight">\(G\)</span> also follows an <span class="math notranslate nohighlight">\(Ito\)</span> process, with a drift rate of <span class="math notranslate nohighlight">\(\frac{\partial G}{\partial x} a + \frac{\partial G}{\partial t} + \frac{1}{2} \frac{\partial^2 G}{\partial x^2} b^2\)</span> and a variance rate of <span class="math notranslate nohighlight">\((\frac{\partial G}{\partial x} b)^2\)</span>.</p>
+<p>In stock price process <span class="math notranslate nohighlight">\(a(x,t)=\mu S\)</span> and <span class="math notranslate nohighlight">\(b(x,t)=\sigma S\)</span>.</p>
+</div>
+<div class="section" id="corollary-lognormal-property-of-s">
+<h3>Corollary: lognormal property of <span class="math notranslate nohighlight">\(S\)</span><a class="headerlink" href="#corollary-lognormal-property-of-s" title="Permalink to this headline">¶</a></h3>
+<p>Let us define <span class="math notranslate nohighlight">\(G = \ln S\)</span>. With <span class="math notranslate nohighlight">\(Ito\)</span> lemma, we have</p>
+<div class="math notranslate nohighlight">
+\[dG = (\mu - \frac{\sigma^2}{2}) dt + \sigma dz,\]</div>
+<p>using</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial G}{\partial S} = \frac{1}{S},
+\frac{\partial^2 G}{\partial S^2} = -\frac{1}{S^2},
+\frac{\partial G}{\partial t} = 0.\]</div>
+<p>Thus</p>
+<div class="math notranslate nohighlight">
+\[\ln S_T - \ln S_0 \sim \phi [(\mu-\frac{\sigma^2}{2})T, \sigma^2 T].\]</div>
+<p>where <span class="math notranslate nohighlight">\(S_T\)</span> is the stock price at a future time <span class="math notranslate nohighlight">\(T\)</span>, <span class="math notranslate nohighlight">\(S_0\)</span> is the stock price at time 0. In other words, <span class="math notranslate nohighlight">\(S_T\)</span> has a lognormal distribution, which can take any value between 0 and <span class="math notranslate nohighlight">\(+\infty\)</span>.</p>
+</div>
+<div class="section" id="implementation-of-b-s-model">
+<h3>Implementation of B-S model<a class="headerlink" href="#implementation-of-b-s-model" title="Permalink to this headline">¶</a></h3>
+<p>The discrete form of process for <span class="math notranslate nohighlight">\(\ln S\)</span> is as:</p>
+<div class="math notranslate nohighlight">
+\[\ln S(t+\Delta t) - \ln S(t) = (\mu - \frac{\sigma^2}{2})\Delta t + \sigma \epsilon \sqrt{\Delta t}\]</div>
+<p>Its equivalent form is:</p>
+<div class="math notranslate nohighlight">
+\[S(t+\Delta t) = S(t)\exp [(\mu - \frac{\sigma^2}{2})\Delta t + \sigma \epsilon \sqrt{\Delta t}]\]</div>
+<p>Above formula is used to generate the path for <span class="math notranslate nohighlight">\(S\)</span>. In order to optimize the multiplication of <span class="math notranslate nohighlight">\(S\)</span> with adder operator in path pricer, in our implementation, the B-S path generator
+will fetch the normal random number <span class="math notranslate nohighlight">\(\epsilon\)</span> from RNG sequence and output the <span class="math notranslate nohighlight">\(\ln S\)</span> to path pricer.</p>
+<a class="reference internal image-reference" href="../../_images/bs_1.PNG"><img alt="impl of BS" class="align-center" src="../../_images/bs_1.PNG" style="width: 80%;" /></a>
+<p>Because there is accumulation of <span class="math notranslate nohighlight">\(\ln S\)</span>, the II could not be 1. Here, change order between paths and steps. Because the input random number are totally independent, the change of order will not affect
+the accurate of result. The pseudo-code is as follows.</p>
+<a class="reference internal image-reference" href="../../_images/bs.PNG"><img alt="Optimization of Algorithm" class="align-center" src="../../_images/bs.PNG" style="width: 80%;" /></a>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="HT.html" class="btn btn-neutral float-right" title="Heston Model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../L1.html" class="btn btn-neutral float-left" title="L1 Module User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+.. index:: pair: class; xf::fintech::MT19937_Box_Muller_Normal_RNG
+.. _doxid-classxf_1_1fintech_1_1_m_t19937___box___muller___normal___r_n_g:
+.. _cid-xf::fintech::mt19937_box_muller_normal_rng:
+
+class xf::fintech::MT19937_Box_Muller_Normal_RNG
+================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <rng.h>
+
+
+Overview
+~~~~~~~~
+
+Normal distributed random number generator based on Box-Muller Transformation, output datatype is float. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_m_t19937___box___muller___normal___r_n_g>`
+
+.. _doxid-classxf_1_1fintech_1_1_m_t19937___box___muller___normal___r_n_g_1a4ce5732f521f718e3c6f22d9d28b4e6c:
+.. _cid-xf::fintech::mt19937_box_muller_normal_rng::uniformrng:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937___box___muller___normal___r_n_g_1a1ecf71b7d05c4e23bfe0d949a7436275:
+.. _cid-xf::fintech::mt19937_box_muller_normal_rng::u1:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937___box___muller___normal___r_n_g_1a70255292684d4b2ec0e3b5b3e669baed:
+.. _cid-xf::fintech::mt19937_box_muller_normal_rng::u2:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937___box___muller___normal___r_n_g_1a640c2d0bb1bb58dacc3d4b43b62a4328:
+.. _cid-xf::fintech::mt19937_box_muller_normal_rng::utmp:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937___box___muller___normal___r_n_g_1a18e9192d87f541aa79e604e756f7747f:
+.. _cid-xf::fintech::mt19937_box_muller_normal_rng::z1:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937___box___muller___normal___r_n_g_1acbc731f9e33c3077e1610e6d507be713:
+.. _cid-xf::fintech::mt19937_box_muller_normal_rng::z2:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937___box___muller___normal___r_n_g_1a9bdd974388953125ac2f1002fbbe9304:
+.. _cid-xf::fintech::mt19937_box_muller_normal_rng::ztmp:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937___box___muller___normal___r_n_g_1ae44551f348d67e73b0a937c34f171ced:
+.. _cid-xf::fintech::mt19937_box_muller_normal_rng::is_odd:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937___box___muller___normal___r_n_g_1a7908472dede2d74c7861c027f910a488:
+.. _cid-xf::fintech::mt19937_box_muller_normal_rng::mt19937_box_muller_normal_rng:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937___box___muller___normal___r_n_g_1a8a165fedc3c11a23a0b347b0694cbe71:
+.. _cid-xf::fintech::mt19937_box_muller_normal_rng::mt19937_box_muller_normal_rng-2:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937___box___muller___normal___r_n_g_1a98787f6c8be6b35cbc169f587f1b6e3a:
+.. _cid-xf::fintech::mt19937_box_muller_normal_rng::seedinitialization:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937___box___muller___normal___r_n_g_1a9e99c5dd8e4f16036efdf2bc63103e00:
+.. _cid-xf::fintech::mt19937_box_muller_normal_rng::status_setup:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// fields
+
+	:ref:`MT_19937<doxid-classxf_1_1fintech_1_1_m_t__19937>` uniformRNG
+	float u1
+	float u2
+	float utmp
+	float z1
+	float z2
+	float ztmp
+	ap_uint <1> is_odd
+
+	// methods
+
+	MT19937_Box_Muller_Normal_RNG (ap_uint <32> seed)
+	MT19937_Box_Muller_Normal_RNG ()
+	void seedInitialization (ap_uint <32> seed)
+	void status_setup (ap_uint <32> data [624])
+	float :ref:`next<doxid-classxf_1_1fintech_1_1_m_t19937___box___muller___normal___r_n_g_1ac7a70207e8a3ab9e7879d0e65420ce4f>` ()
+
+.. _details-doxid-classxf_1_1fintech_1_1_m_t19937___box___muller___normal___r_n_g:
+
+Detailed Documentation
+~~~~~~~~~~~~~~~~~~~~~~
+
+Normal distributed random number generator based on Box-Muller Transformation, output datatype is float.
+
+Methods
+-------
+
+.. _doxid-classxf_1_1fintech_1_1_m_t19937___box___muller___normal___r_n_g_1ac7a70207e8a3ab9e7879d0e65420ce4f:
+.. _cid-xf::fintech::mt19937_box_muller_normal_rng::next:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	float next ()
+
+
+
+.. rubric:: Returns:
+
+normal distributed random number
+

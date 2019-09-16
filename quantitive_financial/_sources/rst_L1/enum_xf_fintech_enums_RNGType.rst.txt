@@ -1,0 +1,23 @@
+.. index:: pair: enum; xf::fintech::enums::RNGType
+.. _doxid-namespacexf_1_1fintech_1_1enums_1a3d6212dd63ede72bdb2850770c76ee37:
+.. _cid-xf::fintech::enums::rngtype:
+
+enum xf::fintech::enums::RNGType
+================================
+
+
+
+Random number generator type.
+
+.. _doxid-namespacexf_1_1fintech_1_1enums_1a3d6212dd63ede72bdb2850770c76ee37a3aa8b555947d81c3f568bc0cfd0a26fd:
+.. _cid-xf::fintech::enums::rngtype::pseudorandom:
+.. _doxid-namespacexf_1_1fintech_1_1enums_1a3d6212dd63ede72bdb2850770c76ee37a157fae6478e58575d465d2b1f2a815ce:
+.. _cid-xf::fintech::enums::rngtype::lowdiscrepancy:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// enum values
+
+	PseudoRandom 
+	LowDiscrepancy 
+
