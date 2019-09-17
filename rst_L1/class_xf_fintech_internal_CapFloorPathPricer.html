@@ -1,0 +1,248 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>template class xf::fintech::internal::CapFloorPathPricer &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>template class xf::fintech::internal::CapFloorPathPricer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rst_L1/class_xf_fintech_internal_CapFloorPathPricer.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-xf-fintech-internal-capfloorpathpricer">
+<span id="cid-xf-fintech-internal-capfloorpathpricer"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-cap-floor-path-pricer"></span><span id="index-0"></span><h1>template class xf::fintech::internal::CapFloorPathPricer<a class="headerlink" href="#template-class-xf-fintech-internal-capfloorpathpricer" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&lt;path_pricer.hpp&gt;</span>
+</pre>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-internal-capfloorpathpricer-pricing">
+<span id="doxid-classxf-1-1fintech-1-1internal-1-1-cap-floor-path-pricer-1a28f03efc540757f18710d4834dbe42e4"></span><span id="cid-xf-fintech-internal-capfloorpathpricer-discountbond"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-cap-floor-path-pricer-1af586386a2add260d3d9a2da1bf2fc6e9"></span><span id="cid-xf-fintech-internal-capfloorpathpricer-b"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-cap-floor-path-pricer-1ae9bab65670511a9d973ea781f2a9ef98"></span><span id="cid-xf-fintech-internal-capfloorpathpricer-init"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-cap-floor-path-pricer-1aa70c4cbeeb6a8e2ab7a5a86720736f38"></span><span id="cid-xf-fintech-internal-capfloorpathpricer-lastratebuffer"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-cap-floor-path-pricer-1a495104b5c8905ed873b43dec60832436"></span><span id="cid-xf-fintech-internal-capfloorpathpricer-payoffbuffer"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-cap-floor-path-pricer-1aeb344352453d292e0e2b4b64ddd78fc4"></span><span id="cid-xf-fintech-internal-capfloorpathpricer-nomial"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-cap-floor-path-pricer-1a93fb8dacd499b08441adf64680d048ff"></span><span id="cid-xf-fintech-internal-capfloorpathpricer-sigma"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-cap-floor-path-pricer-1a33c0f287d2b4d5f29b7814ebc5e2a42f"></span><span id="cid-xf-fintech-internal-capfloorpathpricer-alpha"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-cap-floor-path-pricer-1a7ed559d3fc7e0e25b9e62e0112fa40e0"></span><span id="cid-xf-fintech-internal-capfloorpathpricer-singleperiod"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-cap-floor-path-pricer-1ac212ae69be04301e5c8cb9c27dafeeac"></span><span id="cid-xf-fintech-internal-capfloorpathpricer-strikerate"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-cap-floor-path-pricer-1a50989134603fca9b109202ea0252a8ee"></span><span id="cid-xf-fintech-internal-capfloorpathpricer-r0"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-cap-floor-path-pricer-1a212d540477a2a4ad88c08236b7e92f69"></span><span id="cid-xf-fintech-internal-capfloorpathpricer-iscap"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-cap-floor-path-pricer-1aebf5dc6129b262b39093aa5688bb3ac2"></span><span id="cid-xf-fintech-internal-capfloorpathpricer-bypassgen"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-cap-floor-path-pricer-1a52daa9829b298e3880b729b0f19fdcbb"></span><span id="cid-xf-fintech-internal-capfloorpathpricer-outn"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-cap-floor-path-pricer-1a413f6d462aa8f76d63472ac8faf6ec30"></span><span id="cid-xf-fintech-internal-capfloorpathpricer-inn"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-cap-floor-path-pricer-1a9fb484cb2d8475aad51981274f5a97fb"></span><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">typename</span> <span class="n">DT</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">SampNum</span>
+    <span class="o">&gt;</span>
+<span class="k">class</span> <span class="n">CapFloorPathPricer</span>
+
+<span class="c1">// fields</span>
+
+<span class="k">static</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">InN</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">OutN</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">bool</span> <span class="n">byPassGen</span>
+<span class="kt">bool</span> <span class="n">isCap</span>
+<span class="n">DT</span> <span class="n">r0</span>
+<span class="n">DT</span> <span class="n">strikeRate</span>
+<span class="n">DT</span> <span class="n">singlePeriod</span>
+<span class="n">DT</span> <span class="n">alpha</span>
+<span class="n">DT</span> <span class="n">sigma</span>
+<span class="n">DT</span> <span class="n">nomial</span>
+<span class="n">DT</span> <span class="n">payoffBuffer</span><span class="p">[</span><span class="n">SampNum</span><span class="p">]</span>
+<span class="n">DT</span> <span class="n">lastRateBuffer</span><span class="p">[</span><span class="n">SampNum</span><span class="p">]</span>
+</pre>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>class xf::fintech::MCEuropean &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>class xf::fintech::MCEuropean</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rst_L3/class_xf_fintech_MCEuropean.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-xf-fintech-mceuropean">
+<span id="cid-xf-fintech-mceuropean"></span><span id="doxid-classxf-1-1fintech-1-1-m-c-european"></span><span id="index-0"></span><h1>class xf::fintech::MCEuropean<a class="headerlink" href="#class-xf-fintech-mceuropean" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&lt;xf_fintech_mc_european.hpp&gt;</span>
+</pre>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This class implements the Monte-Carlo European model. <span class="xref std std-ref">More…</span></p>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-mceuropean-num-kernels">
+<span id="doxid-classxf-1-1fintech-1-1-m-c-european-1a975ff93d66cb568763fce8e9fcf70356"></span><span></span><span class="k">class</span> <span class="nl">MCEuropean</span><span class="p">:</span> <span class="k">public</span> <a class="reference internal" href="class_xf_fintech_OCLController.html#doxid-classxf-1-1fintech-1-1-o-c-l-controller"><span class="std std-ref">xf::fintech::OCLController</span></a><span></span>
+
+<span class="c1">// fields</span>
+
+<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">NUM_KERNELS</span>
+</pre>
+<div class="section" id="inherited-members">
+<h3>Inherited Members<a class="headerlink" href="#inherited-members" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight overview-inherited-code-block literal-block">
+
+</pre>
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="run">
+<span id="cid-xf-fintech-mceuropean-run"></span><span id="doxid-classxf-1-1fintech-1-1-m-c-european-1a67f85737ec1d9da9cae1857f2231e2e2"></span><h3>run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="defined-in-models-xf-fintech-mc-european-hpp">
+<h4>Defined in &lt;models/xf_fintech_mc_european.hpp&gt;<a class="headerlink" href="#defined-in-models-xf-fintech-mc-european-hpp" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">int</span> <span class="n">run</span> <span class="p">(</span>
+    <a class="reference internal" href="enum_xf_fintech_OptionType.html#doxid-namespacexf-1-1fintech-1a0186ca825e97c1d630a3faa85a70ccb7"><span class="std std-ref">OptionType</span></a><span></span> <span class="n">optionType</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">stockPrice</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">strikePrice</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">riskFreeRate</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">dividendYield</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">volatility</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">timeToMaturity</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">requiredTolerance</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">pOptionPrice</span>
+    <span class="p">)</span>
+</pre>
+<p>Runs a single asset until the specified TOLERANCE is met</p>
+</div>
+<div class="section" id="cid-xf-fintech-mceuropean-run-2">
+<span id="doxid-classxf-1-1fintech-1-1-m-c-european-1a1000bc974b5d338e19437ae42f68b3a2"></span><span id="id1"></span><h4>Defined in &lt;models/xf_fintech_mc_european.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-mceuropean-run-2" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">int</span> <span class="n">run</span> <span class="p">(</span>
+    <a class="reference internal" href="enum_xf_fintech_OptionType.html#doxid-namespacexf-1-1fintech-1a0186ca825e97c1d630a3faa85a70ccb7"><span class="std std-ref">OptionType</span></a><span></span> <span class="n">optionType</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">stockPrice</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">strikePrice</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">riskFreeRate</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">dividendYield</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">volatility</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">timeToMaturity</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">requiredSamples</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">pOptionPrice</span>
+    <span class="p">)</span>
+</pre>
+<p>Runs a single asset for the REQUIRED NUMBER OF SAMPLES…</p>
+</div>
+<div class="section" id="cid-xf-fintech-mceuropean-run-3">
+<span id="doxid-classxf-1-1fintech-1-1-m-c-european-1a5a276499f74d8fc28e10f6fcee958b4b"></span><span id="id2"></span><h4>Defined in &lt;models/xf_fintech_mc_european.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-mceuropean-run-3" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">int</span> <span class="n">run</span> <span class="p">(</span>
+    <a class="reference internal" href="enum_xf_fintech_OptionType.html#doxid-namespacexf-1-1fintech-1a0186ca825e97c1d630a3faa85a70ccb7"><span class="std std-ref">OptionType</span></a><span></span><span class="o">*</span> <span class="n">optionType</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">stockPrice</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">strikePrice</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">riskFreeRate</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">dividendYield</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">volatility</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">timeToMaturity</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">requiredTolerance</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">outputOptionPrice</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">numAssets</span>
+    <span class="p">)</span>
+</pre>
+<p>Process arrays of asset data until required TOLERANCE is met</p>
+</div>
+<div class="section" id="cid-xf-fintech-mceuropean-run-4">
+<span id="doxid-classxf-1-1fintech-1-1-m-c-european-1a827d3384a8eb306df6e477bb79a740d2"></span><span id="id3"></span><h4>Defined in &lt;models/xf_fintech_mc_european.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-mceuropean-run-4" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">int</span> <span class="n">run</span> <span class="p">(</span>
+    <a class="reference internal" href="enum_xf_fintech_OptionType.html#doxid-namespacexf-1-1fintech-1a0186ca825e97c1d630a3faa85a70ccb7"><span class="std std-ref">OptionType</span></a><span></span><span class="o">*</span> <span class="n">optionType</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">stockPrice</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">strikePrice</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">riskFreeRate</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">dividendYield</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">volatility</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">timeToMaturity</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">*</span> <span class="n">requiredSamples</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">outputOptionPrice</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">numAssets</span>
+    <span class="p">)</span>
+</pre>
+<p>Process arrays of asset data for the REQUIRED NUMBER OF SAMPLES</p>
+</div>
+</div>
+<div class="section" id="getlastruntime">
+<span id="cid-xf-fintech-mceuropean-getlastruntime"></span><span id="doxid-classxf-1-1fintech-1-1-m-c-european-1a318484cea86515ff573c6340f19c3e9d"></span><h3>getLastRunTime<a class="headerlink" href="#getlastruntime" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h4>Defined in &lt;models/xf_fintech_mc_european.hpp&gt;<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">long</span> <span class="kt">long</span> <span class="kt">int</span> <span class="n">getLastRunTime</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</pre>
+<p>This method returns the time the execution of the last call to <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-c-european-1a67f85737ec1d9da9cae1857f2231e2e2"><span class="std std-ref">run()</span></a> took</p>
+<p class="rubric">Returns:</p>
+<p>Execution time in microseconds</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

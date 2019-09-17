@@ -1,0 +1,64 @@
+.. index:: pair: class; xf::fintech::internal::HullWhitePathGen
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_hull_white_path_gen:
+.. _cid-xf::fintech::internal::hullwhitepathgen:
+
+template class xf::fintech::internal::HullWhitePathGen
+======================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <path_generator.hpp>
+
+
+
+
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_hull_white_path_gen_1acfe939686306357f845996eb9521d0cf:
+.. _cid-xf::fintech::internal::hullwhitepathgen::outn:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_hull_white_path_gen_1a3276e2932e972c20b8c5a751a1e87af6:
+.. _cid-xf::fintech::internal::hullwhitepathgen::alpha:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_hull_white_path_gen_1a2f3993b09592b80e88f2a560dfdec575:
+.. _cid-xf::fintech::internal::hullwhitepathgen::theta:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_hull_white_path_gen_1a609eceb23fa62d2451b3ffcde034d372:
+.. _cid-xf::fintech::internal::hullwhitepathgen::sigma:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_hull_white_path_gen_1ac9e7f69db86c489109795f9d7900a13b:
+.. _cid-xf::fintech::internal::hullwhitepathgen::r0:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_hull_white_path_gen_1adb60823be61df5aa3c72c0d922d2d924:
+.. _cid-xf::fintech::internal::hullwhitepathgen::singleperiod:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_hull_white_path_gen_1a009779d66b324799532b1edcb8afa455:
+.. _cid-xf::fintech::internal::hullwhitepathgen::ratebuffer:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_hull_white_path_gen_1a41b22ac0a0cc292b19e4f6a83396f5ba:
+.. _cid-xf::fintech::internal::hullwhitepathgen::drift_factor1:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_hull_white_path_gen_1a2df1ebefd6091237579e6c823d753fc3:
+.. _cid-xf::fintech::internal::hullwhitepathgen::drift_factor2:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_hull_white_path_gen_1a208248d189773b6b1f13d1c8877aa311:
+.. _cid-xf::fintech::internal::hullwhitepathgen::volatility:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_hull_white_path_gen_1af508ec254a559d4f7b3b2e64f90b6603:
+.. _cid-xf::fintech::internal::hullwhitepathgen::init:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_hull_white_path_gen_1a1ea9d00bdc140349fd9b9995ad7ce9d0:
+.. _cid-xf::fintech::internal::hullwhitepathgen::nextpath:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    typename DT,
+	    int SampNum
+	    >
+	class HullWhitePathGen
+
+	// fields
+
+	static const int OutN
+	DT alpha
+	DT theta
+	DT sigma
+	DT r0
+	DT singlePeriod
+	DT rateBuffer[SampNum]
+	DT drift_factor1
+	DT drift_factor2
+	DT volatility
+

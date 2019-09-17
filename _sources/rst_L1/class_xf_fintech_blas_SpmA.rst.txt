@@ -1,0 +1,44 @@
+.. index:: pair: class; xf::fintech::blas::SpmA
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_spm_a:
+.. _cid-xf::fintech::blas::spma:
+
+template class xf::fintech::blas::SpmA
+======================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <spmv.hpp>
+
+
+
+
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_spm_a_1a3761b0130d9c928d84ae2a766dad1223:
+.. _cid-xf::fintech::blas::spma::spma:
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_spm_a_1ae1f72fe868e35064b0829b04831ef286:
+.. _cid-xf::fintech::blas::spma::spma-2:
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_spm_a_1a645398e0d45daf54f4aecd81316b6482:
+.. _cid-xf::fintech::blas::spma::getval:
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_spm_a_1a3fd9195b96d48ad5aca6be06b8fcabce:
+.. _cid-xf::fintech::blas::spma::getcol:
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_spm_a_1abf17c19bcdf2d7577885a7dad48e3f0c:
+.. _cid-xf::fintech::blas::spma::getrow:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <typename t_DataType>
+	class SpmA
+
+	// construction
+
+	SpmA ()
+
+	SpmA (
+	    t_DataType p_Val,
+	    unsigned int p_Col,
+	    unsigned int p_Row
+	    )
+

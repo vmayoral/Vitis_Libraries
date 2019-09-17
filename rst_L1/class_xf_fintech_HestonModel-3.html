@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>template class xf::fintech::HestonModel &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>template class xf::fintech::HestonModel</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rst_L1/class_xf_fintech_HestonModel-3.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-xf-fintech-hestonmodel">
+<span id="cid-xf-fintech-hestonmodel-3"></span><span id="doxid-classxf-1-1fintech-1-1-heston-model"></span><span id="index-0"></span><h1>template class xf::fintech::HestonModel<a class="headerlink" href="#template-class-xf-fintech-hestonmodel" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&lt;heston_model.hpp&gt;</span>
+</pre>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Heston process. <span class="xref std std-ref">More…</span></p>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-hestonmodel-a-vec-3">
+<span id="doxid-classxf-1-1fintech-1-1-heston-model-1aebd7a32b5757fe10a5bfc843d1185a48"></span><span id="cid-xf-fintech-hestonmodel-k4-vec-3"></span><span id="doxid-classxf-1-1fintech-1-1-heston-model-1af3391587209bb77987cde74bf2119066"></span><span id="cid-xf-fintech-hestonmodel-k3-vec-3"></span><span id="doxid-classxf-1-1fintech-1-1-heston-model-1a5278bdcbbbc1fb5e8ee2172b277b44b5"></span><span id="cid-xf-fintech-hestonmodel-k2-vec-3"></span><span id="doxid-classxf-1-1fintech-1-1-heston-model-1a9d93afb07b043713356c676ed2fdd159"></span><span id="cid-xf-fintech-hestonmodel-k1-vec-3"></span><span id="doxid-classxf-1-1fintech-1-1-heston-model-1afcc29387a45f2aa70dfbcd68c8fa75c7"></span><span id="cid-xf-fintech-hestonmodel-k0-vec-3"></span><span id="doxid-classxf-1-1fintech-1-1-heston-model-1a3fdaad21f27be3de2392e76dcbef4cb7"></span><span id="cid-xf-fintech-hestonmodel-ex-vec-3"></span><span id="doxid-classxf-1-1fintech-1-1-heston-model-1a6f6916d2953a367ce3804c070ad21a8a"></span><span id="cid-xf-fintech-hestonmodel-drift-vec-3"></span><span id="doxid-classxf-1-1fintech-1-1-heston-model-1a077b8414db02e4ba2d2ab37716fc26d5"></span><span id="cid-xf-fintech-hestonmodel-sigma-sdt-vec-3"></span><span id="doxid-classxf-1-1fintech-1-1-heston-model-1ad6a1b1d8dff70a855c6c1d95e92a2750"></span><span id="cid-xf-fintech-hestonmodel-kappa-dt-vec-3"></span><span id="doxid-classxf-1-1fintech-1-1-heston-model-1a0657491dbb65e8b6121ef8eecbb7938a"></span><span id="cid-xf-fintech-hestonmodel-sigma-vec-3"></span><span id="doxid-classxf-1-1fintech-1-1-heston-model-1a9b9394e188aa0bdfde765e61f79fbaf1"></span><span id="cid-xf-fintech-hestonmodel-theta-vec-3"></span><span id="doxid-classxf-1-1fintech-1-1-heston-model-1a290e0ff0050029a069976bca20dd63a5"></span><span id="cid-xf-fintech-hestonmodel-kappa-vec-3"></span><span id="doxid-classxf-1-1fintech-1-1-heston-model-1a521756025df540fda3e4028f95c9ad15"></span><span id="cid-xf-fintech-hestonmodel-sdt-3"></span><span id="doxid-classxf-1-1fintech-1-1-heston-model-1a7531fb9dedcb6f78e60143e1452cd9d0"></span><span id="cid-xf-fintech-hestonmodel-dt-3"></span><span id="doxid-classxf-1-1fintech-1-1-heston-model-1a407f68cdd15e18387f7de1a6531326c1"></span><span id="cid-xf-fintech-hestonmodel-riskfreerate-3"></span><span id="doxid-classxf-1-1fintech-1-1-heston-model-1a53e40e24a9f587d033151f9dd2abcedc"></span><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">ASSETS</span><span class="p">,</span>
+    <span class="k">typename</span> <span class="n">DT</span><span class="p">,</span>
+    <span class="n">enums</span><span class="o">::</span><span class="n">DiscreType</span> <span class="n">discrT</span>
+    <span class="o">&gt;</span>
+<span class="k">class</span> <span class="n">HestonModel</span>
+
+<span class="c1">// fields</span>
+
+<span class="n">DT</span> <span class="n">riskFreeRate</span>
+<span class="n">DT</span> <span class="n">dt</span>
+<span class="n">DT</span> <span class="n">sdt</span>
+<span class="n">DT</span> <span class="n">kappa_vec</span><span class="p">[</span><span class="n">ASSETS</span><span class="p">]</span>
+<span class="n">DT</span> <span class="n">theta_vec</span><span class="p">[</span><span class="n">ASSETS</span><span class="p">]</span>
+<span class="n">DT</span> <span class="n">sigma_vec</span><span class="p">[</span><span class="n">ASSETS</span><span class="p">]</span>
+<span class="n">DT</span> <span class="n">kappa_dt_vec</span><span class="p">[</span><span class="n">ASSETS</span><span class="p">]</span>
+<span class="n">DT</span> <span class="n">sigma_sdt_vec</span><span class="p">[</span><span class="n">ASSETS</span><span class="p">]</span>
+<span class="n">DT</span> <span class="n">drift_vec</span><span class="p">[</span><span class="n">ASSETS</span><span class="p">]</span>
+<span class="n">DT</span> <span class="n">ex_vec</span><span class="p">[</span><span class="n">ASSETS</span><span class="p">]</span>
+<span class="n">DT</span> <span class="n">k0_vec</span><span class="p">[</span><span class="n">ASSETS</span><span class="p">]</span>
+<span class="n">DT</span> <span class="n">k1_vec</span><span class="p">[</span><span class="n">ASSETS</span><span class="p">]</span>
+<span class="n">DT</span> <span class="n">k2_vec</span><span class="p">[</span><span class="n">ASSETS</span><span class="p">]</span>
+<span class="n">DT</span> <span class="n">k3_vec</span><span class="p">[</span><span class="n">ASSETS</span><span class="p">]</span>
+<span class="n">DT</span> <span class="n">k4_vec</span><span class="p">[</span><span class="n">ASSETS</span><span class="p">]</span>
+<span class="n">DT</span> <span class="n">A_vec</span><span class="p">[</span><span class="n">ASSETS</span><span class="p">]</span>
+</pre>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="initparam">
+<span id="cid-xf-fintech-hestonmodel-initparam-3"></span><span id="doxid-classxf-1-1fintech-1-1-heston-model-1a11ec271f7baea53054b2c0862f40a2f8"></span><h3>initParam<a class="headerlink" href="#initparam" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="defined-in-xf-fintech-heston-model-hpp">
+<h4>Defined in &lt;xf_fintech/heston_model.hpp&gt;<a class="headerlink" href="#defined-in-xf-fintech-heston-model-hpp" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">initParam</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">asset_nm</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">timeLength</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">timeSteps</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">riskFreeRate_input</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">dividendYield</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">kappa</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">theta</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">sigma</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">rho</span>
+    <span class="p">)</span>
+</pre>
+<p>initParam</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>asset_nm</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>timeLength</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>timeSteps</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>riskFreeRate_input</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>dividendYield</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>kappa</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>theta</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>sigma</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>rho</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="logevolve">
+<span id="cid-xf-fintech-hestonmodel-logevolve-3"></span><span id="doxid-classxf-1-1fintech-1-1-heston-model-1a59979d71ffecc9bc1ad26c20cff0b304"></span><h3>logEvolve<a class="headerlink" href="#logevolve" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>Defined in &lt;xf_fintech/heston_model.hpp&gt;<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">logEvolve</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">asset_itr</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">s</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">v</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">&amp;</span> <span class="n">s_next</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">&amp;</span> <span class="n">v_next</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">z0</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">z1</span>
+    <span class="p">)</span>
+</pre>
+<p>logEvolve</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>asset_itr</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>s</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>v</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>s_next</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>v_next</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>z0</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>z1</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

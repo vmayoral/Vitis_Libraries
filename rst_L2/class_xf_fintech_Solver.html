@@ -1,0 +1,436 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>template class xf::fintech::Solver &mdash; XF FinTech Library 0.5 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>template class xf::fintech::Solver</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rst_L2/class_xf_fintech_Solver.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-xf-fintech-solver">
+<span id="cid-xf-fintech-solver"></span><span id="doxid-classxf-1-1fintech-1-1-solver"></span><span id="index-0"></span><h1>template class xf::fintech::Solver<a class="headerlink" href="#template-class-xf-fintech-solver" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&lt;fd_solver.hpp&gt;</span>
+</pre>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Class to encapsulate the Finite Difference engine components. <span class="xref std std-ref">More…</span></p>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">typename</span> <span class="n">DT</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">M_SIZE</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">LOG2_M_SIZE</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">A_SIZE</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">MEM_WIDTH</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">DIM2_SIZE1</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">DIM2_SIZE2</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="o">&gt;</span>
+<span class="k">class</span> <span class="n">Solver</span>
+</pre>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reorders2v">
+<span id="cid-xf-fintech-solver-reorders2v"></span><span id="doxid-classxf-1-1fintech-1-1-solver-1a7fa6400b0fa1a4c3ca7a85e768dadb28"></span><h3>reorderS2V<a class="headerlink" href="#reorders2v" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="defined-in-xf-fintech-fd-solver-hpp">
+<h4>Defined in &lt;xf_fintech/fd_solver.hpp&gt;<a class="headerlink" href="#defined-in-xf-fintech-fd-solver-hpp" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">reorderS2V</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">DT</span> <span class="n">v_in</span> <span class="p">[</span><span class="n">M_SIZE</span><span class="p">],</span>
+    <span class="n">DT</span> <span class="n">v_out</span> <span class="p">[</span><span class="n">M_SIZE</span><span class="p">],</span>
+    <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">m1</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">m2</span>
+    <span class="p">)</span>
+</pre>
+<p>Copy and reorder S ordered vector into V inner form.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>v_in</td>
+<td>Vector representing array of size m1 x m2 flattened in S inner form</td>
+</tr>
+<tr class="row-even"><td>m1</td>
+<td>Size of array [0..m1-1] in S direction</td>
+</tr>
+<tr class="row-odd"><td>m2</td>
+<td>Size of array [0..m2-1] in V direction</td>
+</tr>
+<tr class="row-even"><td>v_out</td>
+<td>Vector representing array of size m1 x m2 flattened in V inner form</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="reorderv2s">
+<span id="cid-xf-fintech-solver-reorderv2s"></span><span id="doxid-classxf-1-1fintech-1-1-solver-1ab0cf15e3bc52eedfdc929ed2a6b4dca4"></span><h3>reorderV2S<a class="headerlink" href="#reorderv2s" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>Defined in &lt;xf_fintech/fd_solver.hpp&gt;<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">reorderV2S</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">DT</span> <span class="n">v_in</span> <span class="p">[</span><span class="n">M_SIZE</span><span class="p">],</span>
+    <span class="n">DT</span> <span class="n">v_out</span> <span class="p">[</span><span class="n">M_SIZE</span><span class="p">],</span>
+    <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">m1</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">m2</span>
+    <span class="p">)</span>
+</pre>
+<p>Copy and reorder V ordered vector into S inner form.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>v_in</td>
+<td>Vector representing array of size m1 x m2 flattened in V inner form</td>
+</tr>
+<tr class="row-even"><td>m1</td>
+<td>Size of array [0..m1] in S direction</td>
+</tr>
+<tr class="row-odd"><td>m2</td>
+<td>Size of array [0..m2] in V direction</td>
+</tr>
+<tr class="row-even"><td>v_out</td>
+<td>Vector representing array of size m1 x m2 flattened in S inner form</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="copyvector">
+<span id="cid-xf-fintech-solver-copyvector"></span><span id="doxid-classxf-1-1fintech-1-1-solver-1a55c1180b7c9bee4c28f56c578b5ffc55"></span><h3>CopyVector<a class="headerlink" href="#copyvector" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>Defined in &lt;xf_fintech/fd_solver.hpp&gt;<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">CopyVector</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">DT</span> <span class="n">v_in</span> <span class="p">[</span><span class="n">M_SIZE</span><span class="p">],</span>
+    <span class="n">DT</span> <span class="n">v_out</span> <span class="p">[</span><span class="n">M_SIZE</span><span class="p">]</span>
+    <span class="p">)</span>
+</pre>
+<p>Utility function to copy a vector.</p>
+</div>
+</div>
+<div class="section" id="vectoradd">
+<span id="cid-xf-fintech-solver-vectoradd"></span><span id="doxid-classxf-1-1fintech-1-1-solver-1a4e0a2299b783c89c7afa3d7a97a85f51"></span><h3>vectorAdd<a class="headerlink" href="#vectoradd" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h4>Defined in &lt;xf_fintech/fd_solver.hpp&gt;<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">vectorAdd</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">DT</span> <span class="n">v_in0</span> <span class="p">[</span><span class="n">M_SIZE</span><span class="p">],</span>
+    <span class="k">const</span> <span class="n">DT</span> <span class="n">v_in1</span> <span class="p">[</span><span class="n">M_SIZE</span><span class="p">],</span>
+    <span class="n">DT</span> <span class="n">v_out</span> <span class="p">[</span><span class="n">M_SIZE</span><span class="p">]</span>
+    <span class="p">)</span>
+</pre>
+<p>Utility function to add two vectors.</p>
+</div>
+</div>
+<div class="section" id="vectorsub">
+<span id="cid-xf-fintech-solver-vectorsub"></span><span id="doxid-classxf-1-1fintech-1-1-solver-1ad17183a3d16cfad6ee16f6821b0a0753"></span><h3>vectorSub<a class="headerlink" href="#vectorsub" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h4>Defined in &lt;xf_fintech/fd_solver.hpp&gt;<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">vectorSub</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">DT</span> <span class="n">v_in0</span> <span class="p">[</span><span class="n">M_SIZE</span><span class="p">],</span>
+    <span class="k">const</span> <span class="n">DT</span> <span class="n">v_in1</span> <span class="p">[</span><span class="n">M_SIZE</span><span class="p">],</span>
+    <span class="n">DT</span> <span class="n">v_out</span> <span class="p">[</span><span class="n">M_SIZE</span><span class="p">]</span>
+    <span class="p">)</span>
+</pre>
+<p>Utility function to subtract two vectors.</p>
+</div>
+</div>
+<div class="section" id="tridiagsovlerpcr">
+<span id="cid-xf-fintech-solver-tridiagsovlerpcr"></span><span id="doxid-classxf-1-1fintech-1-1-solver-1a05fd4f52ebf07bf067a06a18461faefd"></span><h3>triDiagSovlerPCR<a class="headerlink" href="#tridiagsovlerpcr" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h4>Defined in &lt;xf_fintech/fd_solver.hpp&gt;<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">triDiagSovlerPCR</span> <span class="p">(</span>
+    <span class="n">DT</span> <span class="n">X1</span> <span class="p">[</span><span class="n">M_SIZE</span><span class="p">][</span><span class="n">DIM2_SIZE1</span><span class="p">],</span>
+    <span class="n">DT</span> <span class="n">rhs</span> <span class="p">[</span><span class="n">M_SIZE</span><span class="p">],</span>
+    <span class="n">DT</span> <span class="n">v_out</span> <span class="p">[</span><span class="n">M_SIZE</span><span class="p">],</span>
+    <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">m1</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">m2</span>
+    <span class="p">)</span>
+</pre>
+<p>Wrapper to PCR tridiagonal solver.</p>
+<p>Solves tridiagonal linear system</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>X1</td>
+<td>M x 3 array holding lower/main/upper diagonals of X1 tridiagonal matrix</td>
+</tr>
+<tr class="row-even"><td>rhs</td>
+<td>Right hand side of linear system to be solved</td>
+</tr>
+<tr class="row-odd"><td>m1</td>
+<td>Size of array [0..m1-1] in S direction</td>
+</tr>
+<tr class="row-even"><td>m2</td>
+<td>Size of array [0..m2-1] in V direction</td>
+</tr>
+<tr class="row-odd"><td>v_out</td>
+<td>Solution vector representing array of size m1 x m2 flattened in V inner form</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="pendadiagsovler">
+<span id="cid-xf-fintech-solver-pendadiagsovler"></span><span id="doxid-classxf-1-1fintech-1-1-solver-1ad56a7fde1c452bbd00c044fb2020ef1c"></span><h3>pendaDiagSovler<a class="headerlink" href="#pendadiagsovler" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h4>Defined in &lt;xf_fintech/fd_solver.hpp&gt;<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">pendaDiagSovler</span> <span class="p">(</span>
+    <span class="n">DT</span> <span class="n">A</span> <span class="p">[</span><span class="n">M_SIZE</span><span class="p">][</span><span class="n">DIM2_SIZE2</span><span class="p">],</span>
+    <span class="n">DT</span> <span class="n">rhs</span> <span class="p">[</span><span class="n">M_SIZE</span><span class="p">],</span>
+    <span class="n">DT</span> <span class="n">v_out</span> <span class="p">[</span><span class="n">M_SIZE</span><span class="p">],</span>
+    <span class="kt">bool</span> <span class="n">precompute</span>
+    <span class="p">)</span>
+</pre>
+<p>Solve pentadiagonal form linear system.</p>
+<p>This is a highly serial algorithm and is the bottleneck in this solver Unfortunately due to the formulation used by In ‘T Hout &amp; Foulon, the pentadiagonal array contains diagonals which are not fully populated. This causes the common parallel pentadiagonal systems to fail due to divide-by-zero errors or similar.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>A</td>
+<td>M x 5 array holding lower/lower/main/upper/upper diagonals of X1 tridiagonal matrix</td>
+</tr>
+<tr class="row-even"><td>rhs</td>
+<td>Right hand side of linear system to be solved</td>
+</tr>
+<tr class="row-odd"><td>precompute</td>
+<td>Flag to indicate the scaling factors should be computed</td>
+</tr>
+<tr class="row-even"><td>v_out</td>
+<td>Solution vector representing array of size m1 x m2 flattened in V inner form</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

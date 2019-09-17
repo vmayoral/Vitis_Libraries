@@ -1,0 +1,40 @@
+.. index:: pair: class; xf::fintech::internal::RNGSequence_2
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_r_n_g_sequence__2:
+.. _cid-xf::fintech::internal::rngsequence_2:
+
+template class xf::fintech::internal::RNGSequence_2
+===================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <rng_sequence.hpp>
+
+
+
+
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_r_n_g_sequence__2_1adc7d07e492f8cb7b1b49dfb1308aefe7:
+.. _cid-xf::fintech::internal::rngsequence_2::outn:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_r_n_g_sequence__2_1af07610c496c0e156e05a77d34232c9c7:
+.. _cid-xf::fintech::internal::rngsequence_2::seed:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_r_n_g_sequence__2_1a807c6b203e24e912c0a878df72e7f80d:
+.. _cid-xf::fintech::internal::rngsequence_2::init:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_r_n_g_sequence__2_1a5f25939cd2729aa048ec96bf5e82b8df:
+.. _cid-xf::fintech::internal::rngsequence_2::nextseq:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    typename DT,
+	    typename RNG
+	    >
+	class RNGSequence_2
+
+	// fields
+
+	static const unsigned int OutN
+	ap_uint <32> seed[2]
+

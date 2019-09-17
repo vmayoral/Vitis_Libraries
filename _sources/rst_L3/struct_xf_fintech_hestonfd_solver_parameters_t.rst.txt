@@ -1,0 +1,45 @@
+.. index:: pair: struct; xf::fintech::hestonfd::solver_parameters_t
+.. _doxid-structxf_1_1fintech_1_1hestonfd_1_1solver__parameters__t:
+.. _cid-xf::fintech::hestonfd::solver_parameters_t-2:
+
+struct xf::fintech::hestonfd::solver_parameters_t
+=================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <xf_fintech_heston_types.hpp>
+
+
+
+
+.. _doxid-structxf_1_1fintech_1_1hestonfd_1_1solver__parameters__t_1af9620baf9e711c22f5f4b44860693cc9:
+.. _cid-xf::fintech::hestonfd::solver_parameters_t::scheme:
+.. _doxid-structxf_1_1fintech_1_1hestonfd_1_1solver__parameters__t_1ae900fdfeb223c067581e11462be235ff:
+.. _cid-xf::fintech::hestonfd::solver_parameters_t::theta:
+.. _doxid-structxf_1_1fintech_1_1hestonfd_1_1solver__parameters__t_1ace6807fc5d11b3cd6126316e3a3bbe2e:
+.. _cid-xf::fintech::hestonfd::solver_parameters_t::n:
+.. _doxid-structxf_1_1fintech_1_1hestonfd_1_1solver__parameters__t_1a968c396d3543557cf8fc89ade8a9fe0c:
+.. _cid-xf::fintech::hestonfd::solver_parameters_t::dt:
+.. _doxid-structxf_1_1fintech_1_1hestonfd_1_1solver__parameters__t_1ad2b683a6782f2d536bb604e7528a9e08:
+.. _cid-xf::fintech::hestonfd::solver_parameters_t::m1:
+.. _doxid-structxf_1_1fintech_1_1hestonfd_1_1solver__parameters__t_1ad10f4e05a915c0578076fb365e10cd31:
+.. _cid-xf::fintech::hestonfd::solver_parameters_t::m2:
+.. _doxid-structxf_1_1fintech_1_1hestonfd_1_1solver__parameters__t_1a063655fa6505e46c55160150fdb412ec:
+.. _cid-xf::fintech::hestonfd::solver_parameters_t::gridtype:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// fields
+
+	int scheme
+	double theta
+	int N
+	double dt
+	int m1
+	int m2
+	int gridType
+

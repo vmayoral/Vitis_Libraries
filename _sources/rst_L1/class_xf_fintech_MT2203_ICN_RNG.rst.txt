@@ -1,0 +1,68 @@
+.. index:: pair: class; xf::fintech::MT2203_ICN_RNG <double>
+.. _doxid-classxf_1_1fintech_1_1_m_t2203___i_c_n___r_n_g_3_01double_01_4:
+.. _cid-xf::fintech::mt2203_icn_rng:
+
+template class xf::fintech::MT2203_ICN_RNG <double>
+===================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <rng.h>
+
+
+
+
+.. _doxid-classxf_1_1fintech_1_1_m_t2203___i_c_n___r_n_g_3_01double_01_4_1a4f3a0271c3cff5a6739772810fbe6ba3:
+.. _cid-xf::fintech::mt2203_icn_rng::uniformrng:
+.. _doxid-classxf_1_1fintech_1_1_m_t2203___i_c_n___r_n_g_3_01double_01_4_1a79c4086ff7097868ad1baddd3ead1f36:
+.. _cid-xf::fintech::mt2203_icn_rng::mt2203_icn_rng:
+.. _doxid-classxf_1_1fintech_1_1_m_t2203___i_c_n___r_n_g_3_01double_01_4_1a3fd5d89f87b60d9b97164fcddedb0742:
+.. _cid-xf::fintech::mt2203_icn_rng::mt2203_icn_rng-2:
+.. _doxid-classxf_1_1fintech_1_1_m_t2203___i_c_n___r_n_g_3_01double_01_4_1ab4c548cce9bfc98b04864f131c9905f1:
+.. _cid-xf::fintech::mt2203_icn_rng::seedinitialization:
+.. _doxid-classxf_1_1fintech_1_1_m_t2203___i_c_n___r_n_g_3_01double_01_4_1a2329abcb8ec8eeaf8d4817dadd532b93:
+.. _cid-xf::fintech::mt2203_icn_rng::status_setup:
+.. _doxid-classxf_1_1fintech_1_1_m_t2203___i_c_n___r_n_g_3_01double_01_4_1a4f1e85e564c04d0d7db2baeaa9ddfa6c:
+.. _cid-xf::fintech::mt2203_icn_rng::status_setup-2:
+.. _doxid-classxf_1_1fintech_1_1_m_t2203___i_c_n___r_n_g_3_01double_01_4_1a6478eca1b97c2e3e4f3c997601676710:
+.. _cid-xf::fintech::mt2203_icn_rng::next:
+.. _doxid-classxf_1_1fintech_1_1_m_t2203___i_c_n___r_n_g_3_01double_01_4_1a2f4c7ebd6cc5d0c9cd226291dd428e63:
+.. _cid-xf::fintech::mt2203_icn_rng::next-2:
+.. _doxid-classxf_1_1fintech_1_1_m_t2203___i_c_n___r_n_g_3_01double_01_4_1a5b0ff8aed4fd9187715fdea50e8a69af:
+.. _cid-xf::fintech::mt2203_icn_rng::next-3:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <>
+	class MT2203_ICN_RNG <double>
+
+	// fields
+
+	:ref:`MT_2203<doxid-classxf_1_1fintech_1_1_m_t__2203>` uniformRNG
+
+	// methods
+
+	MT2203_ICN_RNG (ap_uint <32> seed)
+	MT2203_ICN_RNG ()
+	void seedInitialization (ap_uint <32> seed)
+	void status_setup (ap_uint <32> data [624])
+
+	void status_setup (
+	    ap_uint <32> A,
+	    ap_uint <32> B,
+	    ap_uint <32> C
+	    )
+
+	double next ()
+
+	void next (
+	    double& uniformR,
+	    double& gaussianR
+	    )
+
+	void next (double& uniformR)
+

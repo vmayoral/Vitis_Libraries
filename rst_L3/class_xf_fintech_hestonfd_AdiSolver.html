@@ -1,0 +1,239 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>class xf::fintech::hestonfd::AdiSolver &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>class xf::fintech::hestonfd::AdiSolver</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rst_L3/class_xf_fintech_hestonfd_AdiSolver.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-xf-fintech-hestonfd-adisolver">
+<span id="cid-xf-fintech-hestonfd-adisolver"></span><span id="doxid-classxf-1-1fintech-1-1hestonfd-1-1-adi-solver"></span><span id="index-0"></span><h1>class xf::fintech::hestonfd::AdiSolver<a class="headerlink" href="#class-xf-fintech-hestonfd-adisolver" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&lt;xf_fintech_heston_adi_solver.hpp&gt;</span>
+</pre>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-hestonfd-adisolver-createsinhgrid">
+<span id="doxid-classxf-1-1fintech-1-1hestonfd-1-1-adi-solver-1a3c8e66593158544647c191bd4e80f4b6"></span><span id="cid-xf-fintech-hestonfd-adisolver-createuniformgrid"></span><span id="doxid-classxf-1-1fintech-1-1hestonfd-1-1-adi-solver-1a32df342510891ab1a681414fd3e0e2c0"></span><span id="cid-xf-fintech-hestonfd-adisolver-solve-2"></span><span id="doxid-classxf-1-1fintech-1-1hestonfd-1-1-adi-solver-1a5ab01c5dd21a1bf85e4347e3159c7053"></span><span id="cid-xf-fintech-hestonfd-adisolver-solve"></span><span id="doxid-classxf-1-1fintech-1-1hestonfd-1-1-adi-solver-1aa7665a6fc8dcc7826bdfe66f6a156a9d"></span><span id="cid-xf-fintech-hestonfd-adisolver-creategrid"></span><span id="doxid-classxf-1-1fintech-1-1hestonfd-1-1-adi-solver-1aeb62232a2001398622c4a9c7ca82d8cc"></span><span id="cid-xf-fintech-hestonfd-adisolver-adisolver"></span><span id="doxid-classxf-1-1fintech-1-1hestonfd-1-1-adi-solver-1ad2d893322dcf3da53dce12548a52aaac"></span><span id="cid-xf-fintech-hestonfd-adisolver-vgrid"></span><span id="doxid-classxf-1-1fintech-1-1hestonfd-1-1-adi-solver-1a514245fe36ddaeb4371352c89ff14099"></span><span id="cid-xf-fintech-hestonfd-adisolver-sgrid"></span><span id="doxid-classxf-1-1fintech-1-1hestonfd-1-1-adi-solver-1a1575a1c990ec7d31a13bce5b08100400"></span><span></span><span class="c1">// fields</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">sGrid</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">vGrid</span>
+
+<span class="c1">// construction</span>
+
+<span class="n">AdiSolver</span> <span class="p">(</span>
+    <a class="reference internal" href="struct_xf_fintech_hestonfd_model_parameters_t.html#doxid-structxf-1-1fintech-1-1hestonfd-1-1model-parameters-t"><span class="std std-ref">model_parameters_t</span></a><span></span> <span class="n">modelParams</span><span class="p">,</span>
+    <a class="reference internal" href="struct_xf_fintech_hestonfd_solver_parameters_t.html#doxid-structxf-1-1fintech-1-1hestonfd-1-1solver-parameters-t"><span class="std std-ref">solver_parameters_t</span></a><span></span> <span class="n">solverParams</span>
+    <span class="p">)</span>
+</pre>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
