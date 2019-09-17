@@ -1,0 +1,760 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Design Examples Using xfOpenCV Library &mdash; xfOpenCV v1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> xfOpenCV
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">xfOpenCV Library User Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html">xfOpenCV Library API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">xfOpenCV</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Design Examples Using xfOpenCV Library</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/design-examples.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="design-examples-using-xfopencv-library">
+<span id="design-example"></span><h1>Design Examples Using xfOpenCV Library<a class="headerlink" href="#design-examples-using-xfopencv-library" title="Permalink to this headline">¶</a></h1>
+<p>All the hardware functions in the library have their own respective
+examples that are available in the github. This section provides details
+of image processing functions and pipelines implemented using a
+combination of various functions in xfOpenCV. They illustrate how to
+best implement various functionalities using the capabilities of both
+the processor and the programmable logic. These examples also illustrate
+different ways to implement complex dataflow paths. The following
+examples are described in this section:</p>
+<ul class="simple">
+<li>Iterative Pyramidal Dense Optical
+Flow &lt;design-examples.html#jcr1510602888334&gt;__</li>
+<li>Corner Tracking Using Sparse Optical
+Flow &lt;design-examples.html#ypx1510602888667&gt;__</li>
+<li>Color Detection &lt;design-examples.html#dyn1510602889272&gt;__</li>
+<li>Difference of Gaussian
+Filter &lt;design-examples.html#fmq1510602889620&gt;__</li>
+<li>Stereo Vision Pipeline &lt;design-examples.html#pmt1510602889961&gt;__</li>
+</ul>
+<div class="section" id="iterative-pyramidal-dense-optical-flow">
+<span id="interative-pyramidal"></span><h2>Iterative Pyramidal Dense Optical Flow<a class="headerlink" href="#iterative-pyramidal-dense-optical-flow" title="Permalink to this headline">¶</a></h2>
+<p>The Dense Pyramidal Optical Flow example uses the <code class="docutils literal notranslate"><span class="pre">xf::pyrDown</span></code> and
+<code class="docutils literal notranslate"><span class="pre">xf::densePyrOpticalFlow</span></code> hardware functions from the xfOpenCV
+library, to create an image pyramid, iterate over it and compute the
+Optical Flow between two input images. The example uses two hardware
+instances of the <code class="docutils literal notranslate"><span class="pre">xf::pyrDown</span></code> function to compute the image pyramids
+of the two input images in parallel. The two image pyramids are
+processed by one hardware instance of the <code class="docutils literal notranslate"><span class="pre">xf::densePyrOpticalFlow</span></code>
+function, starting from the smallest image size going up to the largest
+image size. The output flow vectors of each iteration are fed back to
+the hardware kernel as input to the hardware function. The output of the
+last iteration on the largest image size is treated as the output of the
+dense pyramidal optical flow example.</p>
+<div class="image figure" id="jcr1510602888334-image-jh4-sq2-bcb">
+<img alt="" src="_images/bui1554997287170.png" />
+</div>
+<p>Specific details of the implementation of the example on the host follow
+to help understand the process in which the claimed throughput is
+achieved.</p>
+<div class="section" id="pyrof-hw">
+<span id="ariaid-title3"></span><h3>pyrof_hw()<a class="headerlink" href="#pyrof-hw" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">pyrof_hw()</span></code> is the host function that computes the dense optical
+flow.</p>
+<div class="section" id="api-syntax">
+<h4>API Syntax<a class="headerlink" href="#api-syntax" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="parameter-descriptions">
+<h4>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions" title="Permalink to this headline">¶</a></h4>
+<p>The table below describes the template and the function parameters.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>im0</td>
+<td>First input image in cv::Mat</td>
+</tr>
+<tr class="row-odd"><td>im1</td>
+<td>Second input image in cv::Mat</td>
+</tr>
+<tr class="row-even"><td>flowUmat</td>
+<td>Allocated cv::Mat to store the horizontal component
+of the output flow vector</td>
+</tr>
+<tr class="row-odd"><td>flowVmat</td>
+<td>Allocated cv::Mat to store the vertical component of
+the output flow vector</td>
+</tr>
+<tr class="row-even"><td>flow</td>
+<td>Allocated xf::Mat to temporarily store the packed
+flow vectors, during the iterative computation using
+the hardware function</td>
+</tr>
+<tr class="row-odd"><td>flow_iter</td>
+<td>Allocated xf::Mat to temporarily store the packed
+flow vectors, during the iterative computation using
+the hardware function</td>
+</tr>
+<tr class="row-even"><td>mat_imagepyr
+1</td>
+<td>An array, of size equal to the number of image
+pyramid levels, of xf::Mat to store the image pyramid
+of the first image</td>
+</tr>
+<tr class="row-odd"><td>mat_imagepyr
+2</td>
+<td>An array, of size equal to the number of image
+pyramid levels, of xf::Mat to store the image pyramid
+of the second image</td>
+</tr>
+<tr class="row-even"><td>pyr_h</td>
+<td>An array of integers which includes the size of
+number of image pyramid levels, to store the height
+of the image at each pyramid level</td>
+</tr>
+<tr class="row-odd"><td>pyr_w</td>
+<td>An array of integers which includes the size of the
+number of image pyramid levels, to store the width of
+the image at each pyramid level</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dataflow">
+<h4>Dataflow<a class="headerlink" href="#dataflow" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">pyrof_hw()</span></code> function performs the following:</p>
+<ol class="arabic simple">
+<li>Set the sizes of the images in various levels of the image pyramid</li>
+<li>Copy input images from cv::Mat format to the xf::Mat object allocated
+to contain the largest image pyramid level</li>
+<li>Create the image pyramid calling the
+<code class="docutils literal notranslate"><span class="pre">pyr_dense_optical_flow_pyr_down_accel()</span></code> function</li>
+<li>Use the <code class="docutils literal notranslate"><span class="pre">pyr_dense_optical_flow_accel()</span></code> function to compute the
+optical flow output by iterating over the pyramid levels as input by
+the user</li>
+<li>Unpack the flow vectors and convert them to the floating point, and
+return</li>
+</ol>
+<p>The important steps 3 and 4 in the above processes will be explained in
+detail.</p>
+</div>
+</div>
+<div class="section" id="pyr-dense-optical-flow-pyr-down-accel">
+<span id="ariaid-title4"></span><h3>pyr_dense_optical_flow_pyr_down_accel()<a class="headerlink" href="#pyr-dense-optical-flow-pyr-down-accel" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="api-syntax-1">
+<span id="id1"></span><h4>API Syntax<a class="headerlink" href="#api-syntax-1" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="parameter-descriptions-1">
+<span id="id2"></span><h4>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions-1" title="Permalink to this headline">¶</a></h4>
+<p>The table below describes the template and the function parameters.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>mat_imagepyr
+1</td>
+<td>An array, of size equal to the number of image
+pyramid levels, of xf::Mat to store the image pyramid
+of the first image. The memory location corresponding
+to the highest pyramid level [0] in this allocated
+memory must contain the first input image.</td>
+</tr>
+<tr class="row-odd"><td>mat_imagepyr
+2</td>
+<td>An array, of size equal to the number of image
+pyramid levels, of xf::Mat to store the image pyramid
+of the second image. The memory location
+corresponding to the highest pyramid level [0] in
+this allocated memory must contain the second input
+image.</td>
+</tr>
+</tbody>
+</table>
+<p>The <code class="docutils literal notranslate"><span class="pre">pyr_dense_optical_flow_pyr_down_accel()</span></code> just runs one for loop
+calling the <code class="docutils literal notranslate"><span class="pre">xf::pyrDown</span></code> hardware function as follows:</p>
+<p>The code is straightforward without the pragmas, and the <code class="docutils literal notranslate"><span class="pre">xf::pyrDown</span></code>
+function is being called twice every iteration. First with the first
+image and then with the second image. Note that the input to the next
+iteration is the output of the current iteration. The pragma #pragma SDS
+async(ID) makes the Arm® processor call the hardware function and not
+wait for the hardware function to return. The Arm processor takes some
+cycles to call the function, which includes programming the DMA. The
+pragma #pragma SDS wait(ID) makes the Arm processor wait for the
+hardware function called with the async(ID) pragma to finish processing.
+The pragma #pragma SDS resource(ID) creates a separate hardware instance
+each time the hardware function is called with a different ID. With this
+new information it is easy to assimilate that the loop in the above host
+function calls the two hardware instances of <code class="docutils literal notranslate"><span class="pre">xf::pyrDown</span></code> functions
+in parallel, waits until both the functions return and proceed to the
+next iteration.</p>
+</div>
+<div class="section" id="dense-pyramidal-optical-flow-computation">
+<h4>Dense Pyramidal Optical Flow Computation<a class="headerlink" href="#dense-pyramidal-optical-flow-computation" title="Permalink to this headline">¶</a></h4>
+<p>The Iterative Pyramidal Dense Optical Flow is computed in a nested for
+loop which runs for iterations*pyramid levels number of iterations. The
+main loop starts from the smallest image size and iterates up to the
+largest image size. Before the loop iterates in one pyramid level, it
+sets the current pyramid level’s height and width, in curr_height and
+current_width variables. In the nested loop, the next_height variable is
+set to the previous image height if scaling up is necessary, that is, in
+the first iterations. As divisions are costly and one time divisions can
+be avoided in hardware, the scale factor is computed in the host and
+passed as an argument to the hardware kernel. After each pyramid level,
+in the first iteration, the scale-up flag is set to let the hardware
+function know that the input flow vectors need to be scaled up to the
+next higher image size. Scaling up is done using bilinear interpolation
+in the hardware kernel.</p>
+<p>After all the input data is prepared, and the flags are set, the host
+processor calls the hardware function. Please note that the host
+function swaps the flow vector inputs and outputs to the hardware
+function to iteratively solve the optimization problem. Also note that
+the <code class="docutils literal notranslate"><span class="pre">pyr_dense_optical_flow_accel()</span></code> function is just a wrapper to the
+hardware function <code class="docutils literal notranslate"><span class="pre">xf::densePyrOpticalFlow</span></code>. Template parameters to
+the hardware function are passed inside this wrapper function.</p>
+</div>
+</div>
+</div>
+<div class="section" id="corner-tracking-using-sparse-optical-flow">
+<span id="ariaid-title5"></span><h2>Corner Tracking Using Sparse Optical Flow<a class="headerlink" href="#corner-tracking-using-sparse-optical-flow" title="Permalink to this headline">¶</a></h2>
+<p>This example illustrates how to detect and track the characteristic
+feature points in a set of successive frames of video. A Harris corner
+detector is used as the feature detector, and a modified version of
+Lucas Kanade optical flow is used for tracking. The core part of the
+algorithm takes in current and next frame as the inputs and outputs the
+list of tracked corners. The current image is the first frame in the
+set, then corner detection is performed to detect the features to track.
+The number of frames in which the points need to be tracked is also
+provided as the input.</p>
+<p>Corner tracking example uses five hardware functions from the xfOpenCV
+library <code class="docutils literal notranslate"><span class="pre">xf::cornerHarris</span></code>, <code class="docutils literal notranslate"><span class="pre">xf::</span> <span class="pre">cornersImgToList</span></code>,
+<code class="docutils literal notranslate"><span class="pre">xf::cornerUpdate</span></code>, <code class="docutils literal notranslate"><span class="pre">xf::pyrDown</span></code>, and <code class="docutils literal notranslate"><span class="pre">xf::densePyrOpticalFlow</span></code>.</p>
+<div class="image figure" id="ypx1510602888667-image-dmv-5cv-hdb">
+<img alt="" src="_images/tpr1554997250097.png" />
+</div>
+<p>A new hardware function, <code class="docutils literal notranslate"><span class="pre">xf::cornerUpdate</span></code>, has been added to ensure
+that the dense flow vectors from the output of
+the<code class="docutils literal notranslate"><span class="pre">xf::densePyrOpticalFlow</span></code> function are sparsely picked and stored
+in a new memory location as a sparse array. This was done to ensure that
+the next function in the pipeline would not have to surf through the
+memory by random accesses. The function takes corners from Harris corner
+detector and dense optical flow vectors from the dense pyramidal optical
+flow function and outputs the updated corner locations, tracking the
+input corners using the dense flow vectors, thereby imitating the sparse
+optical flow behavior. This hardware function runs at 300 MHz for 10,000
+corners on a 720p image, adding very minimal latency to the pipeline.</p>
+<div class="section" id="cornerupdate">
+<span id="ariaid-title6"></span><h3>cornerUpdate()<a class="headerlink" href="#cornerupdate" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="api-syntax-2">
+<span id="id3"></span><h4>API Syntax<a class="headerlink" href="#api-syntax-2" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="parameter-descriptions-2">
+<span id="id4"></span><h4>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions-2" title="Permalink to this headline">¶</a></h4>
+<p>The following table describes the template and the function parameters.</p>
+<table border="1" class="docutils" id="id9">
+<caption><span class="caption-text">Table 1. CornerUpdate Function Parameter Descriptions</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Paramete
+r</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>MAXCORNE
+RSNO</td>
+<td>Maximum number of corners that the function needs to work
+on</td>
+</tr>
+<tr class="row-odd"><td>TYPE</td>
+<td>Input Pixel Type. Only 8-bit, unsigned, 1 channel is
+supported (XF_8UC1)</td>
+</tr>
+<tr class="row-even"><td>ROWS</td>
+<td>Maximum height of input and output image (Must be
+multiple of 8)</td>
+</tr>
+<tr class="row-odd"><td>COLS</td>
+<td>Maximum width of input and output image (Must be multiple
+of 8)</td>
+</tr>
+<tr class="row-even"><td>NPC</td>
+<td>Number of pixels to be processed per cycle. This function
+supports only XF_NPPC1 or 1-pixel per cycle operations.</td>
+</tr>
+<tr class="row-odd"><td>list_fix</td>
+<td>A list of packed fixed point coordinates of the corner
+locations in 16, 5 (16 integer bits and 5 fractional
+bits) format. Bits from 20 to 0 represent the column
+number, while the bits 41 to 21 represent the row number.
+The rest of the bits are used for flag, this flag is set
+when the tracked corner is valid.</td>
+</tr>
+<tr class="row-even"><td>list</td>
+<td>A list of packed positive short integer coordinates of
+the corner locations in unsigned short format. Bits from
+15 to 0 represent the column number, while the bits 31 to
+16 represent the row number. This list is same as the
+list output by Harris Corner Detector.</td>
+</tr>
+<tr class="row-odd"><td>nCorners</td>
+<td>Number of corners to track</td>
+</tr>
+<tr class="row-even"><td>flow_vec
+tors</td>
+<td>Packed flow vectors as in xf::DensePyrOpticalFlow
+function</td>
+</tr>
+<tr class="row-odd"><td>harris_f
+lag</td>
+<td><p class="first">If set to 1, the function takes input corners from list.</p>
+<p class="last">if set to 0, the function takes input corners from
+list_fix.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The example codeworks on an input video which is read and processed
+using the xfOpenCV library. The core processing and tracking is done by
+the <code class="docutils literal notranslate"><span class="pre">xf_corner_tracker_accel()</span></code> function at the host.</p>
+</div>
+</div>
+<div class="section" id="cornersimgtolist">
+<span id="ariaid-title7"></span><h3>cornersImgToList()<a class="headerlink" href="#cornersimgtolist" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="api-syntax-3">
+<span id="id5"></span><h4>API Syntax<a class="headerlink" href="#api-syntax-3" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="parameter-descriptions-3">
+<span id="id6"></span><h4>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions-3" title="Permalink to this headline">¶</a></h4>
+<p>The following table describes the template and theKintex® UltraScale+™
+function parameters.</p>
+<table border="1" class="docutils" id="id10">
+<caption><span class="caption-text">Table 2. CornerImgToList Function Parameter Descriptions</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Paramete
+r</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>_src</td>
+<td>The output image of harris corner detector. The size of
+this xf::Mat object is the size of the input image to
+Harris corner detector. The value of each pixel is 255 if
+a corner is present in the location, 0 otherwise.</td>
+</tr>
+<tr class="row-odd"><td>list</td>
+<td>A 32 bit memory allocated, the size of MAXCORNERS, to
+store the corners detected by Harris Detector</td>
+</tr>
+<tr class="row-even"><td>ncorners</td>
+<td>Total number of corners detected by Harris, that is, the
+number of corners in the list</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="cornertracker">
+<span id="ariaid-title8"></span><h3>cornerTracker()<a class="headerlink" href="#cornertracker" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">xf_corner_tracker_accel()</span></code> function does the core procesing and
+tracking at the host.</p>
+<div class="section" id="api-syntax-4">
+<span id="id7"></span><h4>API Syntax<a class="headerlink" href="#api-syntax-4" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="parameter-descriptions-4">
+<span id="id8"></span><h4>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions-4" title="Permalink to this headline">¶</a></h4>
+<p>The table below describes the template and the function parameters.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>flow</td>
+<td>Allocated xf::Mat to temporarily store the packed
+flow vectors during the iterative computation using
+the hardware function</td>
+</tr>
+<tr class="row-odd"><td>flow_iter</td>
+<td>Allocated xf::Mat to temporarily store the packed
+flow vectors during the iterative computation using
+the hardware function</td>
+</tr>
+<tr class="row-even"><td>mat_imagepyr
+1</td>
+<td>An array, of size equal to the number of image
+pyramid levels, of xf::Mat to store the image pyramid
+of the first image</td>
+</tr>
+<tr class="row-odd"><td>mat_imagepyr
+2</td>
+<td>An array, of size equal to the number of image
+pyramid levels, of xf::Mat to store the image pyramid
+of the second image</td>
+</tr>
+<tr class="row-even"><td>inHarris</td>
+<td>Input image to Harris Corner Detector in xf::Mat</td>
+</tr>
+<tr class="row-odd"><td>outHarris</td>
+<td>Output image from Harris detector. Image has 255 if a
+corner is present in the location and 0 otherwise</td>
+</tr>
+<tr class="row-even"><td>list</td>
+<td>A 32 bit memory allocated, the size of MAXCORNERS, to
+store the corners detected by Harris Detector</td>
+</tr>
+<tr class="row-odd"><td>listfixed</td>
+<td>A 64 bit memory allocated, the size of MAXCORNERS, to
+store the corners tracked by xf::cornerUpdate</td>
+</tr>
+<tr class="row-even"><td>pyr_h</td>
+<td>An array of integers the size of number of image
+pyramid levels to store the height of the image at
+each pyramid level</td>
+</tr>
+<tr class="row-odd"><td>pyr_w</td>
+<td>An array of integers the size of number of image
+pyramid levels to store the width of the image at
+each pyramid level</td>
+</tr>
+<tr class="row-even"><td>num_corners</td>
+<td>An array, of size equal to the number ofNumber of
+corners detected by Harris Corner Detector</td>
+</tr>
+<tr class="row-odd"><td>harrisThresh</td>
+<td>Threshold input to the Harris Corner Detector,
+xf::harris</td>
+</tr>
+<tr class="row-even"><td>harris_flag</td>
+<td>Flag used by the caller of this function to use the
+corners detected by xf::harris for the set of input
+images</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="image-processing">
+<h4>Image Processing<a class="headerlink" href="#image-processing" title="Permalink to this headline">¶</a></h4>
+<p>The following steps demonstrate the Image Processing procedure in the
+hardware pipeline</p>
+<ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">xf::cornerharris</span></code> is called to start processing the first input
+image</li>
+<li>The output of<code class="docutils literal notranslate"><span class="pre">xf::cornerHarris</span></code> is pipelined by SDSoC™ on
+hardware to<code class="docutils literal notranslate"><span class="pre">xf::cornersImgToList</span></code>. This function takes in an
+image with corners marked as 255 and 0 elsewhere, and converts them
+to a list of corners.</li>
+<li>Simultaneously,<code class="docutils literal notranslate"><span class="pre">xf::pyrDown</span></code> creates the two image pyramids and
+Dense Optical Flow is computed using the two image pyramids as
+described in the Iterative Pyramidal Dense Optical Flow example.</li>
+<li><code class="docutils literal notranslate"><span class="pre">xf::densePyrOpticalFlow</span></code> is called with the two image pyramids as
+inputs.</li>
+<li><code class="docutils literal notranslate"><span class="pre">xf::cornerUpdate</span></code> function is called to track the corner locations
+in the second image. If harris_flag is enabled, the <code class="docutils literal notranslate"><span class="pre">cornerUpdate</span></code>
+tracks corners from the output of the list, else it tracks the
+previously tracked corners.</li>
+</ol>
+<p>The <code class="docutils literal notranslate"><span class="pre">xf_corner_tracker_accel()</span></code> function takes a flag called
+harris_flag which is set during the first frame or when the corners need
+to be redetected. The <code class="docutils literal notranslate"><span class="pre">xf::cornerUpdate</span></code> function outputs the updated
+corners to the same memory location as the output corners list of
+<code class="docutils literal notranslate"><span class="pre">xf::cornerImgToList</span></code>. This means that when harris_flag is unset, the
+corners input to the <code class="docutils literal notranslate"><span class="pre">xf::cornerUpdate</span></code> are the corners tracked in the
+previous cycle, that is, the corners in the first frame of the current
+input frames.</p>
+<p>After the Dense Optical Flow is computed, if harris_flag is set, the
+number of corners that <code class="docutils literal notranslate"><span class="pre">xf::cornerharris</span></code> has detected and
+<code class="docutils literal notranslate"><span class="pre">xf::cornersImgToList</span></code> has updated is copied to num_corners variable
+which is one of the outputs of the <code class="docutils literal notranslate"><span class="pre">xf_corner_tracker_accel()</span></code>
+function. The other being the tracked corners list, listfixed. If
+harris_flag is set, <code class="docutils literal notranslate"><span class="pre">xf::cornerUpdate</span></code> tracks the corners in ‘list’
+memory location, otherwise it tracks the corners in ‘listfixed’ memory
+location.</p>
+</div>
+</div>
+</div>
+<div class="section" id="color-detection">
+<span id="ariaid-title9"></span><h2>Color Detection<a class="headerlink" href="#color-detection" title="Permalink to this headline">¶</a></h2>
+<p>The Color Detection algorithm is basically used for color object
+tracking and object detection, based on the color of the object. The
+color based methods are very useful for object detection and
+segmentation, when the object and the background have a significant
+difference in color.</p>
+<p>The Color Detection example uses four hardware functions from the
+xfOpenCV library. They are:</p>
+<ul class="simple">
+<li>xf::RGB2HSV</li>
+<li>xf::colorthresholding</li>
+<li>xf:: erode</li>
+<li>xf:: dilate</li>
+</ul>
+<p>In the Color Detection example, the color space of the original BGR
+image is converted into an HSV color space. Because HSV color space is
+the most suitable color space for color based image segmentation. Later,
+based on the H (hue), S (saturation) and V (value) values, apply the
+thresholding operation on the HSV image and return either 255 or 0.
+After thresholding the image, apply erode (morphological opening) and
+dilate (morphological opening) functions to reduce unnecessary white
+patches (noise) in the image. Here, the example uses two hardware
+instances of erode and dilate functions. The erode followed by dilate
+and once again applying dilate followed by erode.</p>
+<div class="image figure" id="dyn1510602889272-image-dzq-ys2-bcb">
+<img alt="" src="_images/ntl1554997353703.png" />
+</div>
+<p>The following example demonstrates the Color Detection algorithm.</p>
+<p>In the given example, the source image is passed to the <code class="docutils literal notranslate"><span class="pre">xf::RGB2HSV</span></code>
+function, the output of that function is passed to the
+<code class="docutils literal notranslate"><span class="pre">xf::colorthresholding</span></code> module, the thresholded image is passed to the
+<code class="docutils literal notranslate"><span class="pre">xf::erode</span></code> function and, the <code class="docutils literal notranslate"><span class="pre">xf::dilate</span></code> functions and the final
+output image are returned.</p>
+</div>
+<div class="section" id="difference-of-gaussian-filter">
+<span id="ariaid-title10"></span><h2>Difference of Gaussian Filter<a class="headerlink" href="#difference-of-gaussian-filter" title="Permalink to this headline">¶</a></h2>
+<p>The Difference of Gaussian Filter example uses four hardware functions
+from the xfOpenCV library. They are:</p>
+<ul class="simple">
+<li>xf::GaussianBlur</li>
+<li>xf::duplicateMat</li>
+<li>xf::delayMat</li>
+<li>xf::subtract</li>
+</ul>
+<p>The Difference of Gaussian Filter function can be implemented by
+applying Gaussian Filter on the original source image, and that Gaussian
+blurred image is duplicated as two images. The Gaussian blur function is
+applied to one of the duplicated images, whereas the other one is stored
+as it is. Later, perform the Subtraction function on, two times Gaussian
+applied image and one of the duplicated image. Here, the duplicated
+image has to wait until the Gaussian applied for other one generates at
+least for one pixel output. Therefore, here xf::delayMat function is
+used to add delay.</p>
+<div class="image figure" id="fmq1510602889620-image-lgr-1xf-bcb">
+<img alt="" src="_images/crx1554997276344.png" />
+</div>
+<p>The following example demonstrates the Difference of Gaussian Filter
+example.</p>
+<p>In the given example, the Gaussain Blur function is applied for source
+image imginput, and resultant image imgin1 is passed to
+xf::duplicateMat. The imgin2 and imgin3 are the duplicate images of
+Gaussian applied image. Again gaussian blur is applied to imgin2 and the
+result is stored in imgin4. Now, perform the subtraction between imgin4
+and imgin3, but here imgin3 has to wait up to at least one pixel of
+imgin4 generation. So, delay has applied for imgin3 and stored in
+imgin5. Finally the subtraction performed on imgin4 and imgin5.</p>
+</div>
+<div class="section" id="stereo-vision-pipeline">
+<span id="ariaid-title11"></span><h2>Stereo Vision Pipeline<a class="headerlink" href="#stereo-vision-pipeline" title="Permalink to this headline">¶</a></h2>
+<p>Disparity map generation is one of the first steps in creating a three
+dimensional map of the environment. The xfOpenCV library has components
+to build an image processing pipeline to compute a disparity map given
+the camera parameters and inputs from a stereo camera setup.</p>
+<p>The two main components involved in the pipeline are stereo
+rectification and disparity estimation using local block matching
+method. While disparity estimation using local block matching is a
+discrete component in xfOpenCV, rectification block can be constructed
+using <code class="docutils literal notranslate"><span class="pre">xf::InitUndistortRectifyMapInverse()</span></code> and <code class="docutils literal notranslate"><span class="pre">xf::Remap()</span></code>. The
+dataflow pipeline is shown below. The camera parameters are an
+additional input to the pipeline.</p>
+<div class="image figure">
+<a class="reference internal image-reference" href="_images/qlb1554997048260.png"><img alt="" src="_images/qlb1554997048260.png" style="width: 560px; height: 240px;" /></a>
+</div>
+<p>The following code is for the pipeline.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

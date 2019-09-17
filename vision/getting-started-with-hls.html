@@ -1,0 +1,537 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started with HLS &mdash; xfOpenCV v1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> xfOpenCV
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">xfOpenCV Library User Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html">xfOpenCV Library API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">xfOpenCV</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Getting Started with HLS</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/getting-started-with-hls.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started-with-hls">
+<span id="ariaid-title1"></span><h1>Getting Started with HLS<a class="headerlink" href="#getting-started-with-hls" title="Permalink to this headline">¶</a></h1>
+<p>The xfOpenCV library can be used to build applications in Vivado® HLS.
+This section provides details on how the xfOpenCV library components can
+be integrated into a design in Vivado HLS 2019.1. This section of the
+document provides steps on how to run a single library component through
+the Vivado HLS 2019.1 use flow which includes, C-simulation,
+C-synthesis, C/RTL co-simulation, and exporting the RTL as an IP.</p>
+<p>You are required to do the following changes to facilitate proper
+functioning of the use model in Vivado HLS 2019.1:</p>
+<ol class="arabic simple">
+<li>Use of appropriate compile-time options - When using the xfOpenCV
+functions in HLS, the <code class="docutils literal notranslate"><span class="pre">-D__SDSVHLS__</span></code> and <code class="docutils literal notranslate"><span class="pre">-std=c++0x</span></code> options
+need to be provided at the time of compilation:</li>
+<li>Specifying interface pragmas to the interface level arguments - For
+the functions with top level interface arguments as pointers (with
+more than one read/write access), the <code class="docutils literal notranslate"><span class="pre">m_axi</span></code> Interface pragma must
+be specified. For example,</li>
+</ol>
+<div class="section" id="hls-standalone-mode">
+<span id="ariaid-title2"></span><h2>HLS Standalone Mode<a class="headerlink" href="#hls-standalone-mode" title="Permalink to this headline">¶</a></h2>
+<p>The HLS standalone mode can be operated using the following two modes:</p>
+<ol class="arabic simple">
+<li>Tcl Script Mode</li>
+<li>GUI Mode</li>
+</ol>
+<div class="section" id="tcl-script-mode">
+<span id="ariaid-title3"></span><h3>Tcl Script Mode<a class="headerlink" href="#tcl-script-mode" title="Permalink to this headline">¶</a></h3>
+<p>Use the following steps to operate the HLS Standalone Mode using Tcl
+Script:</p>
+<ol class="arabic simple">
+<li>In the Vivado® HLS tcl script file, update the cflags in all the
+add_files sections.</li>
+<li>Append the path to the xfOpenCV/include directory, as it contains all
+the header files required by the library.</li>
+<li>Add the <code class="docutils literal notranslate"><span class="pre">-D__SDSVHLS__</span></code> and <code class="docutils literal notranslate"><span class="pre">-std=c++0x</span></code> compiler flags.</li>
+</ol>
+<p>Note: When using Vivado HLS in the Windows operating system, provide the
+<code class="docutils literal notranslate"><span class="pre">-std=c++0x</span></code> flag only for C-Sim and Co-Sim. Do not include the flag
+when performing synthesis.</p>
+<p>For example:</p>
+<p>Setting flags for source files:</p>
+<p>Setting flags for testbench files:</p>
+</div>
+<div class="section" id="gui-mode">
+<span id="ariaid-title4"></span><h3>GUI Mode<a class="headerlink" href="#gui-mode" title="Permalink to this headline">¶</a></h3>
+<p>Use the following steps to operate the HLS Standalone Mode using GUI:</p>
+<ol class="arabic simple">
+<li>Open Vivado® HLS in GUI mode and create a new project</li>
+<li>Specify the name of the project. For example - Dilation.</li>
+<li>Click Browse to enter a workspace folder used to store your projects.</li>
+<li>Click Next.</li>
+<li>Under the source files section, add the accel.cpp file which can be
+found in the examples folder. Also, fill the top function name (here
+it is dilation_accel).</li>
+<li>Click Next.</li>
+<li>Under the test bench section add tb.cpp.</li>
+<li>Click Next.</li>
+<li>Select the clock period to the required value (10ns in example).</li>
+<li>Select the suitable part. For example, <code class="docutils literal notranslate"><span class="pre">xczu9eg-ffvb1156-2-i</span></code>.</li>
+<li>Click Finish.</li>
+<li>Right click on the created project and select Project Settings.</li>
+<li>In the opened tab, select Simulation.</li>
+<li>Files added under the Test Bench section will be displayed. Select a
+file and click Edit CFLAGS.</li>
+<li>Enter
+<code class="docutils literal notranslate"><span class="pre">-I&lt;path-to-include-directory&gt;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-D__SDSVHLS__</span> <span class="pre">-std=c++0x</span></code>.
+Note: When using Vivado HLS in the Windows operating system, make
+sure to provide the <code class="docutils literal notranslate"><span class="pre">-std=c++0x</span></code> flag only for C-Sim and Co-Sim. Do
+not include the flag when performing synthesis.</li>
+<li>Select Synthesis and repeat the above step for all the displayed
+files.</li>
+<li>Click OK.</li>
+<li>Run the C Simulation, select Clean Build and specify the required
+input arguments.</li>
+<li>Click OK.</li>
+<li>All the generated output files/images will be present in the
+solution1-&gt;csim-&gt;build.</li>
+<li>Run C synthesis.</li>
+<li>Run co-simulation by specifying the proper input arguments.</li>
+<li>The status of co-simulation can be observed on the console.</li>
+</ol>
+</div>
+<div class="section" id="constraints-for-co-simulation">
+<span id="ariaid-title5"></span><h3>Constraints for Co-simulation<a class="headerlink" href="#constraints-for-co-simulation" title="Permalink to this headline">¶</a></h3>
+<p>There are few limitations in performing co-simulation of the xfOpenCV
+functions. They are:</p>
+<ol class="arabic simple">
+<li>Functions with multiple accelerators are not supported.</li>
+<li>Compiler and simulator are default in HLS (gcc, xsim).</li>
+<li>Since HLS does not support multi-kernel integration, the current flow
+also does not support multi-kernel integration. Hence, the Pyramidal
+Optical flow and Canny Edge Detection functions and examples are not
+supported in this flow.</li>
+<li>The maximum image size (HEIGHT and WIDTH) set in config.h file should
+be equal to the actual input image size.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="axi-video-interface-functions">
+<span id="ariaid-title6"></span><h2>AXI Video Interface Functions<a class="headerlink" href="#axi-video-interface-functions" title="Permalink to this headline">¶</a></h2>
+<p>xfOpenCV has functions that will transform the xf::Mat into Xilinx®
+Video Streaming interface and vice-versa. <code class="docutils literal notranslate"><span class="pre">xf::AXIvideo2xfMat()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">xf::xfMat2AXIVideo()</span></code> act as video interfaces to the IPs of the
+xfOpenCV functions in the Vivado® IP integrator.
+<code class="docutils literal notranslate"><span class="pre">cvMat2AXIvideoxf</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;NPC&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">AXIvideo2cvMatxf&lt;NPC&gt;</span></code>
+are used on the host side.</p>
+<table border="1" class="docutils" id="id7">
+<caption><span class="caption-text">Table 1. AXI Video Interface Functions</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="41%" />
+<col width="59%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Video Library Function</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>AXIvideo2xfMat</td>
+<td>Converts data from an AXI4 video stream
+representation to xf::Mat format.</td>
+</tr>
+<tr class="row-odd"><td>xfMat2AXIvideo</td>
+<td>Converts data stored as xf::Mat format
+to an AXI4 video stream.</td>
+</tr>
+<tr class="row-even"><td>cvMat2AXIvideoxf</td>
+<td>Converts data stored as cv::Mat format
+to an AXI4 video stream</td>
+</tr>
+<tr class="row-odd"><td>AXIvideo2cvMatxf</td>
+<td>Converts data from an AXI4 video stream
+representation to cv::Mat format.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="axivideo2xfmat">
+<span id="ariaid-title7"></span><h3>AXIvideo2xfMat<a class="headerlink" href="#axivideo2xfmat" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">AXIvideo2xfMat</span></code> function receives a sequence of images using the
+AXI4 Streaming Video and produces an <code class="docutils literal notranslate"><span class="pre">xf::Mat</span></code> representation.</p>
+<div class="section" id="api-syntax">
+<h4>API Syntax<a class="headerlink" href="#api-syntax" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="parameter-descriptions">
+<h4>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions" title="Permalink to this headline">¶</a></h4>
+<p>The following table describes the template and the function parameters.</p>
+<table border="1" class="docutils" id="id8">
+<caption><span class="caption-text">Table 2. AXIvideo2cvMatxf Function Parameter Description</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>W</td>
+<td>Data width of AXI4-Stream.
+Recommended value is pixel depth.</td>
+</tr>
+<tr class="row-odd"><td>T</td>
+<td>Pixel type of the image. 1
+channel (XF_8UC1). Data width of
+pixel must be no greater than W.</td>
+</tr>
+<tr class="row-even"><td>ROWS</td>
+<td>Maximum height of input image.</td>
+</tr>
+<tr class="row-odd"><td>COLS</td>
+<td>Maximum width of input image.</td>
+</tr>
+<tr class="row-even"><td>NPC</td>
+<td>Number of pixels to be processed
+per cycle. Possible options are
+XF_NPPC1 and XF_NPPC8 for 1-pixel
+and 8-pixel operations
+respectively.</td>
+</tr>
+<tr class="row-odd"><td>AXI_video_strm</td>
+<td>HLS stream of ap_axiu (axi
+protocol) type.</td>
+</tr>
+<tr class="row-even"><td>img</td>
+<td>Input image.</td>
+</tr>
+</tbody>
+</table>
+<p>This function will return bit error of ERROR_IO_EOL_EARLY( 1 ) or
+ERROR_IO_EOL_LATE( 2 ) to indicate an unexpected line length, by
+detecting TLAST input.</p>
+<p>For more information about AXI interface see UG761.</p>
+</div>
+</div>
+<div class="section" id="xfmat2axivideo">
+<span id="ariaid-title8"></span><h3>xfMat2AXIvideo<a class="headerlink" href="#xfmat2axivideo" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">Mat2AXI</span></code> video function receives an xf::Mat representation of a
+sequence of images and encodes it correctly using the AXI4 Streaming
+video protocol.</p>
+<div class="section" id="api-syntax-1">
+<span id="id1"></span><h4>API Syntax<a class="headerlink" href="#api-syntax-1" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="parameter-descriptions-1">
+<span id="id2"></span><h4>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions-1" title="Permalink to this headline">¶</a></h4>
+<p>The following table describes the template and the function parameters.</p>
+<table border="1" class="docutils" id="id9">
+<caption><span class="caption-text">Table 3. xfMat2AXIvideo Function Parameter Description</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>W</td>
+<td>Data width of AXI4-Stream.
+Recommended value is pixel depth.</td>
+</tr>
+<tr class="row-odd"><td>T</td>
+<td>Pixel type of the image. 1
+channel (XF_8UC1). Data width of
+pixel must be no greater than W.</td>
+</tr>
+<tr class="row-even"><td>ROWS</td>
+<td>Maximum height of input image.</td>
+</tr>
+<tr class="row-odd"><td>COLS</td>
+<td>Maximum width of input image.</td>
+</tr>
+<tr class="row-even"><td>NPC</td>
+<td>Number of pixels to be processed
+per cycle. Possible options are
+XF_NPPC1 and XF_NPPC8 for 1-pixel
+and 8-pixel operations
+respectively.</td>
+</tr>
+<tr class="row-odd"><td>AXI_video_strm</td>
+<td>HLS stream of ap_axiu (axi
+protocol) type.</td>
+</tr>
+<tr class="row-even"><td>img</td>
+<td>Output image.</td>
+</tr>
+</tbody>
+</table>
+<p>This function returns the value 0.</p>
+<p>Note: The NPC values across all the functions in a data flow must follow
+the same value. If there is mismatch it throws a compilation error in
+HLS.</p>
+</div>
+</div>
+<div class="section" id="cvmat2axivideoxf">
+<span id="ariaid-title9"></span><h3>cvMat2AXIvideoxf<a class="headerlink" href="#cvmat2axivideoxf" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">cvMat2Axivideoxf</span></code> function receives image as cv::Mat
+representation and produces the AXI4 streaming video of image.</p>
+<div class="section" id="api-syntax-2">
+<span id="id3"></span><h4>API Syntax<a class="headerlink" href="#api-syntax-2" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="parameter-descriptions-2">
+<span id="id4"></span><h4>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions-2" title="Permalink to this headline">¶</a></h4>
+<p>The following table describes the template and the function parameters.</p>
+<table border="1" class="docutils" id="id10">
+<caption><span class="caption-text">Table 4. AXIvideo2cvMatxf Function Parameter Description</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>W</td>
+<td>Data width of AXI4-Stream.
+Recommended value is pixel depth.</td>
+</tr>
+<tr class="row-odd"><td>NPC</td>
+<td>Number of pixels to be processed
+per cycle. Possible options are
+XF_NPPC1 and XF_NPPC8 for 1-pixel
+and 8-pixel operations
+respectively.</td>
+</tr>
+<tr class="row-even"><td>AXI_video_strm</td>
+<td>HLS stream of ap_axiu (axi
+protocol) type.</td>
+</tr>
+<tr class="row-odd"><td>cv_mat</td>
+<td>Input image.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="axivideo2cvmatxf">
+<span id="ariaid-title10"></span><h3>AXIvideo2cvMatxf<a class="headerlink" href="#axivideo2cvmatxf" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">Axivideo2cvMatxf</span></code> function receives image as AXI4 streaming video
+and produces the cv::Mat representation of image</p>
+<div class="section" id="api-syntax-3">
+<span id="id5"></span><h4>API Syntax<a class="headerlink" href="#api-syntax-3" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="parameter-descriptions-3">
+<span id="id6"></span><h4>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions-3" title="Permalink to this headline">¶</a></h4>
+<p>The following table describes the template and the function parameters.</p>
+<table border="1" class="docutils" id="id11">
+<caption><span class="caption-text">Table 5. AXIvideo2cvMatxf Function Parameter Description</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>W</td>
+<td>Data width of AXI4-Stream.
+Recommended value is pixel depth.</td>
+</tr>
+<tr class="row-odd"><td>NPC</td>
+<td>Number of pixels to be processed
+per cycle. Possible options are
+XF_NPPC1 and XF_NPPC8 for 1-pixel
+and 8-pixel operations
+respectively.</td>
+</tr>
+<tr class="row-even"><td>AXI_video_strm</td>
+<td>HLS stream of ap_axiu (axi
+protocol) type.</td>
+</tr>
+<tr class="row-odd"><td>cv_mat</td>
+<td>Output image.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
