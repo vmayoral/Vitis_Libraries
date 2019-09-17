@@ -1,0 +1,114 @@
+.. index:: pair: class; xf::fintech::MCAmerican
+.. _doxid-classxf_1_1fintech_1_1_m_c_american:
+.. _cid-xf::fintech::mcamerican:
+
+class xf::fintech::MCAmerican
+=============================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <xf_fintech_mc_american.hpp>
+
+
+Overview
+~~~~~~~~
+
+This class implements the Monte-Carlo American model. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_m_c_american>`
+
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	class MCAmerican: public :ref:`xf::fintech::OCLController<doxid-classxf_1_1fintech_1_1_o_c_l_controller>`
+
+Inherited Members
+-----------------
+
+.. ref-code-block:: cpp
+	:class: overview-inherited-code-block
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1fintech_1_1_m_c_american_1a5aaabd8ca1bc55d5bb6d2e5b4d675162:
+.. _cid-xf::fintech::mcamerican::run:
+
+run
+---
+
+
+Defined in <models/xf_fintech_mc_american.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int run (
+	    :ref:`OptionType<doxid-namespacexf_1_1fintech_1a0186ca825e97c1d630a3faa85a70ccb7>` optionType,
+	    double stockPrice,
+	    double strikePrice,
+	    double riskFreeRate,
+	    double dividendYield,
+	    double volatility,
+	    double timeToMaturity,
+	    double requiredTolerance,
+	    double* pOptionPrice
+	    )
+
+Run a single asset until the REQUIRED TOLERANCE is met...
+
+.. _doxid-classxf_1_1fintech_1_1_m_c_american_1a13bf309fc4f908ae8caf2eeb6e950fd1:
+.. _cid-xf::fintech::mcamerican::run-2:
+
+Defined in <models/xf_fintech_mc_american.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int run (
+	    :ref:`OptionType<doxid-namespacexf_1_1fintech_1a0186ca825e97c1d630a3faa85a70ccb7>` optionType,
+	    double stockPrice,
+	    double strikePrice,
+	    double riskFreeRate,
+	    double dividendYield,
+	    double volatility,
+	    double timeToMaturity,
+	    unsigned int requiredSamples,
+	    double* pOptionPrice
+	    )
+
+Run a single asset for the REQUIRED NUMBER OF SAMPLES...
+
+.. _doxid-classxf_1_1fintech_1_1_m_c_american_1a1ae70f85d33a68572ac79fc73402b11f:
+.. _cid-xf::fintech::mcamerican::getlastruntime:
+
+getLastRunTime
+--------------
+
+
+Defined in <models/xf_fintech_mc_american.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	long long int getLastRunTime (void)
+
+This method returns the time the execution of the last call to :ref:`run() <doxid-classxf_1_1fintech_1_1_m_c_american_1a5aaabd8ca1bc55d5bb6d2e5b4d675162>` took
+
+
+
+.. rubric:: Returns:
+
+Execution time in microseconds
+

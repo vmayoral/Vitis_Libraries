@@ -1,0 +1,451 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Benchmark of American Option Pricing Engine &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Benchmark of Tree Hull-White-Model Engine" href="TreeHWModelEngine.html" />
+    <link rel="prev" title="Benchmark of European Option Pricing Engine" href="MCEuropeanEngine.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide_L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../L2.html">L2 Pricing Engine Kernel User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../overview.html">Pricing Engine Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kernel_design.html">Pricing Engine Kernel Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kernel_api.html">Pricing Engine Kernel APIs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../kernel_benchmark.html">Pricing Engines Demo</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="MCEuropeanEngine.html">Benchmark of European Option Pricing Engine</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Benchmark of American Option Pricing Engine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#highlights">Highlights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiling">Profiling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="TreeHWModelEngine.html">Benchmark of Tree Hull-White-Model Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TreeSwaptionEngine.html">Benchmark of Tree Swaption Engine</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../L2.html">L2 Pricing Engine Kernel User Guide</a> &raquo;</li>
+        
+          <li><a href="../kernel_benchmark.html">Pricing Engines Demo</a> &raquo;</li>
+        
+      <li>Benchmark of American Option Pricing Engine</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide_L2/benchmarks/MCAmericanEngine.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="benchmark-of-american-option-pricing-engine">
+<h1>Benchmark of American Option Pricing Engine<a class="headerlink" href="#benchmark-of-american-option-pricing-engine" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This is a benchmark of MC (Monte-Carlo) European Engine using the SDx environment to compare with QuantLib.  It supports software and hardware emulation as well as running the hardware accelerator on the Alveo U250.</p>
+</div>
+<div class="section" id="highlights">
+<h2>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h2>
+<p>The performance of the MCAmericanEngine is shown in the table below, our cold run has 488X and warm run has 1954X compared to baseline.
+Baseline is Quantlib, a Widely Used C++ Open Source Library, running on platform with 2 Intel(R) Xeon(R) CPU E5-2667 v3 &#64;3.200GHz, 8 cores per procssor and 2 threads per core.</p>
+<span id="tab-performance"></span><table border="1" class="docutils" id="id1">
+<caption><span class="caption-number">Table 13 </span><span class="caption-text">performance
+ :align: center</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="38%" />
+<col width="26%" />
+<col width="35%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td rowspan="2">platform</td>
+<td colspan="2">Execution time</td>
+</tr>
+<tr class="row-even"><td>cold run</td>
+<td>warm run</td>
+</tr>
+<tr class="row-odd"><td>Baseline</td>
+<td>25.9ms</td>
+<td>25.9ms</td>
+</tr>
+<tr class="row-even"><td>FinTech on U250</td>
+<td>0.053ms</td>
+<td>0.01325ms</td>
+</tr>
+<tr class="row-odd"><td>Accelaration Ratio</td>
+<td>488X</td>
+<td>1954X</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="profiling">
+<h2>Profiling<a class="headerlink" href="#profiling" title="Permalink to this headline">¶</a></h2>
+<p>The resource utilization and performance of MCAmericanEngine on U250 FPGA card is listed in the following tables.</p>
+<span id="tab-mcae-resource"></span><table border="1" class="docutils align-center" id="id2">
+<caption><span class="caption-number">Table 14 </span><span class="caption-text">Resource utilization report of American Option APIs on U250</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="20%" />
+<col width="37%" />
+<col width="11%" />
+<col width="11%" />
+<col width="8%" />
+<col width="8%" />
+<col width="7%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Engine</td>
+<td>APIs</td>
+<td>LUT</td>
+<td>FF</td>
+<td>BRAM</td>
+<td>URAM</td>
+<td>DSP</td>
+</tr>
+<tr class="row-even"><td>1-kernel ver.</td>
+<td><dl class="first last docutils">
+<dt>MCAmericanEngine</dt>
+<dd>(UN config: 112)</dd>
+</dl>
+</td>
+<td>295301</td>
+<td>435249</td>
+<td>103</td>
+<td>0</td>
+<td>923</td>
+</tr>
+<tr class="row-odd"><td rowspan="3">3-kernel ver.</td>
+<td><dl class="first last docutils">
+<dt>MCAmericanEnginePreSamples</dt>
+<dd>(UN config: 2)</dd>
+</dl>
+</td>
+<td>120756</td>
+<td>185169</td>
+<td>43</td>
+<td>0</td>
+<td>416</td>
+</tr>
+<tr class="row-even"><td><dl class="first last docutils">
+<dt>MCAmericanEngineCalibrate</dt>
+<dd>(UN config: 22)</dd>
+</dl>
+</td>
+<td>181793</td>
+<td>267405</td>
+<td>68</td>
+<td>0</td>
+<td>462</td>
+</tr>
+<tr class="row-odd"><td><dl class="first last docutils">
+<dt>MCAmericanEnginePricing</dt>
+<dd>(UN config: 4)</dd>
+</dl>
+</td>
+<td>251370</td>
+<td>368839</td>
+<td>71</td>
+<td>0</td>
+<td>911</td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="#tab-mcae-resource"><span class="std std-numref">Table 14</span></a> gives the resource utilization report of four American option APIs. Note that the resource statistics are under specific UN configurations. These UN configurations are the templated parameters of the corresponding API.</p>
+<p>The complete Vitis demos of American Option Engine are executed with a U250 card on Nimbix. The performance of two demos is listed in <a class="reference internal" href="#tab-mcae-performance"><span class="std std-numref">Table 15</span></a>. In this table, kernel execution time and end-to-end execution time are calculated. Besides, for end-to-end execution time, since pipeline mode can be used, especially for 3-kernel version American option engine, pipeline mode execution time is also collected.</p>
+<span id="tab-mcae-performance"></span><table border="1" class="docutils align-center" id="id3">
+<caption><span class="caption-number">Table 15 </span><span class="caption-text">Performance of American Option demos on U250</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="19%" />
+<col width="32%" />
+<col width="14%" />
+<col width="10%" />
+<col width="8%" />
+<col width="18%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td rowspan="2">Engine</td>
+<td rowspan="2">Configuration(UN)</td>
+<td rowspan="2">Frequency</td>
+<td colspan="3">Execution Time (ms)</td>
+</tr>
+<tr class="row-even"><td>kernel</td>
+<td>E2E</td>
+<td>E2E pipeline</td>
+</tr>
+<tr class="row-odd"><td>1-kernel ver.</td>
+<td>112 (UN_PATH=1,
+UN_STEP=1,UN_PRICING=2)</td>
+<td>300MHz</td>
+<td>7.1</td>
+<td>7.25</td>
+<td>5.87</td>
+</tr>
+<tr class="row-even"><td>3-kernel ver.</td>
+<td>2244 (k0:UN=2, k1:UN=2,
+k2: UN=4, k3: UN=4)</td>
+<td>260MHz</td>
+<td>5.33</td>
+<td>5.45</td>
+<td>1.96</td>
+</tr>
+</tbody>
+</table>
+<p>We can observe that the 1-kernel version engine may run at the frequency of 300MHz. And the execution time for end-to-end is 7.25ms. However, for pipeline mode, the execution time is 5.87ms. But in fact, only one output data is transferred from device to host. The reason that E2E and E2E pipeline time differentiate so much is that E2E time is the cold run time and the time of E2E pipeline is warm run.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>What is cold run and warm run?</p>
+<ul class="last simple">
+<li>Cold run means to run the application on board 1 time.</li>
+<li>Warm run means to run the application multiple times on board. And for pipeline mode, the application is always running multiple times.</li>
+</ul>
+</div>
+<p>For 3-kernel version MCAmerican Engine, in order to maximize the resource utilization on FPGA, the kernel MCAmericanEnginePricing is duplicated. Each Pricing kernel is unrolled with UN 4. Due to place and route on FPGA, the kernel runs at 260MHz finally. However, since the kernel may run in pipeline mode. The final execution time may reach 1.96ms.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><strong>Analyzation of the execution time of 3-kernel version American Engine in pipeline mode</strong></p>
+<p>The execution time of each kernel is collected and listed in the table below. Because the last kernel takes the longest time while execution, it is duplicated. Which means two MCAmericanEnginePricing kernels, k2 and k3, are included in the final Vitis demo of 3-kernel MCAmerican Engine. The execution time of k2+k3 is 1.56ms. Finally, the end-to-end execution time in pipeline mode is 1.96ms, which is only slightly bigger than the execution time of Pricing kernels.</p>
+<span id="tab-mcae-3kernel"></span><table border="1" class="last docutils align-center" id="id4">
+<caption><span class="caption-number">Table 16 </span><span class="caption-text">Execution time of each kernel in American Option demo on U250</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="35%" />
+<col width="25%" />
+<col width="40%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Kernel</td>
+<td>Configuration</td>
+<td>Execution Time - pipeline (ms)</td>
+</tr>
+<tr class="row-even"><td>MCAmericanEnginePreSamples</td>
+<td>UN = 2</td>
+<td>1.23</td>
+</tr>
+<tr class="row-odd"><td>MCAmericanEngineCalibrate</td>
+<td>Un = 2</td>
+<td>1.35</td>
+</tr>
+<tr class="row-even"><td>MCAmericanEnginePricing</td>
+<td>UN = 4, duplicated</td>
+<td>1.56</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p>Why instance two kernels of MCAmericanEnginePricing with UN=4 instead of using one pricing kernel with UN=8?</p>
+<p class="last">For one pricing kernel with UN=4, the resource it used is around 74% of one SLR. When UN=8, two SLRs are required to fit 1 kernel. This means that cross SLR for single kernel has to be processed. This may decrease the overall frequency dramatically. In real applications, we are always trying to avoid cross SLR place &amp; routing. Using two exactly the same pricing kernel with UN=4, each kernel can be successfully placed on one SLR. The cross SLR logic can be avoided. Therefore, two pricing kernels with UN=4 are employed in the end.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="TreeHWModelEngine.html" class="btn btn-neutral float-right" title="Benchmark of Tree Hull-White-Model Engine" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MCEuropeanEngine.html" class="btn btn-neutral" title="Benchmark of European Option Pricing Engine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+.. index:: pair: class; xf::fintech::MT19937IcnRng <double>
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01double_01_4:
+.. _cid-xf::fintech::mt19937icnrng-2:
+
+template class xf::fintech::MT19937IcnRng <double>
+==================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <rng.hpp>
+
+
+Overview
+~~~~~~~~
+
+Normal distributed random number generator based on InvserCumulative function, output datatype is double. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01double_01_4>`
+
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01double_01_4_1a0e2b519cf0941cfd1ae6d3b57fd47b9f:
+.. _cid-xf::fintech::mt19937icnrng::uniformrng:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01double_01_4_1ad258700a42f54be6b14d9c6428a11b48:
+.. _cid-xf::fintech::mt19937icnrng::mt19937icnrng-3:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01double_01_4_1a82fca5515f243b15ed66478453db8a67:
+.. _cid-xf::fintech::mt19937icnrng::mt19937icnrng-4:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <>
+	class MT19937IcnRng <double>
+
+	// fields
+
+	:ref:`MT19937<doxid-classxf_1_1fintech_1_1_m_t19937>` uniformRNG
+
+	// construction
+
+	MT19937IcnRng (ap_uint <32> seed)
+	MT19937IcnRng ()
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01double_01_4_1ab4a9777cffc24141d650911a62e21608:
+.. _cid-xf::fintech::mt19937icnrng::seedinitialization-2:
+
+seedInitialization
+------------------
+
+
+Defined in <xf_fintech/rng.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void seedInitialization (ap_uint <32> seed)
+
+using seed to initialize
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - seed
+
+        - initialization seed
+
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01double_01_4_1a1b8eeca082a0a44536d56153e7e6230c:
+.. _cid-xf::fintech::mt19937icnrng::statussetup-2:
+
+statusSetup
+-----------
+
+
+Defined in <xf_fintech/rng.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void statusSetup (ap_uint <32> data [624])
+
+statusSetup
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - data
+
+        -
+
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01double_01_4_1a451854f7573667b0d6c4384ed0c65f08:
+.. _cid-xf::fintech::mt19937icnrng::next-4:
+
+next
+----
+
+
+Defined in <xf_fintech/rng.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	double next ()
+
+next return normal distributed random number
+
+
+
+.. rubric:: Returns:
+
+normal distributed random number
+
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01double_01_4_1a3e88d3c604a94c5017e1b2aa8f754f77:
+.. _cid-xf::fintech::mt19937icnrng::next-5:
+
+Defined in <xf_fintech/rng.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void next (
+	    double& uniformR,
+	    double& gaussianR
+	    )
+
+next return normal distributed random number and its corresponding uniform distributed random number
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - gaussianR
+
+        - return normal distributed random number.
+
+    *
+        - uniformR
+
+        - return uniform distributed random number that corrresponding to gaussianR
+
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01double_01_4_1aaa0a8b7be09694155ca780211f8af287:
+.. _cid-xf::fintech::mt19937icnrng::next-6:
+
+Defined in <xf_fintech/rng.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void next (double& uniformR)
+
+next return uniform distributed random number
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - uniformR
+
+        - return uniform distributed random number
+
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01double_01_4_1a79f8b14a3cf02481eed76839c8fe5c5e:
+.. _cid-xf::fintech::mt19937icnrng::nexttwo-2:
+
+nextTwo
+-------
+
+
+Defined in <xf_fintech/rng.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void nextTwo (
+	    double& gaussR,
+	    double& gaussL
+	    )
+
+next return next two normal distributed random number
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - gaussR
+
+        - return first normal distributed random number.
+
+    *
+        - gaussL
+
+        - return second normal distributed random number.
+

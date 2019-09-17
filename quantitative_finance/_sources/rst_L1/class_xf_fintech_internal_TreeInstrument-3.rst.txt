@@ -1,0 +1,43 @@
+.. index:: pair: class; xf::fintech::internal::TreeInstrument <DT, 0, LEN2>
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument_3_01_d_t_00_010_00_01_l_e_n2_01_4:
+.. _cid-xf::fintech::internal::treeinstrument-3:
+
+template class xf::fintech::internal::TreeInstrument <DT, 0, LEN2>
+==================================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <tree_instrument.hpp>
+
+
+
+
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument_3_01_d_t_00_010_00_01_l_e_n2_01_4_1a35ec3bb9e3fb93bcf22d956d031b7ecd:
+.. _cid-xf::fintech::internal::treeinstrument::initialize-5:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument_3_01_d_t_00_010_00_01_l_e_n2_01_4_1a35df109f7412604b8a5d5fe57333db0e:
+.. _cid-xf::fintech::internal::treeinstrument::initialize-6:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument_3_01_d_t_00_010_00_01_l_e_n2_01_4_1a9a8b7e04762baa123ac38e4118158945:
+.. _cid-xf::fintech::internal::treeinstrument::reset-5:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument_3_01_d_t_00_010_00_01_l_e_n2_01_4_1aa1b7239b88e5d0a335f22fc7eee53943:
+.. _cid-xf::fintech::internal::treeinstrument::reset-6:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument_3_01_d_t_00_010_00_01_l_e_n2_01_4_1acbe06bbebd63bfa61d1f1a0faca0da93:
+.. _cid-xf::fintech::internal::treeinstrument::stepback-5:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument_3_01_d_t_00_010_00_01_l_e_n2_01_4_1a29ce08aa61b00f80f82425bf4c632ff8:
+.. _cid-xf::fintech::internal::treeinstrument::stepback-6:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument_3_01_d_t_00_010_00_01_l_e_n2_01_4_1af632e8bc5ede2956c250ecad640bc860:
+.. _cid-xf::fintech::internal::treeinstrument::adjustvalues-5:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument_3_01_d_t_00_010_00_01_l_e_n2_01_4_1a3921599bd343b84275a9883d5c554d86:
+.. _cid-xf::fintech::internal::treeinstrument::adjustvalues-6:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    typename DT,
+	    int LEN2
+	    >
+	class TreeInstrument <DT, 0, LEN2>
+

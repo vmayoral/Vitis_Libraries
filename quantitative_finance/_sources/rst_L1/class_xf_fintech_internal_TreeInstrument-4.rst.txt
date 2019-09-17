@@ -1,0 +1,257 @@
+.. index:: pair: class; xf::fintech::internal::TreeInstrument
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument:
+.. _cid-xf::fintech::internal::treeinstrument-4:
+
+template class xf::fintech::internal::TreeInstrument
+====================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <tree_instrument.hpp>
+
+
+Overview
+~~~~~~~~
+
+:ref:`TreeInstrument <doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument>` swaption, swap, cap floor, callable bond. :ref:`More...<details-doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument>`
+
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    typename DT,
+	    int IT,
+	    int LEN2
+	    >
+	class TreeInstrument
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument_1aeee28a66b61b533639b2c51ef62b5d82:
+.. _cid-xf::fintech::internal::treeinstrument::reset-7:
+
+reset
+-----
+
+
+Defined in <xf_fintech/tree_instrument.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void reset (
+	    unsigned size,
+	    DT values [][LEN2]
+	    )
+
+reset reset values
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - size
+
+        - size of used values
+
+    *
+        - values
+
+        - process values to calulate NPV
+
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument_1a90f9169970103734ea8c9caef9046bdf:
+.. _cid-xf::fintech::internal::treeinstrument::stepback-7:
+
+stepback
+--------
+
+
+Defined in <xf_fintech/tree_instrument.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void stepback (
+	    unsigned j,
+	    unsigned index,
+	    DT discount,
+	    DT* probs,
+	    DT values1 [][LEN2],
+	    DT values2 [][LEN2]
+	    )
+
+stepback calculate values of the current timepoint based on the values of the next timepoint for 1D framework.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - j
+
+        - node of tree structure
+
+    *
+        - index
+
+        - node of tree structure
+
+    *
+        - discount
+
+        - price of the current timepoint relative to the next timepoint.
+
+    *
+        - probs
+
+        - probability of node of tree structure
+
+    *
+        - values1
+
+        - process values to calulate NPV
+
+    *
+        - values2
+
+        - process values to calulate NPV
+
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument_1aa62650cdc43f83b1d44ae0b005c4dc35:
+.. _cid-xf::fintech::internal::treeinstrument::stepback-8:
+
+Defined in <xf_fintech/tree_instrument.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void stepback (
+	    unsigned j,
+	    unsigned* index,
+	    unsigned modulo,
+	    DT discount,
+	    DT probs [2][3],
+	    DT values1 [][LEN2],
+	    DT values2 [][LEN2]
+	    )
+
+stepback calculate values of the current timepoint based on the values of the next timepoint for 2D framework.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - j
+
+        - node of tree structure
+
+    *
+        - index
+
+        - node of tree structure
+
+    *
+        - modulo
+
+        - node length of the next timepoint
+
+    *
+        - discount
+
+        - price of the current timepoint relative to the next timepoint.
+
+    *
+        - probs
+
+        - probability of node of tree structure
+
+    *
+        - values1
+
+        - process values to calulate NPV
+
+    *
+        - values2
+
+        - process values to calulate NPV
+
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_tree_instrument_1adfffeb9a2009352219a3750f2a58b70c:
+.. _cid-xf::fintech::internal::treeinstrument::adjustvalues-7:
+
+adjustValues
+------------
+
+
+Defined in <xf_fintech/tree_instrument.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void adjustValues (
+	    int i,
+	    int size,
+	    DT t,
+	    DT values1 [][LEN2],
+	    DT values2 [][LEN2]
+	    )
+
+adjustValues Adjust value based on conditions
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - i
+
+        - the current timepoint counter
+
+    *
+        - size
+
+        - node size of tree structure of the current timepoint
+
+    *
+        - t
+
+        - the current timepoint
+
+    *
+        - values1
+
+        - process values to calulate NPV
+
+    *
+        - values2
+
+        - process values to calulate NPV
+

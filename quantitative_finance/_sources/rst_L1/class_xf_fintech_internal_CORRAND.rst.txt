@@ -1,0 +1,32 @@
+.. index:: pair: class; xf::fintech::internal::CORRAND
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d:
+.. _cid-xf::fintech::internal::corrand-2:
+
+template class xf::fintech::internal::CORRAND
+=============================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <corrand.hpp>
+
+
+
+
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d_1ae52b80187d7c578ffeaee7a40758294c:
+.. _cid-xf::fintech::internal::corrand::corrpathcube:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d_1ab0f673362d6ccc0208f22211edca571d:
+.. _cid-xf::fintech::internal::corrand::corrpathcube-2:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    typename DT,
+	    int SampleNm,
+	    int ASSETS
+	    >
+	class CORRAND
+

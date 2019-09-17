@@ -1,0 +1,81 @@
+.. index:: pair: class; xf::fintech::SobolRsg
+.. _doxid-classxf_1_1fintech_1_1_sobol_rsg:
+.. _cid-xf::fintech::sobolrsg:
+
+template class xf::fintech::SobolRsg
+====================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <sobol_rsg.hpp>
+
+
+Overview
+~~~~~~~~
+
+:ref:`SobolRsg <doxid-classxf_1_1fintech_1_1_sobol_rsg>` is a multi-dimensions sobol sequence generator. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_sobol_rsg>`
+
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <int DIM>
+	class SobolRsg
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1fintech_1_1_sobol_rsg_1a944fb25319c65a8d328c4b842b858089:
+.. _cid-xf::fintech::sobolrsg::initialization:
+
+initialization
+--------------
+
+
+Defined in <xf_fintech/sobol_rsg.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void initialization ()
+
+sobol parameter initialization
+
+.. _doxid-classxf_1_1fintech_1_1_sobol_rsg_1a9160db7fb04d7e68a9ca06f5d7d49e96:
+.. _cid-xf::fintech::sobolrsg::next:
+
+next
+----
+
+
+Defined in <xf_fintech/sobol_rsg.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void next (ap_ufixed <W, 0> seqOut [DIM])
+
+each call of :ref:`next() <doxid-classxf_1_1fintech_1_1_sobol_rsg_1a9160db7fb04d7e68a9ca06f5d7d49e96>` generate list of sobol sequences
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - seqOut
+
+        - sobol results of DIM
+

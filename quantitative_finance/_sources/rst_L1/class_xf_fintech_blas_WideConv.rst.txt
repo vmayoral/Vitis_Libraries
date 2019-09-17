@@ -1,0 +1,29 @@
+.. index:: pair: class; xf::fintech::blas::WideConv
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_wide_conv:
+.. _cid-xf::fintech::blas::wideconv:
+
+template class xf::fintech::blas::WideConv
+==========================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <blas_types.hpp>
+
+
+
+
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_wide_conv_1a4ca40f49752233d1f7713127b66cbad4:
+.. _cid-xf::fintech::blas::wideconv::convert:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    typename TS,
+	    typename TD
+	    >
+	class WideConv
+

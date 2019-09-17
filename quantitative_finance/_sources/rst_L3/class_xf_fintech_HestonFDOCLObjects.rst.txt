@@ -1,0 +1,41 @@
+.. index:: pair: class; xf::fintech::HestonFDOCLObjects
+.. _doxid-classxf_1_1fintech_1_1_heston_f_d_o_c_l_objects:
+.. _cid-xf::fintech::hestonfdoclobjects:
+
+class xf::fintech::HestonFDOCLObjects
+=====================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <xf_fintech_heston_ocl_objects.hpp>
+
+
+
+
+.. _doxid-classxf_1_1fintech_1_1_heston_f_d_o_c_l_objects_1a89194a379f89c65a3f480e6a437d5b7c:
+.. _cid-xf::fintech::hestonfdoclobjects::hestonfdoclobjects:
+.. _doxid-classxf_1_1fintech_1_1_heston_f_d_o_c_l_objects_1a78e8d808cb896ac67c9f93aae0a53a14:
+.. _cid-xf::fintech::hestonfdoclobjects::hestonfdoclobjects-2:
+.. _doxid-classxf_1_1fintech_1_1_heston_f_d_o_c_l_objects_1ac43e17d4b4a17f38afc6c39662e78c81:
+.. _cid-xf::fintech::hestonfdoclobjects::getcontext:
+.. _doxid-classxf_1_1fintech_1_1_heston_f_d_o_c_l_objects_1ae0ee4623eb141a6c117be0ca2210a5dc:
+.. _cid-xf::fintech::hestonfdoclobjects::getcommandqueue:
+.. _doxid-classxf_1_1fintech_1_1_heston_f_d_o_c_l_objects_1a4366681505004bd056079906fce934ac:
+.. _cid-xf::fintech::hestonfdoclobjects::getkernel:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// construction
+
+	HestonFDOCLObjects ()
+
+	HestonFDOCLObjects (
+	    cl::Context* pContext,
+	    cl::CommandQueue* pCommandQueue,
+	    cl::Kernel* pKernel
+	    )
+
