@@ -1,0 +1,51 @@
+.. index:: pair: class; xf::fintech::blas::BitConv
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_bit_conv:
+.. _cid-xf::fintech::blas::bitconv:
+
+template class xf::fintech::blas::BitConv
+=========================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <blas_types.hpp>
+
+
+
+
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_bit_conv_1ad7f308aa554d7d012b6ee0f780291266:
+.. _cid-xf::fintech::blas::bitconv::bitstype:
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_bit_conv_1a5f7ec47d951b692236c14b33e3e3a141:
+.. _cid-xf::fintech::blas::bitconv::t_sizeof:
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_bit_conv_1a46db6ab612093cb2ec42ed209efa0122:
+.. _cid-xf::fintech::blas::bitconv::t_numbits:
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_bit_conv_1ae22cc6c9260ef30dd069d5886b342aad:
+.. _cid-xf::fintech::blas::bitconv::tobits:
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_bit_conv_1a6698f71866ba6d5ff852cb20f3d09e9e:
+.. _cid-xf::fintech::blas::bitconv::totype:
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_bit_conv_1ab71aeb1dde8545d31b3004d3aa7fbdf4:
+.. _cid-xf::fintech::blas::bitconv::tobits-2:
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_bit_conv_1a9264169c4cfe68f9c7a5eb77a4db5b34:
+.. _cid-xf::fintech::blas::bitconv::totype-2:
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_bit_conv_1aa01263169808e3a8554e74e77a6064c5:
+.. _cid-xf::fintech::blas::bitconv::tobits-3:
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_bit_conv_1a9a9c13180e5734395bed3119a32d5a34:
+.. _cid-xf::fintech::blas::bitconv::totype-3:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <typename T>
+	class BitConv
+
+	// typedefs
+
+	typedef ap_uint <:ref:`t_NumBits<doxid-classxf_1_1fintech_1_1blas_1_1_bit_conv_1a46db6ab612093cb2ec42ed209efa0122>`> BitsType
+
+	// fields
+
+	static const unsigned int t_SizeOf
+	static const unsigned int t_NumBits
+

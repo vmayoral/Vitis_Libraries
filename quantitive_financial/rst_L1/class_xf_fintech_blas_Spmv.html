@@ -1,0 +1,256 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>template class xf::fintech::blas::Spmv &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>template class xf::fintech::blas::Spmv</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rst_L1/class_xf_fintech_blas_Spmv.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-xf-fintech-blas-spmv">
+<span id="cid-xf-fintech-blas-spmv"></span><span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv"></span><span id="index-0"></span><h1>template class xf::fintech::blas::Spmv<a class="headerlink" href="#template-class-xf-fintech-blas-spmv" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&lt;spmv.hpp&gt;</span>
+</pre>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-blas-spmv-sparsemultadd">
+<span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1ae6500ca3fc47a3002489c2f20a69e295"></span><span id="cid-xf-fintech-blas-spmv-sparsemult"></span><span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1a5128c477ba696fa74eeca0d5ff98acbd"></span><span id="cid-xf-fintech-blas-spmv-spmvaddflow"></span><span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1a544a30fe65bed09bcb1f0852b0d722bc"></span><span id="cid-xf-fintech-blas-spmv-spmvflow"></span><span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1aa75c0825e9a079287beea652ebbc525d"></span><span id="cid-xf-fintech-blas-spmv-controlstreamtype"></span><span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1a1d5cb0c362a091c582da5f7b4512eb79"></span><span id="cid-xf-fintech-blas-spmv-spmcaccstreamtype"></span><span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1afad50485e1d759b1d84b16462662b04a"></span><span id="cid-xf-fintech-blas-spmv-spmcacctype"></span><span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1a2443b74160a24eca7c706ac9d6fd1000"></span><span id="cid-xf-fintech-blas-spmv-accdatatype"></span><span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1a0f54876a3cca0937b88aa7ce709cf5c6"></span><span id="cid-xf-fintech-blas-spmv-spmcstreamtype"></span><span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1adcad5ccc09d5cb54d3e7c6d791a6d35f"></span><span id="cid-xf-fintech-blas-spmv-spmcwidestreamtype"></span><span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1ae8f281b8435883c810e2090445afa587"></span><span id="cid-xf-fintech-blas-spmv-spmcwidetype"></span><span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1a1c69c39014dd627f49a5fd88f18494af"></span><span id="cid-xf-fintech-blas-spmv-spmctype"></span><span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1abd4aadc1bb1bac2363f5c62cad417d61"></span><span id="cid-xf-fintech-blas-spmv-spmastreamtype"></span><span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1a821ac6b57936707992fdbd468e6b85ee"></span><span id="cid-xf-fintech-blas-spmv-spmawidestreamtype"></span><span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1a076a58d7f2457e4c2572ecd1de55c48e"></span><span id="cid-xf-fintech-blas-spmv-spmawidetype"></span><span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1a243075d7ddc729c18b8cdb62c237e6c4"></span><span id="cid-xf-fintech-blas-spmv-spmatype"></span><span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1ad314058dbf4a80cb6a464c3aec670280"></span><span id="cid-xf-fintech-blas-spmv-idxwidestreamtype"></span><span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1a14717934c2e5fc75568882b134626423"></span><span id="cid-xf-fintech-blas-spmv-idxwidetype"></span><span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1acd0fdb6b17284fa57f7f8c54fa80d3e3"></span><span id="cid-xf-fintech-blas-spmv-datawidestreamtype"></span><span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1ac40a7acbb536a4d6dc610c141ff09f57"></span><span id="cid-xf-fintech-blas-spmv-datawidetype"></span><span id="doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1aa36a634d88a769b42e1830ad97c6a510"></span><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_MemWidth</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_IndexWidth</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_MaxK</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_MaxM</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_MaxNnz</span>
+    <span class="o">&gt;</span>
+<span class="k">class</span> <span class="n">Spmv</span>
+
+<span class="c1">// typedefs</span>
+
+<span class="k">typedef</span> <a class="reference internal" href="class_xf_fintech_blas_WideType.html#doxid-classxf-1-1fintech-1-1blas-1-1-wide-type"><span class="std std-ref">WideType</span></a><span></span> <span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_MemWidth</span><span class="o">&gt;</span> <span class="n">DataWideType</span>
+<span class="k">typedef</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1aa36a634d88a769b42e1830ad97c6a510"><span class="std std-ref">DataWideType</span></a><span></span><span class="o">&gt;</span> <span class="n">DataWideStreamType</span>
+<span class="k">typedef</span> <a class="reference internal" href="class_xf_fintech_blas_WideType.html#doxid-classxf-1-1fintech-1-1blas-1-1-wide-type"><span class="std std-ref">WideType</span></a><span></span> <span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">,</span> <span class="n">t_MemWidth</span><span class="o">&gt;</span> <span class="n">IdxWideType</span>
+<span class="k">typedef</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1acd0fdb6b17284fa57f7f8c54fa80d3e3"><span class="std std-ref">IdxWideType</span></a><span></span><span class="o">&gt;</span> <span class="n">IdxWideStreamType</span>
+<span class="k">typedef</span> <a class="reference internal" href="class_xf_fintech_blas_SpmA.html#doxid-classxf-1-1fintech-1-1blas-1-1-spm-a"><span class="std std-ref">SpmA</span></a><span></span> <span class="o">&lt;</span><span class="n">t_DataType</span><span class="o">&gt;</span> <span class="n">SpmAtype</span>
+<span class="k">typedef</span> <a class="reference internal" href="class_xf_fintech_blas_WideType.html#doxid-classxf-1-1fintech-1-1blas-1-1-wide-type"><span class="std std-ref">WideType</span></a><span></span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1ad314058dbf4a80cb6a464c3aec670280"><span class="std std-ref">SpmAtype</span></a><span></span><span class="p">,</span> <span class="n">t_MemWidth</span><span class="o">&gt;</span> <span class="n">SpmAwideType</span>
+<span class="k">typedef</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1a243075d7ddc729c18b8cdb62c237e6c4"><span class="std std-ref">SpmAwideType</span></a><span></span><span class="o">&gt;</span> <span class="n">SpmAwideStreamType</span>
+<span class="k">typedef</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1ad314058dbf4a80cb6a464c3aec670280"><span class="std std-ref">SpmAtype</span></a><span></span><span class="o">&gt;</span> <span class="n">SpmAstreamType</span>
+<span class="k">typedef</span> <a class="reference internal" href="class_xf_fintech_blas_SpmC.html#doxid-classxf-1-1fintech-1-1blas-1-1-spm-c"><span class="std std-ref">SpmC</span></a><span></span> <span class="o">&lt;</span><span class="n">t_DataType</span><span class="o">&gt;</span> <span class="n">SpmCtype</span>
+<span class="k">typedef</span> <a class="reference internal" href="class_xf_fintech_blas_WideType.html#doxid-classxf-1-1fintech-1-1blas-1-1-wide-type"><span class="std std-ref">WideType</span></a><span></span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1abd4aadc1bb1bac2363f5c62cad417d61"><span class="std std-ref">SpmCtype</span></a><span></span><span class="p">,</span> <span class="n">t_MemWidth</span><span class="o">&gt;</span> <span class="n">SpmCwideType</span>
+<span class="k">typedef</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1a1c69c39014dd627f49a5fd88f18494af"><span class="std std-ref">SpmCwideType</span></a><span></span><span class="o">&gt;</span> <span class="n">SpmCwideStreamType</span>
+<span class="k">typedef</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1abd4aadc1bb1bac2363f5c62cad417d61"><span class="std std-ref">SpmCtype</span></a><span></span><span class="o">&gt;</span> <span class="n">SpmCstreamType</span>
+<span class="k">typedef</span> <a class="reference internal" href="class_xf_fintech_blas_WideType.html#doxid-classxf-1-1fintech-1-1blas-1-1-wide-type"><span class="std std-ref">WideType</span></a><span></span> <span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_AccWidth</span><span class="o">&gt;</span> <span class="n">AccDataType</span>
+<span class="k">typedef</span> <a class="reference internal" href="class_xf_fintech_blas_SpmC.html#doxid-classxf-1-1fintech-1-1blas-1-1-spm-c"><span class="std std-ref">SpmC</span></a><span></span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1a0f54876a3cca0937b88aa7ce709cf5c6"><span class="std std-ref">AccDataType</span></a><span></span><span class="o">&gt;</span> <span class="n">SpmCaccType</span>
+<span class="k">typedef</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1blas-1-1-spmv-1a2443b74160a24eca7c706ac9d6fd1000"><span class="std std-ref">SpmCaccType</span></a><span></span><span class="o">&gt;</span> <span class="n">SpmCaccStreamType</span>
+<span class="k">typedef</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">ControlStreamType</span>
+</pre>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

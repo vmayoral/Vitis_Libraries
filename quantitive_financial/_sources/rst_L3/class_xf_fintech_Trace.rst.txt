@@ -1,0 +1,194 @@
+.. index:: pair: class; xf::fintech::Trace
+.. _doxid-classxf_1_1fintech_1_1_trace:
+.. _cid-xf::fintech::trace:
+
+class xf::fintech::Trace
+========================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <xf_fintech_trace.hpp>
+
+
+Overview
+~~~~~~~~
+
+Used to control debug trace output. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_trace>`
+
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1fintech_1_1_trace_1ac24d3cf0e35dca8097e487adee0819d4:
+.. _cid-xf::fintech::trace::setenabled:
+
+setEnabled
+----------
+
+
+Defined in <xf_fintech_trace.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	static void setEnabled (bool bEnabled)
+
+Allows the user to toggle the output of debug trace.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - bEnabled
+
+        - true to enable trace output, false to disable trace output.
+
+.. _doxid-classxf_1_1fintech_1_1_trace_1a5c2d818d01ce1ce68ec01604ba259a4e:
+.. _cid-xf::fintech::trace::getenabled:
+
+getEnabled
+----------
+
+
+Defined in <xf_fintech_trace.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	static bool getEnabled (void)
+
+getEnabled true to enable trace output, false to disable trace output.
+
+Returns t
+
+.. _doxid-classxf_1_1fintech_1_1_trace_1a3cf3eed8a7c75756e5721ab8d87045d1:
+.. _cid-xf::fintech::trace::printinfo:
+
+printInfo
+---------
+
+
+Defined in <xf_fintech_trace.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	static int printInfo (
+	    const char* fmt,
+	    ...
+	    )
+
+Prints a specified INFORMATIONAL string. The output of this will be suppressed if tracing is disabled
+
+.. _doxid-classxf_1_1fintech_1_1_trace_1afedaac2ede064e1c14c34cd832aac895:
+.. _cid-xf::fintech::trace::printerror:
+
+printError
+----------
+
+
+Defined in <xf_fintech_trace.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	static int printError (
+	    const char* fmt,
+	    ...
+	    )
+
+Prints a specified ERROR string. The output from this function will ALWAYS be output even is tracing is disabled.
+
+.. _doxid-classxf_1_1fintech_1_1_trace_1a3599f2e4edaf33e294f84614df778a46:
+.. _cid-xf::fintech::trace::printclerror:
+
+printCLError
+------------
+
+
+Defined in <xf_fintech_trace.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	static void printCLError (cl_int cl_error_code)
+
+Prints out a textual string representation of the specified OpenCL error code
+
+.. _doxid-classxf_1_1fintech_1_1_trace_1a16db9865babb376a7bf96e480b878dd2:
+.. _cid-xf::fintech::trace::optiontypetostring:
+
+optionTypeToString
+------------------
+
+
+Defined in <xf_fintech_trace.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	static char* optionTypeToString (:ref:`OptionType<doxid-namespacexf_1_1fintech_1a0186ca825e97c1d630a3faa85a70ccb7>` optionType)
+
+Prints out a textual string representation of the specified OptionType
+
+.. _doxid-classxf_1_1fintech_1_1_trace_1a30b938a397943f5df8f297c4ab559f02:
+.. _cid-xf::fintech::trace::setconsoleoutputstream:
+
+setConsoleOutputStream
+----------------------
+
+
+Defined in <xf_fintech_trace.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	static void setConsoleOutputStream (std::ostream& outputStream)
+
+Sets the primary (i.e. console) output stream to be used. By default this is std::cout
+
+.. _doxid-classxf_1_1fintech_1_1_trace_1a8af5cc394a2db1bff784b7d8b0544283:
+.. _cid-xf::fintech::trace::setfileoutputstream:
+
+setFileOutputStream
+-------------------
+
+
+Defined in <xf_fintech_trace.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	static void setFileOutputStream (std::ofstream& outputStream)
+
+Sets the secondary (i.e. file) output stream stream to be used. By default this is not used
+

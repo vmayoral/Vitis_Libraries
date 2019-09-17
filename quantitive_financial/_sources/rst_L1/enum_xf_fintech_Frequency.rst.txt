@@ -1,0 +1,132 @@
+.. index:: pair: enum; xf::fintech::Frequency
+.. _doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278:
+.. _cid-xf::fintech::frequency:
+
+enum xf::fintech::Frequency
+===========================
+
+
+
+Overview
+~~~~~~~~
+
+
+
+.. _doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278a0d881560310b6a304fe45977ca2debeb:
+.. _cid-xf::fintech::frequency::nofrequency:
+.. _doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278a8cb1468408f6146c48b8bb5f186d16cd:
+.. _cid-xf::fintech::frequency::once:
+.. _doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278acd65ddc69a04325e16cd8a1993582cee:
+.. _cid-xf::fintech::frequency::annual:
+.. _doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278a8977654619f4ebef01c3727cc6a86f1f:
+.. _cid-xf::fintech::frequency::semiannual:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// enum values
+
+	NoFrequency = -1
+	Once = 0
+	Annual = 1
+	Semiannual = 2
+	:ref:`EveryFourthMonth<doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278a96af078460ee09853ed647726806bfab>` = 3
+	:ref:`Quarterly<doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278a7ded0965d45e1cadb8c883f4c7f5baa4>` = 4
+	:ref:`Bimonthly<doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278acf9abe154d36cbf8548765813f878f02>` = 6
+	:ref:`Monthly<doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278afa3637c427635fafdea18f62653e78e7>` = 12
+	:ref:`EveryFourthWeek<doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278adad0734a84011a0af3ed96c370dcab96>` = 13
+	:ref:`Biweekly<doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278a582aaa47103bd3fe4010b9ac9b16ad67>` = 26
+	:ref:`Weekly<doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278a9d922936768a8e4824d4f3c59f0f0a53>` = 52
+	:ref:`Daily<doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278a4fd0318edbb095dfebd1b6dee9ce0617>` = 365
+	:ref:`OtherFrequency<doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278a8a015a450222f01ab2a8d5facb216731>` = 999
+
+.. _details-doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278:
+
+Detailed Documentation
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+Enum Values
+-----------
+
+.. _doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278a96af078460ee09853ed647726806bfab:
+.. _cid-xf::fintech::frequency::everyfourthmonth:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	EveryFourthMonth
+
+every fourth month
+
+.. _doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278a7ded0965d45e1cadb8c883f4c7f5baa4:
+.. _cid-xf::fintech::frequency::quarterly:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	Quarterly
+
+every third month
+
+.. _doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278acf9abe154d36cbf8548765813f878f02:
+.. _cid-xf::fintech::frequency::bimonthly:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	Bimonthly
+
+every second month
+
+.. _doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278afa3637c427635fafdea18f62653e78e7:
+.. _cid-xf::fintech::frequency::monthly:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	Monthly
+
+once a month
+
+.. _doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278adad0734a84011a0af3ed96c370dcab96:
+.. _cid-xf::fintech::frequency::everyfourthweek:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	EveryFourthWeek
+
+every fourth week
+
+.. _doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278a582aaa47103bd3fe4010b9ac9b16ad67:
+.. _cid-xf::fintech::frequency::biweekly:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	Biweekly
+
+every second week
+
+.. _doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278a9d922936768a8e4824d4f3c59f0f0a53:
+.. _cid-xf::fintech::frequency::weekly:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	Weekly
+
+once a week
+
+.. _doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278a4fd0318edbb095dfebd1b6dee9ce0617:
+.. _cid-xf::fintech::frequency::daily:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	Daily
+
+once a day
+
+.. _doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278a8a015a450222f01ab2a8d5facb216731:
+.. _cid-xf::fintech::frequency::otherfrequency:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	OtherFrequency
+
+some other unknown frequency
+

@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Singular Value Decomposition (SVD) &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Tridiagonal Matrix Solver" href="../TRSV/TRSV.html" />
+    <link rel="prev" title="Random Number Generator" href="../RNGs/RNG.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../L1.html">L1 Module User Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../L1.html#core-utility">Core Utility</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../RNGs/RNG.html">Random Number Generator</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Singular Value Decomposition (SVD)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#theory">Theory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementation">Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiling">Profiling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../TRSV/TRSV.html">Tridiagonal Matrix Solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Pentadiag/Pentadiag.html">Pentadiagonal Matrix Solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SobolRsg/sobolrsg.html">Sobol Sequence Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../brownian/bb.html">Brownian Bridge Transform</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L1.html#l1-module-apis">L1 Module APIs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../L1.html">L1 Module User Guide</a> &raquo;</li>
+        
+      <li>Singular Value Decomposition (SVD)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide_L1/SVD/SVD.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="singular-value-decomposition-svd">
+<h1>Singular Value Decomposition (SVD)<a class="headerlink" href="#singular-value-decomposition-svd" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The <cite>singular value decomposition</cite> (SVD) is a very useful technique for dealing with general dense matrix problems. Recent years, SVD has become a computationally viable tool for solving a wide variety of problems raised in many practical applications, such as least-squares data fitting, image compression, facial recognition, principal component analysis, latent semantic analysis, and computing the 2-norm, condition number, and numerical rank of a matrix.</p>
+<p>For more information, please refer <strong>“Jack Dongarra, Mark Gates, Azzam Haidar. The Singular Value Decomposition: Anatomy of Optimizing an Algorithm for Extreme Scale. 2018 SIAM Review, vol.60, No.4, pp.808-865”</strong></p>
+</div>
+<div class="section" id="theory">
+<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">¶</a></h2>
+<p>The SVD of an m-by-n matrix A is given by</p>
+<div class="math notranslate nohighlight">
+\[A = U \Sigma V^T (A = U \Sigma V^H \, in \, the \, complex \, case)\]</div>
+<p>where <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span> are orthogonal (unitary) matrixed and <span class="math notranslate nohighlight">\(\Sigma\)</span> is an m-by-n matrix with real diagonal elements.</p>
+<p>Theoretically, the SVD can be characterized by the fact that the singular values are the square roots of eigenvalues of <span class="math notranslate nohighlight">\(A^TA\)</span>, the columns of <span class="math notranslate nohighlight">\(V\)</span> are the corresponding eigenvectors, and the columns of U are the eigenvectors of <span class="math notranslate nohighlight">\(AA^T\)</span>, assuming distinct singular values. The approximation can simplify the general m-by-n matrix SVD problem to a general symmetric matrix SVD problem.
+Due to the roundoff errors in the formulation of <span class="math notranslate nohighlight">\(AA^T\)</span> and <span class="math notranslate nohighlight">\(A^TA\)</span>, the accuracy has a slight influence, but if we don’t need too high accuracy, the approximation can largely reduce the complexity of calculation.</p>
+<p>There are two dominant categories of SVD algorithms for dense matrix: bidiagonalization methods and Jacobi methods. The classical bidiagonalization method is a long sequential calculation, FPGA has no advantage in that case. In contrast, Jacobi methods apply plane rotations to the entire matrix A. Two-sided Jacobi methods iteratively apply rotations on both sides of matrix A to bring it to diagonal form, while one-sided Hestenes Jacobi methods apply rotations on one side to orthogonalize the columns of matrix A and bring <span class="math notranslate nohighlight">\(A^TA\)</span> to diagonal form. While Jacobi methods are often slow than bidiagonalization methods, they have better potential in unrolling and pipelining.</p>
+<div class="section" id="jacobi-methods">
+<h3>Jacobi Methods<a class="headerlink" href="#jacobi-methods" title="Permalink to this headline">¶</a></h3>
+<p>Jacobi uses a sequence of plane rotations to reduce a symmetric matrix A to a diagonal matrix</p>
+<div class="math notranslate nohighlight">
+\[A_{0} = A,   \&gt; A_{k+1} = J_{k}^{T}A_{k}J_{k},   \&gt; A_{k} \rightarrow \Sigma \&gt; as \&gt; k \rightarrow \infty\]</div>
+<p>Each plane rotation, <span class="math notranslate nohighlight">\(J_{k} = J_{k}(i, j, \theta)\)</span>, now called a Jacobi or Givens rotation</p>
+<div class="math notranslate nohighlight" id="equation-jacobi-rotation">
+<span class="eqno">(1)<a class="headerlink" href="#equation-jacobi-rotation" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{equation}
+            J_{k}(i, j, \theta)=\begin{vmatrix}
+                I &amp;\,  &amp;  &amp;  &amp; \\
+                \, &amp;\,c &amp;  &amp;s &amp; \\
+                \, &amp;\,  &amp;I &amp;  &amp; \\
+                \, &amp;-s  &amp;  &amp;c &amp; \\
+                &amp; &amp;\,  &amp;  &amp;  &amp;I
+            \end{vmatrix}
+        \end{equation}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(c=cos \theta\)</span> and <span class="math notranslate nohighlight">\(s=sin \theta\)</span>. The angle <span class="math notranslate nohighlight">\(\theta\)</span> is chosen to eliminate the pair <span class="math notranslate nohighlight">\(a_{ij}\)</span>, <span class="math notranslate nohighlight">\(a_{ji}\)</span> by applying <span class="math notranslate nohighlight">\(J(i,j, \theta )\)</span> on the left and right of <span class="math notranslate nohighlight">\(A\)</span>, which can be viewed as the 2x2 eigenvalue problem</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation}
+ \hat{J}_{(k)}^{T} \hat{A}_{(k)} \hat{J}_{(k)}= \begin{vmatrix}
+   \, c &amp;s \\
+     -s &amp;c
+     \end{vmatrix}^{T} \begin{vmatrix}
+     a_{ii} &amp;a_{ij} \\
+     a_{ji} &amp;a_{jj}
+     \end{vmatrix} \begin{vmatrix}
+     d_{ii}  &amp;0 \\
+         0   &amp;d_{jj}
+         \end{vmatrix}= \hat{A}_{(k+1)}
+\end{equation}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\hat{A}\)</span> is a 2X2 submatrix of matrix A. After the Givens rotations of the whole matrix A, the off-diagonal value of A will be reduced after 5-10 times iteration of the process.</p>
+</div>
+</div>
+<div class="section" id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="svd-workflow">
+<h3>SVD workflow:<a class="headerlink" href="#svd-workflow" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="id1">
+<span id="my-figure-svd"></span><a class="reference internal image-reference" href="../../_images/SVD.png"><img alt="SVD workflow in FPGA" src="../../_images/SVD.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Figure 3 </span><span class="caption-text"><span class="xref std std-ref">SVD(Singular Value Decomposition) workflow on FPGA</span></span></p>
+</div>
+<p>The input parameters for the 4x4 SVD function is the 4x4 matrix <span class="math notranslate nohighlight">\(A\)</span>, and the outputs matrix are respectively matrix <span class="math notranslate nohighlight">\(U\)</span>, <span class="math notranslate nohighlight">\(V\)</span>, <span class="math notranslate nohighlight">\(\Sigma\)</span>. As shown in the above figure, the SVD process has 4 main steps:</p>
+<ol class="arabic simple">
+<li>Find the max value of matrix <span class="math notranslate nohighlight">\(A\)</span>;</li>
+<li>Divide all member of A by <span class="math notranslate nohighlight">\(max(A)\)</span> and initiate <span class="math notranslate nohighlight">\(U\)</span>, <span class="math notranslate nohighlight">\(\Sigma\)</span>, <span class="math notranslate nohighlight">\(V\)</span>;</li>
+<li>The iterative process of Jacobi SVD;</li>
+<li>Sort matrix <span class="math notranslate nohighlight">\(S\)</span>, and change <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span>;</li>
+</ol>
+<p>The iterative process of Jacobi SVD is the core function. Firstly, the matrix <span class="math notranslate nohighlight">\(A\)</span> will be divided into 2x3 (= <span class="math notranslate nohighlight">\(C_{4}^{2}\)</span>) sub-blocks of 2x2 through its diagonal elements, since for a 4x4 matrix, at the same moment, it has only 2 pairs independent 2x2 matrix, and 3 rounds of nonredundant full permutation.</p>
+<p>Once we get the 2x2 Submatrix, the Jacobi methods or Givens rotation (module SVD 2x2) can be applied. Here we use pipelining to bind the two 2x2 SVD process. The output of 2x2 SVD is the rotation matrix Equation <a class="reference internal" href="#equation-jacobi-rotation">(1)</a>.</p>
+<p>The next step is to decompose the rotation matrix from original matrix <span class="math notranslate nohighlight">\(A\)</span> and add it to matrix <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span>. After that, a convergence determination is performed to reduce the off-diagonal value of matrix <span class="math notranslate nohighlight">\(A\)</span>. When the matrix <span class="math notranslate nohighlight">\(A\)</span> is reduced to a diagonal matrix, step 3 will be finished.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The SVD function used in FinTech is a customized function designated to solve the decomposition for a 4X4 symmetric matrix. It has some tradeoffs between resources and latency. A general SVD solver is under development, it will be updated in the next release.</p>
+</div>
+</div>
+</div>
+<div class="section" id="profiling">
+<h2>Profiling<a class="headerlink" href="#profiling" title="Permalink to this headline">¶</a></h2>
+<p>The hardware resources for 4x4 SVD are listed in <a class="reference internal" href="#tabsvd"><span class="std std-numref">Table 1</span></a>. (Vivado result)</p>
+<span id="tabsvd"></span><table border="1" class="docutils align-center" id="id2">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Hardware resources for single 4x4 SVD</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="28%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="18%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Engines</td>
+<td>BRAM</td>
+<td>DSP</td>
+<td>Register</td>
+<td>LUT</td>
+<td>Latency</td>
+<td>clock period(ns)</td>
+</tr>
+<tr class="row-even"><td>SVD</td>
+<td>12</td>
+<td>174</td>
+<td>57380</td>
+<td>38076</td>
+<td>3051</td>
+<td>3.029</td>
+</tr>
+</tbody>
+</table>
+<p>The accuracy of SVD implementation has been verified with Lapack dgesvd (QR based SVD) and dgesvj (Jacobi SVD) functions. For a 2545-by-4 matrix, the relative error between our SVD and the two Lapack functions (dgesvd and dgesvj) is about <span class="math notranslate nohighlight">\(1e^{-9}\)</span></p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">The profiling resources differ a lot when choosing different chips. Here we use xcu250-figd2104-2L-e, with clock frequency 300MHz and the margin for clock uncertainty is set to 12.5%.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../TRSV/TRSV.html" class="btn btn-neutral float-right" title="Tridiagonal Matrix Solver" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../RNGs/RNG.html" class="btn btn-neutral" title="Random Number Generator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

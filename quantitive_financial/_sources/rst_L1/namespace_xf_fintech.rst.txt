@@ -1,0 +1,764 @@
+.. index:: pair: namespace; fintech
+.. _doxid-namespacexf_1_1fintech:
+.. _cid-xf::fintech:
+
+namespace fintech
+=================
+
+.. toctree::
+	:hidden:
+
+	namespace_xf_fintech_blas.rst
+	namespace_xf_fintech_enums.rst
+	namespace_xf_fintech_internal.rst
+	enum_xf_fintech_BusinessDayConvention.rst
+	enum_xf_fintech_Compounding.rst
+	enum_xf_fintech_Frequency.rst
+	enum_xf_fintech_Type.rst
+	class_xf_fintech_BKModel.rst
+	class_xf_fintech_BSModel.rst
+	class_xf_fintech_BrownianBridge.rst
+	class_xf_fintech_CIRModel.rst
+	class_xf_fintech_ECIRModel.rst
+	class_xf_fintech_Fdm1dMesher.rst
+	class_xf_fintech_G2Model.rst
+	class_xf_fintech_G2Model-2.rst
+	class_xf_fintech_HWModel.rst
+	class_xf_fintech_HWModel-2.rst
+	class_xf_fintech_HestonModel.rst
+	class_xf_fintech_HestonModel-2.rst
+	class_xf_fintech_HestonModel-3.rst
+	class_xf_fintech_HestonModel-4.rst
+	class_xf_fintech_HestonModel-5.rst
+	class_xf_fintech_HestonModel-6.rst
+	class_xf_fintech_MT19937.rst
+	class_xf_fintech_MT19937BoxMullerNomralRng.rst
+	class_xf_fintech_MT19937IcnRng.rst
+	class_xf_fintech_MT19937IcnRng-2.rst
+	class_xf_fintech_MT19937IcnRng-3.rst
+	class_xf_fintech_MT2203.rst
+	class_xf_fintech_MT2203IcnRng.rst
+	class_xf_fintech_MT2203IcnRng-2.rst
+	class_xf_fintech_MT2203IcnRng-3.rst
+	class_xf_fintech_MultiVariateNormalRng.rst
+	class_xf_fintech_OrnsteinUhlenbeckProcess.rst
+	class_xf_fintech_SobolRsg.rst
+	class_xf_fintech_SobolRsg1D.rst
+	class_xf_fintech_StochasticProcess1D.rst
+	class_xf_fintech_TreeLattice.rst
+	class_xf_fintech_TreeLattice-2.rst
+	class_xf_fintech_TreeLattice-3.rst
+	class_xf_fintech_TrinomialTree.rst
+	class_xf_fintech_VModel.rst
+
+
+
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// namespaces
+
+	namespace :ref:`xf::fintech::blas<doxid-namespacexf_1_1fintech_1_1blas>`
+	namespace :ref:`xf::fintech::enums<doxid-namespacexf_1_1fintech_1_1enums>`
+	namespace :ref:`xf::fintech::internal<doxid-namespacexf_1_1fintech_1_1internal>`
+
+	// enums
+
+	enum :ref:`BusinessDayConvention<doxid-namespacexf_1_1fintech_1a304a11c3c5d84c560ecd3a482cc3e9e1>`
+	enum :ref:`Compounding<doxid-namespacexf_1_1fintech_1aee98e3786f9a1d4fe45bde3f16f1132a>`
+	enum :ref:`Frequency<doxid-namespacexf_1_1fintech_1a0b0ce7a95403899b79f0834ec5edf278>`
+	enum :ref:`Type<doxid-namespacexf_1_1fintech_1aefb74515e003439a4befa350656c23e5>`
+
+	// classes
+
+	template <
+	    typename DT,
+	    typename Tree,
+	    int LEN2
+	    >
+	class :ref:`BKModel<doxid-classxf_1_1fintech_1_1_b_k_model>` 
+
+	template <typename DT>
+	class :ref:`BSModel<doxid-classxf_1_1fintech_1_1_b_s_model>` 
+
+	template <
+	    typename DT,
+	    int SZ
+	    >
+	class :ref:`BrownianBridge<doxid-classxf_1_1fintech_1_1_brownian_bridge>` 
+
+	template <
+	    typename DT,
+	    typename Tree,
+	    int LEN2
+	    >
+	class :ref:`CIRModel<doxid-classxf_1_1fintech_1_1_c_i_r_model>` 
+
+	template <
+	    typename DT,
+	    typename Tree,
+	    int LEN2
+	    >
+	class :ref:`ECIRModel<doxid-classxf_1_1fintech_1_1_e_c_i_r_model>` 
+
+	template <
+	    typename DT,
+	    unsigned int _sizeMax
+	    >
+	class :ref:`Fdm1dMesher<doxid-classxf_1_1fintech_1_1_fdm1d_mesher>` 
+
+	template <
+	    typename DT,
+	    typename Tree,
+	    int LEN2
+	    >
+	class :ref:`G2Model<doxid-classxf_1_1fintech_1_1_g2_model>` 
+
+	template <typename DT>
+	class :ref:`G2Model <DT, void, 0><doxid-classxf_1_1fintech_1_1_g2_model_3_01_d_t_00_01void_00_010_01_4>` 
+
+	template <
+	    typename DT,
+	    typename Tree,
+	    int LEN2
+	    >
+	class :ref:`HWModel<doxid-classxf_1_1fintech_1_1_h_w_model>` 
+
+	template <typename DT>
+	class :ref:`HWModel <DT, void, 0><doxid-classxf_1_1fintech_1_1_h_w_model_3_01_d_t_00_01void_00_010_01_4>` 
+
+	template <
+	    int ASSETS,
+	    typename DT
+	    >
+	class :ref:`HestonModel <ASSETS, DT, enums::kDTReflection><doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_reflection_01_4>` 
+
+	template <
+	    int ASSETS,
+	    typename DT
+	    >
+	class :ref:`HestonModel <ASSETS, DT, enums::kDTQuadraticExponentialMartingale><doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_martingale_01_4>` 
+
+	template <
+	    int ASSETS,
+	    typename DT,
+	    enums::DiscreType discrT
+	    >
+	class :ref:`HestonModel<doxid-classxf_1_1fintech_1_1_heston_model>` 
+
+	template <
+	    int ASSETS,
+	    typename DT
+	    >
+	class :ref:`HestonModel <ASSETS, DT, enums::kDTPartialTruncation><doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_partial_truncation_01_4>` 
+
+	template <
+	    int ASSETS,
+	    typename DT
+	    >
+	class :ref:`HestonModel <ASSETS, DT, enums::kDTQuadraticExponential><doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_quadratic_exponential_01_4>` 
+
+	template <
+	    int ASSETS,
+	    typename DT
+	    >
+	class :ref:`HestonModel <ASSETS, DT, enums::kDTFullTruncation><doxid-classxf_1_1fintech_1_1_heston_model_3_01_a_s_s_e_t_s_00_01_d_t_00_01enums_1_1k_d_t_full_truncation_01_4>` 
+
+	class :ref:`MT19937<doxid-classxf_1_1fintech_1_1_m_t19937>` 
+	class :ref:`MT19937BoxMullerNomralRng<doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_nomral_rng>` 
+
+	template <typename mType>
+	class :ref:`MT19937IcnRng<doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng>` 
+
+	template <>
+	class :ref:`MT19937IcnRng <double><doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01double_01_4>` 
+
+	template <>
+	class :ref:`MT19937IcnRng <float><doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01float_01_4>` 
+
+	class :ref:`MT2203<doxid-classxf_1_1fintech_1_1_m_t2203>` 
+
+	template <typename mType>
+	class :ref:`MT2203IcnRng<doxid-classxf_1_1fintech_1_1_m_t2203_icn_rng>` 
+
+	template <>
+	class :ref:`MT2203IcnRng <float><doxid-classxf_1_1fintech_1_1_m_t2203_icn_rng_3_01float_01_4>` 
+
+	template <>
+	class :ref:`MT2203IcnRng <double><doxid-classxf_1_1fintech_1_1_m_t2203_icn_rng_3_01double_01_4>` 
+
+	template <
+	    typename _DT,
+	    int _VariatePairNum,
+	    int _BuffDepth
+	    >
+	class :ref:`MultiVariateNormalRng<doxid-classxf_1_1fintech_1_1_multi_variate_normal_rng>` 
+
+	template <typename DT = double>
+	class :ref:`OrnsteinUhlenbeckProcess<doxid-classxf_1_1fintech_1_1_ornstein_uhlenbeck_process>` 
+
+	template <int DIM>
+	class :ref:`SobolRsg<doxid-classxf_1_1fintech_1_1_sobol_rsg>` 
+
+	class :ref:`SobolRsg1D<doxid-classxf_1_1fintech_1_1_sobol_rsg1_d>` 
+
+	template <typename DT = double>
+	class :ref:`StochasticProcess1D<doxid-classxf_1_1fintech_1_1_stochastic_process1_d>` 
+
+	template <
+	    typename DT,
+	    typename Model,
+	    typename Process,
+	    typename Instrument,
+	    int LEN,
+	    int LEN2
+	    >
+	class :ref:`TreeLattice <DT, Model, Process, Instrument, 2, LEN, LEN2><doxid-classxf_1_1fintech_1_1_tree_lattice_3_01_d_t_00_01_model_00_01_process_00_01_instrument_00_012_00_01_l_e_n_00_01_l_e_n2_01_4>` 
+
+	template <
+	    typename DT,
+	    typename Model,
+	    typename Process,
+	    typename Instrument,
+	    int LEN,
+	    int LEN2
+	    >
+	class :ref:`TreeLattice <DT, Model, Process, Instrument, 1, LEN, LEN2><doxid-classxf_1_1fintech_1_1_tree_lattice_3_01_d_t_00_01_model_00_01_process_00_01_instrument_00_011_00_01_l_e_n_00_01_l_e_n2_01_4>` 
+
+	template <
+	    typename DT,
+	    typename Model,
+	    typename Process,
+	    typename Instrument,
+	    int DIM,
+	    int LEN,
+	    int LEN2
+	    >
+	class :ref:`TreeLattice<doxid-classxf_1_1fintech_1_1_tree_lattice>` 
+
+	template <
+	    typename DT,
+	    typename Process,
+	    int LEN
+	    >
+	class :ref:`TrinomialTree<doxid-classxf_1_1fintech_1_1_trinomial_tree>` 
+
+	template <
+	    typename DT,
+	    typename Tree,
+	    int LEN2
+	    >
+	class :ref:`VModel<doxid-classxf_1_1fintech_1_1_v_model>` 
+
+
+.. FunctionSection
+
+
+
+
+.. _doxid-namespacexf_1_1fintech_1a99f82990e3920295a77bfc4e69f8047a:
+.. _cid-xf::fintech::svd:
+
+svd
+---
+
+
+Defined in <xf_fintech/jacobi_svd.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename dataType,
+	    int diagSize
+	    >
+	void svd (
+	    dataType dataA [diagSize][diagSize],
+	    dataType sigma2 [diagSize][diagSize],
+	    dataType dataU_out2 [diagSize][diagSize],
+	    dataType dataV_out2 [diagSize][diagSize]
+	    )
+
+Jacobi Singular Value Decomposition (SVD).
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - dataType
+
+        - data type.
+
+    *
+        - diagSize
+
+        - matrix size.
+
+    *
+        - dataA
+
+        - diagSize x diagSize matrix
+
+    *
+        - sigma2
+
+        - the decomposed diagonal matrix of dataA
+
+    *
+        - dataU_out2
+
+        - the left U matrix of dataA
+
+    *
+        - dataV_out2
+
+        - the right V matrix of dataA
+
+.. _doxid-namespacexf_1_1fintech_1acb41548f7aadda098cc1c14e8f76f88c:
+.. _cid-xf::fintech::mcsimulation:
+
+mcSimulation
+------------
+
+
+Defined in <xf_fintech/mc_simulation.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename DT,
+	    typename RNG,
+	    typename PathGeneratorT,
+	    typename PathPricerT,
+	    typename RNGSeqT,
+	    int UN,
+	    int VariateNum,
+	    int SampNum
+	    >
+	DT mcSimulation (
+	    ap_uint <16> timeSteps,
+	    ap_uint <27> maxSamples,
+	    ap_uint <27> requiredSamples,
+	    DT requiredTolerance,
+	    PathGeneratorT pathGenInst [UN][1],
+	    PathPricerT pathPriInst [UN][1],
+	    RNGSeqT rngSeqInst [UN][1]
+	    )
+
+Monte Carlo Framework implementation.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - DT
+
+        - supported data type including double and float data type, which decides the precision of result, default double-precision data type.
+
+    *
+        - RNG
+
+        - random number generator type.
+
+    *
+        - PathGeneratorT
+
+        - path generator type which simulates the dynamics of the asset price.
+
+    *
+        - PathPricerT
+
+        - path pricer type which calcualtes the option price based on asset price.
+
+    *
+        - RNGSeqT
+
+        - random number sequence generator type.
+
+    *
+        - UN
+
+        - number of Monte Carlo Module in parallel, which affects the latency and resources utilization.
+
+    *
+        - VariateNum
+
+        - number of variate.
+
+    *
+        - SampNum
+
+        - the total samples are divided into several steps, SampNum is the number for each step.
+
+    *
+        - timeSteps
+
+        - number of the steps for each path.
+
+    *
+        - maxSamples
+
+        - the maximum sample number. When reaching it, the simulation will stop.
+
+    *
+        - requiredTolerance
+
+        - the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop.
+
+    *
+        - requiredSamples
+
+        - the samples number required. When reaching the required number, simulation will stop.
+
+    *
+        - pathGenInst
+
+        - instance of path generator.
+
+    *
+        - pathPriInst
+
+        - instance of path pricer.
+
+    *
+        - rngSeqInst
+
+        - instance of random number sequence.
+
+.. _doxid-namespacexf_1_1fintech_1a6e3ce7e2d2609510685fb635cdb6491c:
+.. _cid-xf::fintech::pentadiagcr:
+
+pentadiagCr
+-----------
+
+
+Defined in <xf_fintech/pentadiag_cr.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename T,
+	    unsigned int P_SIZE,
+	    unsigned int logN
+	    >
+	void pentadiagCr (
+	    T a [P_SIZE],
+	    T b [P_SIZE],
+	    T c [P_SIZE],
+	    T d [P_SIZE],
+	    T e [P_SIZE],
+	    T v [P_SIZE],
+	    T u [P_SIZE]
+	    )
+
+Solves for u in linear system Pu = r
+
+.
+
+It calls function pentadiag_step for each step until all diagonals instead of main are zeros (or very close to zero). Result U is made by dividing Each of elements of right hand vactor ( *v* ) by main diagonal ( *c* )
+
+Structure of input matrix:
+
+| c d e 0 0 |
+
+| b c d e 0 |
+
+| a b c d e |
+
+| 0 a b c d |
+
+| 0 0 a b c |
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - T
+
+        - data type used in whole function (double by default)
+
+    *
+        - P_SIZE
+
+        - Size of the operating matrix
+
+    *
+        - logN
+
+        - Number of steps for algorithm
+
+    *
+        - c
+
+        - - Main diagonal
+
+    *
+        - b
+
+        - - First lower
+
+    *
+        - a
+
+        - - Second lower
+
+    *
+        - d
+
+        - - First upper
+
+    *
+        - e
+
+        - - Second upper
+
+    *
+        - v
+
+        - - Right hand side vector of length n
+
+    *
+        - u
+
+        - - Vectors of unknows to solve for
+
+.. _doxid-namespacexf_1_1fintech_1ac83609a730c14b972cb5707351603617:
+.. _cid-xf::fintech::boxmullertransform:
+
+boxMullerTransform
+------------------
+
+
+Defined in <xf_fintech/rng.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <typename mType>
+	void boxMullerTransform (
+	    mType u1,
+	    mType u2,
+	    mType& z1,
+	    mType& z2
+	    )
+
+Box-Muller transform uniform random number to normal random number.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - mType
+
+        - data type.
+
+    *
+        - u1
+
+        - first uniform random number input. Notice that it should not be zero.
+
+    *
+        - u2
+
+        - second uniform random number input
+
+    *
+        - z1
+
+        - first normal random number output
+
+    *
+        - z2
+
+        - second normal random number output
+
+.. _doxid-namespacexf_1_1fintech_1a5f46d51776a45edbf5ffbd93ff0287dc:
+.. _cid-xf::fintech::inversecumulativenormalppnd7:
+
+inverseCumulativeNormalPPND7
+----------------------------
+
+
+Defined in <xf_fintech/rng.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <typename mType>
+	mType inverseCumulativeNormalPPND7 (mType input)
+
+Inverse Cumulative transform random number to normal random number.
+
+Reference: Algorithm AS 241, The Percentage Points of the Normal Distribution by Michael J. Wichura.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - mType
+
+        - data type.
+
+    *
+        - input
+
+        - random number input.
+
+
+
+.. rubric:: Returns:
+
+normal random number.
+
+.. _doxid-namespacexf_1_1fintech_1a17d4fc1e8830949346b7e5b6ada0dbe7:
+.. _cid-xf::fintech::inversecumulativenormalacklam:
+
+inverseCumulativeNormalAcklam
+-----------------------------
+
+
+Defined in <xf_fintech/rng.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <typename mType>
+	mType inverseCumulativeNormalAcklam (mType input)
+
+Inverse CumulativeNormal using Acklam's approximation to transform uniform random number to normal random number.
+
+Reference: Acklam's approximation: by Peter J. Acklam, University of Oslo, Statistics Division.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - mType
+
+        - data type.
+
+    *
+        - input
+
+        - input uniform random number
+
+
+
+.. rubric:: Returns:
+
+normal random number
+
+.. _doxid-namespacexf_1_1fintech_1aa9da5b74d041ef1a41f163742b5a7dfa:
+.. _cid-xf::fintech::trsvcore:
+
+trsvCore
+--------
+
+
+Defined in <xf_fintech/trsv.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    class T,
+	    unsigned int N,
+	    unsigned int logN,
+	    unsigned int NCU
+	    >
+	void trsvCore (
+	    T inlow [N],
+	    T indiag [N],
+	    T inup [N],
+	    T inrhs [N]
+	    )
+
+Tridiagonal linear solver It solves tridiagonal linear system of equations by eliminating upper and lower diagonals To get result (U) divide each element of *inrhs* by coresponding element of main diagonal *indiag* .
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - T
+
+        - data type
+
+    *
+        - N
+
+        - matrix size
+
+    *
+        - logN
+
+        - log2(N)(TOREMOVE)
+
+    *
+        - NCU
+
+        - number of compute units
+
+    *
+        - inlow
+
+        - lower diagonal
+
+    *
+        - indiag
+
+        - diagonal
+
+    *
+        - inup
+
+        - upper diagonal
+
+    *
+        - inrhs
+
+        - right-hand side
+

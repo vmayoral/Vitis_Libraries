@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Methods &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Methods" href="heston_solver.html" />
+    <link rel="prev" title="Methods" href="heston_class.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guide_L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../L3.html">L3 Overlay User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../framework/getting_started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../framework/device_enumeration.html">Device Enumeration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../framework/running_a_model.html">Running a Model</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../models.html">Available Models</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../BinomialTree/binomialtree.html">Binomial Tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CFBlackScholes/cfblackscholes.html">Closed Form Black Scholes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../HCF/hcf.html">Heston Closed Form (HCF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../M76/m76.html">Merton 76 (Jump Diffusion)</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="heston_lib.html">Heston FD</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="heston_lib.html#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="heston_lib.html#xlnxheston-class">XLNXHeston Class</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="heston_lib.html#xlnxhestonmodelparameters-class">XLNXHestonModelParameters Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="heston_lib.html#xlnxhestonsolverparameters-class">XLNXHestonSolverParameters Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="heston_lib.html#xlnxhestonpriceram-class">XLNXHestonPriceRam Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="heston_lib.html#xlnxhestonexecutiontime-class">XLNXHestonExecutionTime Class</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../MCAmerican/mcamerican.html">Monte-Carlo American</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MCEuropean/mceuropean.html">Monte-Carlo European</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MCEuropeanDJE/mceuropeandje.html">Monte-Carlo European Dow Jones Engine (DJE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../framework/framework_classes.html">Framework Classes</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../L3.html">L3 Overlay User Guide</a> &raquo;</li>
+        
+          <li><a href="../models.html">Available Models</a> &raquo;</li>
+        
+          <li><a href="heston_lib.html">Heston FD</a> &raquo;</li>
+        
+      <li>Methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/guide_L3/models/HestonFD/heston_model.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<blockquote>
+<div>double kappa,
+double sig,
+double rho,
+double eta,
+double rd,
+double rf
+)</div></blockquote>
+<p>Heston FD Model Class Parameters.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>K</td>
+<td>the strike price.</td>
+</tr>
+<tr class="row-even"><td>S</td>
+<td>the stock price.</td>
+</tr>
+<tr class="row-odd"><td>V</td>
+<td>volatility of stock.</td>
+</tr>
+<tr class="row-even"><td>T</td>
+<td>time to maturity.</td>
+</tr>
+<tr class="row-odd"><td>kappa</td>
+<td>mean reversion rate.</td>
+</tr>
+<tr class="row-even"><td>sig</td>
+<td>the volatility of volatility.</td>
+</tr>
+<tr class="row-odd"><td>rho</td>
+<td>the correlation coefficient between price and variance.</td>
+</tr>
+<tr class="row-even"><td>eta</td>
+<td>long run average price.</td>
+</tr>
+<tr class="row-odd"><td>rd</td>
+<td>risk-free domestic interest rate.</td>
+</tr>
+<tr class="row-even"><td>rf</td>
+<td>risk-free international interest rate.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="methods">
+<h1>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="get-k">
+<span id="cid-xf-fintech-hestonfdmodelparameters-get-k"></span><span id="doxid-classxf-1-1fintech-1-1-heston-f-d-model-parameters-1ae7b7ae75cad898e95d5dbdd944b54915"></span><h2>Get_K<a class="headerlink" href="#get-k" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="defined-in-xf-fintech-heston-model-parameters-hpp">
+<h3>Defined in &lt;xf_fintech_heston_model_parameters.hpp&gt;<a class="headerlink" href="#defined-in-xf-fintech-heston-model-parameters-hpp" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">double</span> <span class="n">Get_K</span> <span class="p">()</span>
+</pre>
+<p>get the strike price set</p>
+</div>
+</div>
+<div class="section" id="get-s">
+<span id="cid-xf-fintech-hestonfdmodelparameters-get-s"></span><span id="doxid-classxf-1-1fintech-1-1-heston-f-d-model-parameters-1a33a76fbb78c7ab19b7f5113c68816e1c"></span><h2>Get_S<a class="headerlink" href="#get-s" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Defined in &lt;xf_fintech_heston_model_parameters.hpp&gt;<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">double</span> <span class="n">Get_S</span> <span class="p">()</span>
+</pre>
+<p>get the stock price set</p>
+</div>
+</div>
+<div class="section" id="get-v">
+<span id="cid-xf-fintech-hestonfdmodelparameters-get-v"></span><span id="doxid-classxf-1-1fintech-1-1-heston-f-d-model-parameters-1a6b9109a9fea33f0f6a379ee258e64f8f"></span><h2>Get_V<a class="headerlink" href="#get-v" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>Defined in &lt;xf_fintech_heston_model_parameters.hpp&gt;<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">double</span> <span class="n">Get_V</span> <span class="p">()</span>
+</pre>
+<p>get the volatility of stock set</p>
+</div>
+</div>
+<div class="section" id="get-t">
+<span id="cid-xf-fintech-hestonfdmodelparameters-get-t"></span><span id="doxid-classxf-1-1fintech-1-1-heston-f-d-model-parameters-1a823c20f048e097396c4606f13d02b620"></span><h2>Get_T<a class="headerlink" href="#get-t" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>Defined in &lt;xf_fintech_heston_model_parameters.hpp&gt;<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">double</span> <span class="n">Get_T</span> <span class="p">()</span>
+</pre>
+<p>get the volatility of time to maturity set</p>
+</div>
+</div>
+<div class="section" id="get-kappa">
+<span id="cid-xf-fintech-hestonfdmodelparameters-get-kappa"></span><span id="doxid-classxf-1-1fintech-1-1-heston-f-d-model-parameters-1a33accc834a627077e72d1313a0b33482"></span><h2>Get_kappa<a class="headerlink" href="#get-kappa" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>Defined in &lt;xf_fintech_heston_model_parameters.hpp&gt;<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">double</span> <span class="n">Get_kappa</span> <span class="p">()</span>
+</pre>
+<p>get the mean reversion rate set</p>
+</div>
+</div>
+<div class="section" id="get-sig">
+<span id="cid-xf-fintech-hestonfdmodelparameters-get-sig"></span><span id="doxid-classxf-1-1fintech-1-1-heston-f-d-model-parameters-1a7f0761a5dd67fdd776050fb97c4d971b"></span><h2>Get_sig<a class="headerlink" href="#get-sig" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h3>Defined in &lt;xf_fintech_heston_model_parameters.hpp&gt;<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">double</span> <span class="n">Get_sig</span> <span class="p">()</span>
+</pre>
+<p>get the volatility of volatility set</p>
+</div>
+</div>
+<div class="section" id="get-rho">
+<span id="cid-xf-fintech-hestonfdmodelparameters-get-rho"></span><span id="doxid-classxf-1-1fintech-1-1-heston-f-d-model-parameters-1a7d3059e157b2cf7f25df3435ff2070ac"></span><h2>Get_rho<a class="headerlink" href="#get-rho" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3>Defined in &lt;xf_fintech_heston_model_parameters.hpp&gt;<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">double</span> <span class="n">Get_rho</span> <span class="p">()</span>
+</pre>
+<p>get the correlation coefficient between price and variance set</p>
+</div>
+</div>
+<div class="section" id="get-eta">
+<span id="cid-xf-fintech-hestonfdmodelparameters-get-eta"></span><span id="doxid-classxf-1-1fintech-1-1-heston-f-d-model-parameters-1ab3f2f83693afb2a70b3f3f44e0796506"></span><h2>Get_eta<a class="headerlink" href="#get-eta" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3>Defined in &lt;xf_fintech_heston_model_parameters.hpp&gt;<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">double</span> <span class="n">Get_eta</span> <span class="p">()</span>
+</pre>
+<p>get the long run average price set</p>
+</div>
+</div>
+<div class="section" id="get-rd">
+<span id="cid-xf-fintech-hestonfdmodelparameters-get-rd"></span><span id="doxid-classxf-1-1fintech-1-1-heston-f-d-model-parameters-1aabad06bb73e6458d17f45b0dc0745239"></span><h2>Get_rd<a class="headerlink" href="#get-rd" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>Defined in &lt;xf_fintech_heston_model_parameters.hpp&gt;<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">double</span> <span class="n">Get_rd</span> <span class="p">()</span>
+</pre>
+<p>get the risk-free domestic interest rate set</p>
+</div>
+</div>
+<div class="section" id="get-rf">
+<span id="cid-xf-fintech-hestonfdmodelparameters-get-rf"></span><span id="doxid-classxf-1-1fintech-1-1-heston-f-d-model-parameters-1abd7af186beda7a3c67e75915cf583678"></span><h2>Get_rf<a class="headerlink" href="#get-rf" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h3>Defined in &lt;xf_fintech_heston_model_parameters.hpp&gt;<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">double</span> <span class="n">Get_rf</span> <span class="p">()</span>
+</pre>
+<p>get the risk-free international interest rate set</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="heston_solver.html" class="btn btn-neutral float-right" title="Methods" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="heston_class.html" class="btn btn-neutral" title="Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

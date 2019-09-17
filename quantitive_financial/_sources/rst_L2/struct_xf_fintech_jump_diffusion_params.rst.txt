@@ -1,0 +1,101 @@
+.. index:: pair: struct; xf::fintech::jump_diffusion_params
+.. _doxid-structxf_1_1fintech_1_1jump__diffusion__params:
+.. _cid-xf::fintech::jump_diffusion_params:
+
+template struct xf::fintech::jump_diffusion_params
+==================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <m76_engine_defn.hpp>
+
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - DT
+
+        - Data Type used for this structure
+
+    *
+        - S
+
+        - current stock price
+
+    *
+        - K
+
+        - strike price
+
+    *
+        - r
+
+        - risk free interest rate
+
+    *
+        - sigma
+
+        - diffusion volatility
+
+    *
+        - T
+
+        - time to maturity (years)
+
+    *
+        - kappa
+
+        - mean of jump
+
+    *
+        - lambda
+
+        - jump intensity
+
+    *
+        - delta
+
+        - standard deviation of log-normal jump process
+
+.. _doxid-structxf_1_1fintech_1_1jump__diffusion__params_1a224cdc4bec2bdf40cd2d08f0f78c478b:
+.. _cid-xf::fintech::jump_diffusion_params::s:
+.. _doxid-structxf_1_1fintech_1_1jump__diffusion__params_1a15fa535e399012882e00ea8fd4db2190:
+.. _cid-xf::fintech::jump_diffusion_params::k:
+.. _doxid-structxf_1_1fintech_1_1jump__diffusion__params_1afc3b9bd33e2fad02ab3c0dbf7c9bd8a6:
+.. _cid-xf::fintech::jump_diffusion_params::r:
+.. _doxid-structxf_1_1fintech_1_1jump__diffusion__params_1aab5e1e0b27f57ef783800602894a3104:
+.. _cid-xf::fintech::jump_diffusion_params::sigma:
+.. _doxid-structxf_1_1fintech_1_1jump__diffusion__params_1aed887cbf61c10bd17d5de38d94f460b5:
+.. _cid-xf::fintech::jump_diffusion_params::t:
+.. _doxid-structxf_1_1fintech_1_1jump__diffusion__params_1a5afd10b02401d141c06687043a9568d0:
+.. _cid-xf::fintech::jump_diffusion_params::lambda:
+.. _doxid-structxf_1_1fintech_1_1jump__diffusion__params_1a4468e2709772305dee2e64c25ee996d4:
+.. _cid-xf::fintech::jump_diffusion_params::kappa:
+.. _doxid-structxf_1_1fintech_1_1jump__diffusion__params_1a2ab2667d63b14a5371a2ea7f90acb431:
+.. _cid-xf::fintech::jump_diffusion_params::delta:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <typename DT>
+	struct jump_diffusion_params
+
+	// fields
+
+	DT S
+	DT K
+	DT r
+	DT sigma
+	DT T
+	DT lambda
+	DT kappa
+	DT delta
+

@@ -1,0 +1,106 @@
+.. index:: pair: class; xf::fintech::CFBlackScholesMerton
+.. _doxid-classxf_1_1fintech_1_1_c_f_black_scholes_merton:
+.. _cid-xf::fintech::cfblackscholesmerton:
+
+class xf::fintech::CFBlackScholesMerton
+=======================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <xf_fintech_cf_black_scholes_merton.hpp>
+
+
+Overview
+~~~~~~~~
+
+This class implements the Closed Form Black Scholes Merton model. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_c_f_black_scholes_merton>`
+
+.. _doxid-classxf_1_1fintech_1_1_c_f_black_scholes_merton_1ab293a1a062d854760af10da70cf7cbdf:
+.. _cid-xf::fintech::cfblackscholesmerton::dividendyield:
+.. _doxid-classxf_1_1fintech_1_1_c_f_black_scholes_merton_1a673ae7590787f2a9e90c11dbb49522cb:
+.. _cid-xf::fintech::cfblackscholesmerton::cfblackscholesmerton:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	class CFBlackScholesMerton: public :ref:`xf::fintech::CFBlackScholes<doxid-classxf_1_1fintech_1_1_c_f_black_scholes>`
+
+	// fields
+
+	:ref:`KDataType<doxid-xf__fintech__mc__american__kernel__constants_8hpp_1ac35cd38c2384dfb33a7bb65a09c40744>`* dividendYield
+
+	// construction
+
+	CFBlackScholesMerton (unsigned int maxAssetsPerRun)
+
+Inherited Members
+-----------------
+
+.. ref-code-block:: cpp
+	:class: overview-inherited-code-block
+
+	// typedefs
+
+	typedef float :ref:`KDataType<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1a7b1bd5dea73a630f481470ab0670304d>`
+
+	// fields
+
+	:ref:`KDataType<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1a7b1bd5dea73a630f481470ab0670304d>`* :ref:`stockPrice<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1a512c84f9dbd2a1914d135457b1610aef>`
+	:ref:`KDataType<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1a7b1bd5dea73a630f481470ab0670304d>`* :ref:`strikePrice<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1ada4397afc163448cd5dcb830f9f591b1>`
+	:ref:`KDataType<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1a7b1bd5dea73a630f481470ab0670304d>`* :ref:`volatility<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1a88c3fd30357f1b022ffcd4ad87e38f0c>`
+	:ref:`KDataType<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1a7b1bd5dea73a630f481470ab0670304d>`* :ref:`riskFreeRate<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1a8617a48da3dd35913e25403ca7443650>`
+	:ref:`KDataType<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1a7b1bd5dea73a630f481470ab0670304d>`* :ref:`timeToMaturity<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1a70adac48a01edae68ae60c20ff8f697a>`
+	:ref:`KDataType<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1a7b1bd5dea73a630f481470ab0670304d>`* :ref:`optionPrice<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1a86f1e45210662c8bbe5dc77c20b70da6>`
+	:ref:`KDataType<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1a7b1bd5dea73a630f481470ab0670304d>`* :ref:`delta<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1ae25c078d2bc6a8db40a0f28742929f37>`
+	:ref:`KDataType<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1a7b1bd5dea73a630f481470ab0670304d>`* :ref:`gamma<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1aca8c4d9b9ad2c7a006c8ba4d65694208>`
+	:ref:`KDataType<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1a7b1bd5dea73a630f481470ab0670304d>`* :ref:`vega<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1a0b24900f047a09ddb1417f774c5ef3aa>`
+	:ref:`KDataType<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1a7b1bd5dea73a630f481470ab0670304d>`* :ref:`theta<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1ae108a1bdf7d5233c8bbb9f94aa3387a5>`
+	:ref:`KDataType<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1a7b1bd5dea73a630f481470ab0670304d>`* :ref:`rho<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_1a610c1db63c4d6bccdd959ce3147dacec>`
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1fintech_1_1_c_f_black_scholes_merton_1a398241652b606c75b011c5ae99073e17:
+.. _cid-xf::fintech::cfblackscholesmerton::run:
+
+run
+---
+
+
+Defined in <models/xf_fintech_cf_black_scholes_merton.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int run (
+	    :ref:`OptionType<doxid-namespacexf_1_1fintech_1a0186ca825e97c1d630a3faa85a70ccb7>` optionType,
+	    unsigned int numAssets
+	    )
+
+This method is used to begin processing the asset data that is in the input buffers. If this function returns successfully, calculated results are available in the output buffers.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - optionType
+
+        - The option type of ALL the assets data
+
+    *
+        - numAssets
+
+        - The number of assets to process.
+

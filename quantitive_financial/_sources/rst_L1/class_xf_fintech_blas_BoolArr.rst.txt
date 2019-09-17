@@ -1,0 +1,41 @@
+.. index:: pair: class; xf::fintech::blas::BoolArr
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_bool_arr:
+.. _cid-xf::fintech::blas::boolarr:
+
+template class xf::fintech::blas::BoolArr
+=========================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <blas_types.hpp>
+
+
+
+
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_bool_arr_1a6fe1d350fd4beb15a8d8bf0515839f01:
+.. _cid-xf::fintech::blas::boolarr::boolarr:
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_bool_arr_1a2c8dd55f410d1ef8dbff9d1864c8fe46:
+.. _cid-xf::fintech::blas::boolarr::boolarr-2:
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_bool_arr_1a78b3ff1a4e6a1ffedbd1981b2b5a1bf2:
+.. _cid-xf::fintech::blas::boolarr::operator:
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_bool_arr_1a0cb9b12d6e242e1cbe601d6a5796b2d8:
+.. _cid-xf::fintech::blas::boolarr::and:
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_bool_arr_1a49e4c00fbf431b7cd7f0cfc4e3403907:
+.. _cid-xf::fintech::blas::boolarr::or:
+.. _doxid-classxf_1_1fintech_1_1blas_1_1_bool_arr_1a2612dd41e0a43f644d0836ce52fd0bad:
+.. _cid-xf::fintech::blas::boolarr::reset:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <unsigned int W>
+	class BoolArr
+
+	// construction
+
+	BoolArr ()
+	BoolArr (bool p_Init)
+
