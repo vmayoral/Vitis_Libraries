@@ -1,0 +1,2547 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>xfOpenCV Library User Guide &mdash; xfOpenCV v1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="xfOpenCV Library API Reference" href="api-reference.html" />
+    <link rel="prev" title="Vitis Vision Library" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> xfOpenCV
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">xfOpenCV Library User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-features">Basic Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#xfopencv-kernel-on-the-revision-platform">xfOpenCV Kernel on the reVISION Platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#xfopencv-library-contents">xfOpenCV Library Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started-with-sdsoc">Getting Started with SDSoC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#migrating-hls-video-library-to-xfopencv">Migrating HLS Video Library to xfOpenCV</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#infrastructure-functions-and-classes">Infrastructure Functions and Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#funtions">Funtions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xf-window">xf::window</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xf-linebuffer">xf::LineBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#video-processing-functions">Video Processing Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-xfopencv-library">Using the xfOpenCV Library</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#downloading-and-using-xfopencv-libraries-from-sdx-gui">Downloading and Using xfOpenCV Libraries from SDx GUI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#building-a-project-using-the-example-makefiles-on-linux">Building a Project Using the Example Makefiles on Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-revision-samples-on-the-revision-platform">Using reVISION Samples on the reVISION Platform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-the-xfopencv-library-on-a-non-revision-platform">Using the xfOpenCV Library on a non-reVISION Platform</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#changing-the-hardware-kernel-configuration">Changing the Hardware Kernel Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-xfopencv-library-functions-on-hardware">Using the xfOpenCV Library Functions on Hardware</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#design-examples-using-xfopencv-library">Design Examples Using xfOpenCV Library</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#iterative-pyramidal-dense-optical-flow">Iterative Pyramidal Dense Optical Flow</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pyrof-hw">pyrof_hw()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyr-dense-optical-flow-pyr-down-accel">pyr_dense_optical_flow_pyr_down_accel()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#corner-tracking-using-sparse-optical-flow">Corner Tracking Using Sparse Optical Flow</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cornerupdate">cornerUpdate()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cornersimgtolist">cornersImgToList()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cornertracker">cornerTracker()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#color-detection">Color Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#difference-of-gaussian-filter">Difference of Gaussian Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stereo-vision-pipeline">Stereo Vision Pipeline</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html">xfOpenCV Library API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">xfOpenCV</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>xfOpenCV Library User Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/overview.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="xfopencv-library-user-guide">
+<span id="xfopencvlibug"></span><h1>xfOpenCV Library User Guide<a class="headerlink" href="#xfopencv-library-user-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<span id="id1"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This document describes the FPGA device optimized xfOpenCV library,
+called the Xilinx® xfOpenCV library and is intended for application
+developers using Zynq®-7000 SoC and Zynq® UltraScale+™ MPSoC and PCIE
+based (Virtex and U200 …) devices. xfOpenCV library has been designed
+to work in the SDx™ development environment, and provides a software
+interface for computer vision functions accelerated on an FPGA device.
+xfOpenCV library functions are mostly similar in functionality to their
+OpenCV equivalent. Any deviations, if present, are documented.</p>
+<p>Note: For more information on the xfOpenCV library prerequisites, see
+the Prerequisites &lt;getting-started-with-sdsoc.html#gyt1504034261161&gt;__. To
+familiarize yourself with the steps required to use the xfOpenCV library
+functions, see the Using the <a class="reference external" href="getting-started-with-sdsoc.html">xfOpenCV
+Library</a>.</p>
+<div class="section" id="basic-features">
+<span id="id2"></span><h3>Basic Features<a class="headerlink" href="#basic-features" title="Permalink to this headline">¶</a></h3>
+<p>All xfOpenCV library functions follow a common format. The following
+properties hold true for all the functions.</p>
+<ul class="simple">
+<li>All the functions are designed as templates and all arguments that
+are images, must be provided as <code class="docutils literal notranslate"><span class="pre">xf::Mat</span></code>.</li>
+<li>All functions are defined in the <code class="docutils literal notranslate"><span class="pre">xf</span></code> namespace.</li>
+<li>Some of the major template arguments are:<ul>
+<li>Maximum size of the image to be processed</li>
+<li>Datatype defining the properties of each pixel</li>
+<li>Number of pixels to be processed per clock cycle</li>
+<li>Other compile-time arguments relevent to the functionality.</li>
+</ul>
+</li>
+</ul>
+<p>The xfOpenCV library contains enumerated datatypes which enables you to
+configure <code class="docutils literal notranslate"><span class="pre">xf::Mat</span></code>. For more details on <code class="docutils literal notranslate"><span class="pre">xf::Mat</span></code>, see the <a class="reference external" href="api-reference.html">xf::Mat
+Image Container Class</a>.</p>
+</div>
+<div class="section" id="xfopencv-kernel-on-the-revision-platform">
+<span id="xfopencv-kernel"></span><h3>xfOpenCV Kernel on the reVISION Platform<a class="headerlink" href="#xfopencv-kernel-on-the-revision-platform" title="Permalink to this headline">¶</a></h3>
+<p>The xfOpenCV library is designed to be used with the SDx development
+environment. xfOpenCV kernels are evaluated on the reVISION platform.</p>
+<p>The following steps describe the general flow of an example design,
+where both the input and the output are image files.</p>
+<ol class="arabic simple">
+<li>Read the image using <code class="docutils literal notranslate"><span class="pre">cv::imread()</span></code>.</li>
+<li>Copy the data to <code class="docutils literal notranslate"><span class="pre">xf::Mat</span></code>.</li>
+<li>Call the processing function(s) in xfOpenCV.</li>
+<li>Copy the data from <code class="docutils literal notranslate"><span class="pre">xf::Mat</span></code> to <code class="docutils literal notranslate"><span class="pre">cv::Mat</span></code>.</li>
+<li>Write the output to image using <code class="docutils literal notranslate"><span class="pre">cv::imwrite()</span></code>.</li>
+</ol>
+<p>The entire code is written as the host code for the pipeline , from
+which all the calls to xfOpenCV functions are moved to hardware.
+Functions from xfOpenCV are used to read and write images in the memory.
+The image containers for xfOpenCV library functions are <code class="docutils literal notranslate"><span class="pre">xf::Mat</span></code>
+objects. For more information, see the <a class="reference external" href="api-reference.html">xf::Mat Image Container
+Class</a>.</p>
+<p>The reVISION platform supports both live and file input-output (I/O)
+modes. For more details, see the <a class="reference external" href="http://www.wiki.xilinx.com/reVISION+Getting+Started+Guide">reVISION Getting Started
+Guide</a>.</p>
+<ul class="simple">
+<li>File I/O mode enables the controller to transfer images from SD Card
+to the hardware kernel. The following steps describe the file I/O
+mode.<ol class="arabic">
+<li>Processing system (PS) reads the image frame from the SD Card and
+stores it in the DRAM.</li>
+<li>The xfOpenCV kernel reads the image from the DRAM, processes it
+and stores the output back in the DRAM memory.</li>
+<li>The PS reads the output image frame from the DRAM and writes it
+back to the SD Card.</li>
+</ol>
+</li>
+<li>Live I/O mode enables streaming frames into the platform, processing
+frames with the xfOpenCV kernel, and streaming out the frames through
+the appropriate interface. The following steps describe the live I/O
+mode.<ol class="arabic">
+<li>Video capture IPs receive a frame and store it in the DRAM.</li>
+<li>The xfOpenCV kernel fetches the image from the DRAM, processes the
+image, and stores the output in the DRAM.</li>
+<li>Display IPs read the output frame from the DRAM and transmits the
+frame through the appropriate display interface.</li>
+</ol>
+</li>
+</ul>
+<p>Following figure shows the reVISION platform with the xfOpenCV kernel
+block:</p>
+<div class="image figure" id="chg1504034262720-image-vxy-pqn-h1b">
+<img alt="" src="_images/asl1554997006054.png" />
+</div>
+<p>Note: For more information on the PS-PL interfaces and PL-DDR
+interfaces, see the Zynq UltraScale+ Device Technical Reference Manual
+(<a class="reference external" href="https://www.xilinx.com/cgi-bin/docs/ndoc?t=user_guides;d=ug1085-zynq-ultrascale-trm.pdf">UG1085</a>).</p>
+</div>
+<div class="section" id="xfopencv-library-contents">
+<span id="xfopencv-lib-contents"></span><h3>xfOpenCV Library Contents<a class="headerlink" href="#xfopencv-library-contents" title="Permalink to this headline">¶</a></h3>
+<p>The following table lists the contents of the xfOpenCV library.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Folder</th>
+<th class="head">Details</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>include</td>
+<td>Contains the header files
+required by the library.</td>
+</tr>
+<tr class="row-odd"><td>include/common</td>
+<td>Contains the common library
+infrastructure headers, such as
+types specific to the library.</td>
+</tr>
+<tr class="row-even"><td>include/core</td>
+<td>Contains the core library
+functionality headers, such as
+the <code class="docutils literal notranslate"><span class="pre">math</span></code> functions.</td>
+</tr>
+<tr class="row-odd"><td>include/features</td>
+<td>Contains the feature extraction
+kernel function definitions. For
+example, <code class="docutils literal notranslate"><span class="pre">Harris</span></code>.</td>
+</tr>
+<tr class="row-even"><td>include/imgproc</td>
+<td>Contains all the kernel function
+definitions, except the ones
+available in the features folder.</td>
+</tr>
+<tr class="row-odd"><td>include/video</td>
+<td>Contains all the kernel function
+definitions, except the ones
+available in the features and
+imgproc folder.</td>
+</tr>
+<tr class="row-even"><td>examples</td>
+<td>Contains the sample test bench
+code to facilitate running unit
+tests. The examples/ folder
+contains the folders with
+algorithm names. Each algorithm
+folder contains host files, .json
+file, and data folder. For more
+details on how to use the
+xfOpenCV library, see xfOpenCV
+Kernel on the reVISION
+Platform &lt;overview.html#c
+hg1504034262720&gt;.</td>
+</tr>
+<tr class="row-odd"><td>examples</td>
+<td>Contains the sample test bench
+code for 24 functions, which
+shows how to use xfOpenCV library
+in SDAccel™ environment.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="getting-started-with-sdsoc">
+<span id="ariaid-title1"></span><h2>Getting Started with SDSoC<a class="headerlink" href="#getting-started-with-sdsoc" title="Permalink to this headline">¶</a></h2>
+<p>This chapter provides the information you need to bring up your design
+using the xfOpenCV library functions.</p>
+<div class="section" id="prerequisites">
+<span id="ariaid-title2"></span><h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
+<p>This section lists the prerequisites for using the xfOpenCV library
+functions on ZCU104 based platforms. The methodology holds true for
+ZC702 and ZC706 reVISION platforms as well.</p>
+<ul class="simple">
+<li>Download and install the SDx development environment according to the
+directions provided in SDSoC Environments Release Notes,
+Installation, and Licensing Guide
+(<a class="reference external" href="https://www.xilinx.com/cgi-bin/docs/rdoc?v=2019.1;d=ug1294-sdsoc-rnil.pdf">UG1294</a>).
+Before launching the SDx development environment on Linux, set the
+<code class="docutils literal notranslate"><span class="pre">$SYSROOT</span></code> environment variable to point to the Linux root file
+system if using terminal to build project, delivered with the
+reVISION platform. For example:</li>
+<li>Download the Zynq® UltraScale+™ MPSoC Embedded Vision Platform zip
+file and extract its contents. Create the SDx development environment
+workspace in the zcu104_rv_ss folder of the extracted design file
+hierarchy. For more details, see the <a class="reference external" href="http://www.wiki.xilinx.com/reVISION+Getting+Started+Guide">reVISION Getting Started
+Guide</a>.</li>
+<li>Set up the ZCU104 evaluation board. For more details, see the
+<a class="reference external" href="http://www.wiki.xilinx.com/reVISION+Getting+Started+Guide">reVISION Getting Started
+Guide</a>.</li>
+<li>Download the xfOpenCV library. This library is made available through
+github. Run the following <code class="docutils literal notranslate"><span class="pre">git</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">clone</span></code> command to clone
+the xfOpenCV repository to your local disk:</li>
+</ul>
+</div>
+<div class="section" id="migrating-hls-video-library-to-xfopencv">
+<span id="ariaid-title3"></span><h3>Migrating HLS Video Library to xfOpenCV<a class="headerlink" href="#migrating-hls-video-library-to-xfopencv" title="Permalink to this headline">¶</a></h3>
+<p>The HLS video library will soon be deprecated. All the functions and
+most of the infrastructure available in HLS video library are now
+available in xfOpenCV with their names changed and some modifications.
+These HLS video library functions ported to xfOpenCV support SDSoc build
+flow also.</p>
+<p>This section provides the details on using the C++ video processing
+functions and the infrastructure present in HLS video library.</p>
+<div class="section" id="infrastructure-functions-and-classes">
+<h4>Infrastructure Functions and Classes<a class="headerlink" href="#infrastructure-functions-and-classes" title="Permalink to this headline">¶</a></h4>
+<p>All the functions imported from HLS video library now take xf::Mat (in
+sync with xfOpenCV library) to represent image data instead of hls::Mat.
+The main difference between these two is that the hls::Mat uses
+hls::stream to store the data whereas xf::Mat uses a pointer. Therefore,
+hls:: Mat cannot be exactly replaced with xf::Mat for migrating.</p>
+<p>Below table summarizes the differences between member functions of
+hls::Mat to xf::Mat.</p>
+<table border="1" class="docutils" id="id25">
+<caption><span class="caption-text">Table 1. Infrastructure Functions and Classes</span><a class="headerlink" href="#id25" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Member Function</th>
+<th class="head">hls::Mat (HLS Video
+lib)</th>
+<th class="head">Xf::Mat (xfOpenCV
+lib)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>channels()</td>
+<td>Returns the number
+of channels</td>
+<td>Returns the number
+of channels</td>
+</tr>
+<tr class="row-odd"><td>type()</td>
+<td>Returns the enum
+value of pixel type</td>
+<td>Returns the enum
+value of pixel type</td>
+</tr>
+<tr class="row-even"><td>depth()</td>
+<td>Returns the enum
+value of pixel type</td>
+<td>Returns the depth of
+pixel including
+channels</td>
+</tr>
+<tr class="row-odd"><td>read()</td>
+<td>Readout a value and
+return it as a
+scalar from stream</td>
+<td>Readout a value from
+a given location and
+return it as a
+packed (for
+multi-pixel/clock)
+value.</td>
+</tr>
+<tr class="row-even"><td>operator &gt;&gt;</td>
+<td>Similar to read()</td>
+<td>Not available in
+xfOpenCV</td>
+</tr>
+<tr class="row-odd"><td>operator &lt;&lt;</td>
+<td>Similar to write()</td>
+<td>Not available in
+xfOpenCV</td>
+</tr>
+<tr class="row-even"><td>Write()</td>
+<td>Write a scalar value
+into the stream</td>
+<td>Writes a packed (for
+multi-pixel/clock)
+value into the given
+location.</td>
+</tr>
+</tbody>
+</table>
+<p>Infrastructure files available in HLS Video Library hls_video_core.h,
+hls_video_mem.h, hls_video_types.h are moved to xf_video_core.h,
+xf_video_mem.h, xf_video_types.h in xfOpenCV Library and
+hls_video_imgbase.h is deprecated. Code inside these files unchanged
+except that these are now under xf::namespace.</p>
+</div>
+<div class="section" id="classes">
+<h4>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Memory Window Buffer</dt>
+<dd>hls::window is now xf::window. No change in the implementation,
+except the namespace change. This is located in “xf_video_mem.h”
+file.</dd>
+<dt>Memory Line Buffer</dt>
+<dd>hls::LineBuffer is now xf::LineBuffer. No difference between the two,
+except xf::LineBuffer has extra template arguments for inferring
+different types of RAM structures, for the storage structure used.
+Default storage type is “RAM_S2P_BRAM” with RESHAPE_FACTOR=1.
+Complete description can be found here
+<a class="reference external" href="getting-started-with-sdsoc.html#ndi1542884914646">xf::LineBuffer</a>. This is
+located in xf_video_mem.h file.</dd>
+</dl>
+</div>
+<div class="section" id="funtions">
+<h4>Funtions<a class="headerlink" href="#funtions" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>OpenCV interface functions</dt>
+<dd>These functions covert image data of OpenCV Mat format to/from HLS
+AXI types. HLS Video Library had 14 interface functions, out of
+which, two functions are available in xfOpenCV Library:
+cvMat2AXIvideo and AXIvideo2cvMat located in “xf_axi.h” file. The
+rest are all deprecated.</dd>
+<dt>AXI4-Stream I/O Functions</dt>
+<dd>The I/O functions which convert hls::Mat to/from AXI4-Stream
+compatible data type (hls::stream) are hls::AXIvideo2Mat,
+hls::Mat2AXIvideo. These functions are now deprecated and added 2 new
+functions xf::AXIvideo2xfMat and xf:: xfMat2AXIvideo to facilitate
+the xf::Mat to/from conversion. To use these functions, the header
+file “xf_infra.h” must be included.</dd>
+</dl>
+</div>
+<div class="section" id="xf-window">
+<span id="ariaid-title4"></span><h4>xf::window<a class="headerlink" href="#xf-window" title="Permalink to this headline">¶</a></h4>
+<p>A template class to represent the 2D window buffer. It has three
+parameters to specify the number of rows, columns in window buffer and
+the pixel data type.</p>
+<div class="section" id="class-definition">
+<h5>Class definition<a class="headerlink" href="#class-definition" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="parameter-descriptions">
+<h5>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions" title="Permalink to this headline">¶</a></h5>
+<p>The following table lists the xf::Window class members and their
+descriptions.</p>
+<table border="1" class="docutils" id="id26">
+<caption><span class="caption-text">Table 2. Window Function Parameter Descriptions</span><a class="headerlink" href="#id26" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Val</td>
+<td>2-D array to hold the contents of buffer.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="member-function-description">
+<h5>Member Function Description<a class="headerlink" href="#member-function-description" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils" id="id27">
+<caption><span class="caption-text">Table 3. Member Function Description</span><a class="headerlink" href="#id27" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Function</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>shift_pixels_left()</td>
+<td>Shift the window left, that moves
+all stored data within the window
+right, leave the leftmost column
+(col = COLS-1) for inserting new
+data.</td>
+</tr>
+<tr class="row-odd"><td>shift_pixels_right()</td>
+<td>Shift the window right, that
+moves all stored data within the
+window left, leave the rightmost
+column (col = 0) for inserting
+new data.</td>
+</tr>
+<tr class="row-even"><td>shift_pixels_up()</td>
+<td>Shift the window up, that moves
+all stored data within the window
+down, leave the top row (row =
+ROWS-1) for inserting new data.</td>
+</tr>
+<tr class="row-odd"><td>shift_pixels_down()</td>
+<td>Shift the window down, that moves
+all stored data within the window
+up, leave the bottom row (row =
+0) for inserting new data.</td>
+</tr>
+<tr class="row-even"><td>insert_pixel(T value, int row,
+int col)</td>
+<td>Insert a new element value at
+location (row, column) of the
+window.</td>
+</tr>
+<tr class="row-odd"><td>insert_row(T value[COLS], int
+row)</td>
+<td>Inserts a set of values in any
+row of the window.</td>
+</tr>
+<tr class="row-even"><td>insert_top_row(T value[COLS])</td>
+<td>Inserts a set of values in the
+top row = 0 of the window.</td>
+</tr>
+<tr class="row-odd"><td>insert_bottom_row(T value[COLS])</td>
+<td>Inserts a set of values in the
+bottom row = ROWS-1 of the
+window.</td>
+</tr>
+<tr class="row-even"><td>insert_col(T value[ROWS], int
+col)</td>
+<td>Inserts a set of values in any
+column of the window.</td>
+</tr>
+<tr class="row-odd"><td>insert_left_col(T value[ROWS])</td>
+<td>Inserts a set of values in left
+column = 0 of the window.</td>
+</tr>
+<tr class="row-even"><td>insert_right_col(T value[ROWS])</td>
+<td>Inserts a set of values in right
+column = COLS-1 of the window.</td>
+</tr>
+<tr class="row-odd"><td>T&amp; getval(int row, int col)</td>
+<td>Returns the data value in the
+window at position (row,column).</td>
+</tr>
+<tr class="row-even"><td>T&amp; operator ()(int row, int col)</td>
+<td>Returns the data value in the
+window at position (row,column).</td>
+</tr>
+<tr class="row-odd"><td>restore_val()</td>
+<td>Restore the contents of window
+buffer to another array.</td>
+</tr>
+<tr class="row-even"><td>window_print()</td>
+<td>Print all the data present in
+window buffer onto console.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="template-parameter-description">
+<h5>Template Parameter Description<a class="headerlink" href="#template-parameter-description" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils" id="id28">
+<caption><span class="caption-text">Table 4. Template Parameter Description</span><a class="headerlink" href="#id28" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ROWS</td>
+<td>Number of rows in the window buffer.</td>
+</tr>
+<tr class="row-odd"><td>COLS</td>
+<td>Number of columns in the window buffer.</td>
+</tr>
+<tr class="row-even"><td>T</td>
+<td>Data type of pixel in the window buffer.</td>
+</tr>
+</tbody>
+</table>
+<p>Sample code for window buffer declaration</p>
+</div>
+</div>
+<div class="section" id="xf-linebuffer">
+<span id="ariaid-title5"></span><h4>xf::LineBuffer<a class="headerlink" href="#xf-linebuffer" title="Permalink to this headline">¶</a></h4>
+<p>A template class to represent 2D line buffer. It has three parameters to
+specify the number of rows, columns in window buffer and the pixel data
+type.</p>
+<div class="section" id="class-definition-1">
+<span id="id3"></span><h5>Class definition<a class="headerlink" href="#class-definition-1" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="parameter-descriptions-1">
+<span id="id4"></span><h5>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions-1" title="Permalink to this headline">¶</a></h5>
+<p>The following table lists the xf::LineBuffer class members and their
+descriptions.</p>
+<table border="1" class="docutils" id="id29">
+<caption><span class="caption-text">Table 5. Line Buffer Function Parameter Descriptions</span><a class="headerlink" href="#id29" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Val</td>
+<td>2-D array to hold the contents of line buffer.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="member-functions-description">
+<h5>Member Functions Description<a class="headerlink" href="#member-functions-description" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils" id="id30">
+<caption><span class="caption-text">Table 6. Member Functions Description</span><a class="headerlink" href="#id30" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Function</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>shift_pixels_up(int col)</td>
+<td>Line buffer contents Shift up,
+new values will be placed in the
+bottom row=ROWS-1.</td>
+</tr>
+<tr class="row-odd"><td>shift_pixels_down(int col)</td>
+<td>Line buffer contents Shift down,
+new values will be placed in the
+top row=0.</td>
+</tr>
+<tr class="row-even"><td>insert_bottom_row(T value, int
+col)</td>
+<td>Inserts a new value in bottom
+row= ROWS-1 of the line buffer.</td>
+</tr>
+<tr class="row-odd"><td>insert_top_row(T value, int col)</td>
+<td>Inserts a new value in top row=0
+of the line buffer.</td>
+</tr>
+<tr class="row-even"><td>get_col(T value[ROWS], int col)</td>
+<td>Get a column value of the line
+buffer.</td>
+</tr>
+<tr class="row-odd"><td>T&amp; getval(int row, int col)</td>
+<td>Returns the data value in the
+line buffer at position (row,
+column).</td>
+</tr>
+<tr class="row-even"><td>T&amp; operator ()(int row, int col);</td>
+<td>Returns the data value in the
+line buffer at position (row,
+column).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="template-parameter-description-1">
+<span id="id5"></span><h5>Template Parameter Description<a class="headerlink" href="#template-parameter-description-1" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils" id="id31">
+<caption><span class="caption-text">Table 7. Template Parameter Description</span><a class="headerlink" href="#id31" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ROWS</td>
+<td>Number of rows in line buffer.</td>
+</tr>
+<tr class="row-odd"><td>COLS</td>
+<td>Number of columns in line buffer.</td>
+</tr>
+<tr class="row-even"><td>T</td>
+<td>Data type of pixel in line
+buffer.</td>
+</tr>
+<tr class="row-odd"><td>MEM_TYPE</td>
+<td>Type of storage element. It takes
+one of the following enumerated
+values: RAM_1P_BRAM, RAM_1P_URAM,
+RAM_2P_BRAM, RAM_2P_URAM,
+RAM_S2P_BRAM, RAM_S2P_URAM,
+RAM_T2P_BRAM, RAM_T2P_URAM.</td>
+</tr>
+<tr class="row-even"><td>RESHAPE_FACTOR</td>
+<td>Specifies the amount to divide an
+array.</td>
+</tr>
+</tbody>
+</table>
+<p>Sample code for line buffer declaration:</p>
+</div>
+</div>
+<div class="section" id="video-processing-functions">
+<span id="ariaid-title6"></span><h4>Video Processing Functions<a class="headerlink" href="#video-processing-functions" title="Permalink to this headline">¶</a></h4>
+<p>The following table summarizes the video processing functions ported
+from HLS Video Library into xfOpenCV Library along with the API
+modifications.</p>
+<p>Note: All the functions except Reduce can process N-pixels per clock
+where N is power of 2.</p>
+</div>
+</div>
+<div class="section" id="using-the-xfopencv-library">
+<span id="ariaid-title7"></span><h3>Using the xfOpenCV Library<a class="headerlink" href="#using-the-xfopencv-library" title="Permalink to this headline">¶</a></h3>
+<p>This section describes using the xfOpenCV library in the SDx development
+environment.</p>
+<p>Note: The instructions in this section assume that you have downloaded
+and installed all the required packages. For more information, see the
+<a class="reference external" href="getting-started-with-sdsoc.html#gyt1504034261161">Prerequisites</a>.</p>
+<p>include folder constitutes all the necessary components to build a
+Computer Vision or Image Processing pipeline using the library. The
+folders common and core contain the infrastructure that the library
+functions need for basic functions, Mat class, and macros. The library
+functions are categorized into three folders, features, video and
+imgproc based on the operation they perform. The names of the folders
+are self-explanatory.</p>
+<p>To work with the library functions, you need to include the path to the
+The xfOpenCV library is structured as shown in the following table. The
+include folder in the SDx project. You can include relevant header files
+for the library functions you will be working with after you source the
+include folder’s path to the compiler. For example, if you would like to
+work with Harris Corner Detector and Bilateral Filter, you must use the
+following lines in the host code:</p>
+<p>After the headers are included, you can work with the library functions
+as described in the <a class="reference external" href="api-reference.html#ycb1504034263746">xfOpenCV Library API
+Reference</a> using the examples
+in the examples folder as reference.</p>
+<p>The following table gives the name of the header file, including the
+folder name, which contains the library function.</p>
+<table border="1" class="docutils" id="id32">
+<caption><span class="caption-text">Table 9. xfOpenCV Library Contents</span><a class="headerlink" href="#id32" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Function Name</th>
+<th class="head">File Path in the include folder</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>xf::accumulate</td>
+<td>imgproc/xf_accumulate_image.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::accumulateSquare</td>
+<td>imgproc/xf_accumulate_squared.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::accumulateWeighted</td>
+<td>imgproc/xf_accumulate_weighted.hp
+p</td>
+</tr>
+<tr class="row-odd"><td>xf::absdiff, xf::add,
+xf::subtract, xf::bitwise_and,
+xf::bitwise_or, xf::bitwise_not,
+xf::bitwise_xor,xf::multiply
+,xf::Max, xf::Min, xf::compare,
+xf::zero, xf::addS, xf::SubS,
+xf::SubRS ,xf::compareS,
+xf::MaxS, xf::MinS, xf::set</td>
+<td>core/xf_arithm.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::addWeighted</td>
+<td>imgproc/xf_add_weighted.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::bilateralFilter</td>
+<td>imgproc/xf_histogram.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::boxFilter</td>
+<td>imgproc/xf_box_filter.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::boundingbox</td>
+<td>imgproc/xf_boundingbox.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::Canny</td>
+<td>imgproc/xf_canny.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::Colordetect</td>
+<td>imgproc/xf_colorthresholding.hpp,
+imgproc/xf_bgr2hsv.hpp,
+imgproc/xf_erosion.hpp,
+imgproc/xf_dilation.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::merge</td>
+<td>imgproc/xf_channel_combine.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::extractChannel</td>
+<td>imgproc/xf_channel_extract.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::convertTo</td>
+<td>imgproc/xf_convert_bitdepth.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::crop</td>
+<td>imgproc/xf_crop.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::filter2D</td>
+<td>imgproc/xf_custom_convolution.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::nv122iyuv, xf::nv122rgba,
+xf::nv122yuv4, xf::nv212iyuv,
+xf::nv212rgba, xf::nv212yuv4,
+xf::rgba2yuv4, xf::rgba2iyuv,
+xf::rgba2nv12, xf::rgba2nv21,
+xf::uyvy2iyuv, xf::uyvy2nv12,
+xf::uyvy2rgba, xf::yuyv2iyuv,
+xf::yuyv2nv12, xf::yuyv2rgba,
+xf::rgb2iyuv,xf::rgb2nv12,
+xf::rgb2nv21, xf::rgb2yuv4,
+xf::rgb2uyvy, xf::rgb2yuyv,
+xf::rgb2bgr, xf::bgr2uyvy,
+xf::bgr2yuyv, xf::bgr2rgb,
+xf::bgr2nv12, xf::bgr2nv21,
+xf::iyuv2nv12, xf::iyuv2rgba,
+xf::iyuv2rgb, xf::iyuv2yuv4,
+xf::nv122uyvy, xf::nv122yuyv,
+xf::nv122nv21, xf::nv212rgb,
+xf::nv212bgr, xf::nv212uyvy,
+xf::nv212yuyv, xf::nv212nv12,
+xf::uyvy2rgb, xf::uyvy2bgr,
+xf::uyvy2yuyv, xf::yuyv2rgb,
+xf::yuyv2bgr, xf::yuyv2uyvy,
+xf::rgb2gray, xf::bgr2gray,
+xf::gray2rgb, xf::gray2bgr,
+xf::rgb2xyz, xf::bgr2xyz…</td>
+<td>imgproc/xf_cvt_color.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::dilate</td>
+<td>imgproc/xf_dilation.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::demosaicing</td>
+<td>imgproc/xf_demosaicing.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::erode</td>
+<td>imgproc/xf_erosion.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::fast</td>
+<td>features/xf_fast.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::GaussianBlur</td>
+<td>imgproc/xf_gaussian_filter.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cornerHarris</td>
+<td>features/xf_harris.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::calcHist</td>
+<td>imgproc/xf_histogram.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::equalizeHist</td>
+<td>imgproc/xf_hist_equalize.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::HOGDescriptor</td>
+<td>imgproc/xf_hog_descriptor.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::Houghlines</td>
+<td>imgproc/xf_houghlines.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::inRange</td>
+<td>imgproc/xf_inrange.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::integralImage</td>
+<td>imgproc/xf_integral_image.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::densePyrOpticalFlow</td>
+<td>video/xf_pyr_dense_optical_flow.h
+pp</td>
+</tr>
+<tr class="row-odd"><td>xf::DenseNonPyrLKOpticalFlow</td>
+<td>video/xf_dense_npyr_optical_flow.
+hpp</td>
+</tr>
+<tr class="row-even"><td>xf::LUT</td>
+<td>imgproc/xf_lut.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::KalmanFilter</td>
+<td>video/xf_kalmanfilter.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::magnitude</td>
+<td>core/xf_magnitude.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::MeanShift</td>
+<td>imgproc/xf_mean_shift.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::meanStdDev</td>
+<td>core/xf_mean_stddev.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::medianBlur</td>
+<td>imgproc/xf_median_blur.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::minMaxLoc</td>
+<td>core/xf_min_max_loc.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::OtsuThreshold</td>
+<td>imgproc/xf_otsuthreshold.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::phase</td>
+<td>core/xf_phase.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::paintmask</td>
+<td>imgproc/xf_paintmask.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::pyrDown</td>
+<td>imgproc/xf_pyr_down.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::pyrUp</td>
+<td>imgproc/xf_pyr_up.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::reduce</td>
+<td>imgrpoc/xf_reduce.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::remap</td>
+<td>imgproc/xf_remap.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::resize</td>
+<td>imgproc/xf_resize.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::scale</td>
+<td>imgproc/xf_scale.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::Scharr</td>
+<td>imgproc/xf_scharr.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::SemiGlobalBM</td>
+<td>imgproc/xf_sgbm.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::Sobel</td>
+<td>imgproc/xf_sobel.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::StereoPipeline</td>
+<td>imgproc/xf_stereo_pipeline.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::sum</td>
+<td>imgproc/xf_sum.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::StereoBM</td>
+<td>imgproc/xf_stereoBM.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::SVM</td>
+<td>imgproc/xf_svm.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::Threshold</td>
+<td>imgproc/xf_threshold.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::warpTransform</td>
+<td>imgproc/xf_warp_transform.hpp</td>
+</tr>
+</tbody>
+</table>
+<p>The different ways to use the xfOpenCV library examples are listed
+below:</p>
+<ul class="simple">
+<li><a class="reference external" href="getting-started-with-sdsoc.html#oar1512131703913">Downloading and Using xfOpenCV Libraries from SDx
+GUI</a></li>
+<li><a class="reference external" href="getting-started-with-sdsoc.html#jqu1504034263390">Building a Project Using the Example Makefiles on
+Linux</a></li>
+<li><a class="reference external" href="getting-started-with-sdsoc.html#dlc1513202722577">Using reVISION Samples on the reVISION
+Platform</a></li>
+<li><a class="reference external" href="getting-started-with-sdsoc.html#ejq1506318012907">Using the xfOpenCV Library on a non-reVISION
+Platform</a></li>
+</ul>
+<div class="section" id="downloading-and-using-xfopencv-libraries-from-sdx-gui">
+<span id="ariaid-title8"></span><h4>Downloading and Using xfOpenCV Libraries from SDx GUI<a class="headerlink" href="#downloading-and-using-xfopencv-libraries-from-sdx-gui" title="Permalink to this headline">¶</a></h4>
+<p>You can download xfOpenCV directly from SDx GUI. To build a project
+using the example makefiles on the Linux platform:</p>
+<ol class="arabic">
+<li><p class="first">From SDx IDE, click Xilinx and select SDx Libraries.</p>
+</li>
+<li><p class="first">Click Download next to the Xilinx xfOpenCV Library.</p>
+<div class="image figure" id="oar1512131703913-image-icz-jrq-vcb">
+<a class="reference internal image-reference" href="_images/xqb1554997288515.png"><img alt="" src="_images/xqb1554997288515.png" style="width: 520px; height: 260px;" /></a>
+</div>
+<p>The library is downloaded into &lt;home
+directory&gt;/Xilinx/SDx/2019.1/xfopencv. After the library is
+downloaded, the entire set of examples in the library are available
+in the list of templates while creating a new project.</p>
+<p>Note: The library can be added to any project from the IDE menu
+options.</p>
+</li>
+<li><p class="first">To add a library to a project, from SDx IDE, click Xilinx and select
+SDx Libraries.</p>
+</li>
+<li><p class="first">Select Xilinx xfOpenCV Library and click Add to project. The dropdown
+menu consists of options of which project the libraries need to be
+included to.</p>
+</li>
+</ol>
+<p>All the headers as part of the include/ folder in xfOpenCV library would
+be copied into the local project directory as
+&lt;project_dir&gt;/libs/xfopencv/include. All the settings required for the
+libraries to be run are also set when this action is completed.</p>
+</div>
+<div class="section" id="building-a-project-using-the-example-makefiles-on-linux">
+<span id="ariaid-title9"></span><h4>Building a Project Using the Example Makefiles on Linux<a class="headerlink" href="#building-a-project-using-the-example-makefiles-on-linux" title="Permalink to this headline">¶</a></h4>
+<p>Use the following steps to build a project using the example makefiles
+on the Linux platform:</p>
+<ol class="arabic simple">
+<li>Open a terminal.</li>
+<li>When building for reVISION platform, set the environment variable
+SYSROOT to &lt;<em>the path to platform
+folder</em>&gt;<em>/sw/a53_linux/a53_linux/sysroot/aarch64-xilinx-linux.</em></li>
+<li>Change the platform variable to point to the downloaded platform
+folder in makefile. Ensure that the folder name of the downloaded
+platform is unchanged.</li>
+<li>When building for revision platform , change IDIRS and LDIRS
+variables in the Makefile as follows:</li>
+<li>Change the directory to the location where you want to build the
+example.</li>
+<li>When building for revision platform, add
+<code class="docutils literal notranslate"><span class="pre">#include&quot;opencv2/imgcodecs/imgcodecs.hpp&quot;</span></code> in xf_headers.h file,
+both in if and else part.</li>
+<li>Set the environment variables to run SDx development environment.<ul>
+<li>For c shell:</li>
+<li>For bash shell:</li>
+</ul>
+</li>
+<li>Type the <code class="docutils literal notranslate"><span class="pre">make</span></code> command in the terminal. The sd_card folder is
+created and can be found in the &lt;path to example&gt; folder.</li>
+</ol>
+<p>Note: Ignore 2, 4 and 6 steps when building for Non revision platforms.</p>
+</div>
+<div class="section" id="using-revision-samples-on-the-revision-platform">
+<span id="ariaid-title10"></span><h4>Using reVISION Samples on the reVISION Platform<a class="headerlink" href="#using-revision-samples-on-the-revision-platform" title="Permalink to this headline">¶</a></h4>
+<p>Use the following steps to run a unit test for bilateral filter on
+zcu104_rv_ss:</p>
+<ol class="arabic">
+<li><p class="first">Launch the SDx development environment using the desktop icon or the
+Start menu.</p>
+<p>The Workspace Launcher dialog appears.</p>
+</li>
+<li><p class="first">Click Browse to enter a workspace folder used to store your projects
+(you can use workspace folders to organize your work), then click OK
+to dismiss the Workspace Launcher dialog.</p>
+<p>Note: Before launching the SDx IDE on Linux, ensure that you use the
+same shell that you have used to set the <code class="docutils literal notranslate"><span class="pre">$SYSROOT</span></code> environment
+variable. This is usually the file path to the Linux root file
+system.</p>
+<p>The SDx development environment window opens with the Welcome tab
+visible when you create a new workspace. The Welcome tab can be
+closed by clicking the X icon or minimized if you do not wish to use
+it.</p>
+</li>
+<li><p class="first">Select File &gt; New &gt; Xilinx SDx Project from the SDx development
+environment menu bar.</p>
+<p>The New Project dialog box opens.</p>
+</li>
+<li><p class="first">Specify the name of the project. For example Bilateral.</p>
+</li>
+<li><p class="first">Click Next.</p>
+<p>The the Choose Hardware Platform page appears.</p>
+</li>
+<li><p class="first">From the Choose Hardware Platform page, click the Add Custom Platform
+button.</p>
+</li>
+<li><p class="first">Browse to the directory where you extracted the reVISION platform
+files. Ensure that you select the zcu104_rv_ss folder.</p>
+</li>
+<li><p class="first">From the Choose Hardware Platform page, select zcu104_rv_ss (custom).</p>
+</li>
+<li><p class="first">Click Next.</p>
+<p>The Templates page appears, containing source code examples for the
+selected platform.</p>
+</li>
+<li><p class="first">From the list of application templates, select bilateral - File I/O
+and click Finish.</p>
+</li>
+<li><p class="first">add <code class="docutils literal notranslate"><span class="pre">#include&quot;opencv2/imgcodecs/imgcodecs.hpp&quot;</span></code> in xf_headers.h
+file present under project/src/examples/bilateral/,both in if and
+else part.</p>
+</li>
+<li><p class="first">Click the Active build configurations drop-down from the SDx Project
+Settings window, to select the active configuration or create a build
+configuration.</p>
+<p>The standard build configurations are Debug and Release. To get the
+best runtime performance, switch to use the Release build
+configuration as it uses a higher compiler optimization setting than
+the Debug build configuration.</p>
+<div class="image figure" id="dlc1513202722577-image-k33-cdz-vcb">
+<img alt="" src="_images/bxr1554996988685.png" />
+</div>
+</li>
+<li><p class="first">Set the Data motion network clock frequency (MHz) to the required
+frequency, on the SDx Project Settings page.</p>
+</li>
+<li><p class="first">Right-click the project and select Build Project or press Ctrl+B keys
+to build the project, in the Project Explorer view.</p>
+</li>
+<li><p class="first">Copy the contents of the newly created sd_card folder to the SD card.
+The sd_card folder contains all the files required to run designs on
+the <code class="docutils literal notranslate"><span class="pre">ZCU104</span></code> board.</p>
+</li>
+<li><p class="first">Insert the SD card in the <code class="docutils literal notranslate"><span class="pre">ZCU104</span></code> board card slot and switch it
+ON.
+Note: A serial port emulator (Teraterm/ minicom) is required to
+interface the user commands to the board.</p>
+</li>
+<li><p class="first">Upon successful boot, run the following command in the Teraterm
+terminal (serial port emulator.)</p>
+</li>
+<li><p class="first">Run the .elf file for the respective functions.</p>
+<p>For more information, see the <a class="reference external" href="getting-started-with-sdsoc.html#vao1504034261806">Using the xfOpenCV Library Functions
+on Hardware</a>.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="using-the-xfopencv-library-on-a-non-revision-platform">
+<span id="ariaid-title11"></span><h4>Using the xfOpenCV Library on a non-reVISION Platform<a class="headerlink" href="#using-the-xfopencv-library-on-a-non-revision-platform" title="Permalink to this headline">¶</a></h4>
+<p>This section describes using the xfOpenCV library on a non-reVISION
+platform, in the SDx™ development environment. The examples in xfOpenCV
+require OpenCV libraries for successful compilation. As non-reVISION
+platform may or may not contain opencv libs, as a perquisites it is
+required to install/compile opencv libraries(with compatible
+libjpeg.so).</p>
+<p>Note: The instructions in this section assume that you have downloaded
+and installed all the required packages. For more information, see the
+<a class="reference external" href="getting-started-with-sdsoc.html#gyt1504034261161">Prerequisites</a>.</p>
+<p>Use the following steps to import the xfOpenCV library into a SDx
+project and execute it on a custom platform:</p>
+<ol class="arabic">
+<li><p class="first">Launch the SDx development environment using the desktop icon or the
+Start menu.</p>
+<p>The Workspace Launcher dialog appears.</p>
+</li>
+<li><p class="first">Click Browse to enter a workspace folder used to store your projects
+(you can use workspace folders to organize your work), then click OK
+to dismiss the Workspace Launcher dialog.</p>
+<p>The SDx development environment window opens with the Welcome tab
+visible when you create a new workspace. The Welcome tab can be
+closed by clicking the X icon or minimized if you do not wish to use
+it.</p>
+</li>
+<li><p class="first">Select File &gt; New &gt; Xilinx SDx Project from the SDx development
+environment menu bar.</p>
+<p>The New Project dialog box opens.</p>
+</li>
+<li><p class="first">Specify the name of the project. For example Test.</p>
+</li>
+<li><p class="first">Click Next.</p>
+<p>The the Choose Hardware Platform page appears.</p>
+</li>
+<li><p class="first">From the Choose Hardware Platform page, select a suitable platform.
+For example, zcu102.</p>
+</li>
+<li><p class="first">Click Next.</p>
+<p>The Choose Software Platform and Target CPU page appears.</p>
+</li>
+<li><p class="first">From the Choose Software Platform and Target CPU page, select an
+appropriate software platform and the target CPU. For example, select
+A9 from the CPU dropdown list for ZC702 and ZC706 reVISION platforms.</p>
+</li>
+<li><p class="first">Click Next. The Templates page appears, containing source code
+examples for the selected platform.</p>
+</li>
+<li><p class="first">From the list of application templates, select Empty Application and
+click Finish.</p>
+<p>The New Project dialog box closes. A new project with the specified
+configuration is created. The SDx Project Settings view appears.
+Notice the progress bar in the lower right border of the view, Wait
+for a few moments for the C/C++ Indexer to finish.</p>
+</li>
+<li><p class="first">The standard build configurations are Debug and Release. To get the
+best run-time performance, switch to use the Release build
+configuration as it uses a higher compiler optimization setting than
+the Debug build configuration.</p>
+<div class="image figure" id="ejq1506318012907-image-ifx-ryl-2bb">
+<img alt="" src="_images/bxr1554996988685.png" />
+</div>
+</li>
+<li><p class="first">Set the Data motion network clock frequency (MHz) to the required
+frequency, on the SDx Project Settings page.</p>
+</li>
+<li><p class="first">Select the Generate bitstream and Generate SD card image check boxes.</p>
+</li>
+<li><p class="first">Right-click on the newly created project in the Project Explorer
+view.</p>
+</li>
+<li><p class="first">From the context menu that appears, select C/C++ Build Settings.</p>
+<p>The Properties for &lt;project&gt; dialog box appears.</p>
+</li>
+<li><p class="first">Click the Tool Settings tab.</p>
+</li>
+<li><p class="first">Expand the SDS++ Compiler &gt; Directories tree.</p>
+</li>
+<li><p class="first">Click the <a href="#id36"><span class="problematic" id="id37">|image0|</span></a> icon to add the “&lt;xfopencv_location&gt;include” and
+“&lt;OpenCV_location&gt;include” folder locations to the Include Paths
+list.</p>
+<p>Note: The OpenCV library is not provided by Xilinx for custom
+platforms. You are required to provide the library. Use the reVISION
+platform in order to use the OpenCV library provided by Xilinx.</p>
+<div class="image figure" id="ejq1506318012907-image-gk2-dgn-2bb">
+<img alt="" src="_images/okw1554997115827.png" />
+</div>
+</li>
+<li><p class="first">In the same page, under SDS++ Compiler &gt; Inferred Options &gt; Software
+Platform, specify “-hls-target 1” in the Software Platform Inferred
+Flags.</p>
+</li>
+<li><p class="first">Click Apply.</p>
+</li>
+<li><p class="first">Expand the SDS++ Linker &gt; Libraries tree.</p>
+</li>
+<li><p class="first">Click the <a href="#id38"><span class="problematic" id="id39">|image1|</span></a> icon and add the following libraries to the
+Libraries(-l) list. These libraries are required by OpenCV.</p>
+<ul class="simple">
+<li>opencv_core</li>
+<li>opencv_imgproc</li>
+<li>opencv_imgcodecs</li>
+<li>opencv_features2d</li>
+<li>opencv_calib3d</li>
+<li>opencv_flann</li>
+<li>opencv_video</li>
+<li>opencv_videoio</li>
+</ul>
+</li>
+<li><p class="first">Click the <a href="#id40"><span class="problematic" id="id41">|image2|</span></a> icon and add &lt;opencv_Location&gt;/lib folder location
+to the Libraries search path (-L) list.</p>
+<p>Note: The OpenCV library is not provided by Xilinx for custom
+platforms. You are required to provide the library. Use the reVISION
+platform in order to use the OpenCV library provided by Xilinx.</p>
+<div class="image figure" id="ejq1506318012907-image-zyl-pgn-2bb">
+<img alt="" src="_images/elq1554997015517.png" />
+</div>
+</li>
+<li><p class="first">Click Apply to save the configuration.</p>
+</li>
+<li><p class="first">Click OK to close the Properties for &lt;project&gt; dialog box.</p>
+</li>
+<li><p class="first">Expand the newly created project tree in the Project Explorer view.</p>
+</li>
+<li><p class="first">Right-click the src folder and select Import. The Import dialog box
+appears.</p>
+</li>
+<li><p class="first">Select File System and click Next.</p>
+</li>
+<li><p class="first">Click Browse to navigate to the &lt;xfopencv_Location&gt;/examples folder
+location.</p>
+</li>
+<li><p class="first">Select the folder that corresponds to the library that you desire to
+import. For example, accumulate.</p>
+<div class="image figure" id="ejq1506318012907-image-wxp-j3n-2bb">
+<img alt="" src="_images/vfi1554997040834.png" />
+</div>
+</li>
+<li><p class="first">Right-click the library function in the Project Explorer view and
+select Toggle HW/SW to move the function to the hardware.</p>
+<div class="image figure" id="ejq1506318012907-image-xnw-ckn-2bb">
+<a class="reference internal image-reference" href="_images/uzw1554997347249.png"><img alt="" src="_images/uzw1554997347249.png" style="width: 436px; height: 317px;" /></a>
+</div>
+</li>
+<li><p class="first">Right-click the project and select Build Project or press Ctrl+B keys
+to build the project, in the Project Explorer view.</p>
+<p>The build process may take anytime between few minutes to several
+hours, depending on the power of the host machine and the complexity
+of the design. By far, the most time is spent processing the routines
+that have been tagged for realization in hardware.</p>
+</li>
+<li><p class="first">Copy the contents of the newly created
+.&lt;workspace&gt;&lt;function&gt;Releasesd_card folder to the SD card. The
+sd_card folder contains all the files required to run designs on a
+board.</p>
+</li>
+<li><p class="first">Insert the SD card in the board card slot and switch it ON.</p>
+<p>Note: A serial port emulator (Teraterm/ minicom) is required to
+interface the user commands to the board.</p>
+</li>
+<li><p class="first">Upon successful boot, navigate to the ./mnt folder and run the
+following command at the prompt:</p>
+<p>Note: It is assumed that the OpenCV libraries are a port of the root
+filesystem. If not, add the location of OpenCV libraries to
+<code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> using the
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">export</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">LD_LIBRARY_PATH=&lt;location</span> <span class="pre">of</span> <span class="pre">OpenCV</span> <span class="pre">libraries&gt;/lib</span></code>
+command.</p>
+</li>
+<li><p class="first">Run the .elf executable file. For more information, see the <a class="reference external" href="getting-started-with-sdsoc.html#vao1504034261806">Using
+the xfOpenCV Library Functions on
+Hardware</a>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="changing-the-hardware-kernel-configuration">
+<span id="ariaid-title12"></span><h3>Changing the Hardware Kernel Configuration<a class="headerlink" href="#changing-the-hardware-kernel-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Use the following steps to change the hardware kernel configuration:</p>
+<ol class="arabic simple">
+<li>Update the &lt;path to xfOpenCV git
+folder&gt;/xfOpenCV/examples/&lt;function&gt;/xf_config_params.h file.</li>
+<li>Update the makefile along with the xf_config_params.h file:<ol class="loweralpha">
+<li>Find the line with the function name in the makefile. For
+bilateral filter, the line in the makefile will be
+<code class="docutils literal notranslate"><span class="pre">xf::BilateralFilter&lt;3,1,0,1080,1920,1&gt;</span></code>.</li>
+<li>Update the template parameters in the makefile to reflect changes
+made in the xf_config_params.h file. For more details, see the
+<a class="reference external" href="api-reference.html#ycb1504034263746">xfOpenCV Library API
+Reference</a>.</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="using-the-xfopencv-library-functions-on-hardware">
+<span id="ariaid-title13"></span><h3>Using the xfOpenCV Library Functions on Hardware<a class="headerlink" href="#using-the-xfopencv-library-functions-on-hardware" title="Permalink to this headline">¶</a></h3>
+<p>The following table lists the xfOpenCV library functions and the command
+to run the respective examples on hardware. It is assumed that your
+design is completely built and the board has booted up correctly.</p>
+<table border="1" class="docutils" id="id33">
+<caption><span class="caption-text">Table 10. Using the xfOpenCV Library Function on Hardware</span><a class="headerlink" href="#id33" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="21%" />
+<col width="40%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Example</th>
+<th class="head">Function Name</th>
+<th class="head">Usage on Hardware</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>accumulate</td>
+<td>xf::accumulate</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-odd"><td>accumulatesq
+uared</td>
+<td>xf::accumulateSquare</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-even"><td>accumulatewe
+ighted</td>
+<td>xf::accumulateWeighted</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-odd"><td>addS</td>
+<td>xf::addS</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>arithm</td>
+<td>xf::absdiff, xf::add,
+xf::subtract,
+xf::bitwise_and,
+xf::bitwise_or,
+xf::bitwise_not,
+xf::bitwise_xor</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-odd"><td>addweighted</td>
+<td>xf::addWeighted</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-even"><td>Bilateralfil
+ter</td>
+<td>xf::bilateralFilter</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Boxfilter</td>
+<td>xf::boxFilter</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Boundingbox</td>
+<td>xf::boundingbox</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;
+&lt;No of ROI’s&gt;</td>
+</tr>
+<tr class="row-odd"><td>Canny</td>
+<td>xf::Canny</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>channelcombi
+ne</td>
+<td>xf::merge</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;
+&lt;path to input image 3&gt;
+&lt;path to input image 4&gt;</td>
+</tr>
+<tr class="row-odd"><td>Channelextra
+ct</td>
+<td>xf::extractChannel</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Colordetect</td>
+<td>xf::bgr2hsv,
+xf::colorthresholding,
+xf:: erode, and xf::
+dilate</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>compare</td>
+<td>xf::compare</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-even"><td>compareS</td>
+<td>xf::compareS</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Convertbitde
+pth</td>
+<td>xf::convertTo</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Cornertracke
+r</td>
+<td>xf::cornerTracker</td>
+<td>./exe &lt;input video&gt; &lt;no.
+of frames&gt; &lt;Harris
+Threshold&gt; &lt;No. of
+frames after which
+Harris Corners are
+Reset&gt;</td>
+</tr>
+<tr class="row-odd"><td>crop</td>
+<td>xf::crop</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Customconv</td>
+<td>xf::filter2D</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>cvtcolor
+IYUV2NV12</td>
+<td>xf::iyuv2nv12</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;
+&lt;path to input image 3&gt;</td>
+</tr>
+<tr class="row-even"><td>cvtcolor
+IYUV2RGBA</td>
+<td>xf::iyuv2rgba</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;
+&lt;path to input image 3&gt;</td>
+</tr>
+<tr class="row-odd"><td>cvtcolor
+IYUV2YUV4</td>
+<td>xf::iyuv2yuv4</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;
+&lt;path to input image 3&gt;
+&lt;path to input image 4&gt;
+&lt;path to input image 5&gt;
+&lt;path to input image 6&gt;</td>
+</tr>
+<tr class="row-even"><td>cvtcolor
+NV122IYUV</td>
+<td>xf::nv122iyuv</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-odd"><td>cvtcolor
+NV122RGBA</td>
+<td>xf::nv122rgba</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-even"><td>cvtcolor
+NV122YUV4</td>
+<td>xf::nv122yuv4</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-odd"><td>cvtcolor
+NV212IYUV</td>
+<td>xf::nv212iyuv</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-even"><td>cvtcolor
+NV212RGBA</td>
+<td>xf::nv212rgba</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-odd"><td>cvtcolor
+NV212YUV4</td>
+<td>xf::nv212yuv4</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-even"><td>cvtcolor
+RGBA2YUV4</td>
+<td>xf::rgba2yuv4</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>cvtcolor
+RGBA2IYUV</td>
+<td>xf::rgba2iyuv</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>cvtcolor
+RGBA2NV12</td>
+<td>xf::rgba2nv12</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>cvtcolor
+RGBA2NV21</td>
+<td>xf::rgba2nv21</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>cvtcolor
+UYVY2IYUV</td>
+<td>xf::uyvy2iyuv</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>cvtcolor
+UYVY2NV12</td>
+<td>xf::uyvy2nv12</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>cvtcolor
+UYVY2RGBA</td>
+<td>xf::uyvy2rgba</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>cvtcolor
+YUYV2IYUV</td>
+<td>xf::yuyv2iyuv</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>cvtcolor
+YUYV2NV12</td>
+<td>xf::yuyv2nv12</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>cvtcolor
+YUYV2RGBA</td>
+<td>xf::yuyv2rgba</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Demosaicing</td>
+<td>xf::demosaicing</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Difference
+of Gaussian</td>
+<td>xf:: GaussianBlur, xf::
+duplicateMat, xf::
+delayMat, and
+xf::subtract</td>
+<td>./&lt;exe-name&gt;.elf &lt;path
+to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Dilation</td>
+<td>xf::dilate</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Erosion</td>
+<td>xf::erode</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Fast</td>
+<td>xf::fast</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Gaussianfilt
+er</td>
+<td>xf::GaussianBlur</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Harris</td>
+<td>xf::cornerHarris</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Histogram</td>
+<td>xf::calcHist</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Histequializ
+e</td>
+<td>xf::equalizeHist</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Hog</td>
+<td>xf::HOGDescriptor</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Houghlines</td>
+<td>xf::HoughLines</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>inRange</td>
+<td>xf::inRange</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Integralimg</td>
+<td>xf::integralImage</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Lkdensepyrof</td>
+<td>xf::densePyrOpticalFlow</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-even"><td>Lknpyroflow</td>
+<td>xf::DenseNonPyrLKOpticalF
+low</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-odd"><td>Lut</td>
+<td>xf::LUT</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Kalman
+Filter</td>
+<td>xf::KalmanFilter</td>
+<td>./&lt;executable name&gt;.elf</td>
+</tr>
+<tr class="row-odd"><td>Magnitude</td>
+<td>xf::magnitude</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Max</td>
+<td>xf::Max</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-odd"><td>MaxS</td>
+<td>xf::MaxS</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>meanshifttra
+cking</td>
+<td>xf::MeanShift</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input
+video/input image files&gt;
+&lt;Number of objects to
+track&gt;</td>
+</tr>
+<tr class="row-odd"><td>meanstddev</td>
+<td>xf::meanStdDev</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>medianblur</td>
+<td>xf::medianBlur</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Min</td>
+<td>xf::Min</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-even"><td>MinS</td>
+<td>xf::MinS</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Minmaxloc</td>
+<td>xf::minMaxLoc</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>otsuthreshol
+d</td>
+<td>xf::OtsuThreshold</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>paintmask</td>
+<td>xf::paintmask</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Phase</td>
+<td>xf::phase</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Pyrdown</td>
+<td>xf::pyrDown</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Pyrup</td>
+<td>xf::pyrUp</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>reduce</td>
+<td>xf::reduce</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>remap</td>
+<td>xf::remap</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;
+&lt;path to mapx data&gt;
+&lt;path to mapy data&gt;</td>
+</tr>
+<tr class="row-odd"><td>Resize</td>
+<td>xf::resize</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>scale</td>
+<td>xf::scale</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>scharrfilter</td>
+<td>xf::Scharr</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>set</td>
+<td>xf::set</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>SemiGlobalBM</td>
+<td>xf::SemiGlobalBM</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to left image&gt;
+&lt;path to right image&gt;</td>
+</tr>
+<tr class="row-even"><td>sobelfilter</td>
+<td>xf::Sobel</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>stereopipeli
+ne</td>
+<td>xf::StereoPipeline</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to left image&gt;
+&lt;path to right image&gt;</td>
+</tr>
+<tr class="row-even"><td>stereolbm</td>
+<td>xf::StereoBM</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to left image&gt;
+&lt;path to right image&gt;</td>
+</tr>
+<tr class="row-odd"><td>subRS</td>
+<td>xf::SubRS</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>subS</td>
+<td>xf::SubS</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>sum</td>
+<td>xf::sum</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-even"><td>Svm</td>
+<td>xf::SVM</td>
+<td>./&lt;executable name&gt;.elf</td>
+</tr>
+<tr class="row-odd"><td>threshold</td>
+<td>xf::Threshold</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>warptransfor
+m</td>
+<td>xf::warpTransform</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>zero</td>
+<td>xf::zero</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="design-examples-using-xfopencv-library">
+<span id="design-example"></span><h2>Design Examples Using xfOpenCV Library<a class="headerlink" href="#design-examples-using-xfopencv-library" title="Permalink to this headline">¶</a></h2>
+<p>All the hardware functions in the library have their own respective
+examples that are available in the github. This section provides details
+of image processing functions and pipelines implemented using a
+combination of various functions in xfOpenCV. They illustrate how to
+best implement various functionalities using the capabilities of both
+the processor and the programmable logic. These examples also illustrate
+different ways to implement complex dataflow paths. The following
+examples are described in this section:</p>
+<ul class="simple">
+<li>Iterative Pyramidal Dense Optical
+Flow &lt;design-examples.html#jcr1510602888334&gt;__</li>
+<li>Corner Tracking Using Sparse Optical
+Flow &lt;design-examples.html#ypx1510602888667&gt;__</li>
+<li>Color Detection &lt;design-examples.html#dyn1510602889272&gt;__</li>
+<li>Difference of Gaussian
+Filter &lt;design-examples.html#fmq1510602889620&gt;__</li>
+<li>Stereo Vision Pipeline &lt;design-examples.html#pmt1510602889961&gt;__</li>
+</ul>
+<div class="section" id="iterative-pyramidal-dense-optical-flow">
+<span id="interative-pyramidal"></span><h3>Iterative Pyramidal Dense Optical Flow<a class="headerlink" href="#iterative-pyramidal-dense-optical-flow" title="Permalink to this headline">¶</a></h3>
+<p>The Dense Pyramidal Optical Flow example uses the <code class="docutils literal notranslate"><span class="pre">xf::pyrDown</span></code> and
+<code class="docutils literal notranslate"><span class="pre">xf::densePyrOpticalFlow</span></code> hardware functions from the xfOpenCV
+library, to create an image pyramid, iterate over it and compute the
+Optical Flow between two input images. The example uses two hardware
+instances of the <code class="docutils literal notranslate"><span class="pre">xf::pyrDown</span></code> function to compute the image pyramids
+of the two input images in parallel. The two image pyramids are
+processed by one hardware instance of the <code class="docutils literal notranslate"><span class="pre">xf::densePyrOpticalFlow</span></code>
+function, starting from the smallest image size going up to the largest
+image size. The output flow vectors of each iteration are fed back to
+the hardware kernel as input to the hardware function. The output of the
+last iteration on the largest image size is treated as the output of the
+dense pyramidal optical flow example.</p>
+<div class="image figure" id="jcr1510602888334-image-jh4-sq2-bcb">
+<img alt="" src="_images/bui1554997287170.png" />
+</div>
+<p>Specific details of the implementation of the example on the host follow
+to help understand the process in which the claimed throughput is
+achieved.</p>
+<div class="section" id="pyrof-hw">
+<span id="id6"></span><h4>pyrof_hw()<a class="headerlink" href="#pyrof-hw" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">pyrof_hw()</span></code> is the host function that computes the dense optical
+flow.</p>
+<div class="section" id="api-syntax">
+<h5>API Syntax<a class="headerlink" href="#api-syntax" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="id7">
+<h5>Parameter Descriptions<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h5>
+<p>The table below describes the template and the function parameters.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>im0</td>
+<td>First input image in cv::Mat</td>
+</tr>
+<tr class="row-odd"><td>im1</td>
+<td>Second input image in cv::Mat</td>
+</tr>
+<tr class="row-even"><td>flowUmat</td>
+<td>Allocated cv::Mat to store the horizontal component
+of the output flow vector</td>
+</tr>
+<tr class="row-odd"><td>flowVmat</td>
+<td>Allocated cv::Mat to store the vertical component of
+the output flow vector</td>
+</tr>
+<tr class="row-even"><td>flow</td>
+<td>Allocated xf::Mat to temporarily store the packed
+flow vectors, during the iterative computation using
+the hardware function</td>
+</tr>
+<tr class="row-odd"><td>flow_iter</td>
+<td>Allocated xf::Mat to temporarily store the packed
+flow vectors, during the iterative computation using
+the hardware function</td>
+</tr>
+<tr class="row-even"><td>mat_imagepyr
+1</td>
+<td>An array, of size equal to the number of image
+pyramid levels, of xf::Mat to store the image pyramid
+of the first image</td>
+</tr>
+<tr class="row-odd"><td>mat_imagepyr
+2</td>
+<td>An array, of size equal to the number of image
+pyramid levels, of xf::Mat to store the image pyramid
+of the second image</td>
+</tr>
+<tr class="row-even"><td>pyr_h</td>
+<td>An array of integers which includes the size of
+number of image pyramid levels, to store the height
+of the image at each pyramid level</td>
+</tr>
+<tr class="row-odd"><td>pyr_w</td>
+<td>An array of integers which includes the size of the
+number of image pyramid levels, to store the width of
+the image at each pyramid level</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dataflow">
+<h5>Dataflow<a class="headerlink" href="#dataflow" title="Permalink to this headline">¶</a></h5>
+<p>The <code class="docutils literal notranslate"><span class="pre">pyrof_hw()</span></code> function performs the following:</p>
+<ol class="arabic simple">
+<li>Set the sizes of the images in various levels of the image pyramid</li>
+<li>Copy input images from cv::Mat format to the xf::Mat object allocated
+to contain the largest image pyramid level</li>
+<li>Create the image pyramid calling the
+<code class="docutils literal notranslate"><span class="pre">pyr_dense_optical_flow_pyr_down_accel()</span></code> function</li>
+<li>Use the <code class="docutils literal notranslate"><span class="pre">pyr_dense_optical_flow_accel()</span></code> function to compute the
+optical flow output by iterating over the pyramid levels as input by
+the user</li>
+<li>Unpack the flow vectors and convert them to the floating point, and
+return</li>
+</ol>
+<p>The important steps 3 and 4 in the above processes will be explained in
+detail.</p>
+</div>
+</div>
+<div class="section" id="pyr-dense-optical-flow-pyr-down-accel">
+<span id="id8"></span><h4>pyr_dense_optical_flow_pyr_down_accel()<a class="headerlink" href="#pyr-dense-optical-flow-pyr-down-accel" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="api-syntax-1">
+<span id="id9"></span><h5>API Syntax<a class="headerlink" href="#api-syntax-1" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="id10">
+<span id="id11"></span><h5>Parameter Descriptions<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h5>
+<p>The table below describes the template and the function parameters.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>mat_imagepyr
+1</td>
+<td>An array, of size equal to the number of image
+pyramid levels, of xf::Mat to store the image pyramid
+of the first image. The memory location corresponding
+to the highest pyramid level [0] in this allocated
+memory must contain the first input image.</td>
+</tr>
+<tr class="row-odd"><td>mat_imagepyr
+2</td>
+<td>An array, of size equal to the number of image
+pyramid levels, of xf::Mat to store the image pyramid
+of the second image. The memory location
+corresponding to the highest pyramid level [0] in
+this allocated memory must contain the second input
+image.</td>
+</tr>
+</tbody>
+</table>
+<p>The <code class="docutils literal notranslate"><span class="pre">pyr_dense_optical_flow_pyr_down_accel()</span></code> just runs one for loop
+calling the <code class="docutils literal notranslate"><span class="pre">xf::pyrDown</span></code> hardware function as follows:</p>
+<p>The code is straightforward without the pragmas, and the <code class="docutils literal notranslate"><span class="pre">xf::pyrDown</span></code>
+function is being called twice every iteration. First with the first
+image and then with the second image. Note that the input to the next
+iteration is the output of the current iteration. The pragma #pragma SDS
+async(ID) makes the Arm® processor call the hardware function and not
+wait for the hardware function to return. The Arm processor takes some
+cycles to call the function, which includes programming the DMA. The
+pragma #pragma SDS wait(ID) makes the Arm processor wait for the
+hardware function called with the async(ID) pragma to finish processing.
+The pragma #pragma SDS resource(ID) creates a separate hardware instance
+each time the hardware function is called with a different ID. With this
+new information it is easy to assimilate that the loop in the above host
+function calls the two hardware instances of <code class="docutils literal notranslate"><span class="pre">xf::pyrDown</span></code> functions
+in parallel, waits until both the functions return and proceed to the
+next iteration.</p>
+</div>
+<div class="section" id="dense-pyramidal-optical-flow-computation">
+<h5>Dense Pyramidal Optical Flow Computation<a class="headerlink" href="#dense-pyramidal-optical-flow-computation" title="Permalink to this headline">¶</a></h5>
+<p>The Iterative Pyramidal Dense Optical Flow is computed in a nested for
+loop which runs for iterations*pyramid levels number of iterations. The
+main loop starts from the smallest image size and iterates up to the
+largest image size. Before the loop iterates in one pyramid level, it
+sets the current pyramid level’s height and width, in curr_height and
+current_width variables. In the nested loop, the next_height variable is
+set to the previous image height if scaling up is necessary, that is, in
+the first iterations. As divisions are costly and one time divisions can
+be avoided in hardware, the scale factor is computed in the host and
+passed as an argument to the hardware kernel. After each pyramid level,
+in the first iteration, the scale-up flag is set to let the hardware
+function know that the input flow vectors need to be scaled up to the
+next higher image size. Scaling up is done using bilinear interpolation
+in the hardware kernel.</p>
+<p>After all the input data is prepared, and the flags are set, the host
+processor calls the hardware function. Please note that the host
+function swaps the flow vector inputs and outputs to the hardware
+function to iteratively solve the optimization problem. Also note that
+the <code class="docutils literal notranslate"><span class="pre">pyr_dense_optical_flow_accel()</span></code> function is just a wrapper to the
+hardware function <code class="docutils literal notranslate"><span class="pre">xf::densePyrOpticalFlow</span></code>. Template parameters to
+the hardware function are passed inside this wrapper function.</p>
+</div>
+</div>
+</div>
+<div class="section" id="corner-tracking-using-sparse-optical-flow">
+<span id="id12"></span><h3>Corner Tracking Using Sparse Optical Flow<a class="headerlink" href="#corner-tracking-using-sparse-optical-flow" title="Permalink to this headline">¶</a></h3>
+<p>This example illustrates how to detect and track the characteristic
+feature points in a set of successive frames of video. A Harris corner
+detector is used as the feature detector, and a modified version of
+Lucas Kanade optical flow is used for tracking. The core part of the
+algorithm takes in current and next frame as the inputs and outputs the
+list of tracked corners. The current image is the first frame in the
+set, then corner detection is performed to detect the features to track.
+The number of frames in which the points need to be tracked is also
+provided as the input.</p>
+<p>Corner tracking example uses five hardware functions from the xfOpenCV
+library <code class="docutils literal notranslate"><span class="pre">xf::cornerHarris</span></code>, <code class="docutils literal notranslate"><span class="pre">xf::</span> <span class="pre">cornersImgToList</span></code>,
+<code class="docutils literal notranslate"><span class="pre">xf::cornerUpdate</span></code>, <code class="docutils literal notranslate"><span class="pre">xf::pyrDown</span></code>, and <code class="docutils literal notranslate"><span class="pre">xf::densePyrOpticalFlow</span></code>.</p>
+<div class="image figure" id="ypx1510602888667-image-dmv-5cv-hdb">
+<img alt="" src="_images/tpr1554997250097.png" />
+</div>
+<p>A new hardware function, <code class="docutils literal notranslate"><span class="pre">xf::cornerUpdate</span></code>, has been added to ensure
+that the dense flow vectors from the output of
+the<code class="docutils literal notranslate"><span class="pre">xf::densePyrOpticalFlow</span></code> function are sparsely picked and stored
+in a new memory location as a sparse array. This was done to ensure that
+the next function in the pipeline would not have to surf through the
+memory by random accesses. The function takes corners from Harris corner
+detector and dense optical flow vectors from the dense pyramidal optical
+flow function and outputs the updated corner locations, tracking the
+input corners using the dense flow vectors, thereby imitating the sparse
+optical flow behavior. This hardware function runs at 300 MHz for 10,000
+corners on a 720p image, adding very minimal latency to the pipeline.</p>
+<div class="section" id="cornerupdate">
+<span id="id13"></span><h4>cornerUpdate()<a class="headerlink" href="#cornerupdate" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="api-syntax-2">
+<span id="id14"></span><h5>API Syntax<a class="headerlink" href="#api-syntax-2" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="parameter-descriptions-2">
+<span id="id15"></span><h5>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions-2" title="Permalink to this headline">¶</a></h5>
+<p>The following table describes the template and the function parameters.</p>
+<table border="1" class="docutils" id="id34">
+<caption><span class="caption-text">Table 1. CornerUpdate Function Parameter Descriptions</span><a class="headerlink" href="#id34" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Paramete
+r</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>MAXCORNE
+RSNO</td>
+<td>Maximum number of corners that the function needs to work
+on</td>
+</tr>
+<tr class="row-odd"><td>TYPE</td>
+<td>Input Pixel Type. Only 8-bit, unsigned, 1 channel is
+supported (XF_8UC1)</td>
+</tr>
+<tr class="row-even"><td>ROWS</td>
+<td>Maximum height of input and output image (Must be
+multiple of 8)</td>
+</tr>
+<tr class="row-odd"><td>COLS</td>
+<td>Maximum width of input and output image (Must be multiple
+of 8)</td>
+</tr>
+<tr class="row-even"><td>NPC</td>
+<td>Number of pixels to be processed per cycle. This function
+supports only XF_NPPC1 or 1-pixel per cycle operations.</td>
+</tr>
+<tr class="row-odd"><td>list_fix</td>
+<td>A list of packed fixed point coordinates of the corner
+locations in 16, 5 (16 integer bits and 5 fractional
+bits) format. Bits from 20 to 0 represent the column
+number, while the bits 41 to 21 represent the row number.
+The rest of the bits are used for flag, this flag is set
+when the tracked corner is valid.</td>
+</tr>
+<tr class="row-even"><td>list</td>
+<td>A list of packed positive short integer coordinates of
+the corner locations in unsigned short format. Bits from
+15 to 0 represent the column number, while the bits 31 to
+16 represent the row number. This list is same as the
+list output by Harris Corner Detector.</td>
+</tr>
+<tr class="row-odd"><td>nCorners</td>
+<td>Number of corners to track</td>
+</tr>
+<tr class="row-even"><td>flow_vec
+tors</td>
+<td>Packed flow vectors as in xf::DensePyrOpticalFlow
+function</td>
+</tr>
+<tr class="row-odd"><td>harris_f
+lag</td>
+<td><p class="first">If set to 1, the function takes input corners from list.</p>
+<p class="last">if set to 0, the function takes input corners from
+list_fix.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The example codeworks on an input video which is read and processed
+using the xfOpenCV library. The core processing and tracking is done by
+the <code class="docutils literal notranslate"><span class="pre">xf_corner_tracker_accel()</span></code> function at the host.</p>
+</div>
+</div>
+<div class="section" id="cornersimgtolist">
+<span id="id16"></span><h4>cornersImgToList()<a class="headerlink" href="#cornersimgtolist" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="api-syntax-3">
+<span id="id17"></span><h5>API Syntax<a class="headerlink" href="#api-syntax-3" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="parameter-descriptions-3">
+<span id="id18"></span><h5>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions-3" title="Permalink to this headline">¶</a></h5>
+<p>The following table describes the template and theKintex® UltraScale+™
+function parameters.</p>
+<table border="1" class="docutils" id="id35">
+<caption><span class="caption-text">Table 2. CornerImgToList Function Parameter Descriptions</span><a class="headerlink" href="#id35" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Paramete
+r</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>_src</td>
+<td>The output image of harris corner detector. The size of
+this xf::Mat object is the size of the input image to
+Harris corner detector. The value of each pixel is 255 if
+a corner is present in the location, 0 otherwise.</td>
+</tr>
+<tr class="row-odd"><td>list</td>
+<td>A 32 bit memory allocated, the size of MAXCORNERS, to
+store the corners detected by Harris Detector</td>
+</tr>
+<tr class="row-even"><td>ncorners</td>
+<td>Total number of corners detected by Harris, that is, the
+number of corners in the list</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="cornertracker">
+<span id="id19"></span><h4>cornerTracker()<a class="headerlink" href="#cornertracker" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">xf_corner_tracker_accel()</span></code> function does the core procesing and
+tracking at the host.</p>
+<div class="section" id="api-syntax-4">
+<span id="id20"></span><h5>API Syntax<a class="headerlink" href="#api-syntax-4" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="parameter-descriptions-4">
+<span id="id21"></span><h5>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions-4" title="Permalink to this headline">¶</a></h5>
+<p>The table below describes the template and the function parameters.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>flow</td>
+<td>Allocated xf::Mat to temporarily store the packed
+flow vectors during the iterative computation using
+the hardware function</td>
+</tr>
+<tr class="row-odd"><td>flow_iter</td>
+<td>Allocated xf::Mat to temporarily store the packed
+flow vectors during the iterative computation using
+the hardware function</td>
+</tr>
+<tr class="row-even"><td>mat_imagepyr
+1</td>
+<td>An array, of size equal to the number of image
+pyramid levels, of xf::Mat to store the image pyramid
+of the first image</td>
+</tr>
+<tr class="row-odd"><td>mat_imagepyr
+2</td>
+<td>An array, of size equal to the number of image
+pyramid levels, of xf::Mat to store the image pyramid
+of the second image</td>
+</tr>
+<tr class="row-even"><td>inHarris</td>
+<td>Input image to Harris Corner Detector in xf::Mat</td>
+</tr>
+<tr class="row-odd"><td>outHarris</td>
+<td>Output image from Harris detector. Image has 255 if a
+corner is present in the location and 0 otherwise</td>
+</tr>
+<tr class="row-even"><td>list</td>
+<td>A 32 bit memory allocated, the size of MAXCORNERS, to
+store the corners detected by Harris Detector</td>
+</tr>
+<tr class="row-odd"><td>listfixed</td>
+<td>A 64 bit memory allocated, the size of MAXCORNERS, to
+store the corners tracked by xf::cornerUpdate</td>
+</tr>
+<tr class="row-even"><td>pyr_h</td>
+<td>An array of integers the size of number of image
+pyramid levels to store the height of the image at
+each pyramid level</td>
+</tr>
+<tr class="row-odd"><td>pyr_w</td>
+<td>An array of integers the size of number of image
+pyramid levels to store the width of the image at
+each pyramid level</td>
+</tr>
+<tr class="row-even"><td>num_corners</td>
+<td>An array, of size equal to the number ofNumber of
+corners detected by Harris Corner Detector</td>
+</tr>
+<tr class="row-odd"><td>harrisThresh</td>
+<td>Threshold input to the Harris Corner Detector,
+xf::harris</td>
+</tr>
+<tr class="row-even"><td>harris_flag</td>
+<td>Flag used by the caller of this function to use the
+corners detected by xf::harris for the set of input
+images</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="image-processing">
+<h5>Image Processing<a class="headerlink" href="#image-processing" title="Permalink to this headline">¶</a></h5>
+<p>The following steps demonstrate the Image Processing procedure in the
+hardware pipeline</p>
+<ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">xf::cornerharris</span></code> is called to start processing the first input
+image</li>
+<li>The output of<code class="docutils literal notranslate"><span class="pre">xf::cornerHarris</span></code> is pipelined by SDSoC™ on
+hardware to<code class="docutils literal notranslate"><span class="pre">xf::cornersImgToList</span></code>. This function takes in an
+image with corners marked as 255 and 0 elsewhere, and converts them
+to a list of corners.</li>
+<li>Simultaneously,<code class="docutils literal notranslate"><span class="pre">xf::pyrDown</span></code> creates the two image pyramids and
+Dense Optical Flow is computed using the two image pyramids as
+described in the Iterative Pyramidal Dense Optical Flow example.</li>
+<li><code class="docutils literal notranslate"><span class="pre">xf::densePyrOpticalFlow</span></code> is called with the two image pyramids as
+inputs.</li>
+<li><code class="docutils literal notranslate"><span class="pre">xf::cornerUpdate</span></code> function is called to track the corner locations
+in the second image. If harris_flag is enabled, the <code class="docutils literal notranslate"><span class="pre">cornerUpdate</span></code>
+tracks corners from the output of the list, else it tracks the
+previously tracked corners.</li>
+</ol>
+<p>The <code class="docutils literal notranslate"><span class="pre">xf_corner_tracker_accel()</span></code> function takes a flag called
+harris_flag which is set during the first frame or when the corners need
+to be redetected. The <code class="docutils literal notranslate"><span class="pre">xf::cornerUpdate</span></code> function outputs the updated
+corners to the same memory location as the output corners list of
+<code class="docutils literal notranslate"><span class="pre">xf::cornerImgToList</span></code>. This means that when harris_flag is unset, the
+corners input to the <code class="docutils literal notranslate"><span class="pre">xf::cornerUpdate</span></code> are the corners tracked in the
+previous cycle, that is, the corners in the first frame of the current
+input frames.</p>
+<p>After the Dense Optical Flow is computed, if harris_flag is set, the
+number of corners that <code class="docutils literal notranslate"><span class="pre">xf::cornerharris</span></code> has detected and
+<code class="docutils literal notranslate"><span class="pre">xf::cornersImgToList</span></code> has updated is copied to num_corners variable
+which is one of the outputs of the <code class="docutils literal notranslate"><span class="pre">xf_corner_tracker_accel()</span></code>
+function. The other being the tracked corners list, listfixed. If
+harris_flag is set, <code class="docutils literal notranslate"><span class="pre">xf::cornerUpdate</span></code> tracks the corners in ‘list’
+memory location, otherwise it tracks the corners in ‘listfixed’ memory
+location.</p>
+</div>
+</div>
+</div>
+<div class="section" id="color-detection">
+<span id="id22"></span><h3>Color Detection<a class="headerlink" href="#color-detection" title="Permalink to this headline">¶</a></h3>
+<p>The Color Detection algorithm is basically used for color object
+tracking and object detection, based on the color of the object. The
+color based methods are very useful for object detection and
+segmentation, when the object and the background have a significant
+difference in color.</p>
+<p>The Color Detection example uses four hardware functions from the
+xfOpenCV library. They are:</p>
+<ul class="simple">
+<li>xf::RGB2HSV</li>
+<li>xf::colorthresholding</li>
+<li>xf:: erode</li>
+<li>xf:: dilate</li>
+</ul>
+<p>In the Color Detection example, the color space of the original BGR
+image is converted into an HSV color space. Because HSV color space is
+the most suitable color space for color based image segmentation. Later,
+based on the H (hue), S (saturation) and V (value) values, apply the
+thresholding operation on the HSV image and return either 255 or 0.
+After thresholding the image, apply erode (morphological opening) and
+dilate (morphological opening) functions to reduce unnecessary white
+patches (noise) in the image. Here, the example uses two hardware
+instances of erode and dilate functions. The erode followed by dilate
+and once again applying dilate followed by erode.</p>
+<div class="image figure" id="dyn1510602889272-image-dzq-ys2-bcb">
+<img alt="" src="_images/ntl1554997353703.png" />
+</div>
+<p>The following example demonstrates the Color Detection algorithm.</p>
+<p>In the given example, the source image is passed to the <code class="docutils literal notranslate"><span class="pre">xf::RGB2HSV</span></code>
+function, the output of that function is passed to the
+<code class="docutils literal notranslate"><span class="pre">xf::colorthresholding</span></code> module, the thresholded image is passed to the
+<code class="docutils literal notranslate"><span class="pre">xf::erode</span></code> function and, the <code class="docutils literal notranslate"><span class="pre">xf::dilate</span></code> functions and the final
+output image are returned.</p>
+</div>
+<div class="section" id="difference-of-gaussian-filter">
+<span id="id23"></span><h3>Difference of Gaussian Filter<a class="headerlink" href="#difference-of-gaussian-filter" title="Permalink to this headline">¶</a></h3>
+<p>The Difference of Gaussian Filter example uses four hardware functions
+from the xfOpenCV library. They are:</p>
+<ul class="simple">
+<li>xf::GaussianBlur</li>
+<li>xf::duplicateMat</li>
+<li>xf::delayMat</li>
+<li>xf::subtract</li>
+</ul>
+<p>The Difference of Gaussian Filter function can be implemented by
+applying Gaussian Filter on the original source image, and that Gaussian
+blurred image is duplicated as two images. The Gaussian blur function is
+applied to one of the duplicated images, whereas the other one is stored
+as it is. Later, perform the Subtraction function on, two times Gaussian
+applied image and one of the duplicated image. Here, the duplicated
+image has to wait until the Gaussian applied for other one generates at
+least for one pixel output. Therefore, here xf::delayMat function is
+used to add delay.</p>
+<div class="image figure" id="fmq1510602889620-image-lgr-1xf-bcb">
+<img alt="" src="_images/crx1554997276344.png" />
+</div>
+<p>The following example demonstrates the Difference of Gaussian Filter
+example.</p>
+<p>In the given example, the Gaussain Blur function is applied for source
+image imginput, and resultant image imgin1 is passed to
+xf::duplicateMat. The imgin2 and imgin3 are the duplicate images of
+Gaussian applied image. Again gaussian blur is applied to imgin2 and the
+result is stored in imgin4. Now, perform the subtraction between imgin4
+and imgin3, but here imgin3 has to wait up to at least one pixel of
+imgin4 generation. So, delay has applied for imgin3 and stored in
+imgin5. Finally the subtraction performed on imgin4 and imgin5.</p>
+</div>
+<div class="section" id="stereo-vision-pipeline">
+<span id="id24"></span><h3>Stereo Vision Pipeline<a class="headerlink" href="#stereo-vision-pipeline" title="Permalink to this headline">¶</a></h3>
+<p>Disparity map generation is one of the first steps in creating a three
+dimensional map of the environment. The xfOpenCV library has components
+to build an image processing pipeline to compute a disparity map given
+the camera parameters and inputs from a stereo camera setup.</p>
+<p>The two main components involved in the pipeline are stereo
+rectification and disparity estimation using local block matching
+method. While disparity estimation using local block matching is a
+discrete component in xfOpenCV, rectification block can be constructed
+using <code class="docutils literal notranslate"><span class="pre">xf::InitUndistortRectifyMapInverse()</span></code> and <code class="docutils literal notranslate"><span class="pre">xf::Remap()</span></code>. The
+dataflow pipeline is shown below. The camera parameters are an
+additional input to the pipeline.</p>
+<div class="image figure">
+<a class="reference internal image-reference" href="_images/qlb1554997048260.png"><img alt="" src="_images/qlb1554997048260.png" style="width: 560px; height: 240px;" /></a>
+</div>
+<p>The following code is for the pipeline.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api-reference.html" class="btn btn-neutral float-right" title="xfOpenCV Library API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Vitis Vision Library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
