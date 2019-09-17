@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>template class xf::fintech::CIRModel &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>template class xf::fintech::CIRModel</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rst_L1/class_xf_fintech_CIRModel.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-xf-fintech-cirmodel">
+<span id="cid-xf-fintech-cirmodel"></span><span id="doxid-classxf-1-1fintech-1-1-c-i-r-model"></span><span id="index-0"></span><h1>template class xf::fintech::CIRModel<a class="headerlink" href="#template-class-xf-fintech-cirmodel" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&lt;cir_model.hpp&gt;</span>
+</pre>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Cox-Ingersoll-Ross model for Tree Engine. <span class="xref std std-ref">More…</span></p>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">typename</span> <span class="n">DT</span><span class="p">,</span>
+    <span class="k">typename</span> <span class="n">Tree</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">LEN2</span>
+    <span class="o">&gt;</span>
+<span class="k">class</span> <span class="n">CIRModel</span>
+</pre>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="initialization">
+<span id="cid-xf-fintech-cirmodel-initialization"></span><span id="doxid-classxf-1-1fintech-1-1-c-i-r-model-1aede1d509737b4f01fbd471b77d8de4b7"></span><h3>initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="defined-in-xf-fintech-cir-model-hpp">
+<h4>Defined in &lt;xf_fintech/cir_model.hpp&gt;<a class="headerlink" href="#defined-in-xf-fintech-cir-model-hpp" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">initialization</span> <span class="p">(</span>
+    <span class="n">DT</span> <span class="n">r</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">spread</span>
+    <span class="p">)</span>
+</pre>
+<p>initialization initialize parameter</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>r</td>
+<td>floating benchmark annual interest rate</td>
+</tr>
+<tr class="row-even"><td>spread</td>
+<td>spreads on interest rates</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="discount">
+<span id="cid-xf-fintech-cirmodel-discount"></span><span id="doxid-classxf-1-1fintech-1-1-c-i-r-model-1add245ac1547ac3925e52c7a098f937cd"></span><h3>discount<a class="headerlink" href="#discount" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>Defined in &lt;xf_fintech/cir_model.hpp&gt;<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="n">DT</span> <span class="n">discount</span> <span class="p">(</span>
+    <span class="n">DT</span> <span class="n">t</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">dt</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">r</span>
+    <span class="p">)</span>
+</pre>
+<p>discount calculate the discount after time dt</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>t</td>
+<td>the current timepoint</td>
+</tr>
+<tr class="row-even"><td>dt</td>
+<td>The difference between the next timepoint and the current timepoint</td>
+</tr>
+<tr class="row-odd"><td>x</td>
+<td>underlying</td>
+</tr>
+<tr class="row-even"><td>r</td>
+<td>shortrate</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Returns:</p>
+<p>discount</p>
+</div>
+</div>
+<div class="section" id="treeshortrate">
+<span id="cid-xf-fintech-cirmodel-treeshortrate"></span><span id="doxid-classxf-1-1fintech-1-1-c-i-r-model-1a4059e3abaa98ba3f66ddcad6d4a01965"></span><h3>treeShortRate<a class="headerlink" href="#treeshortrate" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>Defined in &lt;xf_fintech/cir_model.hpp&gt;<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">treeShortRate</span> <span class="p">(</span>
+    <span class="n">Tree</span><span class="o">&amp;</span> <span class="n">tree</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">endCnt</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">time</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">dtime</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">tmp_values1</span> <span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="n">LEN2</span><span class="p">],</span>
+    <span class="n">DT</span> <span class="n">tmp_values2</span> <span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="n">LEN2</span><span class="p">],</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">statePrices</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">rates</span>
+    <span class="p">)</span>
+</pre>
+<p>treeShortRate calcutate short-rate of dt at t for TreeEngine</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>tree</td>
+<td>class <a class="reference internal" href="class_xf_fintech_TrinomialTree.html#doxid-classxf-1-1fintech-1-1-trinomial-tree"><span class="std std-ref">TrinomialTree</span></a></td>
+</tr>
+<tr class="row-even"><td>endCnt</td>
+<td>end counter of timepoints</td>
+</tr>
+<tr class="row-odd"><td>time</td>
+<td>array timepoints</td>
+</tr>
+<tr class="row-even"><td>dtime</td>
+<td>array the difference between the next timepoint and the current timepoint</td>
+</tr>
+<tr class="row-odd"><td>tmp_values1</td>
+<td>process values</td>
+</tr>
+<tr class="row-even"><td>tmp_values2</td>
+<td>process values</td>
+</tr>
+<tr class="row-odd"><td>statePrices</td>
+<td>state prices</td>
+</tr>
+<tr class="row-even"><td>rates</td>
+<td>array short-rates</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

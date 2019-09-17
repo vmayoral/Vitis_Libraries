@@ -1,0 +1,107 @@
+.. index:: pair: class; xf::fintech::internal::MultiAssetHestonPathGenerator
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_heston_path_generator:
+.. _cid-xf::fintech::internal::multiassethestonpathgenerator:
+
+template class xf::fintech::internal::MultiAssetHestonPathGenerator
+===================================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <path_generator.hpp>
+
+
+Overview
+~~~~~~~~
+
+:ref:`MultiAssetHestonPathGenerator <doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_heston_path_generator>` logs of prices of multiple underlying assets, based on kDTQuadraticExponential variation of Heston Model. :ref:`More...<details-doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_heston_path_generator>`
+
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_heston_path_generator_1a0508b9c9cfaedd12cd82b953273b57f3:
+.. _cid-xf::fintech::internal::multiassethestonpathgenerator::outn:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_heston_path_generator_1a689917ba0fff257c1d6349f91372edfc:
+.. _cid-xf::fintech::internal::multiassethestonpathgenerator::hestoninst:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_heston_path_generator_1a1f11155df7e8749b222606a623c6fe82:
+.. _cid-xf::fintech::internal::multiassethestonpathgenerator::underlying:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_heston_path_generator_1a9fae4ac67dd629a0e0f03c8242244019:
+.. _cid-xf::fintech::internal::multiassethestonpathgenerator::v0:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_heston_path_generator_1a8332be4d81011a6142f425da52cdca4d:
+.. _cid-xf::fintech::internal::multiassethestonpathgenerator::s_buff:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_heston_path_generator_1a33a82ad341893afb035b98b9cfa7fce1:
+.. _cid-xf::fintech::internal::multiassethestonpathgenerator::v_buff:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    typename DT,
+	    int SampNum,
+	    int ASSETS,
+	    DiscreType discrT
+	    >
+	class MultiAssetHestonPathGenerator
+
+	// fields
+
+	static const unsigned int OutN
+	:ref:`xf::fintech::HestonModel<doxid-classxf_1_1fintech_1_1_heston_model>` <ASSETS, DT, discrT> hestonInst
+	DT underlying[ASSETS]
+	DT v0[ASSETS]
+	DT s_buff[ASSETS][SampNum]
+	DT v_buff[ASSETS][SampNum]
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_heston_path_generator_1ab5fd1373f070a24df5efbb7cdd39d575:
+.. _cid-xf::fintech::internal::multiassethestonpathgenerator::nextpath:
+
+NextPath
+--------
+
+
+Defined in <xf_fintech/path_generator.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void NextPath (
+	    ap_uint <16> steps,
+	    ap_uint <16> paths,
+	    hls::stream <DT> randNumberStrmIn [2],
+	    hls::stream <DT> pathStrmOut [OutN]
+	    )
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - steps
+
+        - total timesteps of Heston Model
+
+    *
+        - paths
+
+        - number of path of single call
+
+    *
+        - randNumberStrmIn
+
+        - input random number stream
+
+    *
+        - pathStrmOut
+
+        - stream of result generated.
+

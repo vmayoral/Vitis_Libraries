@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>template struct xf::fintech::jump_diffusion_params &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>template struct xf::fintech::jump_diffusion_params</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rst_L2/struct_xf_fintech_jump_diffusion_params.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-struct-xf-fintech-jump-diffusion-params">
+<span id="cid-xf-fintech-jump-diffusion-params"></span><span id="doxid-structxf-1-1fintech-1-1jump-diffusion-params"></span><span id="index-0"></span><h1>template struct xf::fintech::jump_diffusion_params<a class="headerlink" href="#template-struct-xf-fintech-jump-diffusion-params" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&lt;m76_engine_defn.hpp&gt;</span>
+</pre>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>DT</td>
+<td>Data Type used for this structure</td>
+</tr>
+<tr class="row-even"><td>S</td>
+<td>current stock price</td>
+</tr>
+<tr class="row-odd"><td>K</td>
+<td>strike price</td>
+</tr>
+<tr class="row-even"><td>r</td>
+<td>risk free interest rate</td>
+</tr>
+<tr class="row-odd"><td>sigma</td>
+<td>diffusion volatility</td>
+</tr>
+<tr class="row-even"><td>T</td>
+<td>time to maturity (years)</td>
+</tr>
+<tr class="row-odd"><td>kappa</td>
+<td>mean of jump</td>
+</tr>
+<tr class="row-even"><td>lambda</td>
+<td>jump intensity</td>
+</tr>
+<tr class="row-odd"><td>delta</td>
+<td>standard deviation of log-normal jump process</td>
+</tr>
+</tbody>
+</table>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-jump-diffusion-params-delta">
+<span id="doxid-structxf-1-1fintech-1-1jump-diffusion-params-1a2ab2667d63b14a5371a2ea7f90acb431"></span><span id="cid-xf-fintech-jump-diffusion-params-kappa"></span><span id="doxid-structxf-1-1fintech-1-1jump-diffusion-params-1a4468e2709772305dee2e64c25ee996d4"></span><span id="cid-xf-fintech-jump-diffusion-params-lambda"></span><span id="doxid-structxf-1-1fintech-1-1jump-diffusion-params-1a5afd10b02401d141c06687043a9568d0"></span><span id="cid-xf-fintech-jump-diffusion-params-t"></span><span id="doxid-structxf-1-1fintech-1-1jump-diffusion-params-1aed887cbf61c10bd17d5de38d94f460b5"></span><span id="cid-xf-fintech-jump-diffusion-params-sigma"></span><span id="doxid-structxf-1-1fintech-1-1jump-diffusion-params-1aab5e1e0b27f57ef783800602894a3104"></span><span id="cid-xf-fintech-jump-diffusion-params-r"></span><span id="doxid-structxf-1-1fintech-1-1jump-diffusion-params-1afc3b9bd33e2fad02ab3c0dbf7c9bd8a6"></span><span id="cid-xf-fintech-jump-diffusion-params-k"></span><span id="doxid-structxf-1-1fintech-1-1jump-diffusion-params-1a15fa535e399012882e00ea8fd4db2190"></span><span id="cid-xf-fintech-jump-diffusion-params-s"></span><span id="doxid-structxf-1-1fintech-1-1jump-diffusion-params-1a224cdc4bec2bdf40cd2d08f0f78c478b"></span><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">DT</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">jump_diffusion_params</span>
+
+<span class="c1">// fields</span>
+
+<span class="n">DT</span> <span class="n">S</span>
+<span class="n">DT</span> <span class="n">K</span>
+<span class="n">DT</span> <span class="n">r</span>
+<span class="n">DT</span> <span class="n">sigma</span>
+<span class="n">DT</span> <span class="n">T</span>
+<span class="n">DT</span> <span class="n">lambda</span>
+<span class="n">DT</span> <span class="n">kappa</span>
+<span class="n">DT</span> <span class="n">delta</span>
+</pre>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+.. index:: pair: class; xf::fintech::internal::PathPricer <BarrierBiased, DT, StepFirst, SampNum, WithAntithetic>
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_barrier_biased_00_01_d_t_00_01_step_first_003a611054cd5fc9652dcb047126841ccc:
+.. _cid-xf::fintech::internal::pathpricer-9:
+
+template class xf::fintech::internal::PathPricer <BarrierBiased, DT, StepFirst, SampNum, WithAntithetic>
+========================================================================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <path_pricer.hpp>
+
+
+
+
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_barrier_biased_00_01_d_t_00_01_step_first_003a611054cd5fc9652dcb047126841ccc_1a090c312b6d1cecb9aca8554db84fab92:
+.. _cid-xf::fintech::internal::pathpricer::inn-9:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_barrier_biased_00_01_d_t_00_01_step_first_003a611054cd5fc9652dcb047126841ccc_1a69ac69984fb7b0f83e3266a8136e09ff:
+.. _cid-xf::fintech::internal::pathpricer::outn-9:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_barrier_biased_00_01_d_t_00_01_step_first_003a611054cd5fc9652dcb047126841ccc_1a07478606348595578c54eef2e1f649a4:
+.. _cid-xf::fintech::internal::pathpricer::bypassgen-9:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_barrier_biased_00_01_d_t_00_01_step_first_003a611054cd5fc9652dcb047126841ccc_1ab89f9752d53cf1ea7c1e8f6b82ed4b9c:
+.. _cid-xf::fintech::internal::pathpricer::underlying-5:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_barrier_biased_00_01_d_t_00_01_step_first_003a611054cd5fc9652dcb047126841ccc_1a6664dbf1bf8ae969c88e61e889d20a45:
+.. _cid-xf::fintech::internal::pathpricer::barrier-2:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_barrier_biased_00_01_d_t_00_01_step_first_003a611054cd5fc9652dcb047126841ccc_1ab9526314dd8043975716974ef440a212:
+.. _cid-xf::fintech::internal::pathpricer::strike-7:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_barrier_biased_00_01_d_t_00_01_step_first_003a611054cd5fc9652dcb047126841ccc_1ad25a7a30ed376f0475e5de05de141675:
+.. _cid-xf::fintech::internal::pathpricer::rebate-2:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_barrier_biased_00_01_d_t_00_01_step_first_003a611054cd5fc9652dcb047126841ccc_1a2c86ef7736b33be9019ed9f315312e5f:
+.. _cid-xf::fintech::internal::pathpricer::optiontype-8:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_barrier_biased_00_01_d_t_00_01_step_first_003a611054cd5fc9652dcb047126841ccc_1aafe65268bfb37a17ad7ae3984b0c4bb5:
+.. _cid-xf::fintech::internal::pathpricer::disdt-3:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_barrier_biased_00_01_d_t_00_01_step_first_003a611054cd5fc9652dcb047126841ccc_1ae6b87433dac591a480018e5f03e1e2fe:
+.. _cid-xf::fintech::internal::pathpricer::barriertype-2:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_barrier_biased_00_01_d_t_00_01_step_first_003a611054cd5fc9652dcb047126841ccc_1a8f4e7173d557a421e6f576d2581911d1:
+.. _cid-xf::fintech::internal::pathpricer::pe-9:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_barrier_biased_00_01_d_t_00_01_step_first_003a611054cd5fc9652dcb047126841ccc_1ae4ce6632cffe31ff5bfd06bbf54e5278:
+.. _cid-xf::fintech::internal::pathpricer::pricing-9:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    typename DT,
+	    bool StepFirst,
+	    int SampNum,
+	    bool WithAntithetic
+	    >
+	class PathPricer <BarrierBiased, DT, StepFirst, SampNum, WithAntithetic>
+
+	// fields
+
+	static const unsigned int InN
+	static const unsigned int OutN
+	static const bool byPassGen
+	DT underlying
+	DT barrier
+	DT strike
+	DT rebate
+	bool optionType
+	DT disDt
+	ap_uint <2> barrierType
+

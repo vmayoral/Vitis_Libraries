@@ -1,0 +1,40 @@
+.. index:: pair: class; xf::fintech::internal::BSPathGenerator
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_b_s_path_generator:
+.. _cid-xf::fintech::internal::bspathgenerator:
+
+template class xf::fintech::internal::BSPathGenerator
+=====================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <path_generator.hpp>
+
+
+
+
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_b_s_path_generator_1a3e52035fcca74a54a03ad4bb0c3112e9:
+.. _cid-xf::fintech::internal::bspathgenerator::outn:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_b_s_path_generator_1a9d0d6df94d66bd2f3545feda78246085:
+.. _cid-xf::fintech::internal::bspathgenerator::bsinst:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_b_s_path_generator_1a238e13d4c851b05f23d3f3cc6d095179:
+.. _cid-xf::fintech::internal::bspathgenerator::nextpath:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    typename DT,
+	    bool StepFirst,
+	    int SampNum,
+	    bool WithAntithetic
+	    >
+	class BSPathGenerator
+
+	// fields
+
+	static const int OutN
+	:ref:`xf::fintech::BSModel<doxid-classxf_1_1fintech_1_1_b_s_model>` <DT> BSInst
+

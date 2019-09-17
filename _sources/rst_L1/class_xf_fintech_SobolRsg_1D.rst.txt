@@ -1,0 +1,68 @@
+.. index:: pair: class; xf::fintech::SobolRsg_1D
+.. _doxid-classxf_1_1fintech_1_1_sobol_rsg__1_d:
+.. _cid-xf::fintech::sobolrsg_1d:
+
+class xf::fintech::SobolRsg_1D
+==============================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <sobol_rsg.h>
+
+
+Overview
+~~~~~~~~
+
+
+
+.. _doxid-classxf_1_1fintech_1_1_sobol_rsg__1_d_1a4e12cdc95be355a20260c4e0577e1066:
+.. _cid-xf::fintech::sobolrsg_1d::log2w:
+.. _doxid-classxf_1_1fintech_1_1_sobol_rsg__1_d_1a4e1d44373a2a080dea7eb48edf3a6656:
+.. _cid-xf::fintech::sobolrsg_1d::addr:
+.. _doxid-classxf_1_1fintech_1_1_sobol_rsg__1_d_1a669df35fd9ed15efff1b4e48c7574e71:
+.. _cid-xf::fintech::sobolrsg_1d::last_seqout:
+.. _doxid-classxf_1_1fintech_1_1_sobol_rsg__1_d_1a1aee77bf4614c32b0e46d12985cdd6c0:
+.. _cid-xf::fintech::sobolrsg_1d::sobolrsg_1d:
+.. _doxid-classxf_1_1fintech_1_1_sobol_rsg__1_d_1ab3fee198aab3dde609e8a452e6390fc9:
+.. _cid-xf::fintech::sobolrsg_1d::initialization:
+.. _doxid-classxf_1_1fintech_1_1_sobol_rsg__1_d_1aa4099a39ebce817bfb650c2360e4982d:
+.. _cid-xf::fintech::sobolrsg_1d::next:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// fields
+
+	static const int :ref:`W<doxid-classxf_1_1fintech_1_1_sobol_rsg__1_d_1a7ac6a7865fd07cf921af6c98107fc9bb>`
+	static const int Log2W
+	ap_uint <:ref:`W<doxid-classxf_1_1fintech_1_1_sobol_rsg__1_d_1a7ac6a7865fd07cf921af6c98107fc9bb>`> addr
+	ap_uint <:ref:`W<doxid-classxf_1_1fintech_1_1_sobol_rsg__1_d_1a7ac6a7865fd07cf921af6c98107fc9bb>`> last_seqOut
+
+	// methods
+
+	SobolRsg_1D ()
+	void initialization ()
+	void next (ap_ufixed <:ref:`W<doxid-classxf_1_1fintech_1_1_sobol_rsg__1_d_1a7ac6a7865fd07cf921af6c98107fc9bb>`, 0>* seqOut)
+
+.. _details-doxid-classxf_1_1fintech_1_1_sobol_rsg__1_d:
+
+Detailed Documentation
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+Fields
+------
+
+.. _doxid-classxf_1_1fintech_1_1_sobol_rsg__1_d_1a7ac6a7865fd07cf921af6c98107fc9bb:
+.. _cid-xf::fintech::sobolrsg_1d::w:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	static const int W
+
+Bit width of element in state vector.
+

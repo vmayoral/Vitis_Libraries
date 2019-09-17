@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>template class xf::fintech::internal::HestonPathGenerator &lt;kDTReflection, DT, SampNum, WithAntithetic&gt; &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>template class xf::fintech::internal::HestonPathGenerator &lt;kDTReflection, DT, SampNum, WithAntithetic&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rst_L1/class_xf_fintech_internal_HestonPathGenerator-2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-xf-fintech-internal-hestonpathgenerator-kdtreflection-dt-sampnum-withantithetic">
+<span id="cid-xf-fintech-internal-hestonpathgenerator-2"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89"></span><span id="index-0"></span><h1>template class xf::fintech::internal::HestonPathGenerator &lt;kDTReflection, DT, SampNum, WithAntithetic&gt;<a class="headerlink" href="#template-class-xf-fintech-internal-hestonpathgenerator-kdtreflection-dt-sampnum-withantithetic" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&lt;path_generator.hpp&gt;</span>
+</pre>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="class_xf_fintech_internal_HestonPathGenerator-6.html#doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator"><span class="std std-ref">HestonPathGenerator</span></a> log of price of underlying asset, based on Heston Model. <span class="xref std std-ref">More…</span></p>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-internal-hestonpathgenerator-next-body-2">
+<span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a60c024cc4372d2edb58d1ca09569be8d"></span><span id="cid-xf-fintech-internal-hestonpathgenerator-updatedrift-2"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1ae918fa7eca8c8386b389d7c08286eb71"></span><span id="cid-xf-fintech-internal-hestonpathgenerator-drift-2"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1aa75a1ed1e3623c276af2534fa72b17fc"></span><span id="cid-xf-fintech-internal-hestonpathgenerator-a-2"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1aef477234e1a29ac81f16e2384fc92c7b"></span><span id="cid-xf-fintech-internal-hestonpathgenerator-k4-2"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a59e59fa522620140e297e7ee4cd2ec41"></span><span id="cid-xf-fintech-internal-hestonpathgenerator-k3-2"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1ab8fa9cdb1d5fbfec833f846acc044a0c"></span><span id="cid-xf-fintech-internal-hestonpathgenerator-k2-2"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a5ab52396a0c62616793027e665d44caa"></span><span id="cid-xf-fintech-internal-hestonpathgenerator-k1-2"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1ab6dc42ea125fb498c06ce95cf5e932dc"></span><span id="cid-xf-fintech-internal-hestonpathgenerator-k0-2"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a7ee38114b048d104bfcbc598ddcece68"></span><span id="cid-xf-fintech-internal-hestonpathgenerator-outn-2"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a1234f897107d1ceb8ba17f55eab9d195"></span><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">typename</span> <span class="n">DT</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">SampNum</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">WithAntithetic</span>
+    <span class="o">&gt;</span>
+<span class="k">class</span> <span class="n">HestonPathGenerator</span> <span class="o">&lt;</span><span class="n">kDTReflection</span><span class="p">,</span> <span class="n">DT</span><span class="p">,</span> <span class="n">SampNum</span><span class="p">,</span> <span class="n">WithAntithetic</span><span class="o">&gt;</span>
+
+<span class="c1">// fields</span>
+
+<span class="k">static</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">OutN</span>
+<span class="n">DT</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a3a4e0492fe65b1f61891514fc7ca23e9"><span class="std std-ref">underlying</span></a><span></span>
+<span class="n">DT</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a07541dc1c17905038f7fea50f1142f3b"><span class="std std-ref">dividendYield</span></a><span></span>
+<span class="n">DT</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1ae1731826aff8af467606ccd2fc8b56c3"><span class="std std-ref">riskFreeRate</span></a><span></span>
+<span class="n">DT</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1ac14f8489c39dc9f11e6fcf36554a101b"><span class="std std-ref">v0</span></a><span></span>
+<span class="n">DT</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1ac50857c8bf6a4a4f140758a91de8482f"><span class="std std-ref">kappa</span></a><span></span>
+<span class="n">DT</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1aa31d9c7804ec4497bf6b58e8ddee898a"><span class="std std-ref">theta</span></a><span></span>
+<span class="n">DT</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a79a439f1254754ecaa0067a264c020c6"><span class="std std-ref">sigma</span></a><span></span>
+<span class="n">DT</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a2eb059f50c8535454b6706cfcfefdc07"><span class="std std-ref">rho</span></a><span></span>
+<span class="n">DT</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a0f574d95af4f77697569e141e2e33360"><span class="std std-ref">dt</span></a><span></span>
+<span class="n">DT</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a3dd1d609ffadc87c7c01a3668ea54872"><span class="std std-ref">sdt</span></a><span></span>
+<span class="n">DT</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1ac7e9d0ac333c0ac14a482859cecd69c9"><span class="std std-ref">kappa_dt</span></a><span></span>
+<span class="n">DT</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a8905ec7677c898e8af1add838d644f07"><span class="std std-ref">sigma_sdt</span></a><span></span>
+<span class="n">DT</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1aa33b06bf6273e52734b919999f835821"><span class="std std-ref">hov</span></a><span></span>
+<span class="n">DT</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a85d141443afbe6af5449845c205720d7"><span class="std std-ref">ex</span></a><span></span>
+<span class="n">DT</span> <span class="n">k0</span>
+<span class="n">DT</span> <span class="n">k1</span>
+<span class="n">DT</span> <span class="n">k2</span>
+<span class="n">DT</span> <span class="n">k3</span>
+<span class="n">DT</span> <span class="n">k4</span>
+<span class="n">DT</span> <span class="n">A</span>
+<span class="n">DT</span> <span class="n">drift</span>
+</pre>
+<div class="section" id="fields">
+<h3>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-internal-hestonpathgenerator-underlying-2">
+<span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a3a4e0492fe65b1f61891514fc7ca23e9"></span><span></span><span class="n">DT</span> <span class="n">underlying</span>
+</pre>
+<p>initial value of log of price of underlying asset</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-internal-hestonpathgenerator-dividendyield-2">
+<span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a07541dc1c17905038f7fea50f1142f3b"></span><span></span><span class="n">DT</span> <span class="n">dividendYield</span>
+</pre>
+<p>dividendYield of underlying asset</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-internal-hestonpathgenerator-riskfreerate-2">
+<span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1ae1731826aff8af467606ccd2fc8b56c3"></span><span></span><span class="n">DT</span> <span class="n">riskFreeRate</span>
+</pre>
+<p>riskFreeRate or expected anual growth rate of stock price</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-internal-hestonpathgenerator-v0-2">
+<span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1ac14f8489c39dc9f11e6fcf36554a101b"></span><span></span><span class="n">DT</span> <span class="n">v0</span>
+</pre>
+<p>initial value of volatility process</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-internal-hestonpathgenerator-kappa-2">
+<span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1ac50857c8bf6a4a4f140758a91de8482f"></span><span></span><span class="n">DT</span> <span class="n">kappa</span>
+</pre>
+<p>rate of volatility returns to theta</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-internal-hestonpathgenerator-theta-2">
+<span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1aa31d9c7804ec4497bf6b58e8ddee898a"></span><span></span><span class="n">DT</span> <span class="n">theta</span>
+</pre>
+<p>long term variance</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-internal-hestonpathgenerator-sigma-2">
+<span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a79a439f1254754ecaa0067a264c020c6"></span><span></span><span class="n">DT</span> <span class="n">sigma</span>
+</pre>
+<p>volatility of volatility</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-internal-hestonpathgenerator-rho-2">
+<span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a2eb059f50c8535454b6706cfcfefdc07"></span><span></span><span class="n">DT</span> <span class="n">rho</span>
+</pre>
+<p>correlation of two random walks</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-internal-hestonpathgenerator-dt-2">
+<span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a0f574d95af4f77697569e141e2e33360"></span><span></span><span class="n">DT</span> <span class="n">dt</span>
+</pre>
+<p>Time difference.</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-internal-hestonpathgenerator-sdt-2">
+<span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a3dd1d609ffadc87c7c01a3668ea54872"></span><span></span><span class="n">DT</span> <span class="n">sdt</span>
+</pre>
+<p>square root of time difference</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-internal-hestonpathgenerator-kappa-dt-2">
+<span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1ac7e9d0ac333c0ac14a482859cecd69c9"></span><span></span><span class="n">DT</span> <span class="n">kappa_dt</span>
+</pre>
+<p>kappa * dt</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-internal-hestonpathgenerator-sigma-sdt-2">
+<span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a8905ec7677c898e8af1add838d644f07"></span><span></span><span class="n">DT</span> <span class="n">sigma_sdt</span>
+</pre>
+<p>sigma * sdt</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-internal-hestonpathgenerator-hov-2">
+<span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1aa33b06bf6273e52734b919999f835821"></span><span></span><span class="n">DT</span> <span class="n">hov</span>
+</pre>
+<p>sqrt(1 - rho * rho)</p>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-internal-hestonpathgenerator-ex-2">
+<span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a85d141443afbe6af5449845c205720d7"></span><span></span><span class="n">DT</span> <span class="n">ex</span>
+</pre>
+<p>Other paratmers pre-calculated for Heston model. May not be used in certain variation.</p>
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nextpath">
+<span id="cid-xf-fintech-internal-hestonpathgenerator-nextpath-2"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-heston-path-generator-3-01k-d-t-reflection-00-01-d-t-00-01-sad6279ea1c82cf1e352e0dd5ae33d7d89-1a8dcb590d505b26a8cd0df5e35d50d8ce"></span><h3>NextPath<a class="headerlink" href="#nextpath" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="defined-in-xf-fintech-path-generator-hpp">
+<h4>Defined in &lt;xf_fintech/path_generator.hpp&gt;<a class="headerlink" href="#defined-in-xf-fintech-path-generator-hpp" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">NextPath</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">16</span><span class="o">&gt;</span> <span class="n">steps</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">16</span><span class="o">&gt;</span> <span class="n">paths</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">DT</span><span class="o">&gt;</span> <span class="n">randNumberStrmIn</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">DT</span><span class="o">&gt;</span> <span class="n">pathStrmOut</span> <span class="p">[</span><span class="n">OutN</span><span class="p">]</span>
+    <span class="p">)</span>
+</pre>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>steps</td>
+<td>total timesteps of Heston Model</td>
+</tr>
+<tr class="row-even"><td>paths</td>
+<td>number of path of single call</td>
+</tr>
+<tr class="row-odd"><td>randNumberStrmIn</td>
+<td>input random number stream</td>
+</tr>
+<tr class="row-even"><td>pathStrmOut</td>
+<td>stream of result generated.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

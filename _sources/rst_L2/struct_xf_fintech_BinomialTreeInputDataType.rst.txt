@@ -1,0 +1,96 @@
+.. index:: pair: struct; xf::fintech::BinomialTreeInputDataType
+.. _doxid-structxf_1_1fintech_1_1_binomial_tree_input_data_type:
+.. _cid-xf::fintech::binomialtreeinputdatatype:
+
+template struct xf::fintech::BinomialTreeInputDataType
+======================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <bt_engine.hpp>
+
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - DT
+
+        - supported data type including double and float data type, which decides the precision of result, default is float.
+
+    *
+        - S
+
+        - the spot price.
+
+    *
+        - K
+
+        - the strike price.
+
+    *
+        - T
+
+        - the expiration time.
+
+    *
+        - V
+
+        - annualized volatility of underlying asset.
+
+    *
+        - rf
+
+        - annualized risk-free interest rate.
+
+    *
+        - q
+
+        - the dividend yield.
+
+    *
+        - N
+
+        - the number of intervals.
+
+.. _doxid-structxf_1_1fintech_1_1_binomial_tree_input_data_type_1a1e8008dc5acc74d7620af37504a807b4:
+.. _cid-xf::fintech::binomialtreeinputdatatype::s:
+.. _doxid-structxf_1_1fintech_1_1_binomial_tree_input_data_type_1a5918440c1446890f3b7672c5fc930c92:
+.. _cid-xf::fintech::binomialtreeinputdatatype::k:
+.. _doxid-structxf_1_1fintech_1_1_binomial_tree_input_data_type_1a74ed0b64a6bb96a21410b5859e1907a7:
+.. _cid-xf::fintech::binomialtreeinputdatatype::t:
+.. _doxid-structxf_1_1fintech_1_1_binomial_tree_input_data_type_1a2c6e179db0f39dc1bc258d4d112d20af:
+.. _cid-xf::fintech::binomialtreeinputdatatype::rf:
+.. _doxid-structxf_1_1fintech_1_1_binomial_tree_input_data_type_1a39d4db1db285f85cf16a4e76f2b13116:
+.. _cid-xf::fintech::binomialtreeinputdatatype::v:
+.. _doxid-structxf_1_1fintech_1_1_binomial_tree_input_data_type_1a2a7da4664aadcb2ee3547c015af96dea:
+.. _cid-xf::fintech::binomialtreeinputdatatype::q:
+.. _doxid-structxf_1_1fintech_1_1_binomial_tree_input_data_type_1afda3040f2eedb415dc8b2abdaad7bffd:
+.. _cid-xf::fintech::binomialtreeinputdatatype::n:
+.. _doxid-structxf_1_1fintech_1_1_binomial_tree_input_data_type_1ab253cb765cf7cab9bd5b94274a857852:
+.. _cid-xf::fintech::binomialtreeinputdatatype::packed:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <typename DT>
+	struct BinomialTreeInputDataType
+
+	// fields
+
+	DT S
+	DT K
+	DT T
+	DT rf
+	DT V
+	DT q
+	int N
+	int packed
+

@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Brownian Bridge Transform &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="RNG" href="../hw_api.html" />
+    <link rel="prev" title="Sobol Sequence Generator" href="../SobolRsg/sobolrsg.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../L1.html">L1 Module User Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../L1.html#core-utility">Core Utility</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../RNGs/RNG.html">Random Number Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SVD/SVD.html">Singular Value Decomposition (SVD)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../TRSV/TRSV.html">Tridiagonal Matrix Solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Pentadiag/Pentadiag.html">Pentadiagonal Matrix Solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SobolRsg/sobolrsg.html">Sobol Sequence Generator</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Brownian Bridge Transform</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementation">Implementation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L1.html#l1-module-apis">L1 Module APIs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../L1.html">L1 Module User Guide</a> &raquo;</li>
+        
+      <li>Brownian Bridge Transform</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide_L1/brownian/bb.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="brownian-bridge-transform">
+<h1>Brownian Bridge Transform<a class="headerlink" href="#brownian-bridge-transform" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>A Brownian bridge is a continuous-time stochastic process <span class="math notranslate nohighlight">\(B(t)\)</span> whose probability distribution is the conditional probability distribution of a Wiener process <span class="math notranslate nohighlight">\(W(t)\)</span> subject to the condition (when standardized) that <span class="math notranslate nohighlight">\(W(T) = 0\)</span>. More precisely:</p>
+<div class="math notranslate nohighlight">
+\[B_{t} := (W_{t} | W_{T} = 0), t \in [0, T]\]</div>
+<p>Generally, a Brownian bridge can be defined as:</p>
+<p>Suppose <span class="math notranslate nohighlight">\(\{W_{t}\}_{t \in [0,T]}\)</span> is a one-dimentional Brownian motion,:math:<cite>a, b in mathbb{R}</cite>, then the process</p>
+<div class="math notranslate nohighlight">
+\[B^{a,b}_{t} = a\dfrac{T-t}{T} + b\dfrac{t}{T} + (W_{t} - \dfrac{t}{T}W_{T}), t \in [0, T]\]</div>
+<p>is a Brownian bridge from <span class="math notranslate nohighlight">\(a\)</span> to <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p>It satisfies</p>
+<div class="math notranslate nohighlight">
+\[B^{a,b}_{t} \sim \mathcal N (a + \dfrac{t}{T}(b-a), t - \dfrac{t^2}{T})\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> is normal probability distribution.</p>
+<div class="section" id="theory">
+<h3>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">¶</a></h3>
+<p>Suppose <span class="math notranslate nohighlight">\(W\)</span> is a one-dimentional Brownian motion, <span class="math notranslate nohighlight">\(a,b \in \mathbb{R}, 0 &lt; s &lt; t &lt; u\)</span>, then with known <span class="math notranslate nohighlight">\((W_{u}, W_{s})\)</span>, the conditional probability distribution is as follows:</p>
+<div class="math notranslate nohighlight">
+\[W_{t} | (W_{u}=b, W_{s}=a) \sim \mathcal N (\dfrac{(u-t)a+(t-s)b}{u-s},\dfrac{(u-t)(t-s)}{u-s})\]</div>
+<p>The backward simulation method for Brownian bridge is to generate a sequence between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. Suppose we have constructed <span class="math notranslate nohighlight">\(k\)</span> points <span class="math notranslate nohighlight">\(W_{0}, W_{t_{1}}, ..., W_{t_{k-2}}, W_{T}\)</span>, we want to generate another point at time <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(t_{i} &lt; s &lt; t_{i+1}\)</span>. According to Markov properties and independent increments property of Brownian motion, we have</p>
+<div class="math notranslate nohighlight">
+\[W_{s} | (W_{0}=a,...,W_{t_{i}}=x,W_{t_{i+1}}=y,...,W_{T}=b) \sim W_{s} | (W_{t_i} = x, W_{t_{i+1}}=y)\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[W_{s} | (W_{t_i} = x, W_{t_{i+1}}=y) \sim \mathcal N (\dfrac{(t_{i+1}-s)x+(s-t_{i})y}{t_{i+1}-t_{i}},\dfrac{(t_{i+1}-s)(t_{i+}-t_{i})}{t_{i+1}-s})\]</div>
+</div>
+<div class="section" id="generation-algorithm">
+<h3>Generation Algorithm<a class="headerlink" href="#generation-algorithm" title="Permalink to this headline">¶</a></h3>
+<p>We can design an algorithms for generating Brownian bridge according to the theory above. The backward generation algorithm for Brownian bridge is to generate a sequence between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. A practical strategy is called binary partitioning on <span class="math notranslate nohighlight">\([0, T]\)</span>. It is based on a procedure of gradually reducing the grid size to half. More specifically, we start from <span class="math notranslate nohighlight">\(T\)</span> (level 0), then <span class="math notranslate nohighlight">\(T/4, 3T/4\)</span>, then <span class="math notranslate nohighlight">\(T/8, 3T/8, 5T/8, 7T/8\)</span>, etc.</p>
+<p>The detailed algorithm:</p>
+<p>Input: a sequence of random variate <span class="math notranslate nohighlight">\(Z\)</span> with standardized normal distribution and length <span class="math notranslate nohighlight">\(N=2^{K}\)</span></p>
+<p>Output: a Brownian bridge sequence <span class="math notranslate nohighlight">\(W\)</span> in time range <span class="math notranslate nohighlight">\([0,T]\)</span> and length <span class="math notranslate nohighlight">\(N\)</span></p>
+<ol class="arabic">
+<li><p class="first"><span class="math notranslate nohighlight">\(W_{T} = \sqrt{T}Z\)</span>, <span class="math notranslate nohighlight">\(W_{0}=0\)</span>, <span class="math notranslate nohighlight">\(h=T\)</span></p>
+</li>
+<li><p class="first">For k from 1 to <span class="math notranslate nohighlight">\(K\)</span></p>
+<ul>
+<li><p class="first"><span class="math notranslate nohighlight">\(h = h/2\)</span></p>
+</li>
+<li><p class="first">for <span class="math notranslate nohighlight">\(j\)</span> from 1 to <span class="math notranslate nohighlight">\(2^{k-1}\)</span></p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(W_{(2j-1)h}=\dfrac{1}{2}(W_{2(j-1)h} + W_{2jh}) + \sqrt{h}Z\)</span></p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ol>
+<p>A generalized algorithm for any sequence length <span class="math notranslate nohighlight">\(N\)</span>:</p>
+<p>Input: a sequence of random variate <span class="math notranslate nohighlight">\(Z\)</span> with standardized normal distribution with length <span class="math notranslate nohighlight">\(N\)</span></p>
+<p>Output: a Brownian bridge sequence <span class="math notranslate nohighlight">\(W\)</span> in time range <span class="math notranslate nohighlight">\([0,T]\)</span> and length <span class="math notranslate nohighlight">\(N\)</span></p>
+<ol class="arabic simple">
+<li><span class="math notranslate nohighlight">\(W_{T} = \sqrt{T}Z_{0}\)</span>, <span class="math notranslate nohighlight">\(j = 0\)</span></li>
+<li>Intialize array map[<span class="math notranslate nohighlight">\(0..N-1\)</span>] as all 0, except for map[<span class="math notranslate nohighlight">\(N-1\)</span>] = 1</li>
+<li>For <span class="math notranslate nohighlight">\(i\)</span> from 1 to <span class="math notranslate nohighlight">\(N-1\)</span><ul>
+<li>Find the first unpopulated entry in the map from current position of <span class="math notranslate nohighlight">\(j\)</span></li>
+<li>Find the next populated entry in the map from there, noted as <span class="math notranslate nohighlight">\(k\)</span></li>
+<li>Find the middle position of <span class="math notranslate nohighlight">\(j\)</span> and <span class="math notranslate nohighlight">\(k\)</span>, noted as <span class="math notranslate nohighlight">\(l\)</span></li>
+<li>bridgeIndex[<span class="math notranslate nohighlight">\(i\)</span>] = <span class="math notranslate nohighlight">\(l\)</span>, leftIndex[<span class="math notranslate nohighlight">\(i\)</span>] = <span class="math notranslate nohighlight">\(j\)</span>, rightIndex[<span class="math notranslate nohighlight">\(i\)</span>] = <span class="math notranslate nohighlight">\(k\)</span></li>
+<li>Move <span class="math notranslate nohighlight">\(j\)</span> to the right position of <span class="math notranslate nohighlight">\(k\)</span>, if it is out of map boundary, set <span class="math notranslate nohighlight">\(j\)</span> to 0</li>
+</ul>
+</li>
+<li>For <span class="math notranslate nohighlight">\(i\)</span> from 1 to <span class="math notranslate nohighlight">\(N-1\)</span><ul>
+<li><span class="math notranslate nohighlight">\(l\)</span> = bridgeIndex[<span class="math notranslate nohighlight">\(i\)</span>], <span class="math notranslate nohighlight">\(j\)</span> = leftIndex[<span class="math notranslate nohighlight">\(i\)</span>], <span class="math notranslate nohighlight">\(k\)</span> = rightIndex[<span class="math notranslate nohighlight">\(i\)</span>]</li>
+<li><span class="math notranslate nohighlight">\(W_{l}=\dfrac{t_{k}-t_{l}}{t_{k}-t_{j-1}} W_{j-1} + \dfrac{t_{l}-t_{j-1}}{t_{k}-t_{j-1}} W_{k} + \sqrt{\dfrac{(t_{l}-t_{j-1})(t_{k}-t_{l})}{t_{k}-t_{j-1}}}Z_{i}\)</span>. (<span class="math notranslate nohighlight">\(t_{j-1}\)</span> is treated as 0 when j is 0.)</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<p>The transform function in class <cite>BrownianBridge</cite> transform a input sequence with number <cite>size</cite> to a output sequence. The output data applies to Brownian bridge process.
+Based on the algorithm, each point in output sequence is generated based on previous calculated point. That is to say, each loop dependents on the output of previous loop.
+To solve the dependence, we divide the loop into 7 round. The loop body only depends on previous round. That is to way, the loop in each round has no dependence. So the II could achieve
+to 1 in each round.</p>
+<p>The details steps of our implementation is as follows:</p>
+<ol class="arabic simple">
+<li>Init: calculate the value of begin and end point.</li>
+<li>Round-1: divide the sequence into two parts, calculate value of the mid-point. Now the number of sub-sequence is 2.</li>
+<li>Round-2: divide each sub-sequence into two parts, calculate the value of mid-point. Then total number of sub-sequence is 4.</li>
+<li>Round-3: divide each sub-sequence into two parts, calculate the value of mid-point. Then total number of sub-sequence is 8.</li>
+<li><span class="math notranslate nohighlight">\(\ldots\ldots\)</span></li>
+<li>Round-6: divide each sub-sequence into two parts, calculate the value of mid-point. Then total number of sub-sequence is 64.</li>
+<li>Round-7: in this round, the distance of each dependence is greater than the loop latency. So the II could achieve 1.</li>
+</ol>
+<p>A more discrete description is provided by the following figures.
+In each round, the order of generated data is from left to right.</p>
+<a class="reference internal image-reference" href="../../_images/bb_div.PNG"><img alt="order of generated data" class="align-center" src="../../_images/bb_div.PNG" style="width: 80%;" /></a>
+<p>Each round shares the same hardware logic named trans_body. It gets begin and end value from the result buffer, then aggregate it with left_weight and right_weight to get the value of mid-point.
+It is present as follows:</p>
+<a class="reference internal image-reference" href="../../_images/bb_imp.PNG"><img alt="detailed impl" class="align-center" src="../../_images/bb_imp.PNG" style="width: 80%;" /></a>
+<div class="section" id="profiling">
+<h3>Profiling<a class="headerlink" href="#profiling" title="Permalink to this headline">¶</a></h3>
+<p>The hardware resources for Brownian bridge with sequence length 128:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="20%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Engines</td>
+<td>BRAM</td>
+<td>DSP</td>
+<td>Register</td>
+<td>LUT</td>
+<td>clock period(ns)</td>
+</tr>
+<tr class="row-even"><td>Brownian bridge</td>
+<td>15</td>
+<td>42</td>
+<td>16297</td>
+<td>10246</td>
+<td>3.080</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>The hardware resources for Brownian bridge with sequence length 1024:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="20%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Engines</td>
+<td>BRAM</td>
+<td>DSP</td>
+<td>Register</td>
+<td>LUT</td>
+<td>clock period(ns)</td>
+</tr>
+<tr class="row-even"><td>Brownian bridge</td>
+<td>19</td>
+<td>33</td>
+<td>16219</td>
+<td>13056</td>
+<td>3.351</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>The correctness of Brownian bridge generation is verified by comparing results with QuantLib Brownian bridge output using the same input sequence. The results are identical.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../hw_api.html" class="btn btn-neutral float-right" title="RNG" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../SobolRsg/sobolrsg.html" class="btn btn-neutral" title="Sobol Sequence Generator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

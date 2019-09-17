@@ -1,0 +1,36 @@
+.. index:: pair: class; xf::fintech::internal::TimeGrid
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_time_grid:
+.. _cid-xf::fintech::internal::timegrid:
+
+template class xf::fintech::internal::TimeGrid
+==============================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <time_grid.hpp>
+
+
+Overview
+~~~~~~~~
+
+:ref:`TimeGrid <doxid-classxf_1_1fintech_1_1internal_1_1_time_grid>` . :ref:`More...<details-doxid-classxf_1_1fintech_1_1internal_1_1_time_grid>`
+
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_time_grid_1aaad0d64590ce585626b1ef48b250127f:
+.. _cid-xf::fintech::internal::timegrid::calcugrid:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_time_grid_1af73a2a9814685dfa0004fed90a66b8ac:
+.. _cid-xf::fintech::internal::timegrid::calcugrid-2:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_time_grid_1a0e5e3ff00742533d773991a9f6d193ba:
+.. _cid-xf::fintech::internal::timegrid::calcugrid-3:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    typename DT,
+	    int LEN
+	    >
+	class TimeGrid
+

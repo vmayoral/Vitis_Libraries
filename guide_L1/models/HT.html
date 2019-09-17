@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Heston Model &mdash; XF FinTech Library 0.5 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Monte Carlo Simulation" href="../methods/mc.html" />
+    <link rel="prev" title="Black-Scholes Model" href="BS.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../L1.html">L1 Module User Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../L1.html#models">Models</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="BS.html">Black-Scholes Model</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Heston Model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#partial-differential-equation-of-heston-model">Partial Differential Equation of Heston Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementations">Implementations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L1.html#numerical-methods">Numerical Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1.html#core-utility">Core Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1.html#l1-module-apis">L1 Module APIs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XF FinTech Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../L1.html">L1 Module User Guide</a> &raquo;</li>
+        
+      <li>Heston Model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide_L1/models/HT.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="heston-model">
+<h1>Heston Model<a class="headerlink" href="#heston-model" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Heston model is a mathematical model that describing dynamics of underlying asset price.
+It is a stochastic volatility model which assume the volatility of the asset price is not constant but follows a random process.
+In this case, volatility flows square root process which means volatility is always non-negative.</p>
+</div>
+<div class="section" id="partial-differential-equation-of-heston-model">
+<h2>Partial Differential Equation of Heston Model<a class="headerlink" href="#partial-differential-equation-of-heston-model" title="Permalink to this headline">¶</a></h2>
+<p>The continuous form of Heston Model is:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{d} S_t = \mu S_t \mathrm{d}t + \sqrt[2]{\nu} S_t \mathrm{d}W_t^S\]</div>
+<div class="math notranslate nohighlight">
+\[\mathrm{d} \nu_t = \kappa (\theta - \nu_t) \mathrm{d}t + \sigma \sqrt[2]{\nu_t} \mathrm{d}W_t^\nu\]</div>
+<div class="math notranslate nohighlight">
+\[Corr(W_t^S, W_t^\nu)) = \rho\]</div>
+<p>Where <span class="math notranslate nohighlight">\(S_t\)</span> is random variable, represent a stock price at time t.
+<span class="math notranslate nohighlight">\(\mu\)</span> is the stock’s expected rate of return.
+<span class="math notranslate nohighlight">\(\sqrt[2]{\nu_t}\)</span> is the volatility of stock price and <span class="math notranslate nohighlight">\(\nu_t\)</span> is also a random variable.
+<span class="math notranslate nohighlight">\(\theta\)</span> is the long term variance.
+<span class="math notranslate nohighlight">\(\kappa\)</span> is the rate at which <span class="math notranslate nohighlight">\(\nu_t\)</span> revert to <span class="math notranslate nohighlight">\(\theta\)</span>.
+<span class="math notranslate nohighlight">\(\sigma\)</span> is the volatility of the volatility.
+<span class="math notranslate nohighlight">\(\mathrm{d}W_t^S\)</span> and <span class="math notranslate nohighlight">\(\mathrm{d}W_t^\nu\)</span> are Wiener processes with correlation <span class="math notranslate nohighlight">\(\rho\)</span>.</p>
+</div>
+<div class="section" id="implementations">
+<h2>Implementations<a class="headerlink" href="#implementations" title="Permalink to this headline">¶</a></h2>
+<p>The discrete form (Euler-Maruyama Form) of Heston Model is:</p>
+<div class="math notranslate nohighlight">
+\[\ln{S(j\Delta)} = \ln{S((j-1)\Delta)} + \mu\Delta + \sqrt[2]{\nu((j-1)\Delta)} \Delta W_t^S\]</div>
+<div class="math notranslate nohighlight">
+\[\nu(j\Delta) = \nu((j-1)\Delta) + \kappa(\theta - \nu((j-1)\Delta))\Delta + \sigma\sqrt[2]{\nu((j-1)\Delta)}\Delta W_t^\nu\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\Delta\)</span> stands for unit timestep length.
+<span class="math notranslate nohighlight">\(S(j\Delta)\)</span> stands for S in j th timesteps, AKA <span class="math notranslate nohighlight">\(S(j * \Delta t)\)</span>.
+<span class="math notranslate nohighlight">\(\nu(j\Delta)\)</span> has a similar meaning.
+To simplify the calculation, we use <span class="math notranslate nohighlight">\(\ln{S(j\Delta)}\)</span> instead of <span class="math notranslate nohighlight">\(S\)</span> since multiplication becomes addition after logarithm.</p>
+<p><span class="math notranslate nohighlight">\(\Delta W_t^S\)</span> and <span class="math notranslate nohighlight">\(\Delta W_t^\nu\)</span> could be calculated by:</p>
+<div class="math notranslate nohighlight">
+\[\Delta W_t^S = \Delta Z_S\]</div>
+<div class="math notranslate nohighlight">
+\[\Delta W_t^\nu = \Delta Z_\nu\]</div>
+<p>Where <span class="math notranslate nohighlight">\(Z_S\)</span> and <span class="math notranslate nohighlight">\(Z_\nu\)</span> are two uniform distributed random numbers that have correlation <span class="math notranslate nohighlight">\(\rho\)</span></p>
+<p>Although <span class="math notranslate nohighlight">\(\nu\)</span> is non-negative in continuous form, it would become negative if we use the Euler-Maruyama form above directly.
+There’re several variations to solve this issue, here we provide 5 of most commonly used.</p>
+<p><strong>kDTReflection</strong>: use absolute value of the volatility of the last iteration.</p>
+<div class="math notranslate nohighlight">
+\[\ln{S(j\Delta)} = \ln{S((j-1)\Delta)} + \mu\Delta + \sqrt[2]{|\nu((j-1)\Delta)|} \Delta W_t^S\]</div>
+<div class="math notranslate nohighlight">
+\[\nu(j\Delta) = |\nu((j-1)\Delta)| + \kappa(\theta - |\nu((j-1)\Delta)|)\Delta + \sigma\sqrt[2]{|\nu((j-1)\Delta)|}\Delta W_t^\nu\]</div>
+<p><strong>kDTPartialTruncation</strong>: use only absolute value of volatility of the last iteration in sqrt root part.</p>
+<div class="math notranslate nohighlight">
+\[\ln{S(j\Delta)} = \ln{S((j-1)\Delta)} + \mu\Delta + \sqrt[2]{|\nu((j-1)\Delta)|} \Delta W_t^S\]</div>
+<div class="math notranslate nohighlight">
+\[\nu(j\Delta) = \nu((j-1)\Delta) + \kappa(\theta - \nu((j-1)\Delta))\Delta + \sigma\sqrt[2]{|\nu((j-1)\Delta)|}\Delta W_t^\nu\]</div>
+<p><strong>kDTFullTruncation</strong>: use only positive part or zero of volatility of the last iteration.
+<span class="math notranslate nohighlight">\(\nu((j-1)\Delta)^+ = \nu((j-1)\Delta)\)</span> if <span class="math notranslate nohighlight">\(\nu((j-1)\Delta) &gt; 0\)</span> <span class="math notranslate nohighlight">\(\nu((j-1)\Delta)^+ = 0\)</span> if <span class="math notranslate nohighlight">\(\nu((j-1)\Delta) \leq 0\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\ln{S(j\Delta)} = \ln{S((j-1)\Delta)} + \mu\Delta + \sqrt[2]{\nu((j-1)\Delta)^+} \Delta W_t^S\]</div>
+<div class="math notranslate nohighlight">
+\[\nu(j\Delta) = \nu((j-1)\Delta) + \kappa(\theta - \nu((j-1)\Delta)^+)\Delta + \sigma\sqrt[2]{\nu((j-1)\Delta)^+}\Delta W_t^\nu\]</div>
+<p><strong>kDTQuadraticExponential</strong> and <strong>kDTQuadraticExponentialMartingale</strong> are more accurate variation, details could be found in reference papers.
+They use a different approximation method to calculate <span class="math notranslate nohighlight">\(\nu\)</span>, here’s brief on its algorithm</p>
+<p>Step 1: we calculate first order moment and second order moment of <span class="math notranslate nohighlight">\(\nu\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[m = \theta + (\nu((j-1)\Delta) - \theta)e^{-\kappa \theta}\]</div>
+<div class="math notranslate nohighlight">
+\[s^2 = \frac{\nu((j-1)\Delta)\sigma^2 e^{-\kappa \Delta} }{\kappa} (1 - e^{-\kappa \Delta}) + \frac{\theta \sigma^2}{2 \kappa}(1 - e^{-\kappa \Delta})^2\]</div>
+<p>Step 2: Calculate <span class="math notranslate nohighlight">\(\Psi = s^2 / m^2\)</span></p>
+<p>Step 3: If <span class="math notranslate nohighlight">\(\Psi \leq \Psi_{sw}, \Psi_{sw} = 1.5\)</span>, Then</p>
+<p>Step 3.1: Calculate <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b^2\)</span></p>
+<div class="math notranslate nohighlight">
+\[b^2 = 2\Psi^{-1} - 1 + \sqrt[2]{2\Psi^{-1}} \sqrt[2]{2\Psi^{-1}-1}\]</div>
+<div class="math notranslate nohighlight">
+\[a = \frac{m}{1+b^2}\]</div>
+<p>Step 3.2: Calculate <span class="math notranslate nohighlight">\(\nu(j\Delta)\)</span></p>
+<div class="math notranslate nohighlight">
+\[\nu(j\Delta) = a(b+Z_\nu)^2\]</div>
+<p>Step 4: If Step 3 does not hold, Then</p>
+<p>Step 4.1: Calculate <span class="math notranslate nohighlight">\(\beta\)</span> and <span class="math notranslate nohighlight">\(p\)</span></p>
+<div class="math notranslate nohighlight">
+\[p = \frac{\Psi - 1}{\Psi + 1}\]</div>
+<div class="math notranslate nohighlight">
+\[\beta = \frac{2}{m(\Psi + 1)}\]</div>
+<p>Step 4.2: Calculate <span class="math notranslate nohighlight">\(U_\nu = \Psi(Z_\nu)\)</span></p>
+<p>Step 4.3: Calculate <span class="math notranslate nohighlight">\(\nu(j\Delta)\)</span></p>
+<div class="math notranslate nohighlight">
+\[\nu(j\Delta) = 0 \:\: if \:\: U_\nu \leq p\]</div>
+<div class="math notranslate nohighlight">
+\[\nu(j\Delta) = \frac{1}{\beta}(\frac{1-p}{1-U_\nu}) \:\: if \:\:  p &lt; U_\nu\]</div>
+<p>It should be noticed that they both have two branches for value in different range.
+These two branches have a similar calculation.
+Furthermore, only one branch is active at the same time.
+By merging these two branches into one branch and manually binding calculations to DSPs, it will cut off DSP cost.
+This won’t change its performance and accuracy.</p>
+<p>In Monte Carlo Simulation, we need to compute stock prices of multiple paths at multiple time steps.
+Therefore we need two loops to calculate prices and volatilities, the inner loop is either timestep loop or path loop.
+Price at each time step is calculated using last time step’s price and volatility as input.
+And we use 1-D array to store price and volatility of each path’s history (last timestep).</p>
+<p>If the inner loop is timestep loop, as red arrows demonstrate in the diagram below, it will keep update the same array element until reaches max timesteps.
+Such operation can not achieve II=1 and will greatly slow down the calculation.
+If the inner loop is path loop, as green arrows demonstrate in the diagram below, it will keep updating different array element each time.
+Such operation will avoid dependency issue and reach II=1, which is used in this implementation.</p>
+<a class="reference internal image-reference" href="../../_images/inner_loop.png"><img alt="Inner Loop of timesteps and path" class="align-center" src="../../_images/inner_loop.png" style="width: 80%;" /></a>
+<p>Reference: Efficient Simulation of the Heston Stochastic Volatility Model, Leif Andersen, 2005.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../methods/mc.html" class="btn btn-neutral float-right" title="Monte Carlo Simulation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="BS.html" class="btn btn-neutral float-left" title="Black-Scholes Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

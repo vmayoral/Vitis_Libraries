@@ -1,0 +1,57 @@
+.. index:: pair: class; xf::fintech::internal::MultiAssetPathPricer <European, DT, ASSETS, SampleNum>
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_path_pricer_3_01_european_00_01_d_t_00_01_a_s_s_e_t_s_00_01_sample_num_01_4:
+.. _cid-xf::fintech::internal::multiassetpathpricer-2:
+
+template class xf::fintech::internal::MultiAssetPathPricer <European, DT, ASSETS, SampleNum>
+============================================================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <path_pricer.hpp>
+
+
+
+
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_path_pricer_3_01_european_00_01_d_t_00_01_a_s_s_e_t_s_00_01_sample_num_01_4_1a278b055d376a9b29adb9ae7d849f0050:
+.. _cid-xf::fintech::internal::multiassetpathpricer::underlying:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_path_pricer_3_01_european_00_01_d_t_00_01_a_s_s_e_t_s_00_01_sample_num_01_4_1a0ef2aae68406d9c97f3b33e7e09ea5b4:
+.. _cid-xf::fintech::internal::multiassetpathpricer::strike:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_path_pricer_3_01_european_00_01_d_t_00_01_a_s_s_e_t_s_00_01_sample_num_01_4_1ae930fbce794da9ce59dbc3051a05a16b:
+.. _cid-xf::fintech::internal::multiassetpathpricer::discount:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_path_pricer_3_01_european_00_01_d_t_00_01_a_s_s_e_t_s_00_01_sample_num_01_4_1a3a00dde741eb0e1d377c7d317082d570:
+.. _cid-xf::fintech::internal::multiassetpathpricer::optiontype:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_path_pricer_3_01_european_00_01_d_t_00_01_a_s_s_e_t_s_00_01_sample_num_01_4_1ab9f455b4f58929046098e81da8ea34ae:
+.. _cid-xf::fintech::internal::multiassetpathpricer::buffer:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_path_pricer_3_01_european_00_01_d_t_00_01_a_s_s_e_t_s_00_01_sample_num_01_4_1acd8e3ae563ff209593805007fb84f3a5:
+.. _cid-xf::fintech::internal::multiassetpathpricer::inn-2:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_path_pricer_3_01_european_00_01_d_t_00_01_a_s_s_e_t_s_00_01_sample_num_01_4_1a74eb44c30f8901e4440fa0906f2fc15e:
+.. _cid-xf::fintech::internal::multiassetpathpricer::outn:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_path_pricer_3_01_european_00_01_d_t_00_01_a_s_s_e_t_s_00_01_sample_num_01_4_1a7ff821db97f5e4c5c7952ed486e2fbe8:
+.. _cid-xf::fintech::internal::multiassetpathpricer::bypassgen:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_multi_asset_path_pricer_3_01_european_00_01_d_t_00_01_a_s_s_e_t_s_00_01_sample_num_01_4_1ac11ef8fdf9563c2bc72585c7142febce:
+.. _cid-xf::fintech::internal::multiassetpathpricer::pricing-2:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    typename DT,
+	    int ASSETS,
+	    int SampleNum
+	    >
+	class MultiAssetPathPricer <European, DT, ASSETS, SampleNum>
+
+	// fields
+
+	DT underlying[ASSETS]
+	DT strike
+	DT discount
+	bool optionType
+	DT buffer[SampleNum]
+	static const unsigned int InN
+	static const unsigned int OutN
+	static const bool byPassGen
+

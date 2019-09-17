@@ -1,0 +1,42 @@
+.. index:: pair: struct; Greeks
+.. _doxid-struct_greeks:
+.. _cid-greeks:
+
+template struct Greeks
+======================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <types.h>
+
+
+
+
+.. _doxid-struct_greeks_1aea3daa320d1f35f087c1f226e0334d17:
+.. _cid-greeks::delta:
+.. _doxid-struct_greeks_1a3dc3f2ac00278497a98e2bcf7b8a786d:
+.. _cid-greeks::gamma:
+.. _doxid-struct_greeks_1ae6fd095af3e58fa57e0e470d24445765:
+.. _cid-greeks::theta:
+.. _doxid-struct_greeks_1a3831775401ae4feb85f210fe5fe5194f:
+.. _cid-greeks::vega:
+.. _doxid-struct_greeks_1a7d297a91236ca0be70b2dce9fda872bf:
+.. _cid-greeks::rho:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <typename DT>
+	struct Greeks
+
+	// fields
+
+	DT delta
+	DT gamma
+	DT theta
+	DT vega
+	DT rho
+

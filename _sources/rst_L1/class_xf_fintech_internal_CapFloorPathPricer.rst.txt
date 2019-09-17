@@ -1,0 +1,74 @@
+.. index:: pair: class; xf::fintech::internal::CapFloorPathPricer
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_cap_floor_path_pricer:
+.. _cid-xf::fintech::internal::capfloorpathpricer:
+
+template class xf::fintech::internal::CapFloorPathPricer
+========================================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <path_pricer.hpp>
+
+
+
+
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_cap_floor_path_pricer_1a9fb484cb2d8475aad51981274f5a97fb:
+.. _cid-xf::fintech::internal::capfloorpathpricer::inn:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_cap_floor_path_pricer_1a413f6d462aa8f76d63472ac8faf6ec30:
+.. _cid-xf::fintech::internal::capfloorpathpricer::outn:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_cap_floor_path_pricer_1a52daa9829b298e3880b729b0f19fdcbb:
+.. _cid-xf::fintech::internal::capfloorpathpricer::bypassgen:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_cap_floor_path_pricer_1aebf5dc6129b262b39093aa5688bb3ac2:
+.. _cid-xf::fintech::internal::capfloorpathpricer::iscap:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_cap_floor_path_pricer_1a212d540477a2a4ad88c08236b7e92f69:
+.. _cid-xf::fintech::internal::capfloorpathpricer::r0:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_cap_floor_path_pricer_1a50989134603fca9b109202ea0252a8ee:
+.. _cid-xf::fintech::internal::capfloorpathpricer::strikerate:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_cap_floor_path_pricer_1ac212ae69be04301e5c8cb9c27dafeeac:
+.. _cid-xf::fintech::internal::capfloorpathpricer::singleperiod:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_cap_floor_path_pricer_1a7ed559d3fc7e0e25b9e62e0112fa40e0:
+.. _cid-xf::fintech::internal::capfloorpathpricer::alpha:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_cap_floor_path_pricer_1a33c0f287d2b4d5f29b7814ebc5e2a42f:
+.. _cid-xf::fintech::internal::capfloorpathpricer::sigma:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_cap_floor_path_pricer_1a93fb8dacd499b08441adf64680d048ff:
+.. _cid-xf::fintech::internal::capfloorpathpricer::nomial:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_cap_floor_path_pricer_1aeb344352453d292e0e2b4b64ddd78fc4:
+.. _cid-xf::fintech::internal::capfloorpathpricer::payoffbuffer:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_cap_floor_path_pricer_1a495104b5c8905ed873b43dec60832436:
+.. _cid-xf::fintech::internal::capfloorpathpricer::lastratebuffer:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_cap_floor_path_pricer_1aa70c4cbeeb6a8e2ab7a5a86720736f38:
+.. _cid-xf::fintech::internal::capfloorpathpricer::init:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_cap_floor_path_pricer_1ae9bab65670511a9d973ea781f2a9ef98:
+.. _cid-xf::fintech::internal::capfloorpathpricer::b:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_cap_floor_path_pricer_1af586386a2add260d3d9a2da1bf2fc6e9:
+.. _cid-xf::fintech::internal::capfloorpathpricer::discountbond:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_cap_floor_path_pricer_1a28f03efc540757f18710d4834dbe42e4:
+.. _cid-xf::fintech::internal::capfloorpathpricer::pricing:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    typename DT,
+	    int SampNum
+	    >
+	class CapFloorPathPricer
+
+	// fields
+
+	static const unsigned int InN
+	static const unsigned int OutN
+	static const bool byPassGen
+	bool isCap
+	DT r0
+	DT strikeRate
+	DT singlePeriod
+	DT alpha
+	DT sigma
+	DT nomial
+	DT payoffBuffer[SampNum]
+	DT lastRateBuffer[SampNum]
+
