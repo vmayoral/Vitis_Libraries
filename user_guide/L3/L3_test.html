@@ -170,7 +170,7 @@
             
   <div class="section" id="l3-api-test">
 <span id="test-l3"></span><h1>L3 API test<a class="headerlink" href="#l3-api-test" title="Permalink to this headline">¶</a></h1>
-<p>XFBLAS level 3 provide an automatic test flow that could be ran by simple one line command:</p>
+<p>XFBLAS level 3 provides an automatic test flow that could be run by simple one line command:</p>
 <pre class="highlight literal-block"><span></span>python run_test.py --shell SHELL_NAME --operator OPERATOR_NAME1 ...</pre>
 <p>The whole test flow includes 3 parts: 1) build the executable 2) generate input files and golden reference using python numpy library and save in bin files 3) run hw and compare with the golden reference.</p>
 <p>For each operator that is available in level 3, profile json file could be found in test/xf_blas/OPERATOR_NAME/profile.json. Users could modify values in that file to run tests with different data types, different matrix sizes, different value range and so on.</p>
