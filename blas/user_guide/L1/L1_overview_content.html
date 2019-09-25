@@ -180,7 +180,7 @@
   <p id="user-guide-overview-content-l1">XFBLAS L1 primitives are the C++ implementation of BLAS functions. These implementations are intended to be used by HLS (High Level Synthesis) users to build FPGA logic for their applications.</p>
 <div class="section" id="introduction">
 <h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>L1 primitives’ implementations include computation and data mover modules. The computation modules always have stream interfaces. The data mover modules moves data between vectors’ and matrices’ on-chip storage and the computation modules. This design strategy allows FPGA application programmers to quickly develop a high-performed logic by simply chaining serval computation and data mover modules together. The organization of XFBLAS L1 files and directories, as described below, reflects this design strategy.</p>
+<p>L1 primitives’ implementations include computation and data mover modules. The computation modules always have stream interfaces. The data mover modules move data between vectors’ and matrices’ on-chip storage and the computation modules. This design strategy allows FPGA application programmers to quickly develop a high-performed logic by simply chaining serval computation and data mover modules together. The organization of XFBLAS L1 files and directories, as described below, reflects this design strategy.</p>
 <ul class="simple">
 <li><p><strong>L1/include/hw/xf_blas</strong>: the directory that contains the computation modules</p></li>
 <li><p><strong>L1/include/hw/xf_blas.hpp</strong>: the header file for L1 primitivers’ users</p></li>
@@ -191,26 +191,26 @@
 <li><p><strong>L1/test/sw</strong>: the directory that contains the testbench and test infrastructure support for the primitives</p></li>
 <li><p><strong>L1/test/build</strong>: the directory that includes the vivado_hls script used for creating vivado_hls project to test each primitive’s implementation</p></li>
 <li><p><strong>L1/test/run_test.py</strong>: the python script for testing L1 primitives’ implementations</p></li>
-<li><p><strong>L1/test/set_env.sh</strong>: the shell script for setting up environment used for testing L1 primitives.</p></li>
+<li><p><strong>L1/test/set_env.sh</strong>: the shell script for setting up the environment used for testing L1 primitives.</p></li>
 </ul>
 <p>More information about computation and data mover modules can be found in <a class="reference internal" href="L1_compute_api.html"><span class="doc">L1 computation APIs</span></a> and <a class="reference internal" href="L1_data_mover.html"><span class="doc">L1 data mover APIs</span></a>.</p>
 </div>
 <div class="section" id="l1-primitives-usage">
 <h1>2. L1 primitives’ usage<a class="headerlink" href="#l1-primitives-usage" title="Permalink to this headline">¶</a></h1>
 <p>XFBLAS L1 primitives are intended to be used by hardware developers to implement an application or algorithm specific FPGA logic in HLS. The following example code shows a typical usage of L1 primitives.</p>
-<p>The uut_top.cpp file in each primitive folder under L1/tests/hw directory provides an usage example of combining computation and data mover modules of the primitive. More information about testing L1 primitives can be found in <a class="reference internal" href="L1_test.html"><span class="doc">Test L1 primitives</span></a>.</p>
+<p>The uut_top.cpp file in each primitive folder under L1/tests/hw directory provides a usage example of combining computation and data mover modules of the primitive. More information about testing L1 primitives can be found in <a class="reference internal" href="L1_test.html"><span class="doc">Test L1 primitives</span></a>.</p>
 </div>
 <div class="section" id="matrix-storage-used-in-l1-primitives">
 <h1>3. Matrix storage used in L1 primitives<a class="headerlink" href="#matrix-storage-used-in-l1-primitives" title="Permalink to this headline">¶</a></h1>
-<p>The data mover components moves matrices’ and vectors’ data stored in the on-chip memory, normally BRAM or URAM slices, into streams to feed the computation modules. The following matrix storage formats are supported.</p>
+<p>The data mover components move matrices’ and vectors’ data stored in the on-chip memory, normally BRAM or URAM slices, into streams to feed the computation modules. The following matrix storage formats are supported.</p>
 <ul class="simple">
 <li><p>row-major matrix</p></li>
 <li><p>row-major symmetric matrix</p></li>
 <li><p>row-major packed symmetric matrix</p></li>
 <li><p>row-major triangular matrix</p></li>
 <li><p>row-major packed triangular matrix</p></li>
-<li><p>column-major bandded matrix</p></li>
-<li><p>column-major bandded symmetric matrix</p></li>
+<li><p>column-major banded matrix</p></li>
+<li><p>column-major banded symmetric matrix</p></li>
 </ul>
 <p>More information about matrix storage formats and data mover components can be found in <a class="reference internal" href="L1_data_mover.html"><span class="doc">Data movers used in L1 primitives</span></a>.</p>
 </div>
