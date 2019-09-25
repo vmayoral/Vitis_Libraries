@@ -1,0 +1,36 @@
+.. index:: pair: class; xf::security::aesEnc <128>
+.. _doxid-classxf_1_1security_1_1aes_enc_3_01128_01_4:
+.. _cid-xf::security::aesenc-3:
+
+template class xf::security::aesEnc <128>
+=========================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include "aes.hpp"
+
+
+
+
+.. _doxid-classxf_1_1security_1_1aes_enc_3_01128_01_4_1a129fea56c77f786ba21e492281af3029:
+.. _cid-xf::security::aesenc::key_list-2:
+.. _doxid-classxf_1_1security_1_1aes_enc_3_01128_01_4_1a6de90fac8f48bb6bec55d2989e7a4956:
+.. _cid-xf::security::aesenc::aesenc-2:
+.. _doxid-classxf_1_1security_1_1aes_enc_3_01128_01_4_1a4303dda90a84ef5719862ce21960c177:
+.. _cid-xf::security::aesenc::updatekey-3:
+.. _doxid-classxf_1_1security_1_1aes_enc_3_01128_01_4_1abc226fa3610e056017e67ad858bcede7:
+.. _cid-xf::security::aesenc::process-3:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <>
+	class aesEnc <128>
+
+	// fields
+
+	ap_uint <128> key_list[11]
+

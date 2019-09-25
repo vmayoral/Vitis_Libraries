@@ -38,8 +38,8 @@
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="CTR Mode" href="ctr.html" />
-    <link rel="prev" title="CBC Mode" href="cbc.html" /> 
+    <link rel="next" title="Chacha20 Algorithms" href="chacha20.html" />
+    <link rel="prev" title="CCM Mode" href="ccm.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -99,29 +99,31 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../hw_guide.html">L1 Module User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../hw_api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code></a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../internals.html">Design Internals</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="md4_5.html">The MD4/MD5 Message-Digest Algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sha1.html">SHA-1 Algorithm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sha2.html">SHA-2 Algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sha3.html">SHA-3 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aes.html">AES Encryption Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="blake2b.html">BLAKE2 Algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="aes.html">AES-256 Encryption Algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="iaes.html">AES-256 Decryption Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cbc.html">CBC Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ccm.html">CCM Mode</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">CFB Mode</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#implementation-on-fpga">Implementation on FPGA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cfb1-encryption-performance-device-vu9p">CFB1 Encryption Performance(Device: VU9P)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cfb1-decryption-performance-device-vu9p">CFB1 Decryption Performance(Device: VU9P)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cfb8-encryption-performance-device-vu9p">CFB8 Encryption Performance(Device: VU9P)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cfb8-decryption-performance-device-vu9p">CFB8 Decryption Performance(Device: VU9P)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cfb128-encryption-performance-device-vu9p">CFB128 Encryption Performance(Device: VU9P)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cfb128-decryption-performance-device-vu9p">CFB128 Decryption Performance(Device: VU9P)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiling">Profiling</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="chacha20.html">Chacha20 Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ctr.html">CTR Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="des.html">DES and 3DES Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ecb.html">ECB Mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gcm.html">GCM Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gmac.html">GMAC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hmac.html">HMAC Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iaes.html">AES Decryption Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="md4_5.html">The MD4/MD5 Message-Digest Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ofb.html">OFB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poly1305.html">Poly1305 Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rc4.html">RC4 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha1.html">SHA-1 Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha2.html">SHA-2 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha3.html">SHA-3 Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="xts.html">XTS mode</a></li>
 </ul>
 </li>
@@ -130,7 +132,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../benchmark/result.html">Benchmark of AES256 Encryption/Decryption in CBC Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/result.html">Benchmark Result</a></li>
 </ul>
 
             
@@ -205,35 +207,154 @@
 </div>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>The Cipher Feedback (CFB) mode is a typical encryption and decryption mode using AES algorithm.
-In this version, we provide AES-256 processing ability, which means the cipherkey in this design should be 256 bits.
-Another limitation is that our working mode works on units of a fixed size (128 bits for 1 block), but text in the real world has a variety of lengths.
-So, the final block of the text must be padded to 128 bits before encryption or decryption.</p>
+<p>The Cipher Feedback (CFB) mode is a typical block cipher mode of operation using block cipher algorithm.
+In this version, we provide Data Encryption Standard (DES) and Advanced Encryption Standard (AES) processing ability,
+the cipherkey length for DES should be 64 bits, and 128/192/256 bits for AES.
+Another limitation is that our working mode works on units of a fixed size (64 or 128 bits for 1 block),
+but text in the real world has a variety of lengths.
+So, the last block of the text provided to this primitive must be padded to 128 bits before encryption or decryption.
+Although, CFB1 and CFB8 modes share the same interface with CFB128 mode, the plaintext and ciphertext is prcossed bit-by-bit or byte-by-byte not block-by-block for CFB1 and CFB8 modes repectively.</p>
 </div>
 <div class="section" id="implementation-on-fpga">
 <h2>Implementation on FPGA<a class="headerlink" href="#implementation-on-fpga" title="Permalink to this headline">¶</a></h2>
 <p>We support three different modes in this implementation: CFB1, CFB8, and CFB128.
 The length of the text to be processed in one iteration corresponding to specific mode.
-CFB1 is 1 bit per iteration, CFB8 is 8 bits per iteration, and CFB128 is 128 bits per iteration.
-Notice that the plaintext, ciphertext, and initialization vector of each mode should also be 128 bits.
-The algorithm flow chart is shown as follow, and the length of the text is denoted as ‘s’:</p>
+CFB1 is 1 bit per iteration, CFB8 is 8 bits per iteration, and CFB128 is 128 bits per iteration.</p>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p>The bit-width of the interfaces we provide is shown as follows:
+=============== =========== ============ =========== ====</p>
+<blockquote>
+<div>plaintext   ciphertext   cipherkey   IV</div></blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="21%" />
+<col width="23%" />
+<col width="21%" />
+<col width="8%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CFB1-DES</th>
+<th class="head">64</th>
+<th class="head">64</th>
+<th class="head">64</th>
+<th class="head">64</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>CFB1-AES128</td>
+<td>128</td>
+<td>128</td>
+<td>128</td>
+<td>128</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div>CFB1-AES192        128         128          192      128</div></blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="21%" />
+<col width="23%" />
+<col width="21%" />
+<col width="8%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CFB1-AES256</th>
+<th class="head">128</th>
+<th class="head">128</th>
+<th class="head">256</th>
+<th class="head">128</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>CFB8-DES</td>
+<td>64</td>
+<td>64</td>
+<td>64</td>
+<td>64</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div>CFB8-AES128        128         128          128      128</div></blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="21%" />
+<col width="23%" />
+<col width="21%" />
+<col width="8%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CFB8-AES192</th>
+<th class="head">128</th>
+<th class="head">128</th>
+<th class="head">192</th>
+<th class="head">128</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>CFB8-AES256</td>
+<td>128</td>
+<td>128</td>
+<td>256</td>
+<td>128</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div>CFB128-DES       64          64           64       64</div></blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="21%" />
+<col width="23%" />
+<col width="21%" />
+<col width="8%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CFB128-AES128</th>
+<th class="head">128</th>
+<th class="head">128</th>
+<th class="head">128</th>
+<th class="head">128</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>CFB128-AES192</td>
+<td>128</td>
+<td>128</td>
+<td>192</td>
+<td>128</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="last">
+<div>CFB128-AES256      128         128          256      128</div></blockquote>
+</div>
+<p>The algorithm flow chart is shown as follow, and the length of the text is denoted as ‘s’:</p>
 <a class="reference internal image-reference" href="../../_images/CFB_working_mode.png"><img alt="algorithm flow chart of CFB" class="align-center" src="../../_images/CFB_working_mode.png" style="width: 100%;" /></a>
-<p>As we can see from the chart, the encryption part of each CFB mode has dependencies, so the input block of each iteration (except for iteration 0) needs a feedback data from its last iteration.
-As the one-word AES encryption module needs 20 cycles to process one text block, the initiation interval (II) of each CFB encryption mode cannot achieve an II = 1.
+<p>As we can see from the chart, the encryption part of each CFB mode has loop-carried dependency which is enforced by the algorithm, the input block of each iteration (except for iteration 0) needs a feedback data from its last iteration.
+Thus, the initiation interval (II) of each CFB encryption mode cannot achieve an II = 1.
 However, the decryption part of each CFB mode has no dependencies, so it can achieve an II = 1.</p>
 </div>
-<div class="section" id="cfb1-encryption-performance-device-vu9p">
-<h2>CFB1 Encryption Performance(Device: VU9P)<a class="headerlink" href="#cfb1-encryption-performance-device-vu9p" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="profiling">
+<h2>Profiling<a class="headerlink" href="#profiling" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cfb1-des-encryption">
+<h3>CFB1-DES encryption<a class="headerlink" href="#cfb1-des-encryption" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="13%" />
 <col width="13%" />
 <col width="13%" />
 <col width="10%" />
-<col width="13%" />
-<col width="10%" />
-<col width="13%" />
-<col width="17%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">CLB</th>
@@ -247,30 +368,30 @@ However, the decryption part of each CFB mode has no dependencies, so it can ach
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>851</td>
-<td>3336</td>
-<td>4730</td>
+<tr class="row-even"><td>329</td>
+<td>1548</td>
+<td>2520</td>
 <td>0</td>
-<td>123</td>
-<td>368</td>
 <td>0</td>
-<td>2.812</td>
+<td>0</td>
+<td>0</td>
+<td>2.658</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="cfb1-decryption-performance-device-vu9p">
-<h2>CFB1 Decryption Performance(Device: VU9P)<a class="headerlink" href="#cfb1-decryption-performance-device-vu9p" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cfb1-des-decryption">
+<h3>CFB1-DES decryption<a class="headerlink" href="#cfb1-des-decryption" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
 <col width="10%" />
 <col width="12%" />
 <col width="12%" />
 <col width="12%" />
-<col width="16%" />
+<col width="15%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">CLB</th>
@@ -284,30 +405,104 @@ However, the decryption part of each CFB mode has no dependencies, so it can ach
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>804</td>
-<td>3315</td>
-<td>4635</td>
+<tr class="row-even"><td>352</td>
+<td>1532</td>
+<td>2482</td>
 <td>0</td>
-<td>123</td>
-<td>378</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>2.156</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cfb1-aes128-encryption">
+<h3>CFB1-AES128 encryption<a class="headerlink" href="#cfb1-aes128-encryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1822</td>
+<td>7787</td>
+<td>5708</td>
+<td>0</td>
+<td>2</td>
+<td>361</td>
+<td>0</td>
+<td>2.807</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cfb1-aes128-decryption">
+<h3>CFB1-AES128 decryption<a class="headerlink" href="#cfb1-aes128-decryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1853</td>
+<td>7711</td>
+<td>5613</td>
+<td>0</td>
+<td>2</td>
+<td>371</td>
 <td>0</td>
 <td>2.830</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="cfb8-encryption-performance-device-vu9p">
-<h2>CFB8 Encryption Performance(Device: VU9P)<a class="headerlink" href="#cfb8-encryption-performance-device-vu9p" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cfb1-aes192-encryption">
+<h3>CFB1-AES192 encryption<a class="headerlink" href="#cfb1-aes192-encryption" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="13%" />
 <col width="13%" />
 <col width="13%" />
 <col width="10%" />
-<col width="13%" />
-<col width="10%" />
-<col width="13%" />
-<col width="17%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">CLB</th>
@@ -321,30 +516,252 @@ However, the decryption part of each CFB mode has no dependencies, so it can ach
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>922</td>
-<td>3798</td>
-<td>4797</td>
+<tr class="row-even"><td>2330</td>
+<td>11283</td>
+<td>7352</td>
 <td>0</td>
-<td>123</td>
+<td>6</td>
+<td>489</td>
+<td>0</td>
+<td>3.061</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cfb1-aes192-decryption">
+<h3>CFB1-AES192 decryption<a class="headerlink" href="#cfb1-aes192-decryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>2316</td>
+<td>11290</td>
+<td>7294</td>
+<td>0</td>
+<td>6</td>
+<td>499</td>
+<td>0</td>
+<td>2.719</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cfb1-aes256-encryption">
+<h3>CFB1-AES256 encryption<a class="headerlink" href="#cfb1-aes256-encryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>2633</td>
+<td>12918</td>
+<td>8374</td>
+<td>0</td>
+<td>2</td>
+<td>617</td>
+<td>0</td>
+<td>3.033</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cfb1-aes256-decryption">
+<h3>CFB1-AES256 decryption<a class="headerlink" href="#cfb1-aes256-decryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>2751</td>
+<td>12902</td>
+<td>8281</td>
+<td>0</td>
+<td>2</td>
+<td>627</td>
+<td>0</td>
+<td>2.991</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cfb8-des-encryption">
+<h3>CFB8-DES encryption<a class="headerlink" href="#cfb8-des-encryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>344</td>
+<td>16828</td>
+<td>2703</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>2.478</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cfb8-des-decryption">
+<h3>CFB8-DES decryption<a class="headerlink" href="#cfb8-des-decryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>336</td>
+<td>1613</td>
+<td>2723</td>
+<td>0</td>
+<td>13</td>
+<td>0</td>
+<td>0</td>
+<td>2.474</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cfb8-aes128-encryption">
+<h3>CFB8-AES128 encryption<a class="headerlink" href="#cfb8-aes128-encryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1963</td>
+<td>8152</td>
+<td>5730</td>
+<td>0</td>
+<td>2</td>
 <td>368</td>
 <td>0</td>
-<td>2.889</td>
+<td>2.833</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="cfb8-decryption-performance-device-vu9p">
-<h2>CFB8 Decryption Performance(Device: VU9P)<a class="headerlink" href="#cfb8-decryption-performance-device-vu9p" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cfb8-aes128-decryption">
+<h3>CFB8-AES128 decryption<a class="headerlink" href="#cfb8-aes128-decryption" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
 <col width="10%" />
 <col width="12%" />
 <col width="12%" />
 <col width="12%" />
-<col width="16%" />
+<col width="15%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">CLB</th>
@@ -358,30 +775,30 @@ However, the decryption part of each CFB mode has no dependencies, so it can ach
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>995</td>
-<td>3315</td>
-<td>4653</td>
+<tr class="row-even"><td>1803</td>
+<td>7852</td>
+<td>5643</td>
 <td>0</td>
-<td>123</td>
+<td>2</td>
 <td>382</td>
 <td>0</td>
-<td>2.948</td>
+<td>2.705</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="cfb128-encryption-performance-device-vu9p">
-<h2>CFB128 Encryption Performance(Device: VU9P)<a class="headerlink" href="#cfb128-encryption-performance-device-vu9p" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cfb8-aes192-encryption">
+<h3>CFB8-AES192 encryption<a class="headerlink" href="#cfb8-aes192-encryption" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="13%" />
 <col width="13%" />
 <col width="13%" />
 <col width="10%" />
-<col width="13%" />
-<col width="10%" />
-<col width="13%" />
-<col width="17%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">CLB</th>
@@ -395,30 +812,30 @@ However, the decryption part of each CFB mode has no dependencies, so it can ach
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>971</td>
-<td>3436</td>
-<td>4881</td>
+<tr class="row-even"><td>2654</td>
+<td>13418</td>
+<td>7421</td>
 <td>0</td>
-<td>138</td>
-<td>416</td>
+<td>6</td>
+<td>496</td>
 <td>0</td>
-<td>2.810</td>
+<td>2.933</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="cfb128-decryption-performance-device-vu9p">
-<h2>CFB128 Decryption Performance(Device: VU9P)<a class="headerlink" href="#cfb128-decryption-performance-device-vu9p" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cfb8-aes192-decryption">
+<h3>CFB8-AES192 decryption<a class="headerlink" href="#cfb8-aes192-decryption" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
 <col width="10%" />
 <col width="12%" />
 <col width="12%" />
 <col width="12%" />
-<col width="16%" />
+<col width="15%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">CLB</th>
@@ -432,17 +849,388 @@ However, the decryption part of each CFB mode has no dependencies, so it can ach
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>1051</td>
-<td>3583</td>
-<td>5012</td>
+<tr class="row-even"><td>2487</td>
+<td>11265</td>
+<td>7319</td>
 <td>0</td>
-<td>138</td>
-<td>545</td>
+<td>6</td>
+<td>510</td>
 <td>0</td>
-<td>2.737</td>
+<td>2.901</td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="cfb8-aes256-encryption">
+<h3>CFB8-AES256 encryption<a class="headerlink" href="#cfb8-aes256-encryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>3001</td>
+<td>15448</td>
+<td>8397</td>
+<td>0</td>
+<td>2</td>
+<td>624</td>
+<td>0</td>
+<td>3.016</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cfb8-aes256-decryption">
+<h3>CFB8-AES256 decryption<a class="headerlink" href="#cfb8-aes256-decryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>2670</td>
+<td>12890</td>
+<td>8313</td>
+<td>0</td>
+<td>2</td>
+<td>638</td>
+<td>0</td>
+<td>2.956</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cfb128-des-encryption">
+<h3>CFB128-DES encryption<a class="headerlink" href="#cfb128-des-encryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>341</td>
+<td>1677</td>
+<td>2734</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>2.290</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cfb128-des-decryption">
+<h3>CFB128-DES decryption<a class="headerlink" href="#cfb128-des-decryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>367</td>
+<td>1734</td>
+<td>2802</td>
+<td>0</td>
+<td>0</td>
+<td>33</td>
+<td>0</td>
+<td>2.216</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cfb128-aes128-encryption">
+<h3>CFB128-AES128 encryption<a class="headerlink" href="#cfb128-aes128-encryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>2151</td>
+<td>9196</td>
+<td>6633</td>
+<td>0</td>
+<td>2</td>
+<td>512</td>
+<td>0</td>
+<td>2.805</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cfb128-aes128-decryption">
+<h3>CFB128-AES128 decryption<a class="headerlink" href="#cfb128-aes128-decryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>2153</td>
+<td>9259</td>
+<td>6465</td>
+<td>0</td>
+<td>2</td>
+<td>577</td>
+<td>0</td>
+<td>2.691</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cfb128-aes192-encryption">
+<h3>CFB128-AES192 encryption<a class="headerlink" href="#cfb128-aes192-encryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>2951</td>
+<td>15237</td>
+<td>8321</td>
+<td>0</td>
+<td>6</td>
+<td>640</td>
+<td>0</td>
+<td>2.952</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cfb128-aes192-decryption">
+<h3>CFB128-AES192 decryption<a class="headerlink" href="#cfb128-aes192-decryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>2952</td>
+<td>15075</td>
+<td>8449</td>
+<td>0</td>
+<td>6</td>
+<td>705</td>
+<td>0</td>
+<td>2.808</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cfb128-aes256-encryption">
+<h3>CFB128-AES256 encryption<a class="headerlink" href="#cfb128-aes256-encryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>3083</td>
+<td>14748</td>
+<td>9309</td>
+<td>0</td>
+<td>2</td>
+<td>768</td>
+<td>0</td>
+<td>2.945</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cfb128-aes256-decryption">
+<h3>CFB128-AES256 decryption<a class="headerlink" href="#cfb128-aes256-decryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>3305</td>
+<td>17041</td>
+<td>9441</td>
+<td>0</td>
+<td>2</td>
+<td>833</td>
+<td>0</td>
+<td>2.959</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
@@ -454,10 +1242,10 @@ However, the decryption part of each CFB mode has no dependencies, so it can ach
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ctr.html" class="btn btn-neutral float-right" title="CTR Mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="chacha20.html" class="btn btn-neutral float-right" title="Chacha20 Algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="cbc.html" class="btn btn-neutral float-left" title="CBC Mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ccm.html" class="btn btn-neutral float-left" title="CCM Mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

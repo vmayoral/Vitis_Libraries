@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="BLAKE2 Algorithms" href="blake2b.html" />
+    <link rel="next" title="XTS mode" href="xts.html" />
     <link rel="prev" title="SHA-2 Algorithms" href="sha2.html" /> 
 </head>
 
@@ -99,7 +99,23 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../hw_guide.html">L1 Module User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../hw_api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code></a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../internals.html">Design Internals</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="aes.html">AES Encryption Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blake2b.html">BLAKE2 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cbc.html">CBC Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ccm.html">CCM Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfb.html">CFB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chacha20.html">Chacha20 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctr.html">CTR Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="des.html">DES and 3DES Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ecb.html">ECB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gcm.html">GCM Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gmac.html">GMAC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hmac.html">HMAC Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iaes.html">AES Decryption Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="md4_5.html">The MD4/MD5 Message-Digest Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ofb.html">OFB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poly1305.html">Poly1305 Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rc4.html">RC4 Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sha1.html">SHA-1 Algorithm</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sha2.html">SHA-2 Algorithms</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">SHA-3 Algorithms</a><ul>
@@ -108,15 +124,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#performance">Performance</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="blake2b.html">BLAKE2 Algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="aes.html">AES-256 Encryption Algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="iaes.html">AES-256 Decryption Algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cbc.html">CBC Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cfb.html">CFB Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ctr.html">CTR Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ecb.html">ECB Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gcm.html">GCM Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ofb.html">OFB Mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="xts.html">XTS mode</a></li>
 </ul>
 </li>
@@ -125,7 +132,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../benchmark/result.html">Benchmark of AES256 Encryption/Decryption in CBC Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/result.html">Benchmark Result</a></li>
 </ul>
 
             
@@ -236,9 +243,9 @@ according to the specific suffix of the algorithm which is selected. The number 
 <h3>SHA3-224<a class="headerlink" href="#sha3-224" title="Permalink to this headline">¶</a></h3>
 <p>A single instance of SHA3-224 function processes input message at the rate of
 <code class="docutils literal notranslate"><span class="pre">144</span> <span class="pre">byte</span> <span class="pre">/</span> <span class="pre">1105</span> <span class="pre">cycles</span></code> at 303.58MHz.</p>
-<p>The hardware resource utilizations of SHA3-224 is listed in <a class="reference internal" href="#tab1sha3224"><span class="std std-numref">Table 10</span></a> below:</p>
+<p>The hardware resource utilizations of SHA3-224 is listed in <a class="reference internal" href="#tab1sha3224"><span class="std std-numref">Table 12</span></a> below:</p>
 <span id="tab1sha3224"></span><table border="1" class="docutils align-center" id="id1">
-<caption><span class="caption-number">Table 10 </span><span class="caption-text">Hardware resources for single SHA3-224 hash calculation</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 12 </span><span class="caption-text">Hardware resources for single SHA3-224 hash calculation</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="13%" />
 <col width="13%" />
@@ -272,9 +279,9 @@ according to the specific suffix of the algorithm which is selected. The number 
 <h3>SHA3-256<a class="headerlink" href="#sha3-256" title="Permalink to this headline">¶</a></h3>
 <p>A single instance of SHA3-256 function processes input message at the rate of
 <code class="docutils literal notranslate"><span class="pre">136</span> <span class="pre">byte</span> <span class="pre">/</span> <span class="pre">1104</span> <span class="pre">cycles</span></code> at 306.65MHz.</p>
-<p>The hardware resource utilizations of SHA3-256 is listed in <a class="reference internal" href="#tab1sha3256"><span class="std std-numref">Table 11</span></a> below:</p>
+<p>The hardware resource utilizations of SHA3-256 is listed in <a class="reference internal" href="#tab1sha3256"><span class="std std-numref">Table 13</span></a> below:</p>
 <span id="tab1sha3256"></span><table border="1" class="docutils align-center" id="id2">
-<caption><span class="caption-number">Table 11 </span><span class="caption-text">Hardware resources for single SHA3-256 hash calculation</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 13 </span><span class="caption-text">Hardware resources for single SHA3-256 hash calculation</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="13%" />
 <col width="13%" />
@@ -308,9 +315,9 @@ according to the specific suffix of the algorithm which is selected. The number 
 <h3>SHA3-384<a class="headerlink" href="#sha3-384" title="Permalink to this headline">¶</a></h3>
 <p>A single instance of SHA3-384 function processes input message at the rate of
 <code class="docutils literal notranslate"><span class="pre">104</span> <span class="pre">byte</span> <span class="pre">/</span> <span class="pre">1100</span> <span class="pre">cycles</span></code> at 310.75MHz.</p>
-<p>The hardware resource utilizations of SHA3-384 is listed in <a class="reference internal" href="#tab1sha3384"><span class="std std-numref">Table 12</span></a> below:</p>
+<p>The hardware resource utilizations of SHA3-384 is listed in <a class="reference internal" href="#tab1sha3384"><span class="std std-numref">Table 14</span></a> below:</p>
 <span id="tab1sha3384"></span><table border="1" class="docutils align-center" id="id3">
-<caption><span class="caption-number">Table 12 </span><span class="caption-text">Hardware resources for single SHA3-384 hash calculation</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 14 </span><span class="caption-text">Hardware resources for single SHA3-384 hash calculation</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="13%" />
 <col width="13%" />
@@ -344,9 +351,9 @@ according to the specific suffix of the algorithm which is selected. The number 
 <h3>SHA3-512<a class="headerlink" href="#sha3-512" title="Permalink to this headline">¶</a></h3>
 <p>A single instance of SHA3-512 function processes input message at the rate of
 <code class="docutils literal notranslate"><span class="pre">72</span> <span class="pre">byte</span> <span class="pre">/</span> <span class="pre">1096</span> <span class="pre">cycles</span></code> at 316.25MHz.</p>
-<p>The hardware resource utilizations of SHA3-512 is listed in <a class="reference internal" href="#tab1sha3512"><span class="std std-numref">Table 13</span></a> below:</p>
+<p>The hardware resource utilizations of SHA3-512 is listed in <a class="reference internal" href="#tab1sha3512"><span class="std std-numref">Table 15</span></a> below:</p>
 <span id="tab1sha3512"></span><table border="1" class="docutils align-center" id="id4">
-<caption><span class="caption-number">Table 13 </span><span class="caption-text">Hardware resources for single SHA3-512 hash calculation</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 15 </span><span class="caption-text">Hardware resources for single SHA3-512 hash calculation</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="13%" />
 <col width="13%" />
@@ -380,9 +387,9 @@ according to the specific suffix of the algorithm which is selected. The number 
 <h3>SHAKE-128<a class="headerlink" href="#shake-128" title="Permalink to this headline">¶</a></h3>
 <p>A single instance of SHAKE-128 function processes input message at the rate of
 <code class="docutils literal notranslate"><span class="pre">168</span> <span class="pre">byte</span> <span class="pre">/</span> <span class="pre">1108</span> <span class="pre">cycles</span></code> at 306.37MHz.</p>
-<p>The hardware resource utilizations of SHAKE-128 is listed in <a class="reference internal" href="#tab1shake128"><span class="std std-numref">Table 14</span></a> below:</p>
+<p>The hardware resource utilizations of SHAKE-128 is listed in <a class="reference internal" href="#tab1shake128"><span class="std std-numref">Table 16</span></a> below:</p>
 <span id="tab1shake128"></span><table border="1" class="docutils align-center" id="id5">
-<caption><span class="caption-number">Table 14 </span><span class="caption-text">Hardware resources for single SHAKE-128 hash calculation</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 16 </span><span class="caption-text">Hardware resources for single SHAKE-128 hash calculation</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="13%" />
 <col width="13%" />
@@ -416,9 +423,9 @@ according to the specific suffix of the algorithm which is selected. The number 
 <h3>SHAKE-256<a class="headerlink" href="#shake-256" title="Permalink to this headline">¶</a></h3>
 <p>A single instance of SHAKE-256 function processes input message at the rate of
 <code class="docutils literal notranslate"><span class="pre">136</span> <span class="pre">byte</span> <span class="pre">/</span> <span class="pre">1104</span> <span class="pre">cycles</span></code> at 302.02MHz.</p>
-<p>The hardware resource utilizations of SHAKE-256 is listed in <a class="reference internal" href="#tab1shake256"><span class="std std-numref">Table 15</span></a> below:</p>
+<p>The hardware resource utilizations of SHAKE-256 is listed in <a class="reference internal" href="#tab1shake256"><span class="std std-numref">Table 17</span></a> below:</p>
 <span id="tab1shake256"></span><table border="1" class="docutils align-center" id="id6">
-<caption><span class="caption-number">Table 15 </span><span class="caption-text">Hardware resources for single SHAKE-256 hash calculation</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 17 </span><span class="caption-text">Hardware resources for single SHAKE-256 hash calculation</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="13%" />
 <col width="13%" />
@@ -464,7 +471,7 @@ and offer message level parallelism.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="blake2b.html" class="btn btn-neutral float-right" title="BLAKE2 Algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="xts.html" class="btn btn-neutral float-right" title="XTS mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="sha2.html" class="btn btn-neutral float-left" title="SHA-2 Algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

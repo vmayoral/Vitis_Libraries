@@ -37,7 +37,9 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="RC4 Algorithms" href="rc4.html" />
+    <link rel="prev" title="OFB Mode" href="ofb.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,12 +95,44 @@
 <li class="toctree-l1"><a class="reference internal" href="../../release.html">Release Note</a></li>
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../hw_guide.html">L1 Module User Guide</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../hw_guide.html">L1 Module User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../hw_api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../internals.html">Design Internals</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="aes.html">AES Encryption Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blake2b.html">BLAKE2 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cbc.html">CBC Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ccm.html">CCM Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfb.html">CFB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chacha20.html">Chacha20 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctr.html">CTR Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="des.html">DES and 3DES Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ecb.html">ECB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gcm.html">GCM Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gmac.html">GMAC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hmac.html">HMAC Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iaes.html">AES Decryption Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="md4_5.html">The MD4/MD5 Message-Digest Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ofb.html">OFB Mode</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Poly1305 Algorithm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementation-on-fpga">Implementation on FPGA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#performance">Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rc4.html">RC4 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha1.html">SHA-1 Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha2.html">SHA-2 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha3.html">SHA-3 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="xts.html">XTS mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../benchmark/result.html">Benchmark of AES256 Encryption/Decryption in CBC Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/result.html">Benchmark Result</a></li>
 </ul>
 
             
@@ -144,6 +178,10 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
+          <li><a href="../hw_guide.html">L1 Module User Guide</a> &raquo;</li>
+        
+          <li><a href="../internals.html">Design Internals</a> &raquo;</li>
+        
       <li>Poly1305 Algorithm</li>
     
     
@@ -182,9 +220,9 @@
 </div>
 <div class="section" id="performance">
 <h2>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h2>
-<p>The hardware resource utilizations are listed in <a class="reference internal" href="sha1.html#tab1sha1"><span class="std std-numref">Table 3</span></a> below:</p>
+<p>The hardware resource utilizations are listed in <a class="reference internal" href="sha1.html#tab1sha1"><span class="std std-numref">Table 5</span></a> below:</p>
 <span id="tab1sha1"></span><table border="1" class="docutils align-center" id="id1">
-<caption><span class="caption-text">Hardware resources for the Poly1305 (Vivado 2019.1)</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 4 </span><span class="caption-text">Hardware resources for the Poly1305 (Vivado 2019.1)</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="13%" />
 <col width="13%" />
@@ -206,10 +244,10 @@
 <tr class="row-even"><td>0</td>
 <td>65</td>
 <td>5776</td>
-<td>2409</td>
-<td>727</td>
+<td>2405</td>
+<td>757</td>
 <td>92</td>
-<td>2.920</td>
+<td>2.883</td>
 </tr>
 </tbody>
 </table>
@@ -221,6 +259,15 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rc4.html" class="btn btn-neutral float-right" title="RC4 Algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ofb.html" class="btn btn-neutral float-left" title="OFB Mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

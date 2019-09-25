@@ -13,8 +13,13 @@ namespace security
 	namespace_xf_security_internal.rst
 	class_xf_security_aesDec.rst
 	class_xf_security_aesDec-2.rst
+	class_xf_security_aesDec-3.rst
+	class_xf_security_aesDec-4.rst
 	class_xf_security_aesEnc.rst
 	class_xf_security_aesEnc-2.rst
+	class_xf_security_aesEnc-3.rst
+	class_xf_security_aesEnc-4.rst
+	class_xf_security_rsa.rst
 
 
 
@@ -30,18 +35,6 @@ namespace security
 .. _cid-xf::security::gtbox:
 .. _doxid-namespacexf_1_1security_1a128b80f49b3054a5c73fa60c3f33ee2d:
 .. _cid-xf::security::sboxenc:
-.. _doxid-namespacexf_1_1security_1ab103b183b5674a0510353c1f69462a60:
-.. _cid-xf::security::rcon:
-.. _doxid-namespacexf_1_1security_1af6ef1ec1ce711d7d5acf212b4088a300:
-.. _cid-xf::security::printvar:
-.. _doxid-namespacexf_1_1security_1a7809338a8b042a25e899513366731b70:
-.. _cid-xf::security::printvar-2:
-.. _doxid-namespacexf_1_1security_1a17416cdae7bafa80a9f8eaa8d1d196ea:
-.. _cid-xf::security::processwordtemp:
-.. _doxid-namespacexf_1_1security_1aa0a31b64c60951dafc4f026c8f70fbdd:
-.. _cid-xf::security::aes128encrypt:
-.. _doxid-namespacexf_1_1security_1a8b7f6fbaf050cb27141541a4b7bb234e:
-.. _cid-xf::security::aes192encrypt:
 .. ref-code-block:: cpp
 	:class: overview-code-block
 
@@ -53,17 +46,35 @@ namespace security
 
 	// classes
 
-	template <>
-	class :ref:`aesDec <256><doxid-classxf_1_1security_1_1aes_dec_3_01256_01_4>` 
-
 	template <int W>
 	class :ref:`aesDec<doxid-classxf_1_1security_1_1aes_dec>` 
 
 	template <>
-	class :ref:`aesEnc <256><doxid-classxf_1_1security_1_1aes_enc_3_01256_01_4>` 
+	class :ref:`aesDec <192><doxid-classxf_1_1security_1_1aes_dec_3_01192_01_4>` 
+
+	template <>
+	class :ref:`aesDec <128><doxid-classxf_1_1security_1_1aes_dec_3_01128_01_4>` 
+
+	template <>
+	class :ref:`aesDec <256><doxid-classxf_1_1security_1_1aes_dec_3_01256_01_4>` 
 
 	template <int W>
 	class :ref:`aesEnc<doxid-classxf_1_1security_1_1aes_enc>` 
+
+	template <>
+	class :ref:`aesEnc <192><doxid-classxf_1_1security_1_1aes_enc_3_01192_01_4>` 
+
+	template <>
+	class :ref:`aesEnc <128><doxid-classxf_1_1security_1_1aes_enc_3_01128_01_4>` 
+
+	template <>
+	class :ref:`aesEnc <256><doxid-classxf_1_1security_1_1aes_enc_3_01256_01_4>` 
+
+	template <
+	    int BlockWidth,
+	    int BlockNum
+	    >
+	class :ref:`rsa<doxid-classxf_1_1security_1_1rsa>` 
 
 	// global variables
 
@@ -73,263 +84,12 @@ namespace security
 	const ap_uint <8> sbox[2048]
 	const ap_uint <32> gtbox[256]
 	const ap_uint <8> sboxEnc[256]
-	const ap_uint <8> Rcon[10]
 
 
 .. FunctionSection
 
 
 
-
-.. _doxid-namespacexf_1_1security_1a48b43c1a4198d7367833720d9b1378a3:
-.. _cid-xf::security::aes256encrypt:
-
-aes256Encrypt
--------------
-
-
-.. code-block:: cpp
-	
-	#include "xf_security/aes.hpp"
-
-
-
-.. ref-code-block:: cpp
-	:class: title-code-block
-
-	static void aes256Encrypt (
-	    ap_uint <128> plaintext,
-	    ap_uint <256> cipherkey,
-	    ap_uint <128>& ciphertext
-	    )
-
-aes256Encrypt is the basic function for ciphering one block with one cipher key
-
-
-
-.. rubric:: Parameters:
-
-.. list-table::
-    :widths: 20 80
-
-    *
-        - plaintext
-
-        - input one word plain text to be encrypted, 128 bits.
-
-    *
-        - cipherkey
-
-        - input cipher key, 256 bits.
-
-    *
-        - ciphertext
-
-        - output one word encrypted text, 128 bit.
-
-.. _doxid-namespacexf_1_1security_1a8b392ab72e2f3853eeff05348c5fa076:
-.. _cid-xf::security::aes256decrypt:
-
-aes256Decrypt
--------------
-
-
-.. code-block:: cpp
-	
-	#include "xf_security/aes.hpp"
-
-
-
-.. ref-code-block:: cpp
-	:class: title-code-block
-
-	static void aes256Decrypt (
-	    ap_uint <128> ciphertext,
-	    ap_uint <256> cipherkey,
-	    ap_uint <128>& plaintext
-	    )
-
-aes256Decrypt is the basic function for decrypting one block with one cipher key
-
-
-
-.. rubric:: Parameters:
-
-.. list-table::
-    :widths: 20 80
-
-    *
-        - ciphertext
-
-        - input one word cipher text to be decrypted, 128 bits.
-
-    *
-        - plainkey
-
-        - input plain key, 256 bits.
-
-    *
-        - plaintext
-
-        - output one word encrypted text, 128 bit.
-
-.. _doxid-namespacexf_1_1security_1a874379e9d8a0c1e63097ba0d742c4e1d:
-.. _cid-xf::security::aes128decrypt:
-
-aes128Decrypt
--------------
-
-
-.. code-block:: cpp
-	
-	#include "xf_security/aes.hpp"
-
-
-
-.. ref-code-block:: cpp
-	:class: title-code-block
-
-	static void aes128Decrypt (
-	    ap_uint <128> ciphertext,
-	    ap_uint <128> cipherkey,
-	    ap_uint <128>& plaintext
-	    )
-
-aes128Decrypt is the basic function for decrypting one block with one cipher key
-
-
-
-.. rubric:: Parameters:
-
-.. list-table::
-    :widths: 20 80
-
-    *
-        - ciphertext
-
-        - input one word cipher text to be decrypted, 128 bits.
-
-    *
-        - plainkey
-
-        - input plain key, 128 bits.
-
-    *
-        - plaintext
-
-        - output one word encrypted text, 128 bit.
-
-.. _doxid-namespacexf_1_1security_1afe60f26308f46392c708e07096062568:
-.. _cid-xf::security::aes192decrypt:
-
-aes192Decrypt
--------------
-
-
-.. code-block:: cpp
-	
-	#include "xf_security/aes.hpp"
-
-
-
-.. ref-code-block:: cpp
-	:class: title-code-block
-
-	static void aes192Decrypt (
-	    ap_uint <128> ciphertext,
-	    ap_uint <192> cipherkey,
-	    ap_uint <128>& plaintext
-	    )
-
-aes192Decrypt is the basic function for decrypting one block with one 192-bit cipher key
-
-
-
-.. rubric:: Parameters:
-
-.. list-table::
-    :widths: 20 80
-
-    *
-        - ciphertext
-
-        - input one word cipher text to be decrypted, 128 bits.
-
-    *
-        - plainkey
-
-        - input plain key, 192 bits.
-
-    *
-        - plaintext
-
-        - output one word encrypted text, 128 bit.
-
-.. _doxid-namespacexf_1_1security_1aa3333f8d1713b88c61936977f846681d:
-.. _cid-xf::security::rsa:
-
-rsa
----
-
-
-.. code-block:: cpp
-	
-	#include "xf_security/asymmetric.hpp"
-
-
-
-.. ref-code-block:: cpp
-	:class: title-code-block
-
-	template <
-	    int KeyLength,
-	    int BlockWidth
-	    >
-	void rsa (
-	    ap_uint <KeyLength> message,
-	    ap_uint <KeyLength> N,
-	    ap_uint <KeyLength> key,
-	    ap_uint <KeyLength>& result
-	    )
-
-RSA encryption/decryption function.
-
-
-
-.. rubric:: Parameters:
-
-.. list-table::
-    :widths: 20 80
-
-    *
-        - KeyLength
-
-        - Length of key, usually 1024/2048
-
-    *
-        - BlockWidth
-
-        - Basic multiplication width, should be picked according to cards. Also KeyLength shoud be divisible by BlockWidth.
-
-    *
-        - message
-
-        - Message to be encrypted or ciphertxt to be decrypted.
-
-    *
-        - N
-
-        - Served as modulus in modular operation.
-
-    *
-        - key
-
-        - Encryption/decryption key used.
-
-    *
-        - result
-
-        - encrypiton/decryption result.
 
 .. _doxid-namespacexf_1_1security_1abe39c66e4cc328feeea53d44be6259ef:
 .. _cid-xf::security::blake2b:
@@ -1096,6 +856,16 @@ Confidentiality" The implementation is modified for better performance.
     :widths: 20 80
 
     *
+        - _t
+
+        - Length of the MAC in byte, t is an element of {4, 6, 8, 10, 12, 14, 16}.
+
+    *
+        - _q
+
+        - Length in byte of the binary representation of the length of the payload in byte, q is an element of {2, 3, 4, 5, 6, 7, 8}.
+
+    *
         - payloadStrm
 
         - Input block stream text to be decrypted.
@@ -1195,6 +965,16 @@ Confidentiality" The implementation is modified for better performance.
 
 .. list-table::
     :widths: 20 80
+
+    *
+        - _t
+
+        - Length of the MAC in byte, t is an element of {4, 6, 8, 10, 12, 14, 16}.
+
+    *
+        - _q
+
+        - Length in byte of the binary representation of the length of the payload in byte, q is an element of {2, 3, 4, 5, 6, 7, 8}.
 
     *
         - payloadStrm
@@ -1298,6 +1078,16 @@ Confidentiality" The implementation is modified for better performance.
     :widths: 20 80
 
     *
+        - _t
+
+        - Length of the MAC in byte, t is an element of {4, 6, 8, 10, 12, 14, 16}.
+
+    *
+        - _q
+
+        - Length in byte of the binary representation of the length of the payload in byte, q is an element of {2, 3, 4, 5, 6, 7, 8}.
+
+    *
         - payloadStrm
 
         - Input block stream text to be decrypted.
@@ -1399,6 +1189,16 @@ Confidentiality" The implementation is modified for better performance.
     :widths: 20 80
 
     *
+        - _t
+
+        - Length of the MAC in byte, t is an element of {4, 6, 8, 10, 12, 14, 16}.
+
+    *
+        - _q
+
+        - Length in byte of the binary representation of the length of the payload in byte, q is an element of {2, 3, 4, 5, 6, 7, 8}.
+
+    *
         - payloadStrm
 
         - Input block stream text to be encrypted.
@@ -1498,6 +1298,16 @@ Confidentiality" The implementation is modified for better performance.
 
 .. list-table::
     :widths: 20 80
+
+    *
+        - _t
+
+        - Length of the MAC in byte, t is an element of {4, 6, 8, 10, 12, 14, 16}.
+
+    *
+        - _q
+
+        - Length in byte of the binary representation of the length of the payload in byte, q is an element of {2, 3, 4, 5, 6, 7, 8}.
 
     *
         - payloadStrm
@@ -4292,7 +4102,7 @@ The algorithm reference is : "Recommendation for Block Cipher Modes of Operation
 
         - End flag of block stream plaintext, 1 bit.
 
-.. _doxid-namespacexf_1_1security_1ac6e4a18f7566a1de7e3f16a8e52db967:
+.. _doxid-namespacexf_1_1security_1a86ac3f0cbfd9ee2cac86ee41c1719044:
 .. _cid-xf::security::aes128gcmencrypt:
 
 aes128GcmEncrypt
@@ -4309,14 +4119,17 @@ aes128GcmEncrypt
 	:class: title-code-block
 
 	static void aes128GcmEncrypt (
-	    hls::stream <ap_uint <128>>& plaintextStrm,
-	    hls::stream <bool>& endPlaintextStrm,
+	    hls::stream <ap_uint <128>>& payloadStrm,
 	    hls::stream <ap_uint <128>>& cipherkeyStrm,
 	    hls::stream <ap_uint <96>>& IVStrm,
 	    hls::stream <ap_uint <128>>& AADStrm,
-	    hls::stream <ap_uint <128>>& ciphertextStrm,
-	    hls::stream <bool>& endCiphertextStrm,
-	    hls::stream <ap_uint <128>>& tagStrm
+	    hls::stream <ap_uint <64>>& lenAADStrm,
+	    hls::stream <ap_uint <64>>& lenPldStrm,
+	    hls::stream <bool>& endLenStrm,
+	    hls::stream <ap_uint <128>>& cipherStrm,
+	    hls::stream <ap_uint <64>>& lenCphStrm,
+	    hls::stream <ap_uint <128>>& tagStrm,
+	    hls::stream <bool>& endTagStrm
 	    )
 
 aes128GcmEncrypt is GCM encryption mode with AES-128 single block cipher.
@@ -4331,46 +4144,61 @@ The algorithm reference is : "IEEE Standard for Authenticated Encryption with Le
     :widths: 20 80
 
     *
-        - plaintextStrm
+        - payloadStrm
 
-        - Input block stream text to be encrypted, 128 bits.
-
-    *
-        - endPlaintextStrm
-
-        - End flag of block stream plaintext, 1 bit.
+        - Input block stream text to be encrypted.
 
     *
         - cipherkeyStrm
 
-        - Input cipher key used in encryption, 128 bits.
+        - Input cipher key used in encryption.
 
     *
         - IVStrm
 
-        - Initialization vector for the fisrt iteration of AES encrypition, 128 bits.
+        - Initialization vector stream.
 
     *
         - AADStrm
 
-        - Additional authenticated data for calculating the tag, 128 bits.
+        - Additional authenticated data stream.
 
     *
-        - ciphertextStrm
+        - lenAADStrm
 
-        - Output encrypted block stream text, 128 bits.
+        - Length of additional authenticated data in bits.
 
     *
-        - endCiphertextStrm
+        - lenPldStrm
 
-        - End flag of block stream ciphertext, 1 bit.
+        - Length of payload in bits.
+
+    *
+        - endLenStrm
+
+        - Flag to signal the end of the length streams.
+
+    *
+        - cipherStrm
+
+        - Output encrypted block stream text.
+
+    *
+        - lenCphStrm
+
+        - Length of cipher in bits.
 
     *
         - tagStrm
 
-        - The data tag
+        - The MAC stream.
 
-.. _doxid-namespacexf_1_1security_1a351432bccd1d3143257b84c23c74bba2:
+    *
+        - endTagStrm
+
+        - Flag to signal the end of the MAC stream.
+
+.. _doxid-namespacexf_1_1security_1aedadb9faf4a4cba7e991676a9394d095:
 .. _cid-xf::security::aes128gcmdecrypt:
 
 aes128GcmDecrypt
@@ -4387,14 +4215,17 @@ aes128GcmDecrypt
 	:class: title-code-block
 
 	static void aes128GcmDecrypt (
-	    hls::stream <ap_uint <128>>& ciphertextStrm,
-	    hls::stream <bool>& endCiphertextStrm,
+	    hls::stream <ap_uint <128>>& payloadStrm,
 	    hls::stream <ap_uint <128>>& cipherkeyStrm,
 	    hls::stream <ap_uint <96>>& IVStrm,
 	    hls::stream <ap_uint <128>>& AADStrm,
-	    hls::stream <ap_uint <128>>& plaintextStrm,
-	    hls::stream <bool>& endPlaintextStrm,
-	    hls::stream <ap_uint <128>>& tagStrm
+	    hls::stream <ap_uint <64>>& lenAADStrm,
+	    hls::stream <ap_uint <64>>& lenPldStrm,
+	    hls::stream <bool>& endLenStrm,
+	    hls::stream <ap_uint <128>>& cipherStrm,
+	    hls::stream <ap_uint <64>>& lenCphStrm,
+	    hls::stream <ap_uint <128>>& tagStrm,
+	    hls::stream <bool>& endTagStrm
 	    )
 
 aes128GcmDecrypt is GCM decryption mode with AES-128 single block cipher.
@@ -4409,46 +4240,61 @@ The algorithm reference is : "IEEE Standard for Authenticated Encryption with Le
     :widths: 20 80
 
     *
-        - ciphertextStrm
+        - payloadStrm
 
-        - Input block stream text to be decrypted, 128 bits.
-
-    *
-        - endCiphertextStrm
-
-        - End flag of block stream ciphertext, 1 bit.
+        - Input block stream text to be decrypted.
 
     *
         - cipherkeyStrm
 
-        - Input cipher key used in decryption, 128 bits.
+        - Input cipher key used in decryption.
 
     *
         - IVStrm
 
-        - Initialization vector for the fisrt iteration of AES decrypition, 128 bits.
+        - Initialization vector stream.
 
     *
         - AADStrm
 
-        - Additional authenticated data for calculating the tag, 128 bits.
+        - Additional authenticated data stream.
 
     *
-        - plaintextStrm
+        - lenAADStrm
 
-        - Output decrypted block stream text, 128 bits.
+        - Length of additional authenticated data in bits.
 
     *
-        - endPlaintextStrm
+        - lenPldStrm
 
-        - End flag of block stream plaintext, 1 bit.
+        - Length of payload in bits.
+
+    *
+        - endLenStrm
+
+        - Flag to signal the end of the length streams.
+
+    *
+        - cipherStrm
+
+        - Output decrypted block stream text.
+
+    *
+        - lenCphStrm
+
+        - Length of cipher in bits.
 
     *
         - tagStrm
 
-        - The data tag
+        - The MAC stream.
 
-.. _doxid-namespacexf_1_1security_1a23d877a87d12099c7dfbe34e2161c247:
+    *
+        - endTagStrm
+
+        - Flag to signal the end of the MAC stream.
+
+.. _doxid-namespacexf_1_1security_1a2e0c25845560032155fb60282ddaff91:
 .. _cid-xf::security::aes192gcmencrypt:
 
 aes192GcmEncrypt
@@ -4465,14 +4311,17 @@ aes192GcmEncrypt
 	:class: title-code-block
 
 	static void aes192GcmEncrypt (
-	    hls::stream <ap_uint <128>>& plaintextStrm,
-	    hls::stream <bool>& endPlaintextStrm,
+	    hls::stream <ap_uint <128>>& payloadStrm,
 	    hls::stream <ap_uint <192>>& cipherkeyStrm,
 	    hls::stream <ap_uint <96>>& IVStrm,
 	    hls::stream <ap_uint <128>>& AADStrm,
-	    hls::stream <ap_uint <128>>& ciphertextStrm,
-	    hls::stream <bool>& endCiphertextStrm,
-	    hls::stream <ap_uint <128>>& tagStrm
+	    hls::stream <ap_uint <64>>& lenAADStrm,
+	    hls::stream <ap_uint <64>>& lenPldStrm,
+	    hls::stream <bool>& endLenStrm,
+	    hls::stream <ap_uint <128>>& cipherStrm,
+	    hls::stream <ap_uint <64>>& lenCphStrm,
+	    hls::stream <ap_uint <128>>& tagStrm,
+	    hls::stream <bool>& endTagStrm
 	    )
 
 aes192GcmEncrypt is GCM encryption mode with AES-192 single block cipher.
@@ -4487,46 +4336,61 @@ The algorithm reference is : "IEEE Standard for Authenticated Encryption with Le
     :widths: 20 80
 
     *
-        - plaintextStrm
+        - payloadStrm
 
-        - Input block stream text to be encrypted, 128 bits.
-
-    *
-        - endPlaintextStrm
-
-        - End flag of block stream plaintext, 1 bit.
+        - Input block stream text to be encrypted.
 
     *
         - cipherkeyStrm
 
-        - Input cipher key used in encryption, 192 bits.
+        - Input cipher key used in encryption.
 
     *
         - IVStrm
 
-        - Initialization vector for the fisrt iteration of AES encrypition, 128 bits.
+        - Initialization vector stream.
 
     *
         - AADStrm
 
-        - Additional authenticated data for calculating the tag, 128 bits.
+        - Additional authenticated data stream.
 
     *
-        - ciphertextStrm
+        - lenAADStrm
 
-        - Output encrypted block stream text, 128 bits.
+        - Length of additional authenticated data in bits.
 
     *
-        - endCiphertextStrm
+        - lenPldStrm
 
-        - End flag of block stream ciphertext, 1 bit.
+        - Length of payload in bits.
+
+    *
+        - endLenStrm
+
+        - Flag to signal the end of the length streams.
+
+    *
+        - cipherStrm
+
+        - Output encrypted block stream text.
+
+    *
+        - lenCphStrm
+
+        - Length of cipher in bits.
 
     *
         - tagStrm
 
-        - The data tag
+        - The MAC stream.
 
-.. _doxid-namespacexf_1_1security_1a2b287e053f09032aeea5449e24dfe082:
+    *
+        - endTagStrm
+
+        - Flag to signal the end of the MAC stream.
+
+.. _doxid-namespacexf_1_1security_1afb6b30189f9d1b3216b514d8a86e882c:
 .. _cid-xf::security::aes192gcmdecrypt:
 
 aes192GcmDecrypt
@@ -4543,14 +4407,17 @@ aes192GcmDecrypt
 	:class: title-code-block
 
 	static void aes192GcmDecrypt (
-	    hls::stream <ap_uint <128>>& ciphertextStrm,
-	    hls::stream <bool>& endCiphertextStrm,
+	    hls::stream <ap_uint <128>>& payloadStrm,
 	    hls::stream <ap_uint <192>>& cipherkeyStrm,
 	    hls::stream <ap_uint <96>>& IVStrm,
 	    hls::stream <ap_uint <128>>& AADStrm,
-	    hls::stream <ap_uint <128>>& plaintextStrm,
-	    hls::stream <bool>& endPlaintextStrm,
-	    hls::stream <ap_uint <128>>& tagStrm
+	    hls::stream <ap_uint <64>>& lenAADStrm,
+	    hls::stream <ap_uint <64>>& lenPldStrm,
+	    hls::stream <bool>& endLenStrm,
+	    hls::stream <ap_uint <128>>& cipherStrm,
+	    hls::stream <ap_uint <64>>& lenCphStrm,
+	    hls::stream <ap_uint <128>>& tagStrm,
+	    hls::stream <bool>& endTagStrm
 	    )
 
 aes192GcmDecrypt is GCM decryption mode with AES-192 single block cipher.
@@ -4565,46 +4432,61 @@ The algorithm reference is : "IEEE Standard for Authenticated Encryption with Le
     :widths: 20 80
 
     *
-        - ciphertextStrm
+        - payloadStrm
 
-        - Input block stream text to be decrypted, 128 bits.
-
-    *
-        - endCiphertextStrm
-
-        - End flag of block stream ciphertext, 1 bit.
+        - Input block stream text to be decrypted.
 
     *
         - cipherkeyStrm
 
-        - Input cipher key used in decryption, 192 bits.
+        - Input cipher key used in decryption.
 
     *
         - IVStrm
 
-        - Initialization vector for the fisrt iteration of AES decrypition, 128 bits.
+        - Initialization vector stream.
 
     *
         - AADStrm
 
-        - Additional authenticated data for calculating the tag, 128 bits.
+        - Additional authenticated data stream.
 
     *
-        - plaintextStrm
+        - lenAADStrm
 
-        - Output decrypted block stream text, 128 bits.
+        - Length of additional authenticated data in bits.
 
     *
-        - endPlaintextStrm
+        - lenPldStrm
 
-        - End flag of block stream plaintext, 1 bit.
+        - Length of payload in bits.
+
+    *
+        - endLenStrm
+
+        - Flag to signal the end of the length streams.
+
+    *
+        - cipherStrm
+
+        - Output decrypted block stream text.
+
+    *
+        - lenCphStrm
+
+        - Length of cipher in bits.
 
     *
         - tagStrm
 
-        - The data tag
+        - The MAC stream.
 
-.. _doxid-namespacexf_1_1security_1ae51d3eabebdbec9ee65e40d5f4ecb816:
+    *
+        - endTagStrm
+
+        - Flag to signal the end of the MAC stream.
+
+.. _doxid-namespacexf_1_1security_1a66359ad17e56eb4dc9c5defc53b30aec:
 .. _cid-xf::security::aes256gcmencrypt:
 
 aes256GcmEncrypt
@@ -4621,14 +4503,17 @@ aes256GcmEncrypt
 	:class: title-code-block
 
 	static void aes256GcmEncrypt (
-	    hls::stream <ap_uint <128>>& plaintextStrm,
-	    hls::stream <bool>& endPlaintextStrm,
+	    hls::stream <ap_uint <128>>& payloadStrm,
 	    hls::stream <ap_uint <256>>& cipherkeyStrm,
 	    hls::stream <ap_uint <96>>& IVStrm,
 	    hls::stream <ap_uint <128>>& AADStrm,
-	    hls::stream <ap_uint <128>>& ciphertextStrm,
-	    hls::stream <bool>& endCiphertextStrm,
-	    hls::stream <ap_uint <128>>& tagStrm
+	    hls::stream <ap_uint <64>>& lenAADStrm,
+	    hls::stream <ap_uint <64>>& lenPldStrm,
+	    hls::stream <bool>& endLenStrm,
+	    hls::stream <ap_uint <128>>& cipherStrm,
+	    hls::stream <ap_uint <64>>& lenCphStrm,
+	    hls::stream <ap_uint <128>>& tagStrm,
+	    hls::stream <bool>& endTagStrm
 	    )
 
 aes256GcmEncrypt is GCM encryption mode with AES-256 single block cipher.
@@ -4643,46 +4528,61 @@ The algorithm reference is : "IEEE Standard for Authenticated Encryption with Le
     :widths: 20 80
 
     *
-        - plaintextStrm
+        - payloadStrm
 
-        - Input block stream text to be encrypted, 128 bits.
-
-    *
-        - endPlaintextStrm
-
-        - End flag of block stream plaintext, 1 bit.
+        - Input block stream text to be encrypted.
 
     *
         - cipherkeyStrm
 
-        - Input cipher key used in encryption, 256 bits.
+        - Input cipher key used in encryption.
 
     *
         - IVStrm
 
-        - Initialization vector for the fisrt iteration of AES encrypition, 128 bits.
+        - Initialization vector stream.
 
     *
         - AADStrm
 
-        - Additional authenticated data for calculating the tag, 128 bits.
+        - Additional authenticated data stream.
 
     *
-        - ciphertextStrm
+        - lenAADStrm
 
-        - Output encrypted block stream text, 128 bits.
+        - Length of additional authenticated data in bits.
 
     *
-        - endCiphertextStrm
+        - lenPldStrm
 
-        - End flag of block stream ciphertext, 1 bit.
+        - Length of payload in bits.
+
+    *
+        - endLenStrm
+
+        - Flag to signal the end of the length streams.
+
+    *
+        - cipherStrm
+
+        - Output encrypted block stream text.
+
+    *
+        - lenCphStrm
+
+        - Length of cipher in bits.
 
     *
         - tagStrm
 
-        - The data tag
+        - The MAC stream.
 
-.. _doxid-namespacexf_1_1security_1a8e0508dcd73c25abee0659eb56880fa7:
+    *
+        - endTagStrm
+
+        - Flag to signal the end of the MAC stream.
+
+.. _doxid-namespacexf_1_1security_1ae5fab247ca2bdaf983cf5d31f5f75dab:
 .. _cid-xf::security::aes256gcmdecrypt:
 
 aes256GcmDecrypt
@@ -4699,17 +4599,20 @@ aes256GcmDecrypt
 	:class: title-code-block
 
 	static void aes256GcmDecrypt (
-	    hls::stream <ap_uint <128>>& ciphertextStrm,
-	    hls::stream <bool>& endCiphertextStrm,
+	    hls::stream <ap_uint <128>>& payloadStrm,
 	    hls::stream <ap_uint <256>>& cipherkeyStrm,
 	    hls::stream <ap_uint <96>>& IVStrm,
 	    hls::stream <ap_uint <128>>& AADStrm,
-	    hls::stream <ap_uint <128>>& plaintextStrm,
-	    hls::stream <bool>& endPlaintextStrm,
-	    hls::stream <ap_uint <128>>& tagStrm
+	    hls::stream <ap_uint <64>>& lenAADStrm,
+	    hls::stream <ap_uint <64>>& lenPldStrm,
+	    hls::stream <bool>& endLenStrm,
+	    hls::stream <ap_uint <128>>& cipherStrm,
+	    hls::stream <ap_uint <64>>& lenCphStrm,
+	    hls::stream <ap_uint <128>>& tagStrm,
+	    hls::stream <bool>& endTagStrm
 	    )
 
-aes256GcmDecrypt is GCM decryption mode with AES-256 single block cipher.
+aes256GcmDecrypt is GCM decryption mode with AES-2562 single block cipher.
 
 The algorithm reference is : "IEEE Standard for Authenticated Encryption with Length Expansion for Storage Devices" The implementation is modified for better performance.
 
@@ -4721,46 +4624,181 @@ The algorithm reference is : "IEEE Standard for Authenticated Encryption with Le
     :widths: 20 80
 
     *
-        - ciphertextStrm
+        - payloadStrm
 
-        - Input block stream text to be decrypted, 128 bits.
-
-    *
-        - endCiphertextStrm
-
-        - End flag of block stream ciphertext, 1 bit.
+        - Input block stream text to be decrypted.
 
     *
         - cipherkeyStrm
 
-        - Input cipher key used in decryption, 256 bits.
+        - Input cipher key used in decryption.
 
     *
         - IVStrm
 
-        - Initialization vector for the fisrt iteration of AES decrypition, 128 bits.
+        - Initialization vector stream.
 
     *
         - AADStrm
 
-        - Additional authenticated data for calculating the tag, 128 bits.
+        - Additional authenticated data stream.
 
     *
-        - plaintextStrm
+        - lenAADStrm
 
-        - Output decrypted block stream text, 128 bits.
+        - Length of additional authenticated data in bits.
 
     *
-        - endPlaintextStrm
+        - lenPldStrm
 
-        - End flag of block stream plaintext, 1 bit.
+        - Length of payload in bits.
+
+    *
+        - endLenStrm
+
+        - Flag to signal the end of the length streams.
+
+    *
+        - cipherStrm
+
+        - Output decrypted block stream text.
+
+    *
+        - lenCphStrm
+
+        - Length of cipher in bits.
 
     *
         - tagStrm
 
-        - The data tag
+        - The MAC stream.
 
-.. _doxid-namespacexf_1_1security_1ac42e1407fa37a17c4b2c88683fe47fdf:
+    *
+        - endTagStrm
+
+        - Flag to signal the end of the MAC stream.
+
+.. _doxid-namespacexf_1_1security_1af04d51421acff2cbef216b97d4a92193:
+.. _cid-xf::security::aes128gmac:
+
+aes128Gmac
+----------
+
+
+.. code-block:: cpp
+	
+	#include "xf_security/gmac.hpp"
+
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void aes128Gmac (
+	    hls::stream <ap_uint <128>>& dataStrm,
+	    hls::stream <ap_uint <64>>& lenDataStrm,
+	    hls::stream <ap_uint <128>>& cipherkeyStrm,
+	    hls::stream <ap_uint <96>>& IVStrm,
+	    hls::stream <ap_uint <128>>& tagStrm
+	    )
+
+aes128Gmac The GMAC using AES-128 block cipher.
+
+Galois Message Authentication Code (GMAC) is a mechanism to provide data origin authentication.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - dataStrm
+
+        - Input text stream to be authenticated.
+
+    *
+        - lenDataStrm
+
+        - The length of the data in bits.
+
+    *
+        - cipherkeyStrm
+
+        - Input cihperkey to calculate the hash subkey and E(K,Y0).
+
+    *
+        - IVStrm
+
+        - Initialization vector.
+
+    *
+        - tagStrm
+
+        - The MAC stream.
+
+.. _doxid-namespacexf_1_1security_1a868a65ee7a2e004d07f475350c91d13c:
+.. _cid-xf::security::aes192gmac:
+
+aes192Gmac
+----------
+
+
+.. code-block:: cpp
+	
+	#include "xf_security/gmac.hpp"
+
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void aes192Gmac (
+	    hls::stream <ap_uint <128>>& dataStrm,
+	    hls::stream <ap_uint <64>>& lenDataStrm,
+	    hls::stream <ap_uint <192>>& cipherkeyStrm,
+	    hls::stream <ap_uint <96>>& IVStrm,
+	    hls::stream <ap_uint <128>>& tagStrm
+	    )
+
+aes192Gmac The GMAC using AES-192 block cipher.
+
+Galois Message Authentication Code (GMAC) is a mechanism to provide data origin authentication.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - dataStrm
+
+        - Input text stream to be authenticated.
+
+    *
+        - lenDataStrm
+
+        - The length of the data in bits.
+
+    *
+        - cipherkeyStrm
+
+        - Input cihperkey to calculate the hash subkey and E(K,Y0).
+
+    *
+        - IVStrm
+
+        - Initialization vector.
+
+    *
+        - tagStrm
+
+        - The MAC stream.
+
+.. _doxid-namespacexf_1_1security_1a91f8c10de49c0317e1b05224b8743915:
 .. _cid-xf::security::aes256gmac:
 
 aes256Gmac
@@ -4776,15 +4814,15 @@ aes256Gmac
 .. ref-code-block:: cpp
 	:class: title-code-block
 
-	static void aes256Gmac (
+	void aes256Gmac (
 	    hls::stream <ap_uint <128>>& dataStrm,
-	    hls::stream <bool>& eDataStrm,
-	    hls::stream <ap_uint <256>>& keyStrm,
-	    hls::stream <ap_uint <96>>& ivStrm,
+	    hls::stream <ap_uint <64>>& lenDataStrm,
+	    hls::stream <ap_uint <256>>& cipherkeyStrm,
+	    hls::stream <ap_uint <96>>& IVStrm,
 	    hls::stream <ap_uint <128>>& tagStrm
 	    )
 
-aes256Gmac is the basic encryption mode of AES-256.
+aes256Gmac The GMAC using AES-256 block cipher.
 
 Galois Message Authentication Code (GMAC) is a mechanism to provide data origin authentication.
 
@@ -4798,29 +4836,29 @@ Galois Message Authentication Code (GMAC) is a mechanism to provide data origin 
     *
         - dataStrm
 
-        - is input stream text to be authenticated, 128 bits.
+        - Input text stream to be authenticated.
 
     *
-        - eDataStrm
+        - lenDataStrm
 
-        - is end flag of stream data, 1 bit.
-
-    *
-        - keyStrm
-
-        - is input key used in encryption, 256 bits for AES-256.
+        - The length of the data in bits.
 
     *
-        - ivStrm
+        - cipherkeyStrm
 
-        - is initialization vector for the fisrt iteration of AES encrypition, 128 bits.
+        - Input cihperkey to calculate the hash subkey and E(K,Y0).
+
+    *
+        - IVStrm
+
+        - Initialization vector.
 
     *
         - tagStrm
 
-        - is the data tag
+        - The MAC stream.
 
-.. _doxid-namespacexf_1_1security_1a5405eced476b6783c0ef7517395fbe6e:
+.. _doxid-namespacexf_1_1security_1a452f1271db004a36915004c439a1ada3:
 .. _cid-xf::security::hmac:
 
 hmac
@@ -4848,13 +4886,15 @@ hmac
 	    hls::stream <ap_uint <keyW>>& keyStrm,
 	    hls::stream <ap_uint <lW>>& keyLenStrm,
 	    hls::stream <ap_uint <msgW>>& msgStrm,
-	    hls::stream <ap_uint <lW>>& lenStrm,
+	    hls::stream <ap_uint <lW>>& msgLenStrm,
 	    hls::stream <bool>& eLenStrm,
 	    hls::stream <ap_uint <hshW>>& hshStrm,
 	    hls::stream <bool>& eHshStrm
 	    )
 
 compute hmac value according to specific hash function and input data.
+
+keyW,keyStrm and keyLenStrm may be used as input to hash function, So they have to meet the API of hash function. So do msgW,msgStrm and msgLenStrm. hash function is wrapped to a template struct which must have a static function named hash. Take md5 for example, template <int msgW, int lW, int hshW> struct md5_wrapper { static void hash(hls::stream<ap_uint<msgW> >& msgStrm, hls::stream<lW>& lenStrm, hls::stream<bool>& eLenStrm, hls::stream<ap_uint<hshW> >& hshStrm, hls::stream<bool>& eHshStrm) { xf::security::md5(msgStrm, lenStrm, eLenStrm, hshStrm, eHshStrm); } }; then use hmac like this, :ref:`xf::security::hmac\<32, 32, 64, 128, 64, md5_wrapper> <doxid-namespacexf_1_1security_1a452f1271db004a36915004c439a1ada3>` (...);
 
 
 
@@ -4886,7 +4926,7 @@ compute hmac value according to specific hash function and input data.
     *
         - F
 
-        - hash function, iW is its input stream's width and oW is output stream's width.
+        - a wrapper of hash function which must have a static fucntion named hash.
 
     *
         - keyStrm
@@ -4896,7 +4936,7 @@ compute hmac value according to specific hash function and input data.
     *
         - keyLenStrm
 
-        - the length stream of input key stream.
+        - the length stream of input key stream. The length is counted in byte(8 bits) not keyW bits. That is to say, hmac reads keyLen*8 bits(not keyLen*keyW bits) from keyStrm as a key. For example, a key only has 3 bytes and keyW=32, then keyLen=3 and the lowest 3 bytes in the data which is read from keyStrm are key and the highest one byte is discarded.
 
     *
         - msgStrm

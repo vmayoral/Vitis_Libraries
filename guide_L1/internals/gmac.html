@@ -1,0 +1,438 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GMAC &mdash; XF Security Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="HMAC Algorithms" href="hmac.html" />
+    <link rel="prev" title="GCM Mode" href="gcm.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> XF Security Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../hw_guide.html">L1 Module User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../hw_api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../internals.html">Design Internals</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="aes.html">AES Encryption Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blake2b.html">BLAKE2 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cbc.html">CBC Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ccm.html">CCM Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfb.html">CFB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chacha20.html">Chacha20 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctr.html">CTR Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="des.html">DES and 3DES Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ecb.html">ECB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gcm.html">GCM Mode</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">GMAC</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementation-on-fpga">Implementation on FPGA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiling">Profiling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hmac.html">HMAC Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iaes.html">AES Decryption Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="md4_5.html">The MD4/MD5 Message-Digest Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ofb.html">OFB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poly1305.html">Poly1305 Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rc4.html">RC4 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha1.html">SHA-1 Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha2.html">SHA-2 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha3.html">SHA-3 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="xts.html">XTS mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/result.html">Benchmark Result</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XF Security Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../hw_guide.html">L1 Module User Guide</a> &raquo;</li>
+        
+          <li><a href="../internals.html">Design Internals</a> &raquo;</li>
+        
+      <li>GMAC</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide_L1/internals/gmac.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gmac">
+<h1>GMAC<a class="headerlink" href="#gmac" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Galois Message Authentication Code (GMAC) is an specialization of the GCM(Galois/Counter mode) and used for authentication,
+it is defined in <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf">NIST800_38D</a>.
+In this version, we provide Advanced Encryption Standard (AES) based processing ability,
+The cipherkey length for AES should be 128/192/256 bits.
+Our implementation takes a fix-sized (128 bits per block) data stream, but text in real world has a variety of lengths.
+Thus, you need to provide the data length in bits accompany with the data.</p>
+</div>
+<div class="section" id="implementation-on-fpga">
+<h2>Implementation on FPGA<a class="headerlink" href="#implementation-on-fpga" title="Permalink to this headline">¶</a></h2>
+<p>The GMAC algorithm is shown as the figure below:</p>
+<a class="reference internal image-reference" href="../../_images/GMAC.png"><img alt="GMAC algorithm flow chart" class="align-center" src="../../_images/GMAC.png" style="width: 100%;" /></a>
+<p>We support GMAC using AES block cipher in this implementation.</p>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p>The bit-width of the interfaces we provide is shown as follows:
+============ ========== =========== =========== ==== =====</p>
+<blockquote>
+<div>data      lenData    cipherkey   IV   tag</div></blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="19%" />
+<col width="21%" />
+<col width="21%" />
+<col width="8%" />
+<col width="9%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">GMAC-AES128</th>
+<th class="head">128</th>
+<th class="head">64</th>
+<th class="head">128</th>
+<th class="head">96</th>
+<th class="head">128</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>GMAC-AES192</td>
+<td>128</td>
+<td>64</td>
+<td>192</td>
+<td>96</td>
+<td>128</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="last">
+<div>GMAC-AES256    128         64          256      96   128</div></blockquote>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Applicable conditions:
+1. The bit-width of initialization vector must be precisely 96 as recommended in the standard
+to promote interoperability, efficiency, and simplicity of the design.</p>
+</div>
+<p>The internal structure of GMAC is shown in the figure below:</p>
+<a class="reference internal image-reference" href="../../_images/internal_structure_of_gmac.png"><img alt="Structure of GMAC" class="align-center" src="../../_images/internal_structure_of_gmac.png" style="width: 100%;" /></a>
+<p>As we can see from the chart, the GMAC can be divided into two individual parts: The preGMAC and genGMAC.
+These two parts can work independently, so they are designed into parallel dataflow processes,
+connected by streams (FIFO’s).</p>
+<p>There is an overload genGMAC for Galois/Counter Mode (GCM) cipher mode of operation, as it must work with the structure of GCM,
+the interface of the overload is a little bit more complex than the overload for GMAC.</p>
+</div>
+<div class="section" id="profiling">
+<h2>Profiling<a class="headerlink" href="#profiling" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="gmac-aes128">
+<h3>GMAC-AES128<a class="headerlink" href="#gmac-aes128" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>3851</td>
+<td>18468</td>
+<td>15707</td>
+<td>0</td>
+<td>2</td>
+<td>1445</td>
+<td>0</td>
+<td>2.915</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gmac-aes192">
+<h3>GMAC-AES192<a class="headerlink" href="#gmac-aes192" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>4854</td>
+<td>24401</td>
+<td>17523</td>
+<td>0</td>
+<td>6</td>
+<td>1573</td>
+<td>0</td>
+<td>2.849</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gmac-aes256">
+<h3>GMAC-AES256<a class="headerlink" href="#gmac-aes256" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>5217</td>
+<td>26430</td>
+<td>18900</td>
+<td>0</td>
+<td>2</td>
+<td>1701</td>
+<td>0</td>
+<td>3.069</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hmac.html" class="btn btn-neutral float-right" title="HMAC Algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="gcm.html" class="btn btn-neutral float-left" title="GCM Mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

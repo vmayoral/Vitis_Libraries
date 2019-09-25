@@ -1,0 +1,121 @@
+.. index:: pair: class; xf::security::rsa
+.. _doxid-classxf_1_1security_1_1rsa:
+.. _cid-xf::security::rsa:
+
+template class xf::security::rsa
+================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include "asymmetric.hpp"
+
+
+Overview
+~~~~~~~~
+
+RSA encryption/decryption class.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - BlockWidth
+
+        - Basic multiplication width, should be picked according to cards.
+
+    *
+        - BlockNum
+
+        - Number of Blocks. keyLength = BlockNum * BlockWidth.
+
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	template <
+	    int BlockWidth,
+	    int BlockNum
+	    >
+	class rsa
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1security_1_1rsa_1a7107a789ef82d05a03dacff227a13d17:
+.. _cid-xf::security::rsa::updatekey:
+
+updateKey
+---------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void updateKey (
+	    ap_uint <keyLength> modulus,
+	    ap_uint <keyLength> exponent
+	    )
+
+Update key before use it to encrypt message.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - modulus
+
+        - Modulus in RSA public key.
+
+    *
+        - exponent
+
+        - Exponent in RSA public key or private key.
+
+.. _doxid-classxf_1_1security_1_1rsa_1aa06349cdbb66f951026511556f0ad07c:
+.. _cid-xf::security::rsa::process:
+
+process
+-------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void process (
+	    ap_uint <keyLength> message,
+	    ap_uint <keyLength>& result
+	    )
+
+Encrypt message and get result.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - message
+
+        - Message to be encrypted/decrypted
+
+    *
+        - result
+
+        - Generated encrypted/decrypted result
+

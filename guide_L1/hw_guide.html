@@ -104,7 +104,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../benchmark/result.html">Benchmark of AES256 Encryption/Decryption in CBC Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/result.html">Benchmark Result</a></li>
 </ul>
 
             
@@ -174,11 +174,6 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="hw_api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256encrypt">aes256Encrypt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256decrypt">aes256Decrypt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128decrypt">aes128Decrypt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192decrypt">aes192Decrypt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#rsa">rsa</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hw_api.html#blake2b">blake2b</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hw_api.html#descbcencrypt">desCbcEncrypt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hw_api.html#descbcdecrypt">desCbcDecrypt</a></li>
@@ -243,6 +238,8 @@
 <li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192gcmdecrypt">aes192GcmDecrypt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256gcmencrypt">aes256GcmEncrypt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256gcmdecrypt">aes256GcmDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128gmac">aes128Gmac</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes192gmac">aes192Gmac</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256gmac">aes256Gmac</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hw_api.html#hmac">hmac</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hw_api.html#md4">md4</a></li>
@@ -273,22 +270,35 @@
 <li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes128xtsdecrypt">aes128XtsDecrypt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256xtsencrypt">aes256XtsEncrypt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hw_api.html#aes256xtsdecrypt">aes256XtsDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#updatekey">updateKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#process">process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#cid-xf-security-aesdec-updatekey">updateKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#cid-xf-security-aesdec-process">process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#cid-xf-security-rsa-updatekey">updateKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw_api.html#cid-xf-security-rsa-process">process</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="internals.html">Design Internals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="internals/aes.html">AES Encryption Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/blake2b.html">BLAKE2 Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/cbc.html">CBC Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/ccm.html">CCM Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/cfb.html">CFB Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/chacha20.html">Chacha20 Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/ctr.html">CTR Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/des.html">DES and 3DES Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/ecb.html">ECB Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/gcm.html">GCM Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/gmac.html">GMAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/hmac.html">HMAC Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/iaes.html">AES Decryption Algorithms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="internals/md4_5.html">The MD4/MD5 Message-Digest Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/ofb.html">OFB Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/poly1305.html">Poly1305 Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/rc4.html">RC4 Algorithms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="internals/sha1.html">SHA-1 Algorithm</a></li>
 <li class="toctree-l2"><a class="reference internal" href="internals/sha2.html">SHA-2 Algorithms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="internals/sha3.html">SHA-3 Algorithms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internals/blake2b.html">BLAKE2 Algorithms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internals/aes.html">AES-256 Encryption Algorithms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internals/iaes.html">AES-256 Decryption Algorithms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internals/cbc.html">CBC Mode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internals/cfb.html">CFB Mode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internals/ctr.html">CTR Mode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internals/ecb.html">ECB Mode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internals/gcm.html">GCM Mode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internals/ofb.html">OFB Mode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="internals/xts.html">XTS mode</a></li>
 </ul>
 </li>

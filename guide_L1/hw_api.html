@@ -98,11 +98,6 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="hw_guide.html">L1 Module User Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#aes256encrypt">aes256Encrypt</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#aes256decrypt">aes256Decrypt</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#aes128decrypt">aes128Decrypt</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#aes192decrypt">aes192Decrypt</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#rsa">rsa</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#blake2b">blake2b</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#descbcencrypt">desCbcEncrypt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#descbcdecrypt">desCbcDecrypt</a></li>
@@ -167,6 +162,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#aes192gcmdecrypt">aes192GcmDecrypt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#aes256gcmencrypt">aes256GcmEncrypt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#aes256gcmdecrypt">aes256GcmDecrypt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aes128gmac">aes128Gmac</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aes192gmac">aes192Gmac</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#aes256gmac">aes256Gmac</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#hmac">hmac</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#md4">md4</a></li>
@@ -196,7 +193,22 @@
 <li class="toctree-l3"><a class="reference internal" href="#aes128xtsencrypt">aes128XtsEncrypt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#aes128xtsdecrypt">aes128XtsDecrypt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#aes256xtsencrypt">aes256XtsEncrypt</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#aes256xtsdecrypt">aes256XtsDecrypt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aes256xtsdecrypt">aes256XtsDecrypt</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#template-class-xf-security-aesenc">template class xf::security::aesEnc</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#updatekey">updateKey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#process">process</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#template-class-xf-security-aesdec">template class xf::security::aesDec</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cid-xf-security-aesdec-updatekey">updateKey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cid-xf-security-aesdec-process">process</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#template-class-xf-security-rsa">template class xf::security::rsa</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cid-xf-security-rsa-updatekey">updateKey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cid-xf-security-rsa-process">process</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="internals.html">Design Internals</a></li>
@@ -205,7 +217,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../benchmark/result.html">Benchmark of AES256 Encryption/Decryption in CBC Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/result.html">Benchmark Result</a></li>
 </ul>
 
             
@@ -275,180 +287,6 @@
   <div class="section" id="api-functions-of-xf-security">
 <span id="api"></span><h1>API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code><a class="headerlink" href="#api-functions-of-xf-security" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
-</div>
-<div class="section" id="aes256encrypt">
-<span id="cid-xf-security-aes256encrypt"></span><span id="doxid-namespacexf-1-1security-1a48b43c1a4198d7367833720d9b1378a3"></span><h2>aes256Encrypt<a class="headerlink" href="#aes256encrypt" title="Permalink to this headline">¶</a></h2>
-<pre class="highlight literal-block">
-<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/aes.hpp&quot;</span>
-</pre>
-<pre class="highlight title-code-block literal-block">
-<span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">aes256Encrypt</span> <span class="p">(</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;</span> <span class="n">plaintext</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;</span> <span class="n">cipherkey</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&amp;</span> <span class="n">ciphertext</span>
-    <span class="p">)</span>
-</pre>
-<p>aes256Encrypt is the basic function for ciphering one block with one cipher key</p>
-<p class="rubric">Parameters:</p>
-<table border="1" class="colwidths-given docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>plaintext</td>
-<td>input one word plain text to be encrypted, 128 bits.</td>
-</tr>
-<tr class="row-even"><td>cipherkey</td>
-<td>input cipher key, 256 bits.</td>
-</tr>
-<tr class="row-odd"><td>ciphertext</td>
-<td>output one word encrypted text, 128 bit.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="aes256decrypt">
-<span id="cid-xf-security-aes256decrypt"></span><span id="doxid-namespacexf-1-1security-1a8b392ab72e2f3853eeff05348c5fa076"></span><h2>aes256Decrypt<a class="headerlink" href="#aes256decrypt" title="Permalink to this headline">¶</a></h2>
-<pre class="highlight literal-block">
-<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/aes.hpp&quot;</span>
-</pre>
-<pre class="highlight title-code-block literal-block">
-<span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">aes256Decrypt</span> <span class="p">(</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;</span> <span class="n">ciphertext</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;</span> <span class="n">cipherkey</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&amp;</span> <span class="n">plaintext</span>
-    <span class="p">)</span>
-</pre>
-<p>aes256Decrypt is the basic function for decrypting one block with one cipher key</p>
-<p class="rubric">Parameters:</p>
-<table border="1" class="colwidths-given docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>ciphertext</td>
-<td>input one word cipher text to be decrypted, 128 bits.</td>
-</tr>
-<tr class="row-even"><td>plainkey</td>
-<td>input plain key, 256 bits.</td>
-</tr>
-<tr class="row-odd"><td>plaintext</td>
-<td>output one word encrypted text, 128 bit.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="aes128decrypt">
-<span id="cid-xf-security-aes128decrypt"></span><span id="doxid-namespacexf-1-1security-1a874379e9d8a0c1e63097ba0d742c4e1d"></span><h2>aes128Decrypt<a class="headerlink" href="#aes128decrypt" title="Permalink to this headline">¶</a></h2>
-<pre class="highlight literal-block">
-<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/aes.hpp&quot;</span>
-</pre>
-<pre class="highlight title-code-block literal-block">
-<span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">aes128Decrypt</span> <span class="p">(</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;</span> <span class="n">ciphertext</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;</span> <span class="n">cipherkey</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&amp;</span> <span class="n">plaintext</span>
-    <span class="p">)</span>
-</pre>
-<p>aes128Decrypt is the basic function for decrypting one block with one cipher key</p>
-<p class="rubric">Parameters:</p>
-<table border="1" class="colwidths-given docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>ciphertext</td>
-<td>input one word cipher text to be decrypted, 128 bits.</td>
-</tr>
-<tr class="row-even"><td>plainkey</td>
-<td>input plain key, 128 bits.</td>
-</tr>
-<tr class="row-odd"><td>plaintext</td>
-<td>output one word encrypted text, 128 bit.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="aes192decrypt">
-<span id="cid-xf-security-aes192decrypt"></span><span id="doxid-namespacexf-1-1security-1afe60f26308f46392c708e07096062568"></span><h2>aes192Decrypt<a class="headerlink" href="#aes192decrypt" title="Permalink to this headline">¶</a></h2>
-<pre class="highlight literal-block">
-<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/aes.hpp&quot;</span>
-</pre>
-<pre class="highlight title-code-block literal-block">
-<span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">aes192Decrypt</span> <span class="p">(</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;</span> <span class="n">ciphertext</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">192</span><span class="o">&gt;</span> <span class="n">cipherkey</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&amp;</span> <span class="n">plaintext</span>
-    <span class="p">)</span>
-</pre>
-<p>aes192Decrypt is the basic function for decrypting one block with one 192-bit cipher key</p>
-<p class="rubric">Parameters:</p>
-<table border="1" class="colwidths-given docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>ciphertext</td>
-<td>input one word cipher text to be decrypted, 128 bits.</td>
-</tr>
-<tr class="row-even"><td>plainkey</td>
-<td>input plain key, 192 bits.</td>
-</tr>
-<tr class="row-odd"><td>plaintext</td>
-<td>output one word encrypted text, 128 bit.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="rsa">
-<span id="cid-xf-security-rsa"></span><span id="doxid-namespacexf-1-1security-1aa3333f8d1713b88c61936977f846681d"></span><h2>rsa<a class="headerlink" href="#rsa" title="Permalink to this headline">¶</a></h2>
-<pre class="highlight literal-block">
-<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/asymmetric.hpp&quot;</span>
-</pre>
-<pre class="highlight title-code-block literal-block">
-<span></span><span class="k">template</span> <span class="o">&lt;</span>
-    <span class="kt">int</span> <span class="n">KeyLength</span><span class="p">,</span>
-    <span class="kt">int</span> <span class="n">BlockWidth</span>
-    <span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">rsa</span> <span class="p">(</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">KeyLength</span><span class="o">&gt;</span> <span class="n">message</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">KeyLength</span><span class="o">&gt;</span> <span class="n">N</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">KeyLength</span><span class="o">&gt;</span> <span class="n">key</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">KeyLength</span><span class="o">&gt;&amp;</span> <span class="n">result</span>
-    <span class="p">)</span>
-</pre>
-<p>RSA encryption/decryption function.</p>
-<p class="rubric">Parameters:</p>
-<table border="1" class="colwidths-given docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>KeyLength</td>
-<td>Length of key, usually 1024/2048</td>
-</tr>
-<tr class="row-even"><td>BlockWidth</td>
-<td>Basic multiplication width, should be picked according to cards. Also KeyLength shoud be divisible by BlockWidth.</td>
-</tr>
-<tr class="row-odd"><td>message</td>
-<td>Message to be encrypted or ciphertxt to be decrypted.</td>
-</tr>
-<tr class="row-even"><td>N</td>
-<td>Served as modulus in modular operation.</td>
-</tr>
-<tr class="row-odd"><td>key</td>
-<td>Encryption/decryption key used.</td>
-</tr>
-<tr class="row-even"><td>result</td>
-<td>encrypiton/decryption result.</td>
-</tr>
-</tbody>
-</table>
 </div>
 <div class="section" id="blake2b">
 <span id="cid-xf-security-blake2b"></span><span id="doxid-namespacexf-1-1security-1abe39c66e4cc328feeea53d44be6259ef"></span><h2>blake2b<a class="headerlink" href="#blake2b" title="Permalink to this headline">¶</a></h2>
@@ -974,6 +812,12 @@ Confidentiality” The implementation is modified for better performance.</p>
 <col width="80%" />
 </colgroup>
 <tbody valign="top">
+<tr class="row-odd"><td>_t</td>
+<td>Length of the MAC in byte, t is an element of {4, 6, 8, 10, 12, 14, 16}.</td>
+</tr>
+<tr class="row-even"><td>_q</td>
+<td>Length in byte of the binary representation of the length of the payload in byte, q is an element of {2, 3, 4, 5, 6, 7, 8}.</td>
+</tr>
 <tr class="row-odd"><td>payloadStrm</td>
 <td>Input block stream text to be decrypted.</td>
 </tr>
@@ -1044,6 +888,12 @@ Confidentiality” The implementation is modified for better performance.</p>
 <col width="80%" />
 </colgroup>
 <tbody valign="top">
+<tr class="row-odd"><td>_t</td>
+<td>Length of the MAC in byte, t is an element of {4, 6, 8, 10, 12, 14, 16}.</td>
+</tr>
+<tr class="row-even"><td>_q</td>
+<td>Length in byte of the binary representation of the length of the payload in byte, q is an element of {2, 3, 4, 5, 6, 7, 8}.</td>
+</tr>
 <tr class="row-odd"><td>payloadStrm</td>
 <td>Input block stream text to be encrypted.</td>
 </tr>
@@ -1114,6 +964,12 @@ Confidentiality” The implementation is modified for better performance.</p>
 <col width="80%" />
 </colgroup>
 <tbody valign="top">
+<tr class="row-odd"><td>_t</td>
+<td>Length of the MAC in byte, t is an element of {4, 6, 8, 10, 12, 14, 16}.</td>
+</tr>
+<tr class="row-even"><td>_q</td>
+<td>Length in byte of the binary representation of the length of the payload in byte, q is an element of {2, 3, 4, 5, 6, 7, 8}.</td>
+</tr>
 <tr class="row-odd"><td>payloadStrm</td>
 <td>Input block stream text to be decrypted.</td>
 </tr>
@@ -1184,6 +1040,12 @@ Confidentiality” The implementation is modified for better performance.</p>
 <col width="80%" />
 </colgroup>
 <tbody valign="top">
+<tr class="row-odd"><td>_t</td>
+<td>Length of the MAC in byte, t is an element of {4, 6, 8, 10, 12, 14, 16}.</td>
+</tr>
+<tr class="row-even"><td>_q</td>
+<td>Length in byte of the binary representation of the length of the payload in byte, q is an element of {2, 3, 4, 5, 6, 7, 8}.</td>
+</tr>
 <tr class="row-odd"><td>payloadStrm</td>
 <td>Input block stream text to be encrypted.</td>
 </tr>
@@ -1254,6 +1116,12 @@ Confidentiality” The implementation is modified for better performance.</p>
 <col width="80%" />
 </colgroup>
 <tbody valign="top">
+<tr class="row-odd"><td>_t</td>
+<td>Length of the MAC in byte, t is an element of {4, 6, 8, 10, 12, 14, 16}.</td>
+</tr>
+<tr class="row-even"><td>_q</td>
+<td>Length in byte of the binary representation of the length of the payload in byte, q is an element of {2, 3, 4, 5, 6, 7, 8}.</td>
+</tr>
 <tr class="row-odd"><td>payloadStrm</td>
 <td>Input block stream text to be decrypted.</td>
 </tr>
@@ -3160,20 +3028,23 @@ Confidentiality” The implementation is modified for better performance.</p>
 </table>
 </div>
 <div class="section" id="aes128gcmencrypt">
-<span id="cid-xf-security-aes128gcmencrypt"></span><span id="doxid-namespacexf-1-1security-1ac6e4a18f7566a1de7e3f16a8e52db967"></span><h2>aes128GcmEncrypt<a class="headerlink" href="#aes128gcmencrypt" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-security-aes128gcmencrypt"></span><span id="doxid-namespacexf-1-1security-1a86ac3f0cbfd9ee2cac86ee41c1719044"></span><h2>aes128GcmEncrypt<a class="headerlink" href="#aes128gcmencrypt" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/gcm.hpp&quot;</span>
 </pre>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">aes128GcmEncrypt</span> <span class="p">(</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">plaintextStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endPlaintextStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">payloadStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherkeyStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">96</span><span class="o">&gt;&gt;&amp;</span> <span class="n">IVStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">AADStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">ciphertextStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endCiphertextStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">tagStrm</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenAADStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenPldStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endLenStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenCphStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">tagStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endTagStrm</span>
     <span class="p">)</span>
 </pre>
 <p>aes128GcmEncrypt is GCM encryption mode with AES-128 single block cipher.</p>
@@ -3185,48 +3056,60 @@ Confidentiality” The implementation is modified for better performance.</p>
 <col width="80%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>plaintextStrm</td>
-<td>Input block stream text to be encrypted, 128 bits.</td>
+<tr class="row-odd"><td>payloadStrm</td>
+<td>Input block stream text to be encrypted.</td>
 </tr>
-<tr class="row-even"><td>endPlaintextStrm</td>
-<td>End flag of block stream plaintext, 1 bit.</td>
+<tr class="row-even"><td>cipherkeyStrm</td>
+<td>Input cipher key used in encryption.</td>
 </tr>
-<tr class="row-odd"><td>cipherkeyStrm</td>
-<td>Input cipher key used in encryption, 128 bits.</td>
+<tr class="row-odd"><td>IVStrm</td>
+<td>Initialization vector stream.</td>
 </tr>
-<tr class="row-even"><td>IVStrm</td>
-<td>Initialization vector for the fisrt iteration of AES encrypition, 128 bits.</td>
+<tr class="row-even"><td>AADStrm</td>
+<td>Additional authenticated data stream.</td>
 </tr>
-<tr class="row-odd"><td>AADStrm</td>
-<td>Additional authenticated data for calculating the tag, 128 bits.</td>
+<tr class="row-odd"><td>lenAADStrm</td>
+<td>Length of additional authenticated data in bits.</td>
 </tr>
-<tr class="row-even"><td>ciphertextStrm</td>
-<td>Output encrypted block stream text, 128 bits.</td>
+<tr class="row-even"><td>lenPldStrm</td>
+<td>Length of payload in bits.</td>
 </tr>
-<tr class="row-odd"><td>endCiphertextStrm</td>
-<td>End flag of block stream ciphertext, 1 bit.</td>
+<tr class="row-odd"><td>endLenStrm</td>
+<td>Flag to signal the end of the length streams.</td>
+</tr>
+<tr class="row-even"><td>cipherStrm</td>
+<td>Output encrypted block stream text.</td>
+</tr>
+<tr class="row-odd"><td>lenCphStrm</td>
+<td>Length of cipher in bits.</td>
 </tr>
 <tr class="row-even"><td>tagStrm</td>
-<td>The data tag</td>
+<td>The MAC stream.</td>
+</tr>
+<tr class="row-odd"><td>endTagStrm</td>
+<td>Flag to signal the end of the MAC stream.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="aes128gcmdecrypt">
-<span id="cid-xf-security-aes128gcmdecrypt"></span><span id="doxid-namespacexf-1-1security-1a351432bccd1d3143257b84c23c74bba2"></span><h2>aes128GcmDecrypt<a class="headerlink" href="#aes128gcmdecrypt" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-security-aes128gcmdecrypt"></span><span id="doxid-namespacexf-1-1security-1aedadb9faf4a4cba7e991676a9394d095"></span><h2>aes128GcmDecrypt<a class="headerlink" href="#aes128gcmdecrypt" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/gcm.hpp&quot;</span>
 </pre>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">aes128GcmDecrypt</span> <span class="p">(</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">ciphertextStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endCiphertextStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">payloadStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherkeyStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">96</span><span class="o">&gt;&gt;&amp;</span> <span class="n">IVStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">AADStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">plaintextStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endPlaintextStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">tagStrm</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenAADStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenPldStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endLenStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenCphStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">tagStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endTagStrm</span>
     <span class="p">)</span>
 </pre>
 <p>aes128GcmDecrypt is GCM decryption mode with AES-128 single block cipher.</p>
@@ -3238,48 +3121,60 @@ Confidentiality” The implementation is modified for better performance.</p>
 <col width="80%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>ciphertextStrm</td>
-<td>Input block stream text to be decrypted, 128 bits.</td>
+<tr class="row-odd"><td>payloadStrm</td>
+<td>Input block stream text to be decrypted.</td>
 </tr>
-<tr class="row-even"><td>endCiphertextStrm</td>
-<td>End flag of block stream ciphertext, 1 bit.</td>
+<tr class="row-even"><td>cipherkeyStrm</td>
+<td>Input cipher key used in decryption.</td>
 </tr>
-<tr class="row-odd"><td>cipherkeyStrm</td>
-<td>Input cipher key used in decryption, 128 bits.</td>
+<tr class="row-odd"><td>IVStrm</td>
+<td>Initialization vector stream.</td>
 </tr>
-<tr class="row-even"><td>IVStrm</td>
-<td>Initialization vector for the fisrt iteration of AES decrypition, 128 bits.</td>
+<tr class="row-even"><td>AADStrm</td>
+<td>Additional authenticated data stream.</td>
 </tr>
-<tr class="row-odd"><td>AADStrm</td>
-<td>Additional authenticated data for calculating the tag, 128 bits.</td>
+<tr class="row-odd"><td>lenAADStrm</td>
+<td>Length of additional authenticated data in bits.</td>
 </tr>
-<tr class="row-even"><td>plaintextStrm</td>
-<td>Output decrypted block stream text, 128 bits.</td>
+<tr class="row-even"><td>lenPldStrm</td>
+<td>Length of payload in bits.</td>
 </tr>
-<tr class="row-odd"><td>endPlaintextStrm</td>
-<td>End flag of block stream plaintext, 1 bit.</td>
+<tr class="row-odd"><td>endLenStrm</td>
+<td>Flag to signal the end of the length streams.</td>
+</tr>
+<tr class="row-even"><td>cipherStrm</td>
+<td>Output decrypted block stream text.</td>
+</tr>
+<tr class="row-odd"><td>lenCphStrm</td>
+<td>Length of cipher in bits.</td>
 </tr>
 <tr class="row-even"><td>tagStrm</td>
-<td>The data tag</td>
+<td>The MAC stream.</td>
+</tr>
+<tr class="row-odd"><td>endTagStrm</td>
+<td>Flag to signal the end of the MAC stream.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="aes192gcmencrypt">
-<span id="cid-xf-security-aes192gcmencrypt"></span><span id="doxid-namespacexf-1-1security-1a23d877a87d12099c7dfbe34e2161c247"></span><h2>aes192GcmEncrypt<a class="headerlink" href="#aes192gcmencrypt" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-security-aes192gcmencrypt"></span><span id="doxid-namespacexf-1-1security-1a2e0c25845560032155fb60282ddaff91"></span><h2>aes192GcmEncrypt<a class="headerlink" href="#aes192gcmencrypt" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/gcm.hpp&quot;</span>
 </pre>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">aes192GcmEncrypt</span> <span class="p">(</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">plaintextStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endPlaintextStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">payloadStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">192</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherkeyStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">96</span><span class="o">&gt;&gt;&amp;</span> <span class="n">IVStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">AADStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">ciphertextStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endCiphertextStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">tagStrm</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenAADStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenPldStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endLenStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenCphStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">tagStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endTagStrm</span>
     <span class="p">)</span>
 </pre>
 <p>aes192GcmEncrypt is GCM encryption mode with AES-192 single block cipher.</p>
@@ -3291,48 +3186,60 @@ Confidentiality” The implementation is modified for better performance.</p>
 <col width="80%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>plaintextStrm</td>
-<td>Input block stream text to be encrypted, 128 bits.</td>
+<tr class="row-odd"><td>payloadStrm</td>
+<td>Input block stream text to be encrypted.</td>
 </tr>
-<tr class="row-even"><td>endPlaintextStrm</td>
-<td>End flag of block stream plaintext, 1 bit.</td>
+<tr class="row-even"><td>cipherkeyStrm</td>
+<td>Input cipher key used in encryption.</td>
 </tr>
-<tr class="row-odd"><td>cipherkeyStrm</td>
-<td>Input cipher key used in encryption, 192 bits.</td>
+<tr class="row-odd"><td>IVStrm</td>
+<td>Initialization vector stream.</td>
 </tr>
-<tr class="row-even"><td>IVStrm</td>
-<td>Initialization vector for the fisrt iteration of AES encrypition, 128 bits.</td>
+<tr class="row-even"><td>AADStrm</td>
+<td>Additional authenticated data stream.</td>
 </tr>
-<tr class="row-odd"><td>AADStrm</td>
-<td>Additional authenticated data for calculating the tag, 128 bits.</td>
+<tr class="row-odd"><td>lenAADStrm</td>
+<td>Length of additional authenticated data in bits.</td>
 </tr>
-<tr class="row-even"><td>ciphertextStrm</td>
-<td>Output encrypted block stream text, 128 bits.</td>
+<tr class="row-even"><td>lenPldStrm</td>
+<td>Length of payload in bits.</td>
 </tr>
-<tr class="row-odd"><td>endCiphertextStrm</td>
-<td>End flag of block stream ciphertext, 1 bit.</td>
+<tr class="row-odd"><td>endLenStrm</td>
+<td>Flag to signal the end of the length streams.</td>
+</tr>
+<tr class="row-even"><td>cipherStrm</td>
+<td>Output encrypted block stream text.</td>
+</tr>
+<tr class="row-odd"><td>lenCphStrm</td>
+<td>Length of cipher in bits.</td>
 </tr>
 <tr class="row-even"><td>tagStrm</td>
-<td>The data tag</td>
+<td>The MAC stream.</td>
+</tr>
+<tr class="row-odd"><td>endTagStrm</td>
+<td>Flag to signal the end of the MAC stream.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="aes192gcmdecrypt">
-<span id="cid-xf-security-aes192gcmdecrypt"></span><span id="doxid-namespacexf-1-1security-1a2b287e053f09032aeea5449e24dfe082"></span><h2>aes192GcmDecrypt<a class="headerlink" href="#aes192gcmdecrypt" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-security-aes192gcmdecrypt"></span><span id="doxid-namespacexf-1-1security-1afb6b30189f9d1b3216b514d8a86e882c"></span><h2>aes192GcmDecrypt<a class="headerlink" href="#aes192gcmdecrypt" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/gcm.hpp&quot;</span>
 </pre>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">aes192GcmDecrypt</span> <span class="p">(</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">ciphertextStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endCiphertextStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">payloadStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">192</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherkeyStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">96</span><span class="o">&gt;&gt;&amp;</span> <span class="n">IVStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">AADStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">plaintextStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endPlaintextStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">tagStrm</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenAADStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenPldStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endLenStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenCphStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">tagStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endTagStrm</span>
     <span class="p">)</span>
 </pre>
 <p>aes192GcmDecrypt is GCM decryption mode with AES-192 single block cipher.</p>
@@ -3344,48 +3251,60 @@ Confidentiality” The implementation is modified for better performance.</p>
 <col width="80%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>ciphertextStrm</td>
-<td>Input block stream text to be decrypted, 128 bits.</td>
+<tr class="row-odd"><td>payloadStrm</td>
+<td>Input block stream text to be decrypted.</td>
 </tr>
-<tr class="row-even"><td>endCiphertextStrm</td>
-<td>End flag of block stream ciphertext, 1 bit.</td>
+<tr class="row-even"><td>cipherkeyStrm</td>
+<td>Input cipher key used in decryption.</td>
 </tr>
-<tr class="row-odd"><td>cipherkeyStrm</td>
-<td>Input cipher key used in decryption, 192 bits.</td>
+<tr class="row-odd"><td>IVStrm</td>
+<td>Initialization vector stream.</td>
 </tr>
-<tr class="row-even"><td>IVStrm</td>
-<td>Initialization vector for the fisrt iteration of AES decrypition, 128 bits.</td>
+<tr class="row-even"><td>AADStrm</td>
+<td>Additional authenticated data stream.</td>
 </tr>
-<tr class="row-odd"><td>AADStrm</td>
-<td>Additional authenticated data for calculating the tag, 128 bits.</td>
+<tr class="row-odd"><td>lenAADStrm</td>
+<td>Length of additional authenticated data in bits.</td>
 </tr>
-<tr class="row-even"><td>plaintextStrm</td>
-<td>Output decrypted block stream text, 128 bits.</td>
+<tr class="row-even"><td>lenPldStrm</td>
+<td>Length of payload in bits.</td>
 </tr>
-<tr class="row-odd"><td>endPlaintextStrm</td>
-<td>End flag of block stream plaintext, 1 bit.</td>
+<tr class="row-odd"><td>endLenStrm</td>
+<td>Flag to signal the end of the length streams.</td>
+</tr>
+<tr class="row-even"><td>cipherStrm</td>
+<td>Output decrypted block stream text.</td>
+</tr>
+<tr class="row-odd"><td>lenCphStrm</td>
+<td>Length of cipher in bits.</td>
 </tr>
 <tr class="row-even"><td>tagStrm</td>
-<td>The data tag</td>
+<td>The MAC stream.</td>
+</tr>
+<tr class="row-odd"><td>endTagStrm</td>
+<td>Flag to signal the end of the MAC stream.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="aes256gcmencrypt">
-<span id="cid-xf-security-aes256gcmencrypt"></span><span id="doxid-namespacexf-1-1security-1ae51d3eabebdbec9ee65e40d5f4ecb816"></span><h2>aes256GcmEncrypt<a class="headerlink" href="#aes256gcmencrypt" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-security-aes256gcmencrypt"></span><span id="doxid-namespacexf-1-1security-1a66359ad17e56eb4dc9c5defc53b30aec"></span><h2>aes256GcmEncrypt<a class="headerlink" href="#aes256gcmencrypt" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/gcm.hpp&quot;</span>
 </pre>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">aes256GcmEncrypt</span> <span class="p">(</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">plaintextStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endPlaintextStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">payloadStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherkeyStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">96</span><span class="o">&gt;&gt;&amp;</span> <span class="n">IVStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">AADStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">ciphertextStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endCiphertextStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">tagStrm</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenAADStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenPldStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endLenStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenCphStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">tagStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endTagStrm</span>
     <span class="p">)</span>
 </pre>
 <p>aes256GcmEncrypt is GCM encryption mode with AES-256 single block cipher.</p>
@@ -3397,51 +3316,63 @@ Confidentiality” The implementation is modified for better performance.</p>
 <col width="80%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>plaintextStrm</td>
-<td>Input block stream text to be encrypted, 128 bits.</td>
+<tr class="row-odd"><td>payloadStrm</td>
+<td>Input block stream text to be encrypted.</td>
 </tr>
-<tr class="row-even"><td>endPlaintextStrm</td>
-<td>End flag of block stream plaintext, 1 bit.</td>
+<tr class="row-even"><td>cipherkeyStrm</td>
+<td>Input cipher key used in encryption.</td>
 </tr>
-<tr class="row-odd"><td>cipherkeyStrm</td>
-<td>Input cipher key used in encryption, 256 bits.</td>
+<tr class="row-odd"><td>IVStrm</td>
+<td>Initialization vector stream.</td>
 </tr>
-<tr class="row-even"><td>IVStrm</td>
-<td>Initialization vector for the fisrt iteration of AES encrypition, 128 bits.</td>
+<tr class="row-even"><td>AADStrm</td>
+<td>Additional authenticated data stream.</td>
 </tr>
-<tr class="row-odd"><td>AADStrm</td>
-<td>Additional authenticated data for calculating the tag, 128 bits.</td>
+<tr class="row-odd"><td>lenAADStrm</td>
+<td>Length of additional authenticated data in bits.</td>
 </tr>
-<tr class="row-even"><td>ciphertextStrm</td>
-<td>Output encrypted block stream text, 128 bits.</td>
+<tr class="row-even"><td>lenPldStrm</td>
+<td>Length of payload in bits.</td>
 </tr>
-<tr class="row-odd"><td>endCiphertextStrm</td>
-<td>End flag of block stream ciphertext, 1 bit.</td>
+<tr class="row-odd"><td>endLenStrm</td>
+<td>Flag to signal the end of the length streams.</td>
+</tr>
+<tr class="row-even"><td>cipherStrm</td>
+<td>Output encrypted block stream text.</td>
+</tr>
+<tr class="row-odd"><td>lenCphStrm</td>
+<td>Length of cipher in bits.</td>
 </tr>
 <tr class="row-even"><td>tagStrm</td>
-<td>The data tag</td>
+<td>The MAC stream.</td>
+</tr>
+<tr class="row-odd"><td>endTagStrm</td>
+<td>Flag to signal the end of the MAC stream.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="aes256gcmdecrypt">
-<span id="cid-xf-security-aes256gcmdecrypt"></span><span id="doxid-namespacexf-1-1security-1a8e0508dcd73c25abee0659eb56880fa7"></span><h2>aes256GcmDecrypt<a class="headerlink" href="#aes256gcmdecrypt" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-security-aes256gcmdecrypt"></span><span id="doxid-namespacexf-1-1security-1ae5fab247ca2bdaf983cf5d31f5f75dab"></span><h2>aes256GcmDecrypt<a class="headerlink" href="#aes256gcmdecrypt" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/gcm.hpp&quot;</span>
 </pre>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">aes256GcmDecrypt</span> <span class="p">(</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">ciphertextStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endCiphertextStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">payloadStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherkeyStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">96</span><span class="o">&gt;&gt;&amp;</span> <span class="n">IVStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">AADStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">plaintextStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endPlaintextStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">tagStrm</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenAADStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenPldStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endLenStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenCphStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">tagStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endTagStrm</span>
     <span class="p">)</span>
 </pre>
-<p>aes256GcmDecrypt is GCM decryption mode with AES-256 single block cipher.</p>
+<p>aes256GcmDecrypt is GCM decryption mode with AES-2562 single block cipher.</p>
 <p>The algorithm reference is : “IEEE Standard for Authenticated Encryption with Length Expansion for Storage Devices” The implementation is modified for better performance.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -3450,48 +3381,57 @@ Confidentiality” The implementation is modified for better performance.</p>
 <col width="80%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>ciphertextStrm</td>
-<td>Input block stream text to be decrypted, 128 bits.</td>
+<tr class="row-odd"><td>payloadStrm</td>
+<td>Input block stream text to be decrypted.</td>
 </tr>
-<tr class="row-even"><td>endCiphertextStrm</td>
-<td>End flag of block stream ciphertext, 1 bit.</td>
+<tr class="row-even"><td>cipherkeyStrm</td>
+<td>Input cipher key used in decryption.</td>
 </tr>
-<tr class="row-odd"><td>cipherkeyStrm</td>
-<td>Input cipher key used in decryption, 256 bits.</td>
+<tr class="row-odd"><td>IVStrm</td>
+<td>Initialization vector stream.</td>
 </tr>
-<tr class="row-even"><td>IVStrm</td>
-<td>Initialization vector for the fisrt iteration of AES decrypition, 128 bits.</td>
+<tr class="row-even"><td>AADStrm</td>
+<td>Additional authenticated data stream.</td>
 </tr>
-<tr class="row-odd"><td>AADStrm</td>
-<td>Additional authenticated data for calculating the tag, 128 bits.</td>
+<tr class="row-odd"><td>lenAADStrm</td>
+<td>Length of additional authenticated data in bits.</td>
 </tr>
-<tr class="row-even"><td>plaintextStrm</td>
-<td>Output decrypted block stream text, 128 bits.</td>
+<tr class="row-even"><td>lenPldStrm</td>
+<td>Length of payload in bits.</td>
 </tr>
-<tr class="row-odd"><td>endPlaintextStrm</td>
-<td>End flag of block stream plaintext, 1 bit.</td>
+<tr class="row-odd"><td>endLenStrm</td>
+<td>Flag to signal the end of the length streams.</td>
+</tr>
+<tr class="row-even"><td>cipherStrm</td>
+<td>Output decrypted block stream text.</td>
+</tr>
+<tr class="row-odd"><td>lenCphStrm</td>
+<td>Length of cipher in bits.</td>
 </tr>
 <tr class="row-even"><td>tagStrm</td>
-<td>The data tag</td>
+<td>The MAC stream.</td>
+</tr>
+<tr class="row-odd"><td>endTagStrm</td>
+<td>Flag to signal the end of the MAC stream.</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="aes256gmac">
-<span id="cid-xf-security-aes256gmac"></span><span id="doxid-namespacexf-1-1security-1ac42e1407fa37a17c4b2c88683fe47fdf"></span><h2>aes256Gmac<a class="headerlink" href="#aes256gmac" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="aes128gmac">
+<span id="cid-xf-security-aes128gmac"></span><span id="doxid-namespacexf-1-1security-1af04d51421acff2cbef216b97d4a92193"></span><h2>aes128Gmac<a class="headerlink" href="#aes128gmac" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/gmac.hpp&quot;</span>
 </pre>
 <pre class="highlight title-code-block literal-block">
-<span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">aes256Gmac</span> <span class="p">(</span>
+<span></span><span class="kt">void</span> <span class="n">aes128Gmac</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">dataStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">eDataStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;&gt;&amp;</span> <span class="n">keyStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">96</span><span class="o">&gt;&gt;&amp;</span> <span class="n">ivStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenDataStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherkeyStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">96</span><span class="o">&gt;&gt;&amp;</span> <span class="n">IVStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">tagStrm</span>
     <span class="p">)</span>
 </pre>
-<p>aes256Gmac is the basic encryption mode of AES-256.</p>
+<p>aes128Gmac The GMAC using AES-128 block cipher.</p>
 <p>Galois Message Authentication Code (GMAC) is a mechanism to provide data origin authentication.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -3501,25 +3441,107 @@ Confidentiality” The implementation is modified for better performance.</p>
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>dataStrm</td>
-<td>is input stream text to be authenticated, 128 bits.</td>
+<td>Input text stream to be authenticated.</td>
 </tr>
-<tr class="row-even"><td>eDataStrm</td>
-<td>is end flag of stream data, 1 bit.</td>
+<tr class="row-even"><td>lenDataStrm</td>
+<td>The length of the data in bits.</td>
 </tr>
-<tr class="row-odd"><td>keyStrm</td>
-<td>is input key used in encryption, 256 bits for AES-256.</td>
+<tr class="row-odd"><td>cipherkeyStrm</td>
+<td>Input cihperkey to calculate the hash subkey and E(K,Y0).</td>
 </tr>
-<tr class="row-even"><td>ivStrm</td>
-<td>is initialization vector for the fisrt iteration of AES encrypition, 128 bits.</td>
+<tr class="row-even"><td>IVStrm</td>
+<td>Initialization vector.</td>
 </tr>
 <tr class="row-odd"><td>tagStrm</td>
-<td>is the data tag</td>
+<td>The MAC stream.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="aes192gmac">
+<span id="cid-xf-security-aes192gmac"></span><span id="doxid-namespacexf-1-1security-1a868a65ee7a2e004d07f475350c91d13c"></span><h2>aes192Gmac<a class="headerlink" href="#aes192gmac" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/gmac.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">aes192Gmac</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">dataStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenDataStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">192</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherkeyStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">96</span><span class="o">&gt;&gt;&amp;</span> <span class="n">IVStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">tagStrm</span>
+    <span class="p">)</span>
+</pre>
+<p>aes192Gmac The GMAC using AES-192 block cipher.</p>
+<p>Galois Message Authentication Code (GMAC) is a mechanism to provide data origin authentication.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>dataStrm</td>
+<td>Input text stream to be authenticated.</td>
+</tr>
+<tr class="row-even"><td>lenDataStrm</td>
+<td>The length of the data in bits.</td>
+</tr>
+<tr class="row-odd"><td>cipherkeyStrm</td>
+<td>Input cihperkey to calculate the hash subkey and E(K,Y0).</td>
+</tr>
+<tr class="row-even"><td>IVStrm</td>
+<td>Initialization vector.</td>
+</tr>
+<tr class="row-odd"><td>tagStrm</td>
+<td>The MAC stream.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="aes256gmac">
+<span id="cid-xf-security-aes256gmac"></span><span id="doxid-namespacexf-1-1security-1a91f8c10de49c0317e1b05224b8743915"></span><h2>aes256Gmac<a class="headerlink" href="#aes256gmac" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/gmac.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">aes256Gmac</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">dataStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenDataStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherkeyStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">96</span><span class="o">&gt;&gt;&amp;</span> <span class="n">IVStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">tagStrm</span>
+    <span class="p">)</span>
+</pre>
+<p>aes256Gmac The GMAC using AES-256 block cipher.</p>
+<p>Galois Message Authentication Code (GMAC) is a mechanism to provide data origin authentication.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>dataStrm</td>
+<td>Input text stream to be authenticated.</td>
+</tr>
+<tr class="row-even"><td>lenDataStrm</td>
+<td>The length of the data in bits.</td>
+</tr>
+<tr class="row-odd"><td>cipherkeyStrm</td>
+<td>Input cihperkey to calculate the hash subkey and E(K,Y0).</td>
+</tr>
+<tr class="row-even"><td>IVStrm</td>
+<td>Initialization vector.</td>
+</tr>
+<tr class="row-odd"><td>tagStrm</td>
+<td>The MAC stream.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="hmac">
-<span id="cid-xf-security-hmac"></span><span id="doxid-namespacexf-1-1security-1a5405eced476b6783c0ef7517395fbe6e"></span><h2>hmac<a class="headerlink" href="#hmac" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-security-hmac"></span><span id="doxid-namespacexf-1-1security-1a452f1271db004a36915004c439a1ada3"></span><h2>hmac<a class="headerlink" href="#hmac" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/hmac.hpp&quot;</span>
 </pre>
@@ -3536,13 +3558,14 @@ Confidentiality” The implementation is modified for better performance.</p>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">keyW</span><span class="o">&gt;&gt;&amp;</span> <span class="n">keyStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">lW</span><span class="o">&gt;&gt;&amp;</span> <span class="n">keyLenStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">msgW</span><span class="o">&gt;&gt;&amp;</span> <span class="n">msgStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">lW</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">lW</span><span class="o">&gt;&gt;&amp;</span> <span class="n">msgLenStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">eLenStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">hshW</span><span class="o">&gt;&gt;&amp;</span> <span class="n">hshStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">eHshStrm</span>
     <span class="p">)</span>
 </pre>
 <p>compute hmac value according to specific hash function and input data.</p>
+<p>keyW,keyStrm and keyLenStrm may be used as input to hash function, So they have to meet the API of hash function. So do msgW,msgStrm and msgLenStrm. hash function is wrapped to a template struct which must have a static function named hash. Take md5 for example, template &lt;int msgW, int lW, int hshW&gt; struct md5_wrapper { static void hash(hls::stream&lt;ap_uint&lt;msgW&gt; &gt;&amp; msgStrm, hls::stream&lt;lW&gt;&amp; lenStrm, hls::stream&lt;bool&gt;&amp; eLenStrm, hls::stream&lt;ap_uint&lt;hshW&gt; &gt;&amp; hshStrm, hls::stream&lt;bool&gt;&amp; eHshStrm) { xf::security::md5(msgStrm, lenStrm, eLenStrm, hshStrm, eHshStrm); } }; then use hmac like this, <a class="reference internal" href="../rst_L1/namespace_xf_security.html#doxid-namespacexf-1-1security-1a452f1271db004a36915004c439a1ada3"><span class="std std-ref">xf::security::hmac&lt;32, 32, 64, 128, 64, md5_wrapper&gt;</span></a> (…);</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -3563,13 +3586,13 @@ Confidentiality” The implementation is modified for better performance.</p>
 <td>the width of output stream hshStrm.</td>
 </tr>
 <tr class="row-odd"><td>F</td>
-<td>hash function, iW is its input stream’s width and oW is output stream’s width.</td>
+<td>a wrapper of hash function which must have a static fucntion named hash.</td>
 </tr>
 <tr class="row-even"><td>keyStrm</td>
 <td>input key stream.</td>
 </tr>
 <tr class="row-odd"><td>keyLenStrm</td>
-<td>the length stream of input key stream.</td>
+<td>the length stream of input key stream. The length is counted in byte(8 bits) not keyW bits. That is to say, hmac reads keyLen*8 bits(not keyLen*keyW bits) from keyStrm as a key. For example, a key only has 3 bytes and keyW=32, then keyLen=3 and the lowest 3 bytes in the data which is read from keyStrm are key and the highest one byte is discarded.</td>
 </tr>
 <tr class="row-even"><td>msgStrm</td>
 <td>input meassge stream.</td>
@@ -4831,6 +4854,251 @@ Data on Block-Oriented Storage Devices” The implementation is optimized for be
 </tr>
 <tr class="row-odd"><td>endPlaintextStrm</td>
 <td>End flag of block stream plaintext, 1 bit.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="template-class-xf-security-aesenc">
+<span id="cid-xf-security-aesenc"></span><span id="doxid-classxf-1-1security-1-1aes-enc"></span><span id="index-0"></span><h3>template class xf::security::aesEnc<a class="headerlink" href="#template-class-xf-security-aesenc" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;aes.hpp&quot;</span>
+</pre>
+<div class="section" id="overview">
+<h4>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h4>
+<p>AES encryption.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>W</td>
+<td>Bit width of AES key, which is 128, 192 or 256</td>
+</tr>
+</tbody>
+</table>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">W</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="n">aesEnc</span>
+</pre>
+</div>
+<div class="section" id="methods">
+<h4>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="section" id="updatekey">
+<span id="cid-xf-security-aesenc-updatekey"></span><span id="doxid-classxf-1-1security-1-1aes-enc-1a5811f888fdde7c553a28c9649cca6c1d"></span><h2>updateKey<a class="headerlink" href="#updatekey" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">updateKey</span> <span class="p">(</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">W</span><span class="o">&gt;</span> <span class="n">cipherkey</span><span class="p">)</span>
+</pre>
+<p>Update key before using it to encrypt.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>cipherkey</td>
+<td>Key to be used in encryption.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="process">
+<span id="cid-xf-security-aesenc-process"></span><span id="doxid-classxf-1-1security-1-1aes-enc-1a31210d0b8958c201d0c0a3f85851d432"></span><h2>process<a class="headerlink" href="#process" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">process</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;</span> <span class="n">plaintext</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">W</span><span class="o">&gt;</span> <span class="n">cipherkey</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&amp;</span> <span class="n">ciphertext</span>
+    <span class="p">)</span>
+</pre>
+<p>encrypt message</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>plaintext</td>
+<td>Message to be encrypted.</td>
+</tr>
+<tr class="row-even"><td>cipherkey</td>
+<td>Key to be used in encryption.</td>
+</tr>
+<tr class="row-odd"><td>ciphertext</td>
+<td>result of encryption.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="template-class-xf-security-aesdec">
+<span id="cid-xf-security-aesdec"></span><span id="doxid-classxf-1-1security-1-1aes-dec"></span><span id="index-1"></span><h3>template class xf::security::aesDec<a class="headerlink" href="#template-class-xf-security-aesdec" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;aes.hpp&quot;</span>
+</pre>
+<div class="section" id="id1">
+<h4>Overview<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>AES decryption.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>W</td>
+<td>Bit width of AES key, which is 128, 192 or 256</td>
+</tr>
+</tbody>
+</table>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">W</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="n">aesDec</span>
+</pre>
+</div>
+<div class="section" id="id2">
+<h4>Methods<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="section" id="cid-xf-security-aesdec-updatekey">
+<span id="doxid-classxf-1-1security-1-1aes-dec-1a85c333c06982631996e3b9985c0bff57"></span><span id="id3"></span><h2>updateKey<a class="headerlink" href="#cid-xf-security-aesdec-updatekey" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">updateKey</span> <span class="p">(</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">W</span><span class="o">&gt;</span> <span class="n">cipherkey</span><span class="p">)</span>
+</pre>
+<p>Update key before using it to decrypt.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>cipherkey</td>
+<td>Key to be used in decryption.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cid-xf-security-aesdec-process">
+<span id="doxid-classxf-1-1security-1-1aes-dec-1af4de6eed2b69f73818a0df04180b354a"></span><span id="id4"></span><h2>process<a class="headerlink" href="#cid-xf-security-aesdec-process" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">process</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;</span> <span class="n">ciphertext</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">W</span><span class="o">&gt;</span> <span class="n">cipherkey</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&amp;</span> <span class="n">plaintext</span>
+    <span class="p">)</span>
+</pre>
+<p>encrypt message</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>plaintext</td>
+<td>Message to be encrypted.</td>
+</tr>
+<tr class="row-even"><td>cipherkey</td>
+<td>Key to be used in encryption.</td>
+</tr>
+<tr class="row-odd"><td>ciphertext</td>
+<td>result of encryption.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="template-class-xf-security-rsa">
+<span id="cid-xf-security-rsa"></span><span id="doxid-classxf-1-1security-1-1rsa"></span><span id="index-2"></span><h3>template class xf::security::rsa<a class="headerlink" href="#template-class-xf-security-rsa" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;asymmetric.hpp&quot;</span>
+</pre>
+<div class="section" id="id5">
+<h4>Overview<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>RSA encryption/decryption class.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>BlockWidth</td>
+<td>Basic multiplication width, should be picked according to cards.</td>
+</tr>
+<tr class="row-even"><td>BlockNum</td>
+<td>Number of Blocks. keyLength = BlockNum * BlockWidth.</td>
+</tr>
+</tbody>
+</table>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">BlockWidth</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">BlockNum</span>
+    <span class="o">&gt;</span>
+<span class="k">class</span> <span class="n">rsa</span>
+</pre>
+</div>
+<div class="section" id="id6">
+<h4>Methods<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="section" id="cid-xf-security-rsa-updatekey">
+<span id="doxid-classxf-1-1security-1-1rsa-1a7107a789ef82d05a03dacff227a13d17"></span><span id="id7"></span><h2>updateKey<a class="headerlink" href="#cid-xf-security-rsa-updatekey" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">updateKey</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">keyLength</span><span class="o">&gt;</span> <span class="n">modulus</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">keyLength</span><span class="o">&gt;</span> <span class="n">exponent</span>
+    <span class="p">)</span>
+</pre>
+<p>Update key before use it to encrypt message.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>modulus</td>
+<td>Modulus in RSA public key.</td>
+</tr>
+<tr class="row-even"><td>exponent</td>
+<td>Exponent in RSA public key or private key.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cid-xf-security-rsa-process">
+<span id="doxid-classxf-1-1security-1-1rsa-1aa06349cdbb66f951026511556f0ad07c"></span><span id="id8"></span><h2>process<a class="headerlink" href="#cid-xf-security-rsa-process" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">process</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">keyLength</span><span class="o">&gt;</span> <span class="n">message</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">keyLength</span><span class="o">&gt;&amp;</span> <span class="n">result</span>
+    <span class="p">)</span>
+</pre>
+<p>Encrypt message and get result.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>message</td>
+<td>Message to be encrypted/decrypted</td>
+</tr>
+<tr class="row-even"><td>result</td>
+<td>Generated encrypted/decrypted result</td>
 </tr>
 </tbody>
 </table>

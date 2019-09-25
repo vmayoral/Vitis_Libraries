@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="OFB Mode" href="ofb.html" />
+    <link rel="next" title="GMAC" href="gmac.html" />
     <link rel="prev" title="ECB Mode" href="ecb.html" /> 
 </head>
 
@@ -99,25 +99,31 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../hw_guide.html">L1 Module User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../hw_api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code></a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../internals.html">Design Internals</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="md4_5.html">The MD4/MD5 Message-Digest Algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sha1.html">SHA-1 Algorithm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sha2.html">SHA-2 Algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sha3.html">SHA-3 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aes.html">AES Encryption Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="blake2b.html">BLAKE2 Algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="aes.html">AES-256 Encryption Algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="iaes.html">AES-256 Decryption Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cbc.html">CBC Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ccm.html">CCM Mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cfb.html">CFB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chacha20.html">Chacha20 Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ctr.html">CTR Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="des.html">DES and 3DES Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ecb.html">ECB Mode</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">GCM Mode</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#implementation-on-fpga">Implementation on FPGA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#encryption-performance-device-vu9p">Encryption Performance(Device: VU9P)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#decryption-performance-device-vu9p">Decryption Performance(Device: VU9P)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiling">Profiling</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="gmac.html">GMAC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hmac.html">HMAC Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iaes.html">AES Decryption Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="md4_5.html">The MD4/MD5 Message-Digest Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ofb.html">OFB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poly1305.html">Poly1305 Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rc4.html">RC4 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha1.html">SHA-1 Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha2.html">SHA-2 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha3.html">SHA-3 Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="xts.html">XTS mode</a></li>
 </ul>
 </li>
@@ -126,7 +132,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../benchmark/result.html">Benchmark of AES256 Encryption/Decryption in CBC Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/result.html">Benchmark Result</a></li>
 </ul>
 
             
@@ -201,48 +207,106 @@
 </div>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>The Galois/Counter (GCM) mode is a typical encryption and decryption mode using AES algorithm.
-In this version, we provide AES-256 processing ability, which means the cipherkey in this design should be 256 bits.
-Our working mode works on units of a fixed size (128 bits for 1 block), but text in the real world has a variety of lengths.
-Therefore, the final block of the text must be padded to 128 bits before encryption or decryption.
-Another limitation is that we utilize the simplest way as the IEEE standard mentioned to generate initial counter block (ICB), so the length of the initialization vector (IV) should be 96 bits.
-For calculating the tag, the additional authenticated data (AAD) is restricted to 128 bits in this design.
-If you don’t have an AAD (as in much applications), you should set the AAD to zero.</p>
+<p>The Galois/Counter Mode (GCM) is a typical block cipher modes of operation using block cipher algorithm.
+In this version, we provide Advanced Encryption Standard (AES) processing ability,
+the cipherkey length for AES should be 128/192/256 bits.
+Our implementation takes a fix-sized (128 bits per block) payload and additional authenticated data (AAD) streams,
+but text in real world has a variety of lengths.
+Thus, you need to provide the length in bits acoompany with the data or the AAD.
+Meanwhile, the ciphers which is output from the primitive also comply to this pattern.</p>
 </div>
 <div class="section" id="implementation-on-fpga">
 <h2>Implementation on FPGA<a class="headerlink" href="#implementation-on-fpga" title="Permalink to this headline">¶</a></h2>
-<p>We support GCM mode including both encryption and decryption parts in this implementation.
-Notice that the plaintext, ciphertext, and AAD should be 128 bits. The IV should be 96 bits.
-To give a similar interface as the encryption part, we provide the tag value instead of a FAIL flag in the decryption part.
-Thus, you need to compare it with the tag which is generated by the GCM encryption part to judge whether the data is authentic or not.
-The algorithm flow chart of encryption part of GCM mode is shown as follow:</p>
+<p>We support GCM mode including both encryption and decryption parts in this implementation.</p>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p>The bit-width of the interfaces we provide is shown as follows:
+============ =========== ============ ========== =========== ==== =========== ======== ======== =====</p>
+<blockquote>
+<div>payload      lenPld       AAD        lenAAD    IV   cipherkey   cipher   lenCph   tag</div></blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="12%" />
+<col width="13%" />
+<col width="11%" />
+<col width="12%" />
+<col width="4%" />
+<col width="12%" />
+<col width="9%" />
+<col width="9%" />
+<col width="5%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">GCM-AES128</th>
+<th class="head">128</th>
+<th class="head">64</th>
+<th class="head">128</th>
+<th class="head">64</th>
+<th class="head">96</th>
+<th class="head">128</th>
+<th class="head">128</th>
+<th class="head">64</th>
+<th class="head">128</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>GCM-AES192</td>
+<td>128</td>
+<td>64</td>
+<td>128</td>
+<td>64</td>
+<td>96</td>
+<td>192</td>
+<td>128</td>
+<td>64</td>
+<td>128</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="last">
+<div>GCM-AES256      128          64         128          64      96      256       128       64     128</div></blockquote>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Applicable conditions:
+1. The bit-width of initialization vector must be precisely 96 as recommended in the standard
+to promote interoperablility, efficiency, and simplicity of the design.
+2. We provide the MAC value instead of a FAIL flag in decryption part, therefore, you should compare the MAC
+which is given by the encryption part to judge the authenticity of the data.
+If the data is authentic, then the MACs should be equal.</p>
+</div>
+<p>The algorithm flow chart of encryption part of GCM mode is shown as follow:</p>
 <a class="reference internal image-reference" href="../../_images/GCM_encryption.png"><img alt="algorithm flow chart of GCM_encryption" class="align-center" src="../../_images/GCM_encryption.png" style="width: 100%;" /></a>
 <p>As we can see from the chart, the GCM encryption part can be divided into two individual parts: The Counter Mode (CTR) and The Galois Message Authentication Code (GMAC).
-CTR is used to encrypt the plaintext to ciphertext, and GMAC is used to generate the data tag.
+GCM is used to encrypt the plaintext to ciphertext, and GMAC is used to generate the MAC.
 The algorithm flow chart of decryption part of GCM mode is shown as follow:</p>
 <a class="reference internal image-reference" href="../../_images/GCM_decryption.png"><img alt="algorithm flow chart of GCM_decryption" class="align-center" src="../../_images/GCM_decryption.png" style="width: 100%;" /></a>
 <p>The decryption part is very similar with the encryption part of GCM mode.
-The only difference is that we decrypt the ciphertext to plaintext in the decryption part.
-In decryption part of GCM mode, we don’t provide a FAIL flag to indicate whether the data is authentic or not.
-You should compare the tag which the decryption part gives with the tag from GCM encryption part to judge the authenticity of the data.
-If the data is authentic, then the tags should be equal.</p>
-<p>In our implementation, the encryption part of GCM mode has three modules, which are ciphertext_gen, dup_strm, and tag_gen.
-As the three modules can work independently, they are designed into parallel dataflow processes, and connected by streams (FIFO’s).
-Thus, the AES_GCM_encryption which is the wrapper of the three modules, can achieve an initiation interval (II) = 1.
-The decryption part can be deduced in the same way, so its II = 1.</p>
+The only difference is that we decrypt the ciphertext to plaintext in the decryption part.</p>
+<p>The internal structure of both encryption and decryption parts of GCM are shown as the figures below:</p>
+<a class="reference internal image-reference" href="../../_images/internal_structure_of_gcm_enc.png"><img alt="internal structure of GCM" class="align-center" src="../../_images/internal_structure_of_gcm_enc.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../_images/internal_structure_of_gcm_dec.png"><img alt="internal structure of GCM" class="align-center" src="../../_images/internal_structure_of_gcm_dec.png" style="width: 100%;" /></a>
+<p>In our implementation, the encryption part of GCM mode has two modules, which are aesGctrEncrypt and genGMAC.
+Please be noticed that we use the first two iterations in aesGctrEncrypt to calculate the hash subkey (H) and E(K,Y0),
+and pass them onto the genGMAC module through streams in dataflow region instead of implementing the AES block cipher in genGMAC to save the resource utilizations.
+As the two modules can work independently, they are designed into parallel dataflow processes, and connected by streams (FIFO’s).
+The decryption part can be deduced in the same way, the only difference is that the ciphertext and its length streams feed to genGMAC are directly taken from the input ports.</p>
 </div>
-<div class="section" id="encryption-performance-device-vu9p">
-<h2>Encryption Performance(Device: VU9P)<a class="headerlink" href="#encryption-performance-device-vu9p" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="profiling">
+<h2>Profiling<a class="headerlink" href="#profiling" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="gcm-aes128-encryption">
+<h3>GCM-AES128 encryption<a class="headerlink" href="#gcm-aes128-encryption" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
-<col width="12%" />
-<col width="14%" />
-<col width="14%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
 <col width="10%" />
 <col width="12%" />
-<col width="10%" />
 <col width="12%" />
-<col width="16%" />
+<col width="12%" />
+<col width="15%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">CLB</th>
@@ -256,30 +320,30 @@ The decryption part can be deduced in the same way, so its II = 1.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>4296</td>
-<td>18325</td>
-<td>12405</td>
+<tr class="row-even"><td>3836</td>
+<td>17765</td>
+<td>16537</td>
 <td>0</td>
-<td>276</td>
-<td>833</td>
+<td>2</td>
+<td>516</td>
 <td>0</td>
-<td>3.267</td>
+<td>3.165</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="decryption-performance-device-vu9p">
-<h2>Decryption Performance(Device: VU9P)<a class="headerlink" href="#decryption-performance-device-vu9p" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="gcm-aes128-decryption">
+<h3>GCM-AES128 decryption<a class="headerlink" href="#gcm-aes128-decryption" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
-<col width="12%" />
-<col width="14%" />
-<col width="14%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
 <col width="10%" />
 <col width="12%" />
-<col width="10%" />
 <col width="12%" />
-<col width="16%" />
+<col width="12%" />
+<col width="15%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">CLB</th>
@@ -293,17 +357,166 @@ The decryption part can be deduced in the same way, so its II = 1.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>4361</td>
-<td>18336</td>
-<td>12403</td>
+<tr class="row-even"><td>3711</td>
+<td>17899</td>
+<td>16536</td>
 <td>0</td>
-<td>276</td>
-<td>833</td>
+<td>2</td>
+<td>516</td>
 <td>0</td>
-<td>3.281</td>
+<td>2.885</td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="gcm-aes192-encryption">
+<h3>GCM-AES192 encryption<a class="headerlink" href="#gcm-aes192-encryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>4324</td>
+<td>21732</td>
+<td>18221</td>
+<td>0</td>
+<td>6</td>
+<td>644</td>
+<td>0</td>
+<td>2.854</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gcm-aes192-decryption">
+<h3>GCM-AES192 decryption<a class="headerlink" href="#gcm-aes192-decryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>4504</td>
+<td>21814</td>
+<td>18219</td>
+<td>0</td>
+<td>6</td>
+<td>644</td>
+<td>0</td>
+<td>2.899</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gcm-aes256-encryption">
+<h3>GCM-AES256 encryption<a class="headerlink" href="#gcm-aes256-encryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>4777</td>
+<td>23389</td>
+<td>19213</td>
+<td>0</td>
+<td>2</td>
+<td>772</td>
+<td>0</td>
+<td>2.955</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gcm-aes256-decryption">
+<h3>GCM-AES256 decryption<a class="headerlink" href="#gcm-aes256-decryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>5130</td>
+<td>25891</td>
+<td>19212</td>
+<td>0</td>
+<td>2</td>
+<td>772</td>
+<td>0</td>
+<td>3.077</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
@@ -315,7 +528,7 @@ The decryption part can be deduced in the same way, so its II = 1.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ofb.html" class="btn btn-neutral float-right" title="OFB Mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="gmac.html" class="btn btn-neutral float-right" title="GMAC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="ecb.html" class="btn btn-neutral float-left" title="ECB Mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

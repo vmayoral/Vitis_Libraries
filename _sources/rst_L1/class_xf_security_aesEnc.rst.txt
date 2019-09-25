@@ -1,9 +1,9 @@
-.. index:: pair: class; xf::security::aesEnc <256>
-.. _doxid-classxf_1_1security_1_1aes_enc_3_01256_01_4:
+.. index:: pair: class; xf::security::aesEnc
+.. _doxid-classxf_1_1security_1_1aes_enc:
 .. _cid-xf::security::aesenc:
 
-template class xf::security::aesEnc <256>
-=========================================
+template class xf::security::aesEnc
+===================================
 
 .. toctree::
 	:hidden:
@@ -14,23 +14,98 @@ template class xf::security::aesEnc <256>
 	#include "aes.hpp"
 
 
+Overview
+~~~~~~~~
+
+AES encryption.
 
 
-.. _doxid-classxf_1_1security_1_1aes_enc_3_01256_01_4_1afd68821f8d52099e15edfc26cad55f95:
-.. _cid-xf::security::aesenc::key_list:
-.. _doxid-classxf_1_1security_1_1aes_enc_3_01256_01_4_1a91ab6e35651ee8ee78ed5ea7d107c248:
-.. _cid-xf::security::aesenc::aesenc:
-.. _doxid-classxf_1_1security_1_1aes_enc_3_01256_01_4_1a2913d67be491417a2d141ec24807bd30:
-.. _cid-xf::security::aesenc::updatekey:
-.. _doxid-classxf_1_1security_1_1aes_enc_3_01256_01_4_1a26470a2271ccb3f4f6856ad36393ea22:
-.. _cid-xf::security::aesenc::process:
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - W
+
+        - Bit width of AES key, which is 128, 192 or 256
+
 .. ref-code-block:: cpp
 	:class: overview-code-block
 
-	template <>
-	class aesEnc <256>
+	template <int W>
+	class aesEnc
 
-	// fields
 
-	ap_uint <128> key_list[15]
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1security_1_1aes_enc_1a5811f888fdde7c553a28c9649cca6c1d:
+.. _cid-xf::security::aesenc::updatekey:
+
+updateKey
+---------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void updateKey (ap_uint <W> cipherkey)
+
+Update key before using it to encrypt.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - cipherkey
+
+        - Key to be used in encryption.
+
+.. _doxid-classxf_1_1security_1_1aes_enc_1a31210d0b8958c201d0c0a3f85851d432:
+.. _cid-xf::security::aesenc::process:
+
+process
+-------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void process (
+	    ap_uint <128> plaintext,
+	    ap_uint <W> cipherkey,
+	    ap_uint <128>& ciphertext
+	    )
+
+encrypt message
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - plaintext
+
+        - Message to be encrypted.
+
+    *
+        - cipherkey
+
+        - Key to be used in encryption.
+
+    *
+        - ciphertext
+
+        - result of encryption.
 
