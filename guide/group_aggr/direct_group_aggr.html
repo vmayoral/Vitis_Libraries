@@ -6,14 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Internals of Direct-Group-Aggregate &mdash; XF Database Library 2.0 beta documentation</title>
+  <title>Internals of Direct-Group-Aggregate &mdash; Vitis Database Library v2019.2 documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
-  
-    <link rel="shortcut icon" href="../../_static/xf-favicon.ico"/>
   
   
   
@@ -34,15 +58,61 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Internals of Hash Group Aggregate (Generic Version)" href="hash_group_aggr.html" />
-    <link rel="prev" title="Internals of Group Aggregate (Using Sorted Rows)" href="group_aggr.html" /> 
+    <link rel="next" title="Internals of Hash-Group-Aggregate (Generic Version)" href="hash_group_aggr.html" />
+    <link rel="prev" title="Internals of Group-Aggregate (Using Sorted Rows)" href="group_aggr.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -52,12 +122,9 @@
           
 
           
-            <a href="../../index.html">
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Database Library
           
 
-          
-            
-            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -65,7 +132,7 @@
             
             
               <div class="version">
-                2.0
+                2019.2
               </div>
             
           
@@ -82,6 +149,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -103,23 +171,29 @@
 <li class="toctree-l2"><a class="reference internal" href="../hw_sql_guide.html">Primitive Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hw_api.html">Primitive APIs in <code class="docutils literal notranslate"><span class="pre">xf::database</span></code></a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../internals.html">Primitive Design Internals</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../filter/dynamic_filter.html">Internals of Dynamic Filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../eval/dynamic_eval.html">Internals of Dynamic Evaluation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="group_aggr.html">Internals of Group Aggregate (Using Sorted Rows)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filter/dynamic_filter.html">Internals of Dynamic-Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../eval/dynamic_eval.html">Internals of Dynamic-Evaluation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash/hash.html">Internals of Lookup3 and Murmur3 Hash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bloom_filter/bloom_filter.html">Internals of Bloom-Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="group_aggr.html">Internals of Group-Aggregate (Using Sorted Rows)</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Internals of Direct-Group-Aggregate</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="hash_group_aggr.html">Internals of Hash Group Aggregate (Generic Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hash_group_aggr.html">Internals of Hash-Group-Aggregate (Generic Version)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_join_mpu.html">Internals of Hash-Join (Multi-Process-Unit Version)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_semi_join.html">Implementation of Hash-Semi-Join (Multi-Process-Unit Version)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_join_v3.html">Internals of Hash-Join-v3 and Hash-Build-Probe-v3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_join_v4.html">Internals of Hash-Join-v4 and Hash-Build-Probe-v4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_semi_join.html">Internals of Hash-Semi-Join (Multi-Process-Unit Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_anti_join.html">Internals of Hash-Anti-Join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_multi_join.html">Internals of Hash-Multi-Join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../partition/partition.html">Internals of Hash-Partition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../non_hash_join/merge_join.html">Internals of Merge-Join and Merge-Left-Join</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../non_hash_join/nested_loop_join.html">Internals of Nested-Loop-Join</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../combine_split/combine_split_unit.html">Internals of Combine-Split-Unit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sort/bitonic_sort.html">Internals of Bitonic Sort</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sort/insert_sort.html">Internals of Insert Sort</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sort/merge_sort.html">Internals of Merge Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scan/scan_col.html">Internals of Scan</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../query_demo.html">Query-Specific Acceleration Demo</a></li>
@@ -136,6 +210,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -145,7 +220,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF Database Library</a>
+          <a href="../../index.html">Vitis Database Library</a>
         
       </nav>
 
@@ -174,7 +249,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../L1.html">L1 Module User Guide</a> &raquo;</li>
         
@@ -203,30 +278,39 @@
 </div>
 <p>This document describes the structure and execution of Direct-Aggregate,
 implemented as <a class="reference internal" href="../hw_api.html#cid-xf-database-directgroupaggregate"><span class="std std-ref">directGroupAggregate</span></a> function.</p>
-<a class="reference internal image-reference" href="../../_images/direct_aggr.png"><img alt="Direct Aggregate Structure" class="align-center" src="../../_images/direct_aggr.png" style="width: 80%;" /></a>
-<p>The Direct-Aggregate primitive is a PU which designed to utilize the advantage of high memory bandwidth in Xilinx FPGA.
-Current design uses 1 input channel though which a pair of key and payload can be passed in each cycle.
+<img alt="Direct Aggregate Structure" class="align-center" src="../../_images/direct_aggr.png" />
+<p>The Direct-Aggregate primitive is a single processing unit which can calculate group aggregate efficiently.
+Current design uses 1 input channel through which a pair of key and payload can be passed in each cycle.
 When there is more than 1 input channel, user could duplicate the PU calculate the final result
 on the host side to reach the goals.</p>
-<p>There are applicable conditions:</p>
-<ol class="arabic simple">
-<li>The data width of combined key and payload is configurable, while distinct and on-chip storage scale linear relationship.
-So recommended use case is that the width of the key is not large and key values are closely continuous.
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p>Applicable conditions:</p>
+<p>1. The data width of combined key and payload is configurable, while distinct and on-chip storage scale linear relationship.
+So the recommending use case is that the width of the key is not large and key values are closely continuous.
 DIRECTW is the low significant bit of the key and is used as the addressing space for the aggregate.
 For example when the width of Combined key is 200 bits, but only the low 12 bits is significant,
-the deepth of on-chip storage resource will be 4K.This design introduces some flexibility over addressing directly with a 200-bit key value.
-Combined key means the combining key of the keys to be gourped-by.</li>
-<li>There are 8 functions for calculating the payload. They are MAX, MIN ,SUM, COUNTONE, AVG, VARIANCE, NORML1, NORML2
-Each one is represented by input parameter xf::database::AOP_MAX, xf::database::AOP_MIN, xf::database::AOP_SUM, xf::database::AOP_COUNTONE,
-xf::database::AOP_MEAN, xf::database::AOP_VARIANCE, xf::database::AOP_NORML1, xf::database::AOP_NORML2.
-These functions only support for integer types as ap_int&lt;n&gt;, int and so on.</li>
-</ol>
-<p>This PU performs Direct-Aggregate in one modules working. For example, a &lt;DATINW, DATOUTW, KINW, DIRECTW&gt;=&lt;32,32,12,12&gt; design</p>
+the depth of on-chip storage resource will be 4K.This design introduces some flexibility over addressing directly with a 200-bit key value.</p>
+<p>2. There are 8 functions for calculating the payload. They are MAX, MIN ,SUM, COUNTONE, AVG, VARIANCE, NORML1, NORML2
+Each one is represented by input parameter:</p>
+<ul class="simple">
+<li>xf::database::AOP_MAX</li>
+<li>xf::database::AOP_MIN</li>
+<li>xf::database::AOP_SUM</li>
+<li>xf::database::AOP_COUNTONE</li>
+<li>xf::database::AOP_MEAN</li>
+<li>xf::database::AOP_VARIANCE</li>
+<li>xf::database::AOP_NORML1</li>
+<li>xf::database::AOP_NORML2</li>
+</ul>
+<p class="last">3. The primitive provide two APIs: one API provides a template defined aggregate function which means the calculation function cannot change in runtime;
+Another API provides a runtime programmable solution and it can easily change aggregate functions by changing its OP when calling API.</p>
+</div>
 <div class="admonition caution">
 <p class="first admonition-title">Caution</p>
-<p class="last">These Applicable conditions.</p>
+<p class="last">The width of significant bits in group key is limited and pre-difined. It will consume more FPGA internal memory such as BRAM and URAM if large significant bit is set.</p>
 </div>
-<p>This <code class="docutils literal notranslate"><span class="pre">directAggregate</span></code> primitve has only one port for key input and one port for payload input.
+<p>This <code class="docutils literal notranslate"><span class="pre">directAggregate</span></code> primitive has only one port for key input and one port for payload input.
 If your tables are joined by multiple key columns or has multiple columns as payload,
 please use <a class="reference internal" href="../hw_api.html#cid-xf-database-combinecol"><span class="std std-ref">combineUnit</span></a> to merge the column streams, and
 use <a class="reference internal" href="../hw_api.html#cid-xf-database-splitcol"><span class="std std-ref">splitUnit</span></a> to split the output to columns.</p>
@@ -240,24 +324,28 @@ use <a class="reference internal" href="../hw_api.html#cid-xf-database-splitcol"
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="hash_group_aggr.html" class="btn btn-neutral float-right" title="Internals of Hash Group Aggregate (Generic Version)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="hash_group_aggr.html" class="btn btn-neutral float-right" title="Internals of Hash-Group-Aggregate (Generic Version)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="group_aggr.html" class="btn btn-neutral float-left" title="Internals of Group Aggregate (Using Sorted Rows)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="group_aggr.html" class="btn btn-neutral float-left" title="Internals of Group-Aggregate (Using Sorted Rows)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -267,7 +355,6 @@ use <a class="reference internal" href="../hw_api.html#cid-xf-database-splitcol"
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

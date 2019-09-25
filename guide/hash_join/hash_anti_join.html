@@ -17,7 +17,7 @@
     <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
     <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Internals of Hash-Join-v4 and Hash-Build-Probe-v4 &mdash; Vitis Database Library v2019.2 documentation</title>
+  <title>Internals of Hash-Anti-Join &mdash; Vitis Database Library v2019.2 documentation</title>
   
 <!-- Header information provided by Emily-->
     <meta name="apple-itunes-app" content="app-id=1063287962">
@@ -60,8 +60,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Internals of Hash-Semi-Join (Multi-Process-Unit Version)" href="hash_semi_join.html" />
-    <link rel="prev" title="Internals of Hash-Join-v3 and Hash-Build-Probe-v3" href="hash_join_v3.html" /> 
+    <link rel="next" title="Internals of Hash-Multi-Join" href="hash_multi_join.html" />
+    <link rel="prev" title="Internals of Hash-Semi-Join (Multi-Process-Unit Version)" href="hash_semi_join.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -180,11 +180,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../group_aggr/hash_group_aggr.html">Internals of Hash-Group-Aggregate (Generic Version)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hash_join_mpu.html">Internals of Hash-Join (Multi-Process-Unit Version)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hash_join_v3.html">Internals of Hash-Join-v3 and Hash-Build-Probe-v3</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Internals of Hash-Join-v4 and Hash-Build-Probe-v4</a><ul class="simple">
+<li class="toctree-l3"><a class="reference internal" href="hash_join_v4.html">Internals of Hash-Join-v4 and Hash-Build-Probe-v4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hash_semi_join.html">Internals of Hash-Semi-Join (Multi-Process-Unit Version)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Internals of Hash-Anti-Join</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="hash_semi_join.html">Internals of Hash-Semi-Join (Multi-Process-Unit Version)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hash_anti_join.html">Internals of Hash-Anti-Join</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hash_multi_join.html">Internals of Hash-Multi-Join</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../partition/partition.html">Internals of Hash-Partition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../non_hash_join/merge_join.html">Internals of Merge-Join and Merge-Left-Join</a></li>
@@ -255,7 +255,7 @@
         
           <li><a href="../internals.html">Primitive Design Internals</a> &raquo;</li>
         
-      <li>Internals of Hash-Join-v4 and Hash-Build-Probe-v4</li>
+      <li>Internals of Hash-Anti-Join</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -272,45 +272,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="internals-of-hash-join-v4-and-hash-build-probe-v4">
-<span id="guide-hash-join-v4"></span><h1>Internals of Hash-Join-v4 and Hash-Build-Probe-v4<a class="headerlink" href="#internals-of-hash-join-v4-and-hash-build-probe-v4" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="internals-of-hash-anti-join">
+<span id="guide-hash-anti-join"></span><h1>Internals of Hash-Anti-Join<a class="headerlink" href="#internals-of-hash-anti-join" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<p>This document describes the structure and execution of Hash-Join-V4 and Hash-Build-Probe-V4,
-implemented as <a class="reference internal" href="../hw_api.html#cid-xf-database-hashjoinv4"><span class="std std-ref">hashJoinV4</span></a> and <a class="reference internal" href="../hw_api.html#cid-xf-database-hashbuildprobev4"><span class="std std-ref">hashBuildProbeV4</span></a> function.</p>
-<img alt="Hash Join MPU Structure" class="align-center" src="../../_images/hashJoinV4Structure.png" />
-<p>The Hash-Join-v4 and Hash-Build-Probe-v4 are general primitives to accelerate Hash-Join algorithm utilizing the advantage of high memory bandwidth in Xilinx FPGA.
-Compared with <a class="reference internal" href="../hw_api.html#cid-xf-database-hashjoinv3"><span class="std std-ref">hashJoinV3</span></a> and <a class="reference internal" href="../hw_api.html#cid-xf-database-hashbuildprobev3"><span class="std std-ref">hashBuildProbeV3</span></a>,
-v4 primitive provides Bloom-Filter to avoid redundant access to HBMs which can further reduce the efficiency of Hash-Join algorithm.
-Hash-Join-v4 performs Hash-Join in single-call mode which means the small table and the big table should be scanned one after another.
-Hash-Build-Probe-v4 provides a separative solution for build and probe in Hash-Join.
-In Hash-Build-Probe, incremental build is supported, and the work flow can be scheduled as build0 -&gt; build1 -&gt; probe0 -&gt; build2 -&gt; probe2…</p>
-<p>Workload is distributed based on MSBs of hash value of join key to Processing Unit (PU), so that each PU can work independently.
-Current design uses maximum number of 8 PUs, served by 4 input channels through each of which a pair of key and payload can be passed in each cycle.
-By the way, overflow processing is provided in this design.</p>
+<p>This document describes the structure and execution of Hash-Anti-Join, implemented as <a class="reference internal" href="../hw_api.html#cid-xf-database-hashantijoin"><span class="std std-ref">hashAntiJoin</span></a> function.
+Hash-Anti-Join is a special Join algorithm which returns rows from the first table which do not exist in the second table. It is based on the framework of <code class="docutils literal notranslate"><span class="pre">Hash-Join-v3</span></code> as shown in the picture below:</p>
+<img alt="Hash Join MPU Structure" class="align-center" src="../../_images/hashJoinV3Structure.png" />
 <p>The number of PU is set to 8, as each PU requires two dedicated bank to temporarily store rows in small table (one for base rows
 and another for overflow rows). Due to DDR/HBM memory access delay, 4 channels can serve enough data to these PUs.
-Each PU performs HASH-JOIN in 3 phases.</p>
-<ol class="arabic simple">
-<li>Build: with small table as input, the number of keys falls into each hash values are counted.
-The value of hash counters are stored in bit vector in URAM. Every hash value has a fixed depth of storage in HBM to store rows of small table.
-If the counter of hash value is larger than the fixed depth, it means that overflow happens. Another bit vector is used for counting overflow rows.
-In v4 primitive, the overflow hash counter is stored in HBM to save URAM storage for bloom filter bit vector. Also, the overflow of small table will be stored in another area of the HBM.</li>
-</ol>
-<img alt="Build" class="align-center" src="../../_images/build_sc_v4.png" />
-<ol class="arabic simple" start="2">
-<li>Merge: accumulating the overflow hash counter to get the offsets of each hash value.
-Then, the overflow rows will be read in from one HBM and write out to another HBM.
-The output address of overflow rows is according to the offset of its hash value.
-By operation of Merge, we can put the overflow rows into its right position and waiting for Probe.
-In order to provide high throughput in this operation, two dedicated HBM ports is required for each PU, which provides read and write accessibilities at the same time.</li>
-</ol>
-<img alt="Merge" class="align-center" src="../../_images/merge_sc_v4.png" />
-<ol class="arabic simple" start="3">
-<li>Probe: the big table is read in and filtered by bit vector of bloom filter. It will reduce the size of big table stream.
-We can get the number of hash collision in hash counter and then the possible matched key and payload pairs can be retrieved from DDR/HBM to join with the big table’s payload after key comparison.</li>
-</ol>
-<img alt="Probe" class="align-center" src="../../_images/probe_sc_v4.png" />
+Each PU performs Hash-Join in 3 phases, and the detail is described in <a class="reference internal" href="hash_join_v3.html#guide-hash-join-v3"><span class="std std-ref">Internals of Hash-Join-v3 and Hash-Build-Probe-v3</span></a>.</p>
+<p>The difference between Hash-Join and Hash-Anti-Join is only about the Join module, so that most of functions in Hash-Anti-Join are the same as Hash-Join.
+The Join function is replaced with Anti-Join function in Hash-Anti-Join primitive.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">Make sure the size of small table is smaller than the size of HBM buffers. Small table and big table should be fed only ONCE.</p>
@@ -325,17 +298,17 @@ please use <a class="reference internal" href="../hw_api.html#cid-xf-database-co
 use <a class="reference internal" href="../hw_api.html#cid-xf-database-splitcol"><span class="std std-ref">splitCol</span></a> to split the output to columns.</p>
 <p>There is a deep relation in the template parameters of the primitive.
 In general, the maximum capacity of rows and depth of hash entry is limited by the size of HTB.
-Each PU has one HTB in this design, and the size of one HTB is equal to the size of one pseudo-channel in HBM.
+Each PU has one HTB in this design, and the size of one HTB is equal to the size of one psudo-channel in HBM.
 Here is an example of row capacity when PU=8:</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
-<col width="10%" />
-<col width="10%" />
+<col width="9%" />
+<col width="9%" />
 <col width="13%" />
 <col width="13%" />
-<col width="11%" />
-<col width="25%" />
+<col width="13%" />
+<col width="24%" />
 <col width="18%" />
 </colgroup>
 <tbody valign="top">
@@ -366,42 +339,7 @@ Here is an example of row capacity when PU=8:</p>
 </tbody>
 </table>
 </div></blockquote>
-<p>The Number of hash entry is limited by the number of URAM in a single SLR. For example, there are 320 URAMs in a SLR of U280, and 1M hash entry will take 64 URAMs.
-Because the number of hash entry must be the power of 2, we have to control the size of hash entry in bloom filter and hash counter to avoid crossing SLR logic.
-This table shows an example for URAM utilization in different size of hash entries:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="18%" />
-<col width="22%" />
-<col width="20%" />
-<col width="12%" />
-<col width="18%" />
-<col width="10%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>Bloom Filter Number</td>
-<td>Bloom Filter Hash Entry</td>
-<td>URAM for Bloom Filter</td>
-<td>Hash Entry</td>
-<td>URAM for Hash Entry</td>
-<td>Total URAM</td>
-</tr>
-<tr class="row-even"><td>1</td>
-<td>16M(16Mx1bit)</td>
-<td>1x64(3x64x64bitx4K)</td>
-<td>2M(2Mx16bit)</td>
-<td>128(64x64bitx4K)</td>
-<td>192</td>
-</tr>
-<tr class="row-odd"><td>3</td>
-<td>16M(16Mx1bit)</td>
-<td>3x64(3x64x64bitx4K)</td>
-<td>1M(1Mx16bit)</td>
-<td>64(64x64bitx4K)</td>
-<td>256</td>
-</tr>
-</tbody>
-</table>
+<p>The Number of hash entry is limited by the number of URAM in a single SLR. For example, there are 320 URAMs in a SLR of U280, and 1M hash entry will take 192 URAMs (96 URAMs for base hash counter + 96 URAMs for overflow hash counter). Because the number of hash entry must be the power of 2, 1M hash entry is the maximum for U280 to avoid crossing SLR logic which will lead to bad timing performance of the design.</p>
 </div>
 
 
@@ -412,10 +350,10 @@ This table shows an example for URAM utilization in different size of hash entri
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="hash_semi_join.html" class="btn btn-neutral float-right" title="Internals of Hash-Semi-Join (Multi-Process-Unit Version)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="hash_multi_join.html" class="btn btn-neutral float-right" title="Internals of Hash-Multi-Join" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="hash_join_v3.html" class="btn btn-neutral float-left" title="Internals of Hash-Join-v3 and Hash-Build-Probe-v3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="hash_semi_join.html" class="btn btn-neutral float-left" title="Internals of Hash-Semi-Join (Multi-Process-Unit Version)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

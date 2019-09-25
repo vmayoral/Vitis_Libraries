@@ -6,14 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Internals of Hash Group Aggregate (Generic Version) &mdash; XF Database Library 2.0 beta documentation</title>
+  <title>Internals of Hash-Group-Aggregate (Generic Version) &mdash; Vitis Database Library v2019.2 documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
-  
-    <link rel="shortcut icon" href="../../_static/xf-favicon.ico"/>
   
   
   
@@ -34,7 +58,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Internals of Hash-Join (Multi-Process-Unit Version)" href="../hash_join/hash_join_mpu.html" />
@@ -42,7 +65,54 @@
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -52,12 +122,9 @@
           
 
           
-            <a href="../../index.html">
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Database Library
           
 
-          
-            
-            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -65,7 +132,7 @@
             
             
               <div class="version">
-                2.0
+                2019.2
               </div>
             
           
@@ -82,6 +149,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -103,23 +171,29 @@
 <li class="toctree-l2"><a class="reference internal" href="../hw_sql_guide.html">Primitive Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hw_api.html">Primitive APIs in <code class="docutils literal notranslate"><span class="pre">xf::database</span></code></a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../internals.html">Primitive Design Internals</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../filter/dynamic_filter.html">Internals of Dynamic Filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../eval/dynamic_eval.html">Internals of Dynamic Evaluation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="group_aggr.html">Internals of Group Aggregate (Using Sorted Rows)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filter/dynamic_filter.html">Internals of Dynamic-Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../eval/dynamic_eval.html">Internals of Dynamic-Evaluation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash/hash.html">Internals of Lookup3 and Murmur3 Hash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bloom_filter/bloom_filter.html">Internals of Bloom-Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="group_aggr.html">Internals of Group-Aggregate (Using Sorted Rows)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="direct_group_aggr.html">Internals of Direct-Group-Aggregate</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Internals of Hash Group Aggregate (Generic Version)</a><ul class="simple">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Internals of Hash-Group-Aggregate (Generic Version)</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_join_mpu.html">Internals of Hash-Join (Multi-Process-Unit Version)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_semi_join.html">Implementation of Hash-Semi-Join (Multi-Process-Unit Version)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_join_v3.html">Internals of Hash-Join-v3 and Hash-Build-Probe-v3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_join_v4.html">Internals of Hash-Join-v4 and Hash-Build-Probe-v4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_semi_join.html">Internals of Hash-Semi-Join (Multi-Process-Unit Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_anti_join.html">Internals of Hash-Anti-Join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_multi_join.html">Internals of Hash-Multi-Join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../partition/partition.html">Internals of Hash-Partition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../non_hash_join/merge_join.html">Internals of Merge-Join and Merge-Left-Join</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../non_hash_join/nested_loop_join.html">Internals of Nested-Loop-Join</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../combine_split/combine_split_unit.html">Internals of Combine-Split-Unit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sort/bitonic_sort.html">Internals of Bitonic Sort</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sort/insert_sort.html">Internals of Insert Sort</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sort/merge_sort.html">Internals of Merge Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scan/scan_col.html">Internals of Scan</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../query_demo.html">Query-Specific Acceleration Demo</a></li>
@@ -136,6 +210,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -145,7 +220,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF Database Library</a>
+          <a href="../../index.html">Vitis Database Library</a>
         
       </nav>
 
@@ -174,13 +249,13 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../L1.html">L1 Module User Guide</a> &raquo;</li>
         
           <li><a href="../internals.html">Primitive Design Internals</a> &raquo;</li>
         
-      <li>Internals of Hash Group Aggregate (Generic Version)</li>
+      <li>Internals of Hash-Group-Aggregate (Generic Version)</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -198,30 +273,105 @@
            <div itemprop="articleBody">
             
   <div class="section" id="internals-of-hash-group-aggregate-generic-version">
-<span id="guide-hash-aggr-general"></span><h1>Internals of Hash Group Aggregate (Generic Version)<a class="headerlink" href="#internals-of-hash-group-aggregate-generic-version" title="Permalink to this headline">¶</a></h1>
+<span id="guide-hash-aggr-general"></span><h1>Internals of Hash-Group-Aggregate (Generic Version)<a class="headerlink" href="#internals-of-hash-group-aggregate-generic-version" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <p>This document describes the structure and execution of Hash-Aggr General Version,
 implemented as <a class="reference internal" href="../hw_api.html#cid-xf-database-hashgroupaggregate"><span class="std std-ref">hashGroupAggregate</span></a> function.</p>
-<a class="reference internal image-reference" href="../../_images/hashGroupAggregate.png"><img alt="Hash aggregate general module Structure" class="align-center" src="../../_images/hashGroupAggregate.png" style="width: 100%;" /></a>
-<p>The Hash-Group-Aggregate (Generic Version) primitive is a primitive to accerlerate Group-by algorithm. It is designed to handle aggregate with the capability of computing massive data within the storage Limit of FPGA DDR and to utilize the advantage of high memory bandwidth in Xilinx FPGA.</p>
-<p>This primitive can accept multiple input rows for key and pld per cycle because of its multiple processing-unit(PU).
-The processing of multi-channel and multi-column is provided to compat with the scan so that it could work at the speed of DDR/HBM.
-When the kernel work one flow and there are left keys which are not aggregated,
-the kernel automatically scan the HBM again for the left keys and aggregate until all keys are aggregated.
-The max distinct of key aggregated in one work flow is stable, which is 2^(_WHashHight + _WHashLow).
-The data should be aligned to the little-end.</p>
-<p>Thera are 6 runtime programmable functions for calculating the payload which are: xf::database::AOP_MIN, xf::database::AOP_Max, xf::database::AOP_SUM, xf::database::AOP_MEAN, xf::database::AOP_COUNT and xf::database::AOP_COUNTNONZERO.</p>
-<p>The detials of API description is ahown in <code class="docutils literal notranslate"><span class="pre">Primitive</span> <span class="pre">APIs</span> <span class="pre">in</span> <span class="pre">xf::database</span></code>
-A minimal setup for <code class="docutils literal notranslate"><span class="pre">hashGroupAggregate</span></code> should be:
-WKey=8, KeyNM=1, WPay=8, PayNM=1, HashMode=1, WHashHigh=1, WHashLow=12, CHNM=1, WBuffer=32, BurstLenW=32, BurstLenR=32</p>
-<p>A maximum setup could be:
-WKey=64, KeyNM=8, WPay=64, PayNM=8, HashMode=1, WHashHigh=2, WHashLow=16, CHNM=4, WBuffer=512, BurstLenW=32, BurstLenR=32,</p>
-<p>A recommended setup (tested in GQE kernel) should be:
-WKey=32, KeyNM=8, WPay=32, PayNM=8, HashMode=1, WHashHigh=2, WHashLow=17, CHNM=4, WBuffer=512, BurstLenW=32, BurstLenR=32
-For typical setup, the utilization in Vivado report is: URAM:256, BRAM:46, LUT:140,000, Register:190,000, Freq:230MHz, Board:U280</p>
-<p>In the recommended setup, the primitive can process maximum of 4(channel) x 8(column) group key and 4(channel) x 8(column) payload per cycle, and the width of key and payload is 32. It has 4 PU and  takes 8 AXI ports as ping-pong buffer for processing hash overflow. It can perform &lt;sum/average/min/max/count/count_non_zero&gt; which controlled by running parameter. For sum and average, the output have 64-bit (split into 32 high bit and 32 low bit) to avoid overflow in computing.</p>
-<p>This <code class="docutils literal notranslate"><span class="pre">hashGroupAggregate</span></code> primitve have multiple columns of input and output port for key and payload.</p>
+<img alt="Hash aggregate general module Structure" class="align-center" src="../../_images/hashGroupAggregate.png" />
+<p>The Hash-Group-Aggregate (Generic Version) primitive is a primitive to accelerate Group-by algorithm.
+It is designed to handle group aggregate with the capability of computing massive data within the utilization of high memory bandwidth.</p>
+<p>This primitive can accept multiple input rows for key and payload on each cycle because of its multiple Processing Units (PUs).
+The processing of multi-channel and multi-column is provided to work with scan module so that it could match the speed of DDR/HBM.
+The input key and payload will be updated and stored in URAM. If hash overflow occurs, overflow key and payload will be sent to HBM which are exclusive for each PU.
+When the kernel has finished one flow and there are still left keys which are not aggregated, the kernel will automatically scan the HBM again for the left keys and aggregate until all keys are aggregated.
+A single PU will connect two HBM ports for a ping-pong process during different work round.
+The max distinct of key aggregated in one work flow is stable, which is 2^(_WHashHight + _WHashLow). The maximum hash overflow should not exceed the storage size of the HBM.
+The data should be aligned to little-end.</p>
+<p>There are 6 runtime programmable functions for calculating the payload, which are:</p>
+<ul class="simple">
+<li>xf::database::AOP_MIN</li>
+<li>xf::database::AOP_MAX</li>
+<li>xf::database::AOP_SUM</li>
+<li>xf::database::AOP_MEAN</li>
+<li>xf::database::AOP_COUNT</li>
+<li>xf::database::AOP_COUNTNONZERO</li>
+</ul>
+<p>The details of API description is shown in <a class="reference internal" href="../hw_api.html#cid-xf-database-hashgroupaggregate"><span class="std std-ref">hashGroupAggregate</span></a>. A minimal setup for <code class="docutils literal notranslate"><span class="pre">hashGroupAggregate</span></code> should be:</p>
+<ul class="simple">
+<li>WKey=8</li>
+<li>KeyNM=1</li>
+<li>WPay=8</li>
+<li>PayNM=1</li>
+<li>HashMode=1</li>
+<li>WHashHigh=1</li>
+<li>WHashLow=12</li>
+<li>CHNM=1</li>
+<li>WBuffer=32</li>
+<li>BurstLenW=32</li>
+<li>BurstLenR=32</li>
+</ul>
+<p>A maximal setup could be:</p>
+<ul class="simple">
+<li>WKey=64</li>
+<li>KeyNM=8</li>
+<li>WPay=64</li>
+<li>PayNM=8</li>
+<li>HashMode=1</li>
+<li>WHashHigh=2</li>
+<li>WHashLow=16</li>
+<li>CHNM=4</li>
+<li>WBuffer=512</li>
+<li>BurstLenW=32</li>
+<li>BurstLenR=32</li>
+</ul>
+<p>A recommended setup (tested in GQE kernel) should be:</p>
+<ul class="simple">
+<li>WKey=32</li>
+<li>KeyNM=8</li>
+<li>WPay=32</li>
+<li>PayNM=8</li>
+<li>HashMode=1</li>
+<li>WHashHigh=2</li>
+<li>WHashLow=17</li>
+<li>CHNM=4</li>
+<li>WBuffer=512</li>
+<li>BurstLenW=32</li>
+<li>BurstLenR=32</li>
+</ul>
+<p>For typical setup, the utilization in Vivado report on U280 card is:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="12%" />
+<col width="16%" />
+<col width="20%" />
+<col width="16%" />
+<col width="22%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>URAM</td>
+<td>BRAM</td>
+<td>LUT</td>
+<td>Register</td>
+<td>Freq</td>
+<td>HBM ports</td>
+</tr>
+<tr class="row-even"><td>256</td>
+<td>46</td>
+<td>140000</td>
+<td>190000</td>
+<td>230M</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>In the recommended setup, the primitive can process maximum of 4(channel) x 8(column) group key and 4(channel) x 8(column) payload per cycle, and the width of key and payload is 32.
+It has 4 PU and takes 8 AXI ports as ping-pong buffer for processing hash overflow. It can perform &lt;sum/average/min/max/count/count_non_zero&gt; which controlled by runtime parameter.
+For sum and average, the output have 64-bit (split into 32 high bit and 32 low bit) to avoid overflow in computing.</p>
+<p>This <code class="docutils literal notranslate"><span class="pre">hashGroupAggregate</span></code> primitive have multiple columns of input and output port for key and payload.</p>
 </div>
 
 
@@ -242,14 +392,18 @@ For typical setup, the utilization in Vivado report is: URAM:256, BRAM:46, LUT:1
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -259,7 +413,6 @@ For typical setup, the utilization in Vivado report is: URAM:256, BRAM:46, LUT:1
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
