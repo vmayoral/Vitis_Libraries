@@ -1,0 +1,19 @@
+<AutoPilot:solution xmlns:AutoPilot="com.autoesl.autopilot.solution">
+    <name>
+        <value string="solution1"/>
+    </name>
+    <project>
+        <value string="hmac_sha1_test.prj"/>
+    </project>
+    <targetInfo>
+        <TargetInfo value="xcu250:-figd2104:-2L-e"/>
+    </targetInfo>
+    <libraryList>
+        <library value="xilinx/virtexuplus/virtexuplus" name="DefaultPlatform"/>
+        <library value="xilinx/virtexuplus/virtexuplus_fpv7" name="DefaultPlatform"/>
+    </libraryList>
+    <clockList>
+        <clock default="false" name="default" uncertainty="1.05" period="3.33"/>
+    </clockList>
+</AutoPilot:solution>
+

@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="The MD4/MD5 Message-Digest Algorithms" href="internals/md4_5.html" />
+    <link rel="next" title="AES Encryption Algorithms" href="internals/aes.html" />
     <link rel="prev" title="API Functions of xf::security" href="hw_api.html" /> 
 </head>
 
@@ -99,19 +99,26 @@
 <li class="toctree-l1 current"><a class="reference internal" href="hw_guide.html">L1 Module User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="hw_api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code></a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Design Internals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="internals/aes.html">AES Encryption Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="internals/blake2b.html">BLAKE2 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="internals/cbc.html">CBC Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="internals/ccm.html">CCM Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="internals/cfb.html">CFB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="internals/chacha20.html">Chacha20 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="internals/ctr.html">CTR Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="internals/des.html">DES and 3DES Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="internals/ecb.html">ECB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="internals/gcm.html">GCM Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="internals/gmac.html">GMAC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="internals/hmac.html">HMAC Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="internals/iaes.html">AES Decryption Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="internals/md4_5.html">The MD4/MD5 Message-Digest Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="internals/ofb.html">OFB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="internals/poly1305.html">Poly1305 Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="internals/rc4.html">RC4 Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="internals/sha1.html">SHA-1 Algorithm</a></li>
 <li class="toctree-l3"><a class="reference internal" href="internals/sha2.html">SHA-2 Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="internals/sha3.html">SHA-3 Algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="internals/blake2b.html">BLAKE2 Algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="internals/aes.html">AES-256 Encryption Algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="internals/iaes.html">AES-256 Decryption Algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="internals/cbc.html">CBC Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="internals/cfb.html">CFB Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="internals/ctr.html">CTR Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="internals/ecb.html">ECB Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="internals/gcm.html">GCM Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="internals/ofb.html">OFB Mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="internals/xts.html">XTS mode</a></li>
 </ul>
 </li>
@@ -120,7 +127,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../benchmark/result.html">Benchmark of AES256 Encryption/Decryption in CBC Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/result.html">Benchmark Result</a></li>
 </ul>
 
             
@@ -189,21 +196,29 @@
             
   <div class="section" id="design-internals">
 <h1>Design Internals<a class="headerlink" href="#design-internals" title="Permalink to this headline">¶</a></h1>
+<p>The profiling in this documentation is based on U250, and the tool version is Vitis-2019.2.</p>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="internals/aes.html">AES Encryption Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/blake2b.html">BLAKE2 Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/cbc.html">CBC Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/ccm.html">CCM Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/cfb.html">CFB Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/chacha20.html">Chacha20 Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/ctr.html">CTR Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/des.html">DES and 3DES Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/ecb.html">ECB Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/gcm.html">GCM Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/gmac.html">GMAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/hmac.html">HMAC Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/iaes.html">AES Decryption Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="internals/md4_5.html">The MD4/MD5 Message-Digest Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/ofb.html">OFB Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/poly1305.html">Poly1305 Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/rc4.html">RC4 Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="internals/sha1.html">SHA-1 Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="internals/sha2.html">SHA-2 Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="internals/sha3.html">SHA-3 Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="internals/blake2b.html">BLAKE2 Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="internals/aes.html">AES-256 Encryption Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="internals/iaes.html">AES-256 Decryption Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="internals/cbc.html">CBC Mode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="internals/cfb.html">CFB Mode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="internals/ctr.html">CTR Mode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="internals/ecb.html">ECB Mode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="internals/gcm.html">GCM Mode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="internals/ofb.html">OFB Mode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="internals/xts.html">XTS mode</a></li>
 </ul>
 </div>
@@ -217,7 +232,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="internals/md4_5.html" class="btn btn-neutral float-right" title="The MD4/MD5 Message-Digest Algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="internals/aes.html" class="btn btn-neutral float-right" title="AES Encryption Algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="hw_api.html" class="btn btn-neutral float-left" title="API Functions of xf::security" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

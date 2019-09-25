@@ -38,8 +38,8 @@
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="XTS mode" href="xts.html" />
-    <link rel="prev" title="GCM Mode" href="gcm.html" /> 
+    <link rel="next" title="Poly1305 Algorithm" href="poly1305.html" />
+    <link rel="prev" title="The MD4/MD5 Message-Digest Algorithms" href="md4_5.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -99,25 +99,31 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../hw_guide.html">L1 Module User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../hw_api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code></a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../internals.html">Design Internals</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="md4_5.html">The MD4/MD5 Message-Digest Algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sha1.html">SHA-1 Algorithm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sha2.html">SHA-2 Algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sha3.html">SHA-3 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aes.html">AES Encryption Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="blake2b.html">BLAKE2 Algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="aes.html">AES-256 Encryption Algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="iaes.html">AES-256 Decryption Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cbc.html">CBC Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ccm.html">CCM Mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cfb.html">CFB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chacha20.html">Chacha20 Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ctr.html">CTR Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="des.html">DES and 3DES Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ecb.html">ECB Mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gcm.html">GCM Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gmac.html">GMAC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hmac.html">HMAC Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iaes.html">AES Decryption Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="md4_5.html">The MD4/MD5 Message-Digest Algorithms</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">OFB Mode</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#implementation-on-fpga">Implementation on FPGA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#encryption-performance-device-vu9p">Encryption Performance(Device: VU9P)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#decryption-performance-device-vu9p">Decryption Performance(Device: VU9P)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiling">Profiling</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="poly1305.html">Poly1305 Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rc4.html">RC4 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha1.html">SHA-1 Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha2.html">SHA-2 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha3.html">SHA-3 Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="xts.html">XTS mode</a></li>
 </ul>
 </li>
@@ -126,7 +132,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../benchmark/result.html">Benchmark of AES256 Encryption/Decryption in CBC Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/result.html">Benchmark Result</a></li>
 </ul>
 
             
@@ -201,23 +207,77 @@
 </div>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>The Output Feedback (OFB) mode is a typical encryption and decryption mode using AES algorithm.
-In this version, we provide AES-256 processing ability, which means the cipherkey in this design should be 256 bits.
-Another limitation is that our working mode works on units of a fixed size (128 bits for 1 block), but text in the real world has a variety of lengths.
-So, the final block of the text must be padded to 128 bits before encryption or decryption.</p>
+<p>The Output Feedback (OFB) mode is a typical block cipher mode of operation using block cipher algorithm.
+In this version, we provide Data Encryption Standard (DES) and Advanced Encryption Standard (AES) processing ability,
+the cipherkey length for DES should be 64 bits, and 128/192/256 bits for AES.
+Another limitation is that our working mode works on units of a fixed size (64 or 128 bits for 1 block),
+but text in the real world has a variety of lengths.
+So, the last block of the text provided to this primitive must be padded to 128 bits before encryption or decryption.</p>
 </div>
 <div class="section" id="implementation-on-fpga">
 <h2>Implementation on FPGA<a class="headerlink" href="#implementation-on-fpga" title="Permalink to this headline">¶</a></h2>
-<p>We support OFB-AES256 mode in this implementation.
-Notice that the plaintext, ciphertext, and initialization vector should be 128 bits.
-The algorithm flow chart is shown as follow:</p>
+<p>We support OFB-DES, OFB-AES128, OFB-AES192, and OFB-AES256 modes in this implementation.</p>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p>The bit-width of the interfaces we provide is shown as follows:
+============ =========== ============ =========== ====</p>
+<blockquote>
+<div>plaintext   ciphertext   cipherkey   IV</div></blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="22%" />
+<col width="24%" />
+<col width="22%" />
+<col width="8%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">OFB-DES</th>
+<th class="head">64</th>
+<th class="head">64</th>
+<th class="head">64</th>
+<th class="head">64</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>OFB-AES128</td>
+<td>128</td>
+<td>128</td>
+<td>128</td>
+<td>128</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div>OFB-AES192      128         128          192      128</div></blockquote>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="24%" />
+<col width="22%" />
+<col width="24%" />
+<col width="22%" />
+<col width="8%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>OFB-AES256</td>
+<td>128</td>
+<td>128</td>
+<td>256</td>
+<td>128</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The algorithm flow chart is shown as follow:</p>
 <a class="reference internal image-reference" href="../../_images/OFB_working_mode.png"><img alt="algorithm flow chart of OFB" class="align-center" src="../../_images/OFB_working_mode.png" style="width: 100%;" /></a>
 <p>As we can see from the chart, both encryption and decryption part of OFB mode has dependencies,
 so the input block of each iteration (except for iteration 0) needs a feedback data from its last iteration.
-As the one-word AES encryption module needs 20 cycles to process one text block, the initiation interval (II) of OFB mode cannot achieve an II = 1.</p>
+Thus,the initiation interval (II) of OFB mode cannot achieve an II = 1.</p>
 </div>
-<div class="section" id="encryption-performance-device-vu9p">
-<h2>Encryption Performance(Device: VU9P)<a class="headerlink" href="#encryption-performance-device-vu9p" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="profiling">
+<h2>Profiling<a class="headerlink" href="#profiling" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ofb-des-encryption">
+<h3>OFB-DES encryption<a class="headerlink" href="#ofb-des-encryption" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="13%" />
@@ -241,28 +301,28 @@ As the one-word AES encryption module needs 20 cycles to process one text block,
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>1087</td>
-<td>4385</td>
-<td>4880</td>
+<tr class="row-even"><td>338</td>
+<td>1693</td>
+<td>2734</td>
 <td>0</td>
-<td>138</td>
-<td>416</td>
 <td>0</td>
-<td>2.888</td>
+<td>0</td>
+<td>0</td>
+<td>2.120</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="decryption-performance-device-vu9p">
-<h2>Decryption Performance(Device: VU9P)<a class="headerlink" href="#decryption-performance-device-vu9p" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ofb-des-decryption">
+<h3>OFB-DES decryption<a class="headerlink" href="#ofb-des-decryption" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
-<col width="11%" />
 <col width="13%" />
 <col width="13%" />
-<col width="11%" />
 <col width="13%" />
-<col width="11%" />
+<col width="10%" />
+<col width="13%" />
+<col width="10%" />
 <col width="13%" />
 <col width="17%" />
 </colgroup>
@@ -278,17 +338,240 @@ As the one-word AES encryption module needs 20 cycles to process one text block,
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>980</td>
-<td>3600</td>
-<td>4880</td>
+<tr class="row-even"><td>340</td>
+<td>1694</td>
+<td>2734</td>
 <td>0</td>
-<td>138</td>
-<td>416</td>
 <td>0</td>
-<td>2.949</td>
+<td>0</td>
+<td>0</td>
+<td>2.255</td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="ofb-aes128-encryption">
+<h3>OFB-AES128 encryption<a class="headerlink" href="#ofb-aes128-encryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>2192</td>
+<td>9313</td>
+<td>6633</td>
+<td>0</td>
+<td>2</td>
+<td>512</td>
+<td>0</td>
+<td>2.817</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ofb-aes128-decryption">
+<h3>OFB-AES128 decryption<a class="headerlink" href="#ofb-aes128-decryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>2089</td>
+<td>9316</td>
+<td>6633</td>
+<td>0</td>
+<td>2</td>
+<td>512</td>
+<td>0</td>
+<td>2.668</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ofb-aes192-encryption">
+<h3>OFB-AES192 encryption<a class="headerlink" href="#ofb-aes192-encryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>2921</td>
+<td>15136</td>
+<td>8319</td>
+<td>0</td>
+<td>6</td>
+<td>640</td>
+<td>0</td>
+<td>2.900</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ofb-aes192-decryption">
+<h3>OFB-AES192 decryption<a class="headerlink" href="#ofb-aes192-decryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>2946</td>
+<td>15138</td>
+<td>8308</td>
+<td>0</td>
+<td>6</td>
+<td>640</td>
+<td>0</td>
+<td>3.037</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ofb-aes256-encryption">
+<h3>OFB-AES256 encryption<a class="headerlink" href="#ofb-aes256-encryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>3177</td>
+<td>14874</td>
+<td>9309</td>
+<td>0</td>
+<td>2</td>
+<td>768</td>
+<td>0</td>
+<td>3.001</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ofb-aes256-decryption">
+<h3>OFB-AES256 decryption<a class="headerlink" href="#ofb-aes256-decryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>2998</td>
+<td>14864</td>
+<td>9309</td>
+<td>0</td>
+<td>2</td>
+<td>768</td>
+<td>0</td>
+<td>3.129</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
@@ -300,10 +583,10 @@ As the one-word AES encryption module needs 20 cycles to process one text block,
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="xts.html" class="btn btn-neutral float-right" title="XTS mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="poly1305.html" class="btn btn-neutral float-right" title="Poly1305 Algorithm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="gcm.html" class="btn btn-neutral float-left" title="GCM Mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="md4_5.html" class="btn btn-neutral float-left" title="The MD4/MD5 Message-Digest Algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

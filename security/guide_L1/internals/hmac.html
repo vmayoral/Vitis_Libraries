@@ -1,0 +1,448 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>HMAC Algorithms &mdash; XF Security Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="AES Decryption Algorithms" href="iaes.html" />
+    <link rel="prev" title="GMAC" href="gmac.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> XF Security Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../hw_guide.html">L1 Module User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../hw_api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../internals.html">Design Internals</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="aes.html">AES Encryption Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blake2b.html">BLAKE2 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cbc.html">CBC Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ccm.html">CCM Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfb.html">CFB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chacha20.html">Chacha20 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctr.html">CTR Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="des.html">DES and 3DES Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ecb.html">ECB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gcm.html">GCM Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gmac.html">GMAC</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">HMAC Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementation">Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#performance-device-u250">Performance(Device: U250)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iaes.html">AES Decryption Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="md4_5.html">The MD4/MD5 Message-Digest Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ofb.html">OFB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poly1305.html">Poly1305 Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rc4.html">RC4 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha1.html">SHA-1 Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha2.html">SHA-2 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha3.html">SHA-3 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="xts.html">XTS mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/result.html">Benchmark Result</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XF Security Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../hw_guide.html">L1 Module User Guide</a> &raquo;</li>
+        
+          <li><a href="../internals.html">Design Internals</a> &raquo;</li>
+        
+      <li>HMAC Algorithms</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide_L1/internals/hmac.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="hmac-algorithms">
+<h1>HMAC Algorithms<a class="headerlink" href="#hmac-algorithms" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>HMAC is a message authentication code (MAC) using a hash function. It combines with any cryptographic hash function,for example,md5,sha1,sha256.
+Hash function is wrapped to a class as one template parameter in hmac and the wrapper class only has a static function(named hash) involving the hash function.
+HMAC uses the wrapper’s hash function directly inside. The design makes combination HMAC algorithm with hash function more flexible.
+In xf_security lib, the key width(keyW), message width(msgW), key and message length width(lenW), hash value width(hshW) and block size of each hash function are list as below.</p>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="15%" />
+<col width="16%" />
+<col width="15%" />
+<col width="15%" />
+<col width="23%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>name</td>
+<td>keyW(bits)</td>
+<td>msgW(bits)</td>
+<td>lenW(bits)</td>
+<td>hshW(bits)</td>
+<td>blockSize(bytes)</td>
+</tr>
+<tr class="row-even"><td>md4</td>
+<td>32</td>
+<td>32</td>
+<td>64</td>
+<td>128</td>
+<td>64</td>
+</tr>
+<tr class="row-odd"><td>md5</td>
+<td>32</td>
+<td>32</td>
+<td>64</td>
+<td>128</td>
+<td>64</td>
+</tr>
+<tr class="row-even"><td>sha1</td>
+<td>32</td>
+<td>32</td>
+<td>64</td>
+<td>160</td>
+<td>64</td>
+</tr>
+<tr class="row-odd"><td>sha224</td>
+<td>32</td>
+<td>32</td>
+<td>64</td>
+<td>224</td>
+<td>64</td>
+</tr>
+<tr class="row-even"><td>sha256</td>
+<td>32</td>
+<td>32</td>
+<td>64</td>
+<td>256</td>
+<td>64</td>
+</tr>
+<tr class="row-odd"><td>sha384</td>
+<td>64</td>
+<td>64</td>
+<td>128</td>
+<td>384</td>
+<td>128</td>
+</tr>
+<tr class="row-even"><td>sha512</td>
+<td>64</td>
+<td>64</td>
+<td>128</td>
+<td>512</td>
+<td>128</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<p>There are two implementations: in sequence and in parellel. If the macro XF_SECURITY_DECRYPT_HMAC_DATAFLOW is not defined, hmac calls the sequence version. The default is no definition it.
+Hmac consists of 3 parts: compute kipad and kopad, mhsh=hash(kipad+msg), hash(kopad+msh).
+kipad and kopad are  derived from the input key. When the length of key is greater than hash’s block size, K=hash(key). kipad is K XOR kip while kopad is K XOR kop, in which kip is a constant consisting of repeated bytes valued 0x36 block size times and kop is repeating 0x5c.</p>
+<a class="reference internal image-reference" href="../../_images/hmac_detail.png"><img alt="hmac" class="align-center" src="../../_images/hmac_detail.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="performance-device-u250">
+<h2>Performance(Device: U250)<a class="headerlink" href="#performance-device-u250" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="8%" />
+<col width="9%" />
+<col width="9%" />
+<col width="11%" />
+<col width="9%" />
+<col width="8%" />
+<col width="9%" />
+<col width="9%" />
+<col width="11%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>name</td>
+<td>II</td>
+<td>CLB</td>
+<td>LUT</td>
+<td>FF</td>
+<td>DSP</td>
+<td>BRAM</td>
+<td>SRL</td>
+<td>URAM</td>
+<td>CP(ns)</td>
+</tr>
+<tr class="row-even"><td>hmac+md4</td>
+<td>16</td>
+<td>1639</td>
+<td>7054</td>
+<td>8663</td>
+<td>0</td>
+<td>8</td>
+<td>3</td>
+<td>0</td>
+<td>3.211</td>
+</tr>
+<tr class="row-odd"><td>hmac+md5</td>
+<td>16</td>
+<td>1560</td>
+<td>7576</td>
+<td>9524</td>
+<td>0</td>
+<td>8</td>
+<td>3</td>
+<td>0</td>
+<td>2.934</td>
+</tr>
+<tr class="row-even"><td>hmac+sha1</td>
+<td>16</td>
+<td>1818</td>
+<td>7171</td>
+<td>12918</td>
+<td>0</td>
+<td>8</td>
+<td>3</td>
+<td>0</td>
+<td>2.914</td>
+</tr>
+<tr class="row-odd"><td>hmac+sha224</td>
+<td>16</td>
+<td>1881</td>
+<td>7875</td>
+<td>13622</td>
+<td>0</td>
+<td>8</td>
+<td>3</td>
+<td>0</td>
+<td>3.080</td>
+</tr>
+<tr class="row-even"><td>hmac+sha256</td>
+<td>16</td>
+<td>1939</td>
+<td>7971</td>
+<td>13909</td>
+<td>0</td>
+<td>8</td>
+<td>3</td>
+<td>0</td>
+<td>3.013</td>
+</tr>
+<tr class="row-odd"><td>hmac+sha384</td>
+<td>16</td>
+<td>3516</td>
+<td>14577</td>
+<td>25835</td>
+<td>0</td>
+<td>16</td>
+<td>3</td>
+<td>0</td>
+<td>3.198</td>
+</tr>
+<tr class="row-even"><td>hmac+sha512</td>
+<td>16</td>
+<td>3537</td>
+<td>14970</td>
+<td>26995</td>
+<td>0</td>
+<td>16</td>
+<td>3</td>
+<td>0</td>
+<td>3.176</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="iaes.html" class="btn btn-neutral float-right" title="AES Decryption Algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="gmac.html" class="btn btn-neutral float-left" title="GMAC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

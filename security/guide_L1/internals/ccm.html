@@ -1,0 +1,572 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CCM Mode &mdash; XF Security Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="CFB Mode" href="cfb.html" />
+    <link rel="prev" title="CBC Mode" href="cbc.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> XF Security Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../hw_guide.html">L1 Module User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../hw_api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../internals.html">Design Internals</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="aes.html">AES Encryption Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blake2b.html">BLAKE2 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cbc.html">CBC Mode</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">CCM Mode</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementation-on-fpga">Implementation on FPGA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiling">Profiling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cfb.html">CFB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chacha20.html">Chacha20 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctr.html">CTR Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="des.html">DES and 3DES Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ecb.html">ECB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gcm.html">GCM Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gmac.html">GMAC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hmac.html">HMAC Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iaes.html">AES Decryption Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="md4_5.html">The MD4/MD5 Message-Digest Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ofb.html">OFB Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poly1305.html">Poly1305 Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rc4.html">RC4 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha1.html">SHA-1 Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha2.html">SHA-2 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sha3.html">SHA-3 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="xts.html">XTS mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/result.html">Benchmark Result</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XF Security Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../hw_guide.html">L1 Module User Guide</a> &raquo;</li>
+        
+          <li><a href="../internals.html">Design Internals</a> &raquo;</li>
+        
+      <li>CCM Mode</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide_L1/internals/ccm.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ccm-mode">
+<h1>CCM Mode<a class="headerlink" href="#ccm-mode" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The Counter with Cipher Block Chaining-Message Authentication Code (CCM) mode is a typical block cipher mode of operation using block cipher algorithm.
+In this version, we provide Advanced Encryption Standard (AES) processing ability,
+the cipherkey length for AES should be 128/192/256 bits.
+Unlike other working-modes in this library, this working-mode takes an arbitrary length of text in bytes and produces the ciphers with the same length.
+The MAC is generated simultaneously with the ciphers using the associated data (AD) in arbitrary length.
+Thus, you must provide the length of payload text and AD before encrypting/decrypting the text.</p>
+</div>
+<div class="section" id="implementation-on-fpga">
+<h2>Implementation on FPGA<a class="headerlink" href="#implementation-on-fpga" title="Permalink to this headline">¶</a></h2>
+<p>We support CCM mode including both encryption and decryption parts in this implementation.</p>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p>The bit-width of the interfaces we provide is shown as follows:
+============ =========== ============ =========== ======== ===== ======== ======== ======== ========</p>
+<blockquote>
+<div>payload      cipher     cipherkey   nonce    AD      tag    lenPld   lenCph   lenAD</div></blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="12%" />
+<col width="13%" />
+<col width="12%" />
+<col width="9%" />
+<col width="5%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CCM-AES128</th>
+<th class="head">128</th>
+<th class="head">128</th>
+<th class="head">128</th>
+<th class="head">56-104</th>
+<th class="head">128</th>
+<th class="head">32-128</th>
+<th class="head">64</th>
+<th class="head">64</th>
+<th class="head">64</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>CCM-AES192</td>
+<td>128</td>
+<td>128</td>
+<td>192</td>
+<td>56-104</td>
+<td>128</td>
+<td>32-128</td>
+<td>64</td>
+<td>64</td>
+<td>64</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="last">
+<div>CCM-AES256      128         128          256      56-104   128   32-128     64       64       64</div></blockquote>
+</div>
+<p>The tag (MAC) is used to verify the received data is whether authentic or not.
+To maintain the same interface for both input and output ports, we do not provide a bool flag to indicate the received data is authentic or not but a tag for you to verify it outside the primitive.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Applicable conditions:
+1. To verify the received data, you need to compare the tag which is output from the decrypting process with the tag from the encrypting process.
+If they are equal, the received data is authentic.</p>
+</div>
+<p>The algorithm flow chart of encryption part of CCM mode is shown as follow:</p>
+<a class="reference internal image-reference" href="../../_images/CCM_encryption.png"><img alt="algorithm flow chart of CCM_encryption" class="align-center" src="../../_images/CCM_encryption.png" style="width: 100%;" /></a>
+<p>As we can see from the chart, the CCM encryption part can be divided into two individual parts: The Counter Mode (CTR) and The Cipher Block Chaining-Message Authentication Code (CBC-MAC).
+CTR is used to encrypt the plaintext to ciphertext, and CBC-MAC is used to generate the data tag (MAC).</p>
+<p>The algorithm flow chart of decryption part of CCM mode is shown as follow:</p>
+<a class="reference internal image-reference" href="../../_images/CCM_decryption.png"><img alt="algorithm flow chart of CCM_decryption" class="align-center" src="../../_images/CCM_decryption.png" style="width: 100%;" /></a>
+<p>The decryption part is very similar with the encryption part of CCM mode.
+The only difference is that we decrypt the ciphertext to plaintext in the decryption part.
+In decryption part of CCM mode, we don’t provide a bool flag to indicate whether the data is authentic or not.
+You should compare the tag which the decryption part gives with the tag from CCM encryption part to judge the authenticity of the data.
+If the data is authentic, then the tags should be equal.</p>
+<p>The internal data flow of both encryption and decryption parts of CCM mode is shown as the figures below:</p>
+<a class="reference internal image-reference" href="../../_images/internal_structure_of_ccm_enc.png"><img alt="internal structure of CCM encryption" class="align-center" src="../../_images/internal_structure_of_ccm_enc.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../_images/internal_structure_of_ccm_dec.png"><img alt="internal structure of CCM decryption" class="align-center" src="../../_images/internal_structure_of_ccm_dec.png" style="width: 100%;" /></a>
+<p>In our implementation, the CCM mode has four independent modules, which are dupStrm, formatting, aesCtrEncrypt/aesCtrDecrypt, and CBC_MAC.
+As the four modules can work independently, they are designed into parallel dataflow processes, and connected by streams (FIFO’s).
+Loop-carried dependency is enforced by the algorithm to the CBC-MAC, so it cannot achieve an initiation internal (II) = 1.
+On the contrary, the input block for the single block cihper inside the mode can be directly calculated by the counter, it can achieve an II = 1 for the CTR part.</p>
+</div>
+<div class="section" id="profiling">
+<h2>Profiling<a class="headerlink" href="#profiling" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ccm-aes128-encryption">
+<h3>CCM-AES128 encryption<a class="headerlink" href="#ccm-aes128-encryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="14%" />
+<col width="14%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>5212</td>
+<td>26036</td>
+<td>17347</td>
+<td>0</td>
+<td>4</td>
+<td>1090</td>
+<td>0</td>
+<td>2.932</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ccm-aes128-decryption">
+<h3>CCM-AES128 decryption<a class="headerlink" href="#ccm-aes128-decryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="14%" />
+<col width="14%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>5143</td>
+<td>26042</td>
+<td>17345</td>
+<td>0</td>
+<td>4</td>
+<td>1090</td>
+<td>0</td>
+<td>2.951</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ccm-aes192-encryption">
+<h3>CCM-AES192 encryption<a class="headerlink" href="#ccm-aes192-encryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="14%" />
+<col width="14%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>6885</td>
+<td>35165</td>
+<td>20926</td>
+<td>0</td>
+<td>12</td>
+<td>1346</td>
+<td>0</td>
+<td>2.874</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ccm-aes192-decryption">
+<h3>CCM-AES192 decryption<a class="headerlink" href="#ccm-aes192-decryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="14%" />
+<col width="14%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>6768</td>
+<td>35147</td>
+<td>20926</td>
+<td>0</td>
+<td>12</td>
+<td>1346</td>
+<td>0</td>
+<td>2.948</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ccm-aes256-encryption">
+<h3>CCM-AES256 encryption<a class="headerlink" href="#ccm-aes256-encryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="14%" />
+<col width="14%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>7713</td>
+<td>39245</td>
+<td>23102</td>
+<td>0</td>
+<td>4</td>
+<td>1602</td>
+<td>0</td>
+<td>3.140</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ccm-aes256-decryption">
+<h3>CCM-AES256 decryption<a class="headerlink" href="#ccm-aes256-decryption" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="14%" />
+<col width="14%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLB</th>
+<th class="head">LUT</th>
+<th class="head">FF</th>
+<th class="head">DSP</th>
+<th class="head">BRAM</th>
+<th class="head">SRL</th>
+<th class="head">URAM</th>
+<th class="head">CP(ns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>7532</td>
+<td>39177</td>
+<td>23101</td>
+<td>0</td>
+<td>4</td>
+<td>1602</td>
+<td>0</td>
+<td>3.109</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cfb.html" class="btn btn-neutral float-right" title="CFB Mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cbc.html" class="btn btn-neutral float-left" title="CBC Mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
