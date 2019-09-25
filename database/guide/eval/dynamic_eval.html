@@ -6,14 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Internals of Dynamic Evaluation &mdash; XF Database Library 2.0 beta documentation</title>
+  <title>Internals of Dynamic-Evaluation &mdash; Vitis Database Library v2019.2 documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
-  
-    <link rel="shortcut icon" href="../../_static/xf-favicon.ico"/>
   
   
   
@@ -34,15 +58,61 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Internals of Group Aggregate (Using Sorted Rows)" href="../group_aggr/group_aggr.html" />
-    <link rel="prev" title="Internals of Dynamic Filter" href="../filter/dynamic_filter.html" /> 
+    <link rel="next" title="Internals of Lookup3 and Murmur3 Hash" href="../hash/hash.html" />
+    <link rel="prev" title="Internals of Dynamic-Filter" href="../filter/dynamic_filter.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -52,12 +122,9 @@
           
 
           
-            <a href="../../index.html">
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Database Library
           
 
-          
-            
-            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -65,7 +132,7 @@
             
             
               <div class="version">
-                2.0
+                2019.2
               </div>
             
           
@@ -82,6 +149,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -103,23 +171,29 @@
 <li class="toctree-l2"><a class="reference internal" href="../hw_sql_guide.html">Primitive Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hw_api.html">Primitive APIs in <code class="docutils literal notranslate"><span class="pre">xf::database</span></code></a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../internals.html">Primitive Design Internals</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../filter/dynamic_filter.html">Internals of Dynamic Filter</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Internals of Dynamic Evaluation</a><ul class="simple">
+<li class="toctree-l3"><a class="reference internal" href="../filter/dynamic_filter.html">Internals of Dynamic-Filter</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Internals of Dynamic-Evaluation</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../group_aggr/group_aggr.html">Internals of Group Aggregate (Using Sorted Rows)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash/hash.html">Internals of Lookup3 and Murmur3 Hash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bloom_filter/bloom_filter.html">Internals of Bloom-Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../group_aggr/group_aggr.html">Internals of Group-Aggregate (Using Sorted Rows)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../group_aggr/direct_group_aggr.html">Internals of Direct-Group-Aggregate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../group_aggr/hash_group_aggr.html">Internals of Hash Group Aggregate (Generic Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../group_aggr/hash_group_aggr.html">Internals of Hash-Group-Aggregate (Generic Version)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_join_mpu.html">Internals of Hash-Join (Multi-Process-Unit Version)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_semi_join.html">Implementation of Hash-Semi-Join (Multi-Process-Unit Version)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_join_v3.html">Internals of Hash-Join-v3 and Hash-Build-Probe-v3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_join_v4.html">Internals of Hash-Join-v4 and Hash-Build-Probe-v4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_semi_join.html">Internals of Hash-Semi-Join (Multi-Process-Unit Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_anti_join.html">Internals of Hash-Anti-Join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_multi_join.html">Internals of Hash-Multi-Join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../partition/partition.html">Internals of Hash-Partition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../non_hash_join/merge_join.html">Internals of Merge-Join and Merge-Left-Join</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../non_hash_join/nested_loop_join.html">Internals of Nested-Loop-Join</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../combine_split/combine_split_unit.html">Internals of Combine-Split-Unit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sort/bitonic_sort.html">Internals of Bitonic Sort</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sort/insert_sort.html">Internals of Insert Sort</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sort/merge_sort.html">Internals of Merge Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scan/scan_col.html">Internals of Scan</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../query_demo.html">Query-Specific Acceleration Demo</a></li>
@@ -136,6 +210,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -145,7 +220,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF Database Library</a>
+          <a href="../../index.html">Vitis Database Library</a>
         
       </nav>
 
@@ -174,13 +249,13 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../L1.html">L1 Module User Guide</a> &raquo;</li>
         
           <li><a href="../internals.html">Primitive Design Internals</a> &raquo;</li>
         
-      <li>Internals of Dynamic Evaluation</li>
+      <li>Internals of Dynamic-Evaluation</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -198,18 +273,23 @@
            <div itemprop="articleBody">
             
   <div class="section" id="internals-of-dynamic-evaluation">
-<span id="guide-dynamic-eval"></span><h1>Internals of Dynamic Evaluation<a class="headerlink" href="#internals-of-dynamic-evaluation" title="Permalink to this headline">¶</a></h1>
+<span id="guide-dynamic-eval"></span><h1>Internals of Dynamic-Evaluation<a class="headerlink" href="#internals-of-dynamic-evaluation" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <p>This document describes the structure and execution of dynamic evaluation module,
 implemented as <a class="reference internal" href="../hw_api.html#cid-xf-database-dynamiceval"><span class="std std-ref">dynamicEval</span></a> function.</p>
-<p>The structure of this 4-stream input primitve is describe as below.</p>
-<a class="reference internal image-reference" href="../../_images/dynamic_eval_top.png"><img alt="Dynamic Evaluation Top Structure" class="align-center" src="../../_images/dynamic_eval_top.png" style="width: 80%;" /></a>
-<p>As shown in the picture, there are two types of cell design.</p>
-<p>For cell1-cell4, the two input which are stream and constant respectively:</p>
-<a class="reference internal image-reference" href="../../_images/dynamic_eval_l1_cell.png"><img alt="Dynamic Evaluation Cell 1-4 Structure" class="align-center" src="../../_images/dynamic_eval_l1_cell.png" style="width: 80%;" /></a>
-<p>While Cell 5-Cell 7 have more inputs to select:</p>
-<a class="reference internal image-reference" href="../../_images/dynamic_eval_l2_cell.png"><img alt="Dynamic Evaluation Cell 5-7 Structure" class="align-center" src="../../_images/dynamic_eval_l2_cell.png" style="width: 80%;" /></a>
+<p>The structure of <code class="docutils literal notranslate"><span class="pre">dynamicEval</span></code> is described as below. The primitive has 4-stream and 4-constant as inputs.
+The data type of input stream and constant is a template parameter in API, and the maximum width of constant is limited to 64-bit.</p>
+<img alt="Dynamic Evaluation Top Structure" class="align-center" src="../../_images/dynamic_eval_top.png" />
+<p>The primitive is a tree-shaped structure with evaluation cells in each node.
+Each evaluation cell provides 4 kinds of computing unit, which are: compare, boolean algebra, multiplex and math compute.
+For comparator and boolean algebra, the results are in boolean type, while multiplex and math compute will generate non-boolean results.
+The internal of dynamic eval will expread two types of results from one cell to the next level of cells.
+There are two types of cell design. For Cell1-Cell4, as the level-1 cells, the two inputs which are stream and constant respectively.
+For Cell5-Cell7, as the internal cells, which need process both boolean and non-boolean results from previous level. Cell1-Cell4 is shown as:</p>
+<img alt="Dynamic Evaluation Cell 1-4 Structure" class="align-center" src="../../_images/dynamic_eval_l1_cell.png" />
+<p>While Cell5-Cell7 has more inputs to select:</p>
+<img alt="Dynamic Evaluation Cell 5-7 Structure" class="align-center" src="../../_images/dynamic_eval_l2_cell.png" />
 <p>The configuration of the primitive is defined as below, and the bits
 are concatenated without padding from top to bottom in LSB to MSB order.</p>
 <table border="1" class="docutils">
@@ -268,7 +348,8 @@ are concatenated without padding from top to bottom in LSB to MSB order.</p>
 </tr>
 </tbody>
 </table>
-<p>To automatically generating its configuration, please refer to the software API defined in <code class="docutils literal notranslate"><span class="pre">sw_api</span></code> folder.</p>
+<p>To automatically generate its configuration, please refer to the test case in <code class="docutils literal notranslate"><span class="pre">L3/tests/sw/dynamic_alu_host/test.cpp</span></code>
+To manually generate configuration, please refer to built-in docs in <code class="docutils literal notranslate"><span class="pre">L1/include/hw/xf_database/dynamic_eval.hpp</span></code></p>
 </div>
 
 
@@ -279,24 +360,28 @@ are concatenated without padding from top to bottom in LSB to MSB order.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../group_aggr/group_aggr.html" class="btn btn-neutral float-right" title="Internals of Group Aggregate (Using Sorted Rows)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../hash/hash.html" class="btn btn-neutral float-right" title="Internals of Lookup3 and Murmur3 Hash" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../filter/dynamic_filter.html" class="btn btn-neutral float-left" title="Internals of Dynamic Filter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../filter/dynamic_filter.html" class="btn btn-neutral float-left" title="Internals of Dynamic-Filter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -306,7 +391,6 @@ are concatenated without padding from top to bottom in LSB to MSB order.</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

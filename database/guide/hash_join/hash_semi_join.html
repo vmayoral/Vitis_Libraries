@@ -6,14 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Implementation of Hash-Semi-Join (Multi-Process-Unit Version) &mdash; XF Database Library 2.0 beta documentation</title>
+  <title>Internals of Hash-Semi-Join (Multi-Process-Unit Version) &mdash; Vitis Database Library v2019.2 documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
-  
-    <link rel="shortcut icon" href="../../_static/xf-favicon.ico"/>
   
   
   
@@ -34,15 +58,61 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Internals of Hash-Join-v3 and Hash-Build-Probe-v3" href="hash_join_v3.html" />
-    <link rel="prev" title="Internals of Hash-Join (Multi-Process-Unit Version)" href="hash_join_mpu.html" /> 
+    <link rel="next" title="Internals of Hash-Anti-Join" href="hash_anti_join.html" />
+    <link rel="prev" title="Internals of Hash-Join-v4 and Hash-Build-Probe-v4" href="hash_join_v4.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -52,12 +122,9 @@
           
 
           
-            <a href="../../index.html">
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Database Library
           
 
-          
-            
-            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -65,7 +132,7 @@
             
             
               <div class="version">
-                2.0
+                2019.2
               </div>
             
           
@@ -82,6 +149,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -103,23 +171,31 @@
 <li class="toctree-l2"><a class="reference internal" href="../hw_sql_guide.html">Primitive Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hw_api.html">Primitive APIs in <code class="docutils literal notranslate"><span class="pre">xf::database</span></code></a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../internals.html">Primitive Design Internals</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../filter/dynamic_filter.html">Internals of Dynamic Filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../eval/dynamic_eval.html">Internals of Dynamic Evaluation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../group_aggr/group_aggr.html">Internals of Group Aggregate (Using Sorted Rows)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filter/dynamic_filter.html">Internals of Dynamic-Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../eval/dynamic_eval.html">Internals of Dynamic-Evaluation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash/hash.html">Internals of Lookup3 and Murmur3 Hash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bloom_filter/bloom_filter.html">Internals of Bloom-Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../group_aggr/group_aggr.html">Internals of Group-Aggregate (Using Sorted Rows)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../group_aggr/direct_group_aggr.html">Internals of Direct-Group-Aggregate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../group_aggr/hash_group_aggr.html">Internals of Hash Group Aggregate (Generic Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../group_aggr/hash_group_aggr.html">Internals of Hash-Group-Aggregate (Generic Version)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hash_join_mpu.html">Internals of Hash-Join (Multi-Process-Unit Version)</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Implementation of Hash-Semi-Join (Multi-Process-Unit Version)</a><ul class="simple">
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="hash_join_v3.html">Internals of Hash-Join-v3 and Hash-Build-Probe-v3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hash_join_v4.html">Internals of Hash-Join-v4 and Hash-Build-Probe-v4</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Internals of Hash-Semi-Join (Multi-Process-Unit Version)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#principle">Principle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#structure">Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hash_anti_join.html">Internals of Hash-Anti-Join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hash_multi_join.html">Internals of Hash-Multi-Join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../partition/partition.html">Internals of Hash-Partition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../non_hash_join/merge_join.html">Internals of Merge-Join and Merge-Left-Join</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../non_hash_join/nested_loop_join.html">Internals of Nested-Loop-Join</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../combine_split/combine_split_unit.html">Internals of Combine-Split-Unit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sort/bitonic_sort.html">Internals of Bitonic Sort</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sort/insert_sort.html">Internals of Insert Sort</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sort/merge_sort.html">Internals of Merge Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scan/scan_col.html">Internals of Scan</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../query_demo.html">Query-Specific Acceleration Demo</a></li>
@@ -136,6 +212,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -145,7 +222,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF Database Library</a>
+          <a href="../../index.html">Vitis Database Library</a>
         
       </nav>
 
@@ -174,13 +251,13 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../L1.html">L1 Module User Guide</a> &raquo;</li>
         
           <li><a href="../internals.html">Primitive Design Internals</a> &raquo;</li>
         
-      <li>Implementation of Hash-Semi-Join (Multi-Process-Unit Version)</li>
+      <li>Internals of Hash-Semi-Join (Multi-Process-Unit Version)</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -197,38 +274,124 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="implementation-of-hash-semi-join-multi-process-unit-version">
-<span id="guide-hash-semi-join-mpu"></span><h1>Implementation of Hash-Semi-Join (Multi-Process-Unit Version)<a class="headerlink" href="#implementation-of-hash-semi-join-multi-process-unit-version" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="internals-of-hash-semi-join-multi-process-unit-version">
+<span id="guide-hash-semi-join"></span><h1>Internals of Hash-Semi-Join (Multi-Process-Unit Version)<a class="headerlink" href="#internals-of-hash-semi-join-multi-process-unit-version" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <p>This document describes the structure and execution of Hash-Semi-Join,
 implemented as <a class="reference internal" href="../hw_api.html#cid-xf-database-hashsemijoin"><span class="std std-ref">hashSemiJoin</span></a> function.
-It implementation is based on the <a class="reference internal" href="hash_join_mpu.html#guide-hash-join-mpu"><span class="std std-ref">second revision of hash-join function</span></a>.</p>
-<p>Hash semi join returns rows from the outer table where a field of outer table matches with the one of inner table.
+Its implementation is based on <a class="reference internal" href="hash_join_mpu.html#guide-hash-join-mpu"><span class="std std-ref">Hash-Join-MPU</span></a>.</p>
+<p>Hash-Semi-Join returns rows from the outer table where a field of outer table matches with the one of inner table.
 Even if a record of outer table matches with many rows in inner table, the one of outer table is output only once.</p>
-<a class="reference internal image-reference" href="../../_images/hash_semi_join_operation.png"><img alt="the operation of hash semi join" class="align-center" src="../../_images/hash_semi_join_operation.png" style="width: 80%;" /></a>
+<img alt="the operation of hash semi join" class="align-center" src="../../_images/hash_semi_join_operation.png" />
 <dl class="docutils">
-<dt>Hash semi join is written using the EXISTS or IN constructs.For example,</dt>
+<dt>Hash-Semi-Join is written using the EXISTS or IN constructs. For example:</dt>
 <dd>select * from S where S.key in ( select key from T )</dd>
 </dl>
-<p>Principle</p>
-<dl class="docutils">
-<dt>There are two stages in hash semi join:</dt>
-<dd>build: the inner table is used for hash table for rapid searching matching rows.
-probe: the outer table is used for probe table. Each record of probe table is applied the same hash function on the joining column
+<div class="section" id="principle">
+<h2>Principle<a class="headerlink" href="#principle" title="Permalink to this headline">¶</a></h2>
+<p>There are two stages in Hash-Semi-Join:</p>
+<ol class="arabic simple">
+<li>build: the inner table is used for hash table for rapid searching matching rows.</li>
+<li>probe: the outer table is used for probe table. Each record of probe table is applied the same hash function on the joining column
 and will be hit the corresponding entry in the hash table. If a record of probe table first matches with a row in hash table,
-it will be output and never output agian even if matches again.</dd>
-</dl>
-<a class="reference internal image-reference" href="../../_images/hash_semi_join_principle.png"><img alt="Hash Semi Join princilpe" class="align-center" src="../../_images/hash_semi_join_principle.png" style="width: 80%;" /></a>
-<p>Structure</p>
-<p>The structure of hash semi join is same as that of  hash join.</p>
-<a class="reference internal image-reference" href="../../_images/hash_semi_join_structure.png"><img alt="Hash Semi Join MPU Structure" class="align-center" src="../../_images/hash_semi_join_structure.png" style="width: 80%;" /></a>
-<p>The HASH-SEMI-JOIN primitive has a clustered design internally to utilize the advantage of high memory bandwidth in Xilinx FPGA.
-Workload is distributed based on MSBs of hash value of join key to Process Units (PU’s), so that eachPU can work independently.
-Current design uses 8 PU’s, served by 4 input channels though each of which a pair of key and payload can be passed in each cycle.</p>
-<p>The number of PU is set to 8, as each PU requires a dedicated bank to avoid conflicts,
+it will be output and never output again even if matches again.</li>
+</ol>
+<img alt="Hash Semi Join princilpe" class="align-center" src="../../_images/hash_semi_join_principle.png" />
+</div>
+<div class="section" id="structure">
+<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
+<p>The structure of Hash-Semi-Join is same as that of <a class="reference internal" href="hash_join_mpu.html#guide-hash-join-mpu"><span class="std std-ref">Hash-Join-MPU</span></a>.</p>
+<img alt="Hash Semi Join MPU Structure" class="align-center" src="../../_images/hash_semi_join_structure.png" />
+<p>The Hash-Semi-Join primitive has a multi-PU design internally to utilize the advantage of high memory bandwidth in Xilinx FPGA.
+Workload is distributed based on MSBs of hash value of join key to Processing Units (PU’s), so that each PU can work independently.
+Current design use 8 PUs as default, and served by 4 input channels. The input of key and payload can be processed as a pair in each cycle.</p>
+<p>There are several kind of modules in the design, and the detailed functionality of each module is described as below:</p>
+<ol class="arabic simple">
+<li>scan: Outer table are input first and converted to steam twice continually, then inner table are input and converted to stream.
+Key and payload are pre-stored in DDR/HBM of FPGA which can be scanned as input streams here.</li>
+<li>Dispatcher: All records either in outer or inner table are input by one or more (only 1 , 2 or 4 is supported) channels after scan.
+Dispatcher computes each key’s hash value and choose the MSBs for dispatching, so that the input stream with same hash value are processed by the same PU.
+That is to say, the input stream will be divided into multiple PUs (only 1,2,4 or 8 is supported).</li>
+<li>Switcher: Switcher merges multi-channel output of dispatchers into one channel and distributes them to each PU according the MSB value of hash.</li>
+<li>Bitmap: Bitmap counts hash collisions and builds a bitmap(bit_vector).</li>
+<li>Build: The rows of key and payload in the same PU are mapped to the bitmap and stored in a buffer.</li>
+<li>Probe: The keys in inner table are matched with that in outer table.</li>
+<li>Collecter: Merges each PU’s output into one output stream.</li>
+</ol>
+<p>The work stages of these modules are show in the following table:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="16%" />
+<col width="14%" />
+<col width="11%" />
+<col width="9%" />
+<col width="9%" />
+<col width="15%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>input</td>
+<td>dispatcher</td>
+<td>switcher</td>
+<td>bitmap</td>
+<td>build</td>
+<td>probe</td>
+<td>collecter</td>
+</tr>
+<tr class="row-even"><td>small/inner table</td>
+<td>work</td>
+<td>work</td>
+<td>work</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>small/inner table</td>
+<td>work</td>
+<td>work</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>work</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td>big/outer table</td>
+<td>work</td>
+<td>work</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>work</td>
+<td>work</td>
+</tr>
+</tbody>
+</table>
+<p>The default number of PU is set to 8, as each PU requires a dedicated bank to avoid conflicts,
 and due to DDR/HBM memory access delay, 4 channels can serve enough data to these PU’s.
-Each PU performs HASH-SEMI-JOIN in 3 phases.</p>
+Each PU performs Hash-Semi-Join in 3 phases.</p>
 <ol class="arabic simple">
 <li>build bitmap: with inner table as input, the number of keys falls into each hash values are counted.
 The number of counts are stored in bit vector in URAM.
@@ -256,32 +419,30 @@ and followed by the outer  table ONCE.</p>
 <p class="first admonition-title">Caution</p>
 <p class="last">Currently, this primitive expects unique key in inner table.</p>
 </div>
-<p>This <code class="docutils literal notranslate"><span class="pre">hashSemiJoinMPU</span></code> primitve has only one port for key input and one port for payload input.
+<p>This <code class="docutils literal notranslate"><span class="pre">hashSemiJoinMPU</span></code> primitive has only one port for key input and one port for payload input.
 If your tables are joined by multiple key columns or has multiple columns as payload,
 please use <a class="reference internal" href="../hw_api.html#cid-xf-database-combinecol"><span class="std std-ref">combineCol</span></a> to merge the column streams, and
 use <a class="reference internal" href="../hw_api.html#cid-xf-database-splitcol"><span class="std std-ref">splitCol</span></a> to split the output to columns.</p>
-<p>There is two versions of this primitive currently, with different number of slots
+<p>There are two versions of this primitive currently, with different number of slots
 for hash collision and key duplication. The version with more slots per hash entry has less
 total row capacity, as summarized below:</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
-<col width="38%" />
-<col width="43%" />
-<col width="19%" />
+<col width="47%" />
+<col width="53%" />
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>row capacity</td>
 <td>hash slots</td>
-<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>2M</td>
-<td>262144 (2^18)</td>
-<td>0.25M</td>
+<td>262144 (0.25M)</td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
+</div>
 </div>
 
 
@@ -292,24 +453,28 @@ total row capacity, as summarized below:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="hash_join_v3.html" class="btn btn-neutral float-right" title="Internals of Hash-Join-v3 and Hash-Build-Probe-v3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="hash_anti_join.html" class="btn btn-neutral float-right" title="Internals of Hash-Anti-Join" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="hash_join_mpu.html" class="btn btn-neutral float-left" title="Internals of Hash-Join (Multi-Process-Unit Version)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="hash_join_v4.html" class="btn btn-neutral float-left" title="Internals of Hash-Join-v4 and Hash-Build-Probe-v4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -319,7 +484,6 @@ total row capacity, as summarized below:</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

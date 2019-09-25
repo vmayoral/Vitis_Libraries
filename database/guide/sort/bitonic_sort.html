@@ -6,14 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Internals of Bitonic Sort &mdash; XF Database Library 2.0 beta documentation</title>
+  <title>Internals of Bitonic Sort &mdash; Vitis Database Library v2019.2 documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
-  
-    <link rel="shortcut icon" href="../../_static/xf-favicon.ico"/>
   
   
   
@@ -34,7 +58,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Internals of Insert Sort" href="insert_sort.html" />
@@ -42,7 +65,54 @@
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -52,12 +122,9 @@
           
 
           
-            <a href="../../index.html">
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Database Library
           
 
-          
-            
-            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -65,7 +132,7 @@
             
             
               <div class="version">
-                2.0
+                2019.2
               </div>
             
           
@@ -82,6 +149,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -103,15 +171,20 @@
 <li class="toctree-l2"><a class="reference internal" href="../hw_sql_guide.html">Primitive Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hw_api.html">Primitive APIs in <code class="docutils literal notranslate"><span class="pre">xf::database</span></code></a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../internals.html">Primitive Design Internals</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../filter/dynamic_filter.html">Internals of Dynamic Filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../eval/dynamic_eval.html">Internals of Dynamic Evaluation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../group_aggr/group_aggr.html">Internals of Group Aggregate (Using Sorted Rows)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filter/dynamic_filter.html">Internals of Dynamic-Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../eval/dynamic_eval.html">Internals of Dynamic-Evaluation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash/hash.html">Internals of Lookup3 and Murmur3 Hash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bloom_filter/bloom_filter.html">Internals of Bloom-Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../group_aggr/group_aggr.html">Internals of Group-Aggregate (Using Sorted Rows)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../group_aggr/direct_group_aggr.html">Internals of Direct-Group-Aggregate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../group_aggr/hash_group_aggr.html">Internals of Hash Group Aggregate (Generic Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../group_aggr/hash_group_aggr.html">Internals of Hash-Group-Aggregate (Generic Version)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_join_mpu.html">Internals of Hash-Join (Multi-Process-Unit Version)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_semi_join.html">Implementation of Hash-Semi-Join (Multi-Process-Unit Version)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_join_v3.html">Internals of Hash-Join-v3 and Hash-Build-Probe-v3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_join_v4.html">Internals of Hash-Join-v4 and Hash-Build-Probe-v4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_semi_join.html">Internals of Hash-Semi-Join (Multi-Process-Unit Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_anti_join.html">Internals of Hash-Anti-Join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_multi_join.html">Internals of Hash-Multi-Join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../partition/partition.html">Internals of Hash-Partition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../non_hash_join/merge_join.html">Internals of Merge-Join and Merge-Left-Join</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../non_hash_join/nested_loop_join.html">Internals of Nested-Loop-Join</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../combine_split/combine_split_unit.html">Internals of Combine-Split-Unit</a></li>
@@ -120,6 +193,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="insert_sort.html">Internals of Insert Sort</a></li>
 <li class="toctree-l3"><a class="reference internal" href="merge_sort.html">Internals of Merge Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scan/scan_col.html">Internals of Scan</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../query_demo.html">Query-Specific Acceleration Demo</a></li>
@@ -136,6 +210,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -145,7 +220,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF Database Library</a>
+          <a href="../../index.html">Vitis Database Library</a>
         
       </nav>
 
@@ -174,7 +249,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../L1.html">L1 Module User Guide</a> &raquo;</li>
         
@@ -205,9 +280,9 @@
 implemented as <a class="reference internal" href="../hw_api.html#cid-xf-database-bitonicsort"><span class="std std-ref">bitonicSort</span></a> function.
 Bitonic sort is a special kind of sorting network, where the sequence of comparisons is not data-dependent.
 This makes sorting networks suitable for implementation in hardware or in parallel processor arrays. The computing complexity of bitonic sort is O(n*log(n)2).</p>
-<a class="reference internal image-reference" href="../../_images/bitonic_sort_architecture.png"><img alt="Bitonic Sort Processing Structure" class="align-center" src="../../_images/bitonic_sort_architecture.png" style="width: 80%;" /></a>
+<img alt="Bitonic Sort Processing Structure" class="align-center" src="../../_images/bitonic_sort_architecture.png" />
 <p>Bitonic sort have giant data throughput and it demands large resource same time. It is well-fitted for the application with high band of data input.
-The table show the resource consumption for a realization of bitonic sort with input bitwidth=32.</p>
+The table shows the resource consumption for an instance of bitonic sort with input bitwidth=32.</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -252,7 +327,7 @@ The table show the resource consumption for a realization of bitonic sort with i
 </table>
 </div></blockquote>
 <p>If the bitonic sort number grow twice, the resource consumption of bitonic sort will grow around four times theoretically.</p>
-<a class="reference internal image-reference" href="../../_images/bitonic_sort_resource_consumption.png"><img alt="Bitonic Sort Resource Consumption in FPGA" class="align-center" src="../../_images/bitonic_sort_resource_consumption.png" style="width: 80%;" /></a>
+<img alt="Bitonic Sort Resource Consumption in FPGA" class="align-center" src="../../_images/bitonic_sort_resource_consumption.png" />
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">The current version of bitonic sort is stream in and stream out.
@@ -260,9 +335,9 @@ The bitonic sort number must be a power of two because of the algorithm restrict
 </div>
 <div class="admonition caution">
 <p class="first admonition-title">Caution</p>
-<p class="last">The size of bitonic sort number should be set with the consideration of FPGA resource, place and routing.</p>
+<p class="last">The size of bitonic sort number should be set with the consideration of FPGA resource to pass place and route.</p>
 </div>
-<p>This <code class="docutils literal notranslate"><span class="pre">bitonicSort</span></code> primitve has one port for key input, one port for payload input, one port for key output, one port for payload output and one bool sign for indicating ascending sort or descending sort.</p>
+<p>This <code class="docutils literal notranslate"><span class="pre">bitonicSort</span></code> primitive has one port for key input, one port for payload input, one port for key output, one port for payload output and one boolean sign for indicating ascending sort or descending sort.</p>
 </div>
 
 
@@ -283,14 +358,18 @@ The bitonic sort number must be a power of two because of the algorithm restrict
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -300,7 +379,6 @@ The bitonic sort number must be a power of two because of the algorithm restrict
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

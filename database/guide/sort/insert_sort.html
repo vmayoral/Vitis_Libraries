@@ -6,14 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Internals of Insert Sort &mdash; XF Database Library 2.0 beta documentation</title>
+  <title>Internals of Insert Sort &mdash; Vitis Database Library v2019.2 documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
-  
-    <link rel="shortcut icon" href="../../_static/xf-favicon.ico"/>
   
   
   
@@ -34,7 +58,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Internals of Merge Sort" href="merge_sort.html" />
@@ -42,7 +65,54 @@
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -52,12 +122,9 @@
           
 
           
-            <a href="../../index.html">
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Database Library
           
 
-          
-            
-            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -65,7 +132,7 @@
             
             
               <div class="version">
-                2.0
+                2019.2
               </div>
             
           
@@ -82,6 +149,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -103,15 +171,20 @@
 <li class="toctree-l2"><a class="reference internal" href="../hw_sql_guide.html">Primitive Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hw_api.html">Primitive APIs in <code class="docutils literal notranslate"><span class="pre">xf::database</span></code></a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../internals.html">Primitive Design Internals</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../filter/dynamic_filter.html">Internals of Dynamic Filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../eval/dynamic_eval.html">Internals of Dynamic Evaluation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../group_aggr/group_aggr.html">Internals of Group Aggregate (Using Sorted Rows)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filter/dynamic_filter.html">Internals of Dynamic-Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../eval/dynamic_eval.html">Internals of Dynamic-Evaluation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash/hash.html">Internals of Lookup3 and Murmur3 Hash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bloom_filter/bloom_filter.html">Internals of Bloom-Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../group_aggr/group_aggr.html">Internals of Group-Aggregate (Using Sorted Rows)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../group_aggr/direct_group_aggr.html">Internals of Direct-Group-Aggregate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../group_aggr/hash_group_aggr.html">Internals of Hash Group Aggregate (Generic Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../group_aggr/hash_group_aggr.html">Internals of Hash-Group-Aggregate (Generic Version)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_join_mpu.html">Internals of Hash-Join (Multi-Process-Unit Version)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_semi_join.html">Implementation of Hash-Semi-Join (Multi-Process-Unit Version)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_join_v3.html">Internals of Hash-Join-v3 and Hash-Build-Probe-v3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_join_v4.html">Internals of Hash-Join-v4 and Hash-Build-Probe-v4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_semi_join.html">Internals of Hash-Semi-Join (Multi-Process-Unit Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_anti_join.html">Internals of Hash-Anti-Join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hash_join/hash_multi_join.html">Internals of Hash-Multi-Join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../partition/partition.html">Internals of Hash-Partition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../non_hash_join/merge_join.html">Internals of Merge-Join and Merge-Left-Join</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../non_hash_join/nested_loop_join.html">Internals of Nested-Loop-Join</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../combine_split/combine_split_unit.html">Internals of Combine-Split-Unit</a></li>
@@ -123,6 +196,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="merge_sort.html">Internals of Merge Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scan/scan_col.html">Internals of Scan</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../query_demo.html">Query-Specific Acceleration Demo</a></li>
@@ -139,6 +213,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -148,7 +223,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF Database Library</a>
+          <a href="../../index.html">Vitis Database Library</a>
         
       </nav>
 
@@ -177,7 +252,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../L1.html">L1 Module User Guide</a> &raquo;</li>
         
@@ -208,25 +283,25 @@
 implemented as <a class="reference internal" href="../hw_api.html#cid-xf-database-insertsort"><span class="std std-ref">insertSort</span></a> function.</p>
 <div class="section" id="principle">
 <h2>Principle<a class="headerlink" href="#principle" title="Permalink to this headline">¶</a></h2>
-<p>Insert sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort. However, insertion sort provides several advantages:</p>
+<p>Insert sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort. However, insert sort provides several advantages:</p>
 <p>1.Simple implementation;</p>
 <p>2.Efficient for (quite) small data sets, much like other quadratic sorting algorithms;</p>
 <p>3.The time complexity is O(nk) when each element in the input is no more than k places away from its sorted position;</p>
 <p>4.Only requires a constant amount O(1) of additional memory space;</p>
 <p>5.Sort a list as it receives it.</p>
-<p>For its FPGA implementation, a dedicated struture is designed as follow:</p>
-<a class="reference internal image-reference" href="../../_images/insert_sort_architecture.png"><img alt="Insert Sort Processing  Structure" class="align-center" src="../../_images/insert_sort_architecture.png" style="width: 80%;" /></a>
+<p>For its FPGA implementation, a dedicated structure is designed as follow:</p>
+<img alt="Insert Sort Processing  Structure" class="align-center" src="../../_images/insert_sort_architecture.png" />
 <p>The Insert Sort primitive has an internal shift register array to sort the input stream.
 It takes five steps to finish the sort processing of a stream with limited max sort number.</p>
 <p>1.Build a group of shift registers, and the number of shift register is the maximum sort number;</p>
 <p>2.Boardcasting the input value to every shift registers, then comapring size between the internal value of each shift register and the input value. For descending sort, run step3. Otherwise, run step4;</p>
-<p>3.For descending sort, we should build a internal ascending array. If the input value is larger than array[i], then right shift array[i]. If the input value is less then array[i] and larger then array[i+1], insert input value to array[i+1];</p>
-<p>4.For ascending sort, we should build a internal descending array. If the input value is less than array[i], then right shift array[i]. If the input value is larger then array[i] and less then array[i+1], insert input value to array[i+1];</p>
+<p>3.For descending sort, we should build a internal ascending array. If the input value is larger than array[i], then right shift array[i]. If the input value is less than array[i] and larger than array[i+1], insert input value to array[i+1];</p>
+<p>4.For ascending sort, we should build a internal descending array. If the input value is less than array[i], then right shift array[i]. If the input value is larger than array[i] and less than array[i+1], insert input value to array[i+1];</p>
 <p>5.If input stream is not empty, output the last value of the array and then return to step2. Otherwise, right shift the whole register array and output the last array value until the array is empty.</p>
 </div>
 <div class="section" id="synthesis-results">
 <h2>Synthesis Results<a class="headerlink" href="#synthesis-results" title="Permalink to this headline">¶</a></h2>
-<p>For bitwidth=32, the resource consumption for defferent max sort number is listed in the table below:</p>
+<p>For bitwidth=32, the resource consumption for different max sort number is listed in the table below:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="18%" />
@@ -277,16 +352,16 @@ It takes five steps to finish the sort processing of a stream with limited max s
 </tr>
 </tbody>
 </table>
-<a class="reference internal image-reference" href="../../_images/insert_sort_resource.png"><img alt="Insert Sort Resource Consumption" class="align-center" src="../../_images/insert_sort_resource.png" style="width: 80%;" /></a>
+<img alt="Insert Sort Resource Consumption" class="align-center" src="../../_images/insert_sort_resource.png" />
 <p>Insert Sort primitive set 1024 as the default maximum sort number.
-In order to achieve arbitary sort number, firstly the input stream will be sorted every 1024 number by Insert Sort primitive, then we use Merge Sort primitive to merge the sorted stream, see reference <a class="reference internal" href="merge_sort.html#guide-merge-sort"><span class="std std-ref">Internals of Merge Sort</span></a>. The picture below show the synthesis result for maximum sort number of 1024.</p>
-<a class="reference internal image-reference" href="../../_images/insert_sort_synthesis_resource.png"><img alt="Insert Sort Synthesis" class="align-center" src="../../_images/insert_sort_synthesis_resource.png" style="width: 80%;" /></a>
-<a class="reference internal image-reference" href="../../_images/insert_sort_loop_synthesis.png"><img alt="Insert Sort Loop" class="align-center" src="../../_images/insert_sort_loop_synthesis.png" style="width: 80%;" /></a>
+In order to achieve arbitrary sort number, firstly the input stream will be sorted every 1024 number by Insert Sort primitive, then we use Merge Sort primitive to merge the sorted stream, see reference <a class="reference internal" href="merge_sort.html#guide-merge-sort"><span class="std std-ref">Internals of Merge Sort</span></a>. The picture below show the synthesis result for maximum sort number of 1024.</p>
+<img alt="Insert Sort Synthesis" class="align-center" src="../../_images/insert_sort_synthesis_resource.png" />
+<img alt="Insert Sort Loop" class="align-center" src="../../_images/insert_sort_loop_synthesis.png" />
 </div>
 <div class="section" id="implementation-results">
 <h2>Implementation Results<a class="headerlink" href="#implementation-results" title="Permalink to this headline">¶</a></h2>
-<p>This is the impemeatation result of Insert Sort primitive with Max_sort_number=1024:</p>
-<a class="reference internal image-reference" href="../../_images/insert_sort_implementation_resource.png"><img alt="Insert Sort Implementation" class="align-center" src="../../_images/insert_sort_implementation_resource.png" style="width: 80%;" /></a>
+<p>This is the implementation result of Insert Sort primitive with Max_sort_number=1024:</p>
+<img alt="Insert Sort Implementation" class="align-center" src="../../_images/insert_sort_implementation_resource.png" />
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">The max sort number should be less than 1024 because array partition can only support array size smaller then 1024.
@@ -294,9 +369,9 @@ For arbitary sort number, Merge Sort primitive is required <a class="reference i
 </div>
 <div class="admonition caution">
 <p class="first admonition-title">Caution</p>
-<p class="last">The size of input stream should be larger then the max sort number, otherwise the internal shift register is not fully initialized.</p>
+<p class="last">The size of input stream should be larger than the max sort number, otherwise the internal shift register is not fully initialized.</p>
 </div>
-<p>This <code class="docutils literal notranslate"><span class="pre">insertSort</span></code> primitve has one port for key input, one port for payload input, one port for key output, one port for payload output and one bool sign for indicating ascending sort or descending sort.</p>
+<p>This <code class="docutils literal notranslate"><span class="pre">insertSort</span></code> primitive has one port for key input, one port for payload input, one port for key output, one port for payload output and one boolean sign for indicating ascending sort or descending sort.</p>
 </div>
 </div>
 
@@ -318,14 +393,18 @@ For arbitary sort number, Merge Sort primitive is required <a class="reference i
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -335,7 +414,6 @@ For arbitary sort number, Merge Sort primitive is required <a class="reference i
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

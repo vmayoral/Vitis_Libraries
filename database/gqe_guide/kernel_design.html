@@ -6,14 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>GQE Kernel Design &mdash; XF Database Library 2.0 beta documentation</title>
+  <title>GQE Kernel Design &mdash; Vitis Database Library v2019.2 documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
-  
-    <link rel="shortcut icon" href="../_static/xf-favicon.ico"/>
   
   
   
@@ -34,7 +58,6 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="GQE Kernel APIs" href="kernel_api.html" />
@@ -42,7 +65,54 @@
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -52,12 +122,9 @@
           
 
           
-            <a href="../index.html">
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Database Library
           
 
-          
-            
-            <img src="../_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -65,7 +132,7 @@
             
             
               <div class="version">
-                2.0
+                2019.2
               </div>
             
           
@@ -82,6 +149,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -122,6 +190,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -131,7 +200,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF Database Library</a>
+          <a href="../index.html">Vitis Database Library</a>
         
       </nav>
 
@@ -160,7 +229,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="L2.html">L2 GQE Kernel User Guide</a> &raquo;</li>
         
@@ -189,10 +258,10 @@
 <span id="gqe-join-kernel-design"></span><h2>Join Kernel<a class="headerlink" href="#join-kernel" title="Permalink to this headline">¶</a></h2>
 <p>The GQE join kernel is a compound of multiple post-bitstream programmable primitives,
 and can execute not only hash-join but also a number of primitives often found as
-prologue or epilogue of join operations. With its all-bypassable data path,
-it can even perform execution step sequence without a join.</p>
-<a class="reference internal image-reference" href="../_images/gqe_join_kernel.png"><img alt="GQE Join Kernel" class="align-center" src="../_images/gqe_join_kernel.png" style="width: 1105.6000000000001px; height: 389.6px;" /></a>
-<p>The internal of this kernel is illustrate in the figure above. Internal multi-join supports
+prologue or epilogue of join operations. With its bypass design in data path,
+it can even perform execution without a join.</p>
+<a class="reference internal image-reference" href="../_images/gqe_join_kernel.png"><img alt="GQE Join Kernel" class="align-center" src="../_images/gqe_join_kernel.png" style="width: 829.1999999999999px; height: 292.2px;" /></a>
+<p>The internal of this kernel is illustrated in the figure above. Internal multi-join supports
 three reconfigurable modes, namely inner join, anti-join and semi-join.
 This kernel works with three input buffers, two for data and one for configuration,
 and it emits result to one output buffer, with same data structure as its data input buffers.</p>
@@ -200,14 +269,14 @@ and it emits result to one output buffer, with same data structure as its data i
 using one’s output as successor’s input. Basically, a buffer contains an input table
 or an intermediate result table, and each table has a list of data columns,
 placed one after another and aligned to 512b boundaries.</p>
-<p>Each column’s data structure is essentially a 512bit header, followed by raw data.</p>
+<p>Each column’s data structure is essentially a 512-bit header, followed by raw data.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">In current release, all columns are expected to have the same number of elements of same type,
+<p class="last">In the current release, all columns are expected to have the same number of elements of same type,
 so only the first columns header is used by kernel. This will likely change in future release.</p>
 </div>
 <p>The buffer and column’s data structure is shown in the figure below.</p>
-<a class="reference internal image-reference" href="../_images/gqe_2.0_data.png"><img alt="GQE 2.0 Data Buffer Content" class="align-center" src="../_images/gqe_2.0_data.png" style="width: 452.0px; height: 575.2px;" /></a>
+<a class="reference internal image-reference" href="../_images/gqe_2.0_data.png"><img alt="GQE 2.0 Data Buffer Content" class="align-center" src="../_images/gqe_2.0_data.png" style="width: 339.0px; height: 431.4px;" /></a>
 <p>The configuration buffer basically programs the kernel at runtime. It toggles execution step
 primitives on or off, and defines the filter and/or evaluation expressions.
 The details are documented in the following table:</p>
@@ -224,7 +293,7 @@ The details are documented in the following table:</p>
 <col width="9%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">192-512</th>
+<tr class="row-odd"><th class="head">192-511</th>
 <th class="head">191-184</th>
 <th class="head">120-183</th>
 <th class="head">56-119</th>
@@ -275,12 +344,12 @@ The last two slots in data path will be filled with zeros.</p>
 <p>The filter config is aligned to lower bits, and each filter’s config fully covers the first two
 512-bit slots, and partially use the third one.</p>
 <p>Here the <code class="docutils literal notranslate"><span class="pre">join_on</span></code> option toggles whether hash-join is enabled or by-passed in the pipeline.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">dual_key</span></code> option instruct the kernel to use
-both first and second column as join key in hash-join, and when it is asserted, the thrid column
+<p>The <code class="docutils literal notranslate"><span class="pre">dual_key</span></code> option instructs the kernel to use
+both first and second column as join key in hash-join, and when it is asserted, the third column
 becomes the first part of the payload input.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">join</span> <span class="pre">sel</span></code> option indicates the work mode of multi-join, 0 for normal hash join, 1 for semi-join and
 2 for anti-join.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">append</span></code> option toggles whether the append mode is enable during writing out consecutive joined table.
+<p>The <code class="docutils literal notranslate"><span class="pre">append</span></code> option toggles whether the append mode is enabled during writing out consecutive joined table.
 This option would be usually used when it joins two sub-tables after hash partition.</p>
 <p>The eval config is for the <a class="reference internal" href="../guide/hw_api.html#cid-xf-database-dynamiceval"><span class="std std-ref">dynamicEval</span></a> primitive,
 and aligns to the lower bits of the 512-bit allocated for it.</p>
@@ -289,16 +358,16 @@ When <code class="docutils literal notranslate"><span class="pre">aggr_on</span>
 <div class="admonition caution">
 <p class="first admonition-title">Caution</p>
 <p class="last">To support large sum and count, the output data width of these two fields are doubled.
-So that the aggregation value for each column is be <code class="docutils literal notranslate"><span class="pre">min,</span> <span class="pre">max,</span> <span class="pre">sum</span> <span class="pre">LSB,</span> <span class="pre">sum</span> <span class="pre">MSB,</span> <span class="pre">count</span> <span class="pre">LSB,</span> <span class="pre">count</span> <span class="pre">MSB</span></code>.</p>
+So that the aggregation value for each column is <code class="docutils literal notranslate"><span class="pre">min,</span> <span class="pre">max,</span> <span class="pre">sum</span> <span class="pre">LSB,</span> <span class="pre">sum</span> <span class="pre">MSB,</span> <span class="pre">count</span> <span class="pre">LSB,</span> <span class="pre">count</span> <span class="pre">MSB</span></code>.</p>
 </div>
 <p>The write option is basically a bit mask for 8 slots in data path.
-Only when the corresponding one-hot bit is asserted, will then column being write to output buffer.</p>
+Only when the corresponding one-hot bit is asserted, the column is written to the output buffer.</p>
 <div class="admonition caution">
 <p class="first admonition-title">Caution</p>
 <p class="last">Due to limitation in current <code class="docutils literal notranslate"><span class="pre">write_out</span></code>, the output buffer must always
 provide 8 column slots, even not all used.</p>
 </div>
-<p>The hardware resource utilizations of join kernel is shown in the table below (work as 182MHz).</p>
+<p>The hardware resource utilization of join kernel is shown in the table below (work as 182MHz).</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="18%" />
@@ -417,22 +486,22 @@ provide 8 column slots, even not all used.</p>
 </div>
 <div class="section" id="aggregate-kernel">
 <h2>Aggregate Kernel<a class="headerlink" href="#aggregate-kernel" title="Permalink to this headline">¶</a></h2>
-<p>The GQE Aggregate kernel is one of foundamental programmable modules in General Query Engine (GQE),
-which can process both group and aggregate operations.</p>
-<a class="reference internal image-reference" href="../_images/gqe_aggr_kernel.png"><img alt="GQE Aggregate Kernel" class="align-center" src="../_images/gqe_aggr_kernel.png" style="width: 1068.8px; height: 464.0px;" /></a>
+<p>The GQE Aggregate kernel is another key kernel of General Query Engine (GQE),
+and supports both grouping and non-grouping aggregate operations.</p>
+<a class="reference internal image-reference" href="../_images/gqe_aggr_kernel.png"><img alt="GQE Aggregate Kernel" class="align-center" src="../_images/gqe_aggr_kernel.png" style="width: 801.6px; height: 348.0px;" /></a>
 <p>The internal structure of this kernel is shown in the figure above. It consists of one scan and write,
-two evalutions, one filter, hash group aggregate as well as one aggregate primitive. Raw input table are
+two evaluations, one filter, hash group aggregate as well as one aggregate primitive. Raw input table is
 scanned in or write out by column. Before entering into hash group aggregate module, each element in each
-row will be evaluated and filterd. Thus, some new elements can be generated and some rows will be
-left behind. Moreover, two cascaded evaluation modules are added to support more complex expression.</p>
-<p>Hash group aggregate is the key module in this kernel, which is a multiple PU implementation and given
+row will be evaluated and filtered. Thus, some new elements can be generated and some rows will be
+discarded behind. Moreover, two cascaded evaluation modules are added to support more complex expression.</p>
+<p>Hash group aggregate is the key module in this kernel, which is a multi-PU implementation and given
 in the following diagram. Each PU requires 2 HBM banks and some URAM memory blocks to buffer distinct
-keys as well as payloads after aggregate operations. And one internal loop are implemented to consume
+keys as well as payloads after aggregate operations. And one internal loop is implemented to consume
 all input rows with each iteration. Furthermore, all PUs are working in parallel to achieve higher
 performance.</p>
-<a class="reference internal image-reference" href="../_images/gqe_aggr_detail.png"><img alt="Detais Diagram of Hash Group Aggregate" class="align-center" src="../_images/gqe_aggr_detail.png" style="width: 887.2px; height: 562.4px;" /></a>
-<p>Also, both input and output table’s data structure is same as join kernel. The whole configuration are
-composed of 128 32bit slot. And the detail map of configuration buffer are listed in the table:</p>
+<a class="reference internal image-reference" href="../_images/gqe_aggr_detail.png"><img alt="Detais Diagram of Hash Group Aggregate" class="align-center" src="../_images/gqe_aggr_detail.png" style="width: 665.4px; height: 421.8px;" /></a>
+<p>Also, both input and output table’s data structure is same as join kernel. The whole configuration is
+composed of 128 32-bit slot. And the detail map of configuration buffer are listed in the table:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
@@ -501,7 +570,7 @@ composed of 128 32bit slot. And the detail map of configuration buffer are liste
 </tr>
 </tbody>
 </table>
-<p>The hardware resource utilizations of hash group aggregate is shown in the table below (work as 193MHz).</p>
+<p>The hardware resource utilization of hash group aggregate is shown in the table below (work as 193MHz).</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="18%" />
@@ -620,21 +689,21 @@ composed of 128 32bit slot. And the detail map of configuration buffer are liste
 </div>
 <div class="section" id="partition-kernel">
 <h2>Partition Kernel<a class="headerlink" href="#partition-kernel" title="Permalink to this headline">¶</a></h2>
-<p>The GQE partition kernel is one of foundamental programmable modules in GQE, which can partition one table’s
-rows into corresponding clusters using predefined hash function. It can work alone or incorporate with join kernel as
-well as aggregate kernel. Meanwhile, dynamic filter is also supported before partition process.</p>
-<a class="reference internal image-reference" href="../_images/gqe_part_kernel.png"><img alt="GQE Part Kernel" class="align-center" src="../_images/gqe_part_kernel.png" style="width: 750.4000000000001px; height: 314.40000000000003px;" /></a>
-<p>The internal of this kernel is illustrated in the figure above. It consists of two input buffer and one output buffer.
-Firsyly, input table are scanned into multiple columns and then perform filter if related condition is given
+<p>The GQE partition kernel can partition one table’s rows into corresponding clusters according to hash of selected
+key columns. This kernel is designed to scale the problem size that can be handled by the GQE Join or Aggregate kernel.
+To reduce the size of intermediate data, it is equipped with dynamic filter like other kernels.</p>
+<a class="reference internal image-reference" href="../_images/gqe_part_kernel.png"><img alt="GQE Part Kernel" class="align-center" src="../_images/gqe_part_kernel.png" style="width: 656.5999999999999px; height: 275.09999999999997px;" /></a>
+<p>The internal of this kernel is illustrated in the figure above. It consists of two input buffers and one output buffer.
+Firstly, input table is scanned into multiple columns and then perform filter if related condition is given
 in configuration buffer. After that, each row will be dispatched into various buckets based on the hash value of
 primary key. Finally, every full hash bucket will trigger on one burst write into output buffer.</p>
-<p>The details for hash parition is shown in the following figure. One URAM array is used to buffer one burst lengh rows
+<p>The details for hash partition is shown in the following figure. One URAM array is used to buffer one burst length rows
 for each hash part. And the following module behind build PU will spilt each row into multiple columns for compatible
 output format with other kernels.</p>
-<a class="reference internal image-reference" href="../_images/gqe_part_detail.png"><img alt="Detais Diagram of Hash Partition" class="align-center" src="../_images/gqe_part_detail.png" style="width: 913.6px; height: 405.6px;" /></a>
-<p>For simplicity of use, GQE partition kernel cane resue the scan and filter configuration with GQE join kernel. Also,
+<a class="reference internal image-reference" href="../_images/gqe_part_detail.png"><img alt="Detais Diagram of Hash Partition" class="align-center" src="../_images/gqe_part_detail.png" style="width: 799.4px; height: 354.9px;" /></a>
+<p>To simplify the design, GQE partition kernel can reuse the scan and filter configuration with GQE join kernel. Also,
 as mentioned above, both input and output table’s data structure is same as join kernel.</p>
-<p>The hardware resource utilizations of single hash partition is shown in the table below (work as 200MHz).</p>
+<p>The hardware resource utilization of single hash partition is shown in the table below (work as 200MHz).</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="18%" />
@@ -747,14 +816,18 @@ and invoke GQE Join or Aggregate kernel multiple times accordingly.</p>
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -764,7 +837,6 @@ and invoke GQE Join or Aggregate kernel multiple times accordingly.</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

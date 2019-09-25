@@ -6,14 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Primitive APIs in xf::database &mdash; XF Database Library 2.0 beta documentation</title>
+  <title>Primitive APIs in xf::database &mdash; Vitis Database Library v2019.2 documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
-  
-    <link rel="shortcut icon" href="../_static/xf-favicon.ico"/>
   
   
   
@@ -34,7 +58,6 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Primitive Design Internals" href="internals.html" />
@@ -42,7 +65,54 @@
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -52,12 +122,9 @@
           
 
           
-            <a href="../index.html">
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Database Library
           
 
-          
-            
-            <img src="../_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -65,7 +132,7 @@
             
             
               <div class="version">
-                2.0
+                2019.2
               </div>
             
           
@@ -82,6 +149,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -214,6 +282,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -223,7 +292,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF Database Library</a>
+          <a href="../index.html">Vitis Database Library</a>
         
       </nav>
 
@@ -252,7 +321,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="L1.html">L1 Module User Guide</a> &raquo;</li>
         
@@ -298,7 +367,8 @@
 </pre>
 <p>Overload for most common aggregations.</p>
 <p>As shown below in the parameters, this function can calculate one of a range of statistics, including minimal, maximal, average(mean), variance, L1 norm, L2 norm. It can also calculate the sum and count.</p>
-<p>The limitation in this function is that the output data type must match the input data type. In some cases, the sum or count may overflow the output type. This can be safely covered by other aggregation function overloads.</p>
+<p>The limitation in this function is that the output data type must match with the input data type. In some cases, the sum or count may overflow the output type, but it can be safely covered by other aggregation overloads.</p>
+<p>Note that minimum, maximum, sum, count, number of non-zero, L1 norm as well as L2 norm aggregate functions will all be returned as zero when the input is empty.</p>
 <p>For group-by aggregation, please refer to the <code class="docutils literal notranslate"><span class="pre">hashGroupAggregateMPU</span></code> primitive.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -311,7 +381,7 @@
 <td>the aggregate operator: AOP_SUM, AOP_MAX, AOP_MIN, AOP_MEAN, AOP_VARIANCE, AOP_NORML1 or AOP_NORML2</td>
 </tr>
 <tr class="row-even"><td>T</td>
-<td>the input and output stream type</td>
+<td>the data type of input and output streams</td>
 </tr>
 <tr class="row-odd"><td>in_strm</td>
 <td>input data stream</td>
@@ -348,6 +418,7 @@
 </pre>
 <p>Aggregate function overload for SUM operation.</p>
 <p>The output type can be inferred to be different from input type, this allows the sum value to have more precision bits than input, and avoid overflow.</p>
+<p>Note that sum aggregate function will be returned as zero when the input is empty.</p>
 <p>For group-by aggregation, please refer to the <code class="docutils literal notranslate"><span class="pre">hashGroupAggregateMPU</span></code> primitive.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -360,10 +431,10 @@
 <td>the aggregate operator: AOP_SUM</td>
 </tr>
 <tr class="row-even"><td>T</td>
-<td>the input and output stream type, inferred from argument</td>
+<td>the data type of input stream, inferred from argument</td>
 </tr>
 <tr class="row-odd"><td>T2</td>
-<td>the output and output stream type, inferred from argument</td>
+<td>the data type of output stream, inferred from argument</td>
 </tr>
 <tr class="row-even"><td>in_strm</td>
 <td>input data stream</td>
@@ -399,6 +470,7 @@
 </pre>
 <p>Aggregate function overload for counting.</p>
 <p>This function counts the number of input rows, or number of non-zero input rows, and returns the count as <code class="docutils literal notranslate"><span class="pre">uint64_t</span></code> value.</p>
+<p>Note that count aggregate function will be returned as zero when the input is empty.</p>
 <p>For group-by aggregation, please refer to the <code class="docutils literal notranslate"><span class="pre">hashGroupAggregateMPU</span></code> primitive.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -411,7 +483,7 @@
 <td>the aggregate operator: AOP_COUNT or AOP_COUNTNONZEROS</td>
 </tr>
 <tr class="row-even"><td>T</td>
-<td>the input and output stream type, inferred from argument</td>
+<td>the data type of input stream, inferred from argument</td>
 </tr>
 <tr class="row-odd"><td>in_strm</td>
 <td>input data stream</td>
@@ -467,13 +539,13 @@
 <td>input key stream</td>
 </tr>
 <tr class="row-even"><td>kin_strm_end</td>
-<td>end flag stream for input data</td>
+<td>end flag stream for input key</td>
 </tr>
 <tr class="row-odd"><td>kout_strm</td>
 <td>output key stream</td>
 </tr>
 <tr class="row-even"><td>kout_strm_end</td>
-<td>end flag stream for output data</td>
+<td>end flag stream for output key</td>
 </tr>
 <tr class="row-odd"><td>order</td>
 <td>1 for ascending or 0 for descending sort</td>
@@ -554,7 +626,7 @@
     <span class="p">)</span>
 </pre>
 <p>Generate the bloomfilter in on-chip RAM blocks, and emit the vectors upon finish.</p>
-<p>This primitive calculates hash of input values, and marks corresponding bits in the on-chip RAM blocks. RAM blocks can be configured to be 18-bit BRAM or 72-bit URAM.</p>
+<p>This primitive calculates hash values of input, and marks corresponding bits in the on-chip RAM blocks. RAM blocks can be configured to be 18-bit BRAM or 72-bit URAM.</p>
 <p>The bloom-filter bit vectors are built into internally allocated buffers, and streamed out after the filter has been fully built.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -669,7 +741,7 @@
     <span class="p">)</span>
 </pre>
 <p>Combines two columns into one.</p>
-<p>Columns are passed through streams of certain width in hardware. Normally, each column uses one stream, but for some primitives, the processing semantic abstract the columns into a couple of groups, and trait each group as a whole. To make call to such primitives easier, the combine column primitive fuses data of same row but different columns into one wide column.</p>
+<p>Columns are passed through streams of certain width in hardware. Normally, each column uses one stream, but for some primitives, the processing semantic abstract the columns into a couple of groups, and trait each group as a whole. To make calling such primitives easier, the combine column primitive fuses data of same row but different columns into one wide column.</p>
 <p>The counter part of this primitive is <code class="docutils literal notranslate"><span class="pre">splitCol</span></code> .</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -688,10 +760,10 @@
 <td>the width of output stream.</td>
 </tr>
 <tr class="row-even"><td>din1_strm</td>
-<td>input data stream.</td>
+<td>1st input data stream.</td>
 </tr>
 <tr class="row-odd"><td>din2_strm</td>
-<td>input data stream.</td>
+<td>2nd input data stream.</td>
 </tr>
 <tr class="row-even"><td>in_e_strm</td>
 <td>end flag stream for input data.</td>
@@ -727,7 +799,7 @@
     <span class="p">)</span>
 </pre>
 <p>Combines three columns into one.</p>
-<p>Columns are passed through streams of certain width in hardware. Normally, each column uses one stream, but for some primitives, the processing semantic abstract the columns into a couple of groups, and trait each group as a whole. To make call to such primitives easier, the combine column primitive fuses data of same row but different columns into one wide column.</p>
+<p>Columns are passed through streams of certain width in hardware. Normally, each column uses one stream, but for some primitives, the processing semantic abstract the columns into a couple of groups, and trait each group as a whole. To make calling such primitives easier, the combine column primitive fuses data of same row but different columns into one wide column.</p>
 <p>The counter part of this primitive is <code class="docutils literal notranslate"><span class="pre">splitCol</span></code> .</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -749,13 +821,13 @@
 <td>the width of output stream.</td>
 </tr>
 <tr class="row-odd"><td>din1_strm</td>
-<td>input data stream.</td>
+<td>1st input data stream.</td>
 </tr>
 <tr class="row-even"><td>din2_strm</td>
-<td>input data stream.</td>
+<td>2nd input data stream.</td>
 </tr>
 <tr class="row-odd"><td>din3_strm</td>
-<td>input data stream.</td>
+<td>3rd input data stream.</td>
 </tr>
 <tr class="row-even"><td>in_e_strm</td>
 <td>end flag stream for input data.</td>
@@ -793,7 +865,7 @@
     <span class="p">)</span>
 </pre>
 <p>Combines four columns into one.</p>
-<p>Columns are passed through streams of certain width in hardware. Normally, each column uses one stream, but for some primitives, the processing semantic abstract the columns into a couple of groups, and trait each group as a whole. To make call to such primitives easier, the combine column primitive fuses data of same row but different columns into one wide column.</p>
+<p>Columns are passed through streams of certain width in hardware. Normally, each column uses one stream, but for some primitives, the processing semantic abstract the columns into a couple of groups, and trait each group as a whole. To make calling such primitives easier, the combine column primitive fuses data of same row but different columns into one wide column.</p>
 <p>The counter part of this primitive is <code class="docutils literal notranslate"><span class="pre">splitCol</span></code> .</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -818,16 +890,16 @@
 <td>the width of output stream.</td>
 </tr>
 <tr class="row-even"><td>din1_strm</td>
-<td>input data stream.</td>
+<td>1st input data stream.</td>
 </tr>
 <tr class="row-odd"><td>din2_strm</td>
-<td>input data stream.</td>
+<td>2nd input data stream.</td>
 </tr>
 <tr class="row-even"><td>din3_strm</td>
-<td>input data stream.</td>
+<td>3rd input data stream.</td>
 </tr>
 <tr class="row-odd"><td>din4_strm</td>
-<td>input data stream.</td>
+<td>4th input data stream.</td>
 </tr>
 <tr class="row-even"><td>in_e_strm</td>
 <td>end flag stream for input data.</td>
@@ -867,7 +939,7 @@
     <span class="p">)</span>
 </pre>
 <p>Combines five columns into one.</p>
-<p>Columns are passed through streams of certain width in hardware. Normally, each column uses one stream, but for some primitives, the processing semantic abstract the columns into a couple of groups, and trait each group as a whole. To make call to such primitives easier, the combine column primitive fuses data of same row but different columns into one wide column.</p>
+<p>Columns are passed through streams of certain width in hardware. Normally, each column uses one stream, but for some primitives, the processing semantic abstract the columns into a couple of groups, and trait each group as a whole. To make calling such primitives easier, the combine column primitive fuses data of same row but different columns into one wide column.</p>
 <p>The counter part of this primitive is <code class="docutils literal notranslate"><span class="pre">splitCol</span></code> .</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -895,19 +967,19 @@
 <td>the width of output stream.</td>
 </tr>
 <tr class="row-odd"><td>din1_strm</td>
-<td>input data stream.</td>
+<td>1st input data stream.</td>
 </tr>
 <tr class="row-even"><td>din2_strm</td>
-<td>input data stream.</td>
+<td>2nd input data stream.</td>
 </tr>
 <tr class="row-odd"><td>din3_strm</td>
-<td>input data stream.</td>
+<td>3rd input data stream.</td>
 </tr>
 <tr class="row-even"><td>din4_strm</td>
-<td>input data stream.</td>
+<td>4th input data stream.</td>
 </tr>
 <tr class="row-odd"><td>din5_strm</td>
-<td>input data stream.</td>
+<td>5th input data stream.</td>
 </tr>
 <tr class="row-even"><td>in_e_strm</td>
 <td>end flag stream for input data.</td>
@@ -944,7 +1016,7 @@
     <span class="p">)</span>
 </pre>
 <p>Split previously combined columns into two.</p>
-<p>Columns are passed through streams of certain width in hardware. Normally, each column uses one stream, but for some primitives, the processing semantic abstract the columns into a couple of groups, and trait each group as a whole. To make call to such primitives easier, the split column primitive breaks the wide output stream into independent column-specific streams.</p>
+<p>Columns are passed through streams of certain width in hardware. Normally, each column uses one stream, but for some primitives, the processing semantic abstract the columns into a couple of groups, and trait each group as a whole. To make calling such primitives easier, the split column primitive breaks the wide output stream into independent column-specific streams.</p>
 <p>The counter part of this primitive is <code class="docutils literal notranslate"><span class="pre">combineCol</span></code> .</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -969,10 +1041,10 @@
 <td>end flag stream for input data.</td>
 </tr>
 <tr class="row-even"><td>dout1_strm</td>
-<td>output data stream.</td>
+<td>1st output data stream.</td>
 </tr>
 <tr class="row-odd"><td>dout2_strm</td>
-<td>output data stream.</td>
+<td>2nd output data stream.</td>
 </tr>
 <tr class="row-even"><td>out_e_strm</td>
 <td>end flag stream for output data.</td>
@@ -1002,7 +1074,7 @@
     <span class="p">)</span>
 </pre>
 <p>Split previously combined columns into three.</p>
-<p>Columns are passed through streams of certain width in hardware. Normally, each column uses one stream, but for some primitives, the processing semantic abstract the columns into a couple of groups, and trait each group as a whole. To make call to such primitives easier, the split column primitive breaks the wide output stream into independent column-specific streams.</p>
+<p>Columns are passed through streams of certain width in hardware. Normally, each column uses one stream, but for some primitives, the processing semantic abstract the columns into a couple of groups, and trait each group as a whole. To make calling such primitives easier, the split column primitive breaks the wide output stream into independent column-specific streams.</p>
 <p>The counter part of this primitive is <code class="docutils literal notranslate"><span class="pre">combineCol</span></code> .</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -1030,13 +1102,13 @@
 <td>end flag stream for input data</td>
 </tr>
 <tr class="row-odd"><td>dout1_strm</td>
-<td>output data stream</td>
+<td>1st output data stream</td>
 </tr>
 <tr class="row-even"><td>dout2_strm</td>
-<td>output data stream</td>
+<td>2nd output data stream</td>
 </tr>
 <tr class="row-odd"><td>dout3_strm</td>
-<td>output data stream</td>
+<td>3rd output data stream</td>
 </tr>
 <tr class="row-even"><td>out_e_strm</td>
 <td>end flag stream for output data</td>
@@ -1068,7 +1140,7 @@
     <span class="p">)</span>
 </pre>
 <p>Split previously combined columns into four.</p>
-<p>Columns are passed through streams of certain width in hardware. Normally, each column uses one stream, but for some primitives, the processing semantic abstract the columns into a couple of groups, and trait each group as a whole. To make call to such primitives easier, the split column primitive breaks the wide output stream into independent column-specific streams.</p>
+<p>Columns are passed through streams of certain width in hardware. Normally, each column uses one stream, but for some primitives, the processing semantic abstract the columns into a couple of groups, and trait each group as a whole. To make calling such primitives easier, the split column primitive breaks the wide output stream into independent column-specific streams.</p>
 <p>The counter part of this primitive is <code class="docutils literal notranslate"><span class="pre">combineCol</span></code> .</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -1099,16 +1171,16 @@
 <td>end flag stream for input data</td>
 </tr>
 <tr class="row-even"><td>dout1_strm</td>
-<td>output data stream</td>
+<td>1st output data stream</td>
 </tr>
 <tr class="row-odd"><td>dout2_strm</td>
-<td>output data stream</td>
+<td>2nd output data stream</td>
 </tr>
 <tr class="row-even"><td>dout3_strm</td>
-<td>output data stream</td>
+<td>3rd output data stream</td>
 </tr>
 <tr class="row-odd"><td>dout4_strm</td>
-<td>output data stream</td>
+<td>4th output data stream</td>
 </tr>
 <tr class="row-even"><td>out_e_strm</td>
 <td>end flag stream for output data</td>
@@ -1142,7 +1214,7 @@
     <span class="p">)</span>
 </pre>
 <p>Split previously combined columns into five.</p>
-<p>Columns are passed through streams of certain width in hardware. Normally, each column uses one stream, but for some primitives, the processing semantic abstract the columns into a couple of groups, and trait each group as a whole. To make call to such primitives easier, the split column primitive breaks the wide output stream into independent column-specific streams.</p>
+<p>Columns are passed through streams of certain width in hardware. Normally, each column uses one stream, but for some primitives, the processing semantic abstract the columns into a couple of groups, and trait each group as a whole. To make calling such primitives easier, the split column primitive breaks the wide output stream into independent column-specific streams.</p>
 <p>The counter part of this primitive is <code class="docutils literal notranslate"><span class="pre">combineCol</span></code> .</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -1176,19 +1248,19 @@
 <td>end flag stream for input data</td>
 </tr>
 <tr class="row-odd"><td>dout1_strm</td>
-<td>output data stream</td>
+<td>1st output data stream</td>
 </tr>
 <tr class="row-even"><td>dout2_strm</td>
-<td>output data stream</td>
+<td>2nd output data stream</td>
 </tr>
 <tr class="row-odd"><td>dout3_strm</td>
-<td>output data stream</td>
+<td>3rd output data stream</td>
 </tr>
 <tr class="row-even"><td>dout4_strm</td>
-<td>output data stream</td>
+<td>4th output data stream</td>
 </tr>
 <tr class="row-odd"><td>dout5_strm</td>
-<td>output data stream</td>
+<td>5th output data stream</td>
 </tr>
 <tr class="row-even"><td>out_e_strm</td>
 <td>end flag stream for output data</td>
@@ -1233,7 +1305,13 @@
 <li>AOP_NORML1</li>
 <li>AOP_NORML2</li>
 </ul>
-<p>The return value is typed the same as the input payload value. <strong>Attention should be paid for overflow in sum or count.</strong></p>
+<p>The return value is typed the same as the input payload value.</p>
+<blockquote>
+<div><div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Attention should be paid for overflow in sum or count.</p>
+</div>
+</div></blockquote>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -1306,7 +1384,13 @@
 <li>AOP_MEAN</li>
 <li>AOP_NORM1</li>
 </ul>
-<p>The return value is typed the same as the input payload value. <strong>Attention should be paid for overflow in sum or count.</strong></p>
+<p>The return value is typed the same as the input payload value.</p>
+<blockquote>
+<div><div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Attention should be paid for overflow in sum or count.</p>
+</div>
+</div></blockquote>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -1363,7 +1447,7 @@
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_out_strm</span>
     <span class="p">)</span>
 </pre>
-<p>Duplicate a column into two.</p>
+<p>Duplicate one column into two columns.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -1423,7 +1507,7 @@
 <p>Dynamic expression evaluation.</p>
 <p>This primitive has four fixed number of column inputs, and allows up to four constants to be specified via configuration. The operation between the column values and constants can be defined dynamically through the configuration at run-time. The same configuration is used for all rows until the end of input.</p>
 <p>The constant numbers are assumed to be no more than 32-bits.</p>
-<p>For the definition of the configu word, please refer to the “Design Internal” Section of the document and the corresponding test in <code class="docutils literal notranslate"><span class="pre">L1/tests</span></code> .</p>
+<p>For the definition of the config word, please refer to the “Design Internal” Section of the document and the corresponding test in <code class="docutils literal notranslate"><span class="pre">L1/tests</span></code> .</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -1509,7 +1593,7 @@
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_pay_out_strm</span>
     <span class="p">)</span>
 </pre>
-<p>Filter payloads according to conditions set in run-time.</p>
+<p>Filter payloads according to conditions set during run-time.</p>
 <p>This primitive, with its 3 overloads, supports filtering rows using up to four columns as conditions. The payload columns should be grouped together into this primitive, using <code class="docutils literal notranslate"><span class="pre">combineCol</span></code> primitive, and its total width is not explicitly limited (but naturally bound by resources).</p>
 <p>The filter conditions consists of whether each of the conditions is within a given range, and relations between any two conditions. The configuration is set once before processing the rows, and reused until the last row. For configuration generation, please refer to the “Design Internals” Section of the document and corresponding test case of this primitive.</p>
 <p class="rubric">Parameters:</p>
@@ -1576,8 +1660,8 @@
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_pay_out_strm</span>
     <span class="p">)</span>
 </pre>
-<p>Filter payloads according to conditions set in run-time.</p>
-<p>This function is a wrapper-around the four-condition-column dynamic_filter, just duplicating the columns to feed all its inputs. Thus the share the same configuration bit pattern. All op related to the 4th column should be set to <code class="docutils literal notranslate"><span class="pre">FOP_DC</span></code> .</p>
+<p>Filter payloads according to conditions set during run-time.</p>
+<p>This function is a wrapper-around the four-condition-column dynamic_filter, just duplicating the columns to feed all its inputs. Thus they share the same configuration bit pattern. All op related to the 4th column should be set to <code class="docutils literal notranslate"><span class="pre">FOP_DC</span></code> .</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -1638,8 +1722,8 @@
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_pay_out_strm</span>
     <span class="p">)</span>
 </pre>
-<p>Filter payloads according to conditions set in run-time.</p>
-<p>This function is a wrapper-around the four-condition-column dynamic_filter, just duplicating the columns to feed all its inputs. Thus the share the same configuration bit pattern. All op related to the 3rd and 4th columns should be set to <code class="docutils literal notranslate"><span class="pre">FOP_DC</span></code> .</p>
+<p>Filter payloads according to conditions set during run-time.</p>
+<p>This function is a wrapper-around the four-condition-column dynamic_filter, just duplicating the columns to feed all its inputs. Thus they share the same configuration bit pattern. All op related to the 3rd and 4th columns should be set to <code class="docutils literal notranslate"><span class="pre">FOP_DC</span></code> .</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -1696,8 +1780,8 @@
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_pay_out_strm</span>
     <span class="p">)</span>
 </pre>
-<p>Filter payloads according to conditions set in run-time.</p>
-<p>This function is a wrapper-around the four-condition-column dynamic_filter, just duplicating the columns to feed all its inputs. Thus the share the same configuration bit pattern. All op related to the 2nd to 4th columns should be set to <code class="docutils literal notranslate"><span class="pre">FOP_DC</span></code> .</p>
+<p>Filter payloads according to conditions set during run-time.</p>
+<p>This function is a wrapper-around the four-condition-column dynamic_filter, just duplicating the columns to feed all its inputs. Thus they share the same configuration bit pattern. All op related to the 2nd to 4th columns should be set to <code class="docutils literal notranslate"><span class="pre">FOP_DC</span></code> .</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -1767,7 +1851,7 @@
 <td>the aggregate operator: AOP_MAX, AOP_MIN, AOP_MEAN, AOP_VARIANCE, AOP_NORML1 or AOP_NORML2</td>
 </tr>
 <tr class="row-even"><td>T</td>
-<td>the input and output stream type</td>
+<td>the data type of input and output streams</td>
 </tr>
 <tr class="row-odd"><td>KEY_T</td>
 <td>the input and output indexing key type</td>
@@ -1826,7 +1910,7 @@
 <td>the aggregate operator: AOP_SUM</td>
 </tr>
 <tr class="row-even"><td>T</td>
-<td>the input and output stream type, inferred from argument</td>
+<td>the input stream type, inferred from argument</td>
 </tr>
 <tr class="row-odd"><td>T2</td>
 <td>the output stream type, inferred from argument</td>
@@ -2020,7 +2104,7 @@
     <span class="p">)</span>
 </pre>
 <p>Multi-PU Hash-Anti-Join primitive, using multiple DDR/HBM buffers.</p>
-<p>This primitive share most of the structure of <code class="docutils literal notranslate"><span class="pre">hashJoinV3</span></code> , but performs anti-join instead of inner-join. Both inner and outer table should be send to this primitve once, starting from the inner table.</p>
+<p>This primitive shares most of the structure of <code class="docutils literal notranslate"><span class="pre">hashJoinV3</span></code> , but performs anti-join instead of inner-join. Both inner and outer table should be send to this primitve once, starting with the inner table.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -2113,19 +2197,16 @@
 <td>HBM/DDR buffer of PU7</td>
 </tr>
 <tr class="row-odd"><td>pu_begin_status_strms</td>
+<td>the 1st element is the depth of each hash, the 2nd element is joined number</td>
+</tr>
+<tr class="row-even"><td>pu_end_status_strms</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>the</td>
-<td>1st element is the depth of each hash, the 2nd element is joined number</td>
-</tr>
-<tr class="row-odd"><td>pu_end_status_strms</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>j_strm</td>
+<tr class="row-odd"><td>j_strm</td>
 <td>output of joined result</td>
 </tr>
-<tr class="row-odd"><td>end</td>
-<td>flag of joined result</td>
+<tr class="row-even"><td>j_e_strm</td>
+<td>end flag of joined result</td>
 </tr>
 </tbody>
 </table>
@@ -2171,12 +2252,20 @@
 </pre>
 <p>Generic hash group aggregate primitive.</p>
 <p>With this primitive, the max number of lines of aggregate table is bound by the AXI buffer size.</p>
-<p>The group aggregation values are updated inside the chip, and when a hash-bucket overflows, the rows are spilled into external buffers. The overflow buffer will be automatically re-scanned, and with each round, a number of distinct groups will be aggregated and emitted. This algorithm ends when the overflow buffer is emptied and all groups are aggregated.</p>
-<p>This module can accept multiple input row of key and payload pair per cycle. The max distinct groups aggregated in one pass is <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">^</span> <span class="pre">(1</span> <span class="pre">+</span> <span class="pre">_WHash)</span></code> .</p>
-<p>When the width of the input stream is not fully used, data should be aligned to the little-end.</p>
-<p>It is highly recommended to assign the ping buffer and pong buffer in different HBM banks, input and output in different DDR banks.</p>
-<p>The max number of lines of aggregate table is no bigger than the max DDR/HBM SIZE used in this design.</p>
-<p>When the bit-width of group key is known to be small, say 10-bit, please consider the <code class="docutils literal notranslate"><span class="pre">directAggregate</span></code> primitive, which offers smaller utilization, and requires no external buffer access.</p>
+<p>The group aggregation values are updated inside the chip, and when a hash-bucket overflows, the overflowed rows are spilled into external buffers. The overflow buffer will be automatically re-scanned, and within each round, a number of distinct groups will be aggregated and emitted. This algorithm ends when the overflow buffer is empty and all groups are aggregated.</p>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<ol class="last arabic simple">
+<li>This module can accept multiple input row of key and payload pair per cycle.</li>
+<li>The max distinct groups aggregated in one pass is <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">^</span> <span class="pre">(1</span> <span class="pre">+</span> <span class="pre">_WHash)</span></code>.</li>
+<li>When the width of the input stream is not fully used, data should be aligned to the little-end.</li>
+<li>It is highly recommended to assign the ping buffer and pong buffer in different HBM banks, input and output in
+different DDR banks for a better performance.</li>
+<li>The max number of lines of aggregate table cannot bigger than the max DDR/HBM SIZE used in this design.</li>
+<li>When the bit-width of group key is known to be small, say 10-bit, please consider the <code class="docutils literal notranslate"><span class="pre">directAggregate</span></code>
+primitive, which offers smaller utilization, and requires no external buffer access.</li>
+</ol>
+</div>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -2232,10 +2321,28 @@
 <tr class="row-even"><td>result_info</td>
 <td>result information at kernel end, contains op, key_column, pld_column and aggregate result cnt</td>
 </tr>
-<tr class="row-odd"><td>ping_buf1-4</td>
+<tr class="row-odd"><td>ping_buf0</td>
 <td>DDR/HBM ping buffer for unhandled data.</td>
 </tr>
-<tr class="row-even"><td>pong_buf1-4</td>
+<tr class="row-even"><td>ping_buf1</td>
+<td>DDR/HBM ping buffer for unhandled data.</td>
+</tr>
+<tr class="row-odd"><td>ping_buf2</td>
+<td>DDR/HBM ping buffer for unhandled data.</td>
+</tr>
+<tr class="row-even"><td>ping_buf3</td>
+<td>DDR/HBM ping buffer for unhandled data.</td>
+</tr>
+<tr class="row-odd"><td>pong_buf0</td>
+<td>DDR/HBM pong buffer for unhandled data.</td>
+</tr>
+<tr class="row-even"><td>pong_buf1</td>
+<td>DDR/HBM pong buffer for unhandled data.</td>
+</tr>
+<tr class="row-odd"><td>pong_buf2</td>
+<td>DDR/HBM pong buffer for unhandled data.</td>
+</tr>
+<tr class="row-even"><td>pong_buf3</td>
 <td>DDR/HBM pong buffer for unhandled data.</td>
 </tr>
 <tr class="row-odd"><td>aggr_key_out</td>
@@ -2536,7 +2643,7 @@
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">j_e_strm</span>
     <span class="p">)</span>
 </pre>
-<p>Hash-Join v3 primitive, it takes more resourse than <code class="docutils literal notranslate"><span class="pre">hashJoinMPU</span></code> and promise a better performance in large size of table.</p>
+<p>Hash-Join v3 primitive, it takes more resourse than <code class="docutils literal notranslate"><span class="pre">hashJoinMPU</span></code> and promises a better performance in large size of table.</p>
 <p>The maximum size of small table is 256MBx8(HBM number)=2GB in this design. The total hash entries is equal to 1&lt;&lt;(HASHWH + HASHWL), and it is limitied to maximum of 1M entries because of the size of URAM in a single SLR.</p>
 <p>This module can accept more than 1 input row per cycle, via multiple input channels. The small table and the big table shares the same input ports, so the width of the payload should be the max of both, while the data should be aligned to the little-end. To be different with <code class="docutils literal notranslate"><span class="pre">hashJoinMPU</span></code> , the small table and big table should be fed only once.</p>
 <p class="rubric">Parameters:</p>
@@ -2639,8 +2746,8 @@
 <tr class="row-odd"><td>j_strm</td>
 <td>output of joined result</td>
 </tr>
-<tr class="row-even"><td>end</td>
-<td>flag of joined result</td>
+<tr class="row-even"><td>j_e_strm</td>
+<td>end flag of joined result</td>
 </tr>
 </tbody>
 </table>
@@ -2691,9 +2798,9 @@
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">j_e_strm</span>
     <span class="p">)</span>
 </pre>
-<p>Hash-Build-Probe v3 primitive, it can perform hash build and hash probe separately. It need two call of kernel to perform build and probe seperately. There is a control flag to decide buld or probe. This primitive support multiple build and mutiple probe, for example, you can scadule a workflow as: build0-&gt;build1-&gt;probe0-&gt;probe1-&gt;build2-&gt;build3-&gt;probe3…</p>
+<p>Hash-Build-Probe v3 primitive, it can perform hash build and hash probe separately. It needs two call of kernel to perform build and probe seperately. There is a control flag to decide buld or probe. This primitive supports multiple build and mutiple probe, for example, you can scadule a workflow as: build0-&gt;build1-&gt;probe0-&gt;probe1-&gt;build2-&gt;build3-&gt;probe3…</p>
 <p>The maximum size of small table is 256MBx8=2GB in this design. The total hash entries is equal to 1&lt;&lt;(HASHWH + HASHWL), and it is limitied to maximum of 1M entries because of the size of URAM in a single SLR.</p>
-<p>This module can accept more than 1 input row per cycle, via multiple input channels. The small table and the big table shares the same input ports, so the width of the payload should be the max of both, while the data should be aligned to the little-end. The small table and big table should be fed only once.</p>
+<p>This module can accept more than 1 input row per cycle, via multiple input channels. The small table and the big table shares the same input ports, so the width of the payload should be the max of both, while the data should be aligned to the little-end. The small table and big table should be fed only ONCE.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -2856,7 +2963,7 @@
     <span class="p">)</span>
 </pre>
 <p>Hash-Join v4 primitive, using bloom filter to enhance performance of hash join.</p>
-<p>The build and probe procedure is similar to which in <code class="docutils literal notranslate"><span class="pre">hashJoinV3</span></code> , and this primitive add a bloom filter to reduce the redundant access to HBM.</p>
+<p>The build and probe procedure is similar to which in <code class="docutils literal notranslate"><span class="pre">hashJoinV3</span></code> , and this primitive adds a bloom filter to reduce the redundant access to HBM.</p>
 <p>The maximum size of small table is 256MBx8=2GB in this design. The total hash entries is equal to 1&lt;&lt;(HASHWH + HASHWL), and it is limitied to maximum of 1M entries because of the size of URAM in a single SLR.</p>
 <p>This module can accept more than 1 input row per cycle, via multiple input channels. The small table and the big table shares the same input ports, so the width of the payload should be the max of both, while the data should be aligned to the little-end. Similar to <code class="docutils literal notranslate"><span class="pre">hashJoinV3</span></code> , small table and big table should be fed only once.</p>
 <p class="rubric">Parameters:</p>
@@ -2902,76 +3009,73 @@
 <tr class="row-even"><td>EN_BF</td>
 <td>bloom-filter switch, 0 for off, 1 for on.</td>
 </tr>
-<tr class="row-odd"><td>build_probe_flag</td>
-<td>0:build 1:probe</td>
-</tr>
-<tr class="row-even"><td>k0_strm_arry</td>
+<tr class="row-odd"><td>k0_strm_arry</td>
 <td>input of key columns of both tables.</td>
 </tr>
-<tr class="row-odd"><td>p0_strm_arry</td>
+<tr class="row-even"><td>p0_strm_arry</td>
 <td>input of payload columns of both tables.</td>
 </tr>
-<tr class="row-even"><td>e0_strm_arry</td>
+<tr class="row-odd"><td>e0_strm_arry</td>
 <td>input of end signal of both tables.</td>
 </tr>
-<tr class="row-odd"><td>htb0_buf</td>
+<tr class="row-even"><td>htb0_buf</td>
 <td>HBM/DDR buffer of hash_table0</td>
 </tr>
-<tr class="row-even"><td>htb1_buf</td>
+<tr class="row-odd"><td>htb1_buf</td>
 <td>HBM/DDR buffer of hash_table1</td>
 </tr>
-<tr class="row-odd"><td>htb2_buf</td>
+<tr class="row-even"><td>htb2_buf</td>
 <td>HBM/DDR buffer of hash_table2</td>
 </tr>
-<tr class="row-even"><td>htb3_buf</td>
+<tr class="row-odd"><td>htb3_buf</td>
 <td>HBM/DDR buffer of hash_table3</td>
 </tr>
-<tr class="row-odd"><td>htb4_buf</td>
+<tr class="row-even"><td>htb4_buf</td>
 <td>HBM/DDR buffer of hash_table4</td>
 </tr>
-<tr class="row-even"><td>htb5_buf</td>
+<tr class="row-odd"><td>htb5_buf</td>
 <td>HBM/DDR buffer of hash_table5</td>
 </tr>
-<tr class="row-odd"><td>htb6_buf</td>
+<tr class="row-even"><td>htb6_buf</td>
 <td>HBM/DDR buffer of hash_table6</td>
 </tr>
-<tr class="row-even"><td>htb7_buf</td>
+<tr class="row-odd"><td>htb7_buf</td>
 <td>HBM/DDR buffer of hash_table7</td>
 </tr>
-<tr class="row-odd"><td>stb0_buf</td>
+<tr class="row-even"><td>stb0_buf</td>
 <td>HBM/DDR buffer of PU0</td>
 </tr>
-<tr class="row-even"><td>stb1_buf</td>
+<tr class="row-odd"><td>stb1_buf</td>
 <td>HBM/DDR buffer of PU1</td>
 </tr>
-<tr class="row-odd"><td>stb2_buf</td>
+<tr class="row-even"><td>stb2_buf</td>
 <td>HBM/DDR buffer of PU2</td>
 </tr>
-<tr class="row-even"><td>stb3_buf</td>
+<tr class="row-odd"><td>stb3_buf</td>
 <td>HBM/DDR buffer of PU3</td>
 </tr>
-<tr class="row-odd"><td>stb4_buf</td>
+<tr class="row-even"><td>stb4_buf</td>
 <td>HBM/DDR buffer of PU4</td>
 </tr>
-<tr class="row-even"><td>stb5_buf</td>
+<tr class="row-odd"><td>stb5_buf</td>
 <td>HBM/DDR buffer of PU5</td>
 </tr>
-<tr class="row-odd"><td>stb6_buf</td>
+<tr class="row-even"><td>stb6_buf</td>
 <td>HBM/DDR buffer of PU6</td>
 </tr>
-<tr class="row-even"><td>stb7_buf</td>
+<tr class="row-odd"><td>stb7_buf</td>
 <td>HBM/DDR buffer of PU7</td>
 </tr>
-<tr class="row-odd"><td>pu_begin_status_strms</td>
+<tr class="row-even"><td>pu_begin_status_strms</td>
 <td>contains build id, fixed hash depth</td>
 </tr>
-<tr class="row-even"><td>pu_end_status_strms</td>
+<tr class="row-odd"><td>pu_end_status_strms</td>
 <td>returns next build id, fixed hash depth, joined number</td>
 </tr>
-<tr class="row-odd"><td>j_strm</td>
+<tr class="row-even"><td>j_strm</td>
 <td>output of joined result</td>
 </tr>
-<tr class="row-even"><td>j_e_strm</td>
+<tr class="row-odd"><td>j_e_strm</td>
 <td>end flag of joined result</td>
 </tr>
 </tbody>
@@ -3024,7 +3128,7 @@
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">j_e_strm</span>
     <span class="p">)</span>
 </pre>
-<p>Hash-Build-Probe v4 primitive. Compared with <code class="docutils literal notranslate"><span class="pre">HashBuildProbeV3</span></code> , it enables bloom filter to reduce redundant access to HBM which can further reduce run-time of hash join. Build and probe are separately performed and controlled by a boolean flag. Mutiple build and probe is also provided, and it should make sure all rows in build phase can be stored temporarily in HBM to maintain correctness.</p>
+<p>Hash-Build-Probe v4 primitive. Compared with <code class="docutils literal notranslate"><span class="pre">HashBuildProbeV3</span></code> , it enables bloom filter to reduce redundant access to HBM which can further reduce run-time of hash join. Build and probe are separately performed and controlled by a boolean flag. Mutiple build and probe are also provided, and it should make sure all rows in build phase can be stored temporarily in HBM to maintain correctness.</p>
 <p>The maximum size of small table is 256MBx8=2GB in this design. The total hash entries is equal to 1&lt;&lt;(HASHWH + HASHWL), and it is limitied to maximun of 1M entries because of the size of URAM in a single SLR.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -3135,7 +3239,7 @@
 <tr class="row-even"><td>pu_end_status_strms</td>
 <td>returns next build ID, next probe ID, fixed hash depth, joined number of current probe and end addr of stb_buf for each PU</td>
 </tr>
-<tr class="row-odd"><td>j_res</td>
+<tr class="row-odd"><td>j_strm</td>
 <td>output of joined rows.</td>
 </tr>
 <tr class="row-even"><td>j_e_strm</td>
@@ -3158,7 +3262,7 @@
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">hash_strm</span>
     <span class="p">)</span>
 </pre>
-<p>lookup3 algorithm, 64-bit hash.</p>
+<p>lookup3 algorithm, 64-bit hash. II=1 when W&lt;=96, otherwise II=(W/96).</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -3167,7 +3271,7 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>W</td>
-<td>the bit width of ap_uint type for input message stream. W &lt;=96 bit II=1, Others II=(W/96).</td>
+<td>the bit width of ap_uint type for input message stream.</td>
 </tr>
 <tr class="row-even"><td>key_strm</td>
 <td>the message being hashed.</td>
@@ -3190,7 +3294,7 @@
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;&gt;&amp;</span> <span class="n">hash_strm</span>
     <span class="p">)</span>
 </pre>
-<p>lookup3 algorithm, 32-bit hash.</p>
+<p>lookup3 algorithm, 32-bit hash. II=1 when W&lt;=96, otherwise II=(W/96).</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -3199,7 +3303,7 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>W</td>
-<td>the bit width of ap_uint type for input message stream. W &lt;=96 bit II=1, Others II=(W/96).</td>
+<td>the bit width of ap_uint type for input message stream.</td>
 </tr>
 <tr class="row-even"><td>key_strm</td>
 <td>the message being hashed.</td>
@@ -3302,7 +3406,7 @@
     <span class="p">)</span>
 </pre>
 <p>Multi-PU Hash-Multi-Join primitive, using multiple DDR/HBM buffers.</p>
-<p>This primitive share most of the structure of <code class="docutils literal notranslate"><span class="pre">hashJoinV3</span></code> . The inner table should be fed once, followed by the outer table once.</p>
+<p>This primitive shares most of the structure of <code class="docutils literal notranslate"><span class="pre">hashJoinV3</span></code> . The inner table should be fed once, followed by the outer table once.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -3406,8 +3510,8 @@
 <tr class="row-even"><td>j_strm</td>
 <td>output of joined result</td>
 </tr>
-<tr class="row-odd"><td>end</td>
-<td>flag of joined result</td>
+<tr class="row-odd"><td>j_e_strm</td>
+<td>end flag of joined result</td>
 </tr>
 </tbody>
 </table>
@@ -3428,7 +3532,6 @@
     <span class="p">)</span>
 </pre>
 <p>murmur3 algorithm.</p>
-<p>when initial murmur3 module top, need pragram like:</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -3512,7 +3615,7 @@
 <tr class="row-even"><td>CH_NM</td>
 <td>number of input channels, 1,2,4.</td>
 </tr>
-<tr class="row-odd"><td>CH_NM</td>
+<tr class="row-odd"><td>COL_NM</td>
 <td>number of input columns, 1~8.</td>
 </tr>
 <tr class="row-even"><td>mk_on</td>
@@ -3581,7 +3684,7 @@
 </pre>
 <p>Multi-PU Hash-Semi-Join primitive, using multiple DDR/HBM buffers.</p>
 <p>The max number of lines of inner table is 2M in this design. It is assumed that the hash-conflict is within 256K per bin.</p>
-<p>This module can accept more than 1 input row per cycle, via multiple input channels. The outer table and the inner table share the same input ports, so the width of the payload should be the max of both, while the data should be aligned to the little-end. The inner table should be fed TWICE, followed by the outer table once.</p>
+<p>This module can accept more than 1 input row per cycle, via multiple input channels. The outer table and the inner table share the same input ports, so the width of the payload should be the max of both, while the data should be aligned to the little-end. The inner table should be fed TWICE, followed by the outer table ONCE.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -3691,10 +3794,10 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>KEY_TYPE</td>
-<td>the input and output data type</td>
+<td>the input and output key type</td>
 </tr>
 <tr class="row-even"><td>DATA_TYPE</td>
-<td>the input and output key type</td>
+<td>the input and output data type</td>
 </tr>
 <tr class="row-odd"><td>MAX_SORT_NUMBER</td>
 <td>the max number of the sequence can be sorted</td>
@@ -4055,7 +4158,7 @@
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_str_o</span>
     <span class="p">)</span>
 </pre>
-<p>sacn multiple column of string in global memory, and compare each of them with constant string</p>
+<p>sacn multiple columns of string in global memory, and compare each of them with constant string</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -4067,7 +4170,7 @@
 <td>input string array stored in global memory.</td>
 </tr>
 <tr class="row-even"><td>size</td>
-<td>the number of reading global memory</td>
+<td>the number of times reading global memory</td>
 </tr>
 <tr class="row-odd"><td>num_str</td>
 <td>the number of actual strings</td>
@@ -4104,7 +4207,7 @@
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_row_strm</span>
     <span class="p">)</span>
 </pre>
-<p>scan 1 columns from DDR/HBM buffers.</p>
+<p>scan 1 column from DDR/HBM buffers.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -4116,7 +4219,7 @@
 <td>burst read length, must be supported by MC.</td>
 </tr>
 <tr class="row-even"><td>vec_len</td>
-<td>scan this number of items as a vector from AXI port.</td>
+<td>number of items to be scanned as a vector from AXI port.</td>
 </tr>
 <tr class="row-odd"><td>size0</td>
 <td>size of column 0, in byte.</td>
@@ -4169,7 +4272,7 @@
 <td>burst read length, must be supported by MC.</td>
 </tr>
 <tr class="row-even"><td>vec_len</td>
-<td>scan this number of items as a vector from AXI port.</td>
+<td>number of items to be scanned as a vector from AXI port.</td>
 </tr>
 <tr class="row-odd"><td>size0</td>
 <td>size of column 0, in byte.</td>
@@ -4234,7 +4337,7 @@
 <td>burst read length, must be supported by MC.</td>
 </tr>
 <tr class="row-even"><td>vec_len</td>
-<td>scan this number of items as a vector from AXI port.</td>
+<td>number of items to be scanned as a vector from AXI port.</td>
 </tr>
 <tr class="row-odd"><td>size0</td>
 <td>size of column 0, in byte.</td>
@@ -4311,7 +4414,7 @@
 <td>burst read length, must be supported by MC.</td>
 </tr>
 <tr class="row-even"><td>vec_len</td>
-<td>scan this number of items as a vector from AXI port.</td>
+<td>number of items to be scanned as a vector from AXI port.</td>
 </tr>
 <tr class="row-odd"><td>size0</td>
 <td>size of column 0, in byte.</td>
@@ -4400,7 +4503,7 @@
 <td>burst read length, must be supported by MC.</td>
 </tr>
 <tr class="row-even"><td>vec_len</td>
-<td>scan this number of items as a vector from AXI port.</td>
+<td>number of items to be scanned as a vector from AXI port.</td>
 </tr>
 <tr class="row-odd"><td>size0</td>
 <td>size of column 0, in byte.</td>
@@ -4501,7 +4604,7 @@
 <td>burst read length, must be supported by MC.</td>
 </tr>
 <tr class="row-even"><td>vec_len</td>
-<td>scan this number of items as a vector from AXI port.</td>
+<td>number of items to be scanned as a vector from AXI port.</td>
 </tr>
 <tr class="row-odd"><td>size0</td>
 <td>size of column 0, in byte.</td>
@@ -4585,7 +4688,7 @@
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">e_row_strm</span> <span class="p">[</span><span class="n">ch_num</span><span class="p">]</span>
     <span class="p">)</span>
 </pre>
-<p>scan one columns from DDR/HBM buffers, emit multiple rows concurrently.</p>
+<p>scan one column from DDR/HBM buffers, emit multiple rows concurrently.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -4597,7 +4700,7 @@
 <td>burst read length, must be supported by MC.</td>
 </tr>
 <tr class="row-even"><td>vec_len</td>
-<td>scan this number of items as a vector from AXI port.</td>
+<td>number of items to be scanned as a vector from AXI port.</td>
 </tr>
 <tr class="row-odd"><td>ch_num</td>
 <td>number of concurrent output channels per column.</td>
@@ -4654,7 +4757,7 @@
 <td>burst read length, must be supported by MC.</td>
 </tr>
 <tr class="row-even"><td>vec_len</td>
-<td>scan this number of items as a vector from AXI port.</td>
+<td>number of items to be scanned as a vector from AXI port.</td>
 </tr>
 <tr class="row-odd"><td>ch_num</td>
 <td>number of concurrent output channels per column.</td>
@@ -4723,7 +4826,7 @@
 <td>burst read length, must be supported by MC.</td>
 </tr>
 <tr class="row-even"><td>vec_len</td>
-<td>scan this number of items as a vector from AXI port.</td>
+<td>number of items to be scanned as a vector from AXI port.</td>
 </tr>
 <tr class="row-odd"><td>ch_num</td>
 <td>number of concurrent output channels per column.</td>
@@ -5109,8 +5212,8 @@
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_out_strm</span>
     <span class="p">)</span>
 </pre>
-<p>one stream input static_eval</p>
-<p>static_eval function calculate the experssion result that user defined. This result will be passed to aggregate module as the input. When calling this API, the <code class="docutils literal notranslate"><span class="pre">T</span></code> <code class="docutils literal notranslate"><span class="pre">T_O</span></code> are the input/output data types for each parameter of user code. E.g.</p>
+<p>one stream input static evaluation</p>
+<p>static_eval function calculates the experssion result that user defined. This result will be passed to aggregate module as the input. When calling this API, the <code class="docutils literal notranslate"><span class="pre">T</span></code> <code class="docutils literal notranslate"><span class="pre">T_O</span></code> are the input/output data types for each parameter of user code. E.g.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">decl</span>
 <span class="n">long</span> <span class="n">user_func</span><span class="p">(</span><span class="nb">int</span> <span class="n">a</span><span class="p">);</span>
 <span class="o">//</span> <span class="n">use</span>
@@ -5118,7 +5221,7 @@
   <span class="n">in1_strm</span><span class="p">,</span> <span class="n">e_in_strm</span><span class="p">,</span> <span class="n">out_strm</span><span class="p">,</span> <span class="n">e_out_strm</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>in the above call, <code class="docutils literal notranslate"><span class="pre">int</span></code> is the data type of input param of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> , and <code class="docutils literal notranslate"><span class="pre">long</span></code> is the return type of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> .</p>
+<p>in the above call, <code class="docutils literal notranslate"><span class="pre">int</span></code> is the data type of input of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> , and <code class="docutils literal notranslate"><span class="pre">long</span></code> is the return type of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> .</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -5170,7 +5273,7 @@
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_out_strm</span>
     <span class="p">)</span>
 </pre>
-<p>two stream input static_eval</p>
+<p>two stream input static evaluation</p>
 <p>static_eval function calculate the experssion result that user defined. This result will be passed to aggregate module as the input. When calling this API, the <code class="docutils literal notranslate"><span class="pre">T1</span></code> <code class="docutils literal notranslate"><span class="pre">T2</span></code> <code class="docutils literal notranslate"><span class="pre">T_O</span></code> are the input/output data types for each parameter of user code. E.g.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">decl</span>
 <span class="n">long</span> <span class="n">user_func</span><span class="p">(</span><span class="nb">int</span> <span class="n">a</span><span class="p">,</span> <span class="nb">int</span> <span class="n">b</span><span class="p">);</span>
@@ -5179,7 +5282,7 @@
   <span class="n">in1_strm</span><span class="p">,</span> <span class="n">in2_strm</span><span class="p">,</span> <span class="n">e_in_strm</span><span class="p">,</span> <span class="n">out_strm</span><span class="p">,</span> <span class="n">e_out_strm</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>in the above call, two <code class="docutils literal notranslate"><span class="pre">int</span></code> are the data type of input param of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> , and <code class="docutils literal notranslate"><span class="pre">long</span></code> is the return type of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> .</p>
+<p>in the above call, two <code class="docutils literal notranslate"><span class="pre">int</span></code> are the data type of input of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> , and <code class="docutils literal notranslate"><span class="pre">long</span></code> is the return type of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> .</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -5239,7 +5342,7 @@
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_out_strm</span>
     <span class="p">)</span>
 </pre>
-<p>three stream input static_eval</p>
+<p>three stream input static evaluation</p>
 <p>static_eval function calculate the experssion result that user defined. This result will be passed to aggregate module as the input. When calling this API, the <code class="docutils literal notranslate"><span class="pre">T1</span></code> <code class="docutils literal notranslate"><span class="pre">T2</span></code> <code class="docutils literal notranslate"><span class="pre">T3</span></code> <code class="docutils literal notranslate"><span class="pre">T_O</span></code> are the input/output data types for each parameter of user code. E.g.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">decl</span>
 <span class="n">long</span> <span class="n">user_func</span><span class="p">(</span><span class="nb">int</span> <span class="n">a</span><span class="p">,</span> <span class="nb">int</span> <span class="n">b</span><span class="p">,</span> <span class="nb">int</span> <span class="n">c</span><span class="p">);</span>
@@ -5249,7 +5352,7 @@
   <span class="n">out_strm</span><span class="p">,</span> <span class="n">e_out_strm</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>in the above call, three <code class="docutils literal notranslate"><span class="pre">int</span></code> are the data type of input param of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> , and <code class="docutils literal notranslate"><span class="pre">long</span></code> is the return type of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> .</p>
+<p>in the above call, three <code class="docutils literal notranslate"><span class="pre">int</span></code> are the data type of input of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> , and <code class="docutils literal notranslate"><span class="pre">long</span></code> is the return type of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> .</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -5317,7 +5420,7 @@
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_out_strm</span>
     <span class="p">)</span>
 </pre>
-<p>four stream input static_eval</p>
+<p>four stream input static evaluation</p>
 <p>static_eval function calculate the experssion result that user defined. This result will be passed to aggregate module as the input. When calling this API, the <code class="docutils literal notranslate"><span class="pre">T1</span></code> <code class="docutils literal notranslate"><span class="pre">T2</span></code> <code class="docutils literal notranslate"><span class="pre">T3</span></code> <code class="docutils literal notranslate"><span class="pre">T_O</span></code> are the input/output data types for each parameter of user code. E.g.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">decl</span>
 <span class="n">long</span> <span class="n">user_func</span><span class="p">(</span><span class="nb">int</span> <span class="n">a</span><span class="p">,</span> <span class="nb">int</span> <span class="n">b</span><span class="p">,</span> <span class="nb">int</span> <span class="n">c</span><span class="p">,</span> <span class="nb">int</span> <span class="n">d</span><span class="p">);</span>
@@ -5327,7 +5430,7 @@
   <span class="n">out_strm</span><span class="p">,</span> <span class="n">e_out_strm</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>in the above call, four <code class="docutils literal notranslate"><span class="pre">int</span></code> are the data type of input param of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> , and <code class="docutils literal notranslate"><span class="pre">long</span></code> is the return type of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> .</p>
+<p>in the above call, four <code class="docutils literal notranslate"><span class="pre">int</span></code> are the data type of input of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> , and <code class="docutils literal notranslate"><span class="pre">long</span></code> is the return type of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> .</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -5398,14 +5501,18 @@
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -5415,7 +5522,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
