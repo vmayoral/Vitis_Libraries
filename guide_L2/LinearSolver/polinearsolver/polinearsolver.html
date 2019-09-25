@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>PO LINEAR Solver (POLINEARSOLVER) &mdash; XF Solver Library 1.0 release documentation</title>
+  <title>PO Linear Solver (POLINEARSOLVER) &mdash; XF Solver Library 1.0 release documentation</title>
   
 
   
@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="../../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="PO MATRIX Inverse (POMATRIXINVERSE)" href="../pomatrixinverse/pomatrixinverse.html" />
+    <link rel="next" title="PO Matrix Inverse (POMATRIXINVERSE)" href="../pomatrixinverse/pomatrixinverse.html" />
     <link rel="prev" title="Triangular Solver (GTSV)" href="../gtsv/gtsv.html" /> 
 
   
@@ -85,32 +85,29 @@
               
             
             
-              <p class="caption"><span class="caption-text">Library Overview</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../overview.html">Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../overview.html#license">License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../overview.html#trademark-notice">Trademark Notice</a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html">Library Overview</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../L2.html">L2 Module User Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../../L2.html#supported-numerical-methods">Supported Numerical Methods</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../../L2_methods.html">Linear Solver</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../L2_methods.html">Matrix Decomposition</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../L2_methods.html#linear-solver">Linear Solver</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../gtsv/gtsv.html">Triangular Solver (GTSV)</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">PO LINEAR Solver (POLINEARSOLVER)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../pomatrixinverse/pomatrixinverse.html">PO MATRIX Inverse (POMATRIXINVERSE)</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">PO Linear Solver (POLINEARSOLVER)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../pomatrixinverse/pomatrixinverse.html">PO Matrix Inverse (POMATRIXINVERSE)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gelinearsolver/gelinearsolver.html">General Linear Solver (GELINEARSOLVER)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gematrixinverse/gematrixinverse.html">General Matrix Inverse (GEMATRIXINVERSE)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../trtrs/trtrs.html">Triangular Solver with multiple right-hand sides (TRTRS)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../L2_methods.html#matrix-decomposition">Matrix decomposition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../L2_methods.html#eigen-value-solver">Eigen Value Solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../L2_methods.html#eigenvalue-solver">Eigenvalue Solver</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../L2.html#level-ii-apis">Level II APIs</a></li>
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmark/benchmark.html">Quality and Performance</a></li>
 </ul>
@@ -160,9 +157,9 @@
         
           <li><a href="../../L2.html">L2 Module User Guide</a> &raquo;</li>
         
-          <li><a href="../../L2_methods.html">Linear Solver</a> &raquo;</li>
+          <li><a href="../../L2_methods.html">Matrix Decomposition</a> &raquo;</li>
         
-      <li>PO LINEAR Solver (POLINEARSOLVER)</li>
+      <li>PO Linear Solver (POLINEARSOLVER)</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -182,7 +179,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="po-linear-solver-polinearsolver">
-<h1>PO LINEAR Solver (POLINEARSOLVER)<a class="headerlink" href="#po-linear-solver-polinearsolver" title="Permalink to this headline">¶</a></h1>
+<h1>PO Linear Solver (POLINEARSOLVER)<a class="headerlink" href="#po-linear-solver-polinearsolver" title="Permalink to this headline">¶</a></h1>
 <p>This function solves a system of linear equation with symmetric positive definite (SPD) matrix along with multiple right-hand side vector</p>
 <div class="math notranslate nohighlight">
 \[Ax=B\]</div>
@@ -198,7 +195,7 @@ The maximum matrix size supported in FPGA is templated by NMAX.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../pomatrixinverse/pomatrixinverse.html" class="btn btn-neutral float-right" title="PO MATRIX Inverse (POMATRIXINVERSE)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../pomatrixinverse/pomatrixinverse.html" class="btn btn-neutral float-right" title="PO Matrix Inverse (POMATRIXINVERSE)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../gtsv/gtsv.html" class="btn btn-neutral" title="Triangular Solver (GTSV)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

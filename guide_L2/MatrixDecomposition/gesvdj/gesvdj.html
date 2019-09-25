@@ -32,7 +32,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Singular Value Decomposition for general matrix (GESVJ)" href="../gesvj/gesvj.html" />
-    <link rel="prev" title="Triangular Solver with multiple right-hand sides (TRTRS)" href="../../LinearSolver/trtrs/trtrs.html" /> 
+    <link rel="prev" title="Matrix Decomposition" href="../../L2_methods.html" /> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -85,18 +85,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Library Overview</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../overview.html">Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../overview.html#license">License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../overview.html#trademark-notice">Trademark Notice</a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html">Library Overview</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../L2.html">L2 Module User Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../../L2.html#supported-numerical-methods">Supported Numerical Methods</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../L2_methods.html">Linear Solver</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../L2_methods.html#matrix-decomposition">Matrix decomposition</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../L2_methods.html">Matrix Decomposition</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Singular Value Decomposition for symmetric matrix (GESVDJ)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../gesvj/gesvj.html">Singular Value Decomposition for general matrix (GESVJ)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../geqrf/geqrf.html">General QR Decomposition (GEQRF)</a></li>
@@ -105,14 +100,14 @@
 <li class="toctree-l4"><a class="reference internal" href="../potrf/potrf.html">Cholesky Decomposition for SPD matrix (POTRF)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../L2_methods.html#eigen-value-solver">Eigen Value Solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../L2_methods.html#linear-solver">Linear Solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../L2_methods.html#eigenvalue-solver">Eigenvalue Solver</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../L2.html#level-ii-apis">Level II APIs</a></li>
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmark/benchmark.html">Quality and Performance</a></li>
 </ul>
@@ -162,7 +157,7 @@
         
           <li><a href="../../L2.html">L2 Module User Guide</a> &raquo;</li>
         
-          <li><a href="../../L2_methods.html">Linear Solver</a> &raquo;</li>
+          <li><a href="../../L2_methods.html">Matrix Decomposition</a> &raquo;</li>
         
       <li>Singular Value Decomposition for symmetric matrix (GESVDJ)</li>
     
@@ -185,11 +180,158 @@
             
   <div class="section" id="singular-value-decomposition-for-symmetric-matrix-gesvdj">
 <h1>Singular Value Decomposition for symmetric matrix (GESVDJ)<a class="headerlink" href="#singular-value-decomposition-for-symmetric-matrix-gesvdj" title="Permalink to this headline">¶</a></h1>
-<p>Symmetric Matrix Jacobi based Singular Value Decomposition (GESVDJ)</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The <cite>singular value decomposition</cite> (SVD) is a very useful technique for dealing with general dense matrix problems. Recent years, SVD has become a computationally viable tool for solving a wide variety of problems raised in many practical applications, such as least squares data fitting, image compression, facial recognition, principal component analysis, latent semantic analysis, and computing the 2-norm, condition number, and numerical rank of a matrix.</p>
+<p>For more information, please refer <strong>“Jack Dongarra, Mark Gates, Azzam Haidar. The Singular Value Decomposition: Anatomy of Optimizing an Algorithm for Extreme Scale. 2018 SIAM Review, vol.60, No.4, pp.808-865”</strong></p>
+</div>
+<div class="section" id="theory">
+<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">¶</a></h2>
+<p>The SVD of an m-by-m symmetric matrix A is given by</p>
 <div class="math notranslate nohighlight">
-\[A = U \Sigma V^T\]</div>
-<p>where <span class="math notranslate nohighlight">\(A\)</span> is a dense symmetric matrix of size <span class="math notranslate nohighlight">\(m \times m\)</span>, <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span> are:math:<cite>m times m</cite> matrix with orthonormal columns, and <span class="math notranslate nohighlight">\(\Sigma\)</span> is diagonal matrix.
-The maximum matrix size supported in FPGA is templated by NMAX.</p>
+\[A = U \Sigma U^T (A = U \Sigma U^H \, in \, the \, complex \, case)\]</div>
+<p>where <span class="math notranslate nohighlight">\(U\)</span> is an orthogonal (unitary) matrix and <span class="math notranslate nohighlight">\(\Sigma\)</span> is an m-by-m matrix with real diagonal elements.</p>
+<p>There are two dominant categories of SVD algorithms for dense matrix: bidiagonalization methods and Jacobi methods. The classical bidiagonalization methods is a long sequential calculation, FPGA has no advantage in calculation. In contrast, Jacobi methods apply plane rotations to the entire matrix A. Two-sided Jacobi methods iteratively apply rotations on both sides of matrix A to bring it to diagonal form, while one-sided Hestenes Jacobi methods apply rotations on one side to orthogonalize the columns of matrix A, and bring <span class="math notranslate nohighlight">\(A^TA\)</span> to diagonal form. While Jacobi methods are often slow than bidiagonalization methods, they have a better potential in unrolling and pipelining.</p>
+<div class="section" id="jacobi-methods">
+<h3>Jacobi Methods<a class="headerlink" href="#jacobi-methods" title="Permalink to this headline">¶</a></h3>
+<p>Jacobi uses a sequence of plane rotations to reduce a symmetric matrix A to a diagonal matrix</p>
+<div class="math notranslate nohighlight">
+\[A_{0} = A,   \&gt; A_{k+1} = J_{k}^{T}A_{k}J_{k},   \&gt; A_{k} \rightarrow \Sigma \&gt; as \&gt; k \rightarrow \infty\]</div>
+<p>Each plane rotation, <span class="math notranslate nohighlight">\(J_{k} = J_{k}(i, j, \theta)\)</span>, now called a Jacobi or Givens rotation</p>
+<div class="math notranslate nohighlight" id="equation-jacobi-rotation">
+<span class="eqno">(1)<a class="headerlink" href="#equation-jacobi-rotation" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{equation}
+            J_{k}(i, j, \theta)=\begin{vmatrix}
+                I &amp;\,  &amp;  &amp;  &amp; \\
+                \, &amp;\,c &amp;  &amp;s &amp; \\
+                \, &amp;\,  &amp;I &amp;  &amp; \\
+                \, &amp;-s  &amp;  &amp;c &amp; \\
+                &amp; &amp;\,  &amp;  &amp;  &amp;I
+            \end{vmatrix}
+        \end{equation}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(c=cos \theta\)</span> and <span class="math notranslate nohighlight">\(s=sin \theta\)</span>. The angle <span class="math notranslate nohighlight">\(\theta\)</span> is chosen to eliminate the pair <span class="math notranslate nohighlight">\(a_{ij}\)</span>, <span class="math notranslate nohighlight">\(a_{ji}\)</span> by applying <span class="math notranslate nohighlight">\(J(i,j, \theta )\)</span> on the left and right of <span class="math notranslate nohighlight">\(A\)</span>, which can be viewed as the 2x2 eigenvalue problem</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation}
+ \hat{J}_{(k)}^{T} \hat{A}_{(k)} \hat{J}_{(k)}= \begin{vmatrix}
+   \, c &amp;s \\
+     -s &amp;c
+     \end{vmatrix}^{T} \begin{vmatrix}
+     a_{ii} &amp;a_{ij} \\
+     a_{ji} &amp;a_{jj}
+     \end{vmatrix} \begin{vmatrix}
+     d_{ii}  &amp;0 \\
+         0   &amp;d_{jj}
+         \end{vmatrix}= \hat{A}_{(k+1)}
+\end{equation}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\hat{A}\)</span> is a 2X2 submatrix of matrix A. After the Givens rotations of the whole matrix A, the off-diagonal value of A will be reduced to zero-like value after 3-15 times iteration of the process.</p>
+</div>
+</div>
+<div class="section" id="benchmarking">
+<h2>Benchmarking<a class="headerlink" href="#benchmarking" title="Permalink to this headline">¶</a></h2>
+<p>The hardware resources and performance for double and float type gesvdj are listed in <a class="reference internal" href="#tabsvddouble"><span class="std std-numref">Table 1</span></a> and <a class="reference internal" href="#tabsvdfloat"><span class="std std-numref">Table 2</span></a>. (Vivado result)</p>
+<span id="tabsvddouble"></span><table border="1" class="docutils align-center" id="id1">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">double Type GESVDJ performance chart</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="16%" />
+<col width="10%" />
+<col width="7%" />
+<col width="7%" />
+<col width="6%" />
+<col width="12%" />
+<col width="10%" />
+<col width="17%" />
+<col width="14%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Matrix Size</td>
+<td>Unroll</td>
+<td>URAM</td>
+<td>BRAM</td>
+<td>DSP</td>
+<td>Register</td>
+<td>LUT</td>
+<td>E2E time(ms)</td>
+<td>clock(ns)</td>
+</tr>
+<tr class="row-even"><td>8x8</td>
+<td>4</td>
+<td>20</td>
+<td>6</td>
+<td>216</td>
+<td>46245</td>
+<td>39365</td>
+<td>0.082</td>
+<td>4.0000</td>
+</tr>
+<tr class="row-odd"><td>512x512</td>
+<td>8</td>
+<td>128</td>
+<td>333</td>
+<td>408</td>
+<td>120837</td>
+<td>115121</td>
+<td>2100.833</td>
+<td>4.8007</td>
+</tr>
+</tbody>
+</table>
+<span id="tabsvdfloat"></span><table border="1" class="docutils align-center" id="id2">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">float Type GESVDJ performance chart</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="16%" />
+<col width="10%" />
+<col width="7%" />
+<col width="7%" />
+<col width="6%" />
+<col width="12%" />
+<col width="10%" />
+<col width="17%" />
+<col width="14%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Matrix Size</td>
+<td>Unroll</td>
+<td>URAM</td>
+<td>BRAM</td>
+<td>DSP</td>
+<td>Register</td>
+<td>LUT</td>
+<td>E2E time(ms)</td>
+<td>clock(ns)</td>
+</tr>
+<tr class="row-even"><td>8x8</td>
+<td>4</td>
+<td>20</td>
+<td>4</td>
+<td>114</td>
+<td>23647</td>
+<td>18529</td>
+<td>0.071</td>
+<td>4.0000</td>
+</tr>
+<tr class="row-odd"><td>512x512</td>
+<td>8</td>
+<td>128</td>
+<td>307</td>
+<td>210</td>
+<td>65569</td>
+<td>65003</td>
+<td>1687.274</td>
+<td>4.3687</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All the above data is measured through <a class="reference external" href="https://www.xilinx.com/products/boards-and-kits/alveo/u250.html">Xilinx Alveo U250 Data Center Accelerator Card</a> with XDMA 201830_1 platform</p>
+</div>
+<p>The accuracy of GESVDJ implementation has been verified with Lapack dgesvd (QR based SVD) and dgesvj (Jacobi SVD) functions.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">The unroll factor is limited by 2 factors, the matrix size and URAM port, the maximum unroll factor should be half of matrix size, and <span class="math notranslate nohighlight">\(2 \times {Unroll}^{2}\)</span> should be less than available URAM on board. Besides, unroll factor can only be a factorization of 2</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
 </div>
 
 
@@ -203,7 +345,7 @@ The maximum matrix size supported in FPGA is templated by NMAX.</p>
         <a href="../gesvj/gesvj.html" class="btn btn-neutral float-right" title="Singular Value Decomposition for general matrix (GESVJ)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../LinearSolver/trtrs/trtrs.html" class="btn btn-neutral" title="Triangular Solver with multiple right-hand sides (TRTRS)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../L2_methods.html" class="btn btn-neutral" title="Matrix Decomposition" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

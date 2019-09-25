@@ -83,17 +83,12 @@
               
             
             
-              <p class="caption"><span class="caption-text">Library Overview</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Library Overview</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Module User Guide</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Quality and Performance</a></li>
 </ul>
@@ -187,10 +182,10 @@
     <span class="kt">int</span><span class="o">&amp;</span> <span class="n">info</span>
     <span class="p">)</span>
 </pre>
-<p>Symmetric Matrix Jacobi based Eigen Value Decomposition (SYEVJ) .</p>
+<p>Symmetric Matrix Jacobi based Eigenvalue Decomposition (SYEVJ) .</p>
 <div class="math notranslate nohighlight">
-\[\begin{equation*} {A = U \Sigma {U}^T, }\end{equation*}\]</div>
-<p>where <span class="math notranslate nohighlight">\(A\)</span> is a dense symmetric matrix of size <span class="math notranslate nohighlight">\(m \times m\)</span> , <span class="math notranslate nohighlight">\(U\)</span> is a <span class="math notranslate nohighlight">\(m \times m\)</span> matrix with orthonormal columns, and <span class="math notranslate nohighlight">\(\Sigma\)</span> is diagonal matrix.</p>
+\[\begin{equation*} {A U = U \Sigma, }\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is a dense symmetric matrix of size <span class="math notranslate nohighlight">\(m \times m\)</span> , <span class="math notranslate nohighlight">\(U\)</span> is a <span class="math notranslate nohighlight">\(m \times m\)</span> matrix with orthonormal columns, each column of U is the eigenvector <span class="math notranslate nohighlight">\(v_{i}\)</span> , and <span class="math notranslate nohighlight">\(\Sigma\)</span> is diagonal matrix, which contains the eigenvalues <span class="math notranslate nohighlight">\(\lambda_{i}\)</span> of matrix A.</p>
 <p>The maximum matrix size supported in FPGA is templated by NMAX.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -203,31 +198,31 @@
 <td>data type (support float and double).</td>
 </tr>
 <tr class="row-even"><td>NMAX</td>
-<td>maximum number of input symmetric matrix size</td>
+<td>maximum number of rows/columns of input matrix</td>
 </tr>
 <tr class="row-odd"><td>NCU</td>
 <td>number of computation unit</td>
 </tr>
 <tr class="row-even"><td>m</td>
-<td>symmetric matrix real size.</td>
+<td>number of rows/cols of matrix A</td>
 </tr>
 <tr class="row-odd"><td>A</td>
 <td>input matrix of size <span class="math notranslate nohighlight">\(m \times m\)</span></td>
 </tr>
 <tr class="row-even"><td>S</td>
-<td>the decomposed diagonal singular matrix of size <span class="math notranslate nohighlight">\(m \times m\)</span></td>
+<td>decomposed diagonal singular matrix of size <span class="math notranslate nohighlight">\(m \times m\)</span></td>
 </tr>
 <tr class="row-odd"><td>U</td>
-<td>the left U matrix of SVD</td>
+<td>left U matrix of SVD</td>
 </tr>
 <tr class="row-even"><td>lda</td>
-<td>the leading dimension of matrix A</td>
+<td>leading dimension of matrix A</td>
 </tr>
 <tr class="row-odd"><td>ldu</td>
-<td>the leading dimension of matrix U</td>
+<td>leading dimension of matrix U</td>
 </tr>
 <tr class="row-even"><td>info</td>
-<td>the ouput info</td>
+<td>output info (unused)</td>
 </tr>
 </tbody>
 </table>

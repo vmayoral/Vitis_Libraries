@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Linear Solver &mdash; XF Solver Library 1.0 release documentation</title>
+  <title>Matrix Decomposition &mdash; XF Solver Library 1.0 release documentation</title>
   
 
   
@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Triangular Solver (GTSV)" href="LinearSolver/gtsv/gtsv.html" />
+    <link rel="next" title="Singular Value Decomposition for symmetric matrix (GESVDJ)" href="MatrixDecomposition/gesvdj/gesvdj.html" />
     <link rel="prev" title="L2 Module User Guide" href="L2.html" /> 
 
   
@@ -85,24 +85,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Library Overview</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Library Overview</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="L2.html">L2 Module User Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="L2.html#supported-numerical-methods">Supported Numerical Methods</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Linear Solver</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="LinearSolver/gtsv/gtsv.html">Triangular Solver (GTSV)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="LinearSolver/polinearsolver/polinearsolver.html">PO LINEAR Solver (POLINEARSOLVER)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="LinearSolver/pomatrixinverse/pomatrixinverse.html">PO MATRIX Inverse (POMATRIXINVERSE)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="LinearSolver/trtrs/trtrs.html">Triangular Solver with multiple right-hand sides (TRTRS)</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#matrix-decomposition">Matrix decomposition</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Matrix Decomposition</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="MatrixDecomposition/gesvdj/gesvdj.html">Singular Value Decomposition for symmetric matrix (GESVDJ)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="MatrixDecomposition/gesvj/gesvj.html">Singular Value Decomposition for general matrix (GESVJ)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="MatrixDecomposition/geqrf/geqrf.html">General QR Decomposition (GEQRF)</a></li>
@@ -111,7 +100,16 @@
 <li class="toctree-l4"><a class="reference internal" href="MatrixDecomposition/potrf/potrf.html">Cholesky Decomposition for SPD matrix (POTRF)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#eigen-value-solver">Eigen Value Solver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#linear-solver">Linear Solver</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="LinearSolver/gtsv/gtsv.html">Triangular Solver (GTSV)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearSolver/polinearsolver/polinearsolver.html">PO Linear Solver (POLINEARSOLVER)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearSolver/pomatrixinverse/pomatrixinverse.html">PO Matrix Inverse (POMATRIXINVERSE)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearSolver/gelinearsolver/gelinearsolver.html">General Linear Solver (GELINEARSOLVER)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearSolver/gematrixinverse/gematrixinverse.html">General Matrix Inverse (GEMATRIXINVERSE)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearSolver/trtrs/trtrs.html">Triangular Solver with multiple right-hand sides (TRTRS)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#eigenvalue-solver">Eigenvalue Solver</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="EigenValueSolver/syevj/syevj.html">Eigen Value Decomposition (SYEVJ)</a></li>
 </ul>
 </li>
@@ -121,7 +119,6 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Quality and Performance</a></li>
 </ul>
@@ -171,7 +168,7 @@
         
           <li><a href="L2.html">L2 Module User Guide</a> &raquo;</li>
         
-      <li>Linear Solver</li>
+      <li>Matrix Decomposition</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -190,19 +187,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="linear-solver">
-<h1>Linear Solver<a class="headerlink" href="#linear-solver" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="LinearSolver/gtsv/gtsv.html">Triangular Solver (GTSV)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LinearSolver/polinearsolver/polinearsolver.html">PO LINEAR Solver (POLINEARSOLVER)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LinearSolver/pomatrixinverse/pomatrixinverse.html">PO MATRIX Inverse (POMATRIXINVERSE)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LinearSolver/trtrs/trtrs.html">Triangular Solver with multiple right-hand sides (TRTRS)</a></li>
-</ul>
-</div>
-</div>
-<div class="section" id="matrix-decomposition">
-<h1>Matrix decomposition<a class="headerlink" href="#matrix-decomposition" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="matrix-decomposition">
+<h1>Matrix Decomposition<a class="headerlink" href="#matrix-decomposition" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="MatrixDecomposition/gesvdj/gesvdj.html">Singular Value Decomposition for symmetric matrix (GESVDJ)</a></li>
@@ -214,8 +200,21 @@
 </ul>
 </div>
 </div>
-<div class="section" id="eigen-value-solver">
-<h1>Eigen Value Solver<a class="headerlink" href="#eigen-value-solver" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="linear-solver">
+<h1>Linear Solver<a class="headerlink" href="#linear-solver" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="LinearSolver/gtsv/gtsv.html">Triangular Solver (GTSV)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinearSolver/polinearsolver/polinearsolver.html">PO Linear Solver (POLINEARSOLVER)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinearSolver/pomatrixinverse/pomatrixinverse.html">PO Matrix Inverse (POMATRIXINVERSE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinearSolver/gelinearsolver/gelinearsolver.html">General Linear Solver (GELINEARSOLVER)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinearSolver/gematrixinverse/gematrixinverse.html">General Matrix Inverse (GEMATRIXINVERSE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinearSolver/trtrs/trtrs.html">Triangular Solver with multiple right-hand sides (TRTRS)</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="eigenvalue-solver">
+<h1>Eigenvalue Solver<a class="headerlink" href="#eigenvalue-solver" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="EigenValueSolver/syevj/syevj.html">Eigen Value Decomposition (SYEVJ)</a></li>
@@ -231,7 +230,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="LinearSolver/gtsv/gtsv.html" class="btn btn-neutral float-right" title="Triangular Solver (GTSV)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="MatrixDecomposition/gesvdj/gesvdj.html" class="btn btn-neutral float-right" title="Singular Value Decomposition for symmetric matrix (GESVDJ)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="L2.html" class="btn btn-neutral" title="L2 Module User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

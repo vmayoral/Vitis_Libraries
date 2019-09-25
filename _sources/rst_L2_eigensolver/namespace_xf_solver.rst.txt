@@ -48,13 +48,13 @@ Defined in <EigenSolver/syevj.hpp>
 	    int& info
 	    )
 
-Symmetric Matrix Jacobi based Eigen Value Decomposition (SYEVJ) .
+Symmetric Matrix Jacobi based Eigenvalue Decomposition (SYEVJ) .
 
 .. math::
 
-    \begin{equation*} {A = U \Sigma {U}^T, }\end{equation*}
+    \begin{equation*} {A U = U \Sigma, }\end{equation*}
 
-where :math:`A` is a dense symmetric matrix of size :math:`m \times m` , :math:`U` is a :math:`m \times m` matrix with orthonormal columns, and :math:`\Sigma` is diagonal matrix.
+where :math:`A` is a dense symmetric matrix of size :math:`m \times m` , :math:`U` is a :math:`m \times m` matrix with orthonormal columns, each column of U is the eigenvector :math:`v_{i}` , and :math:`\Sigma` is diagonal matrix, which contains the eigenvalues :math:`\lambda_{i}` of matrix A.
 
 The maximum matrix size supported in FPGA is templated by NMAX.
 
@@ -73,7 +73,7 @@ The maximum matrix size supported in FPGA is templated by NMAX.
     *
         - NMAX
 
-        - maximum number of input symmetric matrix size
+        - maximum number of rows/columns of input matrix
 
     *
         - NCU
@@ -83,7 +83,7 @@ The maximum matrix size supported in FPGA is templated by NMAX.
     *
         - m
 
-        - symmetric matrix real size.
+        - number of rows/cols of matrix A
 
     *
         - A
@@ -93,25 +93,25 @@ The maximum matrix size supported in FPGA is templated by NMAX.
     *
         - S
 
-        - the decomposed diagonal singular matrix of size :math:`m \times m`
+        - decomposed diagonal singular matrix of size :math:`m \times m`
 
     *
         - U
 
-        - the left U matrix of SVD
+        - left U matrix of SVD
 
     *
         - lda
 
-        - the leading dimension of matrix A
+        - leading dimension of matrix A
 
     *
         - ldu
 
-        - the leading dimension of matrix U
+        - leading dimension of matrix U
 
     *
         - info
 
-        - the ouput info
+        - output info (unused)
 

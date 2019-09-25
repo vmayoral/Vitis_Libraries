@@ -18,3 +18,10 @@
 General Matrix Inverse (GEMATRIXINVERSE)
 *******************************************************
 
+This function computes the inverse matrix of :math:`A`
+
+.. math::
+        {A}^{-1}
+
+where :math:`A` is a dense general matrix of size :math:`m \times m`.
+The maximum matrix size supported in FPGA is templated by NMAX.

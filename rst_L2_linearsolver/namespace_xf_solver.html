@@ -83,17 +83,12 @@
               
             
             
-              <p class="caption"><span class="caption-text">Library Overview</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Library Overview</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Module User Guide</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Quality and Performance</a></li>
 </ul>
@@ -168,18 +163,139 @@
 <span></span><span class="c1">// namespaces</span>
 
 <span class="k">namespace</span> <a class="reference internal" href="../rst_L2_mat/namespace_xf_solver_internal.html#doxid-namespacexf-1-1solver-1-1internal"><span class="std std-ref">xf::solver::internal</span></a><span></span>
+<span class="k">namespace</span> <a class="reference internal" href="namespace_xf_solver_internal_gelinear.html#doxid-namespacexf-1-1solver-1-1internal-gelinear"><span class="std std-ref">xf::solver::internal_gelinear</span></a><span></span>
+<span class="k">namespace</span> <a class="reference internal" href="namespace_xf_solver_internal_gemi.html#doxid-namespacexf-1-1solver-1-1internal-gemi"><span class="std std-ref">xf::solver::internal_gemi</span></a><span></span>
 <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_solver_internal_polinear.html#doxid-namespacexf-1-1solver-1-1internal-polinear"><span class="std std-ref">xf::solver::internal_polinear</span></a><span></span>
 <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_solver_internal_pomi.html#doxid-namespacexf-1-1solver-1-1internal-pomi"><span class="std std-ref">xf::solver::internal_pomi</span></a><span></span>
 <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_solver_internal_trtrs.html#doxid-namespacexf-1-1solver-1-1internal-trtrs"><span class="std std-ref">xf::solver::internal_trtrs</span></a>
 </pre>
+<div class="section" id="gelinearsolver">
+<span id="cid-xf-solver-gelinearsolver"></span><span id="doxid-namespacexf-1-1solver-1a4380dbd7992efd603fe32bf2a3415df9"></span><h2>gelinearsolver<a class="headerlink" href="#gelinearsolver" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="defined-in-linearsolver-gelinearsolver-hpp">
+<h3>Defined in &lt;LinearSolver/gelinearsolver.hpp&gt;<a class="headerlink" href="#defined-in-linearsolver-gelinearsolver-hpp" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">typename</span> <span class="n">T</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NMAX</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NCU</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">gelinearsolver</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span>
+    <span class="n">T</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">b</span><span class="p">,</span>
+    <span class="n">T</span><span class="o">*</span> <span class="n">B</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">ldb</span><span class="p">,</span>
+    <span class="kt">int</span><span class="o">&amp;</span> <span class="n">info</span>
+    <span class="p">)</span>
+</pre>
+<p>This function solves a system of linear equation with general matrix along with multiple right-hand side vector</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation*} {Ax=B}\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is a dense general matrix of size <span class="math notranslate nohighlight">\(n \times n\)</span> , <span class="math notranslate nohighlight">\(x\)</span> is a vector need to be computed, and <span class="math notranslate nohighlight">\(B\)</span> is input vector.</p>
+<p>The maximum matrix size supported in FPGA is templated by NMAX.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>T</td>
+<td>data type (support float and double)</td>
+</tr>
+<tr class="row-even"><td>NMAX</td>
+<td>maximum number of rows/columns of input matrix</td>
+</tr>
+<tr class="row-odd"><td>NCU</td>
+<td>number of computation unit</td>
+</tr>
+<tr class="row-even"><td>n</td>
+<td>number of rows/cols of matrix A</td>
+</tr>
+<tr class="row-odd"><td>A</td>
+<td>input matrix of size <span class="math notranslate nohighlight">\(n \times n\)</span></td>
+</tr>
+<tr class="row-even"><td>b</td>
+<td>number of columns of matrix B</td>
+</tr>
+<tr class="row-odd"><td>B</td>
+<td>input matrix of size <span class="math notranslate nohighlight">\(b \times n\)</span> , and overwritten by the output matrix x</td>
+</tr>
+<tr class="row-even"><td>lda</td>
+<td>leading dimention of input matrix A</td>
+</tr>
+<tr class="row-odd"><td>ldb</td>
+<td>leading dimention of input matrix B</td>
+</tr>
+<tr class="row-even"><td>info</td>
+<td>output info (unused)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="gematrixinverse">
+<span id="cid-xf-solver-gematrixinverse"></span><span id="doxid-namespacexf-1-1solver-1a330738ad0c91400601fc9029bbe18d70"></span><h2>gematrixinverse<a class="headerlink" href="#gematrixinverse" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="defined-in-linearsolver-gematrixinverse-hpp">
+<h3>Defined in &lt;LinearSolver/gematrixinverse.hpp&gt;<a class="headerlink" href="#defined-in-linearsolver-gematrixinverse-hpp" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">typename</span> <span class="n">T</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NMAX</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NCU</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">gematrixinverse</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">m</span><span class="p">,</span>
+    <span class="n">T</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">lda</span><span class="p">,</span>
+    <span class="kt">int</span><span class="o">&amp;</span> <span class="n">info</span>
+    <span class="p">)</span>
+</pre>
+<p>This function computes the inverse matrix of <span class="math notranslate nohighlight">\(A\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{equation*} {A}^{-1}\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is a dense general matrix of size <span class="math notranslate nohighlight">\(m \times m\)</span> . The maximum matrix size supported in FPGA is templated by NMAX.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>T</td>
+<td>data type (support float and double)</td>
+</tr>
+<tr class="row-even"><td>NMAX</td>
+<td>maximum number of rows/columns of input matrix</td>
+</tr>
+<tr class="row-odd"><td>NCU</td>
+<td>number of computation unit</td>
+</tr>
+<tr class="row-even"><td>m</td>
+<td>number of rows/cols of matrix A</td>
+</tr>
+<tr class="row-odd"><td>A</td>
+<td>input matrix of size <span class="math notranslate nohighlight">\(n \times n\)</span></td>
+</tr>
+<tr class="row-even"><td>lda</td>
+<td>leading dimention of input matrix A</td>
+</tr>
+<tr class="row-odd"><td>info</td>
+<td>output info (unused)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <div class="section" id="gtsv">
 <span id="cid-xf-solver-gtsv"></span><span id="doxid-namespacexf-1-1solver-1ab2a500c3d35adb231e4fbdfe7b17932a"></span><h2>gtsv<a class="headerlink" href="#gtsv" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="defined-in-linearsolver-gtsv-pcr-hpp">
 <h3>Defined in &lt;LinearSolver/gtsv_pcr.hpp&gt;<a class="headerlink" href="#defined-in-linearsolver-gtsv-pcr-hpp" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">template</span> <span class="o">&lt;</span>
-    <span class="k">class</span> <span class="n">T</span><span class="p">,</span>
-    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">N</span><span class="p">,</span>
+    <span class="k">typename</span> <span class="n">T</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">NMAX</span><span class="p">,</span>
     <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">NCU</span>
     <span class="o">&gt;</span>
 <span class="kt">int</span> <span class="n">gtsv</span> <span class="p">(</span>
@@ -201,7 +317,7 @@
 <tr class="row-odd"><td>T</td>
 <td>data type (support float and double)</td>
 </tr>
-<tr class="row-even"><td>N</td>
+<tr class="row-even"><td>NMAX</td>
 <td>matrix size</td>
 </tr>
 <tr class="row-odd"><td>NCU</td>
@@ -230,7 +346,7 @@
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">template</span> <span class="o">&lt;</span>
     <span class="k">typename</span> <span class="n">T</span><span class="p">,</span>
-    <span class="kt">int</span> <span class="n">N</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NMAX</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">NCU</span>
     <span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">polinearsolver</span> <span class="p">(</span>
@@ -259,22 +375,22 @@
 <td>data type (support float and double)</td>
 </tr>
 <tr class="row-even"><td>NMAX</td>
-<td>maximum number of input symmetric matrix size</td>
+<td>maximum number of rows/columns of input matrix</td>
 </tr>
 <tr class="row-odd"><td>NCU</td>
 <td>number of computation unit</td>
 </tr>
-<tr class="row-even"><td>m</td>
-<td>number of symmetric matrix’s real size</td>
+<tr class="row-even"><td>n</td>
+<td>number of rows/cols of matrix A</td>
 </tr>
 <tr class="row-odd"><td>A</td>
-<td>input matrix of size <span class="math notranslate nohighlight">\(m \times m\)</span></td>
+<td>input matrix of size <span class="math notranslate nohighlight">\(n \times n\)</span></td>
 </tr>
 <tr class="row-even"><td>b</td>
-<td>number of matrix B column</td>
+<td>number of columns of matrix B</td>
 </tr>
 <tr class="row-odd"><td>B</td>
-<td>input matrix of size b, and output x</td>
+<td>input matrix of size <span class="math notranslate nohighlight">\(b \times n\)</span> , and overwritten by the output matrix x</td>
 </tr>
 <tr class="row-even"><td>lda</td>
 <td>leading dimention of input matrix A</td>
@@ -283,7 +399,7 @@
 <td>leading dimention of input matrix B</td>
 </tr>
 <tr class="row-even"><td>info</td>
-<td>return value, if info=0, the Triangular Solver is successful</td>
+<td>output info (unused)</td>
 </tr>
 </tbody>
 </table>
@@ -321,22 +437,22 @@
 <td>data type (support float and double)</td>
 </tr>
 <tr class="row-even"><td>NMAX</td>
-<td>number of maximum matrix size</td>
+<td>maximum number of rows/columns of input matrix</td>
 </tr>
 <tr class="row-odd"><td>NCU</td>
-<td>number of compute unit</td>
+<td>number of computation unit</td>
 </tr>
 <tr class="row-even"><td>m</td>
-<td>number of symmetric matrix’s real size</td>
+<td>number of rows/cols of matrix A</td>
 </tr>
 <tr class="row-odd"><td>A</td>
-<td>input matrix of size <span class="math notranslate nohighlight">\(m \times m\)</span></td>
+<td>input matrix of size <span class="math notranslate nohighlight">\(n \times n\)</span></td>
 </tr>
 <tr class="row-even"><td>lda</td>
 <td>leading dimention of input matrix A</td>
 </tr>
 <tr class="row-odd"><td>info</td>
-<td>return value, if info=0, the Cholesky factorization is successful</td>
+<td>output info (unused)</td>
 </tr>
 </tbody>
 </table>
@@ -379,22 +495,22 @@
 <td>data type (support float and double)</td>
 </tr>
 <tr class="row-even"><td>NMAX</td>
-<td>number of maximum matrix size</td>
+<td>maximum number of rows/columns of input matrix</td>
 </tr>
 <tr class="row-odd"><td>NCU</td>
-<td>number of compute unit</td>
+<td>number of computation unit</td>
 </tr>
 <tr class="row-even"><td>m</td>
-<td>number of symmetric matrix’s real size</td>
+<td>number of rows/cols of matrix A</td>
 </tr>
 <tr class="row-odd"><td>A</td>
-<td>input matrix of size <span class="math notranslate nohighlight">\(m \times m\)</span></td>
+<td>input matrix of size <span class="math notranslate nohighlight">\(n \times n\)</span></td>
 </tr>
 <tr class="row-even"><td>b</td>
-<td>number of matrix B column</td>
+<td>number of columns of matrix B</td>
 </tr>
 <tr class="row-odd"><td>B</td>
-<td>input matrix of b, and output of x</td>
+<td>input matrix of size <span class="math notranslate nohighlight">\(b \times n\)</span> , and overwritten by the output matrix x</td>
 </tr>
 <tr class="row-even"><td>lda</td>
 <td>leading dimention of input matrix A</td>
@@ -403,7 +519,7 @@
 <td>leading dimention of input matrix B</td>
 </tr>
 <tr class="row-even"><td>info</td>
-<td>return value, if info=0, the Triangular Solver is successful</td>
+<td>output info (unused)</td>
 </tr>
 </tbody>
 </table>

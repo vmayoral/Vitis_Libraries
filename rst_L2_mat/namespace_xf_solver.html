@@ -83,17 +83,12 @@
               
             
             
-              <p class="caption"><span class="caption-text">Library Overview</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Library Overview</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Module User Guide</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Quality and Performance</a></li>
 </ul>
@@ -165,7 +160,7 @@
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight overview-code-block literal-block" id="cid-xf-solver-gesvdj-2d">
-<span id="doxid-namespacexf-1-1solver-1a8ecb1461853ba5c894f3578e79f0ed1c"></span><span id="cid-xf-solver-geqrf"></span><span id="doxid-namespacexf-1-1solver-1a5caf13f50af104347f5d38641bcba07a"></span><span></span><span class="c1">// namespaces</span>
+<span id="doxid-namespacexf-1-1solver-1a2e848bf2dcc7f70ae8577b8cac517ef7"></span><span id="cid-xf-solver-geqrf"></span><span id="doxid-namespacexf-1-1solver-1a5caf13f50af104347f5d38641bcba07a"></span><span></span><span class="c1">// namespaces</span>
 
 <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_solver_internal.html#doxid-namespacexf-1-1solver-1-1internal"><span class="std std-ref">xf::solver::internal</span></a><span></span>
 <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_solver_internalgetrf.html#doxid-namespacexf-1-1solver-1-1internalgetrf"><span class="std std-ref">xf::solver::internalgetrf</span></a>
@@ -176,7 +171,7 @@
 <h3>Defined in &lt;MatrixDecomposition/geqrf.hpp&gt;<a class="headerlink" href="#defined-in-matrixdecomposition-geqrf-hpp" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">template</span> <span class="o">&lt;</span>
-    <span class="k">class</span> <span class="n">T</span><span class="p">,</span>
+    <span class="k">typename</span> <span class="n">T</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">NRMAX</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">NCMAX</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">NCU</span>
@@ -189,9 +184,9 @@
     <span class="n">T</span><span class="o">*</span> <span class="n">tau</span>
     <span class="p">)</span>
 </pre>
-<p>This function computes QR factorization of matrix <span class="math notranslate nohighlight">\(A\)</span></p>
+<p>This function computes QR decomposition of matrix <span class="math notranslate nohighlight">\(A\)</span></p>
 <div class="math notranslate nohighlight">
-\[\begin{equation*} {A = Q R, }\end{equation*}\]</div>
+\[\begin{equation*} {A = Q R}\end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(A\)</span> is a dense matrix of size <span class="math notranslate nohighlight">\(m \times n\)</span> , <span class="math notranslate nohighlight">\(Q\)</span> is a <span class="math notranslate nohighlight">\(m \times n\)</span> matrix with orthonormal columns, and <span class="math notranslate nohighlight">\(R\)</span> is an upper triangular matrix.</p>
 <p>The maximum matrix size supported in FPGA is templated by NRMAX and NCMAX.</p>
 <p class="rubric">Parameters:</p>
@@ -205,28 +200,28 @@
 <td>data type (support float and double)</td>
 </tr>
 <tr class="row-even"><td>NRMAX</td>
-<td>maximum number of rows for input matrix</td>
+<td>maximum number of rows of input matrix</td>
 </tr>
 <tr class="row-odd"><td>NCMAX</td>
-<td>maximum number of columns for input matrix</td>
+<td>maximum number of columns of input matrix</td>
 </tr>
 <tr class="row-even"><td>NCU</td>
 <td>number of computation unit</td>
 </tr>
 <tr class="row-odd"><td>m</td>
-<td>real row number of input matrix</td>
+<td>number of rows of matrix A</td>
 </tr>
 <tr class="row-even"><td>n</td>
-<td>real column number of input matrix</td>
+<td>number of cols of matrix A</td>
 </tr>
 <tr class="row-odd"><td>A</td>
-<td>input matrix, which contains the triangular R matrix and min(m,n) elementary reflectors in return</td>
+<td>input matrix of size <span class="math notranslate nohighlight">\(m \times lda\)</span> , and overwritten by the output triangular R matrix and min(m,n) elementary reflectors</td>
 </tr>
 <tr class="row-even"><td>lda</td>
-<td>leading dimension of input matrix</td>
+<td>leading dimension of matrix A</td>
 </tr>
 <tr class="row-odd"><td>tau</td>
-<td>the scalar factors for elementary reflectors</td>
+<td>scalar factors for elementary reflectors</td>
 </tr>
 </tbody>
 </table>
@@ -270,68 +265,68 @@
 <td>data type (support float and double).</td>
 </tr>
 <tr class="row-even"><td>NMAX</td>
-<td>maximum number of input symmetric matrix size</td>
+<td>maximum number of rows/columns of input matrix</td>
 </tr>
 <tr class="row-odd"><td>NCU</td>
 <td>number of computation unit</td>
 </tr>
 <tr class="row-even"><td>m</td>
-<td>symmetric matrix real size.</td>
+<td>number of rows/cols of matrix A</td>
 </tr>
 <tr class="row-odd"><td>A</td>
 <td>input matrix of size <span class="math notranslate nohighlight">\(m \times m\)</span></td>
 </tr>
 <tr class="row-even"><td>S</td>
-<td>the decomposed diagonal singular matrix of size <span class="math notranslate nohighlight">\(m \times m\)</span></td>
+<td>decomposed diagonal singular matrix of size <span class="math notranslate nohighlight">\(m \times m\)</span></td>
 </tr>
 <tr class="row-odd"><td>U</td>
-<td>the left U matrix of SVD</td>
+<td>left U matrix of SVD</td>
 </tr>
 <tr class="row-even"><td>V</td>
-<td>the right V matrix of SVD</td>
+<td>right V matrix of SVD</td>
 </tr>
 <tr class="row-odd"><td>lda</td>
-<td>the leading dimension of matrix A</td>
+<td>leading dimension of matrix A</td>
 </tr>
 <tr class="row-even"><td>ldu</td>
-<td>the leading dimension of matrix U</td>
+<td>leading dimension of matrix U</td>
 </tr>
 <tr class="row-odd"><td>ldv</td>
-<td>the leading dimension of matrix V</td>
+<td>leading dimension of matrix V</td>
 </tr>
 <tr class="row-even"><td>info</td>
-<td>the ouput info</td>
+<td>output info (unused)</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="section" id="gesvj">
-<span id="cid-xf-solver-gesvj"></span><span id="doxid-namespacexf-1-1solver-1a43adb910d0841bff748420db9bb2df81"></span><h2>gesvj<a class="headerlink" href="#gesvj" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-solver-gesvj"></span><span id="doxid-namespacexf-1-1solver-1aef057cab668b692870f72972cc62422b"></span><h2>gesvj<a class="headerlink" href="#gesvj" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="defined-in-matrixdecomposition-gesvj-hpp">
 <h3>Defined in &lt;MatrixDecomposition/gesvj.hpp&gt;<a class="headerlink" href="#defined-in-matrixdecomposition-gesvj-hpp" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">template</span> <span class="o">&lt;</span>
-    <span class="k">typename</span> <span class="n">DT</span><span class="p">,</span>
-    <span class="kt">int</span> <span class="n">MAXM</span><span class="p">,</span>
-    <span class="kt">int</span> <span class="n">MAXN</span><span class="p">,</span>
+    <span class="k">typename</span> <span class="n">T</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NRMAX</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NCMAX</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">MCU</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">NCU</span>
     <span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">gesvj</span> <span class="p">(</span>
     <span class="kt">int</span> <span class="n">rows</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">cols</span><span class="p">,</span>
-    <span class="n">DT</span> <span class="n">input_mat</span> <span class="p">[</span><span class="n">MAXM</span> <span class="o">*</span><span class="n">MAXN</span><span class="p">],</span>
-    <span class="n">DT</span> <span class="n">output_U</span> <span class="p">[</span><span class="n">MAXM</span> <span class="o">*</span><span class="n">MAXM</span><span class="p">],</span>
-    <span class="n">DT</span> <span class="n">output_S</span> <span class="p">[</span><span class="n">MAXN</span><span class="p">],</span>
-    <span class="n">DT</span> <span class="n">output_V</span> <span class="p">[</span><span class="n">MAXN</span> <span class="o">*</span><span class="n">MAXN</span><span class="p">]</span>
+    <span class="n">T</span> <span class="n">input_mat</span> <span class="p">[</span><span class="n">NRMAX</span> <span class="o">*</span><span class="n">NCMAX</span><span class="p">],</span>
+    <span class="n">T</span> <span class="n">output_U</span> <span class="p">[</span><span class="n">NRMAX</span> <span class="o">*</span><span class="n">NRMAX</span><span class="p">],</span>
+    <span class="n">T</span> <span class="n">output_S</span> <span class="p">[</span><span class="n">NCMAX</span><span class="p">],</span>
+    <span class="n">T</span> <span class="n">output_V</span> <span class="p">[</span><span class="n">NCMAX</span> <span class="o">*</span><span class="n">NCMAX</span><span class="p">]</span>
     <span class="p">)</span>
 </pre>
 <p>This function implements singular value decomposition of matrix A using one-sided Jacobi algorihtm.</p>
 <div class="math notranslate nohighlight">
-\[\begin{equation*} {A = U \Sigma {V}^T, }\end{equation*}\]</div>
+\[\begin{equation*} {A = U \Sigma {V}^T}\end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(A\)</span> is a dense matrix of size <span class="math notranslate nohighlight">\(rows \times cols\)</span> , <span class="math notranslate nohighlight">\(U\)</span> is <span class="math notranslate nohighlight">\(rows \times rows\)</span> matrix with orthonormal columns, <span class="math notranslate nohighlight">\(V\)</span> is <span class="math notranslate nohighlight">\(cols \times cols\)</span> matrix with orthonormal columns, and <span class="math notranslate nohighlight">\(\Sigma\)</span> is diagonal matrix.</p>
-<p>The maximum matrix size supported in FPGA is templated by MAXN, MAXM.</p>
+<p>The maximum matrix size supported in FPGA is templated by NCMAX, NRMAX.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -339,13 +334,13 @@
 <col width="80%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>DT</td>
+<tr class="row-odd"><td>T</td>
 <td>the data type of gesvj</td>
 </tr>
-<tr class="row-even"><td>MAXM</td>
+<tr class="row-even"><td>NRMAX</td>
 <td>the maximum size (rows) of supported gesvj</td>
 </tr>
-<tr class="row-odd"><td>MAXN</td>
+<tr class="row-odd"><td>NCMAX</td>
 <td>the maximum size (cols) of supported gesvj</td>
 </tr>
 <tr class="row-even"><td>MCU</td>
@@ -382,7 +377,7 @@
 <h3>Defined in &lt;MatrixDecomposition/getrf.hpp&gt;<a class="headerlink" href="#defined-in-matrixdecomposition-getrf-hpp" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">template</span> <span class="o">&lt;</span>
-    <span class="k">class</span> <span class="n">T</span><span class="p">,</span>
+    <span class="k">typename</span> <span class="n">T</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">NMAX</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">NCU</span>
     <span class="o">&gt;</span>
@@ -396,8 +391,8 @@
 </pre>
 <p>This function computes the LU decomposition (with partial pivoting) of matrix <span class="math notranslate nohighlight">\(A\)</span></p>
 <div class="math notranslate nohighlight">
-\[\begin{equation*} {P A = L U, }\end{equation*}\]</div>
-<p>where where <span class="math notranslate nohighlight">\(P\)</span> is a permutation matrix, <span class="math notranslate nohighlight">\(A\)</span> is a dense matrix of size <span class="math notranslate nohighlight">\(m \times n\)</span> , <span class="math notranslate nohighlight">\(L\)</span> is a lower triangular matrix with unit diagonal, and <span class="math notranslate nohighlight">\(U\)</span> is a upper triangular matrix. This function does not implement pivoting.</p>
+\[\begin{equation*} {P A = L U}\end{equation*}\]</div>
+<p>where where <span class="math notranslate nohighlight">\(P\)</span> is a permutation matrix, <span class="math notranslate nohighlight">\(A\)</span> is a dense matrix of size <span class="math notranslate nohighlight">\(n \times n\)</span> , <span class="math notranslate nohighlight">\(L\)</span> is a lower triangular matrix with unit diagonal, and <span class="math notranslate nohighlight">\(U\)</span> is a upper triangular matrix. This function does not implement pivoting.</p>
 <p>The maximum matrix size supported in FPGA is templated by NMAX.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -410,16 +405,16 @@
 <td>data type (support float and double)</td>
 </tr>
 <tr class="row-even"><td>NMAX</td>
-<td>maximum number of rows/columns for input matrix</td>
+<td>maximum number of rows/columns of input matrix</td>
 </tr>
 <tr class="row-odd"><td>NCU</td>
 <td>number of computation unit</td>
 </tr>
 <tr class="row-even"><td>n</td>
-<td>number of rows/cols of input matrix</td>
+<td>number of rows/cols of matrix A</td>
 </tr>
 <tr class="row-odd"><td>A</td>
-<td>input matrix</td>
+<td>input matrix, and overwritten by the output upper and lower triangular matrix</td>
 </tr>
 <tr class="row-even"><td>lda</td>
 <td>leading dimention of input matrix A</td>
@@ -428,7 +423,7 @@
 <td>indices, row i of matrix A is stored in row[i]</td>
 </tr>
 <tr class="row-even"><td>info</td>
-<td>return value, if info=0, the LU factorization is successful</td>
+<td>output info (unused)</td>
 </tr>
 </tbody>
 </table>
@@ -440,7 +435,7 @@
 <h3>Defined in &lt;MatrixDecomposition/getrf_nopivot.hpp&gt;<a class="headerlink" href="#defined-in-matrixdecomposition-getrf-nopivot-hpp" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">template</span> <span class="o">&lt;</span>
-    <span class="k">class</span> <span class="n">T</span><span class="p">,</span>
+    <span class="k">typename</span> <span class="n">T</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">NMAX</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">NCU</span>
     <span class="o">&gt;</span>
@@ -453,9 +448,9 @@
 </pre>
 <p>This function computes the LU decomposition (without pivoting) of matrix <span class="math notranslate nohighlight">\(A\)</span></p>
 <div class="math notranslate nohighlight">
-\[\begin{equation*} {A = L U, }\end{equation*}\]</div>
-<p>where <span class="math notranslate nohighlight">\(A\)</span> is a dense matrix of size <span class="math notranslate nohighlight">\(m \times n\)</span> , <span class="math notranslate nohighlight">\(L\)</span> is a lower triangular matrix with unit diagonal, and <span class="math notranslate nohighlight">\(U\)</span> is a upper triangular matrix. This function does not implement pivoting.</p>
-<p>The maximum matrix size supported in FPGA is templated by NRMAX and NCMAX.</p>
+\[\begin{equation*} {A = L U}\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is a dense matrix of size <span class="math notranslate nohighlight">\(n \times n\)</span> , <span class="math notranslate nohighlight">\(L\)</span> is a lower triangular matrix with unit diagonal, and <span class="math notranslate nohighlight">\(U\)</span> is a upper triangular matrix. This function does not implement pivoting.</p>
+<p>The maximum matrix size supported in FPGA is templated by NMAX.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -466,14 +461,14 @@
 <tr class="row-odd"><td>T</td>
 <td>data type (support float and double)</td>
 </tr>
-<tr class="row-even"><td>NRMAX</td>
-<td>maximum number of rows/cols for input matrix</td>
+<tr class="row-even"><td>NMAX</td>
+<td>maximum number of rows/cols of input matrix</td>
 </tr>
 <tr class="row-odd"><td>NCU</td>
 <td>number of computation unit</td>
 </tr>
 <tr class="row-even"><td>n</td>
-<td>real row/col number of input matrix</td>
+<td>number of rows/cols of matrix A</td>
 </tr>
 <tr class="row-odd"><td>A</td>
 <td>input matrix</td>
@@ -482,7 +477,7 @@
 <td>leading dimention of input matrix A</td>
 </tr>
 <tr class="row-odd"><td>info</td>
-<td>return value, if info=0, the LU factorization is successful</td>
+<td>output info (unused)</td>
 </tr>
 </tbody>
 </table>
@@ -507,7 +502,7 @@
 </pre>
 <p>This function computes the Cholesky decomposition of matrix <span class="math notranslate nohighlight">\(A\)</span></p>
 <div class="math notranslate nohighlight">
-\[\begin{equation*} {A = L {L}^T, }\end{equation*}\]</div>
+\[\begin{equation*} {A = L {L}^T}\end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(A\)</span> is a dense symmetric positive-definite matrix of size <span class="math notranslate nohighlight">\(m \times m\)</span> , <span class="math notranslate nohighlight">\(L\)</span> is a lower triangular matrix, and <span class="math notranslate nohighlight">\({L}^T\)</span> is the transposed matrix of <span class="math notranslate nohighlight">\(L\)</span> .</p>
 <p>The maximum matrix size supported in FPGA is templated by NMAX.</p>
 <p class="rubric">Parameters:</p>
@@ -521,13 +516,13 @@
 <td>data type (support float and double)</td>
 </tr>
 <tr class="row-even"><td>NMAX</td>
-<td>maximum number of input symmetric matrix size</td>
+<td>maximum number of rows/columns of input matrix</td>
 </tr>
 <tr class="row-odd"><td>NCU</td>
 <td>number of computation unit</td>
 </tr>
 <tr class="row-even"><td>m</td>
-<td>number of symmetric matrix A size</td>
+<td>number of rows/cols of matrix A</td>
 </tr>
 <tr class="row-odd"><td>A</td>
 <td>input matrix of size <span class="math notranslate nohighlight">\(m \times m\)</span></td>
@@ -536,7 +531,7 @@
 <td>leading dimention of input matrix A</td>
 </tr>
 <tr class="row-odd"><td>info</td>
-<td>return value, if info=0, the Cholesky factorization is successful</td>
+<td>output info (unused)</td>
 </tr>
 </tbody>
 </table>
