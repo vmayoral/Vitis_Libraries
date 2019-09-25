@@ -173,7 +173,7 @@
 </pre>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>Normal distributed random number generator based on Box-Muller Transformation, output datatype is float. <span class="xref std std-ref">More…</span></p>
+<p>Normally distributed random number generator based on Box-Muller Transformation, output datatype is float. <span class="xref std std-ref">More…</span></p>
 <pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-mt19937boxmullernomralrng-mt19937boxmullernomralrng">
 <span id="doxid-classxf-1-1fintech-1-1-m-t19937-box-muller-nomral-rng-1ab5324edb39be3e968ce5b782f44e5d17"></span><span id="cid-xf-fintech-mt19937boxmullernomralrng-is-odd"></span><span id="doxid-classxf-1-1fintech-1-1-m-t19937-box-muller-nomral-rng-1a8594a85636264cb1b5a47a31bd9f507e"></span><span id="cid-xf-fintech-mt19937boxmullernomralrng-ztmp"></span><span id="doxid-classxf-1-1fintech-1-1-m-t19937-box-muller-nomral-rng-1a4cede498006037b59a842d5e6ac811ad"></span><span id="cid-xf-fintech-mt19937boxmullernomralrng-z2"></span><span id="doxid-classxf-1-1fintech-1-1-m-t19937-box-muller-nomral-rng-1ab7d161f21f93bebb7869708fa84d9a44"></span><span id="cid-xf-fintech-mt19937boxmullernomralrng-z1"></span><span id="doxid-classxf-1-1fintech-1-1-m-t19937-box-muller-nomral-rng-1a05bfaf03353d0b9f2e51b7ad1e7d8c54"></span><span id="cid-xf-fintech-mt19937boxmullernomralrng-utmp"></span><span id="doxid-classxf-1-1fintech-1-1-m-t19937-box-muller-nomral-rng-1a0166ebb9dd301784b714158a9cb7d17b"></span><span id="cid-xf-fintech-mt19937boxmullernomralrng-u2"></span><span id="doxid-classxf-1-1fintech-1-1-m-t19937-box-muller-nomral-rng-1a4601ac4fa628aaabb4a4cbd93693312c"></span><span id="cid-xf-fintech-mt19937boxmullernomralrng-u1"></span><span id="doxid-classxf-1-1fintech-1-1-m-t19937-box-muller-nomral-rng-1a9d48ddf4752d11004a61a174deb24a08"></span><span id="cid-xf-fintech-mt19937boxmullernomralrng-uniformrng"></span><span id="doxid-classxf-1-1fintech-1-1-m-t19937-box-muller-nomral-rng-1a09804d8223691b5238ba9aa663c4bee8"></span><span></span><span class="c1">// fields</span>
 
@@ -196,7 +196,7 @@
 <pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt19937boxmullernomralrng-mt19937boxmullernomralrng-2">
 <span id="doxid-classxf-1-1fintech-1-1-m-t19937-box-muller-nomral-rng-1aa5712e90490990964ac563249a2cb336"></span><span></span><span class="n">MT19937BoxMullerNomralRng</span> <span class="p">(</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span> <span class="n">seed</span><span class="p">)</span>
 </pre>
-<p>using seed to initialize</p>
+<p>Constructor with seed.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -220,7 +220,7 @@
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">void</span> <span class="n">seedInitialization</span> <span class="p">(</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span> <span class="n">seed</span><span class="p">)</span>
 </pre>
-<p>using seed to initialize</p>
+<p>Initialization using seed.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -242,7 +242,7 @@
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">void</span> <span class="n">statusSetup</span> <span class="p">(</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span> <span class="n">data</span> <span class="p">[</span><span class="mi">624</span><span class="p">])</span>
 </pre>
-<p>statusSetup</p>
+<p>Setup status.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -251,7 +251,7 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>data</td>
-<td>&#160;</td>
+<td>initialization data for setting up status</td>
 </tr>
 </tbody>
 </table>
@@ -264,9 +264,9 @@
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">float</span> <span class="n">next</span> <span class="p">()</span>
 </pre>
-<p>next</p>
+<p>Get next normally distributed random number.</p>
 <p class="rubric">Returns:</p>
-<p>normal distributed random number</p>
+<p>a normally distributed random number</p>
 </div>
 </div>
 </div>

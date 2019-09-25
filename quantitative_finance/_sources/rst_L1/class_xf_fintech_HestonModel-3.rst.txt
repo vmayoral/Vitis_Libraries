@@ -112,7 +112,7 @@ Defined in <xf_fintech/heston_model.hpp>
 	    DT* rho
 	    )
 
-initParam
+initParam Init model parameters.
 
 
 
@@ -124,47 +124,47 @@ initParam
     *
         - asset_nm
 
-        - 
+        - Number of asset, should be no more than ASSETS
 
     *
         - timeLength
 
-        - 
+        - Length of time of contract
 
     *
         - timeSteps
 
-        - 
+        - Number of timesteps in timeLength
 
     *
         - riskFreeRate_input
 
-        - 
+        - Risk Free rate
 
     *
         - dividendYield
 
-        - 
+        - Dividend Yield
 
     *
         - kappa
 
-        - 
+        - Kappa of Heston Model
 
     *
         - theta
 
-        - 
+        - Theta of Heston Model
 
     *
         - sigma
 
-        - 
+        - Sigma of Heston Model
 
     *
         - rho
 
-        -
+        - Rho of Heston Model
 
 .. _doxid-classxf_1_1fintech_1_1_heston_model_1a59979d71ffecc9bc1ad26c20cff0b304:
 .. _cid-xf::fintech::hestonmodel::logevolve-3:
@@ -190,7 +190,7 @@ Defined in <xf_fintech/heston_model.hpp>
 	    DT z1
 	    )
 
-logEvolve
+logEvolve Log Evolve of Heston Model
 
 
 
@@ -202,35 +202,35 @@ logEvolve
     *
         - asset_itr
 
-        - 
+        - Which asset to evolve.
 
     *
         - s
 
-        - 
+        - Current s(log price).
 
     *
         - v
 
-        - 
+        - Current v(volatility).
 
     *
         - s_next
 
-        - 
+        - Next s(log price).
 
     *
         - v_next
 
-        - 
+        - Next v(volatilty).
 
     *
         - z0
 
-        - 
+        - Random number input for s.
 
     *
         - z1
 
-        -
+        - Random number input for v.
 

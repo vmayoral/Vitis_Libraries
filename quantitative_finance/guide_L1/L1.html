@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>L1 Module User Guide &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>L1 Module User Guide &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -32,7 +32,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Random Number Generator" href="RNGs/RNG.html" />
-    <link rel="prev" title="Merton 76 Closed-Form Solution" href="../methods/cf-m76.html" /> 
+    <link rel="prev" title="Quanto Closed-Form Solution" href="../methods/quanto.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">L1 Module User Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#core-utility">Core Utility</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="RNGs/RNG.html">Random Number Generator</a></li>
@@ -103,6 +103,9 @@
 <li class="toctree-l3"><a class="reference internal" href="Pentadiag/Pentadiag.html">Pentadiagonal Matrix Solver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SobolRsg/sobolrsg.html">Sobol Sequence Generator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brownian/bb.html">Brownian Bridge Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StochasticProcess/stochastic_process1d.html">StochasticProcess1D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StochasticProcess/ornsteinuhlenbeck_process.html">OrnsteinUhlenbeckProcess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fdmmesher/fdmmesher.html">Meshers</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#l1-module-apis">L1 Module APIs</a><ul>
@@ -153,7 +156,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF FinTech Library</a>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -205,7 +208,7 @@
             
   <div class="section" id="l1-module-user-guide">
 <h1>L1 Module User Guide<a class="headerlink" href="#l1-module-user-guide" title="Permalink to this headline">¶</a></h1>
-<p>L1 Module is the low-level primitives which could be used to build kernel to accelerate the specific option pricing.
+<p>L1 Module is the low-level primitives which could be used to build kernel and accelerate the specific option pricing.
 Currently, it includes two evaluation models, Black-Scholes and Heston model, which present the change of stock price with time. It also provides Monte Carlo framework to calculate the price of option. During the evaluation of American Option, it uses Least-Square method and linear solver based on SVD decomposition.</p>
 <div class="toctree-wrapper compound">
 </div>
@@ -219,6 +222,9 @@ Currently, it includes two evaluation models, Black-Scholes and Heston model, wh
 <li class="toctree-l1"><a class="reference internal" href="Pentadiag/Pentadiag.html">Pentadiagonal Matrix Solver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SobolRsg/sobolrsg.html">Sobol Sequence Generator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="brownian/bb.html">Brownian Bridge Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StochasticProcess/stochastic_process1d.html">StochasticProcess1D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StochasticProcess/ornsteinuhlenbeck_process.html">OrnsteinUhlenbeckProcess</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fdmmesher/fdmmesher.html">Meshers</a></li>
 </ul>
 </div>
 </div>
@@ -226,98 +232,29 @@ Currently, it includes two evaluation models, Black-Scholes and Heston model, wh
 <h2>L1 Module APIs<a class="headerlink" href="#l1-module-apis" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html">RNG</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#defined-in-xf-fintech-rng-hpp">Defined in &lt;xf_fintech/rng.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#sobolrsg">SobolRsg</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#defined-in-xf-fintech-sobol-rsg-hpp">Defined in &lt;xf_fintech/sobol_rsg.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#brownianbridge">BrownianBridge</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#defined-in-xf-fintech-brownian-bridge-hpp">Defined in &lt;xf_fintech/brownian_bridge.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#trinomialtree">TrinomialTree</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#defined-in-xf-fintech-trinomial-tree-hpp">Defined in &lt;xf_fintech/trinomial_tree.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#treelattice">TreeLattice</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#defined-in-xf-fintech-tree-lattice-hpp">Defined in &lt;xf_fintech/tree_lattice.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#dmesher">1DMesher</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#defined-in-xf-fintech-fdmmesher-hpp">Defined in &lt;xf_fintech/fdmmesher.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#ornsteinuhlenbeckprocess">OrnsteinUhlenbeckProcess</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#defined-in-xf-fintech-ornstein-uhlenbeck-process-hpp">Defined in &lt;xf_fintech/ornstein_uhlenbeck_process.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#stochasticprocess1d">StochasticProcess1D</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#defined-in-xf-fintech-stochastic-process-hpp">Defined in &lt;xf_fintech/stochastic_process.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#hwmodel">HWModel</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#defined-in-xf-fintech-hw-model-hpp">Defined in &lt;xf_fintech/hw_model.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#g2model">G2Model</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#defined-in-xf-fintech-g2-model-hpp">Defined in &lt;xf_fintech/g2_model.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#ecirmodel">ECIRModel</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#defined-in-xf-fintech-ecir-model-hpp">Defined in &lt;xf_fintech/ecir_model.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#cirmodel">CIRModel</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#defined-in-xf-fintech-cir-model-hpp">Defined in &lt;xf_fintech/cir_model.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#vmodel">VModel</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#defined-in-xf-fintech-v-model-hpp">Defined in &lt;xf_fintech/v_model.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#hestonmodel">HestonModel</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#defined-in-xf-fintech-heston-model-hpp">Defined in &lt;xf_fintech/heston_model.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#bkmodel">BKModel</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#defined-in-xf-fintech-bk-model-hpp">Defined in &lt;xf_fintech/bk_model.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#bsmodel">BSModel</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#defined-in-xf-fintech-bs-model-hpp">Defined in &lt;xf_fintech/bs_model.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#svd">svd</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#defined-in-xf-fintech-jacobi-svd-hpp">Defined in &lt;xf_fintech/jacobi_svd.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#mcsimulation">mcSimulation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#defined-in-xf-fintech-mc-simulation-hpp">Defined in &lt;xf_fintech/mc_simulation.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#pentadiagcr">pentadiagCr</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#defined-in-xf-fintech-pentadiag-cr-hpp">Defined in &lt;xf_fintech/pentadiag_cr.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#boxmullertransform">boxMullerTransform</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#id1">Defined in &lt;xf_fintech/rng.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#inversecumulativenormalppnd7">inverseCumulativeNormalPPND7</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#id2">Defined in &lt;xf_fintech/rng.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#inversecumulativenormalacklam">inverseCumulativeNormalAcklam</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#id3">Defined in &lt;xf_fintech/rng.hpp&gt;</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hw_api.html#trsvcore">trsvCore</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hw_api.html#defined-in-xf-fintech-trsv-hpp">Defined in &lt;xf_fintech/trsv.hpp&gt;</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html">RNG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#sobolrsg">SobolRsg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#brownianbridge">BrownianBridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#trinomialtree">TrinomialTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#treelattice">TreeLattice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#dmesher">1DMesher</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#ornsteinuhlenbeckprocess">OrnsteinUhlenbeckProcess</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#stochasticprocess1d">StochasticProcess1D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#hwmodel">HWModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#g2model">G2Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#ecirmodel">ECIRModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#cirmodel">CIRModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#vmodel">VModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#hestonmodel">HestonModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#bkmodel">BKModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#bsmodel">BSModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#svd">svd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#mcsimulation">mcSimulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#pentadiagcr">pentadiagCr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#boxmullertransform">boxMullerTransform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#inversecumulativenormalppnd7">inverseCumulativeNormalPPND7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#inversecumulativenormalacklam">inverseCumulativeNormalAcklam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw_api.html#trsvcore">trsvCore</a></li>
 </ul>
 </div>
 </div>
@@ -334,7 +271,7 @@ Currently, it includes two evaluation models, Black-Scholes and Heston model, wh
         <a href="RNGs/RNG.html" class="btn btn-neutral float-right" title="Random Number Generator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../methods/cf-m76.html" class="btn btn-neutral" title="Merton 76 Closed-Form Solution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../methods/quanto.html" class="btn btn-neutral" title="Quanto Closed-Form Solution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

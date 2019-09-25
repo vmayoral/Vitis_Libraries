@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Internal Design of Digital Option Pricing Engines &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Internal Design of Digital Option Pricing Engines &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../L2.html">L2 Pricing Engine Kernel User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../overview.html">Pricing Engine Overview</a></li>
@@ -111,12 +111,16 @@
 <li class="toctree-l3"><a class="reference internal" href="MCCliquetEngine.html">Internal Design of Cliquet Option Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MCAmericanEngine.html">Internal Design of American Option Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MCMultiAssetEuropeanHestonEngine.html">Internal Design of MCMultiAssetEuropeanHestonEngine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCHullWhiteCapFloorEngine.html">Internal Design of MCHullWhiteCapFloorEngine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MCEuropeanHestonGreeksEngine.html">Internal Design of MCEuropeanHestonGreeksEngine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CFBlackScholesMerton.html">Internal Design of Closed Form Black-Scholes-Merton</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CFHeston.html">Internal Design of Closed Form Heston</a></li>
 <li class="toctree-l3"><a class="reference internal" href="M76.html">Internal Design of Closed Form Merton 76</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GarmanKohlhagen.html">Internal Design of Garman Kohlhagen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Quanto.html">Internal Design of Quanto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="BTCRR.html">Internal Design of Cox-Ross-Rubinstein Binomial Tree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="FDHullWhiteEngine.html">Internal Design of Finite-difference Hull-White Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FDHullWhiteEngine.html">Internal Design of Finite-Difference Hull-White Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FDG2SwaptionEngine.html">Internal Design of Finite-Difference G2 Bermudan Swaption Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="TreeEngine.html">Internal Design of Tree Bermudan Swaption Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CPICapFloorEngine.html">Internal Design of CPI CapFloor Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InflationCapFloorEngine.html">Internal Design of Inflation CapFloor Engine</a></li>
@@ -125,6 +129,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../kernel_api.html">Pricing Engine Kernel APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kernel_benchmark.html">Pricing Engines Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../other_engines.html">Other Engine Kernel Design</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -146,7 +151,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF FinTech Library</a>
+          <a href="../../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -204,7 +209,7 @@
 <h1>Internal Design of Digital Option Pricing Engines<a class="headerlink" href="#internal-design-of-digital-option-pricing-engines" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>Using Monte Carlo Simulation to estimate the value of digital option. Here, we assume the process of asset price applies to Black-Scholes process.</p>
+<p>This engine uses Monte Carlo Simulation to estimate the value of digital option. Here, we assume the process of asset pricing applies to Black-Scholes process.</p>
 <p>Digital option is an option whose payoff is characterized as having only two potential values: a fixed payout, when the option is in the money or a zero payout otherwise.
 It is not related to how far the asset price at maturity is above (call) or below (put) the strike.</p>
 <p>Digital options are attractive to buyers because the option payoff is a known constant amount, and this amount can be adjusted to provide the exact quantity of protection required. It overcomes a fundamental problem with the vanilla options, where the potential loss is unlimited, referring to the wiki.</p>
@@ -224,23 +229,31 @@ Here, the exercise of digital option could be at the expiry time or any time bef
 When argument exEarly is false, the fixed cash is paid at the expiry time and it is discounted to time zero for the value of option.
 Otherwise, once the maximum or the minimum of the asset price hits the strike value, the fixed cash is paid and it is discounted to time 0 for the value of option.</p>
 <p>In the following, we will take put digital option as an example to elaborate.
-Let <span class="math notranslate nohighlight">\(T\)</span> be the maturity time of option. The maturity time <span class="math notranslate nohighlight">\(T\)</span> is discreted by time steps <span class="math notranslate nohighlight">\(N\)</span>.
+Let <span class="math notranslate nohighlight">\(T\)</span> be the maturity time of option. The maturity time <span class="math notranslate nohighlight">\(T\)</span> is discretized by time steps <span class="math notranslate nohighlight">\(N\)</span>.
 The strike value is <span class="math notranslate nohighlight">\(K\)</span>. <span class="math notranslate nohighlight">\(C\)</span> is the fixed cash is paid when option is in the money.</p>
 <p>The detailed procedure of Monte Carlo Simulation is as follows:</p>
-<p>For <span class="math notranslate nohighlight">\(i\)</span> = 1 to <span class="math notranslate nohighlight">\(M\)</span></p>
-<p>For <span class="math notranslate nohighlight">\(j\)</span> = 1 to <span class="math notranslate nohighlight">\(N\)</span></p>
 <ol class="arabic simple">
+<li>For <span class="math notranslate nohighlight">\(i\)</span> = 1 to <span class="math notranslate nohighlight">\(M\)</span></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>For <span class="math notranslate nohighlight">\(j\)</span> = 1 to <span class="math notranslate nohighlight">\(N\)</span><ul>
 <li>generate a normal random number and uniform random number <span class="math notranslate nohighlight">\(u\)</span>;</li>
 <li>simulate the price of asset <span class="math notranslate nohighlight">\(S^i_j\)</span>;</li>
 <li>simulate the maximum price of asset <span class="math notranslate nohighlight">\(M\)</span> during time interval <span class="math notranslate nohighlight">\([t_{j-1}, t_j]\)</span>.</li>
-</ol>
+</ul>
+</li>
+</ul>
+</div></blockquote>
 <div class="math notranslate nohighlight">
 \[x = \ln \frac {S^i_j}{S^i_{j-1}}\]</div>
 <div class="math notranslate nohighlight">
 \[y = \frac {x - \sqrt {(x^2 - 2\sigma^2 \Delta t\log u)}} {2}\]</div>
 <div class="math notranslate nohighlight">
 \[M = S^i_j\exp (y)\]</div>
-<p>Calculate the payoff and discount it to time 0 for option price <span class="math notranslate nohighlight">\(P_i\)</span>. if <span class="math notranslate nohighlight">\(M &gt; K\)</span>,</p>
+<ol class="arabic simple" start="2">
+<li>Calculate the payoff and discount it to time 0 for option price <span class="math notranslate nohighlight">\(P_i\)</span>. if <span class="math notranslate nohighlight">\(M &gt; K\)</span>,</li>
+</ol>
 <div class="math notranslate nohighlight">
 \[P_i = C\exp (-rt_j), exEarly = true\]</div>
 <div class="math notranslate nohighlight">

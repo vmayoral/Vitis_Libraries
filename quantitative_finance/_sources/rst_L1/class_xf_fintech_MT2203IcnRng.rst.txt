@@ -17,7 +17,7 @@ template class xf::fintech::MT2203IcnRng
 Overview
 ~~~~~~~~
 
-:ref:`MT2203IcnRng <doxid-classxf_1_1fintech_1_1_m_t2203_icn_rng>` . :ref:`More...<details-doxid-classxf_1_1fintech_1_1_m_t2203_icn_rng>`
+Normally distributed random number generator based on InvserCumulative function. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_m_t2203_icn_rng>`
 
 .. _doxid-classxf_1_1fintech_1_1_m_t2203_icn_rng_1a968a8bebf67661a7a2fa1adfdf5849b0:
 .. _cid-xf::fintech::mt2203icnrng::mt2203icnrng:
@@ -42,7 +42,7 @@ Construction
 
 	MT2203IcnRng (ap_uint <32> seed)
 
-:ref:`MT2203IcnRng <doxid-classxf_1_1fintech_1_1_m_t2203_icn_rng>` .
+Constructor with seed.
 
 
 
@@ -54,7 +54,7 @@ Construction
     *
         - seed
 
-        -
+        - initialization seed
 
 
 .. FunctionSection
@@ -78,7 +78,7 @@ Defined in <xf_fintech/rng.hpp>
 
 	void seedInitialization (ap_uint <32> seed)
 
-using seed to initialize
+Initialization using seed.
 
 
 
@@ -108,7 +108,7 @@ Defined in <xf_fintech/rng.hpp>
 
 	void statusSetup (ap_uint <32> data [624])
 
-statusSetup
+Setup status.
 
 
 
@@ -120,7 +120,7 @@ statusSetup
     *
         - data
 
-        -
+        - initialization data to setup status
 
 .. _doxid-classxf_1_1fintech_1_1_m_t2203_icn_rng_1a2f39d7965d41dc6f36727a9140a6a2fe:
 .. _cid-xf::fintech::mt2203icnrng::statussetup-2:
@@ -138,7 +138,7 @@ Defined in <xf_fintech/rng.hpp>
 	    ap_uint <32> C
 	    )
 
-statusSetup
+Setup status.
 
 
 
@@ -150,17 +150,17 @@ statusSetup
     *
         - A
 
-        - 
+        - value for configurable parameter A
 
     *
         - B
 
-        - 
+        - value for configurable parameter B
 
     *
         - C
 
-        -
+        - value for configurable parameter C
 
 .. _doxid-classxf_1_1fintech_1_1_m_t2203_icn_rng_1a8693b89443aa01cca03bee23baa1b381:
 .. _cid-xf::fintech::mt2203icnrng::next:
@@ -178,11 +178,13 @@ Defined in <xf_fintech/rng.hpp>
 
 	mType next ()
 
-brief next
+brief Get next normally distributed random number
 
 
 
 .. rubric:: Returns:
+
+a normally distributed random number
 
 .. _doxid-classxf_1_1fintech_1_1_m_t2203_icn_rng_1a2123b1e50086abb380c88cf617da5d09:
 .. _cid-xf::fintech::mt2203icnrng::next-2:
@@ -196,7 +198,7 @@ Defined in <xf_fintech/rng.hpp>
 
 	void next (mType& uniformR)
 
-next
+Get next uniformly distributed random number.
 
 
 
@@ -208,7 +210,7 @@ next
     *
         - uniformR
 
-        -
+        - return a uniformly distributed random bumber
 
 .. _doxid-classxf_1_1fintech_1_1_m_t2203_icn_rng_1afe3385a42b55afb12424f0da4f535587:
 .. _cid-xf::fintech::mt2203icnrng::next-3:
@@ -225,7 +227,7 @@ Defined in <xf_fintech/rng.hpp>
 	    mType& gaussianR
 	    )
 
-next
+Get next normally distributed random number and its corresponding uniformly distributed random number.
 
 
 
@@ -237,10 +239,10 @@ next
     *
         - uniformR
 
-        - 
+        - return next uniformly distributed random number
 
     *
         - gaussianR
 
-        -
+        - return next normally distributed random number
 

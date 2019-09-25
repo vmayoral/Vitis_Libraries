@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Pricing Engine Kernel Design &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Pricing Engine Kernel Design &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="L2.html">L2 Pricing Engine Kernel User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="overview.html">Pricing Engine Overview</a></li>
@@ -107,12 +107,16 @@
 <li class="toctree-l3"><a class="reference internal" href="engines/MCCliquetEngine.html">Internal Design of Cliquet Option Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="engines/MCAmericanEngine.html">Internal Design of American Option Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="engines/MCMultiAssetEuropeanHestonEngine.html">Internal Design of MCMultiAssetEuropeanHestonEngine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="engines/MCHullWhiteCapFloorEngine.html">Internal Design of MCHullWhiteCapFloorEngine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="engines/MCEuropeanHestonGreeksEngine.html">Internal Design of MCEuropeanHestonGreeksEngine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="engines/CFBlackScholesMerton.html">Internal Design of Closed Form Black-Scholes-Merton</a></li>
 <li class="toctree-l3"><a class="reference internal" href="engines/CFHeston.html">Internal Design of Closed Form Heston</a></li>
 <li class="toctree-l3"><a class="reference internal" href="engines/M76.html">Internal Design of Closed Form Merton 76</a></li>
+<li class="toctree-l3"><a class="reference internal" href="engines/GarmanKohlhagen.html">Internal Design of Garman Kohlhagen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="engines/Quanto.html">Internal Design of Quanto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="engines/BTCRR.html">Internal Design of Cox-Ross-Rubinstein Binomial Tree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="engines/FDHullWhiteEngine.html">Internal Design of Finite-difference Hull-White Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="engines/FDHullWhiteEngine.html">Internal Design of Finite-Difference Hull-White Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="engines/FDG2SwaptionEngine.html">Internal Design of Finite-Difference G2 Bermudan Swaption Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="engines/TreeEngine.html">Internal Design of Tree Bermudan Swaption Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="engines/CPICapFloorEngine.html">Internal Design of CPI CapFloor Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="engines/InflationCapFloorEngine.html">Internal Design of Inflation CapFloor Engine</a></li>
@@ -121,6 +125,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="kernel_api.html">Pricing Engine Kernel APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kernel_benchmark.html">Pricing Engines Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="other_engines.html">Other Engine Kernel Design</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -142,7 +147,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF FinTech Library</a>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -260,6 +265,11 @@
 <li class="toctree-l2"><a class="reference internal" href="engines/MCMultiAssetEuropeanHestonEngine.html#variations">Variations</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="engines/MCHullWhiteCapFloorEngine.html">Internal Design of MCHullWhiteCapFloorEngine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="engines/MCHullWhiteCapFloorEngine.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/MCHullWhiteCapFloorEngine.html#implementation">Implementation</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="engines/MCEuropeanHestonGreeksEngine.html">Internal Design of MCEuropeanHestonGreeksEngine</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="engines/MCEuropeanHestonGreeksEngine.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/MCEuropeanHestonGreeksEngine.html#implementation">Implementation</a></li>
@@ -268,7 +278,7 @@
 <li class="toctree-l1"><a class="reference internal" href="engines/CFBlackScholesMerton.html">Internal Design of Closed Form Black-Scholes-Merton</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="engines/CFBlackScholesMerton.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/CFBlackScholesMerton.html#design-structure">Design Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="engines/CFBlackScholesMerton.html#cfbsmengine-cf-bsm-h">cfBSMEngine (cf_bsm.h)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/CFBlackScholesMerton.html#cfbsmengine-cf-bsm-hpp">cfBSMEngine (cf_bsm.hpp)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/CFBlackScholesMerton.html#bsm-kernel-bsm-kernel-cpp">bsm_kernel (bsm_kernel.cpp)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/CFBlackScholesMerton.html#theoretical-throughput">Theoretical throughput</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/CFBlackScholesMerton.html#resource-utilization">Resource Utilization</a></li>
@@ -280,7 +290,7 @@
 <li class="toctree-l1"><a class="reference internal" href="engines/CFHeston.html">Internal Design of Closed Form Heston</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="engines/CFHeston.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/CFHeston.html#design-structure">Design Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="engines/CFHeston.html#the-engine-hcf-engine-h">The Engine (hcf_engine.h)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/CFHeston.html#the-engine-hcf-engine-hpp">The Engine (hcf_engine.hpp)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/CFHeston.html#io-wrapper-hcf-kernel-cpp">IO Wrapper (hcf_kernel.cpp)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/CFHeston.html#resource-utilization">Resource Utilization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/CFHeston.html#throughput">Throughput</a><ul class="simple">
@@ -299,10 +309,32 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="engines/GarmanKohlhagen.html">Internal Design of Garman Kohlhagen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="engines/GarmanKohlhagen.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/GarmanKohlhagen.html#design-structure">Design Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/GarmanKohlhagen.html#the-engine">The Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/GarmanKohlhagen.html#io-wrapper-gk-kernel-cpp">IO Wrapper (gk_kernel.cpp)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/GarmanKohlhagen.html#resource-utilization">Resource Utilization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/GarmanKohlhagen.html#throughput">Throughput</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="engines/Quanto.html">Internal Design of Quanto</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="engines/Quanto.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/Quanto.html#design-structure">Design Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/Quanto.html#the-engine">The Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/Quanto.html#io-wrapper-quanto-kernel-cpp">IO Wrapper (quanto_kernel.cpp)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/Quanto.html#resource-utilization">Resource Utilization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/Quanto.html#throughput">Throughput</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="engines/BTCRR.html">Internal Design of Cox-Ross-Rubinstein Binomial Tree</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="engines/BTCRR.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/BTCRR.html#design-structure">Design Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="engines/BTCRR.html#bt-engine-bt-engine-h">bt_engine (bt_engine.h)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/BTCRR.html#bt-engine-bt-engine-hpp">bt_engine (bt_engine.hpp)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/BTCRR.html#binomialtreekernel-binomialtreekernel-cpp">binomialtreekernel (binomialtreekernel.cpp)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/BTCRR.html#resource-utilization">Resource Utilization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/BTCRR.html#throughput">Throughput</a><ul class="simple">
@@ -310,13 +342,21 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="engines/FDHullWhiteEngine.html">Internal Design of Finite-difference Hull-White Bermudan Swaption Pricing Engine</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="engines/FDHullWhiteEngine.html">Internal Design of Finite-Difference Hull-White Bermudan Swaption Pricing Engine</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="engines/FDHullWhiteEngine.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/FDHullWhiteEngine.html#implementation">Implementation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/FDHullWhiteEngine.html#mesher">Mesher</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/FDHullWhiteEngine.html#differential-operator">Differential operator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/FDHullWhiteEngine.html#evolution-scheme">Evolution scheme</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/FDHullWhiteEngine.html#profiling">Profiling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="engines/FDG2SwaptionEngine.html">Internal Design of Finite-Difference G2 Bermudan Swaption Pricing Engine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="engines/FDG2SwaptionEngine.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/FDG2SwaptionEngine.html#implementation">Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/FDG2SwaptionEngine.html#mesher">Mesher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/FDG2SwaptionEngine.html#differential-operator">Differential operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/FDG2SwaptionEngine.html#profiling">Profiling</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="engines/TreeEngine.html">Internal Design of Tree Bermudan Swaption Engine</a><ul>

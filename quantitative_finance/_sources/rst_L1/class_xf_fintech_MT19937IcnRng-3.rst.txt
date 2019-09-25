@@ -17,7 +17,7 @@ template class xf::fintech::MT19937IcnRng <float>
 Overview
 ~~~~~~~~
 
-Normal distributed random number generator based on InvserCumulative function, output datatype is float. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01float_01_4>`
+Normally distributed random number generator based on InvserCumulative function, output datatype is float. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01float_01_4>`
 
 .. _doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01float_01_4_1aa83b71168aa478af497ae4a3770485aa:
 .. _cid-xf::fintech::mt19937icnrng::uniformrng-2:
@@ -62,7 +62,7 @@ Defined in <xf_fintech/rng.hpp>
 
 	void seedInitialization (ap_uint <32> seed)
 
-using seed to initialize
+Initialization using seed.
 
 
 
@@ -92,7 +92,7 @@ Defined in <xf_fintech/rng.hpp>
 
 	void statusSetup (ap_uint <32> data [624])
 
-statusSetup
+Setup status.
 
 
 
@@ -104,7 +104,7 @@ statusSetup
     *
         - data
 
-        -
+        - initialization data for setting up status
 
 .. _doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01float_01_4_1a03d9985c95cb1f9f8bf5600584fd48a2:
 .. _cid-xf::fintech::mt19937icnrng::next-7:
@@ -122,13 +122,13 @@ Defined in <xf_fintech/rng.hpp>
 
 	float next ()
 
-next return normal distributed random number
+Get next normally distributed random number.
 
 
 
 .. rubric:: Returns:
 
-normal distributed random number
+a normally distributed random number
 
 .. _doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01float_01_4_1aa56343e0bb48d12eba456417cc985b02:
 .. _cid-xf::fintech::mt19937icnrng::next-8:
@@ -145,7 +145,7 @@ Defined in <xf_fintech/rng.hpp>
 	    float& gaussianR
 	    )
 
-return normal distributed random number and its corresponding uniform distributed random number
+Get a normally distributed random number and its corresponding uniformly distributed random number.
 
 
 
@@ -157,12 +157,12 @@ return normal distributed random number and its corresponding uniform distribute
     *
         - gaussianR
 
-        - return normal distributed random number.
+        - return normally distributed random number.
 
     *
         - uniformR
 
-        - return uniform distributed random number that corrresponding to gaussianR
+        - return uniformly distributed random number that corrresponding to gaussianR
 
 .. _doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01float_01_4_1a5c74dd145045ac531fb434df3aa52f5c:
 .. _cid-xf::fintech::mt19937icnrng::next-9:
@@ -176,9 +176,9 @@ Defined in <xf_fintech/rng.hpp>
 
 	void next (float& uniformR)
 
-return uniform distributed random number
+Get next uniformly distributed random number.
 
-param uniformR return uniform distributed random number
+param uniformR return a uniformly distributed random number
 
 .. _doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01float_01_4_1af2e6165191ac2334d2fa926d34291658:
 .. _cid-xf::fintech::mt19937icnrng::nexttwo-3:
@@ -199,7 +199,7 @@ Defined in <xf_fintech/rng.hpp>
 	    float& gaussL
 	    )
 
-next return next two normal distributed random number
+Get next two normally distributed random number.
 
 
 
@@ -211,10 +211,10 @@ next return next two normal distributed random number
     *
         - gaussR
 
-        - return first normal distributed random number.
+        - return first normally distributed random number.
 
     *
         - gaussL
 
-        - return second normal distributed random number.
+        - return second normally distributed random number.
 

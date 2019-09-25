@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>XF FinTech Library &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Vitis Quantitative Finance Library &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -50,7 +50,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> XF FinTech Library
+            <a href="#" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -93,7 +93,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -115,7 +115,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">XF FinTech Library</a>
+          <a href="#">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -146,7 +146,7 @@
     
       <li><a href="#">Docs</a> &raquo;</li>
         
-      <li>XF FinTech Library</li>
+      <li>Vitis Quantitative Finance Library</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -165,15 +165,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="xf-fintech-library">
-<h1>XF FinTech Library<a class="headerlink" href="#xf-fintech-library" title="Permalink to this headline">¶</a></h1>
-<p>The XF FinTech Library is an Vitis Library aimed at providing a comprehensive FPGA acceleration library for quantitative finance.
-It is an open-source library can be used in a variety of financial applications, such as modeling, trading, evaluation and risk management.</p>
-<p>The XF FinTech library provides extensive APIs at three levels of abstraction:</p>
+  <div class="section" id="vitis-quantitative-finance-library">
+<h1>Vitis Quantitative Finance Library<a class="headerlink" href="#vitis-quantitative-finance-library" title="Permalink to this headline">¶</a></h1>
+<p>The Vitis Quantitative Finance Library is a Vitis Library aimed at providing a comprehensive FPGA acceleration library for quantitative finance.
+It is an open-source library that can be used in a variety of financial applications, such as modeling, trading, evaluation and risk management.</p>
+<p>The Vitis Quantitative Finance Library provides extensive APIs at three levels of abstraction:</p>
 <ul class="simple">
 <li>L1, the basic functions heavily used in higher level implementations. It includes statistical functions such as Random Number Generation (RNG), numerical methods, e.g., Monte Carlo Simulation, and linear algebra functions such as Singular Value Decomposition (SVD), and tridiagonal and pentadiagonal matrix solvers.</li>
-<li>L2, the APIs that provided at the level of pricing engines. Various pricing engines are provided to evaluate different financial derivatives, including equity products, interest-rate products, FX products, and credit products. At this level, each pricing engine API can be seen as a kernel. The customers may write their own CPU code to call different pricing engines under the framework of OpenCL.</li>
-<li>L3, the upcoming software level APIs. APIs of this level hide the details of data transfer, kernel related resources configuration, and task scheduling in OpenCL. Software application  programmers may quickly use L3 high-level APIs to run various pricing options without touching the dependency of OpenCL tasks and hardware configurations.</li>
+<li>L2, the APIs provided at the level of pricing engines. Various pricing engines are provided to evaluate different financial derivatives, including equity products, interest-rate products, foreign exchange (FX) products, and credit products. At this level, each pricing engine API can be seen as a kernel. The customers may write their own CPU code to call different pricing engines under the framework of OpenCL.</li>
+<li>L3, the software level APIs. APIs of this level hide the details of data transfer, kernel related resources configuration, and task scheduling in OpenCL. Software application programmers may quickly use L3 high-level APIs to run various pricing options without touching the dependency of OpenCL tasks and hardware configurations.</li>
 </ul>
 <div class="section" id="library-contents">
 <h2>Library Contents<a class="headerlink" href="#library-contents" title="Permalink to this headline">¶</a></h2>
@@ -194,7 +194,7 @@ $ source /opt/xilinx/xrt/setup.sh
 <li>L2</li>
 <li>L3</li>
 </ul>
-<p>The common tool and library prerequisites that apply across all design flows are documented in the requirements section above.</p>
+<p>The common tool and library prerequisites that apply across all design flows are documented in the requirements section.</p>
 <div class="section" id="l1">
 <h3>L1<a class="headerlink" href="#l1" title="Permalink to this headline">¶</a></h3>
 <p>L1 provides the low-level primitives used to build kernels.</p>
@@ -206,7 +206,7 @@ $ cd L1/tests/ICD/
 $ make CSIM=1 CSYNTH=0 COSIM=0 DEVICE=xilinx_u250_xdma_201830_2 check # Only run C++ simulation
 </pre></div>
 </div>
-<p>As well as verifying functional correctness, the reports generated from this flow give an indication of logic utilisation, timing performance, latency and throughput. The output files of interest can be located at the location examples as below where the file names are correlated with the source code. i.e. the callable functions within the design under test.</p>
+<p>As well as verifying functional correctness, the reports generated from this flow give an indication of logic utilisation, timing performance, latency and throughput. The output files of interest can be located at the example locations as shown below where the file names are correlated with the source code, i.e., the callable functions within the design under test.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Simulation</span> <span class="n">Log</span><span class="p">:</span> <span class="n">L1</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">ICD</span><span class="o">/</span><span class="n">prj</span><span class="o">/</span><span class="n">sol</span><span class="o">/</span><span class="n">csim</span><span class="o">/</span><span class="n">report</span><span class="o">/</span><span class="n">ICN_top_csim</span><span class="o">.</span><span class="n">log</span>
 <span class="n">Synthesis</span> <span class="n">Report</span><span class="p">:</span> <span class="n">L1</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">ICD</span><span class="o">/</span><span class="n">prj</span><span class="o">/</span><span class="n">sol</span><span class="o">/</span><span class="n">syn</span><span class="o">/</span><span class="n">report</span><span class="o">/</span><span class="n">ICN_top_csynth</span><span class="o">.</span><span class="n">rpt</span>
 </pre></div>
@@ -227,7 +227,7 @@ $ make run_hw DEVICE=xilinx_u250_xdma_201830_2
 $ bin_xilinx_u250_xdma_201830_2/test.exe -mode fpga -xclbin xclbin_xilinx_u250_xdma_201830_2_sw_emu/kernel_mcae.xclbin
 </pre></div>
 </div>
-<p>The outputs of this flow are packaged kernel binaries (xclbin files) that can be downloaded to the FPGA platform and host executables to configure and co-ordinate data transfers. The output files of interest can be located at the locations examples as below where the file names are correlated with the source code.</p>
+<p>The outputs of this flow are packaged kernel binaries (xclbin files) that can be downloaded to the FPGA platform, and host executables to configure and co-ordinate data transfers. The output files of interest can be located at the example locations as shown below where the file names are correlated with the source code.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Host</span> <span class="n">Executable</span><span class="p">:</span> <span class="n">L2</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">McEuropeanEngine</span><span class="o">/</span><span class="n">bin_xilinx_u250_xdma_201830_2</span><span class="o">/</span><span class="n">test</span><span class="o">.</span><span class="n">exe</span>
 <span class="n">Kernel</span> <span class="n">Packaged</span> <span class="n">Binary</span><span class="p">:</span> <span class="n">L2</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">McEuropeanEngine</span><span class="o">/</span><span class="n">xclbin_xilinx_u250_xdma_201830_2_sw_emu</span><span class="o">/</span><span class="n">kernel_mcae</span><span class="o">.</span><span class="n">xclbin</span>
 </pre></div>
@@ -245,7 +245,7 @@ $ source env.sh
 $ make
 </pre></div>
 </div>
-<p>The shared object file is written to the location examples as below:</p>
+<p>The shared object file is written to the example location as shown below:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Library</span><span class="p">:</span> <span class="n">L3</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">libxilinxfintech</span><span class="o">.</span><span class="n">so</span>
 </pre></div>
 </div>
@@ -273,7 +273,7 @@ $ ./mc_example
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="models_and_methods.html">Pricing models and numerical methods</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="models_and_methods.html">Pricing Models and Numerical Methods</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="models_and_methods.html#models">Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="models_and_methods.html#numerical-methods">Numerical Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="models_and_methods.html#closed-form-solution-methods">Closed-Form Solution Methods</a></li>
@@ -289,6 +289,7 @@ $ ./mc_example
 <li class="toctree-l2"><a class="reference internal" href="guide_L2/kernel_design.html">Pricing Engine Kernel Design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide_L2/kernel_api.html">Pricing Engine Kernel APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide_L2/kernel_benchmark.html">Pricing Engines Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_L2/other_engines.html">Other Engine Kernel Design</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="guide_L3/L3.html">L3 Overlay User Guide</a><ul>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>template class xf::fintech::internal::PathPricer &lt;LongstaffSchwartz, DT, StepFirst, SampNum, WithAntithetic, MaxSteps&gt; &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>template class xf::fintech::internal::PathPricer &lt;Digital, DT, StepFirst, SampNum, WithAntithetic&gt; &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -49,7 +49,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -92,7 +92,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -114,7 +114,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF FinTech Library</a>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -145,7 +145,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>template class xf::fintech::internal::PathPricer &lt;LongstaffSchwartz, DT, StepFirst, SampNum, WithAntithetic, MaxSteps&gt;</li>
+      <li>template class xf::fintech::internal::PathPricer &lt;Digital, DT, StepFirst, SampNum, WithAntithetic&gt;</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -164,39 +164,36 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="template-class-xf-fintech-internal-pathpricer-longstaffschwartz-dt-stepfirst-sampnum-withantithetic-maxsteps">
-<span id="cid-xf-fintech-internal-pathpricer"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-longstaff-schwartz-00-01-d-t-00-01-step-firs4b74c38265832b89c49e504dc9802f7f"></span><span id="index-0"></span><h1>template class xf::fintech::internal::PathPricer &lt;LongstaffSchwartz, DT, StepFirst, SampNum, WithAntithetic, MaxSteps&gt;<a class="headerlink" href="#template-class-xf-fintech-internal-pathpricer-longstaffschwartz-dt-stepfirst-sampnum-withantithetic-maxsteps" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="template-class-xf-fintech-internal-pathpricer-digital-dt-stepfirst-sampnum-withantithetic">
+<span id="cid-xf-fintech-internal-pathpricer"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-digital-00-01-d-t-00-01-step-first-00-01-sam2c52fa89c418be28d81330485c828cab"></span><span id="index-0"></span><h1>template class xf::fintech::internal::PathPricer &lt;Digital, DT, StepFirst, SampNum, WithAntithetic&gt;<a class="headerlink" href="#template-class-xf-fintech-internal-pathpricer-digital-dt-stepfirst-sampnum-withantithetic" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight overview-code-block literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&lt;path_pricer.hpp&gt;</span>
 </pre>
-<p>The pathpricer that used in MCAmericanEngine Option Pricing process.</p>
 <pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-internal-pathpricer-pricing">
-<span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-longstaff-schwartz-00-01-d-t-00-01-step-firs4b74c38265832b89c49e504dc9802f7f-1ab8d67409e919f273648c80d984ce1d47"></span><span id="cid-xf-fintech-internal-pathpricer-pe"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-longstaff-schwartz-00-01-d-t-00-01-step-firs4b74c38265832b89c49e504dc9802f7f-1a6b4c764c41daf73cfe75238cdc96f07c"></span><span id="cid-xf-fintech-internal-pathpricer-coefbuff-3"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-longstaff-schwartz-00-01-d-t-00-01-step-firs4b74c38265832b89c49e504dc9802f7f-1aabc1e02d932e40ee37fec67cf83b9ded"></span><span id="cid-xf-fintech-internal-pathpricer-coefbuff-2"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-longstaff-schwartz-00-01-d-t-00-01-step-firs4b74c38265832b89c49e504dc9802f7f-1a0cfb5f962b1215a02b4b5bf0fccf2237"></span><span id="cid-xf-fintech-internal-pathpricer-coefbuff-1"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-longstaff-schwartz-00-01-d-t-00-01-step-firs4b74c38265832b89c49e504dc9802f7f-1ae75eafd36df411f6c9f877c17bb1be5f"></span><span id="cid-xf-fintech-internal-pathpricer-coefbuff-0"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-longstaff-schwartz-00-01-d-t-00-01-step-firs4b74c38265832b89c49e504dc9802f7f-1a2b31e37e210ced5d87e0fcb22a434822"></span><span id="cid-xf-fintech-internal-pathpricer-recipstrike"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-longstaff-schwartz-00-01-d-t-00-01-step-firs4b74c38265832b89c49e504dc9802f7f-1a4456a8fa2b80130d6b2dde54bf41a78c"></span><span id="cid-xf-fintech-internal-pathpricer-recipunderlying"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-longstaff-schwartz-00-01-d-t-00-01-step-firs4b74c38265832b89c49e504dc9802f7f-1af5bd30e842f8ef5e77f5a9d5fb0cc89f"></span><span id="cid-xf-fintech-internal-pathpricer-riskrate"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-longstaff-schwartz-00-01-d-t-00-01-step-firs4b74c38265832b89c49e504dc9802f7f-1a474b0622d7560e2fbbf2817935ab17b8"></span><span id="cid-xf-fintech-internal-pathpricer-riskconst"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-longstaff-schwartz-00-01-d-t-00-01-step-firs4b74c38265832b89c49e504dc9802f7f-1a0b59f981a95ea16b95a9d32091091cce"></span><span id="cid-xf-fintech-internal-pathpricer-optiontype"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-longstaff-schwartz-00-01-d-t-00-01-step-firs4b74c38265832b89c49e504dc9802f7f-1a6b7e9759f36c5dcd5c2e9d4409b4dbe4"></span><span id="cid-xf-fintech-internal-pathpricer-strike"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-longstaff-schwartz-00-01-d-t-00-01-step-firs4b74c38265832b89c49e504dc9802f7f-1aef18e210b9f2b88f8e5535f605f0df87"></span><span id="cid-xf-fintech-internal-pathpricer-bypassgen"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-longstaff-schwartz-00-01-d-t-00-01-step-firs4b74c38265832b89c49e504dc9802f7f-1a677e2f82b987747d2e5174aa853c1eb2"></span><span id="cid-xf-fintech-internal-pathpricer-outn"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-longstaff-schwartz-00-01-d-t-00-01-step-firs4b74c38265832b89c49e504dc9802f7f-1ad16ccb51966e11881712ecbea1ee7c28"></span><span id="cid-xf-fintech-internal-pathpricer-inn"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-longstaff-schwartz-00-01-d-t-00-01-step-firs4b74c38265832b89c49e504dc9802f7f-1a039846415e36aef05d906c922de3515b"></span><span></span><span class="k">template</span> <span class="o">&lt;</span>
+<span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-digital-00-01-d-t-00-01-step-first-00-01-sam2c52fa89c418be28d81330485c828cab-1a82f2942816e31401f9a8775ab601b68c"></span><span id="cid-xf-fintech-internal-pathpricer-pe"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-digital-00-01-d-t-00-01-step-first-00-01-sam2c52fa89c418be28d81330485c828cab-1a7eba784948546ebaf65c59524e20869b"></span><span id="cid-xf-fintech-internal-pathpricer-vardoub"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-digital-00-01-d-t-00-01-step-first-00-01-sam2c52fa89c418be28d81330485c828cab-1aabbd472f4f4ee909b4642029dacf9b99"></span><span id="cid-xf-fintech-internal-pathpricer-disdt"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-digital-00-01-d-t-00-01-step-first-00-01-sam2c52fa89c418be28d81330485c828cab-1a2546dccd51ab9baeefe9406d07b3af62"></span><span id="cid-xf-fintech-internal-pathpricer-log-spot"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-digital-00-01-d-t-00-01-step-first-00-01-sam2c52fa89c418be28d81330485c828cab-1a8c150b5a60fb120d85c41793b33081a1"></span><span id="cid-xf-fintech-internal-pathpricer-varsqrt"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-digital-00-01-d-t-00-01-step-first-00-01-sam2c52fa89c418be28d81330485c828cab-1a9974ebd15078fa361df5871a20fe8aa7"></span><span id="cid-xf-fintech-internal-pathpricer-drift"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-digital-00-01-d-t-00-01-step-first-00-01-sam2c52fa89c418be28d81330485c828cab-1af5b9975b53e9d3045985d50a14298382"></span><span id="cid-xf-fintech-internal-pathpricer-log-strike"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-digital-00-01-d-t-00-01-step-first-00-01-sam2c52fa89c418be28d81330485c828cab-1ac4a4d89e11489046bcd11d94691e3cc7"></span><span id="cid-xf-fintech-internal-pathpricer-cashpayoff"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-digital-00-01-d-t-00-01-step-first-00-01-sam2c52fa89c418be28d81330485c828cab-1aa17d8a9ac4baf913b297a5f05e78e910"></span><span id="cid-xf-fintech-internal-pathpricer-optiontype"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-digital-00-01-d-t-00-01-step-first-00-01-sam2c52fa89c418be28d81330485c828cab-1a8437daccbe4f16cefac0170615ba06dc"></span><span id="cid-xf-fintech-internal-pathpricer-exearly"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-digital-00-01-d-t-00-01-step-first-00-01-sam2c52fa89c418be28d81330485c828cab-1a346b00cd0ec2f29d89e759855452bb90"></span><span id="cid-xf-fintech-internal-pathpricer-bypassgen"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-digital-00-01-d-t-00-01-step-first-00-01-sam2c52fa89c418be28d81330485c828cab-1a69f7d701039ccfe8c0736a0111c0e774"></span><span id="cid-xf-fintech-internal-pathpricer-outn"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-digital-00-01-d-t-00-01-step-first-00-01-sam2c52fa89c418be28d81330485c828cab-1a83be346c277d8a08f9fd6b1efae7225d"></span><span id="cid-xf-fintech-internal-pathpricer-inn"></span><span id="doxid-classxf-1-1fintech-1-1internal-1-1-path-pricer-3-01-digital-00-01-d-t-00-01-step-first-00-01-sam2c52fa89c418be28d81330485c828cab-1aaa754ef0a030e525a7c96f0340d52273"></span><span></span><span class="k">template</span> <span class="o">&lt;</span>
     <span class="k">typename</span> <span class="n">DT</span><span class="p">,</span>
     <span class="kt">bool</span> <span class="n">StepFirst</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">SampNum</span><span class="p">,</span>
-    <span class="kt">bool</span> <span class="n">WithAntithetic</span><span class="p">,</span>
-    <span class="kt">int</span> <span class="n">MaxSteps</span>
+    <span class="kt">bool</span> <span class="n">WithAntithetic</span>
     <span class="o">&gt;</span>
-<span class="k">class</span> <span class="n">PathPricer</span> <span class="o">&lt;</span><span class="n">LongstaffSchwartz</span><span class="p">,</span> <span class="n">DT</span><span class="p">,</span> <span class="n">StepFirst</span><span class="p">,</span> <span class="n">SampNum</span><span class="p">,</span> <span class="n">WithAntithetic</span><span class="p">,</span> <span class="n">MaxSteps</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="n">PathPricer</span> <span class="o">&lt;</span><span class="n">Digital</span><span class="p">,</span> <span class="n">DT</span><span class="p">,</span> <span class="n">StepFirst</span><span class="p">,</span> <span class="n">SampNum</span><span class="p">,</span> <span class="n">WithAntithetic</span><span class="o">&gt;</span>
 
 <span class="c1">// fields</span>
 
 <span class="k">static</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">InN</span>
 <span class="k">static</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">OutN</span>
 <span class="k">static</span> <span class="k">const</span> <span class="kt">bool</span> <span class="n">byPassGen</span>
-<span class="n">DT</span> <span class="n">strike</span>
+<span class="kt">bool</span> <span class="n">exEarly</span>
 <span class="kt">bool</span> <span class="n">optionType</span>
-<span class="n">DT</span> <span class="n">riskConst</span>
-<span class="n">DT</span> <span class="n">riskRate</span>
-<span class="n">DT</span> <span class="n">recipUnderLying</span>
-<span class="n">DT</span> <span class="n">recipStrike</span>
-<span class="n">DT</span> <span class="n">coefBuff_0</span><span class="p">[</span><span class="n">MaxSteps</span><span class="p">]</span>
-<span class="n">DT</span> <span class="n">coefBuff_1</span><span class="p">[</span><span class="n">MaxSteps</span><span class="p">]</span>
-<span class="n">DT</span> <span class="n">coefBuff_2</span><span class="p">[</span><span class="n">MaxSteps</span><span class="p">]</span>
-<span class="n">DT</span> <span class="n">coefBuff_3</span><span class="p">[</span><span class="n">MaxSteps</span><span class="p">]</span>
+<span class="n">DT</span> <span class="n">cashPayoff</span>
+<span class="n">DT</span> <span class="n">log_strike</span>
+<span class="n">DT</span> <span class="n">drift</span>
+<span class="n">DT</span> <span class="n">varSqrt</span>
+<span class="n">DT</span> <span class="n">log_spot</span>
+<span class="n">DT</span> <span class="n">disDt</span>
+<span class="n">DT</span> <span class="n">varDoub</span>
 </pre>
 </div>
 

@@ -14,6 +14,7 @@ namespace fintech
 	class_xf_fintech_CFBlackScholes.rst
 	class_xf_fintech_CFBlackScholesMerton.rst
 	class_xf_fintech_CFGarmanKohlhagen.rst
+	class_xf_fintech_CFQuanto.rst
 	class_xf_fintech_Device.rst
 	class_xf_fintech_DeviceManager.rst
 	class_xf_fintech_FDHeston.rst
@@ -35,10 +36,6 @@ namespace fintech
 
 
 
-
-
-.. _doxid-namespacexf_1_1fintech_1a49c2c14b3710337e1ecf0965a3ba6279:
-.. _cid-xf::fintech::contexterrorcallback:
 .. ref-code-block:: cpp
 	:class: overview-code-block
 
@@ -56,6 +53,7 @@ namespace fintech
 	class :ref:`CFBlackScholes<doxid-classxf_1_1fintech_1_1_c_f_black_scholes>` 
 	class :ref:`CFBlackScholesMerton<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_merton>` 
 	class :ref:`CFGarmanKohlhagen<doxid-classxf_1_1fintech_1_1_c_f_garman_kohlhagen>` 
+	class :ref:`CFQuanto<doxid-classxf_1_1fintech_1_1_c_f_quanto>` 
 	class :ref:`Device<doxid-classxf_1_1fintech_1_1_device>` 
 	class :ref:`DeviceManager<doxid-classxf_1_1fintech_1_1_device_manager>` 
 	class :ref:`FDHeston<doxid-classxf_1_1fintech_1_1_f_d_heston>` 
@@ -74,4 +72,33 @@ namespace fintech
 	class :ref:`Trace<doxid-classxf_1_1fintech_1_1_trace>` 
 	class :ref:`hcf<doxid-classxf_1_1fintech_1_1hcf>` 
 	class :ref:`m76<doxid-classxf_1_1fintech_1_1m76>` 
+
+
+.. FunctionSection
+
+
+
+
+.. _doxid-namespacexf_1_1fintech_1a49c2c14b3710337e1ecf0965a3ba6279:
+.. _cid-xf::fintech::contexterrorcallback:
+
+ContextErrorCallback
+--------------------
+
+
+Defined in <xf_fintech_internal.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void ContextErrorCallback (
+	    const char* errInfo,
+	    const void* privateInfo,
+	    size_t cb,
+	    void* userData
+	    )
+
+Display context error message to stdout
 

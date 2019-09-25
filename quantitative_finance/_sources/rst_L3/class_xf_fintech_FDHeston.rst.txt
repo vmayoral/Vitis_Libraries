@@ -14,24 +14,17 @@ class xf::fintech::FDHeston
 	#include <xf_fintech_fd_heston.hpp>
 
 
+Overview
+~~~~~~~~
 
+This class implements the Finite Difference Heston Model. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_f_d_heston>`
 
 .. _doxid-classxf_1_1fintech_1_1_f_d_heston_1a87d68ce1e5b8707e678bdf8282585cfc:
 .. _cid-xf::fintech::fdheston::fdheston:
 .. _doxid-classxf_1_1fintech_1_1_f_d_heston_1a54cda6be19d6f341a4d2f1d8d48177f7:
 .. _cid-xf::fintech::fdheston::fdheston-2:
-.. _doxid-classxf_1_1fintech_1_1_f_d_heston_1ad17489c25d39aa866ae9d1a20e0f3705:
-.. _cid-xf::fintech::fdheston::run:
-.. _doxid-classxf_1_1fintech_1_1_f_d_heston_1a22bbe3c6cef4104603d5840ec8adf73e:
-.. _cid-xf::fintech::fdheston::run-2:
-.. _doxid-classxf_1_1fintech_1_1_f_d_heston_1a806ed392e58abf12a167647091e6ee82:
-.. _cid-xf::fintech::fdheston::run-3:
-.. _doxid-classxf_1_1fintech_1_1_f_d_heston_1a4a1775760f587cf99a174b1a23e7276c:
-.. _cid-xf::fintech::fdheston::run-4:
 .. _doxid-classxf_1_1fintech_1_1_f_d_heston_1aeba7a17c4a013463c6faf14c23443aa0:
-.. _cid-xf::fintech::fdheston::run-5:
-.. _doxid-classxf_1_1fintech_1_1_f_d_heston_1ae8d5dceb62e290b1639aad67ffcd464f:
-.. _cid-xf::fintech::fdheston::getlastruntime:
+.. _cid-xf::fintech::fdheston::run:
 .. ref-code-block:: cpp
 	:class: overview-code-block
 
@@ -51,4 +44,432 @@ Inherited Members
 
 .. ref-code-block:: cpp
 	:class: overview-inherited-code-block
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1fintech_1_1_f_d_heston_1ad17489c25d39aa866ae9d1a20e0f3705:
+.. _cid-xf::fintech::fdheston::run-2:
+
+run
+---
+
+
+Defined in <models/xf_fintech_fd_heston.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int run (
+	    double stockPrice,
+	    double strikePrice,
+	    double riskFreeRateDomestic,
+	    double volatility,
+	    double timeToMaturity,
+	    double meanReversionRate,
+	    double volatilityOfVolatility,
+	    double correlationCoefficient,
+	    double longRunAveragePrice,
+	    double* pOptionPrice
+	    )
+
+Calculate a single option price with default number of steps.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - stockPrice
+
+        - the stock price
+
+    *
+        - strikePrice
+
+        - the strike price
+
+    *
+        - riskFreeRateDomestic
+
+        - the risk free domestic interest rate
+
+    *
+        - volatility
+
+        - the volatility
+
+    *
+        - timeToMaturity
+
+        - the time to maturity
+
+    *
+        - meanReversionRate
+
+        - the mean reversion rate (kappa)
+
+    *
+        - volatilityOfVolatility
+
+        - the volatility of volatility (sigma)
+
+    *
+        - correlationCoefficient
+
+        - the correlation coefficient (rho)
+
+    *
+        - longRunAveragePrice
+
+        - the returned option price (eta)
+
+    *
+        - pOptionPrice
+
+        - the returned option price
+
+.. _doxid-classxf_1_1fintech_1_1_f_d_heston_1a22bbe3c6cef4104603d5840ec8adf73e:
+.. _cid-xf::fintech::fdheston::run-3:
+
+Defined in <models/xf_fintech_fd_heston.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int run (
+	    double stockPrice,
+	    double strikePrice,
+	    double riskFreeRateDomestic,
+	    double volatility,
+	    double timeToMaturity,
+	    double meanReversionRate,
+	    double volatilityOfVolatility,
+	    double correlationCoefficient,
+	    double longRunAveragePrice,
+	    int numSteps,
+	    double* pOptionPrice
+	    )
+
+Calculate a single option price with a configurable number of steps.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - stockPrice
+
+        - the stock price
+
+    *
+        - strikePrice
+
+        - the strike price
+
+    *
+        - riskFreeRateDomestic
+
+        - the risk free domestic interest rate
+
+    *
+        - volatility
+
+        - the volatility
+
+    *
+        - timeToMaturity
+
+        - the time to maturity
+
+    *
+        - meanReversionRate
+
+        - the mean reversion rate (kappa)
+
+    *
+        - volatilityOfVolatility
+
+        - the volatility of volatility (sigma)
+
+    *
+        - correlationCoefficient
+
+        - the correlation coefficient (rho)
+
+    *
+        - longRunAveragePrice
+
+        - the returned option price (eta)
+
+    *
+        - numSteps
+
+        - the number of steps
+
+    *
+        - pOptionPrice
+
+        - the returned option price
+
+.. _doxid-classxf_1_1fintech_1_1_f_d_heston_1a806ed392e58abf12a167647091e6ee82:
+.. _cid-xf::fintech::fdheston::run-4:
+
+Defined in <models/xf_fintech_fd_heston.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int run (
+	    double stockPrice,
+	    double strikePrice,
+	    double riskFreeRateDomestic,
+	    double volatility,
+	    double timeToMaturity,
+	    double meanReversionRate,
+	    double volatilityOfVolatility,
+	    double correlationCoefficient,
+	    double longRunAveragePrice,
+	    double* pOptionPrice,
+	    double* pDelta,
+	    double* pVega,
+	    double* pGamma,
+	    double* pVolga,
+	    double* pVanna
+	    )
+
+Calculate a single option price with a default number of steps and return the greeks.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - stockPrice
+
+        - the stock price
+
+    *
+        - strikePrice
+
+        - the strike price
+
+    *
+        - riskFreeRateDomestic
+
+        - the risk free domestic interest rate
+
+    *
+        - volatility
+
+        - the volatility
+
+    *
+        - timeToMaturity
+
+        - the time to maturity
+
+    *
+        - meanReversionRate
+
+        - the mean reversion rate (kappa)
+
+    *
+        - volatilityOfVolatility
+
+        - the volatility of volatility (sigma)
+
+    *
+        - correlationCoefficient
+
+        - the correlation coefficient (rho)
+
+    *
+        - longRunAveragePrice
+
+        - the returned option price (eta)
+
+    *
+        - pOptionPrice
+
+        - the returned option price
+
+    *
+        - pDelta
+
+        - the returned greek Delta
+
+    *
+        - pVega
+
+        - the returned greek Vega
+
+    *
+        - pGamma
+
+        - the returned greek Gamma
+
+    *
+        - pVolga
+
+        - the returned greek Volga
+
+    *
+        - pVanna
+
+        - the returned greek Vanna
+
+.. _doxid-classxf_1_1fintech_1_1_f_d_heston_1a4a1775760f587cf99a174b1a23e7276c:
+.. _cid-xf::fintech::fdheston::run-5:
+
+Defined in <models/xf_fintech_fd_heston.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int run (
+	    double stockPrice,
+	    double strikePrice,
+	    double riskFreeRateDomestic,
+	    double volatility,
+	    double timeToMaturity,
+	    double meanReversionRate,
+	    double volatilityOfVolatility,
+	    double correlationCoefficient,
+	    double longRunAveragePrice,
+	    int numSteps,
+	    double* pOptionPrice,
+	    double* pDelta,
+	    double* pVega,
+	    double* pGamma,
+	    double* pVolga,
+	    double* pVanna
+	    )
+
+Calculate a single option price with a configurable number of steps and return the greeks.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - stockPrice
+
+        - the stock price
+
+    *
+        - strikePrice
+
+        - the strike price
+
+    *
+        - riskFreeRateDomestic
+
+        - the risk free domestic interest rate
+
+    *
+        - volatility
+
+        - the volatility
+
+    *
+        - timeToMaturity
+
+        - the time to maturity
+
+    *
+        - meanReversionRate
+
+        - the mean reversion rate (kappa)
+
+    *
+        - volatilityOfVolatility
+
+        - the volatility of volatility (sigma)
+
+    *
+        - correlationCoefficient
+
+        - the correlation coefficient (rho)
+
+    *
+        - longRunAveragePrice
+
+        - the returned option price (eta)
+
+    *
+        - numSteps
+
+        - the number of steps
+
+    *
+        - pOptionPrice
+
+        - the returned option price
+
+    *
+        - pDelta
+
+        - the returned greek Delta
+
+    *
+        - pVega
+
+        - the returned greek Vega
+
+    *
+        - pGamma
+
+        - the returned greek Gamma
+
+    *
+        - pVolga
+
+        - the returned greek Volga
+
+    *
+        - pVanna
+
+        - the returned greek Vanna
+
+.. _doxid-classxf_1_1fintech_1_1_f_d_heston_1ae8d5dceb62e290b1639aad67ffcd464f:
+.. _cid-xf::fintech::fdheston::getlastruntime:
+
+getLastRunTime
+--------------
+
+
+Defined in <models/xf_fintech_fd_heston.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	long long int getLastRunTime (void)
+
+This method returns the time the execution of the last call to :ref:`run() <doxid-classxf_1_1fintech_1_1_f_d_heston_1ad17489c25d39aa866ae9d1a20e0f3705>` took.
 

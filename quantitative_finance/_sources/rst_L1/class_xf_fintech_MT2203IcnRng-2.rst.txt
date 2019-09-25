@@ -62,7 +62,7 @@ Defined in <xf_fintech/rng.hpp>
 
 	void seedInitialization (ap_uint <32> seed)
 
-using seed to initialize
+initialization using seed
 
 
 
@@ -92,7 +92,7 @@ Defined in <xf_fintech/rng.hpp>
 
 	void statusSetup (ap_uint <32> data [624])
 
-statusSetup
+setup status
 
 
 
@@ -104,7 +104,7 @@ statusSetup
     *
         - data
 
-        -
+        - data for setting up status
 
 .. _doxid-classxf_1_1fintech_1_1_m_t2203_icn_rng_3_01float_01_4_1a3b7b4b4c9ec702310fcff2a37f5696b4:
 .. _cid-xf::fintech::mt2203icnrng::statussetup-4:
@@ -122,7 +122,7 @@ Defined in <xf_fintech/rng.hpp>
 	    ap_uint <32> C
 	    )
 
-statusSetup
+setup status
 
 
 
@@ -134,17 +134,17 @@ statusSetup
     *
         - A
 
-        - 
+        - value for configurable parameter A
 
     *
         - B
 
-        - 
+        - value for configurable parameter B
 
     *
         - C
 
-        -
+        - value for configurable parameter C
 
 .. _doxid-classxf_1_1fintech_1_1_m_t2203_icn_rng_3_01float_01_4_1a8999dc2029f503717d7a53f50b22adba:
 .. _cid-xf::fintech::mt2203icnrng::next-4:
@@ -162,11 +162,13 @@ Defined in <xf_fintech/rng.hpp>
 
 	float next ()
 
-next
+brief get next normally distributed random number
 
 
 
 .. rubric:: Returns:
+
+a normally distributed random number
 
 .. _doxid-classxf_1_1fintech_1_1_m_t2203_icn_rng_3_01float_01_4_1a0a9a0ec21923944d92bf43d419207e2f:
 .. _cid-xf::fintech::mt2203icnrng::next-5:
@@ -183,7 +185,7 @@ Defined in <xf_fintech/rng.hpp>
 	    float& gaussianR
 	    )
 
-next
+get next normally distributed random number and its corresponding uniformly distributed random number
 
 
 
@@ -195,12 +197,12 @@ next
     *
         - uniformR
 
-        - 
+        - return next uniformly distributed random number
 
     *
         - gaussianR
 
-        -
+        - return next normally distributed random number
 
 .. _doxid-classxf_1_1fintech_1_1_m_t2203_icn_rng_3_01float_01_4_1a267dcbacc3c00a3632a3133ce871f011:
 .. _cid-xf::fintech::mt2203icnrng::next-6:
@@ -214,7 +216,7 @@ Defined in <xf_fintech/rng.hpp>
 
 	void next (float& uniformR)
 
-next
+get next uniformly distributed random number
 
 
 
@@ -226,5 +228,5 @@ next
     *
         - uniformR
 
-        -
+        - return a uniformly distributed random bumber
 

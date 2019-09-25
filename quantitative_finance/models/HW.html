@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Hull-White Model &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Hull-White Model &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../models_and_methods.html#models">Models</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="BS.html">Black-Scholes Model</a></li>
 <li class="toctree-l3"><a class="reference internal" href="HT.html">Heston Model</a></li>
@@ -135,7 +135,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF FinTech Library</a>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -166,7 +166,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../models_and_methods.html">Pricing models and numerical methods</a> &raquo;</li>
+          <li><a href="../models_and_methods.html">Pricing Models and Numerical Methods</a> &raquo;</li>
         
       <li>Hull-White Model</li>
     
@@ -191,14 +191,16 @@
 <h1>Hull-White Model<a class="headerlink" href="#hull-white-model" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>In financial mathematics, the Hull–White model is a model of future interest rates. In its most generic formulation, it belongs to the class of no-arbitrage models that are able to fit today’s term structure of interest rates. It is relatively straightforward to translate the mathematical description of the evolution of future interest rates onto a tree or lattice and so interest rate derivatives such as bermudan swaptions can be valued in the model. The first Hull–White model was described by John C. Hull and Alan White in 1990. The model is still popular in the market today (from viki).</p>
+<p>In financial mathematics, the Hull-White model is a model of future interest rates. In its most generic formulation, it belongs to the class of no-arbitrage models that are able to fit today’s term structure of interest rates. It is relatively straightforward to translate the mathematical description of the evolution of future interest rates onto a tree or lattice and so interest rate derivatives such as Bermudan Swaptions can be valued in the model. The first Hull-White model was described by John C. Hull and Alan White in 1990. The model is still popular in the market today (from Wiki).</p>
 <p>This section mainly introduces the implementation process of short-rate and discount, which is applied in Tree Engine and FD (finite differences) Engine. They are core part for option pricing.</p>
 </div>
 <div class="section" id="implementation">
 <h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
 <p>As an important parts of the Tree Engine and FD Engine, the class HWModel implements the single-factor Hull-White model to calculate short-rate and discount by using continuous compounding, including 4 functions (treeShortRate, fdShortRate, discount, discountBond). Next, the implementation process is introduced.</p>
 <ol class="arabic simple">
-<li>Function treeShortRate: 1) The short-rates is calculated at time point <span class="math notranslate nohighlight">\(t\)</span> with the duration <span class="math notranslate nohighlight">\(dt\)</span> from 0 to N time point by time point. First, the variable value is calculated. In order to reduce latency, the array values16 is added to save the intermediate result. Then, the short rate is calculated based on variable value. 2) According to timepoints and tree related parameters to establish a trinomial tree structure from 0 to N time point by time point.</li>
+<li>Function treeShortRate:
+a) The short-rates is calculated at time point <span class="math notranslate nohighlight">\(t\)</span> with the duration <span class="math notranslate nohighlight">\(dt\)</span> from 0 to N time point by time point. First, the variable value is calculated. In order to reduce latency, the array values16 is added to save the intermediate result. Then, the short rate is calculated based on variable value.
+b) According to timepoints and tree related parameters to establish a trinomial tree structure from 0 to N time point by time point.</li>
 <li>Function fdShortRate: The short-rate is calculated at time point <span class="math notranslate nohighlight">\(t\)</span>.</li>
 <li>Function discount: The discount is calculated at time point <span class="math notranslate nohighlight">\(t\)</span> with the duration <span class="math notranslate nohighlight">\(dt\)</span> that based on the short-rate.</li>
 <li>Function discountBond: the discount bond is calculated at time point <span class="math notranslate nohighlight">\(t\)</span> with the duration <span class="math notranslate nohighlight">\(dt=T-t\)</span> that based on the short-rate.</li>

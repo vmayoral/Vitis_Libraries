@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>StochasticProcess1D &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>StochasticProcess1D &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -30,7 +30,9 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="OrnsteinUhlenbeckProcess" href="ornsteinuhlenbeck_process.html" />
+    <link rel="prev" title="Brownian Bridge Transform" href="../brownian/bb.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -49,7 +51,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -91,9 +93,28 @@
 <li class="toctree-l1"><a class="reference internal" href="../../rel.html">Release Note</a></li>
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing models and numerical methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../L1.html">L1 Module User Guide</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../L1.html">L1 Module User Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../L1.html#core-utility">Core Utility</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../RNGs/RNG.html">Random Number Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SVD/SVD.html">Singular Value Decomposition (SVD)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../TRSV/TRSV.html">Tridiagonal Matrix Solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Pentadiag/Pentadiag.html">Pentadiagonal Matrix Solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SobolRsg/sobolrsg.html">Sobol Sequence Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../brownian/bb.html">Brownian Bridge Transform</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">StochasticProcess1D</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementation">Implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ornsteinuhlenbeck_process.html">OrnsteinUhlenbeckProcess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fdmmesher/fdmmesher.html">Meshers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L1.html#l1-module-apis">L1 Module APIs</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L3/L3.html">L3 Overlay User Guide</a></li>
 </ul>
@@ -114,7 +135,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF FinTech Library</a>
+          <a href="../../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -145,6 +166,8 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
+          <li><a href="../L1.html">L1 Module User Guide</a> &raquo;</li>
+        
       <li>StochasticProcess1D</li>
     
     
@@ -168,7 +191,7 @@
 <h1>StochasticProcess1D<a class="headerlink" href="#stochasticprocess1d" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>Stochastic processes is drived by using RNGs, for example Monte Carlo, generates random numbers. It starts a point <span class="math notranslate nohighlight">\((t,x)\)</span> and a time step <span class="math notranslate nohighlight">\(\Delta t\)</span> and return a discretization of the process drift and diffusion. StochasticProcess1D is 1-dimensional stochastic process, whose factor of having one direction.
+<p><cite>Stochastic processes</cite> is derived by using RNGs. It starts a point <span class="math notranslate nohighlight">\((t,x)\)</span> and a time step <span class="math notranslate nohighlight">\(\Delta t\)</span> and return a discretization of the process drift and diffusion. StochasticProcess1D is 1-dimensional stochastic process, whose factor of having one direction.
 The StochasticProcess1D describes by</p>
 <div class="math notranslate nohighlight">
 \[dx_{t}=\mu(t,x_{t})dt+\sigma(t,x_{t})dW_{t}\]</div>
@@ -184,6 +207,15 @@ The StochasticProcess1D describes by</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ornsteinuhlenbeck_process.html" class="btn btn-neutral float-right" title="OrnsteinUhlenbeckProcess" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../brownian/bb.html" class="btn btn-neutral" title="Brownian Bridge Transform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

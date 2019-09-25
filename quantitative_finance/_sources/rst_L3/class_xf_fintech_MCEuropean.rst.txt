@@ -70,6 +70,58 @@ Defined in <models/xf_fintech_mc_european.hpp>
 
 Runs a single asset until the specified TOLERANCE is met
 
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - optionType
+
+        - either American/European Call or Put
+
+    *
+        - stockPrice
+
+        - the stock price
+
+    *
+        - strikePrice
+
+        - the strike price
+
+    *
+        - riskFreeRate
+
+        - the risk free interest rate
+
+    *
+        - dividendYield
+
+        - the dividend yield
+
+    *
+        - volatility
+
+        - the volatility
+
+    *
+        - timeToMaturity
+
+        - the time to maturity
+
+    *
+        - requiredTolerance
+
+        - the tolerance
+
+    *
+        - pOptionPrice
+
+        - the returned option price
+
 .. _doxid-classxf_1_1fintech_1_1_m_c_european_1a1000bc974b5d338e19437ae42f68b3a2:
 .. _cid-xf::fintech::mceuropean::run-2:
 
@@ -93,6 +145,58 @@ Defined in <models/xf_fintech_mc_european.hpp>
 	    )
 
 Runs a single asset for the REQUIRED NUMBER OF SAMPLES...
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - optionType
+
+        - either American/European Call or Put
+
+    *
+        - stockPrice
+
+        - the stock price
+
+    *
+        - strikePrice
+
+        - the strike price
+
+    *
+        - riskFreeRate
+
+        - the risk free interest rate
+
+    *
+        - dividendYield
+
+        - the dividend yield
+
+    *
+        - volatility
+
+        - the volatility
+
+    *
+        - timeToMaturity
+
+        - the time to maturity
+
+    *
+        - requiredSamples
+
+        - the number of samples
+
+    *
+        - pOptionPrice
+
+        - the returned option price
 
 .. _doxid-classxf_1_1fintech_1_1_m_c_european_1a5a276499f74d8fc28e10f6fcee958b4b:
 .. _cid-xf::fintech::mceuropean::run-3:
@@ -119,6 +223,63 @@ Defined in <models/xf_fintech_mc_european.hpp>
 
 Process arrays of asset data until required TOLERANCE is met
 
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - optionType
+
+        - either American/European Call or Put
+
+    *
+        - stockPrice
+
+        - the stock price
+
+    *
+        - strikePrice
+
+        - the strike price
+
+    *
+        - riskFreeRate
+
+        - the risk free interest rate
+
+    *
+        - dividendYield
+
+        - the dividend yield
+
+    *
+        - volatility
+
+        - the volatility
+
+    *
+        - timeToMaturity
+
+        - the time to maturity
+
+    *
+        - requiredTolerance
+
+        - the required tolerance
+
+    *
+        - outputOptionPrice
+
+        - the option price
+
+    *
+        - numAssets
+
+        - the number of assets
+
 .. _doxid-classxf_1_1fintech_1_1_m_c_european_1a827d3384a8eb306df6e477bb79a740d2:
 .. _cid-xf::fintech::mceuropean::run-4:
 
@@ -143,6 +304,63 @@ Defined in <models/xf_fintech_mc_european.hpp>
 	    )
 
 Process arrays of asset data for the REQUIRED NUMBER OF SAMPLES
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - optionType
+
+        - either American/European Call or Put
+
+    *
+        - stockPrice
+
+        - the stock price
+
+    *
+        - strikePrice
+
+        - the strike price
+
+    *
+        - riskFreeRate
+
+        - the risk free interest rate
+
+    *
+        - dividendYield
+
+        - the dividend yield
+
+    *
+        - volatility
+
+        - the volatility
+
+    *
+        - timeToMaturity
+
+        - the time to maturity
+
+    *
+        - requiredSamples
+
+        - the number of samples
+
+    *
+        - outputOptionPrice
+
+        - the option price
+
+    *
+        - numAssets
+
+        - the number of assets
 
 .. _doxid-classxf_1_1fintech_1_1_m_c_european_1a318484cea86515ff573c6340f19c3e9d:
 .. _cid-xf::fintech::mceuropean::getlastruntime:

@@ -52,7 +52,7 @@ Defined in <xf_fintech/hw_model.hpp>
 	    DT sigma
 	    )
 
-initialization initialize parameter
+initialize parameters
 
 
 
@@ -97,7 +97,7 @@ Defined in <xf_fintech/hw_model.hpp>
 
 	DT fdShortRate (DT t)
 
-fdShortRate calcutate short-rate of dt at t for fd Engine
+calcutate short-rate of dt at t for fd Engine
 
 
 
@@ -137,7 +137,7 @@ Defined in <xf_fintech/hw_model.hpp>
 	    DT rate
 	    )
 
-discountBond calculate the discount after time dt
+calculate the discount after time dt
 
 
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Heston Model Closed-Form Solution &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Heston Model Closed-Form Solution &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../models_and_methods.html#models">Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models_and_methods.html#numerical-methods">Numerical Methods</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../models_and_methods.html#closed-form-solution-methods">Closed-Form Solution Methods</a><ul class="current">
@@ -104,6 +104,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="cf-m76.html">Merton 76 Closed-Form Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="garman_kohlhagen.html">Garman-Kohlhagen Closed-Form Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quanto.html">Quanto Closed-Form Solution</a></li>
 </ul>
 </li>
 </ul>
@@ -129,7 +131,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF FinTech Library</a>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -160,7 +162,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../models_and_methods.html">Pricing models and numerical methods</a> &raquo;</li>
+          <li><a href="../models_and_methods.html">Pricing Models and Numerical Methods</a> &raquo;</li>
         
       <li>Heston Model Closed-Form Solution</li>
     
@@ -187,8 +189,7 @@
 </div>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Heston_model">Heston Model</a> , published by Steven Heston in his 1993 paper “A Closed-Form Solution for Options with Stochastic Volatility with Applications to Bond and Currency Options” <a class="reference internal" href="#hest1993" id="id1">[HEST1993]</a> extends the
-well-known Black-Scholes options pricing model by adding a stochastic process for the stock volatility.</p>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Heston_model">Heston Model</a> , published by Steven Heston in paper “A Closed-Form Solution for Options with Stochastic Volatility with Applications to Bond and Currency Options” in 1993 <a class="reference internal" href="#hest1993" id="id1">[HEST1993]</a> , extends the well-known Black-Scholes options pricing model by adding a stochastic process for the stock volatility.</p>
 <p>The stochastic equations of the model, and the partial differential equation (PDE) derived from them, are shown in the section on the Heston Model under “Models”.  There are a number of ways in which the
 equations may be solved, including Monte-Carlo and Finite-Difference methods. Here, we show the closed-form solution originally obtained in <a class="reference internal" href="#hest1993" id="id2">[HEST1993]</a> - sometimes referred to as the “semi-analytic” solution
 since an analytic solution of its integrals is not known.</p>
@@ -210,7 +211,7 @@ since an analytic solution of its integrals is not known.</p>
 <div class="math notranslate nohighlight">
 \[ \begin{align}\begin{aligned}C(t,w) = a.\left[r_-.t - \frac{2}{\eta^2}.ln\left(\frac{1 - g.\mathrm{e}^{-ht}}{1 - g}\right)\right]\\D(t,w) = r_- .\frac{1 -\mathrm{e}^{-ht}}{1 - g.\mathrm{e}^{-ht}}\\r_{\pm} = \frac{\beta \pm h}{\eta^2};  h = \sqrt{\beta^2 - 4.\alpha.\gamma}\\g = \frac{r_-}{r_+}\\\alpha = -\frac{w^2}{2} - \frac{iw}{2} ;       \beta = \alpha - \rho.\eta. i. w ;       \gamma = \frac{\eta^2}{2}\end{aligned}\end{align} \]</div>
 <p>To obtain a solution for Call <span class="math notranslate nohighlight">\(C_0\)</span> the integrands in the <span class="math notranslate nohighlight">\(\Pi_1\)</span> and <span class="math notranslate nohighlight">\(\Pi_2\)</span> terms must be evaluated using a selected numeric integration technique suited to integration from 0 to ∞, and
-the internal chacteristic function terms must be obtained using complex-number computation.</p>
+the internal characteristic function terms must be obtained using complex-number computation.</p>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
@@ -223,7 +224,7 @@ the internal chacteristic function terms must be obtained using complex-number c
 <table class="docutils citation" frame="void" id="chrso2014" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[CHRSO2014]</a></td><td>Crisostomo, R., “An Analysis of the Heston Stochastic Volatility Model: Implementation and Calibration using Matlab”, CNMV Working Paper 58: 1–46, (2014).</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id3">[CHRSO2014]</a></td><td>Crisostomo, R., “An Analysis of the Heston Stochastic Volatility Model: Implementation and Calibration using Matlab”, CNMV Working Paper 58: 1-46, (2014).</td></tr>
 </tbody>
 </table>
 </div>

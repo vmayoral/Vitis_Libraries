@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>class xf::fintech::MCEuropeanDJE &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>class xf::fintech::MCEuropeanDJE &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -49,7 +49,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -92,7 +92,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -114,7 +114,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF FinTech Library</a>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -174,18 +174,25 @@
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-c-european-d-j-e"><span class="std std-ref">MCEuropeanDJE</span></a> (Dow Jones Engine) class takes in an array of asset data and calculates a single Dow Jones Industrial Average (DJIA) value. <span class="xref std std-ref">More…</span></p>
-<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-mceuropeandje-num-kernels">
-<span id="doxid-classxf-1-1fintech-1-1-m-c-european-d-j-e-1ab09e88855c8e968834d2c31fce664df5"></span><span></span><span class="k">class</span> <span class="nl">MCEuropeanDJE</span><span class="p">:</span> <span class="k">public</span> <a class="reference internal" href="class_xf_fintech_OCLController.html#doxid-classxf-1-1fintech-1-1-o-c-l-controller"><span class="std std-ref">xf::fintech::OCLController</span></a><span></span>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="k">class</span> <span class="nl">MCEuropeanDJE</span><span class="p">:</span> <span class="k">public</span> <a class="reference internal" href="class_xf_fintech_OCLController.html#doxid-classxf-1-1fintech-1-1-o-c-l-controller"><span class="std std-ref">xf::fintech::OCLController</span></a><span></span>
 
 <span class="c1">// fields</span>
 
-<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">NUM_KERNELS</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-c-european-d-j-e-1ab09e88855c8e968834d2c31fce664df5"><span class="std std-ref">NUM_KERNELS</span></a>
 </pre>
 <div class="section" id="inherited-members">
 <h3>Inherited Members<a class="headerlink" href="#inherited-members" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight overview-inherited-code-block literal-block">
 
 </pre>
+</div>
+<div class="section" id="fields">
+<h3>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mceuropeandje-num-kernels">
+<span id="doxid-classxf-1-1fintech-1-1-m-c-european-d-j-e-1ab09e88855c8e968834d2c31fce664df5"></span><span></span><span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">NUM_KERNELS</span>
+</pre>
+<p>The following constant defines the number of KERNELS that have been built in the HW…</p>
 </div>
 </div>
 <div class="section" id="methods">
@@ -210,6 +217,48 @@
     <span class="p">)</span>
 </pre>
 <p>Process arrays of asset data, until required TOLERANCE is met…</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>optionType</td>
+<td>either American/European Call or Put</td>
+</tr>
+<tr class="row-even"><td>stockPrice</td>
+<td>the stock price</td>
+</tr>
+<tr class="row-odd"><td>strikePrice</td>
+<td>the strike price</td>
+</tr>
+<tr class="row-even"><td>riskFreeRate</td>
+<td>the risk free interest rate</td>
+</tr>
+<tr class="row-odd"><td>dividendYield</td>
+<td>the dividend yield</td>
+</tr>
+<tr class="row-even"><td>volatility</td>
+<td>the volatility</td>
+</tr>
+<tr class="row-odd"><td>timeToMaturity</td>
+<td>the time to maturity</td>
+</tr>
+<tr class="row-even"><td>requiredTolerance</td>
+<td>the required tolerance</td>
+</tr>
+<tr class="row-odd"><td>numAssets</td>
+<td>the number of assets</td>
+</tr>
+<tr class="row-even"><td>dowDivisor</td>
+<td>the Dow Divisor</td>
+</tr>
+<tr class="row-odd"><td>DJIAOutput</td>
+<td>the returned Dow Jones Industrial Average</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="cid-xf-fintech-mceuropeandje-run-2">
 <span id="doxid-classxf-1-1fintech-1-1-m-c-european-d-j-e-1a5a053a7607f3b02f4de18dee11058cfb"></span><span id="id1"></span><h4>Defined in &lt;models/xf_fintech_mc_european_dje.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-mceuropeandje-run-2" title="Permalink to this headline">¶</a></h4>
@@ -229,6 +278,48 @@
     <span class="p">)</span>
 </pre>
 <p>Process arrays of asset data, for REQUIRED NUMBER OF SAMPLES…</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>optionType</td>
+<td>either American/European Call or Put</td>
+</tr>
+<tr class="row-even"><td>stockPrice</td>
+<td>the stock price</td>
+</tr>
+<tr class="row-odd"><td>strikePrice</td>
+<td>the strike price</td>
+</tr>
+<tr class="row-even"><td>riskFreeRate</td>
+<td>the risk free interest rate</td>
+</tr>
+<tr class="row-odd"><td>dividendYield</td>
+<td>the dividend yield</td>
+</tr>
+<tr class="row-even"><td>volatility</td>
+<td>the volatility</td>
+</tr>
+<tr class="row-odd"><td>timeToMaturity</td>
+<td>the time to maturity</td>
+</tr>
+<tr class="row-even"><td>requiredSamples</td>
+<td>the required samples</td>
+</tr>
+<tr class="row-odd"><td>numAssets</td>
+<td>the number of assets</td>
+</tr>
+<tr class="row-even"><td>dowDivisor</td>
+<td>the Dow Divisor</td>
+</tr>
+<tr class="row-odd"><td>DJIAOutput</td>
+<td>the returned Dow Jones Industrial Average</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="section" id="getlastruntime">

@@ -62,7 +62,7 @@ Defined in <xf_fintech/rng.hpp>
 
 	void seedInitialization (ap_uint <32> seed)
 
-using seed to initialize
+initialization using seed
 
 
 
@@ -92,7 +92,7 @@ Defined in <xf_fintech/rng.hpp>
 
 	void statusSetup (ap_uint <32> data [624])
 
-statusSetup
+setup status
 
 
 
@@ -104,7 +104,7 @@ statusSetup
     *
         - data
 
-        -
+        - initialization data for setting up status
 
 .. _doxid-classxf_1_1fintech_1_1_m_t2203_icn_rng_3_01double_01_4_1a2568dca9fa8ab06b86f703fdee3d6157:
 .. _cid-xf::fintech::mt2203icnrng::statussetup-6:
@@ -122,7 +122,7 @@ Defined in <xf_fintech/rng.hpp>
 	    ap_uint <32> C
 	    )
 
-statusSetup
+setup status
 
 
 
@@ -134,17 +134,17 @@ statusSetup
     *
         - A
 
-        - 
+        - value for configurable parameter A
 
     *
         - B
 
-        - 
+        - value for configurable parameter B
 
     *
         - C
 
-        -
+        - value for configurable parameter C
 
 .. _doxid-classxf_1_1fintech_1_1_m_t2203_icn_rng_3_01double_01_4_1a96419b22c326bb209e00dbb011b78de6:
 .. _cid-xf::fintech::mt2203icnrng::next-7:
@@ -162,11 +162,13 @@ Defined in <xf_fintech/rng.hpp>
 
 	double next ()
 
-brief next
+brief get next normally distributed random number
 
 
 
 .. rubric:: Returns:
+
+a normally distributed random number
 
 .. _doxid-classxf_1_1fintech_1_1_m_t2203_icn_rng_3_01double_01_4_1ad081f261734452b3f08877a4e3484374:
 .. _cid-xf::fintech::mt2203icnrng::next-8:
@@ -183,7 +185,7 @@ Defined in <xf_fintech/rng.hpp>
 	    double& gaussianR
 	    )
 
-next
+get next normally distributed random number and its corresponding uniformly distributed random number
 
 
 
@@ -195,12 +197,12 @@ next
     *
         - uniformR
 
-        - 
+        - return next uniformly distributed random number
 
     *
         - gaussianR
 
-        -
+        - return next normally distributed random number
 
 .. _doxid-classxf_1_1fintech_1_1_m_t2203_icn_rng_3_01double_01_4_1a9e6b1de4bba0a87eb3a3f34271184d82:
 .. _cid-xf::fintech::mt2203icnrng::next-9:
@@ -214,7 +216,7 @@ Defined in <xf_fintech/rng.hpp>
 
 	void next (double& uniformR)
 
-next
+get next uniformly distributed random number
 
 
 
@@ -226,5 +228,5 @@ next
     *
         - uniformR
 
-        -
+        - return a uniformly distributed random bumber
 

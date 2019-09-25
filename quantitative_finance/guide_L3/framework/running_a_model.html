@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Running a Model &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Running a Model &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../L3.html">L3 Overlay User Guide</a><ul class="current">
@@ -130,7 +130,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF FinTech Library</a>
+          <a href="../../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -207,20 +207,11 @@ These classes provide all the methods that are required to run that financial mo
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">xf</span><span class="o">::</span><span class="n">fintech</span><span class="p">;</span>
 
-
-
-
 <span class="kt">int</span> <span class="n">retval</span> <span class="o">=</span> <span class="n">XLNX_OK</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
 
-
-
 <span class="c1">// Instantiate a Monte-Carlo European object...</span>
 <span class="n">MCEuropean</span> <span class="n">mcEuropean</span><span class="p">;</span>
-
-
-
-
 
 <span class="c1">// Some input data...</span>
 <span class="n">OptionType</span>  <span class="n">optionType</span>   <span class="o">=</span> <span class="n">Put</span><span class="p">;</span>
@@ -234,15 +225,8 @@ These classes provide all the methods that are required to run that financial mo
 
 <span class="kt">double</span> <span class="n">optionPrice</span><span class="p">;</span>     <span class="c1">// output</span>
 
-
-
-
-
 <span class="c1">// Claim the device for use by our object...</span>
 <span class="n">retval</span> <span class="o">=</span> <span class="n">mcEuropean</span><span class="p">.</span><span class="n">claimDevice</span><span class="p">(</span><span class="n">pChosenDevice</span><span class="p">);</span>
-
-
-
 
 <span class="k">if</span><span class="p">(</span><span class="n">retval</span> <span class="o">==</span> <span class="n">XLNX_OK</span><span class="p">)</span>
 <span class="p">{</span>
@@ -258,7 +242,6 @@ These classes provide all the methods that are required to run that financial mo
                 <span class="p">}</span>
         <span class="p">}</span>
 <span class="p">}</span>
-
 
 <span class="c1">//Release the device...</span>
 <span class="n">retval</span> <span class="o">=</span> <span class="n">mcEuropean</span><span class="p">.</span><span class="n">releaseDevice</span><span class="p">();</span>
@@ -300,21 +283,12 @@ implementation of possibly only a single model), it is necessary to â€œrestrictâ
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">xf</span><span class="o">::</span><span class="n">fintech</span><span class="p">;</span>
 
-
-
-
 <span class="kt">int</span> <span class="n">retval</span> <span class="o">=</span> <span class="n">XLNX_OK</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-
-
 
 <span class="c1">// Instantiate both a Monte-Carlo European and a Monte-Carlo American object...</span>
 <span class="n">MCEuropean</span> <span class="n">mcEuropean</span><span class="p">;</span>
 <span class="n">MCAmerican</span> <span class="n">mcAmerican</span><span class="p">;</span>
-
-
-
-
 
 <span class="c1">// Some input data...</span>
 <span class="n">OptionType</span>  <span class="n">optionType</span>   <span class="o">=</span> <span class="n">Put</span><span class="p">;</span>
@@ -328,15 +302,8 @@ implementation of possibly only a single model), it is necessary to â€œrestrictâ
 
 <span class="kt">double</span> <span class="n">optionPrice</span><span class="p">;</span>     <span class="c1">// output</span>
 
-
-
-
-
 <span class="c1">// Claim the device for use by our FIRST model object...</span>
 <span class="n">retval</span> <span class="o">=</span> <span class="n">mcEuropean</span><span class="p">.</span><span class="n">claimDevice</span><span class="p">(</span><span class="n">pChosenDevice</span><span class="p">);</span>
-
-
-
 
 <span class="k">if</span><span class="p">(</span><span class="n">retval</span> <span class="o">==</span> <span class="n">XLNX_OK</span><span class="p">)</span>
 <span class="p">{</span>
@@ -353,22 +320,13 @@ implementation of possibly only a single model), it is necessary to â€œrestrictâ
         <span class="p">}</span>
 <span class="p">}</span>
 
-
 <span class="c1">//Release the device...</span>
 <span class="n">retval</span> <span class="o">=</span> <span class="n">mcEuropean</span><span class="p">.</span><span class="n">releaseDevice</span><span class="p">();</span>
 
-
-
 <span class="c1">//////////////////////////////////////////////////////////////////////////////////</span>
-
-
-
 
 <span class="c1">// Claim the device for use by our SECOND model object...</span>
 <span class="n">retval</span> <span class="o">=</span> <span class="n">mcAmerican</span><span class="p">.</span><span class="n">claimDevice</span><span class="p">(</span><span class="n">pChosenDevice</span><span class="p">);</span>
-
-
-
 
 <span class="k">if</span><span class="p">(</span><span class="n">retval</span> <span class="o">==</span> <span class="n">XLNX_OK</span><span class="p">)</span>
 <span class="p">{</span>
@@ -384,7 +342,6 @@ implementation of possibly only a single model), it is necessary to â€œrestrictâ
                 <span class="p">}</span>
         <span class="p">}</span>
 <span class="p">}</span>
-
 
 <span class="c1">//Release the device...</span>
 <span class="n">retval</span> <span class="o">=</span> <span class="n">mcAmerican</span><span class="p">.</span><span class="n">releaseDevice</span><span class="p">();</span>

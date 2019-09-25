@@ -1,9 +1,9 @@
-.. index:: pair: class; xf::fintech::internal::PathPricer <European, DT, StepFirst, SampNum, WithAntithetic>
-.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_european_00_01_d_t_00_01_step_first_00_01_sa69d1d4e2c1a5575d37e0fe9c1177744c:
+.. index:: pair: class; xf::fintech::internal::PathPricer <LongstaffSchwartz, DT, StepFirst, SampNum, WithAntithetic, MaxSteps>
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f:
 .. _cid-xf::fintech::internal::pathpricer-4:
 
-template class xf::fintech::internal::PathPricer <European, DT, StepFirst, SampNum, WithAntithetic>
-===================================================================================================
+template class xf::fintech::internal::PathPricer <LongstaffSchwartz, DT, StepFirst, SampNum, WithAntithetic, MaxSteps>
+======================================================================================================================
 
 .. toctree::
 	:hidden:
@@ -14,27 +14,37 @@ template class xf::fintech::internal::PathPricer <European, DT, StepFirst, SampN
 	#include <path_pricer.hpp>
 
 
+The pathpricer that used in MCAmericanEngine Option Pricing process.
 
-
-.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_european_00_01_d_t_00_01_step_first_00_01_sa69d1d4e2c1a5575d37e0fe9c1177744c_1a696024f860937b7b193f32df0ed14d66:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1a039846415e36aef05d906c922de3515b:
 .. _cid-xf::fintech::internal::pathpricer::inn-4:
-.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_european_00_01_d_t_00_01_step_first_00_01_sa69d1d4e2c1a5575d37e0fe9c1177744c_1af44fd954028dedb00e1a41c061e8ec9a:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1ad16ccb51966e11881712ecbea1ee7c28:
 .. _cid-xf::fintech::internal::pathpricer::outn-4:
-.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_european_00_01_d_t_00_01_step_first_00_01_sa69d1d4e2c1a5575d37e0fe9c1177744c_1a75b7382328f529dd18542a169b57e68a:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1a677e2f82b987747d2e5174aa853c1eb2:
 .. _cid-xf::fintech::internal::pathpricer::bypassgen-4:
-.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_european_00_01_d_t_00_01_step_first_00_01_sa69d1d4e2c1a5575d37e0fe9c1177744c_1aa0d90311568755f560efd9be407bce56:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1aef18e210b9f2b88f8e5535f605f0df87:
 .. _cid-xf::fintech::internal::pathpricer::strike-3:
-.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_european_00_01_d_t_00_01_step_first_00_01_sa69d1d4e2c1a5575d37e0fe9c1177744c_1aea04fbb2cddeda921c157c4f3f3c1baa:
-.. _cid-xf::fintech::internal::pathpricer::underlying:
-.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_european_00_01_d_t_00_01_step_first_00_01_sa69d1d4e2c1a5575d37e0fe9c1177744c_1a5691c5b5ecc9a4079db4d03789b01dc2:
-.. _cid-xf::fintech::internal::pathpricer::drift-2:
-.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_european_00_01_d_t_00_01_step_first_00_01_sa69d1d4e2c1a5575d37e0fe9c1177744c_1a3d43a1834365d5f5f767964d5653c642:
-.. _cid-xf::fintech::internal::pathpricer::discount:
-.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_european_00_01_d_t_00_01_step_first_00_01_sa69d1d4e2c1a5575d37e0fe9c1177744c_1a49f3545d5ea0eb9e9c4e523414e9e92d:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1a6b7e9759f36c5dcd5c2e9d4409b4dbe4:
 .. _cid-xf::fintech::internal::pathpricer::optiontype-4:
-.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_european_00_01_d_t_00_01_step_first_00_01_sa69d1d4e2c1a5575d37e0fe9c1177744c_1a30b84d1323502378488b806f3f565636:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1a0b59f981a95ea16b95a9d32091091cce:
+.. _cid-xf::fintech::internal::pathpricer::riskconst:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1a474b0622d7560e2fbbf2817935ab17b8:
+.. _cid-xf::fintech::internal::pathpricer::riskrate:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1af5bd30e842f8ef5e77f5a9d5fb0cc89f:
+.. _cid-xf::fintech::internal::pathpricer::recipunderlying:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1a4456a8fa2b80130d6b2dde54bf41a78c:
+.. _cid-xf::fintech::internal::pathpricer::recipstrike:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1a2b31e37e210ced5d87e0fcb22a434822:
+.. _cid-xf::fintech::internal::pathpricer::coefbuff_0:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1ae75eafd36df411f6c9f877c17bb1be5f:
+.. _cid-xf::fintech::internal::pathpricer::coefbuff_1:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1a0cfb5f962b1215a02b4b5bf0fccf2237:
+.. _cid-xf::fintech::internal::pathpricer::coefbuff_2:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1aabc1e02d932e40ee37fec67cf83b9ded:
+.. _cid-xf::fintech::internal::pathpricer::coefbuff_3:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1a6b4c764c41daf73cfe75238cdc96f07c:
 .. _cid-xf::fintech::internal::pathpricer::pe-4:
-.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_european_00_01_d_t_00_01_step_first_00_01_sa69d1d4e2c1a5575d37e0fe9c1177744c_1a0204a3e03e597bd56f59c992cdc4cf82:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_path_pricer_3_01_longstaff_schwartz_00_01_d_t_00_01_step_firs4b74c38265832b89c49e504dc9802f7f_1ab8d67409e919f273648c80d984ce1d47:
 .. _cid-xf::fintech::internal::pathpricer::pricing-4:
 .. ref-code-block:: cpp
 	:class: overview-code-block
@@ -43,9 +53,10 @@ template class xf::fintech::internal::PathPricer <European, DT, StepFirst, SampN
 	    typename DT,
 	    bool StepFirst,
 	    int SampNum,
-	    bool WithAntithetic
+	    bool WithAntithetic,
+	    int MaxSteps
 	    >
-	class PathPricer <European, DT, StepFirst, SampNum, WithAntithetic>
+	class PathPricer <LongstaffSchwartz, DT, StepFirst, SampNum, WithAntithetic, MaxSteps>
 
 	// fields
 
@@ -53,8 +64,13 @@ template class xf::fintech::internal::PathPricer <European, DT, StepFirst, SampN
 	static const unsigned int OutN
 	static const bool byPassGen
 	DT strike
-	DT underlying
-	DT drift
-	DT discount
 	bool optionType
+	DT riskConst
+	DT riskRate
+	DT recipUnderLying
+	DT recipStrike
+	DT coefBuff_0[MaxSteps]
+	DT coefBuff_1[MaxSteps]
+	DT coefBuff_2[MaxSteps]
+	DT coefBuff_3[MaxSteps]
 

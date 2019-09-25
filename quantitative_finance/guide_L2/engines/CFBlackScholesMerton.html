@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Internal Design of Closed Form Black-Scholes-Merton &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Internal Design of Closed Form Black-Scholes-Merton &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../L2.html">L2 Pricing Engine Kernel User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../overview.html">Pricing Engine Overview</a></li>
@@ -107,11 +107,12 @@
 <li class="toctree-l3"><a class="reference internal" href="MCCliquetEngine.html">Internal Design of Cliquet Option Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MCAmericanEngine.html">Internal Design of American Option Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MCMultiAssetEuropeanHestonEngine.html">Internal Design of MCMultiAssetEuropeanHestonEngine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCHullWhiteCapFloorEngine.html">Internal Design of MCHullWhiteCapFloorEngine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MCEuropeanHestonGreeksEngine.html">Internal Design of MCEuropeanHestonGreeksEngine</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Internal Design of Closed Form Black-Scholes-Merton</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#design-structure">Design Structure</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cfbsmengine-cf-bsm-h">cfBSMEngine (cf_bsm.h)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cfbsmengine-cf-bsm-hpp">cfBSMEngine (cf_bsm.hpp)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bsm-kernel-bsm-kernel-cpp">bsm_kernel (bsm_kernel.cpp)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#theoretical-throughput">Theoretical throughput</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#resource-utilization">Resource Utilization</a></li>
@@ -120,8 +121,11 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="CFHeston.html">Internal Design of Closed Form Heston</a></li>
 <li class="toctree-l3"><a class="reference internal" href="M76.html">Internal Design of Closed Form Merton 76</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GarmanKohlhagen.html">Internal Design of Garman Kohlhagen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Quanto.html">Internal Design of Quanto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="BTCRR.html">Internal Design of Cox-Ross-Rubinstein Binomial Tree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="FDHullWhiteEngine.html">Internal Design of Finite-difference Hull-White Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FDHullWhiteEngine.html">Internal Design of Finite-Difference Hull-White Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FDG2SwaptionEngine.html">Internal Design of Finite-Difference G2 Bermudan Swaption Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="TreeEngine.html">Internal Design of Tree Bermudan Swaption Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CPICapFloorEngine.html">Internal Design of CPI CapFloor Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InflationCapFloorEngine.html">Internal Design of Inflation CapFloor Engine</a></li>
@@ -130,6 +134,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../kernel_api.html">Pricing Engine Kernel APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kernel_benchmark.html">Pricing Engines Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../other_engines.html">Other Engine Kernel Design</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -151,7 +156,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF FinTech Library</a>
+          <a href="../../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -206,7 +211,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="internal-design-of-closed-form-black-scholes-merton">
-<h1>Internal Design of Closed Form Black-Scholes-Merton<a class="headerlink" href="#internal-design-of-closed-form-black-scholes-merton" title="Permalink to this headline">¶</a></h1>
+<span id="black-scholes-merton-engine"></span><h1>Internal Design of Closed Form Black-Scholes-Merton<a class="headerlink" href="#internal-design-of-closed-form-black-scholes-merton" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>Black-Scholes-Merton models the dynamics of a financial market containing derivative investment instruments.</p>
@@ -215,28 +220,28 @@
 </div>
 <div class="section" id="design-structure">
 <h2>Design Structure<a class="headerlink" href="#design-structure" title="Permalink to this headline">¶</a></h2>
-<p>The heart of the BSM closed-form solver is the solver which implements the closed-form equations.  It takes one set of input parameters (S,V,r,t,K) and a flag to control which type of option (call or put) should be calculated.  It then returns the appropriate price, and the associated Greeks.  This function is mostly standard C++ with the exception of using the HLS maths library in place of the standard C++ library.</p>
-<p>Layered on top of this is the HLS specific kernel wrapper which is responsible for gathering the input data sets (from DDR or HBM for example), converting to parallel streams and passing into the kernel.  It then writes the results back out.  This level is where the HLS #pragmas are used to control the amount of pipelining and unrolling.</p>
+<p>The heart of the BSM closed-form solver is a solver which implements the closed-form equations.  It takes one set of input parameters (S,V,r,t,K) and a flag to control which type of option (call or put) should be calculated. Then, it returns the appropriate price and the associated Greeks. This function is mostly standard C++ with some exception of using the HLS maths library.</p>
+<p>Layered on top is the HLS specific kernel wrapper which is responsible for gathering the input data sets (from DDR or HBM for example), converting them to parallel streams and passing them into the kernel. Then, the kernel will write the results back. The kernel level is where the HLS #pragmas are used to control the amount of pipelining and unrolling.</p>
 </div>
-<div class="section" id="cfbsmengine-cf-bsm-h">
-<h2>cfBSMEngine (cf_bsm.h)<a class="headerlink" href="#cfbsmengine-cf-bsm-h" title="Permalink to this headline">¶</a></h2>
-<p>This the code for the solver itself and is templated to accept different data types.  With the exception of the use of the HLS math library, it uses standard C++ and allows the code to be easily used in a software only environment by swapping to the standard math namespace.  The code is a very straighforward implementation of the closed form equations above, with some small optimizations for FPGA implementation.  In particular, it is clear from looking at the equations that the price and Greeks contain many of the same elements, so the code is structured to calculate these sub-components once and then reuse them in the subsequent calculations.  This breaks the computation into a number of smaller steps which are computed in parallel where possible.  This improves throughput and reduces resource utilization.  The second optimization is that the calculations which require the Normal CDF (often called Phi) use an approximation instead of the more accurate, but very resource heavy methods used in for example the standard math library.</p>
+<div class="section" id="cfbsmengine-cf-bsm-hpp">
+<h2>cfBSMEngine (cf_bsm.hpp)<a class="headerlink" href="#cfbsmengine-cf-bsm-hpp" title="Permalink to this headline">¶</a></h2>
+<p>This is the code for the solver itself, and it is template to accept different data types. It uses standard C++ and allows the code to be easily used in a software only environment by swapping to the standard math namespace. The code is a straighforward implementation of the closed form equations above, with some small optimizations for FPGA implementation. In particular, it is clear from the equations that the price and Greeks contain many of the same elements, so the code implementation is structured to calculate these sub-components and reuse them in the subsequent calculations. It separates the computation into a number of smaller steps which can be computed in parallel. The process also improves throughput and reduces resource utilization. Another optimization is the calculation which require the Normal CDF (often called Phi). It is resource heavy in standard math library, so an approximation is used instead of the accurate result.</p>
 </div>
 <div class="section" id="bsm-kernel-bsm-kernel-cpp">
 <h2>bsm_kernel (bsm_kernel.cpp)<a class="headerlink" href="#bsm-kernel-bsm-kernel-cpp" title="Permalink to this headline">¶</a></h2>
 <p>The kernel is the HLS wrapper level which implements the pipelining and parallelization to allow high throughput.  The kernel uses a dataflow methodology with streams to pass the data through the design.</p>
-<p>The top level in and out ports are 512 bit wide, designed to match the whole DDR bus width and allowing vector access.  In the case of float data type (4 bytes), sixteen parameters can be accessed from the bus in parallel.  Each port is connected to its own AXI master with arbitration handled by the AXI switch and DDR controller under the hood.</p>
-<p>These ports are interfaced via functions in bus_interface.h which convert between the wide bus and a [compile time] programmable number of streams.  Once in stream form, each stream is passed to a separate instance of the cfBSMEngine engine.  The cfBSMEngine engine is wrapped inside bsm_stream_wrapper() which handles the stream processing and hand-off to the cfBSMEngine engine.  Here the II and loop unrolling is controlled.  One cfBSMEngine engine is instanced per stream allowing for parallel processing of multiple parameter sets.  Additionally, the engines are in an II=1 loop, so each engine can produce one price and associated Greeks on each cycle.</p>
+<p>In the top level, the input and output ports are 512 bit wide, which is designed to match the whole DDR bus width and allowing vector access. In the case of float data type (4 bytes), sixteen parameters can be accessed from the bus in parallel.  Each port is connected to its own AXI master with arbitration handled by the AXI switch and DDR controller under the hood.</p>
+<p>These ports are interfaced via functions in bus_interface.hpp which convert between the wide bus and a template number of streams. Once input stream form, each stream is passed to a separate instance of the cfBSMEngine engine.  The cfBSMEngine engine is wrapped inside bsm_stream_wrapper() which handles the stream processing.  Here the II and loop unrolling is controlled.  One cfBSMEngine engine is instanced per stream allowing for parallel processing of multiple parameter sets.  Additionally, the engines are in an II=1 loop, so that each engine can produce one price and its associated Greeks on each cycle.</p>
 </div>
 <div class="section" id="theoretical-throughput">
 <h2>Theoretical throughput<a class="headerlink" href="#theoretical-throughput" title="Permalink to this headline">¶</a></h2>
-<p>The BSM solver demonstration is configured to build one kernel (consisting of some number of cfBSMEngine engines) connected to a single DDR bank.  This particular design is bandwidth constrained, so the number of usable engines can be determined by considering the data requirements as follows: one single cfBSMEngine instance requires 5 input parameters and returns 6 values (price and Greeks) for a total of 11 float values (44 bytes) transferred every clock cycle.  At 200MHz for example, this requires a data bandwidth of 200e6 * 44 = 8.8GB/s.  The theoretical bandwith of a single DDR bank as used in the U200 is 19.2 GB/s so two cfBSMEngine engines in parallel could achieve 17.6GB/s at perfect utilization.  Three engines would exceed the capabilities of one DDR, as would two engines and a higher FMAX, so a two cfBSMEngine engine design is the configuration selected for the demonstration design.  In practice of course, it will not be possible to achieve the theoretical maximum due to limitations in the AXI interconnect, DDR controller, access patterns and so on.</p>
+<p>The BSM solver demonstration is configured to build one kernel (consisting of some number of cfBSMEngine engines) that connected to a single DDR bank. This particular design is bandwidth constrained, so the number of usable engines can be determined by considering the data requirements as follows: one single cfBSMEngine instance requires 5 input parameters and returns 6 values (price and Greeks) for a total of 11 float values (44 bytes) transferred every clock cycle. At 200MHz for example, it requires a data bandwidth of 200e6 * 44 = 8.8GB/s.  The theoretical bandwith of a single DDR bank as used in the U200 is 19.2 GB/s so that two cfBSMEngine engines in parallel could achieve 17.6GB/s at perfect utilization. Three engines would exceed the capabilities of one DDR, as would two engines and a higher FMAX, so two engine is the configuration selected for the demonstration design. In practice of course, it will not be possible to achieve the theoretical maximum due to limitations in the AXI interconnect, DDR controller, access patterns and so on.</p>
 </div>
 <div class="section" id="resource-utilization">
 <h2>Resource Utilization<a class="headerlink" href="#resource-utilization" title="Permalink to this headline">¶</a></h2>
-<p>The hardware resources are listed in <a class="reference internal" href="#tab1cfbsm"><span class="std std-numref">Table 4</span></a>.  This is for the demonstration as configured by default (two cfBSMEngine engines) achieving a 300 MHz clock rate.</p>
+<p>The hardware resources are listed in <a class="reference internal" href="#tab1cfbsm"><span class="std std-numref">Table 5</span></a>.  This is for the demonstration as configured by default (two cfBSMEngine engines) achieving a 300 MHz clock rate.</p>
 <span id="tab1cfbsm"></span><table border="1" class="docutils align-center" id="id1">
-<caption><span class="caption-number">Table 4 </span><span class="caption-text">Hardware resources for single kernel with two parallel cfBSMEngine engines.</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 5 </span><span class="caption-text">Hardware resources for single kernel with two parallel cfBSMEngine engines.</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="28%" />
 <col width="11%" />
@@ -268,10 +273,10 @@
 </div>
 <div class="section" id="throughput">
 <h2>Throughput<a class="headerlink" href="#throughput" title="Permalink to this headline">¶</a></h2>
-<p>The hardware implementation, running on the U200 displays the kernel throughput (this is the kernel execution time but not the host-&gt;device and device-&gt;host copies of the data).  A large data set of over 4 million parameters is used to overcome any initial pipeline latency and fully occupy the device buffers.</p>
+<p>The hardware implementation, running on the U200 displays the kernel throughput (this is the kernel execution time but not the host-&gt;device and device-&gt;host copies of the data). A large data set of over 4 million parameters is used to overcome any initial pipeline latency and fully occupy the device buffers.</p>
 <blockquote>
 <div>[bash]$ ./bsm_test ./xclbin/bsm_kernel.hw.u200.xclbin 4194304</div></blockquote>
-<p>This achieves around 203 million options per second, which is approximately 8.9GB/s of data transferred.  This is about half of the theoretical DDR bandwith, but around 80% of that achieved by the ‘xbutil validate’ DDR bandwidth test.  This can be taken as a more realistic target as it includes any platform overhead which is also incurred in the BSM solver.</p>
+<p>This achieves around 203 million options per second, which is approximately 8.9GB/s of data transferred. This is about half of the theoretical DDR bandwith, but around 80% of that achieved by the ‘xbutil validate’ DDR bandwidth test. This can be taken as a more realistic target as it includes any platform overhead which is also incurred in the BSM solver.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>

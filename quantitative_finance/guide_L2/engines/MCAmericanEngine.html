@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Internal Design of American Option Pricing Engine &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Internal Design of American Option Pricing Engine &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../L2.html">L2 Pricing Engine Kernel User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../overview.html">Pricing Engine Overview</a></li>
@@ -112,12 +112,16 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="MCMultiAssetEuropeanHestonEngine.html">Internal Design of MCMultiAssetEuropeanHestonEngine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCHullWhiteCapFloorEngine.html">Internal Design of MCHullWhiteCapFloorEngine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MCEuropeanHestonGreeksEngine.html">Internal Design of MCEuropeanHestonGreeksEngine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CFBlackScholesMerton.html">Internal Design of Closed Form Black-Scholes-Merton</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CFHeston.html">Internal Design of Closed Form Heston</a></li>
 <li class="toctree-l3"><a class="reference internal" href="M76.html">Internal Design of Closed Form Merton 76</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GarmanKohlhagen.html">Internal Design of Garman Kohlhagen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Quanto.html">Internal Design of Quanto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="BTCRR.html">Internal Design of Cox-Ross-Rubinstein Binomial Tree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="FDHullWhiteEngine.html">Internal Design of Finite-difference Hull-White Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FDHullWhiteEngine.html">Internal Design of Finite-Difference Hull-White Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FDG2SwaptionEngine.html">Internal Design of Finite-Difference G2 Bermudan Swaption Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="TreeEngine.html">Internal Design of Tree Bermudan Swaption Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CPICapFloorEngine.html">Internal Design of CPI CapFloor Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InflationCapFloorEngine.html">Internal Design of Inflation CapFloor Engine</a></li>
@@ -126,6 +130,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../kernel_api.html">Pricing Engine Kernel APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kernel_benchmark.html">Pricing Engines Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../other_engines.html">Other Engine Kernel Design</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -147,7 +152,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF FinTech Library</a>
+          <a href="../../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -209,7 +214,7 @@
 </div>
 <div class="section" id="theory">
 <h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">¶</a></h2>
-<p>Because the American option can be exercised anytime prior to the stock’s expire date, exercise price at each time step is required to be calculated in the process of valuing the optimal exercise. More precisely, the pricing process is as follows:</p>
+<p>Because the American option can be exercised anytime prior to the stock’s expire date, exercise price at each time step is required in the process of valuing the optimal exercise. More precisely, the pricing process is as follows:</p>
 <ol class="arabic simple">
 <li>Generate independent stock paths</li>
 <li>Start at maturity <span class="math notranslate nohighlight">\(T\)</span> and calculate the exercise price.</li>
@@ -236,9 +241,8 @@
 <div class="section" id="implementation">
 <h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
 <p>In the Theory Section, the pricing process is described. However, this process can only be executed in the condition of Equation <a class="reference internal" href="#equation-expect-calc">(2)</a> is given. This means that the coefficients in Equation <a class="reference internal" href="#equation-expect-calc">(2)</a> must be calculated first. This calculation process is called <strong>Calibration</strong> and executes prior to the <strong>Pricing</strong> process. Therefore, in the implementation, the American Monte Carlo Engine contains two processes: <strong>Calibration</strong> and <strong>Pricing</strong>, as illustrated in <a class="reference internal" href="#my-figure-overall"><span class="std std-numref">Figure 10</span></a>.</p>
-<div class="figure align-center" id="id1">
-<span id="my-figure-overall"></span><a class="reference internal image-reference" href="../../_images/overall_arch.png"><img alt="The McAmericanEngine structure" src="../../_images/overall_arch.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Figure 10 </span><span class="caption-text"><span class="xref std std-ref">the overview of two processes in American Engine Pricing Option</span></span></p>
+<div class="figure align-center" id="my-figure-overall">
+<a class="reference internal image-reference" href="../../_images/overall_arch.png"><img alt="The McAmericanEngine structure" src="../../_images/overall_arch.png" style="width: 50%;" /></a>
 </div>
 <div class="admonition hint">
 <p class="first admonition-title">Hint</p>
@@ -278,12 +282,11 @@ Therefore, the problem of computing coefficients is changes to find the solution
 <div class="math notranslate nohighlight">
 \[A^T A = B.\]</div>
 <p>Corresponding to the two steps described above, the hardware architecture is shown in <a class="reference internal" href="#my-figure-presamples"><span class="std std-numref">Figure 11</span></a>.</p>
-<div class="figure align-center" id="id2">
-<span id="my-figure-presamples"></span><a class="reference internal image-reference" href="../../_images/presamples.png"><img alt="The McAmericanEngine structure" src="../../_images/presamples.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Figure 11 </span><span class="caption-text"><span class="xref std std-ref">the structure of American engine calibration process - phase 1: Presamples</span></span></p>
+<div class="figure align-center" id="my-figure-presamples">
+<a class="reference internal image-reference" href="../../_images/presamples.png"><img alt="The McAmericanEngine structure" src="../../_images/presamples.png" style="width: 100%;" /></a>
 </div>
 <p>We denote the process from RNG to generate matrix data <span class="math notranslate nohighlight">\(B\)</span> and exercise price for each timestep <span class="math notranslate nohighlight">\(t\)</span> as a Monte-Carlo-Model (MCM) in American Option Calibration Process. Each MCM process 1024 data. With a template parameter UN_PATH, more pieces of MCM can be instanced when hardware resources available.</p>
-<p>To connect multiple MCM data, two merger blocks are created: one for merge price data, one for merge matrix <span class="math notranslate nohighlight">\(B\)</span>. Meanwhile, to guarantee all calibration path data can be executed in a loop when not enough MCM available, a soft-layer Merger that accumulates all elements of <span class="math notranslate nohighlight">\(B\)</span> data is employed. Since these intermediate data need to be accumulated multiple times, a BRAM is used to save and load them.</p>
+<p>To connect multiple MCM data, two merger blocks are created: one for merge price data, one for merge matrix <span class="math notranslate nohighlight">\(B\)</span>. Meanwhile, to guarantee all calibration path data can be executed in a loop when there is not enough MCM available, a soft-layer Merger that accumulates all elements of <span class="math notranslate nohighlight">\(B\)</span> data is employed. Since these intermediate data need to be accumulated multiple times, a BRAM is used to save and load them.</p>
 <ol class="arabic simple" start="3">
 <li>Once we get the matrix <span class="math notranslate nohighlight">\(B\)</span>, the singular matrix <span class="math notranslate nohighlight">\(\Sigma\)</span> of <span class="math notranslate nohighlight">\(B\)</span> could be obtained by SVD (Singular Value Decomposition).</li>
 </ol>
@@ -297,9 +300,8 @@ Therefore, the problem of computing coefficients is changes to find the solution
 A^T y &amp;= A^TA x \\
 A^T y &amp;= Bx\end{split}\]</div>
 <p>Until now, matrix <span class="math notranslate nohighlight">\(B\)</span> and vector <span class="math notranslate nohighlight">\(y\)</span> are known, coefficients <span class="math notranslate nohighlight">\(x\)</span> could be calculated.</p>
-<div class="figure align-center" id="id3">
-<span id="my-figure-calib"></span><a class="reference internal image-reference" href="../../_images/calibrate.png"><img alt="The McAmericanEngine structure" src="../../_images/calibrate.png" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Figure 12 </span><span class="caption-text"><span class="xref std std-ref">the structure of American engine calibration process - phase 2: Calibrate</span></span></p>
+<div class="figure align-center" id="my-figure-calib">
+<a class="reference internal image-reference" href="../../_images/calibrate.png"><img alt="The McAmericanEngine structure" src="../../_images/calibrate.png" style="width: 60%;" /></a>
 </div>
 <p>The implementation of step 3 and steps 4 is shown in <a class="reference internal" href="#my-figure-calib"><span class="std std-numref">Figure 12</span></a>. Because step 2 generates matrix <span class="math notranslate nohighlight">\(B\)</span> and price data <span class="math notranslate nohighlight">\(y\)</span> from timesteps <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(T\)</span>. Step 3 processes these data in the backward direction, from timesteps <span class="math notranslate nohighlight">\(T\)</span> to <span class="math notranslate nohighlight">\(0\)</span>. Considering the amount of data, 4096*timesteps*8*sizeof(DT) and 9*timesteps*8*sizeof(DT), it is impossible to store all the data on FPGA. In the implementation, DDR/HBM memory is used to save these data. Correspondingly, DDR data read/write modules are added to the design.</p>
 <p>Besides, notice that since SVD is purely computing dependent, which is pretty slow in the design. Therefore, a template parameter UN_STEP is added to speed up the SVD calculation process.</p>
@@ -312,16 +314,15 @@ A^T y &amp;= Bx\end{split}\]</div>
 <h3>Pricing Process<a class="headerlink" href="#pricing-process" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="mcamericanenginepricing">
 <h4>MCAmericanEnginePricing<a class="headerlink" href="#mcamericanenginepricing" title="Permalink to this headline">¶</a></h4>
-<p>The theory of the pricing process is actually already introduced in the Theory Section. Similar to the European option engine, etc other option engines, mcSimulation framework is employed. Compared to the European option engine, the difference is that it needs to calculate the optimal exercise at all time steps. The detailed implementation process of American engine is drawn as Figure <a class="reference internal" href="#my-figure-pricing"><span class="std std-numref">Figure 13</span></a> shows.</p>
-<div class="figure align-center" id="id4">
-<span id="my-figure-pricing"></span><a class="reference internal image-reference" href="../../_images/pricing.png"><img alt="The McAmericanEngine structure pricing" src="../../_images/pricing.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Figure 13 </span><span class="caption-text"><span class="xref std std-ref">the structure of American engine pricing process</span></span></p>
+<p>The theory of the pricing process is actually already introduced in the Theory Section. Similar to the European option engine, mcSimulation framework is employed. Compared to the European option engine, the difference is that it needs to calculate the optimal exercise at all time steps. The detailed implementation process of American engine is drawn as Figure <a class="reference internal" href="#my-figure-pricing"><span class="std std-numref">Figure 13</span></a> shows.</p>
+<div class="figure align-center" id="my-figure-pricing">
+<a class="reference internal image-reference" href="../../_images/pricing.png"><img alt="The McAmericanEngine structure pricing" src="../../_images/pricing.png" style="width: 100%;" /></a>
 </div>
 <ol class="arabic simple">
 <li>Generate uniform random numbers with Mersenne Twister UNiform MT19937 Random Number Generator (RNG) followed by Inverse Cumulative Normal (ICN) uniform random numbers. Thereafter, generate independent stock paths with the uniform random numbers and Black-Sholes path generator.</li>
 <li>Refer to Equation <a class="reference internal" href="#equation-expect-calc">(2)</a>, calculate the exercise price at time step <span class="math notranslate nohighlight">\(T\)</span> by utilizing the calculated coefficients <span class="math notranslate nohighlight">\(x\)</span>.</li>
 <li>Calculate the exercise price for previous time steps <span class="math notranslate nohighlight">\(t\)</span>, and take the max exercise price by comparing the immediate exercise price with the held price value (maximum value for time steps <span class="math notranslate nohighlight">\(t+1\)</span>).</li>
-<li>Continue this process, until time step <span class="math notranslate nohighlight">\(t\)</span> equals 0, optimal exercise price and the standard deviation is obtained.</li>
+<li>Continue the process, until time step <span class="math notranslate nohighlight">\(t\)</span> equals 0, optimal exercise price and the standard deviation is obtained.</li>
 <li>Check if the standard deviation is smaller than the required tolerance defined by customers. If not, repeat step 1-4, until the final optimal exercise price is obtained.</li>
 </ol>
 <div class="admonition caution">
@@ -343,9 +344,8 @@ A^T y &amp;= Bx\end{split}\]</div>
 </ul>
 <p>The boundary between them is external memory access. For the calibration process, two APIs are provided. Calibration step 1 and 2 are wrapped as one kernel, namely, <strong>MCAmericanEnginePreSamples</strong>. Step 3 and step 4 compose another kernel <strong>MCAmericanEngineCalibrate</strong>. And pricing process as another kernel <strong>MCAmericanEnginePricing</strong> in this library. Because the pricing process is separated as a kernel, the data exchange between the calibration and pricing process may not through the BRAM any more. Thus, in the implementation, DDR/HBM is used as the coefficients data storage memory.</p>
 <p>With the three kernels, the kernel level pipeline by shortening the overall execution time could be achieved. However, employing kernel level pipeline requires a complex schedule from the host code side. An illustration of connection 3 kernels as a complete system is given in this part, which can be seen in <a class="reference internal" href="#my-figure-sdx"><span class="std std-numref">Figure 14</span></a>. Price data and <span class="math notranslate nohighlight">\(B\)</span> matrix data are the outputs from kernel MCAmericanEnginePreSamples. For each timestep, path number (default 4096) price data B and x matrix data (a number of 9) need to be saved to DDR or HBM memory.</p>
-<div class="figure align-center" id="id5">
-<span id="my-figure-sdx"></span><a class="reference internal image-reference" href="../../_images/sdx_structure.png"><img alt="McAmericanEngine Vitis project architecture on FPGA" src="../../_images/sdx_structure.png" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Figure 14 </span><span class="caption-text"><span class="xref std std-ref">the architecture of 3-kernel version MCAmericanEngine on FPGA</span></span></p>
+<div class="figure align-center" id="my-figure-sdx">
+<a class="reference internal image-reference" href="../../_images/sdx_structure.png"><img alt="McAmericanEngine Vitis project architecture on FPGA" src="../../_images/sdx_structure.png" style="width: 60%;" /></a>
 </div>
 <p>Kernel 1 MCAmericanEngineCalibrate reads price data <span class="math notranslate nohighlight">\(y\)</span> and matrix data <span class="math notranslate nohighlight">\(B\)</span> from external memory and outputs coefficients to DDR/HBM. The last kernel MCAmericanEnginePricing reads coefficients data from DDR/HBM and saves the final output optimal exercise price to DDR/HBM.</p>
 <div class="admonition hint">

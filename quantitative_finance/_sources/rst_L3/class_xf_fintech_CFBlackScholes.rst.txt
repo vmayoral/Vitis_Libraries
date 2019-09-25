@@ -52,6 +52,7 @@ This class implements the Closed Form Black Scholes model. :ref:`More...<details
 
 	    class :ref:`xf::fintech::CFBlackScholesMerton<doxid-classxf_1_1fintech_1_1_c_f_black_scholes_merton>` 
 	    class :ref:`xf::fintech::CFGarmanKohlhagen<doxid-classxf_1_1fintech_1_1_c_f_garman_kohlhagen>` 
+	    class :ref:`xf::fintech::CFQuanto<doxid-classxf_1_1fintech_1_1_c_f_quanto>` 
 
 	// typedefs
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Monte-Carlo American &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Monte-Carlo American &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../../../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../L3.html">L3 Overlay User Guide</a><ul class="current">
@@ -106,6 +106,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../CFBlackScholes/cfblackscholes.html">Closed Form Black Scholes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../HCF/hcf.html">Heston Closed Form (HCF)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../M76/m76.html">Merton 76 (Jump Diffusion)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GarmanKohlhagen/garman_kohlhagen.html">Garman Kohlhagen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quanto/quanto.html">Quanto Options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../HestonFD/heston_lib.html">Heston FD</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Monte-Carlo American</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#class-xf-fintech-mcamerican">class xf::fintech::MCAmerican</a></li>
@@ -113,6 +115,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../MCEuropean/mceuropean.html">Monte-Carlo European</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../MCEuropeanDJE/mceuropeandje.html">Monte-Carlo European Dow Jones Engine (DJE)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PopMCMC/popmcmc.html">PopMCMC Options</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../framework/framework_classes.html">Framework Classes</a></li>
@@ -136,7 +139,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">XF FinTech Library</a>
+          <a href="../../../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -234,6 +237,42 @@
     <span class="p">)</span>
 </pre>
 <p>Run a single asset until the REQUIRED TOLERANCE is met…</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>optionType</td>
+<td>either American/European Call or Put</td>
+</tr>
+<tr class="row-even"><td>stockPrice</td>
+<td>the stock price</td>
+</tr>
+<tr class="row-odd"><td>strikePrice</td>
+<td>the strike price</td>
+</tr>
+<tr class="row-even"><td>riskFreeRate</td>
+<td>the risk free interest rate</td>
+</tr>
+<tr class="row-odd"><td>dividendYield</td>
+<td>the dividend yield</td>
+</tr>
+<tr class="row-even"><td>volatility</td>
+<td>the volatility</td>
+</tr>
+<tr class="row-odd"><td>timeToMaturity</td>
+<td>the time to maturity</td>
+</tr>
+<tr class="row-even"><td>requiredTolerance</td>
+<td>the tolerance</td>
+</tr>
+<tr class="row-odd"><td>pOptionPrice</td>
+<td>the returned option price</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="cid-xf-fintech-mcamerican-run-2">
 <span id="doxid-classxf-1-1fintech-1-1-m-c-american-1a13bf309fc4f908ae8caf2eeb6e950fd1"></span><span id="id1"></span><h5>Defined in &lt;models/xf_fintech_mc_american.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-mcamerican-run-2" title="Permalink to this headline">¶</a></h5>
@@ -251,6 +290,42 @@
     <span class="p">)</span>
 </pre>
 <p>Run a single asset for the REQUIRED NUMBER OF SAMPLES…</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>optionType</td>
+<td>either American/European Call or Put</td>
+</tr>
+<tr class="row-even"><td>stockPrice</td>
+<td>the stock price</td>
+</tr>
+<tr class="row-odd"><td>strikePrice</td>
+<td>the strike price</td>
+</tr>
+<tr class="row-even"><td>riskFreeRate</td>
+<td>the risk free interest rate</td>
+</tr>
+<tr class="row-odd"><td>dividendYield</td>
+<td>the dividend yield</td>
+</tr>
+<tr class="row-even"><td>volatility</td>
+<td>the volatility</td>
+</tr>
+<tr class="row-odd"><td>timeToMaturity</td>
+<td>the time to maturity</td>
+</tr>
+<tr class="row-even"><td>requiredSamples</td>
+<td>the number of samples</td>
+</tr>
+<tr class="row-odd"><td>pOptionPrice</td>
+<td>the returned option price</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="section" id="getlastruntime">

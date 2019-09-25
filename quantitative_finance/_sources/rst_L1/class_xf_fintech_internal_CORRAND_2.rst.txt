@@ -16,23 +16,25 @@ template class xf::fintech::internal::CORRAND_2
 
 
 
-.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2_1a7afb5dbe9341996677d716f1606ac885:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2_1a12f115d074d060ea19dd663137984943:
 .. _cid-xf::fintech::internal::corrand_2::firstrun:
-.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2_1a6a637c2bed4aef7aace9c475c9a30d95:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2_1a014fd189c1852b811478f911bcb0d5e8:
 .. _cid-xf::fintech::internal::corrand_2::rounds:
-.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2_1a3b45369734df67eb925edf842ca9b843:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2_1a765df80cdf6586f1601057c7a8a56aa5:
 .. _cid-xf::fintech::internal::corrand_2::buff_0:
-.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2_1a2a886f18c0a49a1a1266232e17a1a20d:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2_1ab54205a0e4acfe103587d9e4023ba26c:
 .. _cid-xf::fintech::internal::corrand_2::buff_1:
-.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2_1aaf8430d27c6f46110a1af886b44b86c6:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2_1ae512c072f374d55676c3fa07664a02cf:
 .. _cid-xf::fintech::internal::corrand_2::corrmatrix:
-.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2_1a3f603daea219bd143c24b9ae15cbc14d:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2_1aea52ea03fd3124fdf5eae01625165534:
+.. _cid-xf::fintech::internal::corrand_2::init:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2_1abd87d45fb1e379abb1c8da0bb405e43c:
 .. _cid-xf::fintech::internal::corrand_2::setup:
-.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2_1a580184835eb9fb83ae2f72384b40aad0:
-.. _cid-xf::fintech::internal::corrand_2::corrpathcube_s:
-.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2_1a87606b79dc10a4bfb37630e1ad31058f:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2_1a2f6bf01b337ad4c390f542d6adb9da7f:
+.. _cid-xf::fintech::internal::corrand_2::_next_body:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2_1ae3072cbe4ac78c6f4cd9ba22bf193041:
 .. _cid-xf::fintech::internal::corrand_2::corrpathcube:
-.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2_1a231a1ef1937f30f85844c89119aa152d:
+.. _doxid-classxf_1_1fintech_1_1internal_1_1_c_o_r_r_a_n_d__2_1a7d159d5629ad8a04274bca314838f011:
 .. _cid-xf::fintech::internal::corrand_2::corrpathcube-2:
 .. ref-code-block:: cpp
 	:class: overview-code-block
@@ -40,7 +42,8 @@ template class xf::fintech::internal::CORRAND_2
 	template <
 	    typename DT,
 	    int PathNm,
-	    int ASSETS
+	    int ASSETS,
+	    int CFGNM
 	    >
 	class CORRAND_2
 
@@ -48,7 +51,7 @@ template class xf::fintech::internal::CORRAND_2
 
 	bool firstrun
 	ap_uint <1> rounds
-	DT buff_0[ASSETS *2][PathNm]
-	DT buff_1[ASSETS *2][PathNm]
-	DT corrMatrix[ASSETS *2+1][ASSETS]
+	DT buff_0[ASSETS *2][CFGNM][PathNm]
+	DT buff_1[ASSETS *2][CFGNM][PathNm]
+	DT corrMatrix[ASSETS *2+1][CFGNM][ASSETS]
 

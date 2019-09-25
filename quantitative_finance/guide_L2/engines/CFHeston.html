@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Internal Design of Closed Form Heston &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Internal Design of Closed Form Heston &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../L2.html">L2 Pricing Engine Kernel User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../overview.html">Pricing Engine Overview</a></li>
@@ -107,20 +107,24 @@
 <li class="toctree-l3"><a class="reference internal" href="MCCliquetEngine.html">Internal Design of Cliquet Option Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MCAmericanEngine.html">Internal Design of American Option Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MCMultiAssetEuropeanHestonEngine.html">Internal Design of MCMultiAssetEuropeanHestonEngine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCHullWhiteCapFloorEngine.html">Internal Design of MCHullWhiteCapFloorEngine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MCEuropeanHestonGreeksEngine.html">Internal Design of MCEuropeanHestonGreeksEngine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CFBlackScholesMerton.html">Internal Design of Closed Form Black-Scholes-Merton</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Internal Design of Closed Form Heston</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#design-structure">Design Structure</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#the-engine-hcf-engine-h">The Engine (hcf_engine.h)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-engine-hcf-engine-hpp">The Engine (hcf_engine.hpp)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#io-wrapper-hcf-kernel-cpp">IO Wrapper (hcf_kernel.cpp)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#resource-utilization">Resource Utilization</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#throughput">Throughput</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="M76.html">Internal Design of Closed Form Merton 76</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GarmanKohlhagen.html">Internal Design of Garman Kohlhagen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Quanto.html">Internal Design of Quanto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="BTCRR.html">Internal Design of Cox-Ross-Rubinstein Binomial Tree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="FDHullWhiteEngine.html">Internal Design of Finite-difference Hull-White Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FDHullWhiteEngine.html">Internal Design of Finite-Difference Hull-White Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FDG2SwaptionEngine.html">Internal Design of Finite-Difference G2 Bermudan Swaption Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="TreeEngine.html">Internal Design of Tree Bermudan Swaption Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CPICapFloorEngine.html">Internal Design of CPI CapFloor Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InflationCapFloorEngine.html">Internal Design of Inflation CapFloor Engine</a></li>
@@ -129,6 +133,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../kernel_api.html">Pricing Engine Kernel APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kernel_benchmark.html">Pricing Engines Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../other_engines.html">Other Engine Kernel Design</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -150,7 +155,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF FinTech Library</a>
+          <a href="../../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -215,56 +220,80 @@
 <h2>Design Structure<a class="headerlink" href="#design-structure" title="Permalink to this headline">¶</a></h2>
 <p>There are two layers to the kernel; the engine itself and the IO wrapper.</p>
 </div>
-<div class="section" id="the-engine-hcf-engine-h">
-<h2>The Engine (hcf_engine.h)<a class="headerlink" href="#the-engine-hcf-engine-h" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-engine-hcf-engine-hpp">
+<h2>The Engine (hcf_engine.hpp)<a class="headerlink" href="#the-engine-hcf-engine-hpp" title="Permalink to this headline">¶</a></h2>
 <p>The engine performs a single Heston Closed Form solution for a European Call Option.</p>
-<p>It is templated to generate either a floating point (Float-32) kernel or a double (Float-64) kernel. The double kernel will be more accurate but takes up more FPGA resource. The code contains some HLS directives which ensure the design is pipelined and parallelised where suitable in order to increase its performance. It uses complex number arithmetic which is implemented by wrapper functions that in turn use the HLS math library.</p>
-<p>The integration is performed using the trapezoidal rule with a configurable dw (the integration time step) and Wmax (the upper limit of the integral). These parameters are configurable at run time and are passed to the kernel along with the Heston parameters.</p>
+<p>It is template to generate either a floating point (Float-32) kernel or a double (Float-64) kernel. The double kernel will be more accurate but takes up more FPGA resource. The code contains some HLS directives which ensure the design is pipeline and parallel in order to improve its performance. It uses complex number arithmetic which is implemented in wrapper functions by using the HLS math library.</p>
+<p>The integration is performed using the trapezoidal rule with a configurable dw (the integration time step) and Wmax (the upper limit of the integral). These parameters are configurable at run time and passed to the kernel along with the Heston parameters.</p>
 </div>
 <div class="section" id="io-wrapper-hcf-kernel-cpp">
 <h2>IO Wrapper (hcf_kernel.cpp)<a class="headerlink" href="#io-wrapper-hcf-kernel-cpp" title="Permalink to this headline">¶</a></h2>
-<p>The wrapper takes as input an array of parameter data and iterates through the array calling the Engine for each entry. The results are returned as an array. This is done in order to make efficient use of DMA to and from the FPGA; one batch data transaction being much faster than multiple single transactions. The data is first read from global memory into local memory, then processed and finally the output data copied from local memory back to global memory. This is done because the extra time required by the copies is more than compensated for by the speedup of the Engine accessing local memory.</p>
+<p>The wrapper takes the input of a parameter array, and it iterates through the array calling the Engine for each entry. The results are returned also as an array in order to make full use of DMA in the FPGA. Because a batch data transaction is much faster than multiple single transactions. The data is firstly read from global memory into local memory, then processed in kernel and finally retunred from local memory back to global memory. This is done because the extra time required by the data copies is more than compensation by speedup the Engine in accessing local memory.</p>
 </div>
 <div class="section" id="resource-utilization">
 <h2>Resource Utilization<a class="headerlink" href="#resource-utilization" title="Permalink to this headline">¶</a></h2>
 <p>The floating point kernel Area Information:</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="15%" />
+<col width="15%" />
+<col width="17%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">FF:</th><td class="field-body">195663</td>
+<tr class="row-odd"><td>Data Type</td>
+<td>FF</td>
+<td>LUT</td>
+<td>DSP</td>
+<td>BRAM</td>
+<td>URAM</td>
 </tr>
-<tr class="field-even field"><th class="field-name">LUT:</th><td class="field-body">211957</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">DSP:</th><td class="field-body">1149</td>
-</tr>
-<tr class="field-even field"><th class="field-name">BRAM:</th><td class="field-body">28</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">URAM:</th><td class="field-body">0</td>
+<tr class="row-even"><td>Float</td>
+<td>195663</td>
+<td>211957</td>
+<td>1149</td>
+<td>28</td>
+<td>0</td>
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 <p>The double kernel Area Information:</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="15%" />
+<col width="15%" />
+<col width="17%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">FF:</th><td class="field-body">644664</td>
+<tr class="row-odd"><td>Data Type</td>
+<td>FF</td>
+<td>LUT</td>
+<td>DSP</td>
+<td>BRAM</td>
+<td>URAM</td>
 </tr>
-<tr class="field-even field"><th class="field-name">LUT:</th><td class="field-body">654672</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">DSP:</th><td class="field-body">3849</td>
-</tr>
-<tr class="field-even field"><th class="field-name">BRAM:</th><td class="field-body">520</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">URAM:</th><td class="field-body">0</td>
+<tr class="row-even"><td>Double</td>
+<td>644664</td>
+<td>654672</td>
+<td>3849</td>
+<td>520</td>
+<td>0</td>
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 </div>
 <div class="section" id="throughput">
 <h2>Throughput<a class="headerlink" href="#throughput" title="Permalink to this headline">¶</a></h2>
-<p>The theoretical throughput depends on different factors. A floating point kernel will be faster than a double kernel. A smaller dw and larger Wmax will provide more accurate results but will decrease throughput. The kernel has been pipelined in order to increase the throughput when a large number of inputs is to be processed.</p>
+<p>The theoretical throughput depends on different factors. A floating point kernel will be faster than a double kernel. A smaller dw and larger Wmax will provide more accurate results but will decrease throughput. The kernel has been pipelined in order to increase the throughput when a large number of input needs to be processed.</p>
 <p>Throughput is composed of three processes; transferring data to the FPGA, running the computations and transferring the results back from the FPGA. The demo contains options to measure timings as described in the README.md file.</p>
 <p>As an example, processing a batch of 1000 call calculations with a floating point kernel with dw = 0.5 and Wmax = 200 breaks down as follows:</p>
 <p>Time to transfer data = 0.26ms</p>

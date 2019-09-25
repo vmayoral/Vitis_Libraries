@@ -54,7 +54,7 @@ Defined in <xf_fintech/bk_model.hpp>
 	    DT spread
 	    )
 
-initialization initialize parameter
+initialize parameters
 
 
 
@@ -94,7 +94,7 @@ Defined in <xf_fintech/bk_model.hpp>
 	    DT r
 	    )
 
-discount calculate the discount after time dt
+calculate the discount after time dt
 
 
 
@@ -154,7 +154,7 @@ Defined in <xf_fintech/bk_model.hpp>
 	    DT* rates
 	    )
 
-treeShortRate calcutate short-rate of dt at t for TreeEngine
+calcutate short-rate of dt at t for TreeEngine
 
 
 

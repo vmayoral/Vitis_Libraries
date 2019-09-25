@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>class xf::fintech::Timestamp &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>class xf::fintech::Timestamp &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -49,7 +49,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -92,7 +92,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -114,7 +114,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF FinTech Library</a>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -171,9 +171,39 @@
 <pre class="highlight overview-code-block literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&lt;xf_fintech_timestamp.hpp&gt;</span>
 </pre>
-<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-timestamp-calculateduration">
-<span id="doxid-classxf-1-1fintech-1-1-timestamp-1af9156fa05d5ec14cb5f9139c753995d3"></span><span id="cid-xf-fintech-timestamp-generatetimestamp"></span><span id="doxid-classxf-1-1fintech-1-1-timestamp-1a207f0eceefc7245d2588f4ad22b64e90"></span>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-timestamp"><span class="std std-ref">Timestamp</span></a> class to capture duration <span class="xref std std-ref">More…</span></p>
+<pre class="highlight overview-code-block literal-block">
+
 </pre>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="generatetimestamp">
+<span id="cid-xf-fintech-timestamp-generatetimestamp"></span><span id="doxid-classxf-1-1fintech-1-1-timestamp-1a207f0eceefc7245d2588f4ad22b64e90"></span><h3>generateTimestamp<a class="headerlink" href="#generatetimestamp" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="defined-in-xf-fintech-timestamp-hpp">
+<h4>Defined in &lt;xf_fintech_timestamp.hpp&gt;<a class="headerlink" href="#defined-in-xf-fintech-timestamp-hpp" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">generateTimestamp</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</pre>
+<p>Capture current timestamp</p>
+</div>
+</div>
+<div class="section" id="calculateduration">
+<span id="cid-xf-fintech-timestamp-calculateduration"></span><span id="doxid-classxf-1-1fintech-1-1-timestamp-1af9156fa05d5ec14cb5f9139c753995d3"></span><h3>calculateDuration<a class="headerlink" href="#calculateduration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>Defined in &lt;xf_fintech_timestamp.hpp&gt;<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">static</span> <span class="kt">double</span> <span class="n">calculateDuration</span> <span class="p">(</span>
+    <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-timestamp"><span class="std std-ref">Timestamp</span></a><span></span><span class="o">*</span> <span class="n">pStartTime</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-timestamp"><span class="std std-ref">Timestamp</span></a><span></span><span class="o">*</span> <span class="n">pStopTime</span>
+    <span class="p">)</span>
+</pre>
+<p>Calculate a duration is seconds</p>
+</div>
+</div>
+</div>
 </div>
 
 
