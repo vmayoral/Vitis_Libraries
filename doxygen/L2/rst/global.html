@@ -437,12 +437,12 @@
 </table>
 </div>
 <div class="section" id="xillz4compressstream">
-<span id="cid-xillz4compressstream"></span><span id="doxid-lz4-compress-stream-kernel-8hpp-1a4f204b665d5848a33e09416c6d6f3c13"></span><h3>xilLz4CompressStream<a class="headerlink" href="#xillz4compressstream" title="Permalink to this headline">¶</a></h3>
+<span id="cid-xillz4compressstream"></span><span id="doxid-lz4-compress-stream-kernel-8hpp-1a6d79149b75972c5baf6f229de87af8e3"></span><h3>xilLz4CompressStream<a class="headerlink" href="#xillz4compressstream" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_compress_stream_kernel.hpp&quot;</span></pre>
 <pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilLz4CompressStream</span> <span class="p">(</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">pkt1b</span><span class="o">&gt;&amp;</span> <span class="n">inAxiStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">pkt1b</span><span class="o">&gt;&amp;</span> <span class="n">outAxiStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">pkt4b</span><span class="o">&gt;&amp;</span> <span class="n">compressedSizeAxis</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">hStream8b_t</span><span class="o">&gt;&amp;</span> <span class="n">inAxiStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">hStream8b_t</span><span class="o">&gt;&amp;</span> <span class="n">outAxiStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">hStream32b_t</span><span class="o">&gt;&amp;</span> <span class="n">compressedSizeAxis</span><span class="p">,</span>
     <span class="kt">uint32_t</span> <span class="n">inputSize</span>
     <span class="p">)</span></pre>
 <p>LZ4 compression streaming kernel.</p>
@@ -509,11 +509,11 @@
 </table>
 </div>
 <div class="section" id="xillz4decompressstream">
-<span id="cid-xillz4decompressstream"></span><span id="doxid-lz4-decompress-stream-kernel-8hpp-1a41099ca97bd6b6ee2e5d8efe8e7ec57d"></span><h3>xilLz4DecompressStream<a class="headerlink" href="#xillz4decompressstream" title="Permalink to this headline">¶</a></h3>
+<span id="cid-xillz4decompressstream"></span><span id="doxid-lz4-decompress-stream-kernel-8hpp-1ae7ce7f2a2c87341067f3931e8626c32a"></span><h3>xilLz4DecompressStream<a class="headerlink" href="#xillz4decompressstream" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_decompress_stream_kernel.hpp&quot;</span></pre>
 <pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilLz4DecompressStream</span> <span class="p">(</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">pkt1b</span><span class="o">&gt;&amp;</span> <span class="n">inAxiStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">pkt1b</span><span class="o">&gt;&amp;</span> <span class="n">outAxiStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">hStream8b_t</span><span class="o">&gt;&amp;</span> <span class="n">inAxiStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">hStream8b_t</span><span class="o">&gt;&amp;</span> <span class="n">outAxiStream</span><span class="p">,</span>
     <span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">inputSize</span><span class="p">,</span>
     <span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">outputSize</span>
     <span class="p">)</span></pre>

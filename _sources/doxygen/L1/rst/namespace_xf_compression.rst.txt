@@ -10,11 +10,31 @@ namespace compression
 
 
 
-.. _doxid-namespacexf_1_1compression_1a62363ef17f80fe9039ccac8c4f8feee1:
-.. _cid-xf::compression::pkt1b:
-.. _doxid-namespacexf_1_1compression_1acacd55bafcc89cdea0f66600b086180a:
-.. _cid-xf::compression::pkt4b:
-.. _doxid-namespacexf_1_1compression_1a54cacc283d04b3c5c7908155abec922d:
+.. _doxid-namespacexf_1_1compression_1a63dcf47b0c08067039934059ab21e804:
+.. _cid-xf::compression::hstream16b_t:
+.. _doxid-namespacexf_1_1compression_1a59808ee7bb972242ab2bdc922d77ce7a:
+.. _cid-xf::compression::hstream32b_t:
+.. _doxid-namespacexf_1_1compression_1a038c2e70dba826fedd2c886c33029364:
+.. _cid-xf::compression::hstream64b_t:
+.. _doxid-namespacexf_1_1compression_1af5b73efc1bfcd03caea709e4a26cf7fd:
+.. _cid-xf::compression::hstream128b_t:
+.. _doxid-namespacexf_1_1compression_1a84f1e03d7a8f049d0112baf9bef48dad:
+.. _cid-xf::compression::hstream256b_t:
+.. _doxid-namespacexf_1_1compression_1a3f3ac971a14799f4228ca9684f25f488:
+.. _cid-xf::compression::hstream512b_t:
+.. _doxid-namespacexf_1_1compression_1a1fe2ca151b9dc82cc97df85a4fc2f457:
+.. _cid-xf::compression::kstream16b_t:
+.. _doxid-namespacexf_1_1compression_1a40438acf043b65ba3fd49e506e95ab5c:
+.. _cid-xf::compression::kstream32b_t:
+.. _doxid-namespacexf_1_1compression_1adbf8a53f65fef42f37104d8901249f2e:
+.. _cid-xf::compression::kstream64b_t:
+.. _doxid-namespacexf_1_1compression_1a29b1f7c0f966029cb6f85c06e67066c1:
+.. _cid-xf::compression::kstream128b_t:
+.. _doxid-namespacexf_1_1compression_1ab132af7a8fcfa2f2c71095933111c168:
+.. _cid-xf::compression::kstream256b_t:
+.. _doxid-namespacexf_1_1compression_1a88c30bba11f925d9c5eec323e563a1e0:
+.. _cid-xf::compression::kstream512b_t:
+.. _doxid-namespacexf_1_1compression_1a499ffa6d30e499c112e1ff0d30f74217:
 .. _cid-xf::compression::uintmemwidth_t:
 .. _doxid-namespacexf_1_1compression_1a9d41d94c1981c79849a420c8a6a75aa4:
 .. _cid-xf::compression::compressd_dt:
@@ -24,6 +44,10 @@ namespace compression
 .. _cid-xf::compression::lz4_compressd_dt:
 .. _doxid-namespacexf_1_1compression_1ab4e55f033c3c15aff4ddf6733ab52059:
 .. _cid-xf::compression::snappy_compressd_dt:
+.. _doxid-namespacexf_1_1compression_1a06e4c8be7794b2cad357e9eda2cfca68:
+.. _cid-xf::compression::kgmemdwidth:
+.. _doxid-namespacexf_1_1compression_1a7891a83be06e71b8f9d20f835b36b0e0:
+.. _cid-xf::compression::kgmemburstsize:
 .. _doxid-namespacexf_1_1compression_1a76067a65140dee8a0b343c0c4a038328:
 .. _cid-xf::compression::c_gmemburstsize:
 .. _doxid-namespacexf_1_1compression_1a892004a2d8e3a8838264e1ffeefd5d48:
@@ -65,9 +89,21 @@ namespace compression
 
 	// typedefs
 
-	typedef qdma_axis <DWIDTH, 0, 0, 0> pkt1b
-	typedef qdma_axis <DWIDTH2, 0, 0, 0> pkt4b
-	typedef ap_uint <GMEM_DWIDTH> uintMemWidth_t
+	typedef qdma_axis <8, 0, 0, 0> :ref:`hStream8b_t<doxid-namespacexf_1_1compression_1a5e9b06498ea31587312aebc3ebe8dbce>`
+	typedef qdma_axis <16, 0, 0, 0> hStream16b_t
+	typedef qdma_axis <32, 0, 0, 0> hStream32b_t
+	typedef qdma_axis <64, 0, 0, 0> hStream64b_t
+	typedef qdma_axis <128, 0, 0, 0> hStream128b_t
+	typedef qdma_axis <256, 0, 0, 0> hStream256b_t
+	typedef qdma_axis <512, 0, 0, 0> hStream512b_t
+	typedef ap_axiu <8, 0, 0, 0> :ref:`kStream8b_t<doxid-namespacexf_1_1compression_1aa3f24689e5c4b59c4d3dc4b3427fbce4>`
+	typedef ap_axiu <16, 0, 0, 0> kStream16b_t
+	typedef ap_axiu <32, 0, 0, 0> kStream32b_t
+	typedef ap_axiu <64, 0, 0, 0> kStream64b_t
+	typedef ap_axiu <128, 0, 0, 0> kStream128b_t
+	typedef ap_axiu <256, 0, 0, 0> kStream256b_t
+	typedef ap_axiu <512, 0, 0, 0> kStream512b_t
+	typedef ap_uint <kGMemDWidth> uintMemWidth_t
 	typedef ap_uint <32> compressd_dt
 	typedef ap_uint <8> streamDt
 	typedef ap_uint <64> lz4_compressd_dt
@@ -75,6 +111,8 @@ namespace compression
 
 	// global variables
 
+	const int kGMemDWidth
+	const int kGMemBurstSize
 	const int c_gmemBurstSize
 	const int c_sizeStreamDepth
 	const int c_lz4MaxLiteralCount
@@ -85,17 +123,38 @@ namespace compression
 	const int c_bLTreeSize
 	const int c_maxCodeSize
 
+Typedefs
+--------
+
+.. _doxid-namespacexf_1_1compression_1a5e9b06498ea31587312aebc3ebe8dbce:
+.. _cid-xf::compression::hstream8b_t:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	typedef qdma_axis <8, 0, 0, 0> hStream8b_t
+
+typedef hStream<bit_width>_t User defined types for data streaming between host and kernel.
+
+.. _doxid-namespacexf_1_1compression_1aa3f24689e5c4b59c4d3dc4b3427fbce4:
+.. _cid-xf::compression::kstream8b_t:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	typedef ap_axiu <8, 0, 0, 0> kStream8b_t
+
+typedef kStream<bit_width>_t User defined types for data streaming between kernels.
+
 
 .. FunctionSection
 
 
 
 
-.. _doxid-namespacexf_1_1compression_1acbd2eae227cad9ace20e3d88ea1559ff:
-.. _cid-xf::compression::axis2s:
+.. _doxid-namespacexf_1_1compression_1a5a3a21594ddb4e9a8ca745545fad9008:
+.. _cid-xf::compression::axis2hlsstreamfixedsize:
 
-axis2s
-------
+axis2hlsStreamFixedSize
+-----------------------
 
 
 .. code-block:: cpp
@@ -107,13 +166,13 @@ axis2s
 .. ref-code-block:: cpp
 	:class: title-code-block
 
-	void axis2s (
-	    hls::stream <pkt1b>& inputAxiStream,
+	void axis2hlsStreamFixedSize (
+	    hls::stream <hStream8b_t>& inputAxiStream,
 	    hls::stream <streamDt>& inputStream,
 	    uint32_t inputSize
 	    )
 
-axis2s Read data from axi stream and write to internal streams for compression modules.
+Read data from axi stream and write to internal hls stream.
 
 
 
@@ -125,23 +184,23 @@ axis2s Read data from axi stream and write to internal streams for compression m
     *
         - inputAxisStream
 
-        - Incoming stream from qdma
+        - incoming axi stream
 
     *
         - inputStream
 
-        - internal hls stream
+        - output hls stream
 
     *
         - inputSize
 
-        - Size of the data coming from input axi stream
+        - size of the data coming from input axi stream
 
-.. _doxid-namespacexf_1_1compression_1a169a873d4bff868e6783f86c6b155391:
-.. _cid-xf::compression::s2axis:
+.. _doxid-namespacexf_1_1compression_1ac004d236d2fa205dcdb32942e3088021:
+.. _cid-xf::compression::hlsstream2axis:
 
-s2axis
-------
+hlsStream2axis
+--------------
 
 
 .. code-block:: cpp
@@ -153,15 +212,15 @@ s2axis
 .. ref-code-block:: cpp
 	:class: title-code-block
 
-	void s2axis (
+	void hlsStream2axis (
 	    hls::stream <streamDt>& outputStream,
 	    hls::stream <bool>& outStreamEos,
-	    hls::stream <pkt1b>& outputAxiStream,
+	    hls::stream <hStream8b_t>& outputAxiStream,
 	    hls::stream <uint32_t>& outStreamSize,
-	    hls::stream <pkt4b>& outAxiStreamSize
+	    hls::stream <hStream32b_t>& outAxiStreamSize
 	    )
 
-s2axis Read data from internal streams output by compression modules and write to output axi stream.
+Read data from hls stream till the end of stream is indicated and write this data to axi stream. The total size of data is written 32-bit wide axi stream.
 
 
 
@@ -173,33 +232,33 @@ s2axis Read data from internal streams output by compression modules and write t
     *
         - outputStream
 
-        - internal hls stream
+        - internal output hls stream
 
     *
         - outStreamEos
 
-        - Stream to specify the end of stream
+        - stream to specify the end of stream
 
     *
         - outputAxisStream
 
-        - Output stream going to axi
+        - output stream going to axi
 
     *
         - outStreamSize
 
-        - Size of the data coming to output from stream
+        - size of the data coming to output from stream
 
     *
         - outAxiStreamSize
 
-        - Size of the data to go through output axi stream
+        - size of the data to go through output axi stream
 
-.. _doxid-namespacexf_1_1compression_1afe86efba2cd8708cfc9ca38aadd603fd:
-.. _cid-xf::compression::s2axis2:
+.. _doxid-namespacexf_1_1compression_1a19df6322c84b51215524c800f0a2c5a2:
+.. _cid-xf::compression::hlsstream2axistreamfixedsize:
 
-s2axis2
--------
+hlsStream2axiStreamFixedSize
+----------------------------
 
 
 .. code-block:: cpp
@@ -211,13 +270,13 @@ s2axis2
 .. ref-code-block:: cpp
 	:class: title-code-block
 
-	void s2axis2 (
-	    hls::stream <streamDt>& outputStream,
-	    hls::stream <pkt1b>& outputAxiStream,
+	void hlsStream2axiStreamFixedSize (
+	    hls::stream <streamDt>& hlsInStream,
+	    hls::stream <hStream8b_t>& outputAxiStream,
 	    uint32_t originalSize
 	    )
 
-s2axis2 Read data from internal streams output by compression modules and write to output axi stream.
+Read data from internal hls stream and write to output axi stream for the given size.
 
 
 
@@ -227,19 +286,169 @@ s2axis2 Read data from internal streams output by compression modules and write 
     :widths: 20 80
 
     *
-        - outputStream
+        - hlsInStream
 
-        - Internal hls output stream
+        - internal hls stream
 
     *
         - outputAxisStream
 
-        - Output stream going to axi
+        - output axi stream
 
     *
         - originalSize
 
-        - Output data size written to output stream
+        - output data size to be written to output stream
+
+.. _doxid-namespacexf_1_1compression_1a09c15eac11254675def36b8a4e3d29c6:
+.. _cid-xf::compression::axis2hlsstream:
+
+axis2hlsStream
+--------------
+
+
+.. code-block:: cpp
+	
+	#include "axi_stream_utils.hpp"
+
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <uint16_t STREAMDWIDTH>
+	void axis2hlsStream (
+	    hls::stream <qdma_axis <STREAMDWIDTH, 0, 0, 0>>& inAxiStream,
+	    hls::stream <ap_uint <STREAMDWIDTH>>& outStream
+	    )
+
+Read N-bit wide data from internal hls streams and write to output axi stream. N is passed as template parameter.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - STREAMDWIDTH
+
+        - stream data width
+
+    *
+        - inAxiStream
+
+        - input kernel axi stream
+
+    *
+        - outStream
+
+        - output hls stream
+
+.. _doxid-namespacexf_1_1compression_1aab78544adcc142b568ec98bbc5f34c79:
+.. _cid-xf::compression::streamdatadm2k:
+
+streamDataDm2k
+--------------
+
+
+.. code-block:: cpp
+	
+	#include "axi_stream_utils.hpp"
+
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <uint16_t STREAMDWIDTH>
+	void streamDataDm2k (
+	    hls::stream <ap_uint <STREAMDWIDTH>>& in,
+	    hls::stream <ap_axiu <STREAMDWIDTH, 0, 0, 0>>& inStream_dm,
+	    uint32_t inputSize
+	    )
+
+Write N-bit wide data of given size from hls stream to kernel axi stream. N is passed as template parameter.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - STREAMDWIDTH
+
+        - stream data width
+
+    *
+        - in
+
+        - input hls stream
+
+    *
+        - inStream_dm
+
+        - output kernel stream
+
+    *
+        - inputSize
+
+        - size of data in to be transferred
+
+.. _doxid-namespacexf_1_1compression_1ae46cc628c0117229054d4dea39e6cc17:
+.. _cid-xf::compression::streamdatak2dm:
+
+streamDataK2dm
+--------------
+
+
+.. code-block:: cpp
+	
+	#include "axi_stream_utils.hpp"
+
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void streamDataK2dm (
+	    hls::stream <ap_uint <8>>& out,
+	    hls::stream <bool>& bytEos,
+	    hls::stream <uint32_t>& encodedSize,
+	    hls::stream <kStream8b_t>& dmOutStream
+	    )
+
+Read data from kernel axi stream byte by byte and write to hls stream and indicate end of stream.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - out
+
+        - output hls stream
+
+    *
+        - bytEos
+
+        - internal stream which indicates end of data stream
+
+    *
+        - dataSize
+
+        - size of data in streams
+
+    *
+        - dmOutStream
+
+        - input kernel axi stream to be read
 
 .. _doxid-namespacexf_1_1compression_1aec51f097d8730e92b29f49e4d2cafd63:
 .. _cid-xf::compression::lz4compress:
