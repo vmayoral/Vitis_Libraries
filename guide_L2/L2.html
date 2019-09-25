@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>L2 Pricing Engine Kernel User Guide &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>L2 Pricing Engine Kernel User Guide &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,13 +94,14 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">L2 Pricing Engine Kernel User Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="overview.html">Pricing Engine Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kernel_design.html">Pricing Engine Kernel Design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kernel_api.html">Pricing Engine Kernel APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kernel_benchmark.html">Pricing Engines Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="other_engines.html">Other Engine Kernel Design</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -122,7 +123,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF FinTech Library</a>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -186,12 +187,16 @@
 <li class="toctree-l2"><a class="reference internal" href="engines/MCCliquetEngine.html">Internal Design of Cliquet Option Pricing Engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/MCAmericanEngine.html">Internal Design of American Option Pricing Engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/MCMultiAssetEuropeanHestonEngine.html">Internal Design of MCMultiAssetEuropeanHestonEngine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/MCHullWhiteCapFloorEngine.html">Internal Design of MCHullWhiteCapFloorEngine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/MCEuropeanHestonGreeksEngine.html">Internal Design of MCEuropeanHestonGreeksEngine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/CFBlackScholesMerton.html">Internal Design of Closed Form Black-Scholes-Merton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/CFHeston.html">Internal Design of Closed Form Heston</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/M76.html">Internal Design of Closed Form Merton 76</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/GarmanKohlhagen.html">Internal Design of Garman Kohlhagen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/Quanto.html">Internal Design of Quanto</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/BTCRR.html">Internal Design of Cox-Ross-Rubinstein Binomial Tree</a></li>
-<li class="toctree-l2"><a class="reference internal" href="engines/FDHullWhiteEngine.html">Internal Design of Finite-difference Hull-White Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/FDHullWhiteEngine.html">Internal Design of Finite-Difference Hull-White Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engines/FDG2SwaptionEngine.html">Internal Design of Finite-Difference G2 Bermudan Swaption Pricing Engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/TreeEngine.html">Internal Design of Tree Bermudan Swaption Engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/CPICapFloorEngine.html">Internal Design of CPI CapFloor Engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="engines/InflationCapFloorEngine.html">Internal Design of Inflation CapFloor Engine</a></li>
@@ -238,6 +243,10 @@
 <li class="toctree-l2"><a class="reference internal" href="benchmarks/MCAmericanEngine.html">Benchmark of American Option Pricing Engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="benchmarks/TreeHWModelEngine.html">Benchmark of Tree Hull-White-Model Engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="benchmarks/TreeSwaptionEngine.html">Benchmark of Tree Swaption Engine</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="other_engines.html">Other Engine Kernel Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="engines/MCMCEngine.html">Internal Design of Markov Chain Monte Carlo</a></li>
 </ul>
 </li>
 </ul>

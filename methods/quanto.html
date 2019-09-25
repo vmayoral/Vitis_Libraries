@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Quanto Closed-Form Solution &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="L1 Module User Guide" href="../guide_L1/L1.html" />
+    <link rel="prev" title="Garman-Kohlhagen Closed-Form Solution" href="garman_kohlhagen.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../models_and_methods.html#models">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models_and_methods.html#numerical-methods">Numerical Methods</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../models_and_methods.html#closed-form-solution-methods">Closed-Form Solution Methods</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cf-ht.html">Heston Model Closed-Form Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cf-m76.html">Merton 76 Closed-Form Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="garman_kohlhagen.html">Garman-Kohlhagen Closed-Form Solution</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Quanto Closed-Form Solution</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../models_and_methods.html">Pricing Models and Numerical Methods</a> &raquo;</li>
+        
+      <li>Quanto Closed-Form Solution</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/methods/quanto.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="quanto-closed-form-solution">
+<h1>Quanto Closed-Form Solution<a class="headerlink" href="#quanto-closed-form-solution" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Quanto option gives the buyer the right to sell a foreign asset in a foreign currency at the exercise date and receive the proceeds in his domestic currency.</p>
+<p>The operation of Quanto option can help explain what it is:</p>
+<p>The buyer of a call Quanto will agree with the seller a foreign target asset, a future strike price for that asset in the foreign currency, an exercise date and an agreed fixed exchange rate for the exercise.</p>
+<p>At the exercise date, if the option is in the money, the payoff (current foreign currency asset price - foreign currency strike price) is converted to the domestic currency at the agreed fixed exchange rate and delivered to the Option buyer.</p>
+<p>Quanto Options can be modelled using a modified Black Scholes Merton solution as described in <a class="reference internal" href="#haug" id="id1">[HAUG]</a>, with suitable parameter conversions as described below:</p>
+<div class="math notranslate nohighlight">
+\[c = E\left[S.\mathrm{e}^{\left(-r_f-r_d-q-\rho.\sigma_S.\sigma_E\right)T}N(d_1) - K.\mathrm{e}^{-r_dT}N(d_2)\right]\]</div>
+<div class="math notranslate nohighlight">
+\[d_1 = \frac{ln\left(\frac{S}{K}\right)+\left(r_f - q - \rho.\sigma_S.\sigma_E + \frac{\sigma_S^2}{2}\right)T}{\sigma_S\sqrt{T}}\]</div>
+<div class="math notranslate nohighlight">
+\[d_2 = \frac{ln\left(\frac{S}{K}\right)+\left(r_f - q - \rho.\sigma_S.\sigma_E - \frac{\sigma_S^2}{2}\right)T}{\sigma_S\sqrt{T}} = d_1 - \sigma_S\sqrt{T}\]</div>
+<p>where:</p>
+<p>c = call price in domestic currency</p>
+<p>S = underlying asset price in a foreign currency</p>
+<p>K = strike price in foreign currency</p>
+<p><span class="math notranslate nohighlight">\(r_d\)</span> = domestic interest rate</p>
+<p><span class="math notranslate nohighlight">\(r_f\)</span> = foreign interest rate</p>
+<p><span class="math notranslate nohighlight">\(N()\)</span> = cumulative standard normal distribution function</p>
+<p>T = time to maturity</p>
+<p>q = dividend yeild of the foreign asset</p>
+<p>E = spot exchange rate, foreign currency units per domestic currency unit</p>
+<p><span class="math notranslate nohighlight">\(\sigma_S\)</span> = foreign asset volatility</p>
+<p><span class="math notranslate nohighlight">\(\sigma_E\)</span> = domestic exchange rate volatility</p>
+<p><span class="math notranslate nohighlight">\(\rho\)</span> = correlation between asset and domestic exchange rate</p>
+<p>When Comparing with the equations in Black Scholes Merton Closed-Form solution, as shown:</p>
+<div class="math notranslate nohighlight">
+\[c = S.\mathrm{e}^{qT}N(d_1) - K.\mathrm{e}^{-rT}N(d_2)\]</div>
+<div class="math notranslate nohighlight">
+\[d_1 = \frac{ln\left(\frac{S}{K}\right)+\left(r - q + \frac{\sigma^2}{2}\right)T}{\sigma\sqrt{T}}\]</div>
+<div class="math notranslate nohighlight">
+\[d_2 = \frac{ln\left(\frac{S}{K}\right)+\left(r - q - \frac{\sigma^2}{2}\right)T}{\sigma\sqrt{T}} = d_1 - \sigma\sqrt{T}\]</div>
+<p>it can be seen that the following substitutions can be set to make the solution equal to the Black Scholes Merton solution:</p>
+<p>c -&gt; c.E</p>
+<p>r -&gt; <span class="math notranslate nohighlight">\(r_d\)</span></p>
+<p><span class="math notranslate nohighlight">\(\sigma\)</span> -&gt; <span class="math notranslate nohighlight">\(\sigma_S\)</span></p>
+<p>q -&gt; -<span class="math notranslate nohighlight">\(r_f\)</span> + r + q + <span class="math notranslate nohighlight">\(\rho.\sigma_S.\sigma_E\)</span></p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<table class="docutils citation" frame="void" id="haug" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[HAUG]</a></td><td>Haug, E.G. (2007): The Complete Guide to Option Pricing Formulas, §5.16.2, p228</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../guide_L1/L1.html" class="btn btn-neutral float-right" title="L1 Module User Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="garman_kohlhagen.html" class="btn btn-neutral" title="Garman-Kohlhagen Closed-Form Solution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

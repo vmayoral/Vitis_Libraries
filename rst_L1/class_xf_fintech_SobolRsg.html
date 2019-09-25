@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>template class xf::fintech::SobolRsg &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>template class xf::fintech::SobolRsg &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -49,7 +49,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -92,7 +92,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -114,7 +114,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF FinTech Library</a>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -173,7 +173,7 @@
 </pre>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-sobol-rsg"><span class="std std-ref">SobolRsg</span></a> is a multi-dimensions sobol sequence generator. <span class="xref std std-ref">More…</span></p>
+<p><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-sobol-rsg"><span class="std std-ref">SobolRsg</span></a> is a multi-dimensional sobol sequence generator. <span class="xref std std-ref">More…</span></p>
 <pre class="highlight overview-code-block literal-block">
 <span></span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">DIM</span><span class="o">&gt;</span>
 <span class="k">class</span> <span class="n">SobolRsg</span>
@@ -198,7 +198,7 @@
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">void</span> <span class="n">next</span> <span class="p">(</span><span class="n">ap_ufixed</span> <span class="o">&lt;</span><span class="n">W</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="n">seqOut</span> <span class="p">[</span><span class="n">DIM</span><span class="p">])</span>
 </pre>
-<p>each call of <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-sobol-rsg-1a9160db7fb04d7e68a9ca06f5d7d49e96"><span class="std std-ref">next()</span></a> generate list of sobol sequences</p>
+<p>each call of <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-sobol-rsg-1a9160db7fb04d7e68a9ca06f5d7d49e96"><span class="std std-ref">next()</span></a> generates sobol sequence numbers in DIM dimensions, one number per dimension</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -207,7 +207,7 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>seqOut</td>
-<td>sobol results of DIM</td>
+<td>sobol results in DIM dimensions</td>
 </tr>
 </tbody>
 </table>

@@ -58,7 +58,7 @@ Defined in <xf_fintech/g2_model.hpp>
 	    DT rho
 	    )
 
-initialization initialize parameter
+initialize parameters
 
 
 
@@ -118,7 +118,7 @@ Defined in <xf_fintech/g2_model.hpp>
 	    DT r = 0.0
 	    )
 
-discount calculate the discount after time dt
+calculate the discount after time dt
 
 
 
@@ -135,7 +135,7 @@ discount calculate the discount after time dt
     *
         - dt
 
-        - The difference between the next timepoint and the current timepoint
+        - the difference between the next timepoint and the current timepoint
 
     *
         - x
@@ -177,7 +177,7 @@ Defined in <xf_fintech/g2_model.hpp>
 	    DT* rates
 	    )
 
-treeShortRate calcutate short-rate of dt at t for TreeEngine
+calcutate short-rate of dt at t for TreeEngine
 
 
 

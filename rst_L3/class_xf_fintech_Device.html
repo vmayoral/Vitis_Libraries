@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>class xf::fintech::Device &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>class xf::fintech::Device &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -49,7 +49,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -92,7 +92,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -114,7 +114,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF FinTech Library</a>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -174,8 +174,8 @@
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>A class representing an individual accelerator card. <span class="xref std std-ref">More…</span></p>
-<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-device-release">
-<span id="doxid-classxf-1-1fintech-1-1-device-1adcb1fcc4e8b96e5ed163704ac61ec9b2"></span><span id="cid-xf-fintech-device-claim"></span><span id="doxid-classxf-1-1fintech-1-1-device-1aea72fea4671c31c0cbda33141e7451ac"></span><span id="cid-xf-fintech-device-device-2"></span><span id="doxid-classxf-1-1fintech-1-1-device-1a20a8f9a11fbc37190e8ac266adf50112"></span><span id="cid-xf-fintech-device-device"></span><span id="doxid-classxf-1-1fintech-1-1-device-1a650552afc62642352ed4b32bc8829621"></span><span></span><span class="c1">// enums</span>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-device-device-2">
+<span id="doxid-classxf-1-1fintech-1-1-device-1a20a8f9a11fbc37190e8ac266adf50112"></span><span id="cid-xf-fintech-device-device"></span><span id="doxid-classxf-1-1fintech-1-1-device-1a650552afc62642352ed4b32bc8829621"></span><span></span><span class="c1">// enums</span>
 
 <span class="k">enum</span> <a class="reference internal" href="enum_xf_fintech_Device_DeviceType.html#doxid-classxf-1-1fintech-1-1-device-1a0cd9c9631b3d22b05c26cc26284b8485"><span class="std std-ref">DeviceType</span></a><span></span>
 
@@ -225,6 +225,26 @@
 <span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">getDeviceTypeString</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 </pre>
 <p>Converts a string representation of the device type</p>
+</div>
+</div>
+<div class="section" id="claim">
+<span id="cid-xf-fintech-device-claim"></span><span id="doxid-classxf-1-1fintech-1-1-device-1aea72fea4671c31c0cbda33141e7451ac"></span><h3>claim<a class="headerlink" href="#claim" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h4>Defined in &lt;xf_fintech_device.hpp&gt;<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">int</span> <span class="n">claim</span> <span class="p">(</span><a class="reference internal" href="class_xf_fintech_OCLController.html#doxid-classxf-1-1fintech-1-1-o-c-l-controller"><span class="std std-ref">OCLController</span></a><span></span><span class="o">*</span> <span class="n">owner</span><span class="p">)</span>
+</pre>
+<p>Claim the device</p>
+</div>
+</div>
+<div class="section" id="release">
+<span id="cid-xf-fintech-device-release"></span><span id="doxid-classxf-1-1fintech-1-1-device-1adcb1fcc4e8b96e5ed163704ac61ec9b2"></span><h3>release<a class="headerlink" href="#release" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h4>Defined in &lt;xf_fintech_device.hpp&gt;<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">int</span> <span class="n">release</span> <span class="p">(</span><a class="reference internal" href="class_xf_fintech_OCLController.html#doxid-classxf-1-1fintech-1-1-o-c-l-controller"><span class="std std-ref">OCLController</span></a><span></span><span class="o">*</span> <span class="n">owner</span><span class="p">)</span>
+</pre>
+<p>Release the device</p>
 </div>
 </div>
 </div>

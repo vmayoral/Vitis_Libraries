@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Merton 76 Closed-Form Solution &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Merton 76 Closed-Form Solution &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="L1 Module User Guide" href="../guide_L1/L1.html" />
+    <link rel="next" title="Garman-Kohlhagen Closed-Form Solution" href="garman_kohlhagen.html" />
     <link rel="prev" title="Heston Model Closed-Form Solution" href="cf-ht.html" /> 
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../models_and_methods.html#models">Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models_and_methods.html#numerical-methods">Numerical Methods</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../models_and_methods.html#closed-form-solution-methods">Closed-Form Solution Methods</a><ul class="current">
@@ -104,6 +104,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="garman_kohlhagen.html">Garman-Kohlhagen Closed-Form Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quanto.html">Quanto Closed-Form Solution</a></li>
 </ul>
 </li>
 </ul>
@@ -129,7 +131,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF FinTech Library</a>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -160,7 +162,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../models_and_methods.html">Pricing models and numerical methods</a> &raquo;</li>
+          <li><a href="../models_and_methods.html">Pricing Models and Numerical Methods</a> &raquo;</li>
         
       <li>Merton 76 Closed-Form Solution</li>
     
@@ -187,12 +189,12 @@
 </div>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>One of the assumptions in the Black Scholes model is that the stock price moves as geometric Brownian Motion. In reality the stock price will have ‘jumps’ due to events such as takeover announcements and court actions. Merton’s Jump Diffusion Model does this by superimposing a jump component on the Black Scholes Diffusion Component. This Jump Component is composed of lognormal jumps driven by a Poisson process.</p>
-<p>An equation can be drived for the resulting Call Option price:</p>
+<p>One of the assumptions in the Black Scholes model is that the stock price moves as geometric Brownian Motion. In reality the stock price will have ‘jumps’ due to events such as takeover announcements and court actions. Merton’s Jump Diffusion Model does this by superimposing a jump component on the Black Scholes Diffusion Component. This Jump Component is composed of log-normal jumps driven by a Poisson process.</p>
+<p>An equation can be derived for the resulting Call Option price:</p>
 <div class="math notranslate nohighlight">
 \[F(S,\tau) = \sum_{n=0}^{\infty} \frac{\mathrm{e}^{-\lambda\tau}(\lambda\tau)^n}{n!} \left[\epsilon_n\lbrace W(SX_n\mathrm{e}^{-\lambda k\tau},\tau ;E,\sigma^2,r)\rbrace\right]\]</div>
 <p>where W is the standard <a class="reference internal" href="../models/BS.html#black-scholes"><span class="std std-ref">Black Scholes</span></a> formula and <span class="math notranslate nohighlight">\(X_n\)</span> is a complicated random variable which is out of the scope of this explanation.
-This is very difficult to solve but Merton came up with a specific case where <span class="math notranslate nohighlight">\(X_n\)</span> has a lognormal distribution.
+This is very difficult to solve but Merton came up with a specific case where <span class="math notranslate nohighlight">\(X_n\)</span> has a log-normal distribution.
 This simplifies the closed form call price solution to:</p>
 <div class="math notranslate nohighlight">
 \[F(S,\tau) = \sum_{n=0}^{\infty} \frac{\mathrm{e}^{-\lambda^{'}\tau}(\lambda^{'}\tau)^n}{n!} W_n(S,\tau ;E,v_n^2,r_n)\]</div>
@@ -208,7 +210,7 @@ This simplifies the closed form call price solution to:</p>
 <p><span class="math notranslate nohighlight">\(\lambda\)</span> = mean jump count per unit time</p>
 <p><span class="math notranslate nohighlight">\(\lambda^{'}\)</span> = <span class="math notranslate nohighlight">\(\lambda' (1+k)\)</span></p>
 <p><span class="math notranslate nohighlight">\(\sigma\)</span> = volatility</p>
-<p><span class="math notranslate nohighlight">\(\delta^2\)</span> = variance of ln(<span class="math notranslate nohighlight">\(\gamma\)</span>)</p>
+<p><span class="math notranslate nohighlight">\(\delta^2\)</span> = variance of <cite>ln</cite> (<span class="math notranslate nohighlight">\(\gamma\)</span>)</p>
 <p>r = interest rate</p>
 <p>k = Expected(<span class="math notranslate nohighlight">\(\gamma\)</span> -1)</p>
 <p><span class="math notranslate nohighlight">\(\gamma\)</span> = random Poisson variable</p>
@@ -238,7 +240,7 @@ This simplifies the closed form call price solution to:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../guide_L1/L1.html" class="btn btn-neutral float-right" title="L1 Module User Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="garman_kohlhagen.html" class="btn btn-neutral float-right" title="Garman-Kohlhagen Closed-Form Solution" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="cf-ht.html" class="btn btn-neutral" title="Heston Model Closed-Form Solution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

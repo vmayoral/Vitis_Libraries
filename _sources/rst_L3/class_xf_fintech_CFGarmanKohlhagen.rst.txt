@@ -19,9 +19,9 @@ Overview
 
 This class implements the Closed Form Garman Kohlhagen model. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_c_f_garman_kohlhagen>`
 
-.. _doxid-classxf_1_1fintech_1_1_c_f_garman_kohlhagen_1a08e0fe2f3ad941958384e3b1f0a5b052:
+.. _doxid-classxf_1_1fintech_1_1_c_f_garman_kohlhagen_1a207f3b62e09496889873eef167f6d9c8:
 .. _cid-xf::fintech::cfgarmankohlhagen::domesticrate:
-.. _doxid-classxf_1_1fintech_1_1_c_f_garman_kohlhagen_1a98e9507a19ebd7bb65124707b7db2126:
+.. _doxid-classxf_1_1fintech_1_1_c_f_garman_kohlhagen_1ae15b89e779df3bd6dd8891a98f2f1f65:
 .. _cid-xf::fintech::cfgarmankohlhagen::foreignrate:
 .. _doxid-classxf_1_1fintech_1_1_c_f_garman_kohlhagen_1a37331ee64a9e2c6f4a8feebe3569966f:
 .. _cid-xf::fintech::cfgarmankohlhagen::cfgarmankohlhagen:

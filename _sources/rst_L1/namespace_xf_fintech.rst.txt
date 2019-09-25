@@ -469,8 +469,6 @@ Defined in <xf_fintech/pentadiag_cr.hpp>
 
 Solves for u in linear system Pu = r
 
-.
-
 It calls function pentadiag_step for each step until all diagonals instead of main are zeros (or very close to zero). Result U is made by dividing Each of elements of right hand vactor ( *v* ) by main diagonal ( *c* )
 
 Structure of input matrix:
@@ -483,7 +481,7 @@ Structure of input matrix:
 
 | 0 a b c d |
 
-| 0 0 a b c |
+| 0 0 a b c |.
 
 
 
@@ -510,37 +508,37 @@ Structure of input matrix:
     *
         - c
 
-        - - Main diagonal
+        - Main diagonal
 
     *
         - b
 
-        - - First lower
+        - First lower
 
     *
         - a
 
-        - - Second lower
+        - Second lower
 
     *
         - d
 
-        - - First upper
+        - First upper
 
     *
         - e
 
-        - - Second upper
+        - Second upper
 
     *
         - v
 
-        - - Right hand side vector of length n
+        - Right hand side vector of length n
 
     *
         - u
 
-        - - Vectors of unknows to solve for
+        - Vectors of unknows to solve for
 
 .. _doxid-namespacexf_1_1fintech_1ac83609a730c14b972cb5707351603617:
 .. _cid-xf::fintech::boxmullertransform:
@@ -564,7 +562,7 @@ Defined in <xf_fintech/rng.hpp>
 	    mType& z2
 	    )
 
-Box-Muller transform uniform random number to normal random number.
+Box-Muller transform from uniform random number to normal random number.
 
 
 
@@ -576,7 +574,7 @@ Box-Muller transform uniform random number to normal random number.
     *
         - mType
 
-        - data type.
+        - data type
 
     *
         - u1
@@ -615,7 +613,7 @@ Defined in <xf_fintech/rng.hpp>
 	template <typename mType>
 	mType inverseCumulativeNormalPPND7 (mType input)
 
-Inverse Cumulative transform random number to normal random number.
+Inverse Cumulative transform from random number to normal random number.
 
 Reference: Algorithm AS 241, The Percentage Points of the Normal Distribution by Michael J. Wichura.
 

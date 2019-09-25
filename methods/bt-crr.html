@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Binomial Tree, Cox-Ross-Rubinstein, Method &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Binomial Tree, Cox-Ross-Rubinstein, Method &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../models_and_methods.html#models">Models</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../models_and_methods.html#numerical-methods">Numerical Methods</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="mc.html">Monte Carlo Simulation</a></li>
@@ -131,7 +131,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF FinTech Library</a>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -162,7 +162,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../models_and_methods.html">Pricing models and numerical methods</a> &raquo;</li>
+          <li><a href="../models_and_methods.html">Pricing Models and Numerical Methods</a> &raquo;</li>
         
       <li>Binomial Tree, Cox-Ross-Rubinstein, Method</li>
     
@@ -200,7 +200,7 @@ Put Option price. Comparing intermediate Call/Put values during back-propagation
 N = 150, they show the difference is less than $0.01.</p>
 <p>In a later paper, Leisen &amp; Reimer <a class="reference internal" href="#lr1995" id="id2">[LR1995]</a> propose a method to increase the convergence speed of the CRR binomial lattice to converge faster.</p>
 <a class="reference internal image-reference" href="../_images/bt_crr_1.PNG"><img alt="CRR Binomial Tree" class="align-center" src="../_images/bt_crr_1.PNG" style="width: 100%;" /></a>
-<p>The diagram above shows an example of a binomial tree, where the number of time steps is <span class="math notranslate nohighlight">\(n\)</span>. (Note that <span class="math notranslate nohighlight">\(n\)</span> steps results in <span class="math notranslate nohighlight">\(n + 1\)</span> separate propagated <span class="math notranslate nohighlight">\(S\)</span> values after the n’th step.)</p>
+<p>The diagram above shows an example of a binomial tree, where the number of time steps is <span class="math notranslate nohighlight">\(n\)</span>. (Note that <span class="math notranslate nohighlight">\(n\)</span> steps results in <span class="math notranslate nohighlight">\(n + 1\)</span> separate propagated <span class="math notranslate nohighlight">\(S\)</span> values after the <cite>n</cite>-th step.)</p>
 <p>At each step the initial stock price <span class="math notranslate nohighlight">\(S_0\)</span> is propagated in an Up path and a Down path from each node, with Up and Down factors <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(d\)</span>. The “Up” probability
 is <span class="math notranslate nohighlight">\(p\)</span>; Down is <span class="math notranslate nohighlight">\(1 - p\)</span>.</p>
 <p>The equations in the diagram show the derivation, where <span class="math notranslate nohighlight">\(\sigma\)</span> is the stock volatility, <span class="math notranslate nohighlight">\(r\)</span> the “risk-free rate”, <span class="math notranslate nohighlight">\(t\)</span> the scenario duration and <span class="math notranslate nohighlight">\(n\)</span> the number of time steps. The dividend
@@ -218,7 +218,7 @@ yield in the above is assumed to be zero and not included in the expression for 
 <table class="docutils citation" frame="void" id="lr1995" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[LR1995]</a></td><td>Leisen, D., Reimer, M., “Binomial Models for Option Valuation – Examining and Improving Convergence”, Rheinische Friedrich-Wilhelms-Universität, Bonn, (1995).</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id2">[LR1995]</a></td><td>Leisen, D., Reimer, M., “Binomial Models for Option Valuation - Examining and Improving Convergence”, Rheinische Friedrich-Wilhelms-Universität, Bonn, (1995).</td></tr>
 </tbody>
 </table>
 </div>

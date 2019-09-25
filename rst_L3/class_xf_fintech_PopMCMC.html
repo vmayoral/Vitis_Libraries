@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>class xf::fintech::PopMCMC &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>class xf::fintech::PopMCMC &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -49,7 +49,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -92,7 +92,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -114,7 +114,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF FinTech Library</a>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -171,14 +171,67 @@
 <pre class="highlight overview-code-block literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&lt;xf_fintech_pop_mcmc.hpp&gt;</span>
 </pre>
-<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-popmcmc-getlastruntime">
-<span id="doxid-classxf-1-1fintech-1-1-pop-m-c-m-c-1a12e350493c7644e8c566de0483720fbf"></span><span id="cid-xf-fintech-popmcmc-run"></span><span id="doxid-classxf-1-1fintech-1-1-pop-m-c-m-c-1a1a57e4ef034f0ab18b7d618ecb0ba999"></span><span></span><span class="k">class</span> <span class="nl">PopMCMC</span><span class="p">:</span> <span class="k">public</span> <a class="reference internal" href="class_xf_fintech_OCLController.html#doxid-classxf-1-1fintech-1-1-o-c-l-controller"><span class="std std-ref">xf::fintech::OCLController</span></a>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This class implements the Monte Carlo Markov Chain Model. <span class="xref std std-ref">More…</span></p>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="k">class</span> <span class="nl">PopMCMC</span><span class="p">:</span> <span class="k">public</span> <a class="reference internal" href="class_xf_fintech_OCLController.html#doxid-classxf-1-1fintech-1-1-o-c-l-controller"><span class="std std-ref">xf::fintech::OCLController</span></a>
 </pre>
 <div class="section" id="inherited-members">
-<h2>Inherited Members<a class="headerlink" href="#inherited-members" title="Permalink to this headline">¶</a></h2>
+<h3>Inherited Members<a class="headerlink" href="#inherited-members" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight overview-inherited-code-block literal-block">
 
 </pre>
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="run">
+<span id="cid-xf-fintech-popmcmc-run"></span><span id="doxid-classxf-1-1fintech-1-1-pop-m-c-m-c-1a1a57e4ef034f0ab18b7d618ecb0ba999"></span><h3>run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="defined-in-models-xf-fintech-pop-mcmc-hpp">
+<h4>Defined in &lt;models/xf_fintech_pop_mcmc.hpp&gt;<a class="headerlink" href="#defined-in-models-xf-fintech-pop-mcmc-hpp" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">int</span> <span class="n">run</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">numSamples</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">numBurnInSamples</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">sigma</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">outputData</span>
+    <span class="p">)</span>
+</pre>
+<p>Generate a number of samples.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>numSamples</td>
+<td>the number of samples to generate.</td>
+</tr>
+<tr class="row-even"><td>numBurnInSamples</td>
+<td>the number samples to discard at the start.</td>
+</tr>
+<tr class="row-odd"><td>sigma</td>
+<td>the sigma value.</td>
+</tr>
+<tr class="row-even"><td>outputData</td>
+<td>the generated data.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="getlastruntime">
+<span id="cid-xf-fintech-popmcmc-getlastruntime"></span><span id="doxid-classxf-1-1fintech-1-1-pop-m-c-m-c-1a12e350493c7644e8c566de0483720fbf"></span><h3>getLastRunTime<a class="headerlink" href="#getlastruntime" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>Defined in &lt;models/xf_fintech_pop_mcmc.hpp&gt;<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">long</span> <span class="kt">long</span> <span class="kt">int</span> <span class="n">getLastRunTime</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</pre>
+<p>This method returns the time the execution of the last call to <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-pop-m-c-m-c-1a1a57e4ef034f0ab18b7d618ecb0ba999"><span class="std std-ref">run()</span></a> took.</p>
+</div>
+</div>
 </div>
 </div>
 

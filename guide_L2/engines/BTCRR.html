@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Internal Design of Cox-Ross-Rubinstein Binomial Tree &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Internal Design of Cox-Ross-Rubinstein Binomial Tree &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -31,8 +31,8 @@
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Internal Design of Finite-difference Hull-White Bermudan Swaption Pricing Engine" href="FDHullWhiteEngine.html" />
-    <link rel="prev" title="Internal Design of Closed Form Merton 76" href="M76.html" /> 
+    <link rel="next" title="Internal Design of Finite-Difference Hull-White Bermudan Swaption Pricing Engine" href="FDHullWhiteEngine.html" />
+    <link rel="prev" title="Internal Design of Quanto" href="Quanto.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../L2.html">L2 Pricing Engine Kernel User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../overview.html">Pricing Engine Overview</a></li>
@@ -107,20 +107,24 @@
 <li class="toctree-l3"><a class="reference internal" href="MCCliquetEngine.html">Internal Design of Cliquet Option Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MCAmericanEngine.html">Internal Design of American Option Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MCMultiAssetEuropeanHestonEngine.html">Internal Design of MCMultiAssetEuropeanHestonEngine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCHullWhiteCapFloorEngine.html">Internal Design of MCHullWhiteCapFloorEngine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MCEuropeanHestonGreeksEngine.html">Internal Design of MCEuropeanHestonGreeksEngine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CFBlackScholesMerton.html">Internal Design of Closed Form Black-Scholes-Merton</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CFHeston.html">Internal Design of Closed Form Heston</a></li>
 <li class="toctree-l3"><a class="reference internal" href="M76.html">Internal Design of Closed Form Merton 76</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GarmanKohlhagen.html">Internal Design of Garman Kohlhagen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Quanto.html">Internal Design of Quanto</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Internal Design of Cox-Ross-Rubinstein Binomial Tree</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#design-structure">Design Structure</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bt-engine-bt-engine-h">bt_engine (bt_engine.h)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bt-engine-bt-engine-hpp">bt_engine (bt_engine.hpp)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#binomialtreekernel-binomialtreekernel-cpp">binomialtreekernel (binomialtreekernel.cpp)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#resource-utilization">Resource Utilization</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#throughput">Throughput</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="FDHullWhiteEngine.html">Internal Design of Finite-difference Hull-White Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FDHullWhiteEngine.html">Internal Design of Finite-Difference Hull-White Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FDG2SwaptionEngine.html">Internal Design of Finite-Difference G2 Bermudan Swaption Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="TreeEngine.html">Internal Design of Tree Bermudan Swaption Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CPICapFloorEngine.html">Internal Design of CPI CapFloor Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InflationCapFloorEngine.html">Internal Design of Inflation CapFloor Engine</a></li>
@@ -129,6 +133,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../kernel_api.html">Pricing Engine Kernel APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kernel_benchmark.html">Pricing Engines Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../other_engines.html">Other Engine Kernel Design</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -150,7 +155,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF FinTech Library</a>
+          <a href="../../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -208,7 +213,7 @@
 <h1>Internal Design of Cox-Ross-Rubinstein Binomial Tree<a class="headerlink" href="#internal-design-of-cox-ross-rubinstein-binomial-tree" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>The Cox-Ross-Rubinstein Binomial Tree method is a numerical implementation of the assumptions in the Black-Scholes financial model.  It is described in more detail in the “Numerical Methods” section here.</p>
+<p>The Cox-Ross-Rubinstein Binomial Tree method is a numerical implementation of the assumptions in the Black-Scholes financial model. The detail is described in the “Numerical Methods” section here.</p>
 <p>The equations for obtaining the option price can be found online (see for example <a class="reference external" href="https://en.wikipedia.org/wiki/Binomial_options_pricing_model">https://en.wikipedia.org/wiki/Binomial_options_pricing_model</a>) and will not be reproduced here.</p>
 </div>
 <div class="section" id="design-structure">
@@ -225,14 +230,14 @@ It takes one set of input parameters and a flag to control which type of option 
 <li>q - Dividend yield</li>
 <li>N - Height of the binomial tree</li>
 </ul>
-<p>This function is mostly standard C++ with the exception of using the HLS maths library in place of the standard C++ library.
-Layered on top of this is the HLS specific kernel wrapper which is responsible for gathering the input data sets (from DDR or HBM for example), converting to parallel streams and passing into the kernel.
+<p>This function is mostly standard C++ with some exception of using the HLS maths library to replace it.
+Layered on top of the design is the HLS specific kernel wrapper which is responsible for gathering the input data sets (from DDR or HBM for example), converting them to parallel streams and passing them into the kernel.
 It then writes the results back out. This level is where the HLS #pragmas are used to control the amount of pipelining and unrolling.</p>
 </div>
-<div class="section" id="bt-engine-bt-engine-h">
-<h2>bt_engine (bt_engine.h)<a class="headerlink" href="#bt-engine-bt-engine-h" title="Permalink to this headline">¶</a></h2>
-<p>The code is a implementation of the Cox, Ross, &amp; Rubinstein (CRR) method and is templated to accept different data types (float/double). With the exception of the use of the HLS math library, it
-uses standard C++ and allows the code to be easily used in a software only environment by swapping to the standard math namespace.</p>
+<div class="section" id="bt-engine-bt-engine-hpp">
+<h2>bt_engine (bt_engine.hpp)<a class="headerlink" href="#bt-engine-bt-engine-hpp" title="Permalink to this headline">¶</a></h2>
+<p>The code is a implementation of the Cox, Ross, &amp; Rubinstein (CRR) method and is template to accept different data types (float/double).
+It uses standard C++ and allows the code to be easily used in a software only environment by swapping to the standard math namespace.</p>
 <p>The implementation is broken into a number of steps:</p>
 <ul class="simple">
 <li>Calculation of the option at each final node i.e. at the time of expiration</li>
@@ -261,7 +266,7 @@ uses standard C++ and allows the code to be easily used in a software only envir
 <div class="section" id="binomialtreekernel-binomialtreekernel-cpp">
 <h2>binomialtreekernel (binomialtreekernel.cpp)<a class="headerlink" href="#binomialtreekernel-binomialtreekernel-cpp" title="Permalink to this headline">¶</a></h2>
 <p>The kernel is the HLS wrapper level which implements the pipelining and parallelization to allow high throughput. The kernel uses a dataflow methodology to pass the data through the design.</p>
-<p>The top level in and out ports are 512 bit wide, designed to match the whole DDR bus width and allowing vector access. In the case of float data type (4 bytes), sixteen parameters can be accessed from the bus in parallel. Each port is connected to its own AXI master with arbitration handled by the AXI switch and DDR controller under the hood.</p>
+<p>The top leveli’s input and output ports are 512 bit wide, which is designed to match the whole DDR bus width and allowing vector access. In the case of float data type (4 bytes), sixteen parameters can be accessed from the bus in parallel. Each port is connected to its own AXI master with arbitration handled by the AXI switch and DDR controller under the hood.</p>
 </div>
 <div class="section" id="resource-utilization">
 <h2>Resource Utilization<a class="headerlink" href="#resource-utilization" title="Permalink to this headline">¶</a></h2>
@@ -636,7 +641,7 @@ uses standard C++ and allows the code to be easily used in a software only envir
 </div>
 <div class="section" id="throughput">
 <h2>Throughput<a class="headerlink" href="#throughput" title="Permalink to this headline">¶</a></h2>
-<p>The demo application code Makefile has a check target option which can be used to verify the output from the Binomial tree Kernel compared to CPU/Quantlib and the throughput.</p>
+<p>The demo application Makefile has a check target option which can be used to verify the output from the Binomial tree Kernel compared to CPU/Quantlib and the throughput.</p>
 <p>For a 1 engine kernel with a tree height of 1024 we obtain a throughput of approximately 0.7K option calculations per second.</p>
 <p>For a 4 engine kernel with a tree height of 1024 we obtain a throughput of approximately 2.7K option calculations per second.</p>
 <p>Both these values are obtained when calculating 49 options (i.e. the stock and volatility test grid). The values are the same, whether European or American option prices are being calculated.</p>
@@ -653,10 +658,10 @@ uses standard C++ and allows the code to be easily used in a software only envir
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="FDHullWhiteEngine.html" class="btn btn-neutral float-right" title="Internal Design of Finite-difference Hull-White Bermudan Swaption Pricing Engine" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="FDHullWhiteEngine.html" class="btn btn-neutral float-right" title="Internal Design of Finite-Difference Hull-White Bermudan Swaption Pricing Engine" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="M76.html" class="btn btn-neutral" title="Internal Design of Closed Form Merton 76" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Quanto.html" class="btn btn-neutral" title="Internal Design of Quanto" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

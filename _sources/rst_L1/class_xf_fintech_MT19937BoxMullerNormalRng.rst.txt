@@ -1,0 +1,172 @@
+.. index:: pair: class; xf::fintech::MT19937BoxMullerNormalRng
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_normal_rng:
+.. _cid-xf::fintech::mt19937boxmullernormalrng:
+
+class xf::fintech::MT19937BoxMullerNormalRng
+============================================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <rng.hpp>
+
+
+Overview
+~~~~~~~~
+
+Normally distributed random number generator based on Box-Muller Transformation, output datatype is float. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_normal_rng>`
+
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_normal_rng_1af71572642a5ce446e65206ccab1e72ce:
+.. _cid-xf::fintech::mt19937boxmullernormalrng::uniformrng:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_normal_rng_1a3c0f9d2b564aaa1ea136fd2f0c74431b:
+.. _cid-xf::fintech::mt19937boxmullernormalrng::u1:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_normal_rng_1a4c79821c2eb14221c3cff687260822c9:
+.. _cid-xf::fintech::mt19937boxmullernormalrng::u2:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_normal_rng_1ac746faa7c817524fed2a865ee97792f6:
+.. _cid-xf::fintech::mt19937boxmullernormalrng::utmp:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_normal_rng_1ac8cdaf696f9497fa2531aae91a65f442:
+.. _cid-xf::fintech::mt19937boxmullernormalrng::z1:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_normal_rng_1a45375f7192927ca7b18c5ca93297bd42:
+.. _cid-xf::fintech::mt19937boxmullernormalrng::z2:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_normal_rng_1a668ea3b2930ec28141bc97f3b3cfffed:
+.. _cid-xf::fintech::mt19937boxmullernormalrng::ztmp:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_normal_rng_1ae28547277ff2ea15c5f78626b10c417d:
+.. _cid-xf::fintech::mt19937boxmullernormalrng::is_odd:
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_normal_rng_1a48d628eea5f72e99fa48eb65a0ceb5f0:
+.. _cid-xf::fintech::mt19937boxmullernormalrng::mt19937boxmullernormalrng:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// fields
+
+	:ref:`MT19937<doxid-classxf_1_1fintech_1_1_m_t19937>` uniformRNG
+	float u1
+	float u2
+	float utmp
+	float z1
+	float z2
+	float ztmp
+	ap_uint <1> is_odd
+
+	// construction
+
+	:ref:`MT19937BoxMullerNormalRng<doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_normal_rng_1a416016c5727fdb41f707a6d0e57f7f8c>` (ap_uint <32> seed)
+	MT19937BoxMullerNormalRng ()
+
+Construction
+------------
+
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_normal_rng_1a416016c5727fdb41f707a6d0e57f7f8c:
+.. _cid-xf::fintech::mt19937boxmullernormalrng::mt19937boxmullernormalrng-2:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	MT19937BoxMullerNormalRng (ap_uint <32> seed)
+
+Constructor with seed.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - seed
+
+        - initialization seed
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_normal_rng_1ac3c90f95910c0355b98ebaa9ed31a99e:
+.. _cid-xf::fintech::mt19937boxmullernormalrng::seedinitialization:
+
+seedInitialization
+------------------
+
+
+Defined in <xf_fintech/rng.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void seedInitialization (ap_uint <32> seed)
+
+Initialization using seed.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - seed
+
+        - initialization seed
+
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_normal_rng_1a8d1bd19db093fd8ee3855951e8d1021b:
+.. _cid-xf::fintech::mt19937boxmullernormalrng::statussetup:
+
+statusSetup
+-----------
+
+
+Defined in <xf_fintech/rng.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void statusSetup (ap_uint <32> data [624])
+
+Setup status.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - data
+
+        - initialization data for setting up status
+
+.. _doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_normal_rng_1ab74a0f44a3d11d7f9f83e08769fb42c2:
+.. _cid-xf::fintech::mt19937boxmullernormalrng::next:
+
+next
+----
+
+
+Defined in <xf_fintech/rng.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	float next ()
+
+Get next normally distributed random number.
+
+
+
+.. rubric:: Returns:
+
+a normally distributed random number
+

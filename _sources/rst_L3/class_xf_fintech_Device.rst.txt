@@ -25,10 +25,6 @@ A class representing an individual accelerator card. :ref:`More...<details-doxid
 .. _cid-xf::fintech::device::device:
 .. _doxid-classxf_1_1fintech_1_1_device_1a20a8f9a11fbc37190e8ac266adf50112:
 .. _cid-xf::fintech::device::device-2:
-.. _doxid-classxf_1_1fintech_1_1_device_1aea72fea4671c31c0cbda33141e7451ac:
-.. _cid-xf::fintech::device::claim:
-.. _doxid-classxf_1_1fintech_1_1_device_1adcb1fcc4e8b96e5ed163704ac61ec9b2:
-.. _cid-xf::fintech::device::release:
 .. ref-code-block:: cpp
 	:class: overview-code-block
 
@@ -118,4 +114,40 @@ Defined in <xf_fintech_device.hpp>
 	std::string getDeviceTypeString (void)
 
 Converts a string representation of the device type
+
+.. _doxid-classxf_1_1fintech_1_1_device_1aea72fea4671c31c0cbda33141e7451ac:
+.. _cid-xf::fintech::device::claim:
+
+claim
+-----
+
+
+Defined in <xf_fintech_device.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int claim (:ref:`OCLController<doxid-classxf_1_1fintech_1_1_o_c_l_controller>`* owner)
+
+Claim the device
+
+.. _doxid-classxf_1_1fintech_1_1_device_1adcb1fcc4e8b96e5ed163704ac61ec9b2:
+.. _cid-xf::fintech::device::release:
+
+release
+-------
+
+
+Defined in <xf_fintech_device.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int release (:ref:`OCLController<doxid-classxf_1_1fintech_1_1_o_c_l_controller>`* owner)
+
+Release the device
 

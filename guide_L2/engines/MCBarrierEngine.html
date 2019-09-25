@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Internal Design of Barrier Option Pricing Engine &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Internal Design of Barrier Option Pricing Engine &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../L2.html">L2 Pricing Engine Kernel User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../overview.html">Pricing Engine Overview</a></li>
@@ -111,12 +111,16 @@
 <li class="toctree-l3"><a class="reference internal" href="MCCliquetEngine.html">Internal Design of Cliquet Option Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MCAmericanEngine.html">Internal Design of American Option Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MCMultiAssetEuropeanHestonEngine.html">Internal Design of MCMultiAssetEuropeanHestonEngine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCHullWhiteCapFloorEngine.html">Internal Design of MCHullWhiteCapFloorEngine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MCEuropeanHestonGreeksEngine.html">Internal Design of MCEuropeanHestonGreeksEngine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CFBlackScholesMerton.html">Internal Design of Closed Form Black-Scholes-Merton</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CFHeston.html">Internal Design of Closed Form Heston</a></li>
 <li class="toctree-l3"><a class="reference internal" href="M76.html">Internal Design of Closed Form Merton 76</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GarmanKohlhagen.html">Internal Design of Garman Kohlhagen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Quanto.html">Internal Design of Quanto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="BTCRR.html">Internal Design of Cox-Ross-Rubinstein Binomial Tree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="FDHullWhiteEngine.html">Internal Design of Finite-difference Hull-White Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FDHullWhiteEngine.html">Internal Design of Finite-Difference Hull-White Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FDG2SwaptionEngine.html">Internal Design of Finite-Difference G2 Bermudan Swaption Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="TreeEngine.html">Internal Design of Tree Bermudan Swaption Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CPICapFloorEngine.html">Internal Design of CPI CapFloor Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InflationCapFloorEngine.html">Internal Design of Inflation CapFloor Engine</a></li>
@@ -125,6 +129,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../kernel_api.html">Pricing Engine Kernel APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kernel_benchmark.html">Pricing Engines Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../other_engines.html">Other Engine Kernel Design</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -146,7 +151,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF FinTech Library</a>
+          <a href="../../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -204,16 +209,16 @@
 <h1>Internal Design of Barrier Option Pricing Engine<a class="headerlink" href="#internal-design-of-barrier-option-pricing-engine" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>Use Monte Carlo Simulation method to estimate the payoff of barrier option. Here, we assume the process of asset price applies to Black-Scholes process.</p>
-<p>Barrier option is kind of option whose payoff depends on whether the option is effective at the maturity time. Only when the option is effective, the holder of the option has the right, but not the obligation, to buy/sell the underlying asset at the strike price. If the option is effective, the payoff of it will be calculated as the European Option.</p>
+<p>This engine uses Monte Carlo Simulation method to estimate the payoff of barrier option. Here, we assume the process of asset pricing applies to Black-Scholes process.</p>
+<p>Barrier option is a kind of option whose payoff depends on whether the option is effective at the maturity time. Only when the option is effective, the holder of the option has the right, but not the obligation, to buy/sell the underlying asset at the strike price. If the option is effective, the payoff of it will be calculated as the European Option.</p>
 <p>There are four barrier option types, including:</p>
 <ul class="simple">
 <li>‘UpIn’: The option becomes effective when the price of the underlying asset is greater than the barrier value.</li>
-<li>‘UpOut’: The option becomes non-effective when the price of the underlying asset is greater than the barrier value.</li>
+<li>‘UpOut’: The option becomes ineffective when the price of the underlying asset is greater than the barrier value.</li>
 <li>‘DownIn’: The option becomes effective when the price of the underlying asset is less than the barrier value.</li>
-<li>‘DownOut’: The option becomes non-effective when the price of the underlying asset is less than the barrier value.</li>
+<li>‘DownOut’: The option becomes ineffective when the price of the underlying asset is less than the barrier value.</li>
 </ul>
-<p>The rebate is a fixed value which is paid when the option is non-effective.</p>
+<p>The rebate is a fixed value which is paid when the option is ineffective.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">In our implementation, barrier option means continuous and single barrier option. That is to say, the barrier event could happen at any time during the lifetime of option.</p>
@@ -226,7 +231,7 @@
 <p>However, the asset price during each discrete time interval maybe go up and down to hit the barrier level, which causes the bias of result. MCBarrierNoBiasEngine is to approximate the price process during the interval by a Brownian bridge.
 After simulating the asset price at each discrete time point, draw the maximum or minimum of the stock price on the interval using the known theoretical distribution of a Brownian Bridge, refer to <strong>‘’Going to Extremes: Correcting Simulation Bias in Exotic Option Valuation - D.R. Beaglehole, P.H. Dybvig and G. Zhou, Correcting for Simulation Bias in Monte Carlo methods to Value Exotic Opitons in Models Driven by Levy Process - Claudia Ribeiro and Nick Webber.’‘</strong></p>
 <p>In the following, we will take up-and-out barrier option as an example to elaborate the two kinds of pricing engines.
-Let <span class="math notranslate nohighlight">\(T\)</span> be the maturity time of option, the barrier level is <span class="math notranslate nohighlight">\(B\)</span>. The maturity time <span class="math notranslate nohighlight">\(T\)</span> is discreted by time steps <span class="math notranslate nohighlight">\(N\)</span>.
+Let <span class="math notranslate nohighlight">\(T\)</span> be the maturity time of option, the barrier level is <span class="math notranslate nohighlight">\(B\)</span>. The maturity time <span class="math notranslate nohighlight">\(T\)</span> is discretized by time steps <span class="math notranslate nohighlight">\(N\)</span>.
 The rebate value is <span class="math notranslate nohighlight">\(R\)</span>. If a barrier option fails to exercise, the seller may pay a rebate to the buyer of the option. Knock-outs may pay a rebate when they are knocked out, and knock-ins may pay a rebate if they expire without ever knocking in.</p>
 <div class="section" id="mcbarrierengine">
 <h3>MCBarrierEngine<a class="headerlink" href="#mcbarrierengine" title="Permalink to this headline">¶</a></h3>
@@ -235,13 +240,17 @@ The rebate value is <span class="math notranslate nohighlight">\(R\)</span>. If 
 at each time step. When the barrier level is hit, the option becomes non-effective and the rebate is paid for the owner of option. The rebate is discounted to today for value of option.
 If the barrier is never hit, the payoff of the option is calculated by value of asset at maturity time <span class="math notranslate nohighlight">\(T\)</span> and it is discounted to today for value of option.</p>
 <p>The detailed procedure of Monte Carlo Simulation is as follows:</p>
-<p>For <span class="math notranslate nohighlight">\(i\)</span> = 1 to <span class="math notranslate nohighlight">\(M\)</span></p>
-<p>For <span class="math notranslate nohighlight">\(j\)</span> = 1 to <span class="math notranslate nohighlight">\(N\)</span></p>
-<ol class="arabic simple">
+<ul class="simple">
+<li>For <span class="math notranslate nohighlight">\(i\)</span> = 1 to <span class="math notranslate nohighlight">\(M\)</span><ul>
+<li>For <span class="math notranslate nohighlight">\(j\)</span> = 1 to <span class="math notranslate nohighlight">\(N\)</span><ul>
 <li>generate a normal random number;</li>
 <li>simulate the price of asset <span class="math notranslate nohighlight">\(S^i_j\)</span>;</li>
 <li>calculate the payoff and discount it to today.</li>
-</ol>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <p>if <span class="math notranslate nohighlight">\(S^i_j &gt; B\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[P_i = R\exp (-rt_j)\]</div>
@@ -268,20 +277,24 @@ Then, we have:</p>
 \[M = \frac {R_{j+1} + R_j - \sqrt {(R_{j+1} - R_j)^2 - 2\sigma^2 \Delta t\log u}} {2}\]</div>
 <p>is a draw from the distribution of the maximum of <span class="math notranslate nohighlight">\(\ln \frac{S(t)}{S(t_j)}\)</span>. So <span class="math notranslate nohighlight">\(S(t_j)\exp (M)\)</span> is a draw from maximum of <span class="math notranslate nohighlight">\(S(t)\)</span>.</p>
 <p>The detailed procedure of Monte Carlo Simulation is as follows:</p>
-<p>For <span class="math notranslate nohighlight">\(i\)</span> = 1 to <span class="math notranslate nohighlight">\(M\)</span></p>
-<p>For <span class="math notranslate nohighlight">\(j\)</span> = 1 to <span class="math notranslate nohighlight">\(N\)</span></p>
-<ol class="arabic simple">
+<ul class="simple">
+<li>For <span class="math notranslate nohighlight">\(i\)</span> = 1 to <span class="math notranslate nohighlight">\(M\)</span><ul>
+<li>For <span class="math notranslate nohighlight">\(j\)</span> = 1 to <span class="math notranslate nohighlight">\(N\)</span><ul>
 <li>generate a normal random number and uniform random number <span class="math notranslate nohighlight">\(u\)</span>;</li>
 <li>simulate the price of asset <span class="math notranslate nohighlight">\(S^i_j\)</span>;</li>
 <li>simulate the maximum price of asset <span class="math notranslate nohighlight">\(M\)</span> during time interval <span class="math notranslate nohighlight">\([t_{j-1}, t_j]\)</span>.</li>
-</ol>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <div class="math notranslate nohighlight">
 \[x = \ln \frac {S^i_j}{S^i_{j-1}}\]</div>
 <div class="math notranslate nohighlight">
 \[y = \frac {x - \sqrt {(x^2 - 2\sigma^2 \Delta t\log u)}} {2}\]</div>
 <div class="math notranslate nohighlight">
 \[M = S^i_j\exp (y)\]</div>
-<p>The calculation of payoff is similar to MCBarrierEngine’s step 3 except that the <span class="math notranslate nohighlight">\(S^i_j\)</span> is replaced by <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<p>The calculation of payoff is similar to the step 3 in MCBarrierEngine except that the <span class="math notranslate nohighlight">\(S^i_j\)</span> is replaced by <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </div>
 </div>
 </div>

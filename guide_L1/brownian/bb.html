@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Brownian Bridge Transform &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Brownian Bridge Transform &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="RNG" href="../hw_api.html" />
+    <link rel="next" title="StochasticProcess1D" href="../StochasticProcess/stochastic_process1d.html" />
     <link rel="prev" title="Sobol Sequence Generator" href="../SobolRsg/sobolrsg.html" /> 
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../L1.html">L1 Module User Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../L1.html#core-utility">Core Utility</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../RNGs/RNG.html">Random Number Generator</a></li>
@@ -107,6 +107,9 @@
 <li class="toctree-l4"><a class="reference internal" href="#implementation">Implementation</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../StochasticProcess/stochastic_process1d.html">StochasticProcess1D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StochasticProcess/ornsteinuhlenbeck_process.html">OrnsteinUhlenbeckProcess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fdmmesher/fdmmesher.html">Meshers</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../L1.html#l1-module-apis">L1 Module APIs</a></li>
@@ -132,7 +135,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF FinTech Library</a>
+          <a href="../../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -192,7 +195,7 @@
 <div class="math notranslate nohighlight">
 \[B_{t} := (W_{t} | W_{T} = 0), t \in [0, T]\]</div>
 <p>Generally, a Brownian bridge can be defined as:</p>
-<p>Suppose <span class="math notranslate nohighlight">\(\{W_{t}\}_{t \in [0,T]}\)</span> is a one-dimentional Brownian motion,:math:<cite>a, b in mathbb{R}</cite>, then the process</p>
+<p>Suppose <span class="math notranslate nohighlight">\(\{W_{t}\}_{t \in [0,T]}\)</span> is a 1-dimensional Brownian motion,:math:<cite>a, b in mathbb{R}</cite>, then the process</p>
 <div class="math notranslate nohighlight">
 \[B^{a,b}_{t} = a\dfrac{T-t}{T} + b\dfrac{t}{T} + (W_{t} - \dfrac{t}{T}W_{T}), t \in [0, T]\]</div>
 <p>is a Brownian bridge from <span class="math notranslate nohighlight">\(a\)</span> to <span class="math notranslate nohighlight">\(b\)</span>.</p>
@@ -202,10 +205,10 @@
 <p>where <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> is normal probability distribution.</p>
 <div class="section" id="theory">
 <h3>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">¶</a></h3>
-<p>Suppose <span class="math notranslate nohighlight">\(W\)</span> is a one-dimentional Brownian motion, <span class="math notranslate nohighlight">\(a,b \in \mathbb{R}, 0 &lt; s &lt; t &lt; u\)</span>, then with known <span class="math notranslate nohighlight">\((W_{u}, W_{s})\)</span>, the conditional probability distribution is as follows:</p>
+<p>Suppose <span class="math notranslate nohighlight">\(W\)</span> is a 1-dimensional Brownian motion, <span class="math notranslate nohighlight">\(a,b \in \mathbb{R}, 0 &lt; s &lt; t &lt; u\)</span>, then with known <span class="math notranslate nohighlight">\((W_{u}, W_{s})\)</span>, the conditional probability distribution is as follows:</p>
 <div class="math notranslate nohighlight">
 \[W_{t} | (W_{u}=b, W_{s}=a) \sim \mathcal N (\dfrac{(u-t)a+(t-s)b}{u-s},\dfrac{(u-t)(t-s)}{u-s})\]</div>
-<p>The backward simulation method for Brownian bridge is to generate a sequence between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. Suppose we have constructed <span class="math notranslate nohighlight">\(k\)</span> points <span class="math notranslate nohighlight">\(W_{0}, W_{t_{1}}, ..., W_{t_{k-2}}, W_{T}\)</span>, we want to generate another point at time <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(t_{i} &lt; s &lt; t_{i+1}\)</span>. According to Markov properties and independent increments property of Brownian motion, we have</p>
+<p>The backward simulation method for Brownian bridge is to generate a sequence between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. Suppose we have constructed <span class="math notranslate nohighlight">\(k\)</span> points <span class="math notranslate nohighlight">\(W_{0}, W_{t_{1}}, ..., W_{t_{k-2}}, W_{T}\)</span>, we want to generate another point at time <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(t_{i} &lt; s &lt; t_{i+1}\)</span>. According to Markov and independent increments property of Brownian motion, we have</p>
 <div class="math notranslate nohighlight">
 \[W_{s} | (W_{0}=a,...,W_{t_{i}}=x,W_{t_{i+1}}=y,...,W_{T}=b) \sim W_{s} | (W_{t_i} = x, W_{t_{i+1}}=y)\]</div>
 <p>where</p>
@@ -214,7 +217,7 @@
 </div>
 <div class="section" id="generation-algorithm">
 <h3>Generation Algorithm<a class="headerlink" href="#generation-algorithm" title="Permalink to this headline">¶</a></h3>
-<p>We can design an algorithms for generating Brownian bridge according to the theory above. The backward generation algorithm for Brownian bridge is to generate a sequence between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. A practical strategy is called binary partitioning on <span class="math notranslate nohighlight">\([0, T]\)</span>. It is based on a procedure of gradually reducing the grid size to half. More specifically, we start from <span class="math notranslate nohighlight">\(T\)</span> (level 0), then <span class="math notranslate nohighlight">\(T/4, 3T/4\)</span>, then <span class="math notranslate nohighlight">\(T/8, 3T/8, 5T/8, 7T/8\)</span>, etc.</p>
+<p>We can design an algorithms for generating Brownian bridge according to the theory above. The backward generation algorithm for Brownian bridge is to generate a sequence between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. A practical strategy is called binary partitioning on <span class="math notranslate nohighlight">\([0, T]\)</span>. It is based on a procedure of gradually reducing the grid size to half. Specifically, we start from <span class="math notranslate nohighlight">\(T\)</span> (level 0), then <span class="math notranslate nohighlight">\(T/4, 3T/4\)</span>, then <span class="math notranslate nohighlight">\(T/8, 3T/8, 5T/8, 7T/8\)</span>, etc.</p>
 <p>The detailed algorithm:</p>
 <p>Input: a sequence of random variate <span class="math notranslate nohighlight">\(Z\)</span> with standardized normal distribution and length <span class="math notranslate nohighlight">\(N=2^{K}\)</span></p>
 <p>Output: a Brownian bridge sequence <span class="math notranslate nohighlight">\(W\)</span> in time range <span class="math notranslate nohighlight">\([0,T]\)</span> and length <span class="math notranslate nohighlight">\(N\)</span></p>
@@ -258,9 +261,9 @@
 <div class="section" id="implementation">
 <h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
 <p>The transform function in class <cite>BrownianBridge</cite> transform a input sequence with number <cite>size</cite> to a output sequence. The output data applies to Brownian bridge process.
-Based on the algorithm, each point in output sequence is generated based on previous calculated point. That is to say, each loop dependents on the output of previous loop.
-To solve the dependence, we divide the loop into 7 round. The loop body only depends on previous round. That is to way, the loop in each round has no dependence. So the II could achieve
-to 1 in each round.</p>
+Based on the algorithm, each point in output sequence is generated by previous calculated point. That is to say, each loop dependents on the output of previous loop.
+To solve the dependency, we divide the loop into 7 round. The loop body only depends on previous round, and the loop in each round has no dependence so that the II could achieve
+to 1.</p>
 <p>The details steps of our implementation is as follows:</p>
 <ol class="arabic simple">
 <li>Init: calculate the value of begin and end point.</li>
@@ -337,7 +340,7 @@ It is present as follows:</p>
 </tbody>
 </table>
 </div></blockquote>
-<p>The correctness of Brownian bridge generation is verified by comparing results with QuantLib Brownian bridge output using the same input sequence. The results are identical.</p>
+<p>The correctness of Brownian bridge generation is verified by comparing results with QuantLib Brownian bridge using the same input sequence. The results are identical.</p>
 </div>
 </div>
 </div>
@@ -350,7 +353,7 @@ It is present as follows:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../hw_api.html" class="btn btn-neutral float-right" title="RNG" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../StochasticProcess/stochastic_process1d.html" class="btn btn-neutral float-right" title="StochasticProcess1D" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../SobolRsg/sobolrsg.html" class="btn btn-neutral" title="Sobol Sequence Generator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

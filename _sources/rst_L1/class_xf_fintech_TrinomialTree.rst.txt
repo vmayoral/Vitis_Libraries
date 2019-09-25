@@ -17,24 +17,8 @@ template class xf::fintech::TrinomialTree
 Overview
 ~~~~~~~~
 
-:ref:`TrinomialTree <doxid-classxf_1_1fintech_1_1_trinomial_tree>` . :ref:`More...<details-doxid-classxf_1_1fintech_1_1_trinomial_tree>`
+:ref:`TrinomialTree <doxid-classxf_1_1fintech_1_1_trinomial_tree>` is a lattice based trinomial tree structure. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_trinomial_tree>`
 
-.. _doxid-classxf_1_1fintech_1_1_trinomial_tree_1a85d9e12c70c44cb4ca8fce7cd8d50487:
-.. _cid-xf::fintech::trinomialtree::process:
-.. _doxid-classxf_1_1fintech_1_1_trinomial_tree_1afdca51bf1b5dbf9ee4a9d548c219ee9e:
-.. _cid-xf::fintech::trinomialtree::initialization:
-.. _doxid-classxf_1_1fintech_1_1_trinomial_tree_1a8d6629de3ce521d88815dafb4b031dde:
-.. _cid-xf::fintech::trinomialtree::dxupdatenocalcu:
-.. _doxid-classxf_1_1fintech_1_1_trinomial_tree_1a1f87dfbedef25085a678fafddff0b8c6:
-.. _cid-xf::fintech::trinomialtree::dxupdate:
-.. _doxid-classxf_1_1fintech_1_1_trinomial_tree_1a2df0dac667c0a355215c10227fbf6112:
-.. _cid-xf::fintech::trinomialtree::calculateprobability:
-.. _doxid-classxf_1_1fintech_1_1_trinomial_tree_1a56c414ca7bc727486f6df6eecee873c5:
-.. _cid-xf::fintech::trinomialtree::size:
-.. _doxid-classxf_1_1fintech_1_1_trinomial_tree_1aada78f6d370126c3bb7feb0f3d1524eb:
-.. _cid-xf::fintech::trinomialtree::underlying:
-.. _doxid-classxf_1_1fintech_1_1_trinomial_tree_1aaa6763d59aa80a3b0c1ef71b1aa66c48:
-.. _cid-xf::fintech::trinomialtree::getdx:
 .. ref-code-block:: cpp
 	:class: overview-code-block
 
@@ -45,7 +29,305 @@ Overview
 	    >
 	class TrinomialTree
 
-	// fields
 
-	Process* process
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1fintech_1_1_trinomial_tree_1afdca51bf1b5dbf9ee4a9d548c219ee9e:
+.. _cid-xf::fintech::trinomialtree::initialization:
+
+initialization
+--------------
+
+
+Defined in <xf_fintech/trinomial_tree.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void initialization (
+	    Process& pro,
+	    unsigned endCnt,
+	    DT x0_
+	    )
+
+initialize parameters.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - pro
+
+        - stochastic process.
+
+    *
+        - endCnt
+
+        - end counter of timepoints
+
+    *
+        - x0_
+
+        - initial underlying
+
+.. _doxid-classxf_1_1fintech_1_1_trinomial_tree_1a8d6629de3ce521d88815dafb4b031dde:
+.. _cid-xf::fintech::trinomialtree::dxupdatenocalcu:
+
+dxUpdateNoCalcu
+---------------
+
+
+Defined in <xf_fintech/trinomial_tree.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void dxUpdateNoCalcu (
+	    int i,
+	    DT t,
+	    DT dt
+	    )
+
+update parameters from array to calculate probability for timepoint=i
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - i
+
+        - timepoint counter
+
+    *
+        - t
+
+        - time for timepoint=i
+
+    *
+        - dt
+
+        - the difference time between timepoint=i+1 and timepoint=i
+
+.. _doxid-classxf_1_1fintech_1_1_trinomial_tree_1a1f87dfbedef25085a678fafddff0b8c6:
+.. _cid-xf::fintech::trinomialtree::dxupdate:
+
+dxUpdate
+--------
+
+
+Defined in <xf_fintech/trinomial_tree.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void dxUpdate (
+	    int i,
+	    DT t,
+	    DT dt
+	    )
+
+calculate to get parameters to calculate probability for timepoint=i
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - i
+
+        - timepoint counter
+
+    *
+        - t
+
+        - time for timepoint=i
+
+    *
+        - dt
+
+        - the difference time between timepoint=i+1 and timepoint=i
+
+.. _doxid-classxf_1_1fintech_1_1_trinomial_tree_1a2df0dac667c0a355215c10227fbf6112:
+.. _cid-xf::fintech::trinomialtree::calculateprobability:
+
+calculateProbability
+--------------------
+
+
+Defined in <xf_fintech/trinomial_tree.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int calculateProbability (
+	    int j,
+	    DT t,
+	    DT dt,
+	    DT* probs
+	    )
+
+calculate probability and descendant index for timepoint=i and node=j
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - j
+
+        - node index
+
+    *
+        - t
+
+        - time for timepoint=i
+
+    *
+        - dt
+
+        - the difference time between timepoint=i+1 and timepoint=i
+
+    *
+        - probs
+
+        - return the calculated probability
+
+
+
+.. rubric:: Returns:
+
+return the calculated descendant index
+
+.. _doxid-classxf_1_1fintech_1_1_trinomial_tree_1a56c414ca7bc727486f6df6eecee873c5:
+.. _cid-xf::fintech::trinomialtree::size:
+
+size
+----
+
+
+Defined in <xf_fintech/trinomial_tree.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int size (int i)
+
+Branch size per timepoints.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - i
+
+        - timepoint counter
+
+
+
+.. rubric:: Returns:
+
+the branch size at timepoint is i
+
+.. _doxid-classxf_1_1fintech_1_1_trinomial_tree_1aada78f6d370126c3bb7feb0f3d1524eb:
+.. _cid-xf::fintech::trinomialtree::underlying:
+
+underlying
+----------
+
+
+Defined in <xf_fintech/trinomial_tree.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	DT underlying (int index)
+
+underlying
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - index
+
+        - node index for branch
+
+
+
+.. rubric:: Returns:
+
+underlying
+
+.. _doxid-classxf_1_1fintech_1_1_trinomial_tree_1aaa6763d59aa80a3b0c1ef71b1aa66c48:
+.. _cid-xf::fintech::trinomialtree::getdx:
+
+getDx
+-----
+
+
+Defined in <xf_fintech/trinomial_tree.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	DT getDx (int i)
+
+get dx
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - i
+
+        - timepoint counter
+
+
+
+.. rubric:: Returns:
+
+dx at timepoint is i
 

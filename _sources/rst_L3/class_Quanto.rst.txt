@@ -1,0 +1,21 @@
+.. index:: pair: class; Quanto
+.. _doxid-class_quanto:
+.. _cid-quanto:
+
+class Quanto
+============
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include <xf_fintech_quanto.hpp>
+
+
+Overview
+~~~~~~~~
+
+This class implements the :ref:`Quanto <doxid-class_quanto>` model. :ref:`More...<details-doxid-class_quanto>`
+

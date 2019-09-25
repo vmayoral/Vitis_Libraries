@@ -64,6 +64,58 @@ Defined in <models/xf_fintech_mc_american.hpp>
 
 Run a single asset until the REQUIRED TOLERANCE is met...
 
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - optionType
+
+        - either American/European Call or Put
+
+    *
+        - stockPrice
+
+        - the stock price
+
+    *
+        - strikePrice
+
+        - the strike price
+
+    *
+        - riskFreeRate
+
+        - the risk free interest rate
+
+    *
+        - dividendYield
+
+        - the dividend yield
+
+    *
+        - volatility
+
+        - the volatility
+
+    *
+        - timeToMaturity
+
+        - the time to maturity
+
+    *
+        - requiredTolerance
+
+        - the tolerance
+
+    *
+        - pOptionPrice
+
+        - the returned option price
+
 .. _doxid-classxf_1_1fintech_1_1_m_c_american_1a13bf309fc4f908ae8caf2eeb6e950fd1:
 .. _cid-xf::fintech::mcamerican::run-2:
 
@@ -87,6 +139,58 @@ Defined in <models/xf_fintech_mc_american.hpp>
 	    )
 
 Run a single asset for the REQUIRED NUMBER OF SAMPLES...
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - optionType
+
+        - either American/European Call or Put
+
+    *
+        - stockPrice
+
+        - the stock price
+
+    *
+        - strikePrice
+
+        - the strike price
+
+    *
+        - riskFreeRate
+
+        - the risk free interest rate
+
+    *
+        - dividendYield
+
+        - the dividend yield
+
+    *
+        - volatility
+
+        - the volatility
+
+    *
+        - timeToMaturity
+
+        - the time to maturity
+
+    *
+        - requiredSamples
+
+        - the number of samples
+
+    *
+        - pOptionPrice
+
+        - the returned option price
 
 .. _doxid-classxf_1_1fintech_1_1_m_c_american_1a1ae70f85d33a68572ac79fc73402b11f:
 .. _cid-xf::fintech::mcamerican::getlastruntime:

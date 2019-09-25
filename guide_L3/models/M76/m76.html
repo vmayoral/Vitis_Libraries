@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Merton 76 (Jump Diffusion) &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Merton 76 (Jump Diffusion) &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="../../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Heston FD" href="../HestonFD/heston_lib.html" />
+    <link rel="next" title="Garman Kohlhagen" href="../GarmanKohlhagen/garman_kohlhagen.html" />
     <link rel="prev" title="Heston Closed Form (HCF)" href="../HCF/hcf.html" /> 
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../../../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../L3.html">L3 Overlay User Guide</a><ul class="current">
@@ -109,10 +109,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#class-xf-fintech-m76">class xf::fintech::m76</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../GarmanKohlhagen/garman_kohlhagen.html">Garman Kohlhagen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quanto/quanto.html">Quanto Options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../HestonFD/heston_lib.html">Heston FD</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../MCAmerican/mcamerican.html">Monte-Carlo American</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../MCEuropean/mceuropean.html">Monte-Carlo European</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../MCEuropeanDJE/mceuropeandje.html">Monte-Carlo European Dow Jones Engine (DJE)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PopMCMC/popmcmc.html">PopMCMC Options</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../framework/framework_classes.html">Framework Classes</a></li>
@@ -136,7 +139,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">XF FinTech Library</a>
+          <a href="../../../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -201,18 +204,57 @@
 <pre class="highlight overview-code-block literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&lt;xf_fintech_m76.hpp&gt;</span>
 </pre>
-<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-m76-run">
-<span id="doxid-classxf-1-1fintech-1-1m76-1a2b8c8fe395a45372f195c97cc22df056"></span><span></span><span class="k">class</span> <span class="nl">m76</span><span class="p">:</span> <span class="k">public</span> <a class="reference internal" href="../../../rst_L3/class_xf_fintech_OCLController.html#doxid-classxf-1-1fintech-1-1-o-c-l-controller"><span class="std std-ref">xf::fintech::OCLController</span></a><span></span>
+<div class="section" id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<p>This class implements the Merton 76 Jump Diffusion Model. <span class="xref std std-ref">More…</span></p>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="k">class</span> <span class="nl">m76</span><span class="p">:</span> <span class="k">public</span> <a class="reference internal" href="../../../rst_L3/class_xf_fintech_OCLController.html#doxid-classxf-1-1fintech-1-1-o-c-l-controller"><span class="std std-ref">xf::fintech::OCLController</span></a><span></span>
 
 <span class="c1">// structs</span>
 
 <span class="k">struct</span> <a class="reference internal" href="../../../rst_L3/struct_xf_fintech_m76_m76_input_data.html#doxid-structxf-1-1fintech-1-1m76-1-1m76-input-data"><span class="std std-ref">m76_input_data</span></a>
 </pre>
 <div class="section" id="inherited-members">
-<h3>Inherited Members<a class="headerlink" href="#inherited-members" title="Permalink to this headline">¶</a></h3>
+<h4>Inherited Members<a class="headerlink" href="#inherited-members" title="Permalink to this headline">¶</a></h4>
 <pre class="highlight overview-inherited-code-block literal-block">
 
 </pre>
+</div>
+</div>
+<div class="section" id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="run">
+<span id="cid-xf-fintech-m76-run"></span><span id="doxid-classxf-1-1fintech-1-1m76-1a2b8c8fe395a45372f195c97cc22df056"></span><h4>run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="defined-in-models-xf-fintech-m76-hpp">
+<h5>Defined in &lt;models/xf_fintech_m76.hpp&gt;<a class="headerlink" href="#defined-in-models-xf-fintech-m76-hpp" title="Permalink to this headline">¶</a></h5>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">int</span> <span class="n">run</span> <span class="p">(</span>
+    <span class="k">struct</span> <a class="reference internal" href="../../../rst_L3/struct_xf_fintech_m76_m76_input_data.html#doxid-structxf-1-1fintech-1-1m76-1-1m76-input-data"><span class="std std-ref">m76_input_data</span></a><span></span><span class="o">*</span> <span class="n">inputData</span><span class="p">,</span>
+    <span class="kt">float</span><span class="o">*</span> <span class="n">outputData</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">numOptions</span>
+    <span class="p">)</span>
+</pre>
+<p>Calculate one or more options based on input data and option type</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>inputData</td>
+<td>structure to be populated with the asset data</td>
+</tr>
+<tr class="row-even"><td>outputData</td>
+<td>one or more calculated option values returned</td>
+</tr>
+<tr class="row-odd"><td>numOptions</td>
+<td>number of options to be calculated</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -225,7 +267,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../HestonFD/heston_lib.html" class="btn btn-neutral float-right" title="Heston FD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../GarmanKohlhagen/garman_kohlhagen.html" class="btn btn-neutral float-right" title="Garman Kohlhagen" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../HCF/hcf.html" class="btn btn-neutral" title="Heston Closed Form (HCF)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

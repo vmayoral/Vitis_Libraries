@@ -54,7 +54,7 @@ Defined in <xf_fintech/g2_model.hpp>
 	    DT rho
 	    )
 
-initialization initialize parameter
+initialize parameter
 
 
 
@@ -113,7 +113,7 @@ Defined in <xf_fintech/g2_model.hpp>
 	    DT* x
 	    )
 
-discount calculate the discount after time dt
+calculate the discount after time dt
 
 
 
@@ -163,7 +163,7 @@ Defined in <xf_fintech/g2_model.hpp>
 	    DT r
 	    )
 
-shortRate calculate the short-rate
+calculate the short-rate
 
 
 

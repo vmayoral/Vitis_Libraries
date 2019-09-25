@@ -19,8 +19,6 @@ Overview
 
 The :ref:`MCEuropeanDJE <doxid-classxf_1_1fintech_1_1_m_c_european_d_j_e>` (Dow Jones Engine) class takes in an array of asset data and calculates a single Dow Jones Industrial Average (DJIA) value. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_m_c_european_d_j_e>`
 
-.. _doxid-classxf_1_1fintech_1_1_m_c_european_d_j_e_1ab09e88855c8e968834d2c31fce664df5:
-.. _cid-xf::fintech::mceuropeandje::num_kernels:
 .. ref-code-block:: cpp
 	:class: overview-code-block
 
@@ -28,13 +26,25 @@ The :ref:`MCEuropeanDJE <doxid-classxf_1_1fintech_1_1_m_c_european_d_j_e>` (Dow 
 
 	// fields
 
-	static const int NUM_KERNELS
+	static const int :ref:`NUM_KERNELS<doxid-classxf_1_1fintech_1_1_m_c_european_d_j_e_1ab09e88855c8e968834d2c31fce664df5>`
 
 Inherited Members
 -----------------
 
 .. ref-code-block:: cpp
 	:class: overview-inherited-code-block
+
+Fields
+------
+
+.. _doxid-classxf_1_1fintech_1_1_m_c_european_d_j_e_1ab09e88855c8e968834d2c31fce664df5:
+.. _cid-xf::fintech::mceuropeandje::num_kernels:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	static const int NUM_KERNELS
+
+The following constant defines the number of KERNELS that have been built in the HW...
 
 
 .. FunctionSection
@@ -72,6 +82,68 @@ Defined in <models/xf_fintech_mc_european_dje.hpp>
 
 Process arrays of asset data, until required TOLERANCE is met...
 
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - optionType
+
+        - either American/European Call or Put
+
+    *
+        - stockPrice
+
+        - the stock price
+
+    *
+        - strikePrice
+
+        - the strike price
+
+    *
+        - riskFreeRate
+
+        - the risk free interest rate
+
+    *
+        - dividendYield
+
+        - the dividend yield
+
+    *
+        - volatility
+
+        - the volatility
+
+    *
+        - timeToMaturity
+
+        - the time to maturity
+
+    *
+        - requiredTolerance
+
+        - the required tolerance
+
+    *
+        - numAssets
+
+        - the number of assets
+
+    *
+        - dowDivisor
+
+        - the Dow Divisor
+
+    *
+        - DJIAOutput
+
+        - the returned Dow Jones Industrial Average
+
 .. _doxid-classxf_1_1fintech_1_1_m_c_european_d_j_e_1a5a053a7607f3b02f4de18dee11058cfb:
 .. _cid-xf::fintech::mceuropeandje::run-2:
 
@@ -97,6 +169,68 @@ Defined in <models/xf_fintech_mc_european_dje.hpp>
 	    )
 
 Process arrays of asset data, for REQUIRED NUMBER OF SAMPLES...
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - optionType
+
+        - either American/European Call or Put
+
+    *
+        - stockPrice
+
+        - the stock price
+
+    *
+        - strikePrice
+
+        - the strike price
+
+    *
+        - riskFreeRate
+
+        - the risk free interest rate
+
+    *
+        - dividendYield
+
+        - the dividend yield
+
+    *
+        - volatility
+
+        - the volatility
+
+    *
+        - timeToMaturity
+
+        - the time to maturity
+
+    *
+        - requiredSamples
+
+        - the required samples
+
+    *
+        - numAssets
+
+        - the number of assets
+
+    *
+        - dowDivisor
+
+        - the Dow Divisor
+
+    *
+        - DJIAOutput
+
+        - the returned Dow Jones Industrial Average
 
 .. _doxid-classxf_1_1fintech_1_1_m_c_european_d_j_e_1af3f5f38731039e012016d229be5644dc:
 .. _cid-xf::fintech::mceuropeandje::getlastruntime:

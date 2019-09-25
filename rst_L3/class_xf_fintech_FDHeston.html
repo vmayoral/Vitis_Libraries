@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>class xf::fintech::FDHeston &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>class xf::fintech::FDHeston &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -49,7 +49,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -92,7 +92,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -114,7 +114,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF FinTech Library</a>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -171,8 +171,11 @@
 <pre class="highlight overview-code-block literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&lt;xf_fintech_fd_heston.hpp&gt;</span>
 </pre>
-<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-fdheston-getlastruntime">
-<span id="doxid-classxf-1-1fintech-1-1-f-d-heston-1ae8d5dceb62e290b1639aad67ffcd464f"></span><span id="cid-xf-fintech-fdheston-run-5"></span><span id="doxid-classxf-1-1fintech-1-1-f-d-heston-1aeba7a17c4a013463c6faf14c23443aa0"></span><span id="cid-xf-fintech-fdheston-run-4"></span><span id="doxid-classxf-1-1fintech-1-1-f-d-heston-1a4a1775760f587cf99a174b1a23e7276c"></span><span id="cid-xf-fintech-fdheston-run-3"></span><span id="doxid-classxf-1-1fintech-1-1-f-d-heston-1a806ed392e58abf12a167647091e6ee82"></span><span id="cid-xf-fintech-fdheston-run-2"></span><span id="doxid-classxf-1-1fintech-1-1-f-d-heston-1a22bbe3c6cef4104603d5840ec8adf73e"></span><span id="cid-xf-fintech-fdheston-run"></span><span id="doxid-classxf-1-1fintech-1-1-f-d-heston-1ad17489c25d39aa866ae9d1a20e0f3705"></span><span id="cid-xf-fintech-fdheston-fdheston-2"></span><span id="doxid-classxf-1-1fintech-1-1-f-d-heston-1a54cda6be19d6f341a4d2f1d8d48177f7"></span><span id="cid-xf-fintech-fdheston-fdheston"></span><span id="doxid-classxf-1-1fintech-1-1-f-d-heston-1a87d68ce1e5b8707e678bdf8282585cfc"></span><span></span><span class="k">class</span> <span class="nl">FDHeston</span><span class="p">:</span> <span class="k">public</span> <a class="reference internal" href="class_xf_fintech_OCLController.html#doxid-classxf-1-1fintech-1-1-o-c-l-controller"><span class="std std-ref">xf::fintech::OCLController</span></a><span></span>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This class implements the Finite Difference Heston Model. <span class="xref std std-ref">More…</span></p>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-fdheston-run">
+<span id="doxid-classxf-1-1fintech-1-1-f-d-heston-1aeba7a17c4a013463c6faf14c23443aa0"></span><span id="cid-xf-fintech-fdheston-fdheston-2"></span><span id="doxid-classxf-1-1fintech-1-1-f-d-heston-1a54cda6be19d6f341a4d2f1d8d48177f7"></span><span id="cid-xf-fintech-fdheston-fdheston"></span><span id="doxid-classxf-1-1fintech-1-1-f-d-heston-1a87d68ce1e5b8707e678bdf8282585cfc"></span><span></span><span class="k">class</span> <span class="nl">FDHeston</span><span class="p">:</span> <span class="k">public</span> <a class="reference internal" href="class_xf_fintech_OCLController.html#doxid-classxf-1-1fintech-1-1-o-c-l-controller"><span class="std std-ref">xf::fintech::OCLController</span></a><span></span>
 
 <span class="c1">// construction</span>
 
@@ -184,10 +187,303 @@
     <span class="p">)</span>
 </pre>
 <div class="section" id="inherited-members">
-<h2>Inherited Members<a class="headerlink" href="#inherited-members" title="Permalink to this headline">¶</a></h2>
+<h3>Inherited Members<a class="headerlink" href="#inherited-members" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight overview-inherited-code-block literal-block">
 
 </pre>
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="run">
+<span id="cid-xf-fintech-fdheston-run-2"></span><span id="doxid-classxf-1-1fintech-1-1-f-d-heston-1ad17489c25d39aa866ae9d1a20e0f3705"></span><h3>run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="defined-in-models-xf-fintech-fd-heston-hpp">
+<h4>Defined in &lt;models/xf_fintech_fd_heston.hpp&gt;<a class="headerlink" href="#defined-in-models-xf-fintech-fd-heston-hpp" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">int</span> <span class="n">run</span> <span class="p">(</span>
+    <span class="kt">double</span> <span class="n">stockPrice</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">strikePrice</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">riskFreeRateDomestic</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">volatility</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">timeToMaturity</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">meanReversionRate</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">volatilityOfVolatility</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">correlationCoefficient</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">longRunAveragePrice</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">pOptionPrice</span>
+    <span class="p">)</span>
+</pre>
+<p>Calculate a single option price with default number of steps.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>stockPrice</td>
+<td>the stock price</td>
+</tr>
+<tr class="row-even"><td>strikePrice</td>
+<td>the strike price</td>
+</tr>
+<tr class="row-odd"><td>riskFreeRateDomestic</td>
+<td>the risk free domestic interest rate</td>
+</tr>
+<tr class="row-even"><td>volatility</td>
+<td>the volatility</td>
+</tr>
+<tr class="row-odd"><td>timeToMaturity</td>
+<td>the time to maturity</td>
+</tr>
+<tr class="row-even"><td>meanReversionRate</td>
+<td>the mean reversion rate (kappa)</td>
+</tr>
+<tr class="row-odd"><td>volatilityOfVolatility</td>
+<td>the volatility of volatility (sigma)</td>
+</tr>
+<tr class="row-even"><td>correlationCoefficient</td>
+<td>the correlation coefficient (rho)</td>
+</tr>
+<tr class="row-odd"><td>longRunAveragePrice</td>
+<td>the returned option price (eta)</td>
+</tr>
+<tr class="row-even"><td>pOptionPrice</td>
+<td>the returned option price</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cid-xf-fintech-fdheston-run-3">
+<span id="doxid-classxf-1-1fintech-1-1-f-d-heston-1a22bbe3c6cef4104603d5840ec8adf73e"></span><span id="id1"></span><h4>Defined in &lt;models/xf_fintech_fd_heston.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-fdheston-run-3" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">int</span> <span class="n">run</span> <span class="p">(</span>
+    <span class="kt">double</span> <span class="n">stockPrice</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">strikePrice</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">riskFreeRateDomestic</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">volatility</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">timeToMaturity</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">meanReversionRate</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">volatilityOfVolatility</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">correlationCoefficient</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">longRunAveragePrice</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">numSteps</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">pOptionPrice</span>
+    <span class="p">)</span>
+</pre>
+<p>Calculate a single option price with a configurable number of steps.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>stockPrice</td>
+<td>the stock price</td>
+</tr>
+<tr class="row-even"><td>strikePrice</td>
+<td>the strike price</td>
+</tr>
+<tr class="row-odd"><td>riskFreeRateDomestic</td>
+<td>the risk free domestic interest rate</td>
+</tr>
+<tr class="row-even"><td>volatility</td>
+<td>the volatility</td>
+</tr>
+<tr class="row-odd"><td>timeToMaturity</td>
+<td>the time to maturity</td>
+</tr>
+<tr class="row-even"><td>meanReversionRate</td>
+<td>the mean reversion rate (kappa)</td>
+</tr>
+<tr class="row-odd"><td>volatilityOfVolatility</td>
+<td>the volatility of volatility (sigma)</td>
+</tr>
+<tr class="row-even"><td>correlationCoefficient</td>
+<td>the correlation coefficient (rho)</td>
+</tr>
+<tr class="row-odd"><td>longRunAveragePrice</td>
+<td>the returned option price (eta)</td>
+</tr>
+<tr class="row-even"><td>numSteps</td>
+<td>the number of steps</td>
+</tr>
+<tr class="row-odd"><td>pOptionPrice</td>
+<td>the returned option price</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cid-xf-fintech-fdheston-run-4">
+<span id="doxid-classxf-1-1fintech-1-1-f-d-heston-1a806ed392e58abf12a167647091e6ee82"></span><span id="id2"></span><h4>Defined in &lt;models/xf_fintech_fd_heston.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-fdheston-run-4" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">int</span> <span class="n">run</span> <span class="p">(</span>
+    <span class="kt">double</span> <span class="n">stockPrice</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">strikePrice</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">riskFreeRateDomestic</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">volatility</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">timeToMaturity</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">meanReversionRate</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">volatilityOfVolatility</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">correlationCoefficient</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">longRunAveragePrice</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">pOptionPrice</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">pDelta</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">pVega</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">pGamma</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">pVolga</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">pVanna</span>
+    <span class="p">)</span>
+</pre>
+<p>Calculate a single option price with a default number of steps and return the greeks.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>stockPrice</td>
+<td>the stock price</td>
+</tr>
+<tr class="row-even"><td>strikePrice</td>
+<td>the strike price</td>
+</tr>
+<tr class="row-odd"><td>riskFreeRateDomestic</td>
+<td>the risk free domestic interest rate</td>
+</tr>
+<tr class="row-even"><td>volatility</td>
+<td>the volatility</td>
+</tr>
+<tr class="row-odd"><td>timeToMaturity</td>
+<td>the time to maturity</td>
+</tr>
+<tr class="row-even"><td>meanReversionRate</td>
+<td>the mean reversion rate (kappa)</td>
+</tr>
+<tr class="row-odd"><td>volatilityOfVolatility</td>
+<td>the volatility of volatility (sigma)</td>
+</tr>
+<tr class="row-even"><td>correlationCoefficient</td>
+<td>the correlation coefficient (rho)</td>
+</tr>
+<tr class="row-odd"><td>longRunAveragePrice</td>
+<td>the returned option price (eta)</td>
+</tr>
+<tr class="row-even"><td>pOptionPrice</td>
+<td>the returned option price</td>
+</tr>
+<tr class="row-odd"><td>pDelta</td>
+<td>the returned greek Delta</td>
+</tr>
+<tr class="row-even"><td>pVega</td>
+<td>the returned greek Vega</td>
+</tr>
+<tr class="row-odd"><td>pGamma</td>
+<td>the returned greek Gamma</td>
+</tr>
+<tr class="row-even"><td>pVolga</td>
+<td>the returned greek Volga</td>
+</tr>
+<tr class="row-odd"><td>pVanna</td>
+<td>the returned greek Vanna</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cid-xf-fintech-fdheston-run-5">
+<span id="doxid-classxf-1-1fintech-1-1-f-d-heston-1a4a1775760f587cf99a174b1a23e7276c"></span><span id="id3"></span><h4>Defined in &lt;models/xf_fintech_fd_heston.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-fdheston-run-5" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">int</span> <span class="n">run</span> <span class="p">(</span>
+    <span class="kt">double</span> <span class="n">stockPrice</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">strikePrice</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">riskFreeRateDomestic</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">volatility</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">timeToMaturity</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">meanReversionRate</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">volatilityOfVolatility</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">correlationCoefficient</span><span class="p">,</span>
+    <span class="kt">double</span> <span class="n">longRunAveragePrice</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">numSteps</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">pOptionPrice</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">pDelta</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">pVega</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">pGamma</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">pVolga</span><span class="p">,</span>
+    <span class="kt">double</span><span class="o">*</span> <span class="n">pVanna</span>
+    <span class="p">)</span>
+</pre>
+<p>Calculate a single option price with a configurable number of steps and return the greeks.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>stockPrice</td>
+<td>the stock price</td>
+</tr>
+<tr class="row-even"><td>strikePrice</td>
+<td>the strike price</td>
+</tr>
+<tr class="row-odd"><td>riskFreeRateDomestic</td>
+<td>the risk free domestic interest rate</td>
+</tr>
+<tr class="row-even"><td>volatility</td>
+<td>the volatility</td>
+</tr>
+<tr class="row-odd"><td>timeToMaturity</td>
+<td>the time to maturity</td>
+</tr>
+<tr class="row-even"><td>meanReversionRate</td>
+<td>the mean reversion rate (kappa)</td>
+</tr>
+<tr class="row-odd"><td>volatilityOfVolatility</td>
+<td>the volatility of volatility (sigma)</td>
+</tr>
+<tr class="row-even"><td>correlationCoefficient</td>
+<td>the correlation coefficient (rho)</td>
+</tr>
+<tr class="row-odd"><td>longRunAveragePrice</td>
+<td>the returned option price (eta)</td>
+</tr>
+<tr class="row-even"><td>numSteps</td>
+<td>the number of steps</td>
+</tr>
+<tr class="row-odd"><td>pOptionPrice</td>
+<td>the returned option price</td>
+</tr>
+<tr class="row-even"><td>pDelta</td>
+<td>the returned greek Delta</td>
+</tr>
+<tr class="row-odd"><td>pVega</td>
+<td>the returned greek Vega</td>
+</tr>
+<tr class="row-even"><td>pGamma</td>
+<td>the returned greek Gamma</td>
+</tr>
+<tr class="row-odd"><td>pVolga</td>
+<td>the returned greek Volga</td>
+</tr>
+<tr class="row-even"><td>pVanna</td>
+<td>the returned greek Vanna</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="getlastruntime">
+<span id="cid-xf-fintech-fdheston-getlastruntime"></span><span id="doxid-classxf-1-1fintech-1-1-f-d-heston-1ae8d5dceb62e290b1639aad67ffcd464f"></span><h3>getLastRunTime<a class="headerlink" href="#getlastruntime" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h4>Defined in &lt;models/xf_fintech_fd_heston.hpp&gt;<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">long</span> <span class="kt">long</span> <span class="kt">int</span> <span class="n">getLastRunTime</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</pre>
+<p>This method returns the time the execution of the last call to <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-f-d-heston-1ad17489c25d39aa866ae9d1a20e0f3705"><span class="std std-ref">run()</span></a> took.</p>
+</div>
+</div>
 </div>
 </div>
 

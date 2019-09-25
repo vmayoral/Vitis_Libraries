@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Tridiagonal Matrix Solver &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Tridiagonal Matrix Solver &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../L1.html">L1 Module User Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../L1.html#core-utility">Core Utility</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../RNGs/RNG.html">Random Number Generator</a></li>
@@ -107,6 +107,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../Pentadiag/Pentadiag.html">Pentadiagonal Matrix Solver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../SobolRsg/sobolrsg.html">Sobol Sequence Generator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../brownian/bb.html">Brownian Bridge Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StochasticProcess/stochastic_process1d.html">StochasticProcess1D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StochasticProcess/ornsteinuhlenbeck_process.html">OrnsteinUhlenbeckProcess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fdmmesher/fdmmesher.html">Meshers</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../L1.html#l1-module-apis">L1 Module APIs</a></li>
@@ -132,7 +135,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF FinTech Library</a>
+          <a href="../../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -194,7 +197,7 @@
 <h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
 <p>The solver works on a row-based scheme. For each row of diagonals it applies a reduction procedure.
 Each row is processed <span class="math notranslate nohighlight">\(\log_2N -1\)</span> times, which leads to a complete reduction of the upper and lower diagonals.
-The input matrix is stored as a three vectors, one for each diagonal.
+The input matrix is stored as three vectors, one for each diagonal.
 Thanks to parallel nature of cyclic reduction algorithm a parametrized number of compute units could be set to work simultaneously on one matrix; the whole matrix is then divided amongst a number of compute units.</p>
 <p>Since the algorithm needs access to 3 consecutive rows of matrix only 3 rows are stored in at a time (for each compute unit).
 These allows algorithm to be fully pipelined and allow user to control performance and usage of resources.</p>

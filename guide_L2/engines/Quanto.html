@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Internal Design of Quanto &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/xilinx-favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Internal Design of Cox-Ross-Rubinstein Binomial Tree" href="BTCRR.html" />
+    <link rel="prev" title="Internal Design of Garman Kohlhagen" href="GarmanKohlhagen.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rel.html">Release Note</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide_L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../L2.html">L2 Pricing Engine Kernel User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../overview.html">Pricing Engine Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../kernel_design.html">Pricing Engine Kernel Design</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="MCEuropeanEngine.html">Internal Design of MCEuropeanEngine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCEuropeanHestonEngine.html">Internal Design of MCEuropeanHestonEngine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCAsianEngines.html">Internal Design of Asian Option Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCDigitalEngine.html">Internal Design of Digital Option Pricing Engines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCBarrierEngine.html">Internal Design of Barrier Option Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCCliquetEngine.html">Internal Design of Cliquet Option Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCAmericanEngine.html">Internal Design of American Option Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCMultiAssetEuropeanHestonEngine.html">Internal Design of MCMultiAssetEuropeanHestonEngine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCHullWhiteCapFloorEngine.html">Internal Design of MCHullWhiteCapFloorEngine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCEuropeanHestonGreeksEngine.html">Internal Design of MCEuropeanHestonGreeksEngine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CFBlackScholesMerton.html">Internal Design of Closed Form Black-Scholes-Merton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CFHeston.html">Internal Design of Closed Form Heston</a></li>
+<li class="toctree-l3"><a class="reference internal" href="M76.html">Internal Design of Closed Form Merton 76</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GarmanKohlhagen.html">Internal Design of Garman Kohlhagen</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Internal Design of Quanto</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#design-structure">Design Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-engine">The Engine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#io-wrapper-quanto-kernel-cpp">IO Wrapper (quanto_kernel.cpp)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resource-utilization">Resource Utilization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#throughput">Throughput</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="BTCRR.html">Internal Design of Cox-Ross-Rubinstein Binomial Tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FDHullWhiteEngine.html">Internal Design of Finite-Difference Hull-White Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FDG2SwaptionEngine.html">Internal Design of Finite-Difference G2 Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TreeEngine.html">Internal Design of Tree Bermudan Swaption Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CPICapFloorEngine.html">Internal Design of CPI CapFloor Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="InflationCapFloorEngine.html">Internal Design of Inflation CapFloor Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZCDiscountingBondEngine.html">Internal Design of Zero Coupon Bond Engine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kernel_api.html">Pricing Engine Kernel APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kernel_benchmark.html">Pricing Engines Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../other_engines.html">Other Engine Kernel Design</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide_L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Result</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/benchmark.html">Quality and Performance</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Vitis Quantitative Finance Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../L2.html">L2 Pricing Engine Kernel User Guide</a> &raquo;</li>
+        
+          <li><a href="../kernel_design.html">Pricing Engine Kernel Design</a> &raquo;</li>
+        
+      <li>Internal Design of Quanto</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guide_L2/engines/Quanto.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="internal-design-of-quanto">
+<h1>Internal Design of Quanto<a class="headerlink" href="#internal-design-of-quanto" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The Quanto solution is based on the Black Scholes Merton model, where the BSM dividend yield parameter is replaced with a calculation involving various quanto parameters and the resulting BSM call price multiplied by another Quanto parameter.</p>
+</div>
+<div class="section" id="design-structure">
+<h2>Design Structure<a class="headerlink" href="#design-structure" title="Permalink to this headline">¶</a></h2>
+<p>There are two layers to the kernel; the engine itself and the IO wrapper. The engine is the standard Black Scholes Merton engine, and the wrapper maps Quanto parameters to BSM parameter and provides the I/O to/from the engine.</p>
+</div>
+<div class="section" id="the-engine">
+<h2>The Engine<a class="headerlink" href="#the-engine" title="Permalink to this headline">¶</a></h2>
+<p>The engine is simply the <a class="reference internal" href="CFBlackScholesMerton.html#black-scholes-merton-engine"><span class="std std-ref">Black Scholes Merton Engine</span></a>
+The engine performs a single Black Scholes Merton Closed Form solution for a European Call.</p>
+</div>
+<div class="section" id="io-wrapper-quanto-kernel-cpp">
+<h2>IO Wrapper (quanto_kernel.cpp)<a class="headerlink" href="#io-wrapper-quanto-kernel-cpp" title="Permalink to this headline">¶</a></h2>
+<p>The kernel is the HLS wrapper level which implements the pipelining and parallelization to allow high throughput. The kernel uses a dataflow methodology with streams to pass the data through the design.</p>
+<p>The top level’s input and output ports are 512 bit wide, which is designed to match the whole DDR bus width and allowing vector access. In the case of float data type (4 bytes), sixteen parameters can be accessed from the bus in parallel. Each port is connected to its own AXI master with arbitration handled by the AXI switch and DDR controller under the hood.</p>
+<p>These ports are interfaced via functions in bus_interface.hpp which convert between the wide bus and a template number of streams. Once input stream form, each stream is passed to a separate instance of the engine. The engine is wrapped inside bsm_stream_wrapper() which handles the stream processing. Here the II and loop unrolling is controlled. One cfBSMEngine engine is instanced per stream allowing for parallel processing of multiple parameter sets. Additionally, the engines are in an II=1 loop, so that each engine can produce one price and associated Greeks on each cycle.</p>
+<p>This wrapper also handles the mapping from the Quanto parameters to the BSM parameters, and it multiplies the result of BSM call price by the fixed exchange rate ‘E’.</p>
+</div>
+<div class="section" id="resource-utilization">
+<h2>Resource Utilization<a class="headerlink" href="#resource-utilization" title="Permalink to this headline">¶</a></h2>
+<p>The floating point kernel Area Information:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">FF:</th><td class="field-body">97160 (12% of SLR on u200 board)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">LUT:</th><td class="field-body">83888 (21% of SLR on u200 board)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">DSP:</th><td class="field-body">554 (24% of SLR on u200 board)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">BRAM:</th><td class="field-body">544 (37% of SLR on u200 board)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">URAM:</th><td class="field-body">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="throughput">
+<h2>Throughput<a class="headerlink" href="#throughput" title="Permalink to this headline">¶</a></h2>
+<p>Throughput is composed of two processes: transferring data to/from the FPGA and running the computations. The demo contains options to measure timings as described in the README.md file.</p>
+<p>As an example, processing a batche of 19683 call calculations with a floating point kernel breaks down as follows:</p>
+<p>Total time (memory transfer time plus calculation time) = 1175us</p>
+<p>Calculation time (kernel execution time) = 405us</p>
+<p>Memory transfer time = 770us</p>
+<p>Throughput = 48.5663 Mega options/sec</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="BTCRR.html" class="btn btn-neutral float-right" title="Internal Design of Cox-Ross-Rubinstein Binomial Tree" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="GarmanKohlhagen.html" class="btn btn-neutral" title="Internal Design of Garman Kohlhagen" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xilinx Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

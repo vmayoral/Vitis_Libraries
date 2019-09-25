@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>template class xf::fintech::TrinomialTree &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>template class xf::fintech::TrinomialTree &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -49,7 +49,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -92,7 +92,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -114,7 +114,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF FinTech Library</a>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -173,19 +173,224 @@
 </pre>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-trinomial-tree"><span class="std std-ref">TrinomialTree</span></a> . <span class="xref std std-ref">More…</span></p>
-<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-trinomialtree-getdx">
-<span id="doxid-classxf-1-1fintech-1-1-trinomial-tree-1aaa6763d59aa80a3b0c1ef71b1aa66c48"></span><span id="cid-xf-fintech-trinomialtree-underlying"></span><span id="doxid-classxf-1-1fintech-1-1-trinomial-tree-1aada78f6d370126c3bb7feb0f3d1524eb"></span><span id="cid-xf-fintech-trinomialtree-size"></span><span id="doxid-classxf-1-1fintech-1-1-trinomial-tree-1a56c414ca7bc727486f6df6eecee873c5"></span><span id="cid-xf-fintech-trinomialtree-calculateprobability"></span><span id="doxid-classxf-1-1fintech-1-1-trinomial-tree-1a2df0dac667c0a355215c10227fbf6112"></span><span id="cid-xf-fintech-trinomialtree-dxupdate"></span><span id="doxid-classxf-1-1fintech-1-1-trinomial-tree-1a1f87dfbedef25085a678fafddff0b8c6"></span><span id="cid-xf-fintech-trinomialtree-dxupdatenocalcu"></span><span id="doxid-classxf-1-1fintech-1-1-trinomial-tree-1a8d6629de3ce521d88815dafb4b031dde"></span><span id="cid-xf-fintech-trinomialtree-initialization"></span><span id="doxid-classxf-1-1fintech-1-1-trinomial-tree-1afdca51bf1b5dbf9ee4a9d548c219ee9e"></span><span id="cid-xf-fintech-trinomialtree-process"></span><span id="doxid-classxf-1-1fintech-1-1-trinomial-tree-1a85d9e12c70c44cb4ca8fce7cd8d50487"></span><span></span><span class="k">template</span> <span class="o">&lt;</span>
+<p><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-trinomial-tree"><span class="std std-ref">TrinomialTree</span></a> is a lattice based trinomial tree structure. <span class="xref std std-ref">More…</span></p>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
     <span class="k">typename</span> <span class="n">DT</span><span class="p">,</span>
     <span class="k">typename</span> <span class="n">Process</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">LEN</span>
     <span class="o">&gt;</span>
 <span class="k">class</span> <span class="n">TrinomialTree</span>
-
-<span class="c1">// fields</span>
-
-<span class="n">Process</span><span class="o">*</span> <span class="n">process</span>
 </pre>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="initialization">
+<span id="cid-xf-fintech-trinomialtree-initialization"></span><span id="doxid-classxf-1-1fintech-1-1-trinomial-tree-1afdca51bf1b5dbf9ee4a9d548c219ee9e"></span><h3>initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="defined-in-xf-fintech-trinomial-tree-hpp">
+<h4>Defined in &lt;xf_fintech/trinomial_tree.hpp&gt;<a class="headerlink" href="#defined-in-xf-fintech-trinomial-tree-hpp" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">initialization</span> <span class="p">(</span>
+    <span class="n">Process</span><span class="o">&amp;</span> <span class="n">pro</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="n">endCnt</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">x0_</span>
+    <span class="p">)</span>
+</pre>
+<p>initialize parameters.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>pro</td>
+<td>stochastic process.</td>
+</tr>
+<tr class="row-even"><td>endCnt</td>
+<td>end counter of timepoints</td>
+</tr>
+<tr class="row-odd"><td><a href="#id7"><span class="problematic" id="id8">x0_</span></a></td>
+<td>initial underlying</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="dxupdatenocalcu">
+<span id="cid-xf-fintech-trinomialtree-dxupdatenocalcu"></span><span id="doxid-classxf-1-1fintech-1-1-trinomial-tree-1a8d6629de3ce521d88815dafb4b031dde"></span><h3>dxUpdateNoCalcu<a class="headerlink" href="#dxupdatenocalcu" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>Defined in &lt;xf_fintech/trinomial_tree.hpp&gt;<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">dxUpdateNoCalcu</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">t</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">dt</span>
+    <span class="p">)</span>
+</pre>
+<p>update parameters from array to calculate probability for timepoint=i</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>i</td>
+<td>timepoint counter</td>
+</tr>
+<tr class="row-even"><td>t</td>
+<td>time for timepoint=i</td>
+</tr>
+<tr class="row-odd"><td>dt</td>
+<td>the difference time between timepoint=i+1 and timepoint=i</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="dxupdate">
+<span id="cid-xf-fintech-trinomialtree-dxupdate"></span><span id="doxid-classxf-1-1fintech-1-1-trinomial-tree-1a1f87dfbedef25085a678fafddff0b8c6"></span><h3>dxUpdate<a class="headerlink" href="#dxupdate" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>Defined in &lt;xf_fintech/trinomial_tree.hpp&gt;<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">dxUpdate</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">t</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">dt</span>
+    <span class="p">)</span>
+</pre>
+<p>calculate to get parameters to calculate probability for timepoint=i</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>i</td>
+<td>timepoint counter</td>
+</tr>
+<tr class="row-even"><td>t</td>
+<td>time for timepoint=i</td>
+</tr>
+<tr class="row-odd"><td>dt</td>
+<td>the difference time between timepoint=i+1 and timepoint=i</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="calculateprobability">
+<span id="cid-xf-fintech-trinomialtree-calculateprobability"></span><span id="doxid-classxf-1-1fintech-1-1-trinomial-tree-1a2df0dac667c0a355215c10227fbf6112"></span><h3>calculateProbability<a class="headerlink" href="#calculateprobability" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h4>Defined in &lt;xf_fintech/trinomial_tree.hpp&gt;<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">int</span> <span class="n">calculateProbability</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">j</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">t</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">dt</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">probs</span>
+    <span class="p">)</span>
+</pre>
+<p>calculate probability and descendant index for timepoint=i and node=j</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>j</td>
+<td>node index</td>
+</tr>
+<tr class="row-even"><td>t</td>
+<td>time for timepoint=i</td>
+</tr>
+<tr class="row-odd"><td>dt</td>
+<td>the difference time between timepoint=i+1 and timepoint=i</td>
+</tr>
+<tr class="row-even"><td>probs</td>
+<td>return the calculated probability</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Returns:</p>
+<p>return the calculated descendant index</p>
+</div>
+</div>
+<div class="section" id="size">
+<span id="cid-xf-fintech-trinomialtree-size"></span><span id="doxid-classxf-1-1fintech-1-1-trinomial-tree-1a56c414ca7bc727486f6df6eecee873c5"></span><h3>size<a class="headerlink" href="#size" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h4>Defined in &lt;xf_fintech/trinomial_tree.hpp&gt;<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">int</span> <span class="n">size</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
+</pre>
+<p>Branch size per timepoints.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>i</td>
+<td>timepoint counter</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Returns:</p>
+<p>the branch size at timepoint is i</p>
+</div>
+</div>
+<div class="section" id="underlying">
+<span id="cid-xf-fintech-trinomialtree-underlying"></span><span id="doxid-classxf-1-1fintech-1-1-trinomial-tree-1aada78f6d370126c3bb7feb0f3d1524eb"></span><h3>underlying<a class="headerlink" href="#underlying" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h4>Defined in &lt;xf_fintech/trinomial_tree.hpp&gt;<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="n">DT</span> <span class="n">underlying</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">)</span>
+</pre>
+<p>underlying</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>index</td>
+<td>node index for branch</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Returns:</p>
+<p>underlying</p>
+</div>
+</div>
+<div class="section" id="getdx">
+<span id="cid-xf-fintech-trinomialtree-getdx"></span><span id="doxid-classxf-1-1fintech-1-1-trinomial-tree-1aaa6763d59aa80a3b0c1ef71b1aa66c48"></span><h3>getDx<a class="headerlink" href="#getdx" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h4>Defined in &lt;xf_fintech/trinomial_tree.hpp&gt;<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="n">DT</span> <span class="n">getDx</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
+</pre>
+<p>get dx</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>i</td>
+<td>timepoint counter</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Returns:</p>
+<p>dx at timepoint is i</p>
+</div>
+</div>
 </div>
 </div>
 

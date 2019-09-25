@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>template class xf::fintech::HestonModel &lt;ASSETS, DT, enums::kDTQuadraticExponentialMartingale&gt; &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>template class xf::fintech::HestonModel &lt;ASSETS, DT, enums::kDTQuadraticExponentialMartingale&gt; &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -49,7 +49,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -92,7 +92,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -114,7 +114,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF FinTech Library</a>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -220,7 +220,7 @@
     <span class="n">DT</span><span class="o">*</span> <span class="n">rho</span>
     <span class="p">)</span>
 </pre>
-<p>initParam</p>
+<p>initParam Init Model Parameters.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -229,31 +229,31 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>asset_nm</td>
-<td>&#160;</td>
+<td>Number of asset, should be no more than ASSETS</td>
 </tr>
 <tr class="row-even"><td>timeLength</td>
-<td>&#160;</td>
+<td>Length of time of contract</td>
 </tr>
 <tr class="row-odd"><td>timeSteps</td>
-<td>&#160;</td>
+<td>Number of timesteps in timeLength</td>
 </tr>
 <tr class="row-even"><td>riskFreeRate_input</td>
-<td>&#160;</td>
+<td>Risk Free rate</td>
 </tr>
 <tr class="row-odd"><td>dividendYield</td>
-<td>&#160;</td>
+<td>Dividend Yield</td>
 </tr>
 <tr class="row-even"><td>kappa</td>
-<td>&#160;</td>
+<td>Kappa of Heston Model</td>
 </tr>
 <tr class="row-odd"><td>theta</td>
-<td>&#160;</td>
+<td>Theta of Heston Model</td>
 </tr>
 <tr class="row-even"><td>sigma</td>
-<td>&#160;</td>
+<td>Sigma of Heston Model</td>
 </tr>
 <tr class="row-odd"><td>rho</td>
-<td>&#160;</td>
+<td>Rho of Heston Model</td>
 </tr>
 </tbody>
 </table>
@@ -274,7 +274,7 @@
     <span class="n">DT</span> <span class="n">z1</span>
     <span class="p">)</span>
 </pre>
-<p>logEvolve</p>
+<p>logEvolve Log Evolve of Heston Model</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -283,25 +283,25 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>asset_itr</td>
-<td>&#160;</td>
+<td>Which asset to evolve.</td>
 </tr>
 <tr class="row-even"><td>s</td>
-<td>&#160;</td>
+<td>Current s(log price).</td>
 </tr>
 <tr class="row-odd"><td>v</td>
-<td>&#160;</td>
+<td>Current v(volatility).</td>
 </tr>
 <tr class="row-even"><td>s_next</td>
-<td>&#160;</td>
+<td>Next s(log price).</td>
 </tr>
 <tr class="row-odd"><td>v_next</td>
-<td>&#160;</td>
+<td>Next v(volatilty).</td>
 </tr>
 <tr class="row-even"><td>z0</td>
-<td>&#160;</td>
+<td>Random number input for s.</td>
 </tr>
 <tr class="row-odd"><td>z1</td>
-<td>&#160;</td>
+<td>Random number input for v.</td>
 </tr>
 </tbody>
 </table>

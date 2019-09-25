@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>class xf::fintech::m76 &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>class xf::fintech::m76 &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -49,7 +49,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -92,7 +92,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -114,7 +114,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF FinTech Library</a>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -171,18 +171,57 @@
 <pre class="highlight overview-code-block literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&lt;xf_fintech_m76.hpp&gt;</span>
 </pre>
-<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-m76-run">
-<span id="doxid-classxf-1-1fintech-1-1m76-1a2b8c8fe395a45372f195c97cc22df056"></span><span></span><span class="k">class</span> <span class="nl">m76</span><span class="p">:</span> <span class="k">public</span> <a class="reference internal" href="class_xf_fintech_OCLController.html#doxid-classxf-1-1fintech-1-1-o-c-l-controller"><span class="std std-ref">xf::fintech::OCLController</span></a><span></span>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This class implements the Merton 76 Jump Diffusion Model. <span class="xref std std-ref">More…</span></p>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="k">class</span> <span class="nl">m76</span><span class="p">:</span> <span class="k">public</span> <a class="reference internal" href="class_xf_fintech_OCLController.html#doxid-classxf-1-1fintech-1-1-o-c-l-controller"><span class="std std-ref">xf::fintech::OCLController</span></a><span></span>
 
 <span class="c1">// structs</span>
 
 <span class="k">struct</span> <a class="reference internal" href="struct_xf_fintech_m76_m76_input_data.html#doxid-structxf-1-1fintech-1-1m76-1-1m76-input-data"><span class="std std-ref">m76_input_data</span></a>
 </pre>
 <div class="section" id="inherited-members">
-<h2>Inherited Members<a class="headerlink" href="#inherited-members" title="Permalink to this headline">¶</a></h2>
+<h3>Inherited Members<a class="headerlink" href="#inherited-members" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight overview-inherited-code-block literal-block">
 
 </pre>
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="run">
+<span id="cid-xf-fintech-m76-run"></span><span id="doxid-classxf-1-1fintech-1-1m76-1a2b8c8fe395a45372f195c97cc22df056"></span><h3>run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="defined-in-models-xf-fintech-m76-hpp">
+<h4>Defined in &lt;models/xf_fintech_m76.hpp&gt;<a class="headerlink" href="#defined-in-models-xf-fintech-m76-hpp" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">int</span> <span class="n">run</span> <span class="p">(</span>
+    <span class="k">struct</span> <a class="reference internal" href="struct_xf_fintech_m76_m76_input_data.html#doxid-structxf-1-1fintech-1-1m76-1-1m76-input-data"><span class="std std-ref">m76_input_data</span></a><span></span><span class="o">*</span> <span class="n">inputData</span><span class="p">,</span>
+    <span class="kt">float</span><span class="o">*</span> <span class="n">outputData</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">numOptions</span>
+    <span class="p">)</span>
+</pre>
+<p>Calculate one or more options based on input data and option type</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>inputData</td>
+<td>structure to be populated with the asset data</td>
+</tr>
+<tr class="row-even"><td>outputData</td>
+<td>one or more calculated option values returned</td>
+</tr>
+<tr class="row-odd"><td>numOptions</td>
+<td>number of options to be calculated</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 

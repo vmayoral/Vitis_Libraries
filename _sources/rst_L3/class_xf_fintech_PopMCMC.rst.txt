@@ -14,12 +14,11 @@ class xf::fintech::PopMCMC
 	#include <xf_fintech_pop_mcmc.hpp>
 
 
+Overview
+~~~~~~~~
 
+This class implements the Monte Carlo Markov Chain Model. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_pop_m_c_m_c>`
 
-.. _doxid-classxf_1_1fintech_1_1_pop_m_c_m_c_1a1a57e4ef034f0ab18b7d618ecb0ba999:
-.. _cid-xf::fintech::popmcmc::run:
-.. _doxid-classxf_1_1fintech_1_1_pop_m_c_m_c_1a12e350493c7644e8c566de0483720fbf:
-.. _cid-xf::fintech::popmcmc::getlastruntime:
 .. ref-code-block:: cpp
 	:class: overview-code-block
 
@@ -30,4 +29,78 @@ Inherited Members
 
 .. ref-code-block:: cpp
 	:class: overview-inherited-code-block
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1fintech_1_1_pop_m_c_m_c_1a1a57e4ef034f0ab18b7d618ecb0ba999:
+.. _cid-xf::fintech::popmcmc::run:
+
+run
+---
+
+
+Defined in <models/xf_fintech_pop_mcmc.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int run (
+	    int numSamples,
+	    int numBurnInSamples,
+	    double sigma,
+	    double* outputData
+	    )
+
+Generate a number of samples.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - numSamples
+
+        - the number of samples to generate.
+
+    *
+        - numBurnInSamples
+
+        - the number samples to discard at the start.
+
+    *
+        - sigma
+
+        - the sigma value.
+
+    *
+        - outputData
+
+        - the generated data.
+
+.. _doxid-classxf_1_1fintech_1_1_pop_m_c_m_c_1a12e350493c7644e8c566de0483720fbf:
+.. _cid-xf::fintech::popmcmc::getlastruntime:
+
+getLastRunTime
+--------------
+
+
+Defined in <models/xf_fintech_pop_mcmc.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	long long int getLastRunTime (void)
+
+This method returns the time the execution of the last call to :ref:`run() <doxid-classxf_1_1fintech_1_1_pop_m_c_m_c_1a1a57e4ef034f0ab18b7d618ecb0ba999>` took.
 

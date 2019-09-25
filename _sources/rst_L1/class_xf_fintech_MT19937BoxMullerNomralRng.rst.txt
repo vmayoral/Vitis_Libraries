@@ -17,7 +17,7 @@ class xf::fintech::MT19937BoxMullerNomralRng
 Overview
 ~~~~~~~~
 
-Normal distributed random number generator based on Box-Muller Transformation, output datatype is float. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_nomral_rng>`
+Normally distributed random number generator based on Box-Muller Transformation, output datatype is float. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_nomral_rng>`
 
 .. _doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_nomral_rng_1a09804d8223691b5238ba9aa663c4bee8:
 .. _cid-xf::fintech::mt19937boxmullernomralrng::uniformrng:
@@ -66,7 +66,7 @@ Construction
 
 	MT19937BoxMullerNomralRng (ap_uint <32> seed)
 
-using seed to initialize
+Constructor with seed.
 
 
 
@@ -102,7 +102,7 @@ Defined in <xf_fintech/rng.hpp>
 
 	void seedInitialization (ap_uint <32> seed)
 
-using seed to initialize
+Initialization using seed.
 
 
 
@@ -132,7 +132,7 @@ Defined in <xf_fintech/rng.hpp>
 
 	void statusSetup (ap_uint <32> data [624])
 
-statusSetup
+Setup status.
 
 
 
@@ -144,7 +144,7 @@ statusSetup
     *
         - data
 
-        -
+        - initialization data for setting up status
 
 .. _doxid-classxf_1_1fintech_1_1_m_t19937_box_muller_nomral_rng_1a5512bc1e917b9b2ede38e313a76d0939:
 .. _cid-xf::fintech::mt19937boxmullernomralrng::next:
@@ -162,11 +162,11 @@ Defined in <xf_fintech/rng.hpp>
 
 	float next ()
 
-next
+Get next normally distributed random number.
 
 
 
 .. rubric:: Returns:
 
-normal distributed random number
+a normally distributed random number
 

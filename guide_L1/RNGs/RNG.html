@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Random Number Generator &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Random Number Generator &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../L1.html">L1 Module User Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../L1.html#core-utility">Core Utility</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Random Number Generator</a><ul>
@@ -108,6 +108,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../Pentadiag/Pentadiag.html">Pentadiagonal Matrix Solver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../SobolRsg/sobolrsg.html">Sobol Sequence Generator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../brownian/bb.html">Brownian Bridge Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StochasticProcess/stochastic_process1d.html">StochasticProcess1D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StochasticProcess/ornsteinuhlenbeck_process.html">OrnsteinUhlenbeckProcess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fdmmesher/fdmmesher.html">Meshers</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../L1.html#l1-module-apis">L1 Module APIs</a></li>
@@ -133,7 +136,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF FinTech Library</a>
+          <a href="../../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -189,7 +192,7 @@
 <h1>Random Number Generator<a class="headerlink" href="#random-number-generator" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>Random Number Generator (RNG) is one of the core utilities needed by Monte Carlo Simulation.
+<p><cite>Random Number Generator</cite> (RNG) is one of the core utilities needed by Monte Carlo Simulation.
 We provide RNGs that generate uniform distribution and normal distribution. The detailed supported RNGs are listed below.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -218,16 +221,6 @@ We provide RNGs that generate uniform distribution and normal distribution. The 
 </tr>
 <tr class="row-even"><td>MT19937IcnRng</td>
 <td>Normal Distribution N(0,1)</td>
-<td>float, double</td>
-<td>Inverse CDF Transformation</td>
-</tr>
-<tr class="row-odd"><td>MT19937IcnRng</td>
-<td>Normal Distribution N(0,1)</td>
-<td>float, double</td>
-<td>Inverse CDF Transformation</td>
-</tr>
-<tr class="row-even"><td>MT2203IcnRng</td>
-<td>Normal Disrtibution N(0,1)</td>
 <td>float, double</td>
 <td>Inverse CDF Transformation</td>
 </tr>

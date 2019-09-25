@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>class xf::fintech::MT19937 &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>class xf::fintech::MT19937 &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -49,7 +49,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -92,7 +92,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -114,7 +114,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF FinTech Library</a>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -185,7 +185,7 @@
 <pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt19937-mt19937-2">
 <span id="doxid-classxf-1-1fintech-1-1-m-t19937-1ae2be47f13d1beb29fa74f717847e5c86"></span><span></span><span class="n">MT19937</span> <span class="p">(</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">W</span><span class="o">&gt;</span> <span class="n">seed</span><span class="p">)</span>
 </pre>
-<p><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t19937"><span class="std std-ref">MT19937</span></a> .</p>
+<p>Constructor with seed.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -209,7 +209,7 @@
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">void</span> <span class="n">seedInitialization</span> <span class="p">(</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">W</span><span class="o">&gt;</span> <span class="n">seed</span><span class="p">)</span>
 </pre>
-<p>using seed to initialize mt and mt_1</p>
+<p>initialize mt and mt_1 using seed</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -231,7 +231,7 @@
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">void</span> <span class="n">statusSetup</span> <span class="p">(</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">W</span><span class="o">&gt;</span> <span class="n">data</span> <span class="p">[</span><span class="n">N</span><span class="p">])</span>
 </pre>
-<p>statusSetup</p>
+<p>Setup status.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -253,9 +253,9 @@
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="n">ap_ufixed</span> <span class="o">&lt;</span><span class="n">W</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="n">next</span> <span class="p">()</span>
 </pre>
-<p>each call of <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t19937-1ad963b01371118570cdc779a7ee846296"><span class="std std-ref">next()</span></a> generate a uniformed distributed random number</p>
+<p>each call of <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t19937-1ad963b01371118570cdc779a7ee846296"><span class="std std-ref">next()</span></a> generate a uniformly distributed random number</p>
 <p class="rubric">Returns:</p>
-<p>a uniformed distributed random number</p>
+<p>a uniformly distributed random number</p>
 </div>
 </div>
 <div class="section" id="nexttwo">
@@ -268,7 +268,7 @@
     <span class="n">ap_ufixed</span> <span class="o">&lt;</span><span class="n">W</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&amp;</span> <span class="n">result_r</span>
     <span class="p">)</span>
 </pre>
-<p>each call of <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t19937-1ab6919d724b6c021d32ad50cd3a717595"><span class="std std-ref">nextTwo()</span></a> generate two uniformed distributed random number</p>
+<p>each call of <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t19937-1ab6919d724b6c021d32ad50cd3a717595"><span class="std std-ref">nextTwo()</span></a> generate two uniformly distributed random numbers</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>

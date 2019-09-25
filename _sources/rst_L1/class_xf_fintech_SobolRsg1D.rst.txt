@@ -17,7 +17,7 @@ class xf::fintech::SobolRsg1D
 Overview
 ~~~~~~~~
 
-
+One dimensional sobol sequence generator. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_sobol_rsg1_d>`
 
 .. ref-code-block:: cpp
 	:class: overview-code-block

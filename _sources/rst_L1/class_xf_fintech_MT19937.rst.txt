@@ -39,7 +39,7 @@ Construction
 
 	MT19937 (ap_uint <W> seed)
 
-:ref:`MT19937 <doxid-classxf_1_1fintech_1_1_m_t19937>` .
+Constructor with seed.
 
 
 
@@ -75,7 +75,7 @@ Defined in <xf_fintech/rng.hpp>
 
 	void seedInitialization (ap_uint <W> seed)
 
-using seed to initialize mt and mt_1
+initialize mt and mt_1 using seed
 
 
 
@@ -105,7 +105,7 @@ Defined in <xf_fintech/rng.hpp>
 
 	void statusSetup (ap_uint <W> data [N])
 
-statusSetup
+Setup status.
 
 
 
@@ -135,13 +135,13 @@ Defined in <xf_fintech/rng.hpp>
 
 	ap_ufixed <W, 0> next ()
 
-each call of :ref:`next() <doxid-classxf_1_1fintech_1_1_m_t19937_1ad963b01371118570cdc779a7ee846296>` generate a uniformed distributed random number
+each call of :ref:`next() <doxid-classxf_1_1fintech_1_1_m_t19937_1ad963b01371118570cdc779a7ee846296>` generate a uniformly distributed random number
 
 
 
 .. rubric:: Returns:
 
-a uniformed distributed random number
+a uniformly distributed random number
 
 .. _doxid-classxf_1_1fintech_1_1_m_t19937_1ab6919d724b6c021d32ad50cd3a717595:
 .. _cid-xf::fintech::mt19937::nexttwo:
@@ -162,7 +162,7 @@ Defined in <xf_fintech/rng.hpp>
 	    ap_ufixed <W, 0>& result_r
 	    )
 
-each call of :ref:`nextTwo() <doxid-classxf_1_1fintech_1_1_m_t19937_1ab6919d724b6c021d32ad50cd3a717595>` generate two uniformed distributed random number
+each call of :ref:`nextTwo() <doxid-classxf_1_1fintech_1_1_m_t19937_1ab6919d724b6c021d32ad50cd3a717595>` generate two uniformly distributed random numbers
 
 
 

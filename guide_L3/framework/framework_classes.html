@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Framework Classes &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Framework Classes &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -32,7 +32,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Quality and Performance" href="../../benchmark/benchmark.html" />
-    <link rel="prev" title="Monte-Carlo European Dow Jones Engine (DJE)" href="../models/MCEuropeanDJE/mceuropeandje.html" /> 
+    <link rel="prev" title="PopMCMC Options" href="../models/PopMCMC/popmcmc.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../L3.html">L3 Overlay User Guide</a><ul class="current">
@@ -114,8 +114,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#class-xf-fintech-trace">class xf::fintech::Trace</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id8">Overview</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id9">Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Methods</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#enum-xf-fintech-device-devicetype">enum xf::fintech::Device::DeviceType</a></li>
@@ -142,7 +142,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF FinTech Library</a>
+          <a href="../../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -274,8 +274,8 @@
 <div class="section" id="id3">
 <h3>Overview<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>A class representing an individual accelerator card. <span class="xref std std-ref">More…</span></p>
-<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-device-release">
-<span id="doxid-classxf-1-1fintech-1-1-device-1adcb1fcc4e8b96e5ed163704ac61ec9b2"></span><span id="cid-xf-fintech-device-claim"></span><span id="doxid-classxf-1-1fintech-1-1-device-1aea72fea4671c31c0cbda33141e7451ac"></span><span id="cid-xf-fintech-device-device-2"></span><span id="doxid-classxf-1-1fintech-1-1-device-1a20a8f9a11fbc37190e8ac266adf50112"></span><span id="cid-xf-fintech-device-device"></span><span id="doxid-classxf-1-1fintech-1-1-device-1a650552afc62642352ed4b32bc8829621"></span><span></span><span class="c1">// enums</span>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-device-device-2">
+<span id="doxid-classxf-1-1fintech-1-1-device-1a20a8f9a11fbc37190e8ac266adf50112"></span><span id="cid-xf-fintech-device-device"></span><span id="doxid-classxf-1-1fintech-1-1-device-1a650552afc62642352ed4b32bc8829621"></span><span></span><span class="c1">// enums</span>
 
 <span class="k">enum</span> <a class="reference internal" href="../../rst_L3/enum_xf_fintech_Device_DeviceType.html#doxid-classxf-1-1fintech-1-1-device-1a0cd9c9631b3d22b05c26cc26284b8485"><span class="std std-ref">DeviceType</span></a><span></span>
 
@@ -327,6 +327,26 @@
 <p>Converts a string representation of the device type</p>
 </div>
 </div>
+<div class="section" id="claim">
+<span id="cid-xf-fintech-device-claim"></span><span id="doxid-classxf-1-1fintech-1-1-device-1aea72fea4671c31c0cbda33141e7451ac"></span><h4>claim<a class="headerlink" href="#claim" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id8">
+<h5>Defined in &lt;xf_fintech_device.hpp&gt;<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h5>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">int</span> <span class="n">claim</span> <span class="p">(</span><a class="reference internal" href="../../rst_L3/class_xf_fintech_OCLController.html#doxid-classxf-1-1fintech-1-1-o-c-l-controller"><span class="std std-ref">OCLController</span></a><span></span><span class="o">*</span> <span class="n">owner</span><span class="p">)</span>
+</pre>
+<p>Claim the device</p>
+</div>
+</div>
+<div class="section" id="release">
+<span id="cid-xf-fintech-device-release"></span><span id="doxid-classxf-1-1fintech-1-1-device-1adcb1fcc4e8b96e5ed163704ac61ec9b2"></span><h4>release<a class="headerlink" href="#release" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id9">
+<h5>Defined in &lt;xf_fintech_device.hpp&gt;<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h5>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">int</span> <span class="n">release</span> <span class="p">(</span><a class="reference internal" href="../../rst_L3/class_xf_fintech_OCLController.html#doxid-classxf-1-1fintech-1-1-o-c-l-controller"><span class="std std-ref">OCLController</span></a><span></span><span class="o">*</span> <span class="n">owner</span><span class="p">)</span>
+</pre>
+<p>Release the device</p>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="class-xf-fintech-trace">
@@ -336,15 +356,15 @@
 <pre class="highlight overview-code-block literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&lt;xf_fintech_trace.hpp&gt;</span>
 </pre>
-<div class="section" id="id8">
-<h3>Overview<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3>Overview<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <p>Used to control debug trace output. <span class="xref std std-ref">More…</span></p>
 <pre class="highlight overview-code-block literal-block">
 
 </pre>
 </div>
-<div class="section" id="id9">
-<h3>Methods<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>Methods<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="setenabled">
 <span id="cid-xf-fintech-trace-setenabled"></span><span id="doxid-classxf-1-1fintech-1-1-trace-1ac24d3cf0e35dca8097e487adee0819d4"></span><h4>setEnabled<a class="headerlink" href="#setenabled" title="Permalink to this headline">¶</a></h4>
 <div class="section" id="defined-in-xf-fintech-trace-hpp">
@@ -369,8 +389,8 @@
 </div>
 <div class="section" id="getenabled">
 <span id="cid-xf-fintech-trace-getenabled"></span><span id="doxid-classxf-1-1fintech-1-1-trace-1a5c2d818d01ce1ce68ec01604ba259a4e"></span><h4>getEnabled<a class="headerlink" href="#getenabled" title="Permalink to this headline">¶</a></h4>
-<div class="section" id="id10">
-<h5>Defined in &lt;xf_fintech_trace.hpp&gt;<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="id12">
+<h5>Defined in &lt;xf_fintech_trace.hpp&gt;<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h5>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">static</span> <span class="kt">bool</span> <span class="n">getEnabled</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 </pre>
@@ -380,8 +400,8 @@
 </div>
 <div class="section" id="printinfo">
 <span id="cid-xf-fintech-trace-printinfo"></span><span id="doxid-classxf-1-1fintech-1-1-trace-1a3cf3eed8a7c75756e5721ab8d87045d1"></span><h4>printInfo<a class="headerlink" href="#printinfo" title="Permalink to this headline">¶</a></h4>
-<div class="section" id="id11">
-<h5>Defined in &lt;xf_fintech_trace.hpp&gt;<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="id13">
+<h5>Defined in &lt;xf_fintech_trace.hpp&gt;<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h5>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">static</span> <span class="kt">int</span> <span class="n">printInfo</span> <span class="p">(</span>
     <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">fmt</span><span class="p">,</span>
@@ -393,8 +413,8 @@
 </div>
 <div class="section" id="printerror">
 <span id="cid-xf-fintech-trace-printerror"></span><span id="doxid-classxf-1-1fintech-1-1-trace-1afedaac2ede064e1c14c34cd832aac895"></span><h4>printError<a class="headerlink" href="#printerror" title="Permalink to this headline">¶</a></h4>
-<div class="section" id="id12">
-<h5>Defined in &lt;xf_fintech_trace.hpp&gt;<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="id14">
+<h5>Defined in &lt;xf_fintech_trace.hpp&gt;<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h5>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">static</span> <span class="kt">int</span> <span class="n">printError</span> <span class="p">(</span>
     <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">fmt</span><span class="p">,</span>
@@ -406,8 +426,8 @@
 </div>
 <div class="section" id="printclerror">
 <span id="cid-xf-fintech-trace-printclerror"></span><span id="doxid-classxf-1-1fintech-1-1-trace-1a3599f2e4edaf33e294f84614df778a46"></span><h4>printCLError<a class="headerlink" href="#printclerror" title="Permalink to this headline">¶</a></h4>
-<div class="section" id="id13">
-<h5>Defined in &lt;xf_fintech_trace.hpp&gt;<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="id15">
+<h5>Defined in &lt;xf_fintech_trace.hpp&gt;<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h5>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">printCLError</span> <span class="p">(</span><span class="n">cl_int</span> <span class="n">cl_error_code</span><span class="p">)</span>
 </pre>
@@ -416,8 +436,8 @@
 </div>
 <div class="section" id="optiontypetostring">
 <span id="cid-xf-fintech-trace-optiontypetostring"></span><span id="doxid-classxf-1-1fintech-1-1-trace-1a16db9865babb376a7bf96e480b878dd2"></span><h4>optionTypeToString<a class="headerlink" href="#optiontypetostring" title="Permalink to this headline">¶</a></h4>
-<div class="section" id="id14">
-<h5>Defined in &lt;xf_fintech_trace.hpp&gt;<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="id16">
+<h5>Defined in &lt;xf_fintech_trace.hpp&gt;<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h5>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">static</span> <span class="kt">char</span><span class="o">*</span> <span class="n">optionTypeToString</span> <span class="p">(</span><a class="reference internal" href="../../rst_L3/enum_xf_fintech_OptionType.html#doxid-namespacexf-1-1fintech-1a0186ca825e97c1d630a3faa85a70ccb7"><span class="std std-ref">OptionType</span></a><span></span> <span class="n">optionType</span><span class="p">)</span>
 </pre>
@@ -426,8 +446,8 @@
 </div>
 <div class="section" id="setconsoleoutputstream">
 <span id="cid-xf-fintech-trace-setconsoleoutputstream"></span><span id="doxid-classxf-1-1fintech-1-1-trace-1a30b938a397943f5df8f297c4ab559f02"></span><h4>setConsoleOutputStream<a class="headerlink" href="#setconsoleoutputstream" title="Permalink to this headline">¶</a></h4>
-<div class="section" id="id15">
-<h5>Defined in &lt;xf_fintech_trace.hpp&gt;<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="id17">
+<h5>Defined in &lt;xf_fintech_trace.hpp&gt;<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h5>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">setConsoleOutputStream</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">outputStream</span><span class="p">)</span>
 </pre>
@@ -436,8 +456,8 @@
 </div>
 <div class="section" id="setfileoutputstream">
 <span id="cid-xf-fintech-trace-setfileoutputstream"></span><span id="doxid-classxf-1-1fintech-1-1-trace-1a8af5cc394a2db1bff784b7d8b0544283"></span><h4>setFileOutputStream<a class="headerlink" href="#setfileoutputstream" title="Permalink to this headline">¶</a></h4>
-<div class="section" id="id16">
-<h5>Defined in &lt;xf_fintech_trace.hpp&gt;<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="id18">
+<h5>Defined in &lt;xf_fintech_trace.hpp&gt;<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h5>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">setFileOutputStream</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="o">&amp;</span> <span class="n">outputStream</span><span class="p">)</span>
 </pre>
@@ -482,7 +502,7 @@
         <a href="../../benchmark/benchmark.html" class="btn btn-neutral float-right" title="Quality and Performance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../models/MCEuropeanDJE/mceuropeandje.html" class="btn btn-neutral" title="Monte-Carlo European Dow Jones Engine (DJE)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../models/PopMCMC/popmcmc.html" class="btn btn-neutral" title="PopMCMC Options" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

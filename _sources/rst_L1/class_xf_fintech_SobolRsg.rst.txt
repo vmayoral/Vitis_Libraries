@@ -17,7 +17,7 @@ template class xf::fintech::SobolRsg
 Overview
 ~~~~~~~~
 
-:ref:`SobolRsg <doxid-classxf_1_1fintech_1_1_sobol_rsg>` is a multi-dimensions sobol sequence generator. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_sobol_rsg>`
+:ref:`SobolRsg <doxid-classxf_1_1fintech_1_1_sobol_rsg>` is a multi-dimensional sobol sequence generator. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_sobol_rsg>`
 
 .. ref-code-block:: cpp
 	:class: overview-code-block
@@ -65,7 +65,7 @@ Defined in <xf_fintech/sobol_rsg.hpp>
 
 	void next (ap_ufixed <W, 0> seqOut [DIM])
 
-each call of :ref:`next() <doxid-classxf_1_1fintech_1_1_sobol_rsg_1a9160db7fb04d7e68a9ca06f5d7d49e96>` generate list of sobol sequences
+each call of :ref:`next() <doxid-classxf_1_1fintech_1_1_sobol_rsg_1a9160db7fb04d7e68a9ca06f5d7d49e96>` generates sobol sequence numbers in DIM dimensions, one number per dimension
 
 
 
@@ -77,5 +77,5 @@ each call of :ref:`next() <doxid-classxf_1_1fintech_1_1_sobol_rsg_1a9160db7fb04d
     *
         - seqOut
 
-        - sobol results of DIM
+        - sobol results in DIM dimensions
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>template class xf::fintech::MT19937IcnRng &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>template class xf::fintech::MT19937IcnRng &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -49,7 +49,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -92,7 +92,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -114,7 +114,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF FinTech Library</a>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -173,22 +173,26 @@
 </pre>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>Normal distributed random number generator based on InvserCumulative function. <span class="xref std std-ref">More…</span></p>
-<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-mt19937icnrng-mt19937icnrng">
-<span id="doxid-classxf-1-1fintech-1-1-m-t19937-icn-rng-1a7c9a873bd801169472b3a1626b3a904b"></span><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">mType</span><span class="o">&gt;</span>
+<p>Normally distributed random number generator based on InvserCumulative function. <span class="xref std std-ref">More…</span></p>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">mType</span><span class="o">&gt;</span>
 <span class="k">class</span> <span class="n">MT19937IcnRng</span>
 
 <span class="c1">// construction</span>
 
-<span class="n">MT19937IcnRng</span> <span class="p">()</span>
+<a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t19937-icn-rng-1a7c9a873bd801169472b3a1626b3a904b"><span class="std std-ref">MT19937IcnRng</span></a><span></span> <span class="p">()</span>
 <a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t19937-icn-rng-1a5c464882e75dd6e1512ba5a3d5b3b133"><span class="std std-ref">MT19937IcnRng</span></a><span></span> <span class="p">(</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span> <span class="n">seed</span><span class="p">)</span>
 </pre>
 <div class="section" id="construction">
 <h3>Construction<a class="headerlink" href="#construction" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt19937icnrng-mt19937icnrng">
+<span id="doxid-classxf-1-1fintech-1-1-m-t19937-icn-rng-1a7c9a873bd801169472b3a1626b3a904b"></span><span></span><span class="n">MT19937IcnRng</span> <span class="p">()</span>
+</pre>
+<p>Default constructor.</p>
 <pre class="highlight title-code-block literal-block" id="cid-xf-fintech-mt19937icnrng-mt19937icnrng-2">
 <span id="doxid-classxf-1-1fintech-1-1-m-t19937-icn-rng-1a5c464882e75dd6e1512ba5a3d5b3b133"></span><span></span><span class="n">MT19937IcnRng</span> <span class="p">(</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span> <span class="n">seed</span><span class="p">)</span>
 </pre>
-<p><a class="reference internal" href="#doxid-classxf-1-1fintech-1-1-m-t19937-icn-rng"><span class="std std-ref">MT19937IcnRng</span></a> .</p>
+<p>Constructor with seed.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -197,7 +201,7 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>seed</td>
-<td>&#160;</td>
+<td>initialization seed</td>
 </tr>
 </tbody>
 </table>
@@ -212,7 +216,7 @@
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">void</span> <span class="n">seedInitialization</span> <span class="p">(</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span> <span class="n">seed</span><span class="p">)</span>
 </pre>
-<p>using seed to initialize</p>
+<p>Initialization using seed.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -234,7 +238,7 @@
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">void</span> <span class="n">statusSetup</span> <span class="p">(</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span> <span class="n">data</span> <span class="p">[</span><span class="mi">624</span><span class="p">])</span>
 </pre>
-<p>statusSetup</p>
+<p>Setup status.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -243,7 +247,7 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>data</td>
-<td>&#160;</td>
+<td>initialization data for setting up status</td>
 </tr>
 </tbody>
 </table>
@@ -256,16 +260,16 @@
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="n">mType</span> <span class="n">next</span> <span class="p">()</span>
 </pre>
-<p>next return normal distributed random number</p>
+<p>Get next normally distributed random number.</p>
 <p class="rubric">Returns:</p>
-<p>normal distributed random number</p>
+<p>a normally distributed random number</p>
 </div>
 <div class="section" id="cid-xf-fintech-mt19937icnrng-next-2">
 <span id="doxid-classxf-1-1fintech-1-1-m-t19937-icn-rng-1a835a3b6f8a379e701eaa2bdc1505958f"></span><span id="id3"></span><h4>Defined in &lt;xf_fintech/rng.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-mt19937icnrng-next-2" title="Permalink to this headline">¶</a></h4>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">void</span> <span class="n">next</span> <span class="p">(</span><span class="n">mType</span><span class="o">&amp;</span> <span class="n">uniformR</span><span class="p">)</span>
 </pre>
-<p>next return uniform distributed random number</p>
+<p>Get next uniformly distributed random number.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -274,7 +278,7 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>uniformR</td>
-<td>return uniform distributed random number</td>
+<td>return uniformly distributed random number</td>
 </tr>
 </tbody>
 </table>
@@ -287,7 +291,7 @@
     <span class="n">mType</span><span class="o">&amp;</span> <span class="n">gaussianR</span>
     <span class="p">)</span>
 </pre>
-<p>next return normal distributed random number and its corresponding uniform distributed random number</p>
+<p>Get next normally distributed random number and its corresponding uniformly distributed random number.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -296,10 +300,10 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>gaussianR</td>
-<td>return normal distributed random number.</td>
+<td>return normally distributed random number</td>
 </tr>
 <tr class="row-even"><td>uniformR</td>
-<td>return uniform distributed random number that corrresponding to gaussianR</td>
+<td>return uniformly distributed random number that corrresponding to gaussianR</td>
 </tr>
 </tbody>
 </table>
@@ -315,7 +319,7 @@
     <span class="n">mType</span><span class="o">&amp;</span> <span class="n">gaussL</span>
     <span class="p">)</span>
 </pre>
-<p>next return next two normal distributed random number</p>
+<p>Get next two normally distributed random numbers.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -324,10 +328,10 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>gaussR</td>
-<td>return first normal distributed random number.</td>
+<td>return first normally distributed random number.</td>
 </tr>
 <tr class="row-even"><td>gaussL</td>
-<td>return second normal distributed random number.</td>
+<td>return second normally distributed random number.</td>
 </tr>
 </tbody>
 </table>

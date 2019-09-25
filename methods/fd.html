@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Finite Difference Methods &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Finite Difference Methods &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../models_and_methods.html">Pricing models and numerical methods</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../models_and_methods.html#models">Models</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../models_and_methods.html#numerical-methods">Numerical Methods</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="mc.html">Monte Carlo Simulation</a></li>
@@ -132,7 +132,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF FinTech Library</a>
+          <a href="../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -163,7 +163,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../models_and_methods.html">Pricing models and numerical methods</a> &raquo;</li>
+          <li><a href="../models_and_methods.html">Pricing Models and Numerical Methods</a> &raquo;</li>
         
       <li>Finite Difference Methods</li>
     
@@ -194,23 +194,14 @@
 <p>In the provided solver, the PDE is the Heston Pricing Model <a class="reference internal" href="../models/HT.html#heston1993" id="id1">[HESTON1993]</a>. Using the naming conventions of Hout &amp; Foulon <a class="reference internal" href="../models/HT.html#hout2010" id="id2">[HOUT2010]</a>, the PDE is given as:</p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial u}{\partial t} = \tfrac{1}{2}s^2v\frac{\partial^{2} u}{\partial s^2} + \rho\sigma sv\frac{\partial^{2} u}{\partial s\partial v} + \tfrac{1}{2}\sigma^2v\frac{\partial^{2} u}{\partial v^2} + (r_d - r_f)s\frac{\partial u}{\partial s} + \kappa(\eta - v)\frac{\partial u}{\partial v} - r_d u\]</div>
-<p>where:</p>
-<dl class="docutils">
-<dt><span class="math notranslate nohighlight">\(u\)</span></dt>
-<dd>the price of the European option;</dd>
-<dt><span class="math notranslate nohighlight">\(s\)</span></dt>
-<dd>the underlying price of the asset;</dd>
-<dt><span class="math notranslate nohighlight">\(v\)</span></dt>
-<dd>the volatility of the underlying price;</dd>
-<dt><span class="math notranslate nohighlight">\(\sigma\)</span></dt>
-<dd>the volatility of the volatility;</dd>
-<dt><span class="math notranslate nohighlight">\(\rho\)</span></dt>
-<dd>the correlation of Weiner processes;</dd>
-<dt><span class="math notranslate nohighlight">\(\kappa\)</span></dt>
-<dd>the mean-reversion rate;</dd>
-<dt><span class="math notranslate nohighlight">\(\eta\)</span></dt>
-<dd>the long term mean.</dd>
-</dl>
+<p>Where:</p>
+<p><span class="math notranslate nohighlight">\(u\)</span> - the price of the European option;</p>
+<p><span class="math notranslate nohighlight">\(s\)</span> - the underlying price of the asset;</p>
+<p><span class="math notranslate nohighlight">\(v\)</span> - the volatility of the underlying price;</p>
+<p><span class="math notranslate nohighlight">\(\sigma\)</span> - the volatility of the volatility;</p>
+<p><span class="math notranslate nohighlight">\(\rho\)</span> - the correlation of Weiner processes;</p>
+<p><span class="math notranslate nohighlight">\(\kappa\)</span> - the mean-reversion rate;</p>
+<p><span class="math notranslate nohighlight">\(\eta\)</span> - the long term mean.</p>
 <p>The Heston PDE then describes the evolution of an option price over time (<span class="math notranslate nohighlight">\(t\)</span>) and a solution of this PDE results in the specific option price for an <span class="math notranslate nohighlight">\((s,v)\)</span> pair for a given maturity date <span class="math notranslate nohighlight">\(T\)</span>. The finite difference solver maps the <span class="math notranslate nohighlight">\((s,v)\)</span> pair onto a 2D discrete grid, and solves for option price <span class="math notranslate nohighlight">\(u(s,v)\)</span> after <span class="math notranslate nohighlight">\(N\)</span> time-steps.</p>
 </div>
 <div class="section" id="implementation">

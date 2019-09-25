@@ -168,8 +168,8 @@
 <span id="cid-xf-fintech"></span><span id="doxid-namespacexf-1-1fintech"></span><span id="index-0"></span><h1>namespace fintech<a class="headerlink" href="#namespace-fintech" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight overview-code-block literal-block" id="cid-xf-fintech-contexterrorcallback">
-<span id="doxid-namespacexf-1-1fintech-1a49c2c14b3710337e1ecf0965a3ba6279"></span><span></span><span class="c1">// namespaces</span>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="c1">// namespaces</span>
 
 <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_fintech_hestonfd.html#doxid-namespacexf-1-1fintech-1-1hestonfd"><span class="std std-ref">xf::fintech::hestonfd</span></a><span></span>
 
@@ -183,6 +183,7 @@
 <span class="k">class</span> <a class="reference internal" href="class_xf_fintech_CFBlackScholes.html#doxid-classxf-1-1fintech-1-1-c-f-black-scholes"><span class="std std-ref">CFBlackScholes</span></a><span></span>
 <span class="k">class</span> <a class="reference internal" href="class_xf_fintech_CFBlackScholesMerton.html#doxid-classxf-1-1fintech-1-1-c-f-black-scholes-merton"><span class="std std-ref">CFBlackScholesMerton</span></a><span></span>
 <span class="k">class</span> <a class="reference internal" href="class_xf_fintech_CFGarmanKohlhagen.html#doxid-classxf-1-1fintech-1-1-c-f-garman-kohlhagen"><span class="std std-ref">CFGarmanKohlhagen</span></a><span></span>
+<span class="k">class</span> <a class="reference internal" href="class_xf_fintech_CFQuanto.html#doxid-classxf-1-1fintech-1-1-c-f-quanto"><span class="std std-ref">CFQuanto</span></a><span></span>
 <span class="k">class</span> <a class="reference internal" href="class_xf_fintech_Device.html#doxid-classxf-1-1fintech-1-1-device"><span class="std std-ref">Device</span></a><span></span>
 <span class="k">class</span> <a class="reference internal" href="class_xf_fintech_DeviceManager.html#doxid-classxf-1-1fintech-1-1-device-manager"><span class="std std-ref">DeviceManager</span></a><span></span>
 <span class="k">class</span> <a class="reference internal" href="class_xf_fintech_FDHeston.html#doxid-classxf-1-1fintech-1-1-f-d-heston"><span class="std std-ref">FDHeston</span></a><span></span>
@@ -202,6 +203,21 @@
 <span class="k">class</span> <a class="reference internal" href="class_xf_fintech_hcf.html#doxid-classxf-1-1fintech-1-1hcf"><span class="std std-ref">hcf</span></a><span></span>
 <span class="k">class</span> <a class="reference internal" href="class_xf_fintech_m76.html#doxid-classxf-1-1fintech-1-1m76"><span class="std std-ref">m76</span></a>
 </pre>
+<div class="section" id="contexterrorcallback">
+<span id="cid-xf-fintech-contexterrorcallback"></span><span id="doxid-namespacexf-1-1fintech-1a49c2c14b3710337e1ecf0965a3ba6279"></span><h2>ContextErrorCallback<a class="headerlink" href="#contexterrorcallback" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="defined-in-xf-fintech-internal-hpp">
+<h3>Defined in &lt;xf_fintech_internal.hpp&gt;<a class="headerlink" href="#defined-in-xf-fintech-internal-hpp" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">ContextErrorCallback</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">errInfo</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">privateInfo</span><span class="p">,</span>
+    <span class="kt">size_t</span> <span class="n">cb</span><span class="p">,</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="n">userData</span>
+    <span class="p">)</span>
+</pre>
+<p>Display context error message to stdout</p>
+</div>
+</div>
 </div>
 
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Internal Design of Cliquet Option Pricing Engine &mdash; XF FinTech Library 1.0 pre-alpha documentation</title>
+  <title>Internal Design of Cliquet Option Pricing Engine &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> XF FinTech Library
+            <a href="../../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
           
 
           
@@ -94,7 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing models and numerical methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../L2.html">L2 Pricing Engine Kernel User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../overview.html">Pricing Engine Overview</a></li>
@@ -111,12 +111,16 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="MCAmericanEngine.html">Internal Design of American Option Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MCMultiAssetEuropeanHestonEngine.html">Internal Design of MCMultiAssetEuropeanHestonEngine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MCHullWhiteCapFloorEngine.html">Internal Design of MCHullWhiteCapFloorEngine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MCEuropeanHestonGreeksEngine.html">Internal Design of MCEuropeanHestonGreeksEngine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CFBlackScholesMerton.html">Internal Design of Closed Form Black-Scholes-Merton</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CFHeston.html">Internal Design of Closed Form Heston</a></li>
 <li class="toctree-l3"><a class="reference internal" href="M76.html">Internal Design of Closed Form Merton 76</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GarmanKohlhagen.html">Internal Design of Garman Kohlhagen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Quanto.html">Internal Design of Quanto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="BTCRR.html">Internal Design of Cox-Ross-Rubinstein Binomial Tree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="FDHullWhiteEngine.html">Internal Design of Finite-difference Hull-White Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FDHullWhiteEngine.html">Internal Design of Finite-Difference Hull-White Bermudan Swaption Pricing Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FDG2SwaptionEngine.html">Internal Design of Finite-Difference G2 Bermudan Swaption Pricing Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="TreeEngine.html">Internal Design of Tree Bermudan Swaption Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CPICapFloorEngine.html">Internal Design of CPI CapFloor Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InflationCapFloorEngine.html">Internal Design of Inflation CapFloor Engine</a></li>
@@ -125,6 +129,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../kernel_api.html">Pricing Engine Kernel APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kernel_benchmark.html">Pricing Engines Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../other_engines.html">Other Engine Kernel Design</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L3/L3.html">L3 Overlay User Guide</a></li>
@@ -146,7 +151,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF FinTech Library</a>
+          <a href="../../index.html">Vitis Quantitative Finance Library</a>
         
       </nav>
 
@@ -204,36 +209,40 @@
 <h1>Internal Design of Cliquet Option Pricing Engine<a class="headerlink" href="#internal-design-of-cliquet-option-pricing-engine" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>Using the Monte Carlo Simulation to estimate the value of Cliquet Option. Here, we assume the process of asset price applies to Black-Scholes process.</p>
+<p>This engine uses Monte Carlo Simulation to estimate the value of Cliquet Option. Here, we assume the process of asset pricing applies to Black-Scholes process.</p>
 <p>The Cliquet Option is an exotic option. It is constructed by a series of forward start options.
-The start dates, also called resets dates are pre-determined in the contract in advance. Generally,
+The start dates, also called resets dates, are pre-determined in the contract in advance. Generally,
 the reset dates are periodical, such as semiannual or  quarterly.</p>
 <p>At every reset date, the option calculates the relative performance between the old and new underlying price
 and pays that out as a profit.</p>
 <p>The payoff of the option at the maturity is the sum of the payout at every reset date.</p>
-<p>The option price calculated as:</p>
+<p>The option price is calculated as:</p>
 <div class="math notranslate nohighlight">
 \[ \begin{align}\begin{aligned}Option Price = \sum_{i=0}^N {\exp {(-r*t_i)} * R_i}\\R_i = payoff(\frac{S_i}{S_{i-1}})\end{aligned}\end{align} \]</div>
 <p>Where <span class="math notranslate nohighlight">\(N\)</span> is the number or reset dates and it is equal to timesteps. <span class="math notranslate nohighlight">\(r\)</span> is the risk-free interest rate.</p>
 </div>
 <div class="section" id="implementation">
 <h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
-<p>The path pricer for Cliquet option fetches the lognormal S and calculate the payoff at each reset dates.
+<p>The path pricer for Cliquet option fetches the lognormal <cite>S</cite> and calculate the payoff at each reset dates.
 Because the path generator generates the <span class="math notranslate nohighlight">\(logS\)</span> instead of <span class="math notranslate nohighlight">\(S\)</span>, the divider in path pricer could be optimized by subtraction.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Because the calendar date for each month is different, the time interval between each resets date is different. FPGA is not efficient to calculate
-the calendar dates, so the customer needs input them through the resetDate array.</p>
+the calendar dates, so the customer needs to input them through the resetDate array.</p>
 </div>
 <p>The detailed procedure of Monte Carlo Simulation is as follows:</p>
-<p>For <span class="math notranslate nohighlight">\(i\)</span> = 1 to samplesRequired</p>
-<p>For <span class="math notranslate nohighlight">\(j\)</span> = 1 to <span class="math notranslate nohighlight">\(N\)</span></p>
-<ol class="arabic simple">
+<ul class="simple">
+<li>For <span class="math notranslate nohighlight">\(i\)</span> = 1 to samplesRequired<ul>
+<li>For <span class="math notranslate nohighlight">\(j\)</span> = 1 to <span class="math notranslate nohighlight">\(N\)</span><ul>
 <li>generate a normal random number;</li>
 <li>simulate the log of asset price <span class="math notranslate nohighlight">\(\ln S^i_j\)</span>;</li>
 <li>calculate the payoff based on above formula and discount to time zero for option price.</li>
-</ol>
-<p>Sum together all the price for mean value.</p>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Then sum up all the prices for the mean value.</p>
 </div>
 </div>
 
