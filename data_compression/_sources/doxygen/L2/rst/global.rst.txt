@@ -675,7 +675,7 @@ LZ4 compression kernel takes the raw data as input and compresses the data in bl
 
         - input data size
 
-.. _doxid-lz4__compress__stream__kernel_8hpp_1a4f204b665d5848a33e09416c6d6f3c13:
+.. _doxid-lz4__compress__stream__kernel_8hpp_1a6d79149b75972c5baf6f229de87af8e3:
 .. _cid-xillz4compressstream:
 
 xilLz4CompressStream
@@ -692,9 +692,9 @@ xilLz4CompressStream
 	:class: title-code-block
 
 	void xilLz4CompressStream (
-	    hls::stream <xf::compression::pkt1b>& inAxiStream,
-	    hls::stream <xf::compression::pkt1b>& outAxiStream,
-	    hls::stream <xf::compression::pkt4b>& compressedSizeAxis,
+	    hls::stream <xf::compression::hStream8b_t>& inAxiStream,
+	    hls::stream <xf::compression::hStream8b_t>& outAxiStream,
+	    hls::stream <xf::compression::hStream32b_t>& compressedSizeAxis,
 	    uint32_t inputSize
 	    )
 
@@ -791,7 +791,7 @@ LZ4 decompression kernel takes compressed data as input and process in block bas
 
         - number of blocks
 
-.. _doxid-lz4__decompress__stream__kernel_8hpp_1a41099ca97bd6b6ee2e5d8efe8e7ec57d:
+.. _doxid-lz4__decompress__stream__kernel_8hpp_1ae7ce7f2a2c87341067f3931e8626c32a:
 .. _cid-xillz4decompressstream:
 
 xilLz4DecompressStream
@@ -808,8 +808,8 @@ xilLz4DecompressStream
 	:class: title-code-block
 
 	void xilLz4DecompressStream (
-	    hls::stream <xf::compression::pkt1b>& inAxiStream,
-	    hls::stream <xf::compression::pkt1b>& outAxiStream,
+	    hls::stream <xf::compression::hStream8b_t>& inAxiStream,
+	    hls::stream <xf::compression::hStream8b_t>& outAxiStream,
 	    const uint32_t inputSize,
 	    const uint32_t outputSize
 	    )

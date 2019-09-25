@@ -20,16 +20,8 @@ Global Namespace
 .. _cid-encoded_dt:
 .. _doxid-snappy__decompress_8hpp_1a7b846473f310e6962ca8b763772cf862:
 .. _cid-bit:
-.. _doxid-axi__stream__utils_8hpp_1a7f32e26ea2ffbc0c5408e65b30d4f0c8:
-.. _cid-dwidth:
-.. _doxid-axi__stream__utils_8hpp_1a9aabd719746bc86bc49fce2cf91a52cf:
-.. _cid-dwidth2:
 .. _doxid-zlib__stream__utils_8hpp_1a4ef9636ea91e8374d90b2df0834b35a3:
 .. _cid-get_diff_if_big:
-.. _doxid-common_8h_1a339363060eacccb8cf32c45034c8fde5:
-.. _cid-gmem_burst_size:
-.. _doxid-common_8h_1a1512e047741436f48d2ee378518f724f:
-.. _cid-gmem_dwidth:
 .. _doxid-snappy__compress_8hpp_1aa97b62b50c39c309ceca39ddaeed7027:
 .. _cid-insize_range_14bit:
 .. _doxid-snappy__compress_8hpp_1a0d98fd116626aa66a21993825b219cc0:
@@ -64,16 +56,12 @@ Global Namespace
 	// macros
 
 	#define BIT
-	#define DWIDTH
-	#define DWIDTH2
 
 	#define GET_DIFF_IF_BIG( \
 	    x, \
 	    y \
 	    )
 
-	#define GMEM_BURST_SIZE
-	#define GMEM_DWIDTH
 	#define INSIZE_RANGE_14BIT
 	#define INSIZE_RANGE_21BIT
 	#define INSIZE_RANGE_7BIT
