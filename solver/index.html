@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Requirements" href="overview.html" /> 
+    <link rel="next" title="Library Overview" href="overview.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -84,17 +84,12 @@
               
             
             
-              <p class="caption"><span class="caption-text">Library Overview</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="overview.html#license">License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="overview.html#trademark-notice">Trademark Notice</a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Library Overview</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="guide_L2/L2.html">L2 Module User Guide</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="benchmark/benchmark.html">Quality and Performance</a></li>
 </ul>
@@ -163,39 +158,46 @@
             
   <div class="section" id="xf-solver-library">
 <h1>XF Solver Library<a class="headerlink" href="#xf-solver-library" title="Permalink to this headline">¶</a></h1>
-<p>XF Solver Library provides a collection of matrix decomposition operations, linear solvers and eigen values solvers.</p>
-<p>Currently this includes following operations for dense matrix</p>
+<p>XF Solver Library provides a collection of matrix decomposition operations, linear solvers and eigenvalue solvers.</p>
+<p>Currently this includes the following operations for dense matrix</p>
 <blockquote>
 <div><ul class="simple">
 <li>Matrix decomposition<ul>
-<li>Cholesky decomposition for symmetric positive defined matrix</li>
+<li>Cholesky decomposition for symmetric positive definite matrix</li>
 <li>LU decomposition without pivoting and with partial pivoting</li>
-<li>QR decomposition</li>
+<li>QR decomposition for general matrix</li>
 <li>SVD decomposition (single value decomposition) for symmetric matrix and non-symmetric matrix (Jacobi method)</li>
-<li>Matrix inverse</li>
 </ul>
 </li>
 <li>Linear solver<ul>
-<li>Tri-diagonal linear solver (Parallel cyclic reduction method)</li>
+<li>Tridiagonal linear solver (Parallel cyclic reduction method)</li>
+<li>Linear solver for triangular matrix</li>
 <li>Linear solver for symmetric and non-symmetric matrix</li>
+<li>Matrix inverse for symmetric and non-symmetric matrix</li>
 </ul>
 </li>
-<li>Eigen value solver<ul>
-<li>Jacobi eigen value solver for symmetric matrix</li>
+<li>Eigenvalue solver<ul>
+<li>Jacobi eigenvalue solver for symmetric matrix</li>
 </ul>
 </li>
 </ul>
 </div></blockquote>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Library Overview</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="overview.html#license">License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Library Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#trademark-notice">Trademark Notice</a></li>
+</ul>
+</li>
 </ul>
 </div>
+</div>
+<div class="section" id="user-guide">
+<h2>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="guide_L2/L2.html">L2 Module User Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="guide_L2/L2.html#supported-numerical-methods">Supported Numerical Methods</a></li>
@@ -204,11 +206,14 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="benchmark-result">
+<h2>Benchmark Result<a class="headerlink" href="#benchmark-result" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="benchmark/benchmark.html">Quality and Performance</a></li>
 </ul>
+</div>
 </div>
 </div>
 
@@ -220,7 +225,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="overview.html" class="btn btn-neutral float-right" title="Requirements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="overview.html" class="btn btn-neutral float-right" title="Library Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>

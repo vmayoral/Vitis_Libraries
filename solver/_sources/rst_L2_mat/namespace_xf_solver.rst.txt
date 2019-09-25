@@ -15,7 +15,7 @@ namespace solver
 
 .. _doxid-namespacexf_1_1solver_1a5caf13f50af104347f5d38641bcba07a:
 .. _cid-xf::solver::geqrf:
-.. _doxid-namespacexf_1_1solver_1a8ecb1461853ba5c894f3578e79f0ed1c:
+.. _doxid-namespacexf_1_1solver_1a2e848bf2dcc7f70ae8577b8cac517ef7:
 .. _cid-xf::solver::gesvdj_2d:
 .. ref-code-block:: cpp
 	:class: overview-code-block
@@ -46,7 +46,7 @@ Defined in <MatrixDecomposition/geqrf.hpp>
 	:class: title-code-block
 
 	template <
-	    class T,
+	    typename T,
 	    int NRMAX,
 	    int NCMAX,
 	    int NCU
@@ -59,13 +59,13 @@ Defined in <MatrixDecomposition/geqrf.hpp>
 	    T* tau
 	    )
 
-This function computes QR factorization of matrix :math:`A`
+This function computes QR decomposition of matrix :math:`A`
 
 
 
 .. math::
 
-    \begin{equation*} {A = Q R, }\end{equation*}
+    \begin{equation*} {A = Q R}\end{equation*}
 
 where :math:`A` is a dense matrix of size :math:`m \times n` , :math:`Q` is a :math:`m \times n` matrix with orthonormal columns, and :math:`R` is an upper triangular matrix.
 
@@ -86,12 +86,12 @@ The maximum matrix size supported in FPGA is templated by NRMAX and NCMAX.
     *
         - NRMAX
 
-        - maximum number of rows for input matrix
+        - maximum number of rows of input matrix
 
     *
         - NCMAX
 
-        - maximum number of columns for input matrix
+        - maximum number of columns of input matrix
 
     *
         - NCU
@@ -101,27 +101,27 @@ The maximum matrix size supported in FPGA is templated by NRMAX and NCMAX.
     *
         - m
 
-        - real row number of input matrix
+        - number of rows of matrix A
 
     *
         - n
 
-        - real column number of input matrix
+        - number of cols of matrix A
 
     *
         - A
 
-        - input matrix, which contains the triangular R matrix and min(m,n) elementary reflectors in return
+        - input matrix of size :math:`m \times lda` , and overwritten by the output triangular R matrix and min(m,n) elementary reflectors
 
     *
         - lda
 
-        - leading dimension of input matrix
+        - leading dimension of matrix A
 
     *
         - tau
 
-        - the scalar factors for elementary reflectors
+        - scalar factors for elementary reflectors
 
 .. _doxid-namespacexf_1_1solver_1ab2657b17f70e04a8e4173d6f0b3d0661:
 .. _cid-xf::solver::gesvdj:
@@ -179,7 +179,7 @@ The maximum matrix size supported in FPGA is templated by NMAX.
     *
         - NMAX
 
-        - maximum number of input symmetric matrix size
+        - maximum number of rows/columns of input matrix
 
     *
         - NCU
@@ -189,7 +189,7 @@ The maximum matrix size supported in FPGA is templated by NMAX.
     *
         - m
 
-        - symmetric matrix real size.
+        - number of rows/cols of matrix A
 
     *
         - A
@@ -199,39 +199,39 @@ The maximum matrix size supported in FPGA is templated by NMAX.
     *
         - S
 
-        - the decomposed diagonal singular matrix of size :math:`m \times m`
+        - decomposed diagonal singular matrix of size :math:`m \times m`
 
     *
         - U
 
-        - the left U matrix of SVD
+        - left U matrix of SVD
 
     *
         - V
 
-        - the right V matrix of SVD
+        - right V matrix of SVD
 
     *
         - lda
 
-        - the leading dimension of matrix A
+        - leading dimension of matrix A
 
     *
         - ldu
 
-        - the leading dimension of matrix U
+        - leading dimension of matrix U
 
     *
         - ldv
 
-        - the leading dimension of matrix V
+        - leading dimension of matrix V
 
     *
         - info
 
-        - the ouput info
+        - output info (unused)
 
-.. _doxid-namespacexf_1_1solver_1a43adb910d0841bff748420db9bb2df81:
+.. _doxid-namespacexf_1_1solver_1aef057cab668b692870f72972cc62422b:
 .. _cid-xf::solver::gesvj:
 
 gesvj
@@ -246,30 +246,30 @@ Defined in <MatrixDecomposition/gesvj.hpp>
 	:class: title-code-block
 
 	template <
-	    typename DT,
-	    int MAXM,
-	    int MAXN,
+	    typename T,
+	    int NRMAX,
+	    int NCMAX,
 	    int MCU,
 	    int NCU
 	    >
 	void gesvj (
 	    int rows,
 	    int cols,
-	    DT input_mat [MAXM *MAXN],
-	    DT output_U [MAXM *MAXM],
-	    DT output_S [MAXN],
-	    DT output_V [MAXN *MAXN]
+	    T input_mat [NRMAX *NCMAX],
+	    T output_U [NRMAX *NRMAX],
+	    T output_S [NCMAX],
+	    T output_V [NCMAX *NCMAX]
 	    )
 
 This function implements singular value decomposition of matrix A using one-sided Jacobi algorihtm.
 
 .. math::
 
-    \begin{equation*} {A = U \Sigma {V}^T, }\end{equation*}
+    \begin{equation*} {A = U \Sigma {V}^T}\end{equation*}
 
 where :math:`A` is a dense matrix of size :math:`rows \times cols` , :math:`U` is :math:`rows \times rows` matrix with orthonormal columns, :math:`V` is :math:`cols \times cols` matrix with orthonormal columns, and :math:`\Sigma` is diagonal matrix.
 
-The maximum matrix size supported in FPGA is templated by MAXN, MAXM.
+The maximum matrix size supported in FPGA is templated by NCMAX, NRMAX.
 
 
 
@@ -279,17 +279,17 @@ The maximum matrix size supported in FPGA is templated by MAXN, MAXM.
     :widths: 20 80
 
     *
-        - DT
+        - T
 
         - the data type of gesvj
 
     *
-        - MAXM
+        - NRMAX
 
         - the maximum size (rows) of supported gesvj
 
     *
-        - MAXN
+        - NCMAX
 
         - the maximum size (cols) of supported gesvj
 
@@ -348,7 +348,7 @@ Defined in <MatrixDecomposition/getrf.hpp>
 	:class: title-code-block
 
 	template <
-	    class T,
+	    typename T,
 	    int NMAX,
 	    int NCU
 	    >
@@ -366,9 +366,9 @@ This function computes the LU decomposition (with partial pivoting) of matrix :m
 
 .. math::
 
-    \begin{equation*} {P A = L U, }\end{equation*}
+    \begin{equation*} {P A = L U}\end{equation*}
 
-where where :math:`P` is a permutation matrix, :math:`A` is a dense matrix of size :math:`m \times n` , :math:`L` is a lower triangular matrix with unit diagonal, and :math:`U` is a upper triangular matrix. This function does not implement pivoting.
+where where :math:`P` is a permutation matrix, :math:`A` is a dense matrix of size :math:`n \times n` , :math:`L` is a lower triangular matrix with unit diagonal, and :math:`U` is a upper triangular matrix. This function does not implement pivoting.
 
 The maximum matrix size supported in FPGA is templated by NMAX.
 
@@ -387,7 +387,7 @@ The maximum matrix size supported in FPGA is templated by NMAX.
     *
         - NMAX
 
-        - maximum number of rows/columns for input matrix
+        - maximum number of rows/columns of input matrix
 
     *
         - NCU
@@ -397,12 +397,12 @@ The maximum matrix size supported in FPGA is templated by NMAX.
     *
         - n
 
-        - number of rows/cols of input matrix
+        - number of rows/cols of matrix A
 
     *
         - A
 
-        - input matrix
+        - input matrix, and overwritten by the output upper and lower triangular matrix
 
     *
         - lda
@@ -417,7 +417,7 @@ The maximum matrix size supported in FPGA is templated by NMAX.
     *
         - info
 
-        - return value, if info=0, the LU factorization is successful
+        - output info (unused)
 
 .. _doxid-namespacexf_1_1solver_1a8620e2ea1438eed2d5f042cff3463473:
 .. _cid-xf::solver::getrf_nopivot:
@@ -434,7 +434,7 @@ Defined in <MatrixDecomposition/getrf_nopivot.hpp>
 	:class: title-code-block
 
 	template <
-	    class T,
+	    typename T,
 	    int NMAX,
 	    int NCU
 	    >
@@ -451,11 +451,11 @@ This function computes the LU decomposition (without pivoting) of matrix :math:`
 
 .. math::
 
-    \begin{equation*} {A = L U, }\end{equation*}
+    \begin{equation*} {A = L U}\end{equation*}
 
-where :math:`A` is a dense matrix of size :math:`m \times n` , :math:`L` is a lower triangular matrix with unit diagonal, and :math:`U` is a upper triangular matrix. This function does not implement pivoting.
+where :math:`A` is a dense matrix of size :math:`n \times n` , :math:`L` is a lower triangular matrix with unit diagonal, and :math:`U` is a upper triangular matrix. This function does not implement pivoting.
 
-The maximum matrix size supported in FPGA is templated by NRMAX and NCMAX.
+The maximum matrix size supported in FPGA is templated by NMAX.
 
 
 
@@ -470,9 +470,9 @@ The maximum matrix size supported in FPGA is templated by NRMAX and NCMAX.
         - data type (support float and double)
 
     *
-        - NRMAX
+        - NMAX
 
-        - maximum number of rows/cols for input matrix
+        - maximum number of rows/cols of input matrix
 
     *
         - NCU
@@ -482,7 +482,7 @@ The maximum matrix size supported in FPGA is templated by NRMAX and NCMAX.
     *
         - n
 
-        - real row/col number of input matrix
+        - number of rows/cols of matrix A
 
     *
         - A
@@ -497,7 +497,7 @@ The maximum matrix size supported in FPGA is templated by NRMAX and NCMAX.
     *
         - info
 
-        - return value, if info=0, the LU factorization is successful
+        - output info (unused)
 
 .. _doxid-namespacexf_1_1solver_1a86d85c78cb26ccbc608e10f2140c297b:
 .. _cid-xf::solver::potrf:
@@ -531,7 +531,7 @@ This function computes the Cholesky decomposition of matrix :math:`A`
 
 .. math::
 
-    \begin{equation*} {A = L {L}^T, }\end{equation*}
+    \begin{equation*} {A = L {L}^T}\end{equation*}
 
 where :math:`A` is a dense symmetric positive-definite matrix of size :math:`m \times m` , :math:`L` is a lower triangular matrix, and :math:`{L}^T` is the transposed matrix of :math:`L` .
 
@@ -552,7 +552,7 @@ The maximum matrix size supported in FPGA is templated by NMAX.
     *
         - NMAX
 
-        - maximum number of input symmetric matrix size
+        - maximum number of rows/columns of input matrix
 
     *
         - NCU
@@ -562,7 +562,7 @@ The maximum matrix size supported in FPGA is templated by NMAX.
     *
         - m
 
-        - number of symmetric matrix A size
+        - number of rows/cols of matrix A
 
     *
         - A
@@ -577,5 +577,5 @@ The maximum matrix size supported in FPGA is templated by NMAX.
     *
         - info
 
-        - return value, if info=0, the Cholesky factorization is successful
+        - output info (unused)
 

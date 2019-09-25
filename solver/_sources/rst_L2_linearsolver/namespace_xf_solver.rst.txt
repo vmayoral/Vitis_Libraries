@@ -9,6 +9,8 @@ namespace solver
 	:hidden:
 
 	namespace_xf_solver_internal.rst
+	namespace_xf_solver_internal_gelinear.rst
+	namespace_xf_solver_internal_gemi.rst
 	namespace_xf_solver_internal_polinear.rst
 	namespace_xf_solver_internal_pomi.rst
 	namespace_xf_solver_internal_trtrs.rst
@@ -21,6 +23,8 @@ namespace solver
 	// namespaces
 
 	namespace :ref:`xf::solver::internal<doxid-namespacexf_1_1solver_1_1internal>`
+	namespace :ref:`xf::solver::internal_gelinear<doxid-namespacexf_1_1solver_1_1internal__gelinear>`
+	namespace :ref:`xf::solver::internal_gemi<doxid-namespacexf_1_1solver_1_1internal__gemi>`
 	namespace :ref:`xf::solver::internal_polinear<doxid-namespacexf_1_1solver_1_1internal__polinear>`
 	namespace :ref:`xf::solver::internal_pomi<doxid-namespacexf_1_1solver_1_1internal__pomi>`
 	namespace :ref:`xf::solver::internal_trtrs<doxid-namespacexf_1_1solver_1_1internal__trtrs>`
@@ -30,6 +34,182 @@ namespace solver
 
 
 
+
+.. _doxid-namespacexf_1_1solver_1a4380dbd7992efd603fe32bf2a3415df9:
+.. _cid-xf::solver::gelinearsolver:
+
+gelinearsolver
+--------------
+
+
+Defined in <LinearSolver/gelinearsolver.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename T,
+	    int NMAX,
+	    int NCU
+	    >
+	void gelinearsolver (
+	    int n,
+	    T* A,
+	    int b,
+	    T* B,
+	    int lda,
+	    int ldb,
+	    int& info
+	    )
+
+This function solves a system of linear equation with general matrix along with multiple right-hand side vector
+
+
+
+.. math::
+
+    \begin{equation*} {Ax=B}\end{equation*}
+
+where :math:`A` is a dense general matrix of size :math:`n \times n` , :math:`x` is a vector need to be computed, and :math:`B` is input vector.
+
+The maximum matrix size supported in FPGA is templated by NMAX.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - T
+
+        - data type (support float and double)
+
+    *
+        - NMAX
+
+        - maximum number of rows/columns of input matrix
+
+    *
+        - NCU
+
+        - number of computation unit
+
+    *
+        - n
+
+        - number of rows/cols of matrix A
+
+    *
+        - A
+
+        - input matrix of size :math:`n \times n`
+
+    *
+        - b
+
+        - number of columns of matrix B
+
+    *
+        - B
+
+        - input matrix of size :math:`b \times n` , and overwritten by the output matrix x
+
+    *
+        - lda
+
+        - leading dimention of input matrix A
+
+    *
+        - ldb
+
+        - leading dimention of input matrix B
+
+    *
+        - info
+
+        - output info (unused)
+
+.. _doxid-namespacexf_1_1solver_1a330738ad0c91400601fc9029bbe18d70:
+.. _cid-xf::solver::gematrixinverse:
+
+gematrixinverse
+---------------
+
+
+Defined in <LinearSolver/gematrixinverse.hpp>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    typename T,
+	    int NMAX,
+	    int NCU
+	    >
+	void gematrixinverse (
+	    int m,
+	    T* A,
+	    int lda,
+	    int& info
+	    )
+
+This function computes the inverse matrix of :math:`A`
+
+
+
+.. math::
+
+    \begin{equation*} {A}^{-1}\end{equation*}
+
+where :math:`A` is a dense general matrix of size :math:`m \times m` . The maximum matrix size supported in FPGA is templated by NMAX.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - T
+
+        - data type (support float and double)
+
+    *
+        - NMAX
+
+        - maximum number of rows/columns of input matrix
+
+    *
+        - NCU
+
+        - number of computation unit
+
+    *
+        - m
+
+        - number of rows/cols of matrix A
+
+    *
+        - A
+
+        - input matrix of size :math:`n \times n`
+
+    *
+        - lda
+
+        - leading dimention of input matrix A
+
+    *
+        - info
+
+        - output info (unused)
 
 .. _doxid-namespacexf_1_1solver_1ab2a500c3d35adb231e4fbdfe7b17932a:
 .. _cid-xf::solver::gtsv:
@@ -46,8 +226,8 @@ Defined in <LinearSolver/gtsv_pcr.hpp>
 	:class: title-code-block
 
 	template <
-	    class T,
-	    unsigned int N,
+	    typename T,
+	    unsigned int NMAX,
 	    unsigned int NCU
 	    >
 	int gtsv (
@@ -73,7 +253,7 @@ Tri-diagonal linear solver. Compute solution to linear system with a tridiagonal
         - data type (support float and double)
 
     *
-        - N
+        - NMAX
 
         - matrix size
 
@@ -118,7 +298,7 @@ Defined in <LinearSolver/polinearsolver.hpp>
 
 	template <
 	    typename T,
-	    int N,
+	    int NMAX,
 	    int NCU
 	    >
 	void polinearsolver (
@@ -158,7 +338,7 @@ The maximum matrix size supported in FPGA is templated by NMAX.
     *
         - NMAX
 
-        - maximum number of input symmetric matrix size
+        - maximum number of rows/columns of input matrix
 
     *
         - NCU
@@ -166,24 +346,24 @@ The maximum matrix size supported in FPGA is templated by NMAX.
         - number of computation unit
 
     *
-        - m
+        - n
 
-        - number of symmetric matrix's real size
+        - number of rows/cols of matrix A
 
     *
         - A
 
-        - input matrix of size :math:`m \times m`
+        - input matrix of size :math:`n \times n`
 
     *
         - b
 
-        - number of matrix B column
+        - number of columns of matrix B
 
     *
         - B
 
-        - input matrix of size b, and output x
+        - input matrix of size :math:`b \times n` , and overwritten by the output matrix x
 
     *
         - lda
@@ -198,7 +378,7 @@ The maximum matrix size supported in FPGA is templated by NMAX.
     *
         - info
 
-        - return value, if info=0, the Triangular Solver is successful
+        - output info (unused)
 
 .. _doxid-namespacexf_1_1solver_1a3b929dda3eb23cf26506eae627591870:
 .. _cid-xf::solver::pomatrixinverse:
@@ -251,22 +431,22 @@ where :math:`A` is a dense symmetric positive-definite matrix of size :math:`m \
     *
         - NMAX
 
-        - number of maximum matrix size
+        - maximum number of rows/columns of input matrix
 
     *
         - NCU
 
-        - number of compute unit
+        - number of computation unit
 
     *
         - m
 
-        - number of symmetric matrix's real size
+        - number of rows/cols of matrix A
 
     *
         - A
 
-        - input matrix of size :math:`m \times m`
+        - input matrix of size :math:`n \times n`
 
     *
         - lda
@@ -276,7 +456,7 @@ where :math:`A` is a dense symmetric positive-definite matrix of size :math:`m \
     *
         - info
 
-        - return value, if info=0, the Cholesky factorization is successful
+        - output info (unused)
 
 .. _doxid-namespacexf_1_1solver_1a807c039392d453610093336dbb4b0b19:
 .. _cid-xf::solver::trtrs:
@@ -335,32 +515,32 @@ The maximum matrix size supported in FPGA is templated by NMAX.
     *
         - NMAX
 
-        - number of maximum matrix size
+        - maximum number of rows/columns of input matrix
 
     *
         - NCU
 
-        - number of compute unit
+        - number of computation unit
 
     *
         - m
 
-        - number of symmetric matrix's real size
+        - number of rows/cols of matrix A
 
     *
         - A
 
-        - input matrix of size :math:`m \times m`
+        - input matrix of size :math:`n \times n`
 
     *
         - b
 
-        - number of matrix B column
+        - number of columns of matrix B
 
     *
         - B
 
-        - input matrix of b, and output of x
+        - input matrix of size :math:`b \times n` , and overwritten by the output matrix x
 
     *
         - lda
@@ -375,5 +555,5 @@ The maximum matrix size supported in FPGA is templated by NMAX.
     *
         - info
 
-        - return value, if info=0, the Triangular Solver is successful
+        - output info (unused)
 

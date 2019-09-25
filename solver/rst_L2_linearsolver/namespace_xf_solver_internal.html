@@ -83,17 +83,12 @@
               
             
             
-              <p class="caption"><span class="caption-text">Library Overview</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Library Overview</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Module User Guide</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Quality and Performance</a></li>
 </ul>
@@ -164,60 +159,9 @@
 <span id="cid-xf-solver-internal"></span><span id="doxid-namespacexf-1-1solver-1-1internal"></span><span id="index-0"></span><h1>namespace internal<a class="headerlink" href="#namespace-internal" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight overview-code-block literal-block" id="cid-xf-solver-internal-gtsv-singlesweep-2">
-<span id="doxid-namespacexf-1-1solver-1-1internal-1ad06747cd77b26e295116dfa4b3bd6c73"></span><span id="cid-xf-solver-internal-gtsv-singlesweep"></span><span id="doxid-namespacexf-1-1solver-1-1internal-1a2da338b062f0ac8b093234664e827629"></span><span id="cid-xf-solver-internal-gtsv-multisweeps-ncu"></span><span id="doxid-namespacexf-1-1solver-1-1internal-1a15d3971ea7424403adfeee94ab9296b9"></span><span id="cid-xf-solver-internal-gtsv-multisweeps-1cu"></span><span id="doxid-namespacexf-1-1solver-1-1internal-1a40d8f1ad25e86839da1c4d0bdd1efc68"></span>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-solver-internal-gtsv-core">
+<span id="doxid-namespacexf-1-1solver-1-1internal-1ae8beda1a5dbcfa5964df03e475f8a1b5"></span><span id="cid-xf-solver-internal-gtsv-singlesweep-2"></span><span id="doxid-namespacexf-1-1solver-1-1internal-1ad06747cd77b26e295116dfa4b3bd6c73"></span><span id="cid-xf-solver-internal-gtsv-singlesweep"></span><span id="doxid-namespacexf-1-1solver-1-1internal-1a2da338b062f0ac8b093234664e827629"></span><span id="cid-xf-solver-internal-gtsv-multisweeps-ncu"></span><span id="doxid-namespacexf-1-1solver-1-1internal-1a15d3971ea7424403adfeee94ab9296b9"></span><span id="cid-xf-solver-internal-gtsv-multisweeps-1cu"></span><span id="doxid-namespacexf-1-1solver-1-1internal-1a40d8f1ad25e86839da1c4d0bdd1efc68"></span>
 </pre>
-<div class="section" id="gtsv-core">
-<span id="cid-xf-solver-internal-gtsv-core"></span><span id="doxid-namespacexf-1-1solver-1-1internal-1ae8beda1a5dbcfa5964df03e475f8a1b5"></span><h2>gtsv_core<a class="headerlink" href="#gtsv-core" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="defined-in-linearsolver-gtsv-pcr-hpp">
-<h3>Defined in &lt;LinearSolver/gtsv_pcr.hpp&gt;<a class="headerlink" href="#defined-in-linearsolver-gtsv-pcr-hpp" title="Permalink to this headline">¶</a></h3>
-<pre class="highlight title-code-block literal-block">
-<span></span><span class="k">template</span> <span class="o">&lt;</span>
-    <span class="k">class</span> <span class="n">T</span><span class="p">,</span>
-    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">N</span><span class="p">,</span>
-    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">NCU</span>
-    <span class="o">&gt;</span>
-<span class="kt">int</span> <span class="n">gtsv_core</span> <span class="p">(</span>
-    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span>
-    <span class="n">T</span> <span class="n">matDiagLow</span> <span class="p">[</span><span class="n">N</span><span class="p">],</span>
-    <span class="n">T</span> <span class="n">matDiag</span> <span class="p">[</span><span class="n">N</span><span class="p">],</span>
-    <span class="n">T</span> <span class="n">matDiagUp</span> <span class="p">[</span><span class="n">N</span><span class="p">],</span>
-    <span class="n">T</span> <span class="n">rhs</span> <span class="p">[</span><span class="n">N</span><span class="p">]</span>
-    <span class="p">)</span>
-</pre>
-<p>Tri-diagonal linear solver. Compute solution to linear system with a tridiagonal matrix. Parallel Cyclic Reduction method.</p>
-<p class="rubric">Parameters:</p>
-<table border="1" class="colwidths-given docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>T</td>
-<td>data type (support float and double)</td>
-</tr>
-<tr class="row-even"><td>N</td>
-<td>matrix size</td>
-</tr>
-<tr class="row-odd"><td>NCU</td>
-<td>number of compute units</td>
-</tr>
-<tr class="row-even"><td>matDiagLow</td>
-<td>lower diagonal of matrix</td>
-</tr>
-<tr class="row-odd"><td>matDiag</td>
-<td>diagonal of matrix</td>
-</tr>
-<tr class="row-even"><td>matDiagUp</td>
-<td>upper diagonal of matrix</td>
-</tr>
-<tr class="row-odd"><td>rhs</td>
-<td>right-hand side</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 </div>
 
 
