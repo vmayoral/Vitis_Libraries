@@ -6,14 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>XF Hardware Utilities Library &mdash; XF Hardware Utility Library 1.0 alpha documentation</title>
+  <title>Vitis Utility Library &mdash; Vitis Utility Library v2019.2 documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
-  
-    <link rel="shortcut icon" href="_static/xf-favicon.ico"/>
   
   
   
@@ -41,7 +65,54 @@
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -51,12 +122,9 @@
           
 
           
-            <a href="#">
+            <a href="#" class="icon icon-home" alt="Documentation Home"> Vitis Utility Library
           
 
-          
-            
-            <img src="_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -64,7 +132,7 @@
             
             
               <div class="version">
-                1.0
+                2019.2
               </div>
             
           
@@ -81,6 +149,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -91,6 +160,7 @@
               <p class="caption"><span class="caption-text">Library Overview</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#design-flows">Design Flows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html#trademark-notice">Trademark Notice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release.html">Release Note</a></li>
@@ -99,14 +169,11 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="guide/toc.html">L1 Module User Guide</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Benchmark Result</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="benchmark/result.html">Throughput Tests</a></li>
-</ul>
 
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -116,7 +183,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">XF Hardware Utility Library</a>
+          <a href="#">Vitis Utility Library</a>
         
       </nav>
 
@@ -145,9 +212,9 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>XF Hardware Utilities Library</li>
+      <li>Vitis Utility Library</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -164,16 +231,50 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="xf-hardware-utilities-library">
-<h1>XF Hardware Utilities Library<a class="headerlink" href="#xf-hardware-utilities-library" title="Permalink to this headline">¶</a></h1>
-<p>XF Hardware Utilities Library is an HLS library, aiming to
-assist developers to efficiently access memory in DDR, HBM or URAM,
-and perform data distribution/collection/re-ordering/insertion/discarding
-along stream-based transfer.</p>
+  <div class="section" id="vitis-utility-library">
+<h1>Vitis Utility Library<a class="headerlink" href="#vitis-utility-library" title="Permalink to this headline">¶</a></h1>
+<p>Vitis Utility Library is an open-sourced Vitis library of common patterns of streaming and storage access.
+It aims to assist developers to efficiently access memory in DDR, HBM or URAM, and perform data distribution,
+collection, reordering, insertion, and discarding along stream-based transfer.</p>
+<p><strong>Memory Access</strong></p>
+<ul class="simple">
+<li><strong>AXI Burst Read and Write</strong>:
+Reading data from AXI master port, and emit to stream (of possibly different width).
+Padding and vectoring could be removed in reading and added in writing.</li>
+<li><strong>Low Initiation Interval Access to URAM Array</strong>:
+URAMs are 72 bit fixed, and currently very large buffers needs extra registers and forwarding-paths to be read/written every cycle.
+By providing an API for this, users can focus on the function design and avoid mixing challenge of different level in the same code.</li>
+</ul>
+<p><strong>Dynamic Routing within Streams</strong></p>
+<ul class="simple">
+<li><strong>Distribution and Collection</strong>:
+Three different algorithms are supported:<ul>
+<li><strong>Round-robin</strong>: Data will be send/received through as many streams as possible in round-robin order.</li>
+<li><strong>Load-balancing</strong>: Data will be send to or received from PU based on load, the result will be out of order. The assumption here is a PU has lower rate than the input, while the cluster of PUs has statistically matching rate with the input.</li>
+<li><strong>Tag-select</strong>: Basically it implements the <code class="docutils literal notranslate"><span class="pre">if-then-else</span></code> or <code class="docutils literal notranslate"><span class="pre">switch-case</span></code> semantic, using a tag from input. This module can be used to pass different type/category of data to heterogeneous PUs.</li>
+</ul>
+</li>
+<li><strong>Discarding Data</strong>:
+Consumes all the data from input and discard it. With some post-bitstream configuration, we may have some data generated but not used,
+this module ensures such data can be discarded without blocking the execution.</li>
+<li><strong>Stream Synchronization</strong>:
+We have made end flag driven pipeline a common practice in our libraries,
+and it is often necessary to synchronize two streams into one flag signal.</li>
+</ul>
+<p><strong>Data Reshaping</strong></p>
+<ul class="simple">
+<li><strong>Stream Combine</strong>:
+Fuse multiple streams into one. For example, fuse three synchronized R, G, B streams into one (R,G,B) tuple stream.
+The dynamic version allows some streams to be skipped(discarded) while allowing two static directions (align to LSB or MSB).</li>
+<li><strong>Stream Shuffle</strong>:
+Shuffle synchronized streams with dynamic configuration.
+For example, synchronized R, G, B streams can be dynamically shuffle to R, B, G or B, G, R.</li>
+</ul>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Library Overview</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#design-flows">Design Flows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html#trademark-notice">Trademark Notice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release.html">Release Note</a></li>
@@ -183,21 +284,63 @@ along stream-based transfer.</p>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="guide/toc.html">L1 Module User Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guide/stream_based.html">Stream-Based API Design</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide/api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide/api_class.html">API Class of <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide/helper.html">Template Helpers in <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide/tag.html">Tag Types in <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide/internals.html">Module Design Internals</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/stream_based.html">Stream-Based API Design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guide/stream_based.html#stream-based-interface">Stream-based Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guide/api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guide/api.html#axitomultistream">axiToMultiStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/api.html#axitostream">axiToStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/api.html#axitocharstream">axiToCharStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/api.html#streamcombine">streamCombine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/api.html#streamdiscard">streamDiscard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/api.html#streamdup">streamDup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/api.html#streamntoone">streamNToOne</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/api.html#streamoneton">streamOneToN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/api.html#streamreorder">streamReorder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/api.html#streamshuffle">streamShuffle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/api.html#streamsplit">streamSplit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/api.html#streamsync">streamSync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/api.html#streamtoaxi">streamToAxi</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guide/api_class.html">API Class of <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guide/api_class.html#template-class-xf-common-utils-hw-uramarray">template class xf::common::utils_hw::UramArray</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guide/helper.html">Template Helpers in <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guide/helper.html#template-struct-xf-common-utils-hw-powerof2">template struct xf::common::utils_hw::PowerOf2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/helper.html#template-struct-xf-common-utils-hw-gcd">template struct xf::common::utils_hw::GCD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/helper.html#template-struct-xf-common-utils-hw-lcm">template struct xf::common::utils_hw::LCM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guide/tag.html">Tag Types in <code class="docutils literal notranslate"><span class="pre">xf::common::utils_hw</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guide/tag.html#struct-xf-common-utils-hw-loadbalancet">struct xf::common::utils_hw::LoadBalanceT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/tag.html#struct-xf-common-utils-hw-roundrobint">struct xf::common::utils_hw::RoundRobinT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/tag.html#struct-xf-common-utils-hw-tagselectt">struct xf::common::utils_hw::TagSelectT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/tag.html#struct-xf-common-utils-hw-lsbsidet">struct xf::common::utils_hw::LSBSideT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/tag.html#struct-xf-common-utils-hw-msbsidet">struct xf::common::utils_hw::MSBSideT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guide/internals.html">Module Design Internals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guide/m_axi/axi_to_stream.html">Internals of axiToStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/m_axi/axi_to_multi_stream.html">Internals of axiToMultiStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/m_axi/stream_to_axi.html">Internals of streamToAxi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/uram_array.html">Internals of UramArray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/movement/stream_one_to_n.html">Internals of streamOneToN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/movement/stream_n_to_one.html">Internals of streamNToOne</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/movement/stream_discard.html">Internals of streamDiscard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/synced/stream_split.html">Internals of streamSplit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/synced/stream_combine.html">Internals of streamCombine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/synced/stream_sync.html">Internals of streamSync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide/windowed/stream_reorder.html">Internals of streamReorder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guide/examples.html">Examples</a><ul class="simple">
 </ul>
 </li>
 </ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Benchmark Result</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="benchmark/result.html">Throughput Tests</a></li>
+</li>
 </ul>
 </div>
 <div class="section" id="index">
@@ -205,6 +348,97 @@ along stream-based transfer.</p>
 <ul class="simple">
 <li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
 </ul>
+</div>
+<div class="section" id="library-api-summary">
+<h2>Library API Summary<a class="headerlink" href="#library-api-summary" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="78%" />
+<col width="6%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Library Function</th>
+<th class="head">Description</th>
+<th class="head">Layer</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>axiToMultiStream</td>
+<td>Loading multiple categories of data from one AXI master to streams</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>axiToStream</td>
+<td>Loading data elements from AXI master to stream</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>axiToCharStream</td>
+<td>Loading char data from AXI master to stream</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>streamCombine</td>
+<td>combine multiple streams into a wide one, shift selected streams to LSB or MSB side</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>streamDiscard</td>
+<td>Discard multiple streams</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>streamDup</td>
+<td>Duplicate stream</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>streamNToOne</td>
+<td>A group of overloaded functions, providing ability to collect data from multiple streams
+using select algorithm from round-robin, load-balancing and tag-select.</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>streamOneToN</td>
+<td>A group of overloaded functions, providing ability to distribute data to multiple streams
+using select algorithm from round-robin, load-balancing and tag-select.</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>streamReorder</td>
+<td>Window-reorder in a stream</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>streamShuffle</td>
+<td>Shuffle the contents from an array of streams to another</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>streamSplit</td>
+<td>split one wide stream into multiple streams</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>streamSync</td>
+<td>Synchronize streams for successor module</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>streamToAxi</td>
+<td>Write elements in burst to AXI master port</td>
+<td>L1</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="80%" />
+<col width="6%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Library Class</th>
+<th class="head">Description</th>
+<th class="head">Layer</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>UramArray</td>
+<td>Helper class to create URAM array that can be updated every cycle with forwarding regs</td>
+<td>L1</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -224,14 +458,18 @@ along stream-based transfer.</p>
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -241,7 +479,6 @@ along stream-based transfer.</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

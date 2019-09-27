@@ -6,14 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Requirements &mdash; XF Hardware Utility Library 1.0 alpha documentation</title>
+  <title>Requirements &mdash; Vitis Utility Library v2019.2 documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
-  
-    <link rel="shortcut icon" href="_static/xf-favicon.ico"/>
   
   
   
@@ -38,11 +62,58 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Release Note" href="release.html" />
-    <link rel="prev" title="XF Hardware Utilities Library" href="index.html" /> 
+    <link rel="prev" title="Vitis Utility Library" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -52,12 +123,9 @@
           
 
           
-            <a href="index.html">
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Vitis Utility Library
           
 
-          
-            
-            <img src="_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -65,7 +133,7 @@
             
             
               <div class="version">
-                1.0
+                2019.2
               </div>
             
           
@@ -82,6 +150,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -94,8 +163,10 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Requirements</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#software-platform">Software Platform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pcie-accelerator-card">PCIE Accelerator Card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shell-environment">Shell Environment</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="#design-flows">Design Flows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#trademark-notice">Trademark Notice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release.html">Release Note</a></li>
@@ -104,14 +175,11 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="guide/toc.html">L1 Module User Guide</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Benchmark Result</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="benchmark/result.html">Throughput Tests</a></li>
-</ul>
 
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -121,7 +189,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">XF Hardware Utility Library</a>
+          <a href="index.html">Vitis Utility Library</a>
         
       </nav>
 
@@ -150,7 +218,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Requirements</li>
     
@@ -182,8 +250,43 @@ With CentOS/RHEL 7.4 and 7.5, C++11/C++14 should be enabled via
 </div>
 <div class="section" id="pcie-accelerator-card">
 <h2>PCIE Accelerator Card<a class="headerlink" href="#pcie-accelerator-card" title="Permalink to this headline">¶</a></h2>
-<p>Hardware modules and kernels are designed to work with Alveo U200 and U280 cards.</p>
+<p>Hardware modules and kernels are designed to work with all Alveo cards.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.xilinx.com/products/boards-and-kits/alveo/u280.html#gettingStarted">Alveo U280</a></li>
+<li><a class="reference external" href="https://www.xilinx.com/products/boards-and-kits/alveo/u250.html#gettingStarted">Alveo U250</a></li>
+<li><a class="reference external" href="https://www.xilinx.com/products/boards-and-kits/alveo/u200.html#gettingStarted">Alveo U200</a></li>
+</ul>
 </div>
+<div class="section" id="shell-environment">
+<h2>Shell Environment<a class="headerlink" href="#shell-environment" title="Permalink to this headline">¶</a></h2>
+<p>Setup the build environment using the Vitis and XRT scripts.</p>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="nb">source</span> /opt/xilinx/Vitis/2019.2/settings64.sh
+<span class="nb">export</span> <span class="nv">PLATFORM_REPO_PATHS</span><span class="o">=</span>/opt/xilinx/platforms
+</pre>
+<p>Setting <code class="docutils literal notranslate"><span class="pre">PLATFORM_REPO_PATHS</span></code> to the installation folder of platform files can enable makefiles
+in this library to use <code class="docutils literal notranslate"><span class="pre">DEVICE</span></code> variable as a pattern.
+Otherwise, full path to .xpfm file needs to be provided via <code class="docutils literal notranslate"><span class="pre">DEVICE</span></code> variable.</p>
+</div>
+</div>
+<div class="section" id="design-flows">
+<h1>Design Flows<a class="headerlink" href="#design-flows" title="Permalink to this headline">¶</a></h1>
+<p>The common tool and library pre-requisites that apply across all design flows are documented in the requirements section above.</p>
+<p>Recommended design flow is shown as follows:</p>
+<p>L1 provides the modules to work distribution and result collection in different algorithms, manipulate streams: including combination, duplication, synchronization, and shuffle, updates URAM array in tighter initiation internal (II).</p>
+<p>The recommend flow to evaluate and test L1 components is described as follows using Vivado HLS tool.
+A top level C/C++ testbench (typically <code class="docutils literal notranslate"><span class="pre">algorithm_name.cpp`</span></code>) prepares the input data, passes them to the design under test, then performs any output data post processing and validation checks.</p>
+<p>A Makefile is used to drive this flow with available steps including <code class="docutils literal notranslate"><span class="pre">CSIM</span></code> (high level simulation),
+<code class="docutils literal notranslate"><span class="pre">CSYNTH</span></code> (high level synthesis to RTL) and <code class="docutils literal notranslate"><span class="pre">COSIM</span></code> (cosimulation between software testbench and generated RTL),
+<code class="docutils literal notranslate"><span class="pre">VIVADO_SYN</span></code> (synthesis by Vivado), <code class="docutils literal notranslate"><span class="pre">VIVADO_IMPL</span></code> (implementation by Vivado).
+The flow is launched from the shell by calling <code class="docutils literal notranslate"><span class="pre">make</span></code> with variables set as in the example below:</p>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="nb">cd</span> L1/tests/specific_algorithm/
+make run <span class="nv">CSIM</span><span class="o">=</span><span class="m">1</span> <span class="nv">CSYNTH</span><span class="o">=</span><span class="m">0</span> <span class="nv">COSIM</span><span class="o">=</span><span class="m">0</span> <span class="nv">VIVADO_SYN</span><span class="o">=</span><span class="m">0</span> <span class="nv">VIVADO_IMPL</span><span class="o">=</span><span class="m">0</span> <span class="se">\</span>
+         <span class="nv">DEVICE</span><span class="o">=</span>/path/to/xilinx_u200_xdma_201830_2.xpfm
+</pre>
+<p>To enable more than C++ simulation, just switch other steps to <cite>1</cite> in <cite>make</cite> command line.</p>
+<p>As well as verifying functional correctness, the reports generated from this flow give an indication of logic utilization, timing performance, latency and throughput. The output files of interest can be located at the location of the test project where the path name is “test.prj”.</p>
 </div>
 <div class="section" id="license">
 <h1>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h1>
@@ -222,21 +325,25 @@ of their respective owners.</div></blockquote>
         <a href="release.html" class="btn btn-neutral float-right" title="Release Note" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="XF Hardware Utilities Library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Vitis Utility Library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -246,7 +353,6 @@ of their respective owners.</div></blockquote>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
