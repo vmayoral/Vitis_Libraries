@@ -6,14 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Internals of axiToMultiStream &mdash; XF Hardware Utility Library 1.0 alpha documentation</title>
+  <title>Internals of axiToMultiStream &mdash; Vitis Utility Library v2019.2 documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
-  
-    <link rel="shortcut icon" href="../../_static/xf-favicon.ico"/>
   
   
   
@@ -42,7 +66,54 @@
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -52,12 +123,9 @@
           
 
           
-            <a href="../../index.html">
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Utility Library
           
 
-          
-            
-            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -65,7 +133,7 @@
             
             
               <div class="version">
-                1.0
+                2019.2
               </div>
             
           
@@ -82,6 +150,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -92,6 +161,7 @@
               <p class="caption"><span class="caption-text">Library Overview</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#design-flows">Design Flows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../release.html">Release Note</a></li>
@@ -124,14 +194,11 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Benchmark Result</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../benchmark/result.html">Throughput Tests</a></li>
-</ul>
 
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -141,7 +208,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF Hardware Utility Library</a>
+          <a href="../../index.html">Vitis Utility Library</a>
         
       </nav>
 
@@ -170,7 +237,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../toc.html">L1 Module User Guide</a> &raquo;</li>
         
@@ -197,12 +264,12 @@
 <span id="guide-axi-to-multi-stream"></span><h1>Internals of axiToMultiStream<a class="headerlink" href="#internals-of-axitomultistream" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<p>This document describes the structure and execution of axiToMultiStream,
+<p>This document describes the structure and execution flow of axiToMultiStream,
 implemented as <a class="reference internal" href="../api.html#cid-xf-common-utils-hw-axitomultistream"><span class="std std-ref">axiToMultiStream</span></a> function.</p>
 <a class="reference internal image-reference" href="../../_images/axi_to_multi_stream.png"><img alt="axi_to_multi_stream Structure" class="align-center" src="../../_images/axi_to_multi_stream.png" style="width: 80%;" /></a>
-<p>The axiToMultiStream primitive non-blocking and Round Robin load multiple categories of data from one AXI master to streams.
+<p>The axiToMultiStream primitive is non-blocking and uses Round Robin to load multiple categories of data from one AXI master into multiple streams.
 For example, in the implementation of one AXI port loading three types of data, the data of each type could be tightly packed.
-Each type of data’s length should be in number of char. The three types of data width could be unaligned or aligned,
+Each type of data’s length should be multiple of 8 bits. The three types of data width could be unaligned or aligned,
 e.g. three types of data compressed in one binary files. AXI port is assumed to have width as multiple of 8-bit char.</p>
 <div class="admonition caution">
 <p class="first admonition-title">Caution</p>
@@ -214,10 +281,9 @@ performance requirements of application.</p>
 </div>
 <p>This primitive has two modules working simultaneously in side.</p>
 <ol class="arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">read_to_vec_stream</span></code>: read AXI master to three bram buffers.
-and load the buffers in non-blocking and round robin way to <code class="docutils literal notranslate"><span class="pre">_WAxi</span></code> width stream.</li>
-<li><code class="docutils literal notranslate"><span class="pre">split_vec_to_aligned</span></code>: It takes the <code class="docutils literal notranslate"><span class="pre">_WAxi</span></code> width stream, aligned to the stream width, then split the _WAxi width data to
-stream width and output</li>
+<li><code class="docutils literal notranslate"><span class="pre">read_to_vec_stream</span></code>: It reads AXI master to three BRAM buffers,
+and loads the buffers in non-blocking and round robin way to <code class="docutils literal notranslate"><span class="pre">_WAxi</span></code> width stream.</li>
+<li><code class="docutils literal notranslate"><span class="pre">split_vec_to_aligned</span></code>: It takes the <code class="docutils literal notranslate"><span class="pre">_WAxi</span></code> width stream, aligns to the stream width, and splits the _WAxi width data to stream width and output the stream.</li>
 </ol>
 </div>
 
@@ -239,14 +305,18 @@ stream width and output</li>
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -256,7 +326,6 @@ stream width and output</li>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
