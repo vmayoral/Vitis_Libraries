@@ -6,52 +6,124 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Pricing Engine Kernel APIs &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
+  <title>Pricing Engine Kernel APIs &mdash; Vitis Quantitative Finance Library v2019.2 documentation</title>
+  
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
+  
+  
+  
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
-    <link rel="shortcut icon" href="../_static/xilinx-favicon.ico"/>
-  
-  
-  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Pricing Engines Demo" href="kernel_benchmark.html" />
     <link rel="prev" title="Internal Design of Zero Coupon Bond Engine" href="engines/ZCDiscountingBondEngine.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Quantitative Finance Library
           
 
           
@@ -61,7 +133,7 @@
             
             
               <div class="version">
-                1.0
+                2019.2
               </div>
             
           
@@ -78,6 +150,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -96,7 +169,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="L2.html">L2 Pricing Engine Kernel User Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="L2.html">L2 Kernel User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="overview.html">Pricing Engine Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kernel_design.html">Pricing Engine Kernel Design</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Pricing Engine Kernel APIs</a><ul>
@@ -222,9 +295,9 @@
 <li class="toctree-l4"><a class="reference internal" href="#cid-xf-fintech-treeswapengine-2">Defined in &lt;xf_fintech/tree_engine.hpp&gt;</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#treecapfloprengine">treeCapFloprEngine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#treecapfloorengine">treeCapFloorEngine</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id20">Defined in &lt;xf_fintech/tree_engine.hpp&gt;</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cid-xf-fintech-treecapfloprengine-2">Defined in &lt;xf_fintech/tree_engine.hpp&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cid-xf-fintech-treecapfloorengine-2">Defined in &lt;xf_fintech/tree_engine.hpp&gt;</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#treecallableengine">treeCallableEngine</a><ul>
@@ -248,6 +321,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -286,9 +360,9 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="L2.html">L2 Pricing Engine Kernel User Guide</a> &raquo;</li>
+          <li><a href="L2.html">L2 Kernel User Guide</a> &raquo;</li>
         
       <li>Pricing Engine Kernel APIs</li>
     
@@ -296,8 +370,6 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/guide_L2/kernel_api.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -1434,7 +1506,7 @@
     <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">maxSamples</span> <span class="o">=</span> <span class="mi">134217727</span>
     <span class="p">)</span>
 </pre>
-<p>Asian Arithmetic Average Price Engine using Monte Carlo Method Based on Black-Scholes Model. The settlement price of the underlying asset at expiry time is the geomertic average of asset price during the option lifetime.</p>
+<p>Asian Arithmetic Average Price Engine using Monte Carlo Method Based on Black-Scholes Model. The settlement price of the underlying asset at expiry time is the arithmetic average of asset price during the option lifetime.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -1516,7 +1588,7 @@
     <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">maxSamples</span> <span class="o">=</span> <span class="mi">134217727</span>
     <span class="p">)</span>
 </pre>
-<p>Asian Arithmetic Average Strike Engine using Monte Carlo Method Based on Black-Scholes Model. The settlement price of the underlying asset at expiry time is the geomertic average of asset price during the option lifetime.</p>
+<p>Asian Arithmetic Average Strike Engine using Monte Carlo Method Based on Black-Scholes Model. The settlement price of the underlying asset at expiry time is the asset price at expiry time, but the stock price is the arithmetic average of asset price during the option lifetime.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -2622,8 +2694,8 @@
 </table>
 </div>
 </div>
-<div class="section" id="treecapfloprengine">
-<span id="cid-xf-fintech-treecapfloprengine"></span><span id="doxid-namespacexf-1-1fintech-1a9f7d1c8e54da28a8fe23cce95c0e632c"></span><h2>treeCapFloprEngine<a class="headerlink" href="#treecapfloprengine" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="treecapfloorengine">
+<span id="cid-xf-fintech-treecapfloorengine"></span><span id="doxid-namespacexf-1-1fintech-1aaba3725f7298d58306833d771dd3f0e2"></span><h2>treeCapFloorEngine<a class="headerlink" href="#treecapfloorengine" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id20">
 <h3>Defined in &lt;xf_fintech/tree_engine.hpp&gt;<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
@@ -2635,7 +2707,7 @@
     <span class="kt">int</span> <span class="n">LEN</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">LEN2</span>
     <span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">treeCapFloprEngine</span> <span class="p">(</span>
+<span class="kt">void</span> <span class="n">treeCapFloorEngine</span> <span class="p">(</span>
     <span class="n">Model</span><span class="o">&amp;</span> <span class="n">model</span><span class="p">,</span>
     <span class="n">Process</span><span class="o">&amp;</span> <span class="n">process</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">type</span><span class="p">,</span>
@@ -2723,8 +2795,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="cid-xf-fintech-treecapfloprengine-2">
-<span id="doxid-namespacexf-1-1fintech-1a49bbd1aba06b3b10b56b70abb7fcf629"></span><span id="id21"></span><h3>Defined in &lt;xf_fintech/tree_engine.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-treecapfloprengine-2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="cid-xf-fintech-treecapfloorengine-2">
+<span id="doxid-namespacexf-1-1fintech-1a20e1a1b493f1afa1c812e3bd6497fe65"></span><span id="id21"></span><h3>Defined in &lt;xf_fintech/tree_engine.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-treecapfloorengine-2" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">template</span> <span class="o">&lt;</span>
     <span class="k">typename</span> <span class="n">DT</span><span class="p">,</span>
@@ -2734,7 +2806,7 @@
     <span class="kt">int</span> <span class="n">LEN</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">LEN2</span>
     <span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">treeCapFloprEngine</span> <span class="p">(</span>
+<span class="kt">void</span> <span class="n">treeCapFloorEngine</span> <span class="p">(</span>
     <span class="n">Model</span><span class="o">&amp;</span> <span class="n">model</span><span class="p">,</span>
     <span class="n">Process</span><span class="o">&amp;</span> <span class="n">process1</span><span class="p">,</span>
     <span class="n">Process</span><span class="o">&amp;</span> <span class="n">process2</span><span class="p">,</span>
@@ -3053,21 +3125,25 @@
         <a href="kernel_benchmark.html" class="btn btn-neutral float-right" title="Pricing Engines Demo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="engines/ZCDiscountingBondEngine.html" class="btn btn-neutral" title="Internal Design of Zero Coupon Bond Engine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="engines/ZCDiscountingBondEngine.html" class="btn btn-neutral float-left" title="Internal Design of Zero Coupon Bond Engine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -3078,27 +3154,16 @@
   </div>
   
 
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
