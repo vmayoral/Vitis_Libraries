@@ -268,7 +268,9 @@ To run the testing process of L1 primitives, please follow the steps below.</p>
 <div class="section" id="set-up-vivado-hls-environment">
 <h2>2. Set up Vivado_hls environment<a class="headerlink" href="#set-up-vivado-hls-environment" title="Permalink to this headline">¶</a></h2>
 <p>Please navigate to directory L1/tests, and change the setting of environment variable <strong>TA_PATH</strong> to point to the installation path of your Vitis 2019.2, and run following command to set up Vivado_hls environment.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ./set_env.sh
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">XILINX_VITIS</span><span class="o">=</span><span class="si">${</span><span class="nv">TA_PATH</span><span class="si">}</span>/Vitis/2019.2
+<span class="nb">export</span> <span class="nv">XILINX_VIVADO</span><span class="o">=</span><span class="si">${</span><span class="nv">TA_PATH</span><span class="si">}</span>/Vivado/2019.2
+<span class="nb">source</span> <span class="si">${</span><span class="nv">XILINX_VIVADO</span><span class="si">}</span>/settings64.sh
 </pre></div>
 </div>
 </div>
