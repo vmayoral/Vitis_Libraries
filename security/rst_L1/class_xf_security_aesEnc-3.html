@@ -6,14 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>template class xf::security::aesEnc &lt;128&gt; &mdash; XF Security Library 1.0 pre-alpha documentation</title>
+  <title>template class xf::security::aesEnc &mdash; Vitis Security Library v2019.2 documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
-  
-    <link rel="shortcut icon" href="../_static/xilinx-favicon.ico"/>
   
   
   
@@ -35,13 +59,59 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -51,7 +121,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> XF Security Library
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Security Library
           
 
           
@@ -61,7 +131,7 @@
             
             
               <div class="version">
-                1.0
+                2019.2
               </div>
             
           
@@ -78,6 +148,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -104,6 +175,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -113,7 +185,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">XF Security Library</a>
+          <a href="../index.html">Vitis Security Library</a>
         
       </nav>
 
@@ -142,16 +214,14 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>template class xf::security::aesEnc &lt;128&gt;</li>
+      <li>template class xf::security::aesEnc</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/rst_L1/class_xf_security_aesEnc-3.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -163,21 +233,84 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="template-class-xf-security-aesenc-128">
-<span id="cid-xf-security-aesenc-3"></span><span id="doxid-classxf-1-1security-1-1aes-enc-3-01128-01-4"></span><span id="index-0"></span><h1>template class xf::security::aesEnc &lt;128&gt;<a class="headerlink" href="#template-class-xf-security-aesenc-128" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="template-class-xf-security-aesenc">
+<span id="cid-xf-security-aesenc-3"></span><span id="doxid-classxf-1-1security-1-1aes-enc"></span><span id="index-0"></span><h1>template class xf::security::aesEnc<a class="headerlink" href="#template-class-xf-security-aesenc" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight overview-code-block literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;aes.hpp&quot;</span>
 </pre>
-<pre class="highlight overview-code-block literal-block" id="cid-xf-security-aesenc-process-3">
-<span id="doxid-classxf-1-1security-1-1aes-enc-3-01128-01-4-1abc226fa3610e056017e67ad858bcede7"></span><span id="cid-xf-security-aesenc-updatekey-3"></span><span id="doxid-classxf-1-1security-1-1aes-enc-3-01128-01-4-1a4303dda90a84ef5719862ce21960c177"></span><span id="cid-xf-security-aesenc-aesenc-2"></span><span id="doxid-classxf-1-1security-1-1aes-enc-3-01128-01-4-1a6de90fac8f48bb6bec55d2989e7a4956"></span><span id="cid-xf-security-aesenc-key-list-2"></span><span id="doxid-classxf-1-1security-1-1aes-enc-3-01128-01-4-1a129fea56c77f786ba21e492281af3029"></span><span></span><span class="k">template</span> <span class="o">&lt;&gt;</span>
-<span class="k">class</span> <span class="n">aesEnc</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;</span>
-
-<span class="c1">// fields</span>
-
-<span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;</span> <span class="n">key_list</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>AES encryption.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>W</td>
+<td>Bit width of AES key, which is 128, 192 or 256</td>
+</tr>
+</tbody>
+</table>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">W</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="n">aesEnc</span>
 </pre>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="updatekey">
+<span id="cid-xf-security-aesenc-updatekey-3"></span><span id="doxid-classxf-1-1security-1-1aes-enc-1a5811f888fdde7c553a28c9649cca6c1d"></span><h3>updateKey<a class="headerlink" href="#updatekey" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">updateKey</span> <span class="p">(</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">W</span><span class="o">&gt;</span> <span class="n">cipherkey</span><span class="p">)</span>
+</pre>
+<p>Update key before using it to encrypt.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>cipherkey</td>
+<td>Key to be used in encryption.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="process">
+<span id="cid-xf-security-aesenc-process-3"></span><span id="doxid-classxf-1-1security-1-1aes-enc-1a31210d0b8958c201d0c0a3f85851d432"></span><h3>process<a class="headerlink" href="#process" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">process</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;</span> <span class="n">plaintext</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">W</span><span class="o">&gt;</span> <span class="n">cipherkey</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&amp;</span> <span class="n">ciphertext</span>
+    <span class="p">)</span>
+</pre>
+<p>Encrypt message using AES algorithm.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>plaintext</td>
+<td>Message to be encrypted.</td>
+</tr>
+<tr class="row-even"><td>cipherkey</td>
+<td>Key to be used in encryption.</td>
+</tr>
+<tr class="row-odd"><td>ciphertext</td>
+<td>Encryption result.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 
 
@@ -189,14 +322,18 @@
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -206,7 +343,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
-  <source>
-    <originFiles name="test.cpp" path="/wrk/xsjhdnobkup4/tuol/xf_security/L1/tests/hmac/benchmark/test.cpp"/>
-  </source>
-  <testbench>
-    <originFiles name="main.cpp" path="/wrk/xsjhdnobkup4/tuol/xf_security/L1/tests/hmac/benchmark/main.cpp"/>
-  </testbench>
-</autopilotfilemapping:AutoPilotFileMapping>

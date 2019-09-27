@@ -6,14 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>XF Security Library &mdash; XF Security Library 1.0 pre-alpha documentation</title>
+  <title>Vitis Security Library &mdash; Vitis Security Library v2019.2 documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
-  
-    <link rel="shortcut icon" href="_static/xilinx-favicon.ico"/>
   
   
   
@@ -35,14 +59,60 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Requirements" href="overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -52,7 +122,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> XF Security Library
+            <a href="#" class="icon icon-home" alt="Documentation Home"> Vitis Security Library
           
 
           
@@ -62,7 +132,7 @@
             
             
               <div class="version">
-                1.0
+                2019.2
               </div>
             
           
@@ -79,6 +149,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -105,6 +176,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -114,7 +186,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">XF Security Library</a>
+          <a href="#">Vitis Security Library</a>
         
       </nav>
 
@@ -143,16 +215,14 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>XF Security Library</li>
+      <li>Vitis Security Library</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -164,10 +234,480 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="xf-security-library">
-<h1>XF Security Library<a class="headerlink" href="#xf-security-library" title="Permalink to this headline">¶</a></h1>
-<p>XF Security Library is an Vitis library for accelerating security applications.
-Currently it is a pure FPGA-side library, with software API planned for future release.</p>
+  <div class="section" id="vitis-security-library">
+<h1>Vitis Security Library<a class="headerlink" href="#vitis-security-library" title="Permalink to this headline">¶</a></h1>
+<p>Vitis Security Library is an open-sourced Vitis library written in C++ for accelerating security applications in a variety of use cases.</p>
+<p>It now covers L1    level primitives. In this level, it provides optimized hardware implementation of most common relational security algorithms.
+Such as, Synmmetric Block Cipher, Symmetirc Stream Cipher, Asymmetric Cryptography, Cipher Modes of Operations, Message Authentication Code, and Hash Function.</p>
+<p>Since all the primitive code is developed in HLS C++ with the permissive Apache 2.0 license,
+advanced users can easily tailor, optimize or assemble property logic.
+Benchmarks of 4 different acceleration applications are also provided with the library for easy on-boarding and comparison.</p>
+<div class="section" id="library-contents">
+<h2>Library Contents<a class="headerlink" href="#library-contents" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="76%" />
+<col width="6%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Library Class</td>
+<td>Description</td>
+<td>Layer</td>
+</tr>
+<tr class="row-even"><td>aesEnc</td>
+<td>implementation of AES block cipher encrpytion part</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aesDec</td>
+<td>implementation of AES block cipher decrpytion part</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>rsa</td>
+<td>implementation of RSA encryption / decryption part</td>
+<td>L1</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="76%" />
+<col width="6%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Library Function</td>
+<td>Description</td>
+<td>Layer</td>
+</tr>
+<tr class="row-even"><td>desEncrypt</td>
+<td>desEncrypt is the basic function for encrypt one block with one cipher key using DES</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>desDecrypt</td>
+<td>desDecrypt is the basic function for decrypt one block with one cipher key using DES</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>des3Encrypt</td>
+<td>des3Encrypt is the basic function for encrypt one block with three cipher keys using 3DES</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>des3Decrypt</td>
+<td>des3Decrypt is the basic function for decrypt one block with three cipher keys using 3DES</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>desCbcEncrypt</td>
+<td>desCbcEncrypt is CBC encryption mode with DES single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>desCbcDecrypt</td>
+<td>desCbcDecrypt is CBC decryption mode with DES single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes128CbcEncrypt</td>
+<td>aes128CbcEncrypt is CBC encryption mode with AES-128 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes128CbcDecrypt</td>
+<td>aes128CbcDecrypt is CBC decryption mode with AES-128 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes192CbcEncrypt</td>
+<td>aes192CbcEncrypt is CBC encryption mode with AES-192 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes192CbcDecrypt</td>
+<td>aes192CbcDecrypt is CBC decryption mode with AES-192 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes256CbcEncrypt</td>
+<td>aes256CbcEncrypt is CBC encryption mode with AES-256 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes256CbcDecrypt</td>
+<td>aes256CbcDecrypt is CBC decryption mode with AES-256 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes128CcmEncrypt</td>
+<td>aes128CcmEncrypt is CCM encryption mode with AES-128 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes128CcmDecrypt</td>
+<td>aes128CcmDecrypt is CCM decryption mode with AES-128 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes192CcmEncrypt</td>
+<td>aes192CcmEncrypt is CCM encryption mode with AES-192 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes192CcmDecrypt</td>
+<td>aes192CcmDecrypt is CCM decryption mode with AES-192 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes256CcmEncrypt</td>
+<td>aes256CcmEncrypt is CCM encryption mode with AES-256 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes256CcmDecrypt</td>
+<td>aes256CcmDecrypt is CCM decryption mode with AES-256 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>desCfb1Encrypt</td>
+<td>desCfb1Encrypt is CFB1 encryption mode with DES single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>desCfb1Decrypt</td>
+<td>desCfb1Decrypt is CFB1 decryption mode with DES single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes128Cfb1Encrypt</td>
+<td>aes128Cfb1Encrypt is CFB1 encryption mode with AES-128 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes128Cfb1Decrypt</td>
+<td>aes128Cfb1Decrypt is CFB1 decryption mode with AES-128 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes192Cfb1Encrypt</td>
+<td>aes192Cfb1Encrypt is CFB1 encryption mode with AES-192 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes192Cfb1Decrypt</td>
+<td>aes192Cfb1Decrypt is CFB1 decryption mode with AES-192 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes256Cfb1Encrypt</td>
+<td>aes256Cfb1Encrypt is CFB1 encryption mode with AES-256 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes256Cfb1Decrypt</td>
+<td>aes256Cfb1Decrypt is CFB1 decryption mode with AES-256 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>desCfb8Encrypt</td>
+<td>desCfb8Encrypt is CFB8 encryption mode with DES single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>desCfb8Decrypt</td>
+<td>desCfb8Decrypt is CFB8 decryption mode with DES single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes128Cfb8Encrypt</td>
+<td>aes128Cfb8Encrypt is CFB8 encryption mode with AES-128 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes128Cfb8Decrypt</td>
+<td>aes128Cfb8Decrypt is CFB8 decryption mode with AES-128 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes192Cfb8Encrypt</td>
+<td>aes192Cfb8Encrypt is CFB8 encryption mode with AES-192 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes192Cfb8Decrypt</td>
+<td>aes192Cfb8Decrypt is CFB8 decryption mode with AES-192 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes256Cfb8Encrypt</td>
+<td>aes256Cfb8Encrypt is CFB8 encryption mode with AES-256 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes256Cfb8Decrypt</td>
+<td>aes256Cfb8Decrypt is CFB8 decryption mode with AES-256 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>desCfb128Encrypt</td>
+<td>desCfb128Encrypt is CFB128 encryption mode with DES single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>desCfb128Decrypt</td>
+<td>desCfb128Decrypt is CFB128 decryption mode with DES single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes128Cfb128Encrypt</td>
+<td>aes128Cfb128Encrypt is CFB128 encryption mode with AES-128 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes128Cfb128Decrypt</td>
+<td>aes128Cfb128Decrypt is CFB128 decryption mode with AES-128 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes192Cfb128Encrypt</td>
+<td>aes192Cfb128Encrypt is CFB128 encryption mode with AES-192 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes192Cfb128Decrypt</td>
+<td>aes192Cfb128Decrypt is CFB128 decryption mode with AES-192 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes256Cfb128Encrypt</td>
+<td>aes256Cfb128Encrypt is CFB128 encryption mode with AES-256 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes256Cfb128Decrypt</td>
+<td>aes256Cfb128Decrypt is CFB128 decryption mode with AES-256 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes128CtrEncrypt</td>
+<td>aes128CtrEncrypt is CTR encryption mode with AES-128 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes128CtrDecrypt</td>
+<td>aes128CtrDecrypt is CTR decryption mode with AES-128 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes192CtrEncrypt</td>
+<td>aes192CtrEncrypt is CTR encryption mode with AES-192 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes192CtrDecrypt</td>
+<td>aes192CtrDecrypt is CTR decryption mode with AES-192 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes256CtrEncrypt</td>
+<td>aes256CtrEncrypt is CTR encryption mode with AES-256 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes256CtrDecrypt</td>
+<td>aes256CtrDecrypt is CTR decryption mode with AES-256 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>desEcbEncrypt</td>
+<td>desEcbEncrypt is ECB encryption mode with DES single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>desEcbDecrypt</td>
+<td>desEcbDecrypt is ECB decryption mode with DES single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes128EcbEncrypt</td>
+<td>aes128EcbEncrypt is ECB encryption mode with AES-128 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes128EcbDecrypt</td>
+<td>aes128EcbDecrypt is ECB decryption mode with AES-128 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes192EcbEncrypt</td>
+<td>aes192EcbEncrypt is ECB encryption mode with AES-192 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes192EcbDecrypt</td>
+<td>aes192EcbDecrypt is ECB decryption mode with AES-192 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes256EcbEncrypt</td>
+<td>aes256EcbEncrypt is ECB encryption mode with AES-256 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes256EcbDecrypt</td>
+<td>aes256EcbDecrypt is ECB decryption mode with AES-256 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes128GcmEncrypt</td>
+<td>aes128GcmEncrypt is GCM encryption mode with AES-128 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes128GcmDecrypt</td>
+<td>aes128GcmDecrypt is GCM decryption mode with AES-128 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes192GcmEncrypt</td>
+<td>aes192GcmEncrypt is GCM encryption mode with AES-192 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes192GcmDecrypt</td>
+<td>aes192GcmDecrypt is GCM decryption mode with AES-192 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes256GcmEncrypt</td>
+<td>aes256GcmEncrypt is GCM encryption mode with AES-256 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes256GcmDecrypt</td>
+<td>aes256GcmDecrypt is GCM decryption mode with AES-2562 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>desOfbEncrypt</td>
+<td>desOfbEncrypt is OFB encryption mode with DES single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>desOfbDecrypt</td>
+<td>desOfbDecrypt is OFB decryption mode with DES single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes128OfbEncrypt</td>
+<td>aes128OfbEncrypt is OFB encryption mode with AES-128 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes128OfbDecrypt</td>
+<td>aes128OfbDecrypt is OFB decryption mode with AES-128 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes192OfbEncrypt</td>
+<td>aes192OfbEncrypt is OFB encryption mode with AES-192 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes192OfbDecrypt</td>
+<td>aes192OfbDecrypt is OFB decryption mode with AES-192 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes256OfbEncrypt</td>
+<td>aes256OfbEncrypt is OFB encryption mode with AES-256 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes256OfbDecrypt</td>
+<td>aes256OfbDecrypt is OFB decryption mode with AES-256 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes128XtsEncrypt</td>
+<td>aes128XtsEncrypt is XTS encryption mode with AES-128 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes128XtsDecrypt</td>
+<td>aes128XtsDecrypt is XTS decryption mode with AES-128 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes256XtsEncrypt</td>
+<td>aes256XtsEncrypt is XTS encryption mode with AES-256 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes256XtsDecrypt</td>
+<td>aes256XtsDecrypt is XTS decryption mode with AES-256 single block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes128Gmac</td>
+<td>The GMAC using AES-128 block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>aes192Gmac</td>
+<td>The GMAC using AES-192 block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>aes256Gmac</td>
+<td>The GMAC using AES-256 block cipher</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>hmac</td>
+<td>compute hmac value according to specific hash function and input data</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>chacha20</td>
+<td>CHACHA20 algorithm implementation</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>poly1305</td>
+<td>POLY1305 algorithm implementation</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>rc4</td>
+<td>RC4, also known as ARC4 algorithm implementation</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>md4</td>
+<td>MD4 algorithm implementation</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>md5</td>
+<td>MD5 algorithm implementation</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>sha1</td>
+<td>SHA-1 algorithm implementation</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>sha224</td>
+<td>SHA-224 algorithm implementation</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>sha256</td>
+<td>SHA-256 algorithm implementation</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>sha384</td>
+<td>SHA-384 algorithm implementation</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>sha512</td>
+<td>SHA-512 algorithm implementation</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>sha512_t</td>
+<td>SHA-512/t algorithm implementation</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>sha3_224</td>
+<td>SHA-3/224 algorithm implementation</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>sha3_256</td>
+<td>SHA-3/256 algorithm implementation</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>sha3_384</td>
+<td>SHA-3/384 algorithm implementation</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>sha3_512</td>
+<td>SHA-3/512 algorithm implementation</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>shake128</td>
+<td>SHAKE-128 algorithm implementation</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td>shake256</td>
+<td>SHAKE-256 algorithm implementation</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td>blake2b</td>
+<td>BLAKE2B algorithm implementation</td>
+<td>L1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="shell-environment">
+<h2>Shell Environment<a class="headerlink" href="#shell-environment" title="Permalink to this headline">¶</a></h2>
+<p>Setup the build environment using the Vitis and XRT scripts, and set the PLATFORM_REPO_PATHS to installation folder of platform files.</p>
+<pre class="highlight literal-block">
+<span></span><span class="nb">source</span> &lt;install path&gt;/Vitis/2019.2/settings64.sh
+<span class="nb">source</span> /opt/xilinx/xrt/setup.sh
+<span class="nb">export</span> <span class="nv">PLATFORM_REPO_PATHS</span><span class="o">=</span>/opt/xilinx/platforms
+</pre>
+</div>
+<div class="section" id="design-flows">
+<h2>Design Flows<a class="headerlink" href="#design-flows" title="Permalink to this headline">¶</a></h2>
+<p>The common tool and library pre-requisites that apply across all design flows are documented in the requirements section above.</p>
+<p>Recommended design flows are decribed as follows:</p>
+<div class="section" id="l1">
+<h3>L1<a class="headerlink" href="#l1" title="Permalink to this headline">¶</a></h3>
+<p>L1 provides the basic primitives which cover the most common algorithms in security.</p>
+<p>The recommend flow to evaluate and test L1 components is described as follows using Vivado HLS tool.
+A top level C/C++ testbench (typically <cite>algorithm_name.cpp</cite>) prepares the input data, passes them to the design under test, then performs any output data post processing and validation checks.</p>
+<p>A Makefile is used to drive this flow with available steps including <cite>CSIM</cite> (high level simulation), <cite>CSYNTH</cite> (high level synthesis to RTL) and <cite>COSIM</cite> (cosimulation between software testbench and generated RTL), <cite>VIVADO_SYN</cite> (synthesis by Vivado), <cite>VIVADO_IMPL</cite> (implementation by Vivado). The flow is launched from the shell by calling <cite>make</cite> with variables set as in the example below:</p>
+<pre class="highlight literal-block">
+<span></span>. /opt/xilinx/xrt/setup.sh
+<span class="nb">export</span> <span class="nv">PLATFORM_REPO_PATHS</span><span class="o">=</span>/opt/xilinx/platforms
+<span class="nb">cd</span> L1/tests/specific_algorithm/
+<span class="c1"># Only run C++ simulation on U250 card</span>
+make run <span class="nv">CSIM</span><span class="o">=</span><span class="m">1</span> <span class="nv">CSYNTH</span><span class="o">=</span><span class="m">0</span> <span class="nv">COSIM</span><span class="o">=</span><span class="m">0</span> <span class="nv">VIVADO_SYN</span><span class="o">=</span><span class="m">0</span> <span class="nv">VIVADO_IMPL</span><span class="o">=</span><span class="m">0</span> <span class="nv">DEVICE</span><span class="o">=</span>u250_xdma_201830_1
+</pre>
+<p>As well as verifying functional correctness, the reports generated from this flow give an indication of logic utilization, timing performance, latency and throughput. The output files of interest can be located at the location of the test project where the path name is correlated with the algorithm. i.e. the callable function within the design under test.</p>
+<p>To run the Vitis projects for benchmark evaluation and test, you may need the example below:</p>
+<pre class="highlight literal-block">
+<span></span>./opt/xilinx/xrt/setup.sh
+<span class="nb">export</span> <span class="nv">PLATFORM_REPO_PATHS</span><span class="o">=</span>/opt/xilinx/platforms
+d L1/benchmarks/specific_algorithm/
+<span class="c1"># Run software emulation for correctness test</span>
+make run <span class="nv">TARGET</span><span class="o">=</span>sw_emu <span class="nv">DEIVCE</span><span class="o">=</span>u250_xdma_201830_1
+<span class="c1"># Run hardware emulation for cycle-accurate simulation with the RTL-model</span>
+make run <span class="nv">TARGET</span><span class="o">=</span>hw_emu <span class="nv">DEIVCE</span><span class="o">=</span>u250_xdma_201830_1
+<span class="c1"># Run hardware to generate the desired xclbin binary</span>
+make run <span class="nv">TARGET</span><span class="o">=</span>hw <span class="nv">DEIVCE</span><span class="o">=</span>u250_xdma_201830_1
+<span class="c1"># Delete xclbin and host excutable program</span>
+make cleanall
+</pre>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Library Overview</span></p>
 <ul>
@@ -181,8 +721,8 @@ Currently it is a pure FPGA-side library, with software API planned for future r
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="guide_L1/hw_guide.html">L1 Module User Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guide_L1/hw_api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide_L1/internals.html">Design Internals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_L1/hw_api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -193,11 +733,13 @@ Currently it is a pure FPGA-side library, with software API planned for future r
 <li class="toctree-l1"><a class="reference internal" href="benchmark/result.html">Benchmark Result</a></li>
 </ul>
 </div>
+</div>
 <div class="section" id="index">
-<h2>Index<a class="headerlink" href="#index" title="Permalink to this headline">¶</a></h2>
+<h3>Index<a class="headerlink" href="#index" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
 </ul>
+</div>
 </div>
 </div>
 
@@ -217,14 +759,18 @@ Currently it is a pure FPGA-side library, with software API planned for future r
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -234,7 +780,6 @@ Currently it is a pure FPGA-side library, with software API planned for future r
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

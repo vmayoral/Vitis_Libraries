@@ -6,14 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>CTR Mode &mdash; XF Security Library 1.0 pre-alpha documentation</title>
+  <title>CTR Mode &mdash; Vitis Security Library v2019.2 documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
-  
-    <link rel="shortcut icon" href="../../_static/xilinx-favicon.ico"/>
   
   
   
@@ -35,7 +59,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="DES and 3DES Algorithms" href="des.html" />
@@ -43,7 +66,54 @@
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -53,7 +123,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> XF Security Library
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Security Library
           
 
           
@@ -63,7 +133,7 @@
             
             
               <div class="version">
-                1.0
+                2019.2
               </div>
             
           
@@ -80,6 +150,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -97,7 +168,6 @@
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../hw_guide.html">L1 Module User Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../hw_api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code></a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../internals.html">Design Internals</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="aes.html">AES Encryption Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="blake2b.html">BLAKE2 Algorithms</a></li>
@@ -121,12 +191,14 @@
 <li class="toctree-l3"><a class="reference internal" href="ofb.html">OFB Mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="poly1305.html">Poly1305 Algorithm</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rc4.html">RC4 Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsa.html">RSA Cryptography</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sha1.html">SHA-1 Algorithm</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sha2.html">SHA-2 Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sha3.html">SHA-3 Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="xts.html">XTS mode</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../hw_api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -138,6 +210,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -147,7 +220,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF Security Library</a>
+          <a href="../../index.html">Vitis Security Library</a>
         
       </nav>
 
@@ -176,7 +249,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../hw_guide.html">L1 Module User Guide</a> &raquo;</li>
         
@@ -188,8 +261,6 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/guide_L1/internals/ctr.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -219,37 +290,42 @@ So, the last block of the text provided to this primitive must be padded to 128 
 <p>We support CTR-AES128, CTR-AES192, and CTR-AES256 modes in this implementation.</p>
 <div class="admonition attention">
 <p class="first admonition-title">Attention</p>
-<p>The bit-width of the interfaces we provide is shown as follows:
-============ =========== ============ =========== ====</p>
-<blockquote>
-<div>plaintext   ciphertext   cipherkey   IV</div></blockquote>
-<table border="1" class="docutils">
+<p>The bit-width of the interfaces we provide is shown as follows:</p>
+<table border="1" class="last docutils">
 <colgroup>
-<col width="24%" />
+<col width="22%" />
 <col width="22%" />
 <col width="24%" />
 <col width="22%" />
 <col width="8%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">CTR-AES128</th>
-<th class="head">128</th>
-<th class="head">128</th>
-<th class="head">128</th>
-<th class="head">128</th>
-</tr>
-</thead>
 <tbody valign="top">
-<tr class="row-even"><td>CTR-AES192</td>
+<tr class="row-odd"><td>&#160;</td>
+<td>plaintext</td>
+<td>ciphertext</td>
+<td>cipherkey</td>
+<td>IV</td>
+</tr>
+<tr class="row-even"><td>CTR-AES128</td>
+<td>128</td>
+<td>128</td>
+<td>128</td>
+<td>128</td>
+</tr>
+<tr class="row-odd"><td>CTR-AES192</td>
 <td>128</td>
 <td>128</td>
 <td>192</td>
 <td>128</td>
 </tr>
+<tr class="row-even"><td>CTR-AES256</td>
+<td>128</td>
+<td>128</td>
+<td>256</td>
+<td>128</td>
+</tr>
 </tbody>
 </table>
-<blockquote class="last">
-<div>CTR-AES256      128         128          256      128</div></blockquote>
 </div>
 <p>The algorithm flow chart is shown as follow:</p>
 <a class="reference internal image-reference" href="../../_images/CTR_working_mode.png"><img alt="algorithm flow chart of CTR" class="align-center" src="../../_images/CTR_working_mode.png" style="width: 100%;" /></a>
@@ -502,14 +578,18 @@ Thus, both encryption and decryption part of CTR mode can achieve an initiation 
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -519,7 +599,6 @@ Thus, both encryption and decryption part of CTR mode can achieve an initiation 
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

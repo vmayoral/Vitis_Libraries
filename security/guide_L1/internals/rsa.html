@@ -6,14 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>AES-256 Encryption Algorithms &mdash; XF Security Library 1.0 pre-alpha documentation</title>
+  <title>RSA Cryptography &mdash; Vitis Security Library v2019.2 documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
-  
-    <link rel="shortcut icon" href="../../_static/xilinx-favicon.ico"/>
   
   
   
@@ -35,7 +59,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="SHA-1 Algorithm" href="sha1.html" />
@@ -43,7 +66,54 @@
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -53,7 +123,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> XF Security Library
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Security Library
           
 
           
@@ -63,7 +133,7 @@
             
             
               <div class="version">
-                1.0
+                2019.2
               </div>
             
           
@@ -80,6 +150,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -97,9 +168,8 @@
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../hw_guide.html">L1 Module User Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../hw_api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code></a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../internals.html">Design Internals</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="aes.html">AES-256 Encryption Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aes.html">AES Encryption Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="blake2b.html">BLAKE2 Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cbc.html">CBC Mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ccm.html">CCM Mode</a></li>
@@ -109,17 +179,18 @@
 <li class="toctree-l3"><a class="reference internal" href="des.html">DES and 3DES Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ecb.html">ECB Mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gcm.html">GCM Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gmac.html">GMAC Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gmac.html">GMAC</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hmac.html">HMAC Algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="iaes.html">AES-256 Decryption Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iaes.html">AES Decryption Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="md4_5.html">The MD4/MD5 Message-Digest Algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ofb.html">OFB Mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="poly1305.html">Poly1305 Algorithm</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rc4.html">RC4 Algorithms</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">AES-256 Encryption Algorithms</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#original-implementation">Original Implementation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">RSA Cryptography</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#implementation">Implementation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#optimized-implementation-on-fpga">Optimized Implementation on FPGA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#performance-device-vu9p">Performance(Device: VU9P)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reference">Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rsa-performance-device-u250">RSA Performance(Device: U250)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sha1.html">SHA-1 Algorithm</a></li>
@@ -128,17 +199,19 @@
 <li class="toctree-l3"><a class="reference internal" href="xts.html">XTS mode</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../hw_api.html">API Functions of <code class="docutils literal notranslate"><span class="pre">xf::security</span></code></a></li>
 </ul>
 </li>
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../benchmark/result.html">Benchmark of AES256 Encryption/Decryption in CBC Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmark/result.html">Benchmark Result</a></li>
 </ul>
 
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -148,7 +221,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF Security Library</a>
+          <a href="../../index.html">Vitis Security Library</a>
         
       </nav>
 
@@ -177,20 +250,18 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../hw_guide.html">L1 Module User Guide</a> &raquo;</li>
         
           <li><a href="../internals.html">Design Internals</a> &raquo;</li>
         
-      <li>AES-256 Encryption Algorithms</li>
+      <li>RSA Cryptography</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/guide_L1/internals/rsa.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -202,52 +273,53 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="aes-256-encryption-algorithms">
-<h1>AES-256 Encryption Algorithms<a class="headerlink" href="#aes-256-encryption-algorithms" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="rsa-cryptography">
+<h1>RSA Cryptography<a class="headerlink" href="#rsa-cryptography" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<p>AES-256 is one of AES Algorithms which processes plain data blocks of 128 bits,
-generates cipher data blocks of 128 bits using cipher keys of 256 bits.
-Basic unit of AES algorithms operation is a two dimensional array of 16 bytes called states.
-Its mapping relation is as illustrated in the figure below.</p>
-<a class="reference internal image-reference" href="../../_images/state_of_bytes.png"><img alt="state of bytes" class="align-center" src="../../_images/state_of_bytes.png" style="width: 100%;" /></a>
-<div class="section" id="original-implementation">
-<h2>Original Implementation<a class="headerlink" href="#original-implementation" title="Permalink to this headline">¶</a></h2>
-<p>AES-256 consist of 5 part: KeyExpansion, SubBytes, ShiftRows, MixColumns and AddRoundKey.</p>
-<p>KeyExpansion generates 15 round keys from original cipher key and they maps to 2-D array as states do.</p>
-<p>AES-256 first does XOR add to input plain data blocks with first roundkey.
-Then AES-256 performs 14 round of processing with the last 14 round keys, each at a time.
-Each round sequentially does SubBytes, ShiftRows, MixColumns and AddRoundKey.</p>
-<a class="reference internal image-reference" href="../../_images/original_flow.png"><img alt="original flow" class="align-center" src="../../_images/original_flow.png" style="width: 100%;" /></a>
-<p>During SubBytes, each bytes of states is transformed by looking up table S-box using their value as address.</p>
-<a class="reference internal image-reference" href="../../_images/subbytes.png"><img alt="subbytes" class="align-center" src="../../_images/subbytes.png" style="width: 100%;" /></a>
-<p>During ShiftRows, last 3 rows of states are cyclically shifted over different number of bytes based on row number.</p>
-<a class="reference internal image-reference" href="../../_images/shiftrows.png"><img alt="shiftrows" class="align-center" src="../../_images/shiftrows.png" style="width: 100%;" /></a>
-<p>During MixColumns, perform operation on each column of states.
-Basicallly it’s use matrix multiplication to transform each column of states.
-Transform matrix is fixed and calculation treats each bytes as polynomials with coefficients in GF(2^8), modulo x^4 + 1.</p>
-<a class="reference internal image-reference" href="../../_images/mixcolumns.png"><img alt="mixcolumns" class="align-center" src="../../_images/mixcolumns.png" style="width: 100%;" /></a>
-<p>During AddRoundKey, states are XOR with roundkey of this round.</p>
-<a class="reference internal image-reference" href="../../_images/addroundkey.png"><img alt="addroundkey" class="align-center" src="../../_images/addroundkey.png" style="width: 100%;" /></a>
+<p>RSA is a public-key cryptosystem. Its encryption key is public and different from decryption key.
+RSA cryptosystem includes key generation, key distribution, encryption/decryption and padding schemes. In this release we provide the encryption/decryption part.</p>
+<div class="section" id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<p>RSA key pair has 3 part: modulus <span class="math notranslate nohighlight">\(n\)</span> , encryption key exponent <span class="math notranslate nohighlight">\(e\)</span>, decryption key exponent <span class="math notranslate nohighlight">\(d\)</span>.
+Plain text is an unsigned integer <span class="math notranslate nohighlight">\(m\)</span>, not larger than modulus and Cipher text is also an unsigned integer <span class="math notranslate nohighlight">\(c\)</span>.</p>
+<p>In Encryption we have:</p>
+<div class="math notranslate nohighlight">
+\[c = m^{e} \mod{n}\]</div>
+<p>In Decryption we have:</p>
+<div class="math notranslate nohighlight">
+\[m = c^{d} \mod{n}\]</div>
 </div>
 <div class="section" id="optimized-implementation-on-fpga">
 <h2>Optimized Implementation on FPGA<a class="headerlink" href="#optimized-implementation-on-fpga" title="Permalink to this headline">¶</a></h2>
-<p>Since each round of procee only needs one round key and KeyExpansion is independent of process,
-we put KeyExpansion into each round to save an overhead.</p>
-<p>Because SubBytes is independent of each byte’s location in states and ShiftRows only shifts in integer of bytes, these two part could exchange their position in processing sequence without changing the result. Thoough no improvement is achieved here, this will benefit later optimizaiton.</p>
-<a class="reference internal image-reference" href="../../_images/new_flow.png"><img alt="new flow" class="align-center" src="../../_images/new_flow.png" style="width: 100%;" /></a>
-<p>The matrix multiplication in MixColumns is actually two parts: multiply bytes in column of states with bytes in row of the matrix, then add the result. Value of matrix elements could only be 01, 02 or 03. we can get the original result of SubBytes and its muplication of 01, 02 or 03 by one time table look up of a new S-Box called “sbox_mix_col_1”. This could save a lot of logics to do multiplication.</p>
-<a class="reference internal image-reference" href="../../_images/sbox_mix_col_1.png"><img alt="merge SubByte with MixColumns" class="align-center" src="../../_images/sbox_mix_col_1.png" style="width: 100%;" /></a>
-<p>Based on similar consideration, we also merge such multiplication in KeyExpansion into one time table look up of another new S-Box called “sbox_Rcon”. Although sbox_Rcon and sbox_mix_col_1 are bigger than original S-Box, they all could be stored in 1 BRAM on chip. Such merges saves logics without additional resource cost.</p>
+<p>We seperate encryption into two part: updateKey and process. Each time we got an message with a new RSA key, we have to call updateKey before get into encryption/decryption. If we process messages with the same key continuously, updateKey only need be call once at the beginning.</p>
+<p>RSA encryption and decryption are basically the same calculation: big integer exponent modulus.
+We first transform message to its Montgomery representation, then perform Montgomery modular exponentiation.
+At last we tranform it back to normal expression to get final result.
+By such implementation, we avoid all big integer division to get modulus, except for the one during transformation to Montegomery representation.</p>
+<p>In updateKey, we calculate modular multiplicative inverse using extend Eculid Algorithms. Also we calculate the position of first non-zero big of exponent.Both calculation is to prepare for later process and save unnecessary calculations.</p>
+<p>In process, we need to do a lot of big integer multiplication which will cost a lot of DSPs.
+Since All these multiplication are inter dependent, there’re no way to parallelize.
+So most optimization focused on pipeline DSP inside multiplications.
+We treat big integer, like a 2048 bits integer, as a BlockNum digits integer in radix BlockWidth.
+We choose BlockNum and BlockWidth so that <span class="math notranslate nohighlight">\(2048 = BlockNum * BlockWidth\)</span>.
+A BlockWidth x BlockWdith multiplication is a basic operation, and a 2048 bits x 2048 bits multiplication could be done by BlockNum x BlockNum basic operations.
+We utilize DSPs in a way that they could finish these basic operations independently.
+In such way, we utilize fewer DSP and have better timing.</p>
+<a class="reference internal image-reference" href="../../_images/rsa_1.png"><img alt="Illustration of big integer multiplication." class="align-center" src="../../_images/rsa_1.png" style="width: 30%;" /></a>
 </div>
-<div class="section" id="performance-device-vu9p">
-<h2>Performance(Device: VU9P)<a class="headerlink" href="#performance-device-vu9p" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<p>Peter Montgomery. “Modular Multiplication Without Trial Division”, Mathematics of Computation, vol. 44 no. 170, pp. 519–521, April 1985.</p>
+<p>Knuth, Donald. The Art of Computer Programming. Addison-Wesley. Volume 2, Chapter 4.</p>
+</div>
+<div class="section" id="rsa-performance-device-u250">
+<h2>RSA Performance(Device: U250)<a class="headerlink" href="#rsa-performance-device-u250" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
-<col width="8%" />
-<col width="10%" />
 <col width="12%" />
-<col width="12%" />
+<col width="14%" />
+<col width="14%" />
 <col width="10%" />
 <col width="12%" />
 <col width="10%" />
@@ -255,8 +327,7 @@ we put KeyExpansion into each round to save an overhead.</p>
 <col width="16%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">II</th>
-<th class="head">CLB</th>
+<tr class="row-odd"><th class="head">CLB</th>
 <th class="head">LUT</th>
 <th class="head">FF</th>
 <th class="head">DSP</th>
@@ -267,15 +338,14 @@ we put KeyExpansion into each round to save an overhead.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>1</td>
-<td>963</td>
-<td>3422</td>
-<td>4628</td>
+<tr class="row-even"><td>3428</td>
+<td>28668</td>
+<td>94455</td>
+<td>128</td>
 <td>0</td>
-<td>138</td>
-<td>417</td>
+<td>942</td>
 <td>0</td>
-<td>2.857</td>
+<td>3.160</td>
 </tr>
 </tbody>
 </table>
@@ -300,14 +370,18 @@ we put KeyExpansion into each round to save an overhead.</p>
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -317,7 +391,6 @@ we put KeyExpansion into each round to save an overhead.</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
