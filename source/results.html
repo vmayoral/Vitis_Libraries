@@ -253,7 +253,7 @@
 <h1>Benchmark Results<a class="headerlink" href="#benchmark-results" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="compression-performance">
 <h2>Compression Performance<a class="headerlink" href="#compression-performance" title="Permalink to this headline">¶</a></h2>
-<p>Table below presents LZ4 and Snappy Compression Ratio (CR), compression <strong>best kernel throughput</strong> achieved with <strong>8 parallel engines</strong>,
+<p>Table below presents LZ4 Compression Ratio (CR), compression kernel throughput achieved with single and 8 engines,
 kernel clock frequency met and resource utilization when executed on Alveo U200.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -261,17 +261,17 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 </div>
 <table class="docutils align-center">
 <colgroup>
-<col style="width: 48%" />
-<col style="width: 7%" />
-<col style="width: 13%" />
+<col style="width: 24%" />
+<col style="width: 24%" />
+<col style="width: 15%" />
+<col style="width: 11%" />
 <col style="width: 10%" />
-<col style="width: 9%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Architecture</p></th>
-<th class="head"><p>CR</p></th>
+<th class="head"><p>Compression Ratio</p></th>
 <th class="head"><p>Throughput</p></th>
 <th class="head"><p>FMax</p></th>
 <th class="head"><p>LUT</p></th>
@@ -280,23 +280,15 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>LZ4 Streaming (Single Engine)</p></td>
+<tr class="row-even"><td><p>LZ4 Streaming*</p></td>
 <td><p>2.13</p></td>
-<td><p>285 MB/s</p></td>
+<td><p>287 MB/s</p></td>
 <td><p>300MHz</p></td>
 <td><p>4.5K</p></td>
 <td><p>16</p></td>
 <td><p>6</p></td>
 </tr>
-<tr class="row-odd"><td><p>Snappy Streaming(Single Engine)</p></td>
-<td><p>2.13</p></td>
-<td><p>260 MB/s</p></td>
-<td><p>270MHz</p></td>
-<td><p>4.5K</p></td>
-<td><p>16</p></td>
-<td><p>6</p></td>
-</tr>
-<tr class="row-even"><td><p>LZ4 Memory Mapped (8 Engines with Data Movers)</p></td>
+<tr class="row-odd"><td><p>LZ4 Memory Mapped**</p></td>
 <td><p>2.13</p></td>
 <td><p>1.8 GB/s</p></td>
 <td><p>300MHz</p></td>
@@ -304,20 +296,16 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 <td><p>58</p></td>
 <td><p>48</p></td>
 </tr>
-<tr class="row-odd"><td><p>Snappy Memory Mapped (8 Engines with Data Movers)</p></td>
-<td><p>2.13</p></td>
-<td><p>1.5 GB/s</p></td>
-<td><p>270MHz</p></td>
-<td><p>52.7K</p></td>
-<td><p>58</p></td>
-<td><p>48</p></td>
-</tr>
 </tbody>
 </table>
+<ul class="simple">
+<li><p>Single Engine</p></li>
+</ul>
+<p>** 8 Engines with Data Movers</p>
 </div>
 <div class="section" id="de-compression-performance">
 <h2>De-Compression Performance<a class="headerlink" href="#de-compression-performance" title="Permalink to this headline">¶</a></h2>
-<p>Table below presents LZ4 and Snappy decompression <strong>best kernel throughput</strong> achieved with <strong>8 parallel engines</strong>,
+<p>Table below presents LZ4 decompression kernel throughput achieved with single and 8 engines,
 kernel clock frequency met and resource utilization when executed on Alveo U200.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -325,11 +313,11 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 </div>
 <table class="docutils align-center">
 <colgroup>
-<col style="width: 56%" />
+<col style="width: 35%" />
+<col style="width: 23%" />
 <col style="width: 16%" />
+<col style="width: 15%" />
 <col style="width: 11%" />
-<col style="width: 10%" />
-<col style="width: 8%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Architecture</p></th>
@@ -340,32 +328,24 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>LZ4 Streaming (Single Engine)</p></td>
-<td><p>292 MB/s</p></td>
+<tr class="row-even"><td><p>LZ4 Streaming*</p></td>
+<td><p>293 MB/s</p></td>
 <td><p>300MHz</p></td>
 <td><p>809</p></td>
 <td><p>16</p></td>
 </tr>
-<tr class="row-odd"><td><p>Snappy Streaming(Single Engine)</p></td>
-<td><p>290 MB/s</p></td>
-<td><p>300MHz</p></td>
-<td><p>809</p></td>
-<td><p>16</p></td>
-</tr>
-<tr class="row-even"><td><p>LZ4 Memory Mapped (8 Engines with Data Movers)</p></td>
+<tr class="row-odd"><td><p>LZ4 Memory Mapped**</p></td>
 <td><p>1.8 GB/s</p></td>
 <td><p>300MHz</p></td>
 <td><p>30.6K</p></td>
 <td><p>146</p></td>
 </tr>
-<tr class="row-odd"><td><p>Snappy Memory Mapped (8 Engines with Data Movers)</p></td>
-<td><p>1.8 GB/s</p></td>
-<td><p>300MHz</p></td>
-<td><p>30.7K</p></td>
-<td><p>146</p></td>
-</tr>
 </tbody>
 </table>
+<ul class="simple">
+<li><p>Single Engine</p></li>
+</ul>
+<p>** 8 Engines with Data Movers</p>
 </div>
 </div>
 

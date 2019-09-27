@@ -17,7 +17,7 @@
     <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
     <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Global Namespace &mdash; Vitis Data Compression Library v2019.2 documentation</title>
+  <title>namespace compression &mdash; Vitis Data Compression Library v2019.2 documentation</title>
   
 <!-- Header information provided by Emily-->
     <meta name="apple-itunes-app" content="app-id=1063287962">
@@ -61,8 +61,8 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="namespace xf" href="namespace_xf.html" />
-    <link rel="prev" title="Overlay API Reference" href="../../../source/L3/api_reference.html" /> 
+    <link rel="next" title="class xf::compression::xfLz4" href="class_xf_compression_xfLz4.html" />
+    <link rel="prev" title="namespace xf" href="namespace_xf.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -172,9 +172,9 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../../source/L3/L3.html">L3 Overlay User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../source/L3/overview.html">Overview</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../../source/L3/api_reference.html">Overlay API Reference</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Global Namespace</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="namespace_xf.html">namespace xf</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#macros">Macros</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="global.html">Global Namespace</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="namespace_xf.html">namespace xf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="global.html#macros">Macros</a></li>
 </ul>
 </li>
 </ul>
@@ -191,9 +191,9 @@
             
 			<p class="caption"><span class="caption-text">This Page</span></p>
 				<ul class="current">
-				  <li class="toctree-l1"><a href="../../../_sources/doxygen/L3/rst/global.rst.txt"
+				  <li class="toctree-l1"><a href="../../../_sources/doxygen/L3/rst/namespace_xf_compression.rst.txt"
 						rel="nofollow">Show Source</a></li>
-					<li class="toctree-l1"><a href="https://github.com/Xilinx/xf_compression/blob/master/docs/source/overview.rst/doxygen/L3/rst/global.rst"
+					<li class="toctree-l1"><a href="https://github.com/Xilinx/xf_compression/blob/master/docs/source/overview.rst/doxygen/L3/rst/namespace_xf_compression.rst"
 						   rel="nofollow">View on GitHub</a></li>						
 				</ul>
           
@@ -243,13 +243,17 @@
         
           <li><a href="../../../source/L3/api_reference.html">Overlay API Reference</a> &raquo;</li>
         
-      <li>Global Namespace</li>
+          <li><a href="global.html">Global Namespace</a> &raquo;</li>
+        
+          <li><a href="namespace_xf.html">namespace xf</a> &raquo;</li>
+        
+      <li>namespace compression</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/doxygen/L3/rst/global.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/doxygen/L3/rst/namespace_xf_compression.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -262,47 +266,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="global-namespace">
-<span id="id1"></span><h1>Global Namespace<a class="headerlink" href="#global-namespace" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound" id="index-0">
+  <div class="section" id="namespace-compression">
+<span id="cid-xf-compression"></span><span id="doxid-namespacexf-1-1compression"></span><span id="index-0"></span><h1>namespace compression<a class="headerlink" href="#namespace-compression" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
 </div>
-<pre class="highlight overview-code-block literal-block"><span></span><span class="c1">// namespaces</span>
+<pre class="highlight overview-code-block literal-block"><span></span><span class="c1">// classes</span>
 
-<span class="k">namespace</span> <a class="reference internal" href="namespace_xf.html#doxid-namespacexf"><span class="std std-ref">xf</span></a><span></span>
-    <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_compression.html#doxid-namespacexf-1-1compression"><span class="std std-ref">xf::compression</span></a><span></span>
-
-<span class="c1">// macros</span>
-
-<span class="cp">#define </span><a class="reference internal" href="#doxid-snappy-8hpp-1a62f02bce640abc082ca8383428984e2f"><span class="std std-ref">BLOCK_SIZE_IN_KB</span></a><span></span>
-<span class="cp">#define </span><a class="reference internal" href="#doxid-lz4-8hpp-1a62f02bce640abc082ca8383428984e2f"><span class="std std-ref">BLOCK_SIZE_IN_KB</span></a><span></span>
-<span class="cp">#define </span><a class="reference internal" href="#doxid-snappy-8hpp-1a497efa0991ba86ef9bb13ec59e253984"><span class="std std-ref">HOST_BUFFER_SIZE</span></a><span></span>
-<span class="cp">#define </span><a class="reference internal" href="#doxid-lz4-8hpp-1a497efa0991ba86ef9bb13ec59e253984"><span class="std std-ref">HOST_BUFFER_SIZE</span></a><span></span>
-<span class="cp">#define </span><a class="reference internal" href="#doxid-lz4-8hpp-1a58cec436353470a8402a6f0349f4cc1e"><span class="std std-ref">MAX_COMPUTE_UNITS</span></a><span></span>
-<span class="cp">#define </span><a class="reference internal" href="#doxid-snappy-8hpp-1a58cec436353470a8402a6f0349f4cc1e"><span class="std std-ref">MAX_COMPUTE_UNITS</span></a><span></span>
-<span class="cp">#define </span><a class="reference internal" href="#doxid-lz4-8hpp-1a2a7255f41772a29d279fba9f19e75cb6"><span class="std std-ref">OVERLAP_BUF_COUNT</span></a><span></span>
-<span class="cp">#define </span><a class="reference internal" href="#doxid-snappy-8hpp-1a2a7255f41772a29d279fba9f19e75cb6"><span class="std std-ref">OVERLAP_BUF_COUNT</span></a><span></span>
-<span class="cp">#define </span><a class="reference internal" href="#doxid-snappy-8hpp-1a0532714a43e57d86b6e5002db6924684"><span class="std std-ref">PARALLEL_BLOCK</span></a></pre>
-<div class="section" id="macros">
-<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
-<pre class="highlight title-code-block literal-block" id="cid-block-size-in-kb"><span id="doxid-snappy-8hpp-1a62f02bce640abc082ca8383428984e2f"></span><span></span><span class="cp">#define BLOCK_SIZE_IN_KB</span></pre>
-<p>Default block size</p>
-<pre class="highlight title-code-block literal-block" id="cid-block-size-in-kb-2"><span id="doxid-lz4-8hpp-1a62f02bce640abc082ca8383428984e2f"></span><span></span><span class="cp">#define BLOCK_SIZE_IN_KB</span></pre>
-<p>Default block size</p>
-<pre class="highlight title-code-block literal-block" id="cid-host-buffer-size"><span id="doxid-snappy-8hpp-1a497efa0991ba86ef9bb13ec59e253984"></span><span></span><span class="cp">#define HOST_BUFFER_SIZE</span></pre>
-<p>Maximum host buffer used to operate per kernel invocation</p>
-<pre class="highlight title-code-block literal-block" id="cid-host-buffer-size-2"><span id="doxid-lz4-8hpp-1a497efa0991ba86ef9bb13ec59e253984"></span><span></span><span class="cp">#define HOST_BUFFER_SIZE</span></pre>
-<p>Maximum host buffer used to operate per kernel invocation</p>
-<pre class="highlight title-code-block literal-block" id="cid-max-compute-units"><span id="doxid-lz4-8hpp-1a58cec436353470a8402a6f0349f4cc1e"></span><span></span><span class="cp">#define MAX_COMPUTE_UNITS</span></pre>
-<p>Maximum compute units supported</p>
-<pre class="highlight title-code-block literal-block" id="cid-max-compute-units-2"><span id="doxid-snappy-8hpp-1a58cec436353470a8402a6f0349f4cc1e"></span><span></span><span class="cp">#define MAX_COMPUTE_UNITS</span></pre>
-<p>Maximum compute units supported</p>
-<pre class="highlight title-code-block literal-block" id="cid-overlap-buf-count"><span id="doxid-lz4-8hpp-1a2a7255f41772a29d279fba9f19e75cb6"></span><span></span><span class="cp">#define OVERLAP_BUF_COUNT</span></pre>
-<p>Value below is used to associate with Overlapped buffers, ideally overlapped execution requires 2 resources per invocation</p>
-<pre class="highlight title-code-block literal-block" id="cid-overlap-buf-count-2"><span id="doxid-snappy-8hpp-1a2a7255f41772a29d279fba9f19e75cb6"></span><span></span><span class="cp">#define OVERLAP_BUF_COUNT</span></pre>
-<p>Value below is used to associate with Overlapped buffers, ideally overlapped execution requires 2 resources per invocation</p>
-<pre class="highlight title-code-block literal-block" id="cid-parallel-block"><span id="doxid-snappy-8hpp-1a0532714a43e57d86b6e5002db6924684"></span><span></span><span class="cp">#define PARALLEL_BLOCK</span></pre>
-<p>Number of parallel compression/decompression blocks</p>
-</div>
+<span class="k">class</span> xfLz4<span></span>
+<span class="k">class</span> xilSnappy</pre>
 </div>
 
 
@@ -313,10 +284,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="namespace_xf.html" class="btn btn-neutral float-right" title="namespace xf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="class_xf_compression_xfLz4.html" class="btn btn-neutral float-right" title="class xf::compression::xfLz4" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../../source/L3/api_reference.html" class="btn btn-neutral float-left" title="Overlay API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="namespace_xf.html" class="btn btn-neutral float-left" title="namespace xf" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
