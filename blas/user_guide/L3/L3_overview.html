@@ -6,14 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>L3 API Overview &mdash; XF BLAS Library 1.0 beta documentation</title>
+  <title>L3 API Overview &mdash; Vitis BLAS Library 1.0 beta documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
-  
-    <link rel="shortcut icon" href="../../_static/xf-favicon.ico"/>
   
   
   
@@ -27,7 +51,6 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/target-highlight.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -36,7 +59,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="1. Introduction" href="L3_overview_content.html" />
@@ -44,7 +66,54 @@
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -54,7 +123,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> XF BLAS Library
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Vitis BLAS Library
           
 
           
@@ -81,6 +150,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -113,8 +183,16 @@
 </ul>
 
             
+			<p class="caption"><span class="caption-text">This Page</span></p>
+				<ul class="current">
+				  <li class="toctree-l1"><a href="../../_sources/user_guide/L3/L3_overview.rst.txt"
+						rel="nofollow">Show Source</a></li>
+					<li class="toctree-l1"><a href="https://github.com/Xilinx/<ENTER GITHUB REPO PATH HERE>/blob/master/<ENTER DOC FOLDER HIERARCHY HERE>/user_guide/L3/L3_overview.rst"
+						   rel="nofollow">View on GitHub</a></li>						
+				</ul>
           
         </div>
+        
       </div>
     </nav>
 
@@ -124,7 +202,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF BLAS Library</a>
+          <a href="../../index.html">Vitis BLAS Library</a>
         
       </nav>
 
@@ -153,7 +231,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="L3.html">L3 API User Guide</a> &raquo;</li>
         
@@ -163,6 +241,8 @@
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="../../_sources/user_guide/L3/L3_overview.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -180,54 +260,20 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="L3_overview_content.html">1. Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="L3_overview_content.html#data-layout">1.1 Data layout</a></li>
-<li class="toctree-l2"><a class="reference internal" href="L3_overview_content.html#memory-allocation">1.2 Memory Allocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L3_overview_content.html#memory-allocation">1.2 Memory Allocation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#restricted-memory-version">Restricted memory version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#default-memory-version">Default memory version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#pre-allocated-memory-version">Pre-allocated memory version</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="L3_overview_content.html#supported-datatypes">1.3 Supported Datatypes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="L3_overview_content.html#using-the-xfblas-api">2. Using the XFBLAS API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="L3_overview_content.html#general-description">2.1 General description</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#error-status">2.1.1 Error status</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblas-initialization">2.1.2 XFBLAS initialization</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="L3_overview_content.html#datatypes-reference">2.2 Datatypes Reference</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasstatus-t">2.2.1 xfblasStatus_t</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasengine-t">2.2.2 xfblasEngine_t</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasoperation-t">2.2.3 xfblasOperation_t</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="L3_overview_content.html#xfblas-helper-function-reference">2.3 XFBLAS Helper Function Reference</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblascreate">2.3.1 xfblasCreate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasfree">2.3.2 xfblasFree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasdestroy">2.3.3 xfblasDestroy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasmalloc">2.3.4 xfblasMalloc</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblassetvector">2.3.5 xfblasSetVector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasgetvector">2.3.6 xfblasGetVector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblassetmatrix">2.3.7 xfblasSetMatrix</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasgetmatrix">2.3.8 xfblasGetMatrix</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblassetvectorasync">2.3.9 xfblasSetVectorAsync</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasgetvectorasync">2.3.10 xfblasGetVectorAsync</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblassetmatrixasync">2.3.11 xfblasSetMatrixAsync</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasgetmatrixasync">2.3.12 xfblasGetMatrixAsync</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasmallocrestricted">2.3.13 xfblasMallocRestricted</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblassetvectorrestricted">2.3.14 xfblasSetVectorRestricted</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasgetvectorrestricted">2.3.15 xfblasGetVectorRestricted</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblassetmatrixrestricted">2.3.16 xfblasSetMatrixRestricted</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasgetmatrixrestricted">2.3.17 xfblasGetMatrixRestricted</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblassetvectorrestrictedasync">2.3.18 xfblasSetVectorRestrictedAsync</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasgetvectorrestrictedasync">2.3.19 xfblasGetVectorRestrictedAsync</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblassetmatrixrestrictedasync">2.3.20 xfblasSetMatrixRestrictedAsync</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasgetmatrixrestrictedasync">2.3.21 xfblasGetMatrixRestrictedAsync</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasmallocmanaged">2.3.22 xfblasMallocManaged</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblaskernelsynchronize">2.3.23 xfblasKernelSynchronize</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasdevicesynchronize">2.3.24 xfblasDeviceSynchronize</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="L3_overview_content.html#xfblas-function-reference">2.4 XFBLAS Function Reference</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasgemm">2.4.1 xfblasGemm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasgemv">2.4.2 xfblasGemv</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="L3_overview_content.html#general-description">2.1 General description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L3_overview_content.html#datatypes-reference">2.2 Datatypes Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L3_overview_content.html#xfblas-helper-function-reference">2.3 XFBLAS Helper Function Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L3_overview_content.html#xfblas-function-reference">2.4 XFBLAS Function Reference</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="L3_overview_content.html#obtain-fpga-bitstream">3. Obtain FPGA bitstream</a></li>
@@ -253,14 +299,18 @@
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
+        
         &copy; Copyright 2019, Xilinx Inc.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -270,7 +320,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

@@ -6,14 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>L3 API example &mdash; XF BLAS Library 1.0 beta documentation</title>
+  <title>L3 API example &mdash; Vitis BLAS Library 1.0 beta documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
-  
-    <link rel="shortcut icon" href="../../_static/xf-favicon.ico"/>
   
   
   
@@ -27,7 +51,6 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/target-highlight.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -36,7 +59,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="L3 API GEMM example" href="L3_example_gemm.html" />
@@ -44,7 +66,54 @@
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -54,7 +123,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> XF BLAS Library
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Vitis BLAS Library
           
 
           
@@ -81,6 +150,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -112,8 +182,16 @@
 </ul>
 
             
+			<p class="caption"><span class="caption-text">This Page</span></p>
+				<ul class="current">
+				  <li class="toctree-l1"><a href="../../_sources/user_guide/L3/L3_example.rst.txt"
+						rel="nofollow">Show Source</a></li>
+					<li class="toctree-l1"><a href="https://github.com/Xilinx/<ENTER GITHUB REPO PATH HERE>/blob/master/<ENTER DOC FOLDER HIERARCHY HERE>/user_guide/L3/L3_example.rst"
+						   rel="nofollow">View on GitHub</a></li>						
+				</ul>
           
         </div>
+        
       </div>
     </nav>
 
@@ -123,7 +201,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF BLAS Library</a>
+          <a href="../../index.html">Vitis BLAS Library</a>
         
       </nav>
 
@@ -152,7 +230,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="L3.html">L3 API User Guide</a> &raquo;</li>
         
@@ -162,6 +240,8 @@
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="../../_sources/user_guide/L3/L3_example.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -178,13 +258,17 @@
 <p>For example code references please follow the link below.</p>
 <p><strong>1. XFBLAS L3 compilation</strong></p>
 <p>All examples provided here could be built with compilation steps similar to the following:</p>
-<pre class="highlight literal-block"><span></span>g++ -O0 -std<span class="o">=</span>c++11 -fPIC -Wextra -Wall -Wno-ignored-attributes -Wno-unused-parameter -Wno-unused-variable -I<span class="k">$(</span>XILINX_XRT<span class="k">)</span>/include -I/include/sw -o example.exe example.cpp -L<span class="k">$(</span>XILINX_XRT<span class="k">)</span>/lib -lz -lstdc++ -lrt -pthread -lxrt_core -ldl -luuid</pre>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>g++ -O0 -std<span class="o">=</span>c++11 -fPIC -Wextra -Wall -Wno-ignored-attributes -Wno-unused-parameter -Wno-unused-variable -I<span class="k">$(</span>XILINX_XRT<span class="k">)</span>/include -I/include/sw -o example.exe example.cpp -L<span class="k">$(</span>XILINX_XRT<span class="k">)</span>/lib -lz -lstdc++ -lrt -pthread -lxrt_core -ldl -luuid
+</pre></div>
+</div>
 <p><strong>2. XFBLAS L3 run</strong></p>
 <p>Most of the examples could be run with steps similar to the following in machine with HW device installed. Detailed usages are also provided in each section.</p>
-<pre class="highlight literal-block"><span></span>./example.exe PATH_TO_XCLBIN/example.xclbin PATH_TO_XCLBIN/config_info.dat</pre>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./example.exe PATH_TO_XCLBIN/example.xclbin PATH_TO_XCLBIN/config_info.dat
+</pre></div>
+</div>
 <p><strong>3. XFBLAS L3 code example</strong></p>
 <p>The following is an example of how to use XFBLAS API. Users always need to include header file xf_blas.hpp.</p>
-<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_blas.hpp&quot;</span><span class="cp"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_blas.hpp&quot;</span><span class="cp"></span>
 
 <span class="cp"># define IDX2R(i,j,ld) (((i)*( ld ))+(j))</span>
 <span class="cp"># define m 128 </span><span class="c1">// a - mxk matrix</span>
@@ -267,9 +351,11 @@
   <span class="n">free</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
 
   <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
-<span class="p">}</span></pre>
+<span class="p">}</span>
+</pre></div>
+</div>
 <p>These API functions run on the first kernel by default, but they could support multi-kernels xclbin. Users will need to put numbers of kernels or index of the kernel in those functions to let the API know. The following code shows how to initialize XFBLAS library to support a xclbin with 2 kernels and run with the second kernel.</p>
-<pre class="highlight literal-block"><span></span><span class="n">xfblasStatus_t</span> <span class="n">status</span> <span class="o">=</span> <span class="n">xfblasCreate</span><span class="p">(</span><span class="n">l_xclbinFile</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="n">l_configFile</span><span class="p">,</span> <span class="n">l_logFile</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="n">XFBLAS_ENGINE_GEMM</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">xfblasStatus_t</span> <span class="n">status</span> <span class="o">=</span> <span class="n">xfblasCreate</span><span class="p">(</span><span class="n">l_xclbinFile</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="n">l_configFile</span><span class="p">,</span> <span class="n">l_logFile</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="n">XFBLAS_ENGINE_GEMM</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
 <span class="n">status</span> <span class="o">=</span> <span class="n">xfblasMallocRestricted</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">),</span><span class="n">a</span><span class="p">,</span><span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 <span class="n">status</span> <span class="o">=</span> <span class="n">xfblasMallocRestricted</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="o">*</span><span class="n">b</span><span class="p">),</span><span class="n">b</span><span class="p">,</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 <span class="n">status</span> <span class="o">=</span> <span class="n">xfblasMallocRestricted</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="o">*</span><span class="n">c</span><span class="p">),</span><span class="n">c</span><span class="p">,</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
@@ -277,7 +363,9 @@
 <span class="n">status</span> <span class="o">=</span> <span class="n">xfblasSetMatrixRestricted</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 <span class="n">status</span> <span class="o">=</span> <span class="n">xfblasSetMatrixRestricted</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 <span class="n">status</span> <span class="o">=</span> <span class="n">xfblasGemm</span><span class="p">(</span><span class="n">XFBLAS_OP_N</span><span class="p">,</span> <span class="n">XFBLAS_OP_N</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-<span class="n">status</span> <span class="o">=</span> <span class="n">xfblasGetMatrixRestricted</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span></pre>
+<span class="n">status</span> <span class="o">=</span> <span class="n">xfblasGetMatrixRestricted</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
 <p><strong>4. XFBLAS L3 example</strong></p>
 <p>Please see <a class="reference external" href="https://gitenterprise.xilinx.com/FaaSApps/xf_blas/tree/master/L3/examples">XFBLAS L3 example folder</a> for more example cases.</p>
 <div class="toctree-wrapper compound">
@@ -315,14 +403,18 @@
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
+        
         &copy; Copyright 2019, Xilinx Inc.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -332,7 +424,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

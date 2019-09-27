@@ -6,14 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>namespace xf::blas &mdash; XF BLAS Library 1.0 beta documentation</title>
+  <title>namespace xf::blas &mdash; Vitis BLAS Library 1.0 beta documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
-  
-    <link rel="shortcut icon" href="../../_static/xf-favicon.ico"/>
   
   
   
@@ -27,7 +51,6 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/target-highlight.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -36,13 +59,59 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -52,7 +121,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> XF BLAS Library
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Vitis BLAS Library
           
 
           
@@ -79,6 +148,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -100,8 +170,16 @@
 </ul>
 
             
+			<p class="caption"><span class="caption-text">This Page</span></p>
+				<ul class="current">
+				  <li class="toctree-l1"><a href="../../_sources/user_guide/L1/namespace_xf_linear_algebra_blas_compute.rst.txt"
+						rel="nofollow">Show Source</a></li>
+					<li class="toctree-l1"><a href="https://github.com/Xilinx/<ENTER GITHUB REPO PATH HERE>/blob/master/<ENTER DOC FOLDER HIERARCHY HERE>/user_guide/L1/namespace_xf_linear_algebra_blas_compute.rst"
+						   rel="nofollow">View on GitHub</a></li>						
+				</ul>
           
         </div>
+        
       </div>
     </nav>
 
@@ -111,7 +189,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">XF BLAS Library</a>
+          <a href="../../index.html">Vitis BLAS Library</a>
         
       </nav>
 
@@ -140,7 +218,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>namespace xf::blas</li>
     
@@ -148,6 +226,8 @@
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="../../_sources/user_guide/L1/namespace_xf_linear_algebra_blas_compute.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -165,74 +245,13 @@
 </div>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="doxid-namespacexf-1-1blas-1abe4199bfd663b774cba0b9eb27a03e08"><span id="index-1"></span></span><span class="target" id="doxid-namespacexf-1-1blas-1a8757bb7d347fa70520f7dfb0bf5015ea"><span id="index-2"></span></span><span class="target" id="doxid-namespacexf-1-1blas-1a4b8faeb6b0cf62275d81118ee9950585"><span id="index-3"></span></span><span class="target" id="doxid-namespacexf-1-1blas-1ab6d6cccceb77ca9d8b8a28fc510d2021"><span id="index-4"></span></span><pre class="highlight overview-code-block literal-block" id="doxid-namespacexf-1-1blas-1a97b563c3509866438a45cbde63270435"><span id="index-5"></span><span></span><span class="k">namespace</span> <span class="n">blas</span> <span class="p">{</span>
-
-<span class="c1">// global functions</span>
-
-<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span><span class="o">&gt;</span>
-<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1blas-1ac97d95595ee23916874cd96abaebb5e6"><span class="std std-ref">amax</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">t_IndexType</span><span class="o">&amp;</span> <span class="n">p_result</span><span class="p">);</span>
-
-<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span><span class="o">&gt;</span>
-<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1blas-1ab41dc9640742e1bd31336510e383c8b6"><span class="std std-ref">amin</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">t_IndexType</span><span class="o">&amp;</span> <span class="n">p_result</span><span class="p">);</span>
-
-<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1blas-1a9352151f4d43f9f20ae9cc1e34630159"><span class="std std-ref">asum</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">&amp;</span> <span class="n">p_sum</span><span class="p">);</span>
-
-<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1blas-1a61a3e6dcf46aaf5ddbf0d1b79dfc5a10"><span class="std std-ref">axpy</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_alpha</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_r</span><span class="p">);</span>
-
-<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1blas-1ab97952c9808d350040356d44d5902eb1"><span class="std std-ref">copy</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">);</span>
-
-<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1blas-1a8af71f19450d24aa338a30b225cdcac0"><span class="std std-ref">dot</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">&amp;</span> <span class="n">p_res</span><span class="p">);</span>
-
-<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_MaxRows</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_MacType</span> <span class="o">=</span> <span class="n">t_DataType</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">gbmv</span><span class="p">(</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_m</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_kl</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_ku</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_A</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_MacType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">);</span>
-
-<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_MaxRows</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_MacType</span> <span class="o">=</span> <span class="n">t_DataType</span><span class="o">&gt;</span>
-<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1blas-1a5cec2775b5d537226ba858df112e6587"><span class="std std-ref">gbmv</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_m</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_kl</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_ku</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_alpha</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_M</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_beta</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_yr</span><span class="p">);</span>
-
-<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_NumStreams</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">t_LogParEntries</span><span class="p">),</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">gemv</span><span class="p">(</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_m</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;</span> <span class="n">p_M</span> <span class="p">[</span><span class="n">t_NumStreams</span><span class="p">],</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;</span> <span class="n">p_x</span> <span class="p">[</span><span class="n">t_NumStreams</span><span class="p">],</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_NumStreams</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">);</span>
-
-<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">gemv</span><span class="p">(</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_m</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_M</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">);</span>
-
-<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1blas-1aa4b14aa75c1be1d8a90d0cafa7f3e279"><span class="std std-ref">gemv</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_m</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_alpha</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_M</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_beta</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_yr</span><span class="p">);</span>
-
-<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1blas-1a0b72b37d89ee2c2b5b0e2881aaa35595"><span class="std std-ref">nrm2</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">&amp;</span> <span class="n">p_res</span><span class="p">);</span>
-
-<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1blas-1a2f58b1501c5999577f4e4b64d4c4f285"><span class="std std-ref">scal</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span> <span class="n">p_alpha</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_res</span><span class="p">);</span>
-
-<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1blas-1af375ccc98b8aa70a9f0af3dbeb44e8f5"><span class="std std-ref">swap</span></a><span></span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_xRes</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_yRes</span><span class="p">);</span>
-
-<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">symv</span><span class="p">(</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">);</span>
-
-<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1blas-1a3185b8d5eb180275476cef08612b82dc"><span class="std std-ref">symv</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_alpha</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_M</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_beta</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_yr</span><span class="p">);</span>
-
-<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_MacType</span> <span class="o">=</span> <span class="n">t_DataType</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">trmv</span><span class="p">(</span><span class="k">const</span> <span class="kt">bool</span> <span class="n">uplo</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">);</span>
-
-<span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <a class="reference internal" href="#doxid-namespacexf-1-1blas-1a49d777b37946c19c6f84604af3650a3f"><span class="std std-ref">trmv</span></a><span></span><span class="p">(</span><span class="k">const</span> <span class="kt">bool</span> <span class="n">uplo</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_alpha</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_M</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_beta</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_yr</span><span class="p">);</span>
-
-<span class="p">}</span> <span class="c1">// namespace blas</span></pre>
-</div>
+<span class="target" id="doxid-namespacexf-1-1blas-1abe4199bfd663b774cba0b9eb27a03e08"><span id="index-1"></span></span><span class="target" id="doxid-namespacexf-1-1blas-1a8757bb7d347fa70520f7dfb0bf5015ea"><span id="index-2"></span></span><span class="target" id="doxid-namespacexf-1-1blas-1a4b8faeb6b0cf62275d81118ee9950585"><span id="index-3"></span></span><span class="target" id="doxid-namespacexf-1-1blas-1ab6d6cccceb77ca9d8b8a28fc510d2021"><span id="index-4"></span></span></div>
 <div class="section" id="detailed-documentation">
 <span id="details-doxid-namespacexf-1-1blas"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="global-functions">
 <h3>Global Functions<a class="headerlink" href="#global-functions" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="amax">
 <h4>amax<a class="headerlink" href="#amax" title="Permalink to this headline">¶</a></h4>
-<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1blas-1ac97d95595ee23916874cd96abaebb5e6"><span id="index-6"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">amax</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">t_IndexType</span><span class="o">&amp;</span> <span class="n">p_result</span><span class="p">)</span></pre>
 <p>amax function that returns the position of the vector element that has the maximum magnitude.</p>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given docutils align-default">
@@ -264,8 +283,6 @@
 </div>
 <div class="section" id="amin">
 <h4>amin<a class="headerlink" href="#amin" title="Permalink to this headline">¶</a></h4>
-<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1blas-1ab41dc9640742e1bd31336510e383c8b6"><span id="index-7"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">amin</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">t_IndexType</span><span class="o">&amp;</span> <span class="n">p_result</span><span class="p">)</span></pre>
 <p>amin function that returns the position of the vector element that has the minimum magnitude.</p>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given docutils align-default">
@@ -297,8 +314,6 @@
 </div>
 <div class="section" id="asum">
 <h4>asum<a class="headerlink" href="#asum" title="Permalink to this headline">¶</a></h4>
-<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1blas-1a9352151f4d43f9f20ae9cc1e34630159"><span id="index-8"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">asum</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">&amp;</span> <span class="n">p_sum</span><span class="p">)</span></pre>
 <p>asum function that returns the sum of the magnitude of vector elements.</p>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given docutils align-default">
@@ -330,8 +345,6 @@
 </div>
 <div class="section" id="axpy">
 <h4>axpy<a class="headerlink" href="#axpy" title="Permalink to this headline">¶</a></h4>
-<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1blas-1a61a3e6dcf46aaf5ddbf0d1b79dfc5a10"><span id="index-9"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">axpy</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_alpha</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_r</span><span class="p">)</span></pre>
 <p>axpy function that compute Y = alpha*X + Y.</p>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given docutils align-default">
@@ -366,8 +379,6 @@
 </div>
 <div class="section" id="copy">
 <h4>copy<a class="headerlink" href="#copy" title="Permalink to this headline">¶</a></h4>
-<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1blas-1ab97952c9808d350040356d44d5902eb1"><span id="index-10"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">copy</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">)</span></pre>
 <p>copy function that compute Y = X</p>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given docutils align-default">
@@ -399,8 +410,6 @@
 </div>
 <div class="section" id="dot">
 <h4>dot<a class="headerlink" href="#dot" title="Permalink to this headline">¶</a></h4>
-<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1blas-1a8af71f19450d24aa338a30b225cdcac0"><span id="index-11"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">dot</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">&amp;</span> <span class="n">p_res</span><span class="p">)</span></pre>
 <p>dot function that returns the dot product of vector x and y.</p>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given docutils align-default">
@@ -432,8 +441,6 @@
 </div>
 <div class="section" id="gbmv">
 <h4>gbmv<a class="headerlink" href="#gbmv" title="Permalink to this headline">¶</a></h4>
-<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1blas-1a5cec2775b5d537226ba858df112e6587"><span id="index-12"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_MaxRows</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_MacType</span> <span class="o">=</span> <span class="n">t_DataType</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">gbmv</span><span class="p">(</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_m</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_kl</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_ku</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_alpha</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_M</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_beta</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_yr</span><span class="p">)</span></pre>
 <p>gbmv function performs general banded matrix-vector multiplication matrix and a vector y = alpha * M * x + beta * y</p>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given docutils align-default">
@@ -480,8 +487,6 @@
 </div>
 <div class="section" id="gemv">
 <h4>gemv<a class="headerlink" href="#gemv" title="Permalink to this headline">¶</a></h4>
-<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1blas-1aa4b14aa75c1be1d8a90d0cafa7f3e279"><span id="index-13"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">gemv</span><span class="p">(</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_m</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_alpha</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_M</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_beta</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_yr</span><span class="p">)</span></pre>
 <p>gemv function that returns the result vector of the multiplication of a matrix and a vector y = alpha * M * x + beta * y</p>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given docutils align-default">
@@ -525,8 +530,6 @@
 </div>
 <div class="section" id="nrm2">
 <h4>nrm2<a class="headerlink" href="#nrm2" title="Permalink to this headline">¶</a></h4>
-<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1blas-1a0b72b37d89ee2c2b5b0e2881aaa35595"><span id="index-14"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">nrm2</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">t_DataType</span><span class="o">&amp;</span> <span class="n">p_res</span><span class="p">)</span></pre>
 <p>nrm2 function that returns the Euclidean norm of the vector x.</p>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given docutils align-default">
@@ -558,8 +561,6 @@
 </div>
 <div class="section" id="scal">
 <h4>scal<a class="headerlink" href="#scal" title="Permalink to this headline">¶</a></h4>
-<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1blas-1a2f58b1501c5999577f4e4b64d4c4f285"><span id="index-15"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">scal</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">t_DataType</span> <span class="n">p_alpha</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_res</span><span class="p">)</span></pre>
 <p>scal function that compute X = alpha * X</p>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given docutils align-default">
@@ -591,8 +592,6 @@
 </div>
 <div class="section" id="swap">
 <h4>swap<a class="headerlink" href="#swap" title="Permalink to this headline">¶</a></h4>
-<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1blas-1af375ccc98b8aa70a9f0af3dbeb44e8f5"><span id="index-16"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_ParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">swap</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_xRes</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="n">t_ParEntries</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_yRes</span><span class="p">)</span></pre>
 <p>swap function that swap vector x and y</p>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given docutils align-default">
@@ -630,8 +629,6 @@
 </div>
 <div class="section" id="symv">
 <h4>symv<a class="headerlink" href="#symv" title="Permalink to this headline">¶</a></h4>
-<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1blas-1a3185b8d5eb180275476cef08612b82dc"><span id="index-17"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">symv</span><span class="p">(</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_alpha</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_M</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_beta</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_yr</span><span class="p">)</span></pre>
 <p>symv function that returns the result vector of the multiplication of a symmetric matrix and a vector y = alpha * M * x + beta * y</p>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given docutils align-default">
@@ -678,8 +675,6 @@
 </div>
 <div class="section" id="trmv">
 <h4>trmv<a class="headerlink" href="#trmv" title="Permalink to this headline">¶</a></h4>
-<pre class="highlight title-code-block literal-block" id="doxid-namespacexf-1-1blas-1a49d777b37946c19c6f84604af3650a3f"><span id="index-18"></span><span></span><span class="k">template</span>  <span class="o">&lt;</span><span class="k">typename</span> <span class="n">t_DataType</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_LogParEntries</span><span class="p">,</span> <span class="k">typename</span> <span class="n">t_IndexType</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">trmv</span><span class="p">(</span><span class="k">const</span> <span class="kt">bool</span> <span class="n">uplo</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">p_n</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_alpha</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_M</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">t_LogParEntries</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_x</span><span class="p">,</span> <span class="k">const</span> <span class="n">t_DataType</span> <span class="n">p_beta</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">WideType</span><span class="o">&lt;</span><span class="n">t_DataType</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;&amp;</span> <span class="n">p_yr</span><span class="p">)</span></pre>
 <p>trmv function that returns the result vector of the multiplication of a triangular matrix and a vector y = alpha * M * x + beta * y</p>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given docutils align-default">
@@ -737,14 +732,18 @@
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
+        
         &copy; Copyright 2019, Xilinx Inc.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -754,7 +753,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
