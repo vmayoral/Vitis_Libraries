@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classxf_1_1solver_1_1internal_1_1_trait" kind="class" language="C++" prot="public">
+    <compoundname>xf::solver::internal::Trait</compoundname>
+    <includes refid="geqrf_8hpp" local="no">geqrf.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" line="37" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" bodystart="37" bodyend="37"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

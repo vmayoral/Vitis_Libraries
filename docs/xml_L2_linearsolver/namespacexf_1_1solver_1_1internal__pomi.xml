@@ -1,0 +1,341 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="namespacexf_1_1solver_1_1internal__pomi" kind="namespace" language="C++">
+    <compoundname>xf::solver::internal_pomi</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__pomi_1a73620d565adc16ecb453f2cb6dadbd70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal_pomi::chol_col</definition>
+        <argsstring>(int n, T dataA[(N+NCU - 1)/NCU][N], T dataj[N], T tmp1_i, int num, int j)</argsstring>
+        <name>chol_col</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataj</declname>
+          <array>[N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>tmp1_i</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/pomatrixinverse.hpp" line="30" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/pomatrixinverse.hpp" bodystart="30" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__pomi_1a3dec0ec1de9fed234d64c464a57d1b65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal_pomi::chol_jj</definition>
+        <argsstring>(T dataA[NCU][(N+NCU - 1)/NCU][N], T dataj[NCU][N], T &amp;tmp1_j, int &amp;j)</argsstring>
+        <name>chol_jj</name>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataj</declname>
+          <array>[NCU][N]</array>
+        </param>
+        <param>
+          <type>T &amp;</type>
+          <declname>tmp1_j</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/pomatrixinverse.hpp" line="71" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/pomatrixinverse.hpp" bodystart="71" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__pomi_1a2ba2b7e0e2eb34483d307710ef3ed53d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal_pomi::chol_col_wrapper</definition>
+        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataj[NCU][N], T tmp1, int j)</argsstring>
+        <name>chol_col_wrapper</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataj</declname>
+          <array>[NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>tmp1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/pomatrixinverse.hpp" line="113" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/pomatrixinverse.hpp" bodystart="113" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__pomi_1a53db524cf94e5017a290d815c755fa72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal_pomi::trisolver_L</definition>
+        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataB[NCU][(N+NCU - 1)/NCU], T dataX[N])</argsstring>
+        <name>trisolver_L</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataB</declname>
+          <array>[NCU][(N+NCU - 1)/NCU]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataX</declname>
+          <array>[N]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/pomatrixinverse.hpp" line="125" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/pomatrixinverse.hpp" bodystart="125" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__pomi_1a24bd3c5bf261c4cf0bb570cfd238fadd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal_pomi::trisolver_U</definition>
+        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataB[NCU][(N+NCU - 1)/NCU], T dataX[N])</argsstring>
+        <name>trisolver_U</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataB</declname>
+          <array>[NCU][(N+NCU - 1)/NCU]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataX</declname>
+          <array>[N]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/pomatrixinverse.hpp" line="148" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/pomatrixinverse.hpp" bodystart="148" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__pomi_1a7195c22139d3f3ee129274d53a11eace" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal_pomi::inverse</definition>
+        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataX[N][N])</argsstring>
+        <name>inverse</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataX</declname>
+          <array>[N][N]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/pomatrixinverse.hpp" line="171" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/pomatrixinverse.hpp" bodystart="171" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__pomi_1a648aa2d9e36668ecb4cd7fb40751ec12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal_pomi::inverse_core</definition>
+        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataX[N][N])</argsstring>
+        <name>inverse_core</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataX</declname>
+          <array>[N][N]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/pomatrixinverse.hpp" line="208" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/pomatrixinverse.hpp" bodystart="208" bodyend="231"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/pomatrixinverse.hpp" line="27" column="1"/>
+  </compounddef>
+</doxygen>

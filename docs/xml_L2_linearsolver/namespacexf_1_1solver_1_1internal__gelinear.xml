@@ -1,0 +1,256 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="namespacexf_1_1solver_1_1internal__gelinear" kind="namespace" language="C++">
+    <compoundname>xf::solver::internal_gelinear</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__gelinear_1aa02709628172d13ad077bbbfdc21366c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal_gelinear::trisolver_L</definition>
+        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataB[NCU][(N+NCU - 1)/NCU], T dataX[N])</argsstring>
+        <name>trisolver_L</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataB</declname>
+          <array>[NCU][(N+NCU - 1)/NCU]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataX</declname>
+          <array>[N]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gelinearsolver.hpp" line="30" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gelinearsolver.hpp" bodystart="30" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__gelinear_1afa34d4b82dd0924959abc1df297124f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal_gelinear::trisolver_U</definition>
+        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataB[NCU][(N+NCU - 1)/NCU], T dataX[N])</argsstring>
+        <name>trisolver_U</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataB</declname>
+          <array>[NCU][(N+NCU - 1)/NCU]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataX</declname>
+          <array>[N]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gelinearsolver.hpp" line="55" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gelinearsolver.hpp" bodystart="55" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__gelinear_1aa761d37a7a9622e7a0e29a99d0b868cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NRCU</declname>
+            <defname>NRCU</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NMAX</declname>
+            <defname>NMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal_gelinear::getrf_core</definition>
+        <argsstring>(int n, T A[NCU][NRCU][NMAX], int lda, int P[NMAX])</argsstring>
+        <name>getrf_core</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>A</declname>
+          <array>[NCU][NRCU][NMAX]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>P</declname>
+          <array>[NMAX]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gelinearsolver.hpp" line="78" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gelinearsolver.hpp" bodystart="78" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__gelinear_1a272bdbf4c66a30a34286008a916a530a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal_gelinear::solver</definition>
+        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataB[NCU][(N+NCU - 1)/NCU], T dataX[N])</argsstring>
+        <name>solver</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataB</declname>
+          <array>[NCU][(N+NCU - 1)/NCU]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataX</declname>
+          <array>[N]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gelinearsolver.hpp" line="86" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gelinearsolver.hpp" bodystart="86" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__gelinear_1a4b0c4b7d5df7701e0ac2b3e55359e494" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal_gelinear::solver_core</definition>
+        <argsstring>(int n, int j, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataB[NCU][(N+NCU - 1)/NCU], T dataX[N])</argsstring>
+        <name>solver_core</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>j</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataB</declname>
+          <array>[NCU][(N+NCU - 1)/NCU]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataX</declname>
+          <array>[N]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gelinearsolver.hpp" line="111" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gelinearsolver.hpp" bodystart="111" bodyend="122"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gelinearsolver.hpp" line="27" column="1"/>
+  </compounddef>
+</doxygen>

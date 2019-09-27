@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.14">
+  <compound refid="namespacexf" kind="namespace"><name>xf</name>
+  </compound>
+  <compound refid="namespacexf_1_1solver" kind="namespace"><name>xf::solver</name>
+    <member refid="namespacexf_1_1solver_1a4380dbd7992efd603fe32bf2a3415df9" kind="function"><name>gelinearsolver</name></member>
+    <member refid="namespacexf_1_1solver_1a330738ad0c91400601fc9029bbe18d70" kind="function"><name>gematrixinverse</name></member>
+    <member refid="namespacexf_1_1solver_1ab2a500c3d35adb231e4fbdfe7b17932a" kind="function"><name>gtsv</name></member>
+    <member refid="namespacexf_1_1solver_1ada1d0e10d79095ed587f0714b7d3b1d1" kind="function"><name>polinearsolver</name></member>
+    <member refid="namespacexf_1_1solver_1a3b929dda3eb23cf26506eae627591870" kind="function"><name>pomatrixinverse</name></member>
+    <member refid="namespacexf_1_1solver_1a807c039392d453610093336dbb4b0b19" kind="function"><name>trtrs</name></member>
+  </compound>
+  <compound refid="namespacexf_1_1solver_1_1internal" kind="namespace"><name>xf::solver::internal</name>
+    <member refid="namespacexf_1_1solver_1_1internal_1a40d8f1ad25e86839da1c4d0bdd1efc68" kind="function"><name>gtsv_multisweeps_1cu</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal_1a15d3971ea7424403adfeee94ab9296b9" kind="function"><name>gtsv_multisweeps_ncu</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal_1a2da338b062f0ac8b093234664e827629" kind="function"><name>gtsv_singlesweep</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal_1ad06747cd77b26e295116dfa4b3bd6c73" kind="function"><name>gtsv_singlesweep</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal_1ae8beda1a5dbcfa5964df03e475f8a1b5" kind="function"><name>gtsv_core</name></member>
+  </compound>
+  <compound refid="namespacexf_1_1solver_1_1internal__gelinear" kind="namespace"><name>xf::solver::internal_gelinear</name>
+    <member refid="namespacexf_1_1solver_1_1internal__gelinear_1aa02709628172d13ad077bbbfdc21366c" kind="function"><name>trisolver_L</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__gelinear_1afa34d4b82dd0924959abc1df297124f5" kind="function"><name>trisolver_U</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__gelinear_1aa761d37a7a9622e7a0e29a99d0b868cc" kind="function"><name>getrf_core</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__gelinear_1a272bdbf4c66a30a34286008a916a530a" kind="function"><name>solver</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__gelinear_1a4b0c4b7d5df7701e0ac2b3e55359e494" kind="function"><name>solver_core</name></member>
+  </compound>
+  <compound refid="namespacexf_1_1solver_1_1internal__gemi" kind="namespace"><name>xf::solver::internal_gemi</name>
+    <member refid="namespacexf_1_1solver_1_1internal__gemi_1a4945d04c1e8c9f15d794e3c20021a96e" kind="function"><name>trisolver_L</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__gemi_1a789a4309dc8b5ed9950ddbfabb561f6d" kind="function"><name>trisolver_U</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__gemi_1af2a912b09f485f318a2d875bbb4e1fce" kind="function"><name>inverse</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__gemi_1a6a4bdd34ccf5b5eaafdccfaf56d72a96" kind="function"><name>getrf_core</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__gemi_1a2fdd988b0db9bd56abf5878ee9aae9d0" kind="function"><name>inverse_core</name></member>
+  </compound>
+  <compound refid="namespacexf_1_1solver_1_1internal__polinear" kind="namespace"><name>xf::solver::internal_polinear</name>
+    <member refid="namespacexf_1_1solver_1_1internal__polinear_1af8173a44a8664165dc001f1aa4dea24c" kind="function"><name>chol_col</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__polinear_1aeeaa3cdde54bd736bc5f93877917b2c8" kind="function"><name>chol_jj</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__polinear_1a8d334fc961128174e6275d8cf761e2f2" kind="function"><name>chol_col_wrapper</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__polinear_1a3779e98360c98f175de768c7b82e4cde" kind="function"><name>trisolver_L</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__polinear_1afd93e5d1c528d74fc252041941195126" kind="function"><name>trisolver_U</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__polinear_1a0b34ea041afb9dc037bacaea13de397d" kind="function"><name>solver</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__polinear_1a46ffa78e448a2d9336e7de71a80cf30a" kind="function"><name>solver_core</name></member>
+  </compound>
+  <compound refid="namespacexf_1_1solver_1_1internal__pomi" kind="namespace"><name>xf::solver::internal_pomi</name>
+    <member refid="namespacexf_1_1solver_1_1internal__pomi_1a73620d565adc16ecb453f2cb6dadbd70" kind="function"><name>chol_col</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__pomi_1a3dec0ec1de9fed234d64c464a57d1b65" kind="function"><name>chol_jj</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__pomi_1a2ba2b7e0e2eb34483d307710ef3ed53d" kind="function"><name>chol_col_wrapper</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__pomi_1a53db524cf94e5017a290d815c755fa72" kind="function"><name>trisolver_L</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__pomi_1a24bd3c5bf261c4cf0bb570cfd238fadd" kind="function"><name>trisolver_U</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__pomi_1a7195c22139d3f3ee129274d53a11eace" kind="function"><name>inverse</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__pomi_1a648aa2d9e36668ecb4cd7fb40751ec12" kind="function"><name>inverse_core</name></member>
+  </compound>
+  <compound refid="namespacexf_1_1solver_1_1internal__trtrs" kind="namespace"><name>xf::solver::internal_trtrs</name>
+    <member refid="namespacexf_1_1solver_1_1internal__trtrs_1af477bea312dc00303d69c342f5bfb18f" kind="function"><name>trisolver_L</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal__trtrs_1ae15eb0d752abafbd2d84450b823f8292" kind="function"><name>trisolver_U</name></member>
+  </compound>
+  <compound refid="gelinearsolver_8hpp" kind="file"><name>gelinearsolver.hpp</name>
+  </compound>
+  <compound refid="gematrixinverse_8hpp" kind="file"><name>gematrixinverse.hpp</name>
+  </compound>
+  <compound refid="gtsv__pcr_8hpp" kind="file"><name>gtsv_pcr.hpp</name>
+  </compound>
+  <compound refid="polinearsolver_8hpp" kind="file"><name>polinearsolver.hpp</name>
+  </compound>
+  <compound refid="pomatrixinverse_8hpp" kind="file"><name>pomatrixinverse.hpp</name>
+  </compound>
+  <compound refid="trtrs_8hpp" kind="file"><name>trtrs.hpp</name>
+  </compound>
+  <compound refid="dir_3ad98132e309b2d67e03d0e713dfb41f" kind="dir"><name>/proj/autoesl/fengx/work/xf_solver/L2/include/hw</name>
+  </compound>
+  <compound refid="dir_c20f2bb029246741cb4933f1295bb845" kind="dir"><name>/proj/autoesl/fengx/work/xf_solver/L2/include</name>
+  </compound>
+  <compound refid="dir_a114ddc654c2ae82f0fcdf7ac9758667" kind="dir"><name>/proj/autoesl/fengx/work/xf_solver/L2</name>
+  </compound>
+  <compound refid="dir_af8657569edf2e2739a881ebc8af0e5c" kind="dir"><name>/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver</name>
+  </compound>
+</doxygenindex>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classxf_1_1solver_1_1internal_1_1_trait_3_01float_01_4" kind="class" language="C++" prot="public">
+    <compoundname>xf::solver::internal::Trait&lt; float &gt;</compoundname>
+    <includes refid="geqrf_8hpp" local="no">geqrf.hpp</includes>
+    <templateparamlist>
+    </templateparamlist>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classxf_1_1solver_1_1internal_1_1_trait_3_01float_01_4_1a2805abc151385d39b59ef47ac7a4ac58" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int xf::solver::internal::Trait&lt; float &gt;::eps</definition>
+        <argsstring></argsstring>
+        <name>eps</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" line="48" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" line="46" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" bodystart="46" bodyend="49"/>
+    <listofallmembers>
+      <member refid="classxf_1_1solver_1_1internal_1_1_trait_3_01float_01_4_1a2805abc151385d39b59ef47ac7a4ac58" prot="public" virt="non-virtual"><scope>xf::solver::internal::Trait&lt; float &gt;</scope><name>eps</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1549 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="namespacexf_1_1solver_1_1internal" kind="namespace" language="C++">
+    <compoundname>xf::solver::internal</compoundname>
+    <innerclass refid="unionxf_1_1solver_1_1internal_1_1double__cast__new" prot="public">xf::solver::internal::double_cast_new</innerclass>
+    <innerclass refid="unionxf_1_1solver_1_1internal_1_1double__casting" prot="public">xf::solver::internal::double_casting</innerclass>
+    <innerclass refid="classxf_1_1solver_1_1internal_1_1_trait" prot="public">xf::solver::internal::Trait</innerclass>
+    <innerclass refid="classxf_1_1solver_1_1internal_1_1_trait_3_01double_01_4" prot="public">xf::solver::internal::Trait&lt; double &gt;</innerclass>
+    <innerclass refid="classxf_1_1solver_1_1internal_1_1_trait_3_01float_01_4" prot="public">xf::solver::internal::Trait&lt; float &gt;</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1ab475066dc031316e497529f93b97d5f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename DataType</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>M</declname>
+            <defname>M</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>K</declname>
+            <defname>K</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::updateColumns</definition>
+        <argsstring>(DataType matrix[M][(N+K - 1)/K], int m, int n, DataType v[M], DataType beta, int cIdx, int baseCol)</argsstring>
+        <name>updateColumns</name>
+        <param>
+          <type>DataType</type>
+          <declname>matrix</declname>
+          <array>[M][(N+K - 1)/K]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>DataType</type>
+          <declname>v</declname>
+          <array>[M]</array>
+        </param>
+        <param>
+          <type>DataType</type>
+          <declname>beta</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>cIdx</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>baseCol</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" line="66" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" bodystart="66" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a85ccdc709e29ef31c1aa5fe8869d1f9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename DataType</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>M</declname>
+            <defname>M</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>K</declname>
+            <defname>K</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::update</definition>
+        <argsstring>(DataType matrix[K][M][(N+K - 1)/K], int m, int n, DataType v[K][M], DataType &amp;beta, int i)</argsstring>
+        <name>update</name>
+        <param>
+          <type>DataType</type>
+          <declname>matrix</declname>
+          <array>[K][M][(N+K - 1)/K]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>DataType</type>
+          <declname>v</declname>
+          <array>[K][M]</array>
+        </param>
+        <param>
+          <type>DataType &amp;</type>
+          <declname>beta</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" line="136" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" bodystart="136" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1aff9b5f09f8b827ab92dc510531cbeb5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename DataType</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>M</declname>
+            <defname>M</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>K</declname>
+            <defname>K</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::qrf</definition>
+        <argsstring>(int m, int n, DataType matrix[K][M][(N+K - 1)/K], int lda, DataType tau[N])</argsstring>
+        <name>qrf</name>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>DataType</type>
+          <declname>matrix</declname>
+          <array>[K][M][(N+K - 1)/K]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type>DataType</type>
+          <declname>tau</declname>
+          <array>[N]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" line="145" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" bodystart="145" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a8f2c74edab5dcce8c56064e2f7667d55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>diagSize</declname>
+            <defname>diagSize</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::jacobi_rotation_2x2</definition>
+        <argsstring>(T matrix[3], T considerAsZero, T &amp;m_c_left, T &amp;m_s_left, T &amp;m_c_right, T &amp;m_s_right)</argsstring>
+        <name>jacobi_rotation_2x2</name>
+        <param>
+          <type>T</type>
+          <declname>matrix</declname>
+          <array>[3]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>considerAsZero</declname>
+        </param>
+        <param>
+          <type>T &amp;</type>
+          <declname>m_c_left</declname>
+        </param>
+        <param>
+          <type>T &amp;</type>
+          <declname>m_s_left</declname>
+        </param>
+        <param>
+          <type>T &amp;</type>
+          <declname>m_c_right</declname>
+        </param>
+        <param>
+          <type>T &amp;</type>
+          <declname>m_s_right</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvdj.hpp" line="42" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvdj.hpp" bodystart="42" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a1ca13651365e8bea947adbe881fa58ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename DT</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::swapTwo</definition>
+        <argsstring>(DT &amp;a, DT &amp;b)</argsstring>
+        <name>swapTwo</name>
+        <param>
+          <type>DT &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>DT &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvdj.hpp" line="117" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvdj.hpp" bodystart="117" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1ab59a13abf1abdb093f910a7e398e37c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>maxDim</declname>
+            <defname>maxDim</defname>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>odd</declname>
+            <defname>odd</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::GenBlockMat</definition>
+        <argsstring>(int dim, int **order)</argsstring>
+        <name>GenBlockMat</name>
+        <param>
+          <type>int</type>
+          <declname>dim</declname>
+        </param>
+        <param>
+          <type>int **</type>
+          <declname>order</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvdj.hpp" line="125" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvdj.hpp" bodystart="125" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a6d652326ee528ec7c65cc90dad2ce2e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>m_diagSize</declname>
+            <defname>m_diagSize</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>UN</declname>
+            <defname>UN</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NMAXUN</declname>
+            <defname>NMAXUN</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::unrollCol</definition>
+        <argsstring>(int lda, int Dim_inner_extend, int *Order, T *m_c_right, T *m_s_right, T **dataA1, T **dataA2, T **dataA3, T **dataA4, T **dataA5, T **dataA6, T **dataA7, T **dataA8, T **dataA9, T **dataA10, T **dataA11, T **dataA12, T **dataA13, T **dataA14, T **dataA15, T **dataA16)</argsstring>
+        <name>unrollCol</name>
+        <param>
+          <type>int</type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Dim_inner_extend</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>Order</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>m_c_right</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>m_s_right</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA1</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA2</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA3</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA4</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA5</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA6</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA7</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA8</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA9</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA10</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA11</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA12</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA13</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA14</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA15</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA16</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvdj.hpp" line="188" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvdj.hpp" bodystart="188" bodyend="512"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a3d88159b55830f71101cab45eccac82a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>m_diagSize</declname>
+            <defname>m_diagSize</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>UN</declname>
+            <defname>UN</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NMAXUN</declname>
+            <defname>NMAXUN</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::unrollRow</definition>
+        <argsstring>(int lda, int Dim_inner_extend, int *Order, T *m_c_right, T *m_s_right, T **dataA1, T **dataA2, T **dataA3, T **dataA4, T **dataA5, T **dataA6, T **dataA7, T **dataA8, T **dataA9, T **dataA10, T **dataA11, T **dataA12, T **dataA13, T **dataA14, T **dataA15, T **dataA16)</argsstring>
+        <name>unrollRow</name>
+        <param>
+          <type>int</type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Dim_inner_extend</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>Order</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>m_c_right</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>m_s_right</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA1</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA2</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA3</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA4</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA5</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA6</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA7</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA8</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA9</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA10</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA11</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA12</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA13</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA14</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA15</declname>
+        </param>
+        <param>
+          <type>T **</type>
+          <declname>dataA16</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvdj.hpp" line="516" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvdj.hpp" bodystart="516" bodyend="840"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a334605a19e2b0c7469eaa9c11ec54788" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>m_diagSize</declname>
+            <defname>m_diagSize</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>UN</declname>
+            <defname>UN</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NMAXUN</declname>
+            <defname>NMAXUN</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::funcDataflow</definition>
+        <argsstring>(int i, int Dim_inner_extend, int Dim_inner, int **Order, T *m_c_right, T *m_s_right, T ****dataA, T ****dataU_out, int lda)</argsstring>
+        <name>funcDataflow</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Dim_inner_extend</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Dim_inner</declname>
+        </param>
+        <param>
+          <type>int **</type>
+          <declname>Order</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>m_c_right</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>m_s_right</declname>
+        </param>
+        <param>
+          <type>T ****</type>
+          <declname>dataA</declname>
+        </param>
+        <param>
+          <type>T ****</type>
+          <declname>dataU_out</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lda</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvdj.hpp" line="844" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvdj.hpp" bodystart="844" bodyend="925"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a7d478128921a3dedff0cf7a9f533dc32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>m_diagSize</declname>
+            <defname>m_diagSize</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>UN</declname>
+            <defname>UN</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NMAXUN</declname>
+            <defname>NMAXUN</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::Jacobi_svd</definition>
+        <argsstring>(T ****dataA, T ****dataU_out, int lda)</argsstring>
+        <name>Jacobi_svd</name>
+        <param>
+          <type>T ****</type>
+          <declname>dataA</declname>
+        </param>
+        <param>
+          <type>T ****</type>
+          <declname>dataU_out</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lda</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvdj.hpp" line="929" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvdj.hpp" bodystart="929" bodyend="1065"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a53605494a76bd3399866aab6f8b94c23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::jacobi_rotation_2x2</definition>
+        <argsstring>(T alpha, T beta, T gamma, hls::stream&lt; T &gt; &amp;s_strm, hls::stream&lt; T &gt; &amp;c_strm)</argsstring>
+        <name>jacobi_rotation_2x2</name>
+        <param>
+          <type>T</type>
+          <declname>alpha</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>beta</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>gamma</declname>
+        </param>
+        <param>
+          <type>hls::stream&lt; T &gt; &amp;</type>
+          <declname>s_strm</declname>
+        </param>
+        <param>
+          <type>hls::stream&lt; T &gt; &amp;</type>
+          <declname>c_strm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" line="44" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" bodystart="44" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1aaad1b1f9b454fea8f64a604d56ebd667" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::calc_converge</definition>
+        <argsstring>(T alpha, T beta, T gamma, hls::stream&lt; T &gt; &amp;conv_strm)</argsstring>
+        <name>calc_converge</name>
+        <param>
+          <type>T</type>
+          <declname>alpha</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>beta</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>gamma</declname>
+        </param>
+        <param>
+          <type>hls::stream&lt; T &gt; &amp;</type>
+          <declname>conv_strm</declname>
+        </param>
+        <briefdescription>
+<para>calc the converge of next sweep </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" line="120" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" bodystart="120" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a32c48bb9af32b234a539bd4137134b78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::svd_and_conv</definition>
+        <argsstring>(T alpha, T beta, T gamma, hls::stream&lt; T &gt; &amp;conv_strm, hls::stream&lt; T &gt; &amp;s_strm, hls::stream&lt; T &gt; &amp;c_strm)</argsstring>
+        <name>svd_and_conv</name>
+        <param>
+          <type>T</type>
+          <declname>alpha</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>beta</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>gamma</declname>
+        </param>
+        <param>
+          <type>hls::stream&lt; T &gt; &amp;</type>
+          <declname>conv_strm</declname>
+        </param>
+        <param>
+          <type>hls::stream&lt; T &gt; &amp;</type>
+          <declname>s_strm</declname>
+        </param>
+        <param>
+          <type>hls::stream&lt; T &gt; &amp;</type>
+          <declname>c_strm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" line="126" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" bodystart="126" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1aec7b9038db40f6d1759691e26304f41a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NRMAX</declname>
+            <defname>NRMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCMAX</declname>
+            <defname>NCMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>MCU</declname>
+            <defname>MCU</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>ACUM</declname>
+            <defname>ACUM</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::update_A</definition>
+        <argsstring>(T matA[MCU][ACUM][NCMAX], T A_i[MCU][ACUM], T A_j[MCU][ACUM], int m, int n, int col_i, int col_j, T s, T c)</argsstring>
+        <name>update_A</name>
+        <param>
+          <type>T</type>
+          <declname>matA</declname>
+          <array>[MCU][ACUM][NCMAX]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>A_i</declname>
+          <array>[MCU][ACUM]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>A_j</declname>
+          <array>[MCU][ACUM]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col_i</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col_j</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" line="133" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" bodystart="133" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a8d5fdee99a09aedcab394b72ed5fb519" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCMAX</declname>
+            <defname>NCMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>ACUN</declname>
+            <defname>ACUN</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::update_V</definition>
+        <argsstring>(T matV[NCU][ACUN][NCMAX], T V_i[NCU][ACUN], T V_j[NCU][ACUN], int n, int col_i, int col_j, T s, T c)</argsstring>
+        <name>update_V</name>
+        <param>
+          <type>T</type>
+          <declname>matV</declname>
+          <array>[NCU][ACUN][NCMAX]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>V_i</declname>
+          <array>[NCU][ACUN]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>V_j</declname>
+          <array>[NCU][ACUN]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col_i</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col_j</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" line="151" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" bodystart="151" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a9b9f081f0cef1df085a670b7b0e43808" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NRMAX</declname>
+            <defname>NRMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCMAX</declname>
+            <defname>NCMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>MCU</declname>
+            <defname>MCU</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>ACUM</declname>
+            <defname>ACUM</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>ACUN</declname>
+            <defname>ACUN</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::update_AV</definition>
+        <argsstring>(T matA[MCU][ACUM][NCMAX], T matV[NCU][ACUN][NCMAX], T A_i[MCU][ACUM], T A_j[MCU][ACUM], T V_i[NCU][ACUN], T V_j[NCU][ACUN], int m, int n, int col_i, int col_j, T s, T c)</argsstring>
+        <name>update_AV</name>
+        <param>
+          <type>T</type>
+          <declname>matA</declname>
+          <array>[MCU][ACUM][NCMAX]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>matV</declname>
+          <array>[NCU][ACUN][NCMAX]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>A_i</declname>
+          <array>[MCU][ACUM]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>A_j</declname>
+          <array>[MCU][ACUM]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>V_i</declname>
+          <array>[NCU][ACUN]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>V_j</declname>
+          <array>[NCU][ACUN]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col_i</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col_j</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" line="169" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" bodystart="169" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a447445e5604edde6b38182fe3f892e81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NRMAX</declname>
+            <defname>NRMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCMAX</declname>
+            <defname>NCMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>MCU</declname>
+            <defname>MCU</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>ACUM</declname>
+            <defname>ACUM</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::read_and_gen_2x2</definition>
+        <argsstring>(T matA[MCU][ACUM][NCMAX], T A_i[MCU][ACUM], T A_j[MCU][ACUM], int m, int n, int col_i, int col_j, hls::stream&lt; T &gt; &amp;alpha_strm, hls::stream&lt; T &gt; &amp;beta_strm, hls::stream&lt; T &gt; &amp;gamma_strm)</argsstring>
+        <name>read_and_gen_2x2</name>
+        <param>
+          <type>T</type>
+          <declname>matA</declname>
+          <array>[MCU][ACUM][NCMAX]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>A_i</declname>
+          <array>[MCU][ACUM]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>A_j</declname>
+          <array>[MCU][ACUM]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col_i</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col_j</declname>
+        </param>
+        <param>
+          <type>hls::stream&lt; T &gt; &amp;</type>
+          <declname>alpha_strm</declname>
+        </param>
+        <param>
+          <type>hls::stream&lt; T &gt; &amp;</type>
+          <declname>beta_strm</declname>
+        </param>
+        <param>
+          <type>hls::stream&lt; T &gt; &amp;</type>
+          <declname>gamma_strm</declname>
+        </param>
+        <briefdescription>
+<para>Read two columns of A into two seperate Bram. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" line="188" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" bodystart="188" bodyend="313"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a6216ac2686f5051779baadef57f76341" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCMAX</declname>
+            <defname>NCMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>ACUN</declname>
+            <defname>ACUN</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::read_V_2cols</definition>
+        <argsstring>(T matV[NCU][ACUN][NCMAX], T V_i[NCU][ACUN], T V_j[NCU][ACUN], int n, int col_i, int col_j)</argsstring>
+        <name>read_V_2cols</name>
+        <param>
+          <type>T</type>
+          <declname>matV</declname>
+          <array>[NCU][ACUN][NCMAX]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>V_i</declname>
+          <array>[NCU][ACUN]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>V_j</declname>
+          <array>[NCU][ACUN]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col_i</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col_j</declname>
+        </param>
+        <briefdescription>
+<para>Read two columns (i and j) of V into two seperate Bram V_i[N] and V_j[N]. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" line="317" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" bodystart="317" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1aa4917299c2fd454532267908e8f76944" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NRMAX</declname>
+            <defname>NRMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCMAX</declname>
+            <defname>NCMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>MCU</declname>
+            <defname>MCU</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>ACUM</declname>
+            <defname>ACUM</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>ACUN</declname>
+            <defname>ACUN</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::read_to_2cols</definition>
+        <argsstring>(T matA[MCU][ACUM][NCMAX], T matV[NCU][ACUN][NCMAX], T A_i[MCU][ACUM], T A_j[MCU][ACUM], T V_i[NCU][ACUN], T V_j[NCU][ACUN], int m, int n, int col_i, int col_j, hls::stream&lt; T &gt; &amp;alpha_strm, hls::stream&lt; T &gt; &amp;beta_strm, hls::stream&lt; T &gt; &amp;gamma_strm)</argsstring>
+        <name>read_to_2cols</name>
+        <param>
+          <type>T</type>
+          <declname>matA</declname>
+          <array>[MCU][ACUM][NCMAX]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>matV</declname>
+          <array>[NCU][ACUN][NCMAX]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>A_i</declname>
+          <array>[MCU][ACUM]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>A_j</declname>
+          <array>[MCU][ACUM]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>V_i</declname>
+          <array>[NCU][ACUN]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>V_j</declname>
+          <array>[NCU][ACUN]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col_i</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col_j</declname>
+        </param>
+        <param>
+          <type>hls::stream&lt; T &gt; &amp;</type>
+          <declname>alpha_strm</declname>
+        </param>
+        <param>
+          <type>hls::stream&lt; T &gt; &amp;</type>
+          <declname>beta_strm</declname>
+        </param>
+        <param>
+          <type>hls::stream&lt; T &gt; &amp;</type>
+          <declname>gamma_strm</declname>
+        </param>
+        <briefdescription>
+<para>read 2 columns(i and j) of data from A matrix and V matrix </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" line="334" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" bodystart="334" bodyend="350"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1aa7fa46af494d5848625778515f85d8f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NRCU</declname>
+            <defname>NRCU</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCMAX</declname>
+            <defname>NCMAX</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::rowUpdate</definition>
+        <argsstring>(T A[NRCU][NCMAX], T pivot[NCMAX], int rs, int re, int cs, int ce)</argsstring>
+        <name>rowUpdate</name>
+        <param>
+          <type>T</type>
+          <declname>A</declname>
+          <array>[NRCU][NCMAX]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>pivot</declname>
+          <array>[NCMAX]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rs</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>re</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>cs</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ce</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/getrf_nopivot.hpp" line="32" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/getrf_nopivot.hpp" bodystart="32" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a893b086163868745116c1a13c8a4c5ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NRCU</declname>
+            <defname>NRCU</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCMAX</declname>
+            <defname>NCMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::getrf_nopivot_core</definition>
+        <argsstring>(int m, int n, T A[NCU][NRCU][NCMAX], int lda)</argsstring>
+        <name>getrf_nopivot_core</name>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>A</declname>
+          <array>[NCU][NRCU][NCMAX]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lda</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/getrf_nopivot.hpp" line="57" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/getrf_nopivot.hpp" bodystart="57" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a713f7b1a154f468f6fa30fde5bf679dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::chol_col</definition>
+        <argsstring>(int n, T dataA[(N+NCU - 1)/NCU][N], T dataj[N], T tmp1_i, int num, int j)</argsstring>
+        <name>chol_col</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataj</declname>
+          <array>[N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>tmp1_i</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/potrf.hpp" line="32" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/potrf.hpp" bodystart="32" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1adbd492e61179a13632fb32adef9f2497" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::chol_jj</definition>
+        <argsstring>(T dataA[NCU][(N+NCU - 1)/NCU][N], T dataj[NCU][N], T &amp;tmp1_j, int &amp;j)</argsstring>
+        <name>chol_jj</name>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataj</declname>
+          <array>[NCU][N]</array>
+        </param>
+        <param>
+          <type>T &amp;</type>
+          <declname>tmp1_j</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/potrf.hpp" line="73" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/potrf.hpp" bodystart="73" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a61a8301dc333e7c780cb8c07bc98aeca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::chol_col_wrapper</definition>
+        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataj[NCU][N], T tmp1, int j)</argsstring>
+        <name>chol_col_wrapper</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataj</declname>
+          <array>[NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>tmp1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/potrf.hpp" line="115" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/potrf.hpp" bodystart="115" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a12123b06ac77e65ed299e6ad496c35f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal::cholesky_core</definition>
+        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N])</argsstring>
+        <name>cholesky_core</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/potrf.hpp" line="127" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/potrf.hpp" bodystart="127" bodyend="137"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" line="34" column="1"/>
+  </compounddef>
+</doxygen>

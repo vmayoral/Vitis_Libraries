@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="namespacexf_1_1solver_1_1internal__gemi" kind="namespace" language="C++">
+    <compoundname>xf::solver::internal_gemi</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__gemi_1a4945d04c1e8c9f15d794e3c20021a96e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal_gemi::trisolver_L</definition>
+        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataB[NCU][(N+NCU - 1)/NCU], T dataX[N])</argsstring>
+        <name>trisolver_L</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataB</declname>
+          <array>[NCU][(N+NCU - 1)/NCU]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataX</declname>
+          <array>[N]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" line="30" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" bodystart="30" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__gemi_1a789a4309dc8b5ed9950ddbfabb561f6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal_gemi::trisolver_U</definition>
+        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataB[NCU][(N+NCU - 1)/NCU], T dataX[N])</argsstring>
+        <name>trisolver_U</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataB</declname>
+          <array>[NCU][(N+NCU - 1)/NCU]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataX</declname>
+          <array>[N]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" line="53" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" bodystart="53" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__gemi_1af2a912b09f485f318a2d875bbb4e1fce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal_gemi::inverse</definition>
+        <argsstring>(int n, int P[N], T dataA[NCU][(N+NCU - 1)/NCU][N], T dataX[N][N])</argsstring>
+        <name>inverse</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>P</declname>
+          <array>[N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataX</declname>
+          <array>[N][N]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" line="76" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" bodystart="76" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__gemi_1a6a4bdd34ccf5b5eaafdccfaf56d72a96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NRCU</declname>
+            <defname>NRCU</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NMAX</declname>
+            <defname>NMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal_gemi::getrf_core</definition>
+        <argsstring>(int n, T A[NCU][NRCU][NMAX], int lda, int P[NMAX])</argsstring>
+        <name>getrf_core</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>A</declname>
+          <array>[NCU][NRCU][NMAX]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>P</declname>
+          <array>[NMAX]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" line="113" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" bodystart="113" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__gemi_1a2fdd988b0db9bd56abf5878ee9aae9d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal_gemi::inverse_core</definition>
+        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataX[N][N])</argsstring>
+        <name>inverse_core</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataX</declname>
+          <array>[N][N]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" line="121" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" bodystart="121" bodyend="128"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" line="27" column="1"/>
+  </compounddef>
+</doxygen>
