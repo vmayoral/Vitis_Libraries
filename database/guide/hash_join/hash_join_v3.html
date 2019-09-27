@@ -160,6 +160,7 @@
               <p class="caption"><span class="caption-text">Library Overview</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#design-flows">Design Flows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../release.html">Release Note</a></li>
@@ -301,7 +302,7 @@ Also, the overflow of small table will be stored in another area in HBM.</li>
 Then, the overflow rows will be read in form one HBM and write out to another HBM.
 The output address of overflow rows is according to the offset of its hash value.
 By operation of Merge, we can put the overflow rows into its right position and waiting for Probe.
-In order to provide high throughput in this operation, two dedicated HBM ports is required for each PU, which provides read and write accessibilitites at the same time.</li>
+In order to provide high throughput in this operation, two dedicated HBM ports is required for each PU, which provides read and write accessibilities at the same time.</li>
 </ol>
 <img alt="Merge" class="align-center" src="../../_images/merge_sc_v3.png" />
 <ol class="arabic simple" start="3">

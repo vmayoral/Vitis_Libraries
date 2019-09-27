@@ -159,6 +159,7 @@
               <p class="caption"><span class="caption-text">Library Overview</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#design-flows">Design Flows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html#trademark-notice">Trademark Notice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release.html">Release Note</a></li>
@@ -257,6 +258,7 @@ Demo/examples of different database acceleration approach are also provided with
 <p class="caption"><span class="caption-text">Library Overview</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#design-flows">Design Flows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html#trademark-notice">Trademark Notice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release.html">Release Note</a></li>
@@ -288,6 +290,141 @@ Demo/examples of different database acceleration approach are also provided with
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="benchmark/tpc_h.html">TPC-H Queries with GQE</a></li>
 </ul>
+</div>
+<div class="section" id="library-api-summary">
+<h2>Library API Summary<a class="headerlink" href="#library-api-summary" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="l1-apis">
+<h3>L1 APIs<a class="headerlink" href="#l1-apis" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Library API</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>aggregate</td>
+<td>A group of overloaded aggregate functions, supports SUM, MAX, MIN, MEAN, VARIANCE, COUNT, COUNTNONZERO operation.</td>
+</tr>
+<tr class="row-odd"><td>bitonicSort</td>
+<td>Bitonic sort is a parallel algorithm for sorting.</td>
+</tr>
+<tr class="row-even"><td>bfGen</td>
+<td>Generate the bloom-filter in on-chip RAM blocks.</td>
+</tr>
+<tr class="row-odd"><td>bfGenStream</td>
+<td>Generate the bloom-filter in on-chip RAM blocks, and emit the vectors through FIFO upon finish.</td>
+</tr>
+<tr class="row-even"><td>bfCheck</td>
+<td>Check existence of a value using bloom-filter vectors.</td>
+</tr>
+<tr class="row-odd"><td>combineCol</td>
+<td>A group of overloaded functions for combining two to five columns into one.</td>
+</tr>
+<tr class="row-even"><td>splitCol</td>
+<td>A group of overloaded functions for splitting previously combined column into two to five separate ones.</td>
+</tr>
+<tr class="row-odd"><td>directGroupAggregate</td>
+<td>Group-by aggregation with limited key width.</td>
+</tr>
+<tr class="row-even"><td>duplicateCol</td>
+<td>Duplicate one column into two columns.</td>
+</tr>
+<tr class="row-odd"><td>dynamicEval</td>
+<td>Dynamic expression evaluation.</td>
+</tr>
+<tr class="row-even"><td>dynamicFilter</td>
+<td>A group overloaded functions for filtering payloads according to one to four conditions columns pro gamed at during run-time.</td>
+</tr>
+<tr class="row-odd"><td>groupAggregate</td>
+<td>A series of overloaded functions for group-aggregation. Input rows are required to be sorted by grouping key(s).</td>
+</tr>
+<tr class="row-even"><td>hashAntiJoin</td>
+<td>Hash-Anti-Join primitive.</td>
+</tr>
+<tr class="row-odd"><td>hashGroupAggregate</td>
+<td>Generic hash group aggregate primitive.</td>
+</tr>
+<tr class="row-even"><td>hashJoinMPU</td>
+<td>Hash-Join primitive, using multiple DDR/HBM buffers.</td>
+</tr>
+<tr class="row-odd"><td>hashJoinV3</td>
+<td>Hash-Join v3 primitive, it is designed for HBM device and performs better in large size of table.</td>
+</tr>
+<tr class="row-even"><td>hashBuildProbeV3</td>
+<td>Hash-Build-Probe v3 primitive, it can perform hash build and hash probe separately.</td>
+</tr>
+<tr class="row-odd"><td>hashJoinV4</td>
+<td>Hash-Join v4 primitive, using bloom-filter to enhance performance of hash join, designed for HBM device.</td>
+</tr>
+<tr class="row-even"><td>hashBuildProbeV4</td>
+<td>Hash-Build-Probe v4 primitive, build and probe are separately performed. This primitive is designed for HBM device only.</td>
+</tr>
+<tr class="row-odd"><td>hashLookup3</td>
+<td>Lookup3 algorithm generates 64-bit or 32-bit hash.</td>
+</tr>
+<tr class="row-even"><td>hashMultiJoin</td>
+<td>Hash-Multi-Join primitive is based on hashJoinV3, and can be programmed at run-time to perform inner, anti or left join.</td>
+</tr>
+<tr class="row-odd"><td>hashMurmur3</td>
+<td>Murmur3 hash algorithm.</td>
+</tr>
+<tr class="row-even"><td>hashPartition</td>
+<td>Hash-Partition primitive splits a table into partitions of rows based on hash of a selected key.</td>
+</tr>
+<tr class="row-odd"><td>hashSemiJoin</td>
+<td>Hash-Semi-Join primitive is based on hashJoinMPU, but performs semi-join.</td>
+</tr>
+<tr class="row-even"><td>insertSort</td>
+<td>Insert sort algorithm on chip.</td>
+</tr>
+<tr class="row-odd"><td>mergeJoin</td>
+<td>Merge join algorithm for sorted tables without duplicated keys in the left table.</td>
+</tr>
+<tr class="row-even"><td>mergeLeftJoin</td>
+<td>Merge left join function for sorted tables, the left table should not have duplicated keys.</td>
+</tr>
+<tr class="row-odd"><td>mergeSort</td>
+<td>Merge sort algorithm.</td>
+</tr>
+<tr class="row-even"><td>nestedLoopJoin</td>
+<td>Nested loop join.</td>
+</tr>
+<tr class="row-odd"><td>scanCmpStrCol</td>
+<td>Scan multiple string columns in global memory, and compare each of them with a constant string</td>
+</tr>
+<tr class="row-even"><td>scanCol</td>
+<td>A group of overloaded functions for Scanning 1 to 6 columns as a table from DDR/HBM buffers.</td>
+</tr>
+<tr class="row-odd"><td>staticEval</td>
+<td>A group of overloaded functions for evaluating a compile-time selected expression on each row with one to four columns.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="l2-apis">
+<h3>L2 APIs<a class="headerlink" href="#l2-apis" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>gqeAggr</td>
+<td>GQE aggregate kernel</td>
+</tr>
+<tr class="row-even"><td>gqeJoin</td>
+<td>GQE join kernel</td>
+</tr>
+<tr class="row-odd"><td>gqePart</td>
+<td>GQE partition kernel</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 

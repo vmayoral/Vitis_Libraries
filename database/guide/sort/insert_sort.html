@@ -160,6 +160,7 @@
               <p class="caption"><span class="caption-text">Library Overview</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#design-flows">Design Flows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../release.html">Release Note</a></li>
@@ -294,7 +295,7 @@ implemented as <a class="reference internal" href="../hw_api.html#cid-xf-databas
 <p>The Insert Sort primitive has an internal shift register array to sort the input stream.
 It takes five steps to finish the sort processing of a stream with limited max sort number.</p>
 <p>1.Build a group of shift registers, and the number of shift register is the maximum sort number;</p>
-<p>2.Boardcasting the input value to every shift registers, then comapring size between the internal value of each shift register and the input value. For descending sort, run step3. Otherwise, run step4;</p>
+<p>2.Broadcasting the input value to every shift registers, then comparing size between the internal value of each shift register and the input value. For descending sort, run step3. Otherwise, run step4;</p>
 <p>3.For descending sort, we should build a internal ascending array. If the input value is larger than array[i], then right shift array[i]. If the input value is less than array[i] and larger than array[i+1], insert input value to array[i+1];</p>
 <p>4.For ascending sort, we should build a internal descending array. If the input value is less than array[i], then right shift array[i]. If the input value is larger than array[i] and less than array[i+1], insert input value to array[i+1];</p>
 <p>5.If input stream is not empty, output the last value of the array and then return to step2. Otherwise, right shift the whole register array and output the last array value until the array is empty.</p>
