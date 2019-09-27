@@ -8,35 +8,34 @@ Global Namespace
 .. toctree::
 	:hidden:
 
-	class_xfLz4.rst
-	class_xilSnappy.rst
+	namespace_xf.rst
 
 
 
 .. ref-code-block:: cpp
 	:class: overview-code-block
 
-	// classes
+	// namespaces
 
-	class :ref:`xfLz4<doxid-classxfLz4>` 
-	class :ref:`xilSnappy<doxid-classxilSnappy>` 
+	namespace :ref:`xf<doxid-namespacexf>`
+	    namespace :ref:`xf::compression<doxid-namespacexf_1_1compression>`
 
 	// macros
 
-	#define :ref:`BLOCK_SIZE_IN_KB<doxid-xil__snappy_8hpp_1a62f02bce640abc082ca8383428984e2f>`
-	#define :ref:`BLOCK_SIZE_IN_KB<doxid-xil__lz4_8hpp_1a62f02bce640abc082ca8383428984e2f>`
-	#define :ref:`HOST_BUFFER_SIZE<doxid-xil__snappy_8hpp_1a497efa0991ba86ef9bb13ec59e253984>`
-	#define :ref:`HOST_BUFFER_SIZE<doxid-xil__lz4_8hpp_1a497efa0991ba86ef9bb13ec59e253984>`
-	#define :ref:`MAX_COMPUTE_UNITS<doxid-xil__lz4_8hpp_1a58cec436353470a8402a6f0349f4cc1e>`
-	#define :ref:`MAX_COMPUTE_UNITS<doxid-xil__snappy_8hpp_1a58cec436353470a8402a6f0349f4cc1e>`
-	#define :ref:`OVERLAP_BUF_COUNT<doxid-xil__lz4_8hpp_1a2a7255f41772a29d279fba9f19e75cb6>`
-	#define :ref:`OVERLAP_BUF_COUNT<doxid-xil__snappy_8hpp_1a2a7255f41772a29d279fba9f19e75cb6>`
-	#define :ref:`PARALLEL_BLOCK<doxid-xil__snappy_8hpp_1a0532714a43e57d86b6e5002db6924684>`
+	#define :ref:`BLOCK_SIZE_IN_KB<doxid-snappy_8hpp_1a62f02bce640abc082ca8383428984e2f>`
+	#define :ref:`BLOCK_SIZE_IN_KB<doxid-lz4_8hpp_1a62f02bce640abc082ca8383428984e2f>`
+	#define :ref:`HOST_BUFFER_SIZE<doxid-snappy_8hpp_1a497efa0991ba86ef9bb13ec59e253984>`
+	#define :ref:`HOST_BUFFER_SIZE<doxid-lz4_8hpp_1a497efa0991ba86ef9bb13ec59e253984>`
+	#define :ref:`MAX_COMPUTE_UNITS<doxid-lz4_8hpp_1a58cec436353470a8402a6f0349f4cc1e>`
+	#define :ref:`MAX_COMPUTE_UNITS<doxid-snappy_8hpp_1a58cec436353470a8402a6f0349f4cc1e>`
+	#define :ref:`OVERLAP_BUF_COUNT<doxid-lz4_8hpp_1a2a7255f41772a29d279fba9f19e75cb6>`
+	#define :ref:`OVERLAP_BUF_COUNT<doxid-snappy_8hpp_1a2a7255f41772a29d279fba9f19e75cb6>`
+	#define :ref:`PARALLEL_BLOCK<doxid-snappy_8hpp_1a0532714a43e57d86b6e5002db6924684>`
 
 Macros
 ------
 
-.. _doxid-xil__snappy_8hpp_1a62f02bce640abc082ca8383428984e2f:
+.. _doxid-snappy_8hpp_1a62f02bce640abc082ca8383428984e2f:
 .. _cid-block_size_in_kb:
 .. ref-code-block:: cpp
 	:class: title-code-block
@@ -45,7 +44,7 @@ Macros
 
 Default block size
 
-.. _doxid-xil__lz4_8hpp_1a62f02bce640abc082ca8383428984e2f:
+.. _doxid-lz4_8hpp_1a62f02bce640abc082ca8383428984e2f:
 .. _cid-block_size_in_kb-2:
 .. ref-code-block:: cpp
 	:class: title-code-block
@@ -54,7 +53,7 @@ Default block size
 
 Default block size
 
-.. _doxid-xil__snappy_8hpp_1a497efa0991ba86ef9bb13ec59e253984:
+.. _doxid-snappy_8hpp_1a497efa0991ba86ef9bb13ec59e253984:
 .. _cid-host_buffer_size:
 .. ref-code-block:: cpp
 	:class: title-code-block
@@ -63,7 +62,7 @@ Default block size
 
 Maximum host buffer used to operate per kernel invocation
 
-.. _doxid-xil__lz4_8hpp_1a497efa0991ba86ef9bb13ec59e253984:
+.. _doxid-lz4_8hpp_1a497efa0991ba86ef9bb13ec59e253984:
 .. _cid-host_buffer_size-2:
 .. ref-code-block:: cpp
 	:class: title-code-block
@@ -72,7 +71,7 @@ Maximum host buffer used to operate per kernel invocation
 
 Maximum host buffer used to operate per kernel invocation
 
-.. _doxid-xil__lz4_8hpp_1a58cec436353470a8402a6f0349f4cc1e:
+.. _doxid-lz4_8hpp_1a58cec436353470a8402a6f0349f4cc1e:
 .. _cid-max_compute_units:
 .. ref-code-block:: cpp
 	:class: title-code-block
@@ -81,7 +80,7 @@ Maximum host buffer used to operate per kernel invocation
 
 Maximum compute units supported
 
-.. _doxid-xil__snappy_8hpp_1a58cec436353470a8402a6f0349f4cc1e:
+.. _doxid-snappy_8hpp_1a58cec436353470a8402a6f0349f4cc1e:
 .. _cid-max_compute_units-2:
 .. ref-code-block:: cpp
 	:class: title-code-block
@@ -90,7 +89,7 @@ Maximum compute units supported
 
 Maximum compute units supported
 
-.. _doxid-xil__lz4_8hpp_1a2a7255f41772a29d279fba9f19e75cb6:
+.. _doxid-lz4_8hpp_1a2a7255f41772a29d279fba9f19e75cb6:
 .. _cid-overlap_buf_count:
 .. ref-code-block:: cpp
 	:class: title-code-block
@@ -99,7 +98,7 @@ Maximum compute units supported
 
 Value below is used to associate with Overlapped buffers, ideally overlapped execution requires 2 resources per invocation
 
-.. _doxid-xil__snappy_8hpp_1a2a7255f41772a29d279fba9f19e75cb6:
+.. _doxid-snappy_8hpp_1a2a7255f41772a29d279fba9f19e75cb6:
 .. _cid-overlap_buf_count-2:
 .. ref-code-block:: cpp
 	:class: title-code-block
@@ -108,7 +107,7 @@ Value below is used to associate with Overlapped buffers, ideally overlapped exe
 
 Value below is used to associate with Overlapped buffers, ideally overlapped execution requires 2 resources per invocation
 
-.. _doxid-xil__snappy_8hpp_1a0532714a43e57d86b6e5002db6924684:
+.. _doxid-snappy_8hpp_1a0532714a43e57d86b6e5002db6924684:
 .. _cid-parallel_block:
 .. ref-code-block:: cpp
 	:class: title-code-block

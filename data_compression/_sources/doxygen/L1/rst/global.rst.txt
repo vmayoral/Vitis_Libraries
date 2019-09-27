@@ -12,8 +12,6 @@ Global Namespace
 
 
 
-
-
 .. _doxid-lz4__compress__core_8hpp_1a488a8f4be3eaad5790117e9b3297c9b5:
 .. _cid-compressd_dt:
 .. _doxid-lz4__compress__core_8hpp_1a5921c2f43549ef06a6a5536d7e23fa20:
@@ -44,39 +42,47 @@ Global Namespace
 .. _cid-c_minoffset-2:
 .. _doxid-snappy__compress__test_8cpp_1a90e94fa767ab685964e185a2312f4e84:
 .. _cid-c_minmatch-2:
-.. _doxid-lz4__compress__core_8hpp_1a0c0f2e3aa002cd637a2a17fcb0ce56f5:
-.. _cid-lz4_compress_engine:
-.. _doxid-lz4__decompress__core_8hpp_1a3a55685bfadf58d01c429d085f3281b0:
-.. _cid-lz4_decompress_engine:
-.. _doxid-snappy__compress__core_8hpp_1a0eac9588b9397cb136af63d9d91e514c:
-.. _cid-snappy_compress_engine:
-.. _doxid-snappy__decompress__core_8hpp_1af42fb752b8d64d722efd71d3bddce995:
-.. _cid-snappy_decompress_engine:
+.. _doxid-upSizer__test_8cpp_1a4bd89ae3274f17ed07a6df2c7594f8cb:
+.. _cid-c_factor:
+.. _doxid-deflate__trees_8hpp_1a2926521639c9a8d32f71a2ab1434ea2c:
+.. _cid-findmin:
+.. _doxid-downsizer__test_8cpp_1a1967a1377590fd3dc726bc25fea19cd3:
+.. _cid-streamdownsizerrun:
+.. _doxid-downsizer__test_8cpp_1a0ddf1224851353fc92bfbff6f499fa97:
+.. _cid-main:
 .. _doxid-lz4__compress__test_8cpp_1a100dcf2623f67d7a9b40120efe68db8f:
 .. _cid-lz4compressenginerun:
 .. _doxid-lz4__compress__test_8cpp_1a0ddf1224851353fc92bfbff6f499fa97:
-.. _cid-main:
+.. _cid-main-2:
 .. _doxid-lz4__decompress__test_8cpp_1ad5d586481873f6b1b1f3e1393ac47099:
 .. _cid-lz4decompressenginerun:
 .. _doxid-lz4__decompress__test_8cpp_1a0ddf1224851353fc92bfbff6f499fa97:
-.. _cid-main-2:
+.. _cid-main-3:
 .. _doxid-snappy__compress__test_8cpp_1ab9a24f2c8fc8c55d582a519ecc8c99d3:
 .. _cid-snappycompressenginerun:
 .. _doxid-snappy__compress__test_8cpp_1a0ddf1224851353fc92bfbff6f499fa97:
-.. _cid-main-3:
+.. _cid-main-4:
 .. _doxid-snappy__decompress__test_8cpp_1ae314433e3e9fb4c7362f0e9e6030390e:
 .. _cid-snappydecompressenginerun:
 .. _doxid-snappy__decompress__test_8cpp_1a0ddf1224851353fc92bfbff6f499fa97:
-.. _cid-main-4:
-.. _doxid-snappy__compress__core_8hpp_1a7b846473f310e6962ca8b763772cf862:
-.. _cid-bit:
-.. _doxid-snappy__decompress__core_8hpp_1a7b846473f310e6962ca8b763772cf862:
-.. _cid-bit-2:
-.. _doxid-inflate__huffman_8hpp_1a7b846473f310e6962ca8b763772cf862:
-.. _cid-bit-3:
-.. _doxid-lz4__decompress__core_8hpp_1a7b846473f310e6962ca8b763772cf862:
-.. _cid-bit-4:
+.. _cid-main-5:
+.. _doxid-upSizer__test_8cpp_1a3f447eb8753c87fbc68990e735ab4e13:
+.. _cid-hls_streamupsizer:
+.. _doxid-upSizer__test_8cpp_1a0ddf1224851353fc92bfbff6f499fa97:
+.. _cid-main-6:
+.. _doxid-upSizer__test_8cpp_1ad4da4e8993f480f2b3c7d8fbebd947b5:
+.. _cid-aop:
+.. _doxid-downsizer__test_8cpp_1ad4da4e8993f480f2b3c7d8fbebd947b5:
+.. _cid-aop-2:
 .. _doxid-lz4__compress__core_8hpp_1a7b846473f310e6962ca8b763772cf862:
+.. _cid-bit:
+.. _doxid-snappy__compress__core_8hpp_1a7b846473f310e6962ca8b763772cf862:
+.. _cid-bit-2:
+.. _doxid-lz4__decompress__core_8hpp_1a7b846473f310e6962ca8b763772cf862:
+.. _cid-bit-3:
+.. _doxid-snappy__decompress__core_8hpp_1a7b846473f310e6962ca8b763772cf862:
+.. _cid-bit-4:
+.. _doxid-inflate__huffman_8hpp_1a7b846473f310e6962ca8b763772cf862:
 .. _cid-bit-5:
 .. _doxid-inflate__huffman_8hpp_1a5967693540f086cfa357f68978bf0be7:
 .. _cid-bits:
@@ -92,8 +98,6 @@ Global Namespace
 .. _cid-dumpbits:
 .. _doxid-inflate__huffman_8hpp_1a481ce294700537ecba0c56862c3c0782:
 .. _cid-dynamic_state:
-.. _doxid-zlib__stream__utils_8hpp_1a4ef9636ea91e8374d90b2df0834b35a3:
-.. _cid-get_diff_if_big:
 .. _doxid-inflate__huffman_8hpp_1af71bc5a9176c41e427d50fae4f3927ba:
 .. _cid-header_state:
 .. _doxid-lz4__decompress__test_8cpp_1a43034bdd0ae7c6267b05ff35ae97cddf:
@@ -106,35 +110,35 @@ Global Namespace
 .. _cid-insize_range_21bit:
 .. _doxid-snappy__compress_8hpp_1aaac531efcf6147e702ff7c51cde9996d:
 .. _cid-insize_range_7bit:
+.. _doxid-deflate__trees_8hpp_1a9af9ff5960d0ec384e8ada602ec65fd1:
+.. _cid-least_val:
 .. _doxid-inflate__huffman_8hpp_1ae0cd07521182c5def196e0307f698833:
 .. _cid-literal_stage:
-.. _doxid-lz4__decompress__test_8cpp_1a7decf7774339d5dbf13fc30726d73bea:
-.. _cid-lop:
 .. _doxid-lz4__compress__test_8cpp_1a7decf7774339d5dbf13fc30726d73bea:
+.. _cid-lop:
+.. _doxid-lz4__decompress__test_8cpp_1a7decf7774339d5dbf13fc30726d73bea:
 .. _cid-lop-2:
 .. _doxid-snappy__compress__test_8cpp_1a7decf7774339d5dbf13fc30726d73bea:
 .. _cid-lop-3:
-.. _doxid-deflate__trees_8hpp_1ab811d8c6ff3a505312d3276590444289:
-.. _cid-low:
 .. _doxid-lz4__decompress__test_8cpp_1a2b8f8e3bbe3f6e707f3f920dfeb2be7b:
 .. _cid-low_offset:
 .. _doxid-snappy__decompress__test_8cpp_1a2b8f8e3bbe3f6e707f3f920dfeb2be7b:
 .. _cid-low_offset-2:
-.. _doxid-lz4__decompress__test_8cpp_1af0f756bfd33c38e7b36c1f10dcb0ba99:
-.. _cid-low_offset_state:
 .. _doxid-snappy__decompress__test_8cpp_1af0f756bfd33c38e7b36c1f10dcb0ba99:
+.. _cid-low_offset_state:
+.. _doxid-lz4__decompress__test_8cpp_1af0f756bfd33c38e7b36c1f10dcb0ba99:
 .. _cid-low_offset_state-2:
-.. _doxid-lz4__compress__test_8cpp_1ab093d1684c2f65f96339d0378a178aa0:
-.. _cid-lz_dict_size:
 .. _doxid-snappy__compress__test_8cpp_1ab093d1684c2f65f96339d0378a178aa0:
+.. _cid-lz_dict_size:
+.. _doxid-lz4__compress__test_8cpp_1ab093d1684c2f65f96339d0378a178aa0:
 .. _cid-lz_dict_size-2:
-.. _doxid-snappy__compress__test_8cpp_1a9147cd813d2460298aa6dc78122c6498:
-.. _cid-lz_hash_bit:
 .. _doxid-lz4__compress__test_8cpp_1a9147cd813d2460298aa6dc78122c6498:
+.. _cid-lz_hash_bit:
+.. _doxid-snappy__compress__test_8cpp_1a9147cd813d2460298aa6dc78122c6498:
 .. _cid-lz_hash_bit-2:
-.. _doxid-lz4__compress__test_8cpp_1af2cda7e0f4a90b5bd73b287e9a52cb24:
-.. _cid-lz_max_offset_limit:
 .. _doxid-snappy__compress__test_8cpp_1af2cda7e0f4a90b5bd73b287e9a52cb24:
+.. _cid-lz_max_offset_limit:
+.. _doxid-lz4__compress__test_8cpp_1af2cda7e0f4a90b5bd73b287e9a52cb24:
 .. _cid-lz_max_offset_limit-2:
 .. _doxid-snappy__compress_8hpp_1a1a9ea1ca92a8c051263ff8018004ad91:
 .. _cid-marker:
@@ -142,25 +146,23 @@ Global Namespace
 .. _cid-match_dist_stage:
 .. _doxid-inflate__huffman_8hpp_1a8b009638c0ec6bf451655a46b2dae907:
 .. _cid-match_dist_write_stage:
-.. _doxid-lz4__compress__test_8cpp_1a113fb963ba98e31e3c41eb9599b1497d:
-.. _cid-match_len:
 .. _doxid-snappy__compress__test_8cpp_1a113fb963ba98e31e3c41eb9599b1497d:
+.. _cid-match_len:
+.. _doxid-lz4__compress__test_8cpp_1a113fb963ba98e31e3c41eb9599b1497d:
 .. _cid-match_len-2:
 .. _doxid-inflate__huffman_8hpp_1a718ee0b826f3b02f419fcaaf6a479f52:
 .. _cid-match_length_stage:
-.. _doxid-lz4__compress__test_8cpp_1a32e585b69aa9798cd0335f8e8ff8404d:
-.. _cid-match_level:
 .. _doxid-snappy__compress__test_8cpp_1a32e585b69aa9798cd0335f8e8ff8404d:
+.. _cid-match_level:
+.. _doxid-lz4__compress__test_8cpp_1a32e585b69aa9798cd0335f8e8ff8404d:
 .. _cid-match_level-2:
-.. _doxid-lz4__decompress__test_8cpp_1a36f419731c0d40403a0b2accb2982599:
-.. _cid-match_state:
 .. _doxid-snappy__decompress__test_8cpp_1a36f419731c0d40403a0b2accb2982599:
+.. _cid-match_state:
+.. _doxid-lz4__decompress__test_8cpp_1a36f419731c0d40403a0b2accb2982599:
 .. _cid-match_state-2:
-.. _doxid-deflate__trees_8hpp_1afa99ec4acc4ecb2dc3c2d05da15d0e3f:
-.. _cid-max:
-.. _doxid-inflate__trees_8hpp_1a6fcad31e688110d9d61bdcc99b2a59d7:
-.. _cid-maxbits:
 .. _doxid-inflate__huffman_8hpp_1a6fcad31e688110d9d61bdcc99b2a59d7:
+.. _cid-maxbits:
+.. _doxid-inflate__trees_8hpp_1a6fcad31e688110d9d61bdcc99b2a59d7:
 .. _cid-maxbits-2:
 .. _doxid-deflate__trees_8hpp_1a51c241e7ad52441b8d4c1fd5f498b3b9:
 .. _cid-max_bits:
@@ -174,19 +176,19 @@ Global Namespace
 .. _cid-max_offset-2:
 .. _doxid-inflate__huffman_8hpp_1a79d8075203f66de43561298655e7066a:
 .. _cid-nextbyte:
-.. _doxid-lz4__compress__test_8cpp_1a52cab5c557e96dc15148629e854d6d5e:
-.. _cid-offset_window:
 .. _doxid-snappy__compress__test_8cpp_1a52cab5c557e96dc15148629e854d6d5e:
+.. _cid-offset_window:
+.. _doxid-lz4__compress__test_8cpp_1a52cab5c557e96dc15148629e854d6d5e:
 .. _cid-offset_window-2:
-.. _doxid-lz4__compress__core_8hpp_1a0532714a43e57d86b6e5002db6924684:
-.. _cid-parallel_block:
 .. _doxid-snappy__compress__core_8hpp_1a0532714a43e57d86b6e5002db6924684:
+.. _cid-parallel_block:
+.. _doxid-lz4__compress__core_8hpp_1a0532714a43e57d86b6e5002db6924684:
 .. _cid-parallel_block-2:
 .. _doxid-inflate__huffman_8hpp_1a860e68b5a98ed7fa89d1a9e89e74a73c:
 .. _cid-readbits:
-.. _doxid-lz4__decompress__test_8cpp_1af24d57192c431f4e3554b6c6be093153:
-.. _cid-read_state:
 .. _doxid-snappy__decompress__test_8cpp_1af24d57192c431f4e3554b6c6be093153:
+.. _cid-read_state:
+.. _doxid-lz4__decompress__test_8cpp_1af24d57192c431f4e3554b6c6be093153:
 .. _cid-read_state-2:
 .. _doxid-snappy__decompress__test_8cpp_1aca4b4a1895b8640f925648aec3c406dd:
 .. _cid-sop:
@@ -194,20 +196,22 @@ Global Namespace
 .. _cid-static_state:
 .. _doxid-inflate__huffman_8hpp_1a5cd962238377efb9d1b89882e30bfea4:
 .. _cid-store_state:
-.. _doxid-zlib__stream__utils_8hpp_1af822cc6d6c80c4dc0f9272f962956e02:
-.. _cid-stream_utils_mm2s_if_not_full:
-.. _doxid-zlib__stream__utils_8hpp_1ab8ced84c942524ccde42548b018916d3:
-.. _cid-stream_utils_s2mm_dec_if_not_empty:
-.. _doxid-zlib__stream__utils_8hpp_1aaf549fd2531abbabcac7248e9ea6f123:
-.. _cid-stream_utils_s2mm_if_not_empty:
-.. _doxid-zlib__stream__utils_8hpp_1ac41d4db060c4e595bac71a508f88b1ed:
-.. _cid-stream_utils_s2mm_read_size:
 .. _doxid-inflate__huffman_8hpp_1afcd3bd454f91a270d002dbcb4fe5ebc6:
 .. _cid-tcodesize:
 .. _doxid-inflate__huffman_8hpp_1abdff13f9a4c6380d6d8b5b426c206b22:
 .. _cid-tree_pmbl_state:
-.. _doxid-deflate__trees_8hpp_1af255f1f25b11497e0fe987a88c2a5f6c:
-.. _cid-findmin:
+.. _doxid-upSizer__test_8cpp_1af96e853dc90e46299bcaaf0d43ece570:
+.. _cid-datasize:
+.. _doxid-upSizer__test_8cpp_1ab4ba6b6aac3a716a25c08754581ecd3d:
+.. _cid-inwidth:
+.. _doxid-downsizer__test_8cpp_1ab4ba6b6aac3a716a25c08754581ecd3d:
+.. _cid-inwidth-2:
+.. _doxid-downsizer__test_8cpp_1aef85b89ce1ce33e845db129f53742e74:
+.. _cid-outwidth:
+.. _doxid-upSizer__test_8cpp_1aef85b89ce1ce33e845db129f53742e74:
+.. _cid-outwidth-2:
+.. _doxid-downsizer__test_8cpp_1aef3ea664e2fed0d161d695b93af99361:
+.. _cid-testdatalen:
 .. ref-code-block:: cpp
 	:class: overview-code-block
 
@@ -236,9 +240,12 @@ Global Namespace
 	int const c_minMatch
 	int const c_minOffset
 	int const c_minMatch
+	int const c_factor
 
 	// macros
 
+	#define AOP
+	#define AOP
 	#define BIT
 	#define BIT
 	#define BIT
@@ -251,23 +258,17 @@ Global Namespace
 	#define COMPLETE_STATE
 	#define DUMPBITS(n)
 	#define DYNAMIC_STATE
-
-	#define GET_DIFF_IF_BIG( \
-	    x, \
-	    y \
-	    )
-
 	#define HEADER_STATE
 	#define HISTORY_SIZE
 	#define HISTORY_SIZE
 	#define INSIZE_RANGE_14BIT
 	#define INSIZE_RANGE_21BIT
 	#define INSIZE_RANGE_7BIT
+	#define LEAST_VAL
 	#define LITERAL_STAGE
 	#define LOP
 	#define LOP
 	#define LOP
-	#define LOW
 	#define LOW_OFFSET
 	#define LOW_OFFSET
 	#define LOW_OFFSET_STATE
@@ -288,12 +289,6 @@ Global Namespace
 	#define MATCH_LEVEL
 	#define MATCH_STATE
 	#define MATCH_STATE
-
-	#define MAX( \
-	    a, \
-	    b \
-	    )
-
 	#define MAXBITS
 	#define MAXBITS
 	#define MAX_BITS
@@ -312,49 +307,413 @@ Global Namespace
 	#define SOP
 	#define STATIC_STATE
 	#define STORE_STATE
-
-	#define STREAM_UTILS_MM2S_IF_NOT_FULL( \
-	    bIdx, \
-	    outStream, \
-	    is_full, \
-	    read_idx, \
-	    write_idx, \
-	    local_buffer \
-	    )
-
-	#define STREAM_UTILS_S2MM_DEC_IF_NOT_EMPTY( \
-	    i, \
-	    instream, \
-	    burst_size, \
-	    input_size, \
-	    read_size, \
-	    write_size, \
-	    write_idx \
-	    )
-
-	#define STREAM_UTILS_S2MM_IF_NOT_EMPTY( \
-	    i, \
-	    instream, \
-	    burst_size, \
-	    input_size, \
-	    read_size, \
-	    write_size, \
-	    write_idx \
-	    )
-
-	#define STREAM_UTILS_S2MM_READ_SIZE( \
-	    i, \
-	    instream, \
-	    end_of_stream \
-	    )
-
 	#define TCODESIZE
 	#define TREE_PMBL_STATE
+	#define dataSize
+	#define inWidth
+	#define inWidth
+	#define outWidth
+	#define outWidth
+	#define testDataLen
 
-	#define findmin( \
-	    tree_freq, \
-	    n, \
-	    m, \
-	    depth \
+
+.. FunctionSection
+
+Global Functions
+~~~~~~~~~~~~~~~~
+
+.. _doxid-lz4__compress__core_8hpp_1a0c0f2e3aa002cd637a2a17fcb0ce56f5:
+.. _cid-lz4_compress_engine:
+
+lz4_compress_engine
+-------------------
+
+
+.. code-block:: cpp
+	
+	#include "lz4_compress_core.hpp"
+
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    int MIN_OFFSET,
+	    int MIN_MATCH,
+	    int LZ_MAX_OFFSET_LIMIT,
+	    int OFFSET_WINDOW,
+	    int BOOSTER_OFFSET_WINDOW,
+	    int LZ_DICT_SIZE,
+	    int MAX_MATCH_LEN,
+	    int MATCH_LEN,
+	    int MATCH_LEVEL
+	    >
+	void lz4_compress_engine (
+	    hls::stream <uintV_t>& inStream,
+	    hls::stream <uintV_t>& lz4Out,
+	    hls::stream <bool>& lz4Out_eos,
+	    hls::stream <uint32_t>& lz4OutSize,
+	    uint32_t max_lit_limit [PARALLEL_BLOCK],
+	    uint32_t input_size,
+	    uint32_t core_idx
 	    )
+
+Lz4 compression engine.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - MIN_OFFSET
+
+        - lowest match distance
+
+    *
+        - MIN_MATCH
+
+        - minimum match length
+
+    *
+        - LZ_MAX_OFFSET_LIMIT
+
+        - maximum offset limit
+
+    *
+        - OFFSET_WINDOW
+
+        - maximum possible distance of the match
+
+    *
+        - BOOSTER_OFFSET_WINDOW
+
+        - maximum distance of match for booster
+
+    *
+        - LZ_DICT_SIZE
+
+        - dictionary size
+
+    *
+        - MAX_MATCH_LEN
+
+        - maximum match length supported
+
+    *
+        - MATCH_LEN
+
+        - match length
+
+    *
+        - MATCH_LEVEL
+
+        - number of levels to check for match
+
+    *
+        - inStream
+
+        - input hls stream
+
+    *
+        - lz4Out
+
+        - output hls stream
+
+    *
+        - lz4Out_eos
+
+        - output end of stream indicator
+
+    *
+        - lz4OutSize
+
+        - output compressed size
+
+    *
+        - max_lit_limit
+
+        - maximum literals before match
+
+    *
+        - input_size
+
+        - input data size
+
+    *
+        - core_idx
+
+        - engine index
+
+.. _doxid-lz4__decompress__core_8hpp_1a3a55685bfadf58d01c429d085f3281b0:
+.. _cid-lz4_decompress_engine:
+
+lz4_decompress_engine
+---------------------
+
+
+.. code-block:: cpp
+	
+	#include "lz4_decompress_core.hpp"
+
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    int READ_STATE,
+	    int MATCH_STATE,
+	    int LOW_OFFSET_STATE,
+	    int LOW_OFFSET,
+	    int HISTORY_SIZE
+	    >
+	void lz4_decompress_engine (
+	    hls::stream <uintV_t>& instream,
+	    hls::stream <uintV_t>& outstream,
+	    const uint32_t _input_size,
+	    const uint32_t _output_size
+	    )
+
+Lz4 decompression engine.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - READ_STATE
+
+        - read state
+
+    *
+        - MATCH_STATE
+
+        - match state
+
+    *
+        - LOW_OFFSET_STATE
+
+        - matching the lowest distance characters
+
+    *
+        - LOW_OFFSET
+
+        - lowest offset
+
+    *
+        - HISTORY_SIZE
+
+        - match history size
+
+    *
+        - instream
+
+        - input hls stream
+
+    *
+        - outstream
+
+        - output hls stream
+
+    *
+        - _input_size
+
+        - input data size
+
+    *
+        - _output_size
+
+        - output data size
+
+.. _doxid-snappy__compress__core_8hpp_1a0eac9588b9397cb136af63d9d91e514c:
+.. _cid-snappy_compress_engine:
+
+snappy_compress_engine
+----------------------
+
+
+.. code-block:: cpp
+	
+	#include "snappy_compress_core.hpp"
+
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    int MIN_OFFSET,
+	    int MIN_MATCH,
+	    int LZ_MAX_OFFSET_LIMIT,
+	    int OFFSET_WINDOW,
+	    int BOOSTER_OFFSET_WINDOW,
+	    int LZ_DICT_SIZE,
+	    int MAX_MATCH_LEN,
+	    int MATCH_LEN,
+	    int MATCH_LEVEL
+	    >
+	void snappy_compress_engine (
+	    hls::stream <ap_uint <8>>& inStream,
+	    hls::stream <ap_uint <8>>& snappyOut,
+	    hls::stream <bool>& snappyOut_eos,
+	    hls::stream <uint32_t>& compressedSize,
+	    uint32_t max_lit_limit [PARALLEL_BLOCK],
+	    uint32_t input_size,
+	    uint32_t core_idx
+	    )
+
+Snappy compress engine which runs over the snappy core modules.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - MIN_OFFSET
+
+        - lowest match distance supported
+
+    *
+        - MIN_MATCH
+
+        - minimum match length
+
+    *
+        - LZ_MAX_OFFSET_LIMIT
+
+        - maximum offset limit
+
+    *
+        - OFFSET_WINDOW
+
+        - maximum distance of the match that can go
+
+    *
+        - BOOSTER_OFFSET_WINDOW
+
+        - maximum distance of the match that can go
+
+    *
+        - LZ_DICT_SIZE
+
+        - dictionary size
+
+    *
+        - MAX_MATCH_LEN
+
+        - max match length supported
+
+    *
+        - MATCH_LEN
+
+        - match length
+
+    *
+        - MATCH_LEVEL
+
+        - number of levels for a match
+
+    *
+        - inStream
+
+        - input data from Stream
+
+    *
+        - snappyOut
+
+        - snappy output data
+
+    *
+        - snappyOut_eos
+
+        - end of stream for output
+
+    *
+        - compressedSize
+
+        - compressed size stream
+
+    *
+        - max_lit_limit
+
+        - maximum literals can go before match
+
+    *
+        - input_size
+
+        - input data size
+
+    *
+        - core_idx
+
+        - engine index
+
+.. _doxid-snappy__decompress__core_8hpp_1af42fb752b8d64d722efd71d3bddce995:
+.. _cid-snappy_decompress_engine:
+
+snappy_decompress_engine
+------------------------
+
+
+.. code-block:: cpp
+	
+	#include "snappy_decompress_core.hpp"
+
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    int READ_STATE,
+	    int MATCH_STATE,
+	    int LOW_OFFSET_STATE,
+	    int LOW_OFFSET,
+	    int HISTORY_SIZE
+	    >
+	void snappy_decompress_engine (
+	    hls::stream <uintV_t>& inStream,
+	    hls::stream <uintV_t>& snappyOut,
+	    const uint32_t _input_size,
+	    const uint32_t _output_size
+	    )
+
+Snappy decompress engine that run the snappy core modules.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - inStream
+
+        - input stream
+
+    *
+        - snappyOut
+
+        - output stream
+
+    *
+        - _input_size
+
+        - input data size
+
+    *
+        - _output_size
+
+        - output data size
 

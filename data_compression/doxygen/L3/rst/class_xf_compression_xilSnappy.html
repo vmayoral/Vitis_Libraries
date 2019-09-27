@@ -17,7 +17,7 @@
     <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
     <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>class xilSnappy &mdash; Vitis Data Compression Library v2019.2 documentation</title>
+  <title>class xf::compression::xilSnappy &mdash; Vitis Data Compression Library v2019.2 documentation</title>
   
 <!-- Header information provided by Emily-->
     <meta name="apple-itunes-app" content="app-id=1063287962">
@@ -62,7 +62,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Demo" href="../../../source/L3/demo.html" />
-    <link rel="prev" title="class xfLz4" href="class_xfLz4.html" /> 
+    <link rel="prev" title="class xf::compression::xfLz4" href="class_xf_compression_xfLz4.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -173,8 +173,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../source/L3/overview.html">Overview</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../../source/L3/api_reference.html">Overlay API Reference</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="global.html">Global Namespace</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="class_xfLz4.html">class xfLz4</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">class xilSnappy</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="namespace_xf.html">namespace xf</a></li>
 <li class="toctree-l4"><a class="reference internal" href="global.html#macros">Macros</a></li>
 </ul>
 </li>
@@ -192,9 +191,9 @@
             
 			<p class="caption"><span class="caption-text">This Page</span></p>
 				<ul class="current">
-				  <li class="toctree-l1"><a href="../../../_sources/doxygen/L3/rst/class_xilSnappy.rst.txt"
+				  <li class="toctree-l1"><a href="../../../_sources/doxygen/L3/rst/class_xf_compression_xilSnappy.rst.txt"
 						rel="nofollow">Show Source</a></li>
-					<li class="toctree-l1"><a href="https://github.com/Xilinx/xf_compression/blob/master/docs/source/overview.rst/doxygen/L3/rst/class_xilSnappy.rst"
+					<li class="toctree-l1"><a href="https://github.com/Xilinx/xf_compression/blob/master/docs/source/overview.rst/doxygen/L3/rst/class_xf_compression_xilSnappy.rst"
 						   rel="nofollow">View on GitHub</a></li>						
 				</ul>
           
@@ -246,13 +245,17 @@
         
           <li><a href="global.html">Global Namespace</a> &raquo;</li>
         
-      <li>class xilSnappy</li>
+          <li><a href="namespace_xf.html">namespace xf</a> &raquo;</li>
+        
+          <li><a href="namespace_xf_compression.html">namespace compression</a> &raquo;</li>
+        
+      <li>class xf::compression::xilSnappy</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/doxygen/L3/rst/class_xilSnappy.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/doxygen/L3/rst/class_xf_compression_xilSnappy.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -265,14 +268,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="class-xilsnappy">
-<span id="cid-xilsnappy"></span><span id="doxid-classxilsnappy"></span><span id="index-0"></span><h1>class xilSnappy<a class="headerlink" href="#class-xilsnappy" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="class-xf-compression-xilsnappy">
+<span id="cid-xf-compression-xilsnappy"></span><span id="doxid-classxf-1-1compression-1-1xilsnappy"></span><span id="index-0"></span><h1>class xf::compression::xilSnappy<a class="headerlink" href="#class-xf-compression-xilsnappy" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;xil_snappy.hpp&quot;</span></pre>
+<pre class="highlight overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;snappy.hpp&quot;</span></pre>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="#doxid-classxilsnappy"><span class="std std-ref">xilSnappy</span></a> class.</p>
+<p><a class="reference internal" href="#doxid-classxf-1-1compression-1-1xilsnappy"><span class="std std-ref">xilSnappy</span></a> class.</p>
 <pre class="highlight overview-code-block literal-block"><span></span><span class="c1">// fields</span>
 
 <span class="kt">bool</span> m_bin_flow<span></span>
@@ -280,18 +283,18 @@
 <span class="kt">bool</span> m_switch_flow</pre>
 <div class="section" id="fields">
 <h3>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h3>
-<pre class="highlight title-code-block literal-block" id="cid-xilsnappy-m-bin-flow"><span id="doxid-classxilsnappy-1a20cfbee8658f19fb7256e29b55a50aec"></span><span></span><span class="kt">bool</span> <span class="n">m_bin_flow</span></pre>
+<pre class="highlight title-code-block literal-block" id="cid-xf-compression-xilsnappy-m-bin-flow"><span id="doxid-classxf-1-1compression-1-1xilsnappy-1a2c50038c9ae9ac61572ee5c34dfa5faa"></span><span></span><span class="kt">bool</span> <span class="n">m_bin_flow</span></pre>
 <p>Binary flow compress/decompress</p>
-<pre class="highlight title-code-block literal-block" id="cid-xilsnappy-m-block-size-in-kb"><span id="doxid-classxilsnappy-1a73651e7b80598c026ed86672ef3d1d32"></span><span></span><span class="kt">uint32_t</span> <span class="n">m_block_size_in_kb</span></pre>
+<pre class="highlight title-code-block literal-block" id="cid-xf-compression-xilsnappy-m-block-size-in-kb"><span id="doxid-classxf-1-1compression-1-1xilsnappy-1ad55ca2cb3de52c26803fcff9b91c594b"></span><span></span><span class="kt">uint32_t</span> <span class="n">m_block_size_in_kb</span></pre>
 <p>Block Size</p>
-<pre class="highlight title-code-block literal-block" id="cid-xilsnappy-m-switch-flow"><span id="doxid-classxilsnappy-1af84c4bfc0c0bb2e515d65ede5a0c7153"></span><span></span><span class="kt">bool</span> <span class="n">m_switch_flow</span></pre>
+<pre class="highlight title-code-block literal-block" id="cid-xf-compression-xilsnappy-m-switch-flow"><span id="doxid-classxf-1-1compression-1-1xilsnappy-1a7a1d5cce4918c3821781abf74670c612"></span><span></span><span class="kt">bool</span> <span class="n">m_switch_flow</span></pre>
 <p>Switch between FPGA/Standard flows</p>
 </div>
 </div>
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="init">
-<span id="cid-xilsnappy-init"></span><span id="doxid-classxilsnappy-1a3ca6901d1b4b173415ce203a745882d7"></span><h3>init<a class="headerlink" href="#init" title="Permalink to this headline">¶</a></h3>
+<span id="cid-xf-compression-xilsnappy-init"></span><span id="doxid-classxf-1-1compression-1-1xilsnappy-1a7521b6a26dee62516c671ab7f615a0de"></span><h3>init<a class="headerlink" href="#init" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block"><span></span><span class="kt">int</span> <span class="n">init</span> <span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">binaryFile</span><span class="p">)</span></pre>
 <p>Initialize the class object.</p>
 <p class="rubric">Parameters:</p>
@@ -308,12 +311,12 @@
 </table>
 </div>
 <div class="section" id="release">
-<span id="cid-xilsnappy-release"></span><span id="doxid-classxilsnappy-1a1002af1f56586a6b8e095790ff925363"></span><h3>release<a class="headerlink" href="#release" title="Permalink to this headline">¶</a></h3>
+<span id="cid-xf-compression-xilsnappy-release"></span><span id="doxid-classxf-1-1compression-1-1xilsnappy-1a2768f372638ef53a6d74f88b1f5e8f85"></span><h3>release<a class="headerlink" href="#release" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block"><span></span><span class="kt">int</span> <span class="n">release</span> <span class="p">()</span></pre>
 <p>release</p>
 </div>
 <div class="section" id="compress">
-<span id="cid-xilsnappy-compress"></span><span id="doxid-classxilsnappy-1a624376d791f4598741feda54e0592a5e"></span><h3>compress<a class="headerlink" href="#compress" title="Permalink to this headline">¶</a></h3>
+<span id="cid-xf-compression-xilsnappy-compress"></span><span id="doxid-classxf-1-1compression-1-1xilsnappy-1ad46b1be75d8bd878dc7d3a81f0af8598"></span><h3>compress<a class="headerlink" href="#compress" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block"><span></span><span class="kt">uint64_t</span> <span class="n">compress</span> <span class="p">(</span>
     <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
     <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
@@ -345,7 +348,7 @@
 </table>
 </div>
 <div class="section" id="decompresssequential">
-<span id="cid-xilsnappy-decompresssequential"></span><span id="doxid-classxilsnappy-1a24c12553a8f35f862c74d09be813da96"></span><h3>decompressSequential<a class="headerlink" href="#decompresssequential" title="Permalink to this headline">¶</a></h3>
+<span id="cid-xf-compression-xilsnappy-decompresssequential"></span><span id="doxid-classxf-1-1compression-1-1xilsnappy-1ae1d975b2696cfa745dc796dcc737dc38"></span><h3>decompressSequential<a class="headerlink" href="#decompresssequential" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block"><span></span><span class="kt">uint64_t</span> <span class="n">decompressSequential</span> <span class="p">(</span>
     <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
     <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
@@ -373,7 +376,7 @@
 </table>
 </div>
 <div class="section" id="compressfile">
-<span id="cid-xilsnappy-compressfile"></span><span id="doxid-classxilsnappy-1a60e255e9a14216696ab15dcebc25a4c4"></span><h3>compressFile<a class="headerlink" href="#compressfile" title="Permalink to this headline">¶</a></h3>
+<span id="cid-xf-compression-xilsnappy-compressfile"></span><span id="doxid-classxf-1-1compression-1-1xilsnappy-1a351ca19d8703d4e442b782d633d72a02"></span><h3>compressFile<a class="headerlink" href="#compressfile" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block"><span></span><span class="kt">uint64_t</span> <span class="n">compressFile</span> <span class="p">(</span>
     <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">inFile_name</span><span class="p">,</span>
     <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">outFile_name</span><span class="p">,</span>
@@ -401,7 +404,7 @@
 </table>
 </div>
 <div class="section" id="decompressfile">
-<span id="cid-xilsnappy-decompressfile"></span><span id="doxid-classxilsnappy-1a888a39f3e67f520c92f26b5c4de41e71"></span><h3>decompressFile<a class="headerlink" href="#decompressfile" title="Permalink to this headline">¶</a></h3>
+<span id="cid-xf-compression-xilsnappy-decompressfile"></span><span id="doxid-classxf-1-1compression-1-1xilsnappy-1acf7403d5239bb4c0cb25518862f8913d"></span><h3>decompressFile<a class="headerlink" href="#decompressfile" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block"><span></span><span class="kt">uint64_t</span> <span class="n">decompressFile</span> <span class="p">(</span>
     <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">inFile_name</span><span class="p">,</span>
     <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">outFile_name</span><span class="p">,</span>
@@ -429,12 +432,12 @@
 </table>
 </div>
 <div class="section" id="xilsnappy">
-<span id="cid-xilsnappy-xilsnappy"></span><span id="doxid-classxilsnappy-1a6c3e9343b15443ad6dbdf2e0252c3980"></span><h3>xilSnappy<a class="headerlink" href="#xilsnappy" title="Permalink to this headline">¶</a></h3>
+<span id="cid-xf-compression-xilsnappy-xilsnappy"></span><span id="doxid-classxf-1-1compression-1-1xilsnappy-1acc9047b5bcbb4a3733a24f17abba9e39"></span><h3>xilSnappy<a class="headerlink" href="#xilsnappy" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block"><span></span><span class="n">xilSnappy</span> <span class="p">()</span></pre>
 <p>Class constructor.</p>
 </div>
 <div class="section" id="id1">
-<span id="doxid-classxilsnappy-1a8b50e3c376a2f3d11f0c88c2d800bce9"></span><span id="id2"></span><h3>~xilSnappy<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<span id="doxid-classxf-1-1compression-1-1xilsnappy-1aa99f670d25a923dd2e32bc1f7b25963a"></span><span id="id2"></span><h3>~xilSnappy<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block"><span></span><span class="o">~</span><span class="n">xilSnappy</span> <span class="p">()</span></pre>
 <p>Class destructor.</p>
 </div>
@@ -452,7 +455,7 @@
         <a href="../../../source/L3/demo.html" class="btn btn-neutral float-right" title="Demo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="class_xfLz4.html" class="btn btn-neutral float-left" title="class xfLz4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="class_xf_compression_xfLz4.html" class="btn btn-neutral float-left" title="class xf::compression::xfLz4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
