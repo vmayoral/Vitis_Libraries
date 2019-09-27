@@ -1,0 +1,830 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="namespacexf_1_1solver" kind="namespace" language="C++">
+    <compoundname>xf::solver</compoundname>
+    <innernamespace refid="namespacexf_1_1solver_1_1internal">xf::solver::internal</innernamespace>
+    <innernamespace refid="namespacexf_1_1solver_1_1internalgetrf">xf::solver::internalgetrf</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacexf_1_1solver_1ad20787b69560c5ca2a142826bc697a43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NRMAX</declname>
+            <defname>NRMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCMAX</declname>
+            <defname>NCMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>int</type>
+        <definition>int xf::solver::geqrf</definition>
+        <argsstring>(int m, int n, T *A, int lda, T *tau)</argsstring>
+        <name>geqrf</name>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>tau</declname>
+        </param>
+        <briefdescription>
+<para>This function computes QR decomposition of matrix <formula id="0">$A$</formula> <linebreak/>
+ <formula id="1">\begin{equation*} {A = Q R}\end{equation*}</formula> where <formula id="0">$A$</formula> is a dense matrix of size <formula id="2">$m \times n$</formula>, <formula id="3">$Q$</formula> is a <formula id="2">$m \times n$</formula> matrix with orthonormal columns, and <formula id="4">$R$</formula> is an upper triangular matrix.<linebreak/>
+ The maximum matrix size supported in FPGA is templated by NRMAX and NCMAX. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>data type (support float and double) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRMAX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum number of rows of input matrix </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NCMAX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum number of columns of input matrix </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NCU</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of computation unit </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of rows of matrix A </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of cols of matrix A </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">A</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input matrix of size <formula id="5">$m \times lda$</formula>, and overwritten by the output triangular R matrix and min(m,n) elementary reflectors </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">lda</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>leading dimension of matrix A </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">tau</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>scalar factors for elementary reflectors </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" line="269" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" bodystart="269" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1a5caf13f50af104347f5d38641bcba07a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NRMAX</declname>
+            <defname>NRMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCMAX</declname>
+            <defname>NCMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>int</type>
+        <definition>int xf::solver::geqrf</definition>
+        <argsstring>(int m, int n, T A[NRMAX][NCMAX], int lda, T tau[NCMAX])</argsstring>
+        <name>geqrf</name>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>A</declname>
+          <array>[NRMAX][NCMAX]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>tau</declname>
+          <array>[NCMAX]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" line="301" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" bodystart="301" bodyend="325"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1a2e848bf2dcc7f70ae8577b8cac517ef7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>diagSize</declname>
+            <defname>diagSize</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>UN</declname>
+            <defname>UN</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NMAXUN</declname>
+            <defname>NMAXUN</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::gesvdj_2D</definition>
+        <argsstring>(T ****dataA, T ****dataU_out, int lda)</argsstring>
+        <name>gesvdj_2D</name>
+        <param>
+          <type>T ****</type>
+          <declname>dataA</declname>
+        </param>
+        <param>
+          <type>T ****</type>
+          <declname>dataU_out</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lda</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvdj.hpp" line="1071" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvdj.hpp" bodystart="1071" bodyend="1089"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1ab2657b17f70e04a8e4173d6f0b3d0661" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NMAX</declname>
+            <defname>NMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::gesvdj</definition>
+        <argsstring>(int m, T *A, int lda, T *S, T *U, int ldu, T *V, int ldv, int &amp;info)</argsstring>
+        <name>gesvdj</name>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>S</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>U</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ldu</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>V</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ldv</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+<para>Symmetric Matrix Jacobi based Singular Value Decomposition (GESVDJ) . <formula id="6">\begin{equation*} {A = U \Sigma {V}^T}\end{equation*}</formula> where <formula id="0">$A$</formula> is a dense symmetric matrix of size <formula id="7">$m \times m$</formula>, <formula id="8">$U$</formula> and <formula id="9">$V$</formula> are <formula id="7">$m \times m$</formula> matrix with orthonormal columns, and <formula id="10">$\Sigma$</formula> is diagonal matrix.<linebreak/>
+The maximum matrix size supported in FPGA is templated by NMAX. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>data type (support float and double). </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NMAX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum number of rows/columns of input matrix </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NCU</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of computation unit </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of rows/cols of matrix A </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>A</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input matrix of size <formula id="7">$m \times m$</formula> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>S</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>decomposed diagonal singular matrix of size <formula id="7">$m \times m$</formula> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>U</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>left U matrix of SVD </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>V</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>right V matrix of SVD </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lda</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>leading dimension of matrix A </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ldu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>leading dimension of matrix U </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ldv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>leading dimension of matrix V </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output info (unused) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvdj.hpp" line="1113" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvdj.hpp" bodystart="1113" bodyend="1222"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1a09a9cf79325b1979afd55e16a07809db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NRMAX</declname>
+            <defname>NRMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCMAX</declname>
+            <defname>NCMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>MCU</declname>
+            <defname>MCU</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::gesvj</definition>
+        <argsstring>(int m, int n, T *A, T *U, T *S, T *V)</argsstring>
+        <name>gesvj</name>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>U</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>S</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>V</declname>
+        </param>
+        <briefdescription>
+<para>This function implements singular value decomposition of matrix A using one-sided Jacobi algorihtm. <formula id="6">\begin{equation*} {A = U \Sigma {V}^T}\end{equation*}</formula> where <formula id="0">$A$</formula> is a dense matrix of size <formula id="2">$m \times n$</formula>, <formula id="8">$U$</formula> is <formula id="7">$m \times m$</formula> matrix with orthonormal columns, <formula id="9">$V$</formula> is <formula id="11">$n \times n$</formula> matrix with orthonormal columns, and <formula id="10">$\Sigma$</formula> is diagonal matrix.<linebreak/>
+The maximum matrix size supported in FPGA is templated by NCMAX, NRMAX. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data type of gesvj </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRMAX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum number of rows of input matrix </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NCMAX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum number of columns of input matrix </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>MCU</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of computation unit of M </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NCU</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of computation unit of N </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of rows of matrix A </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of cols of matrix A </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>A</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input matrix of size <formula id="2">$m \times n$</formula> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>S</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>decomposed diagonal singular matrix of size n </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>U</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>left U matrix of SVD of size <formula id="7">$m \times m$</formula> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>V</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>right V matrix of SVD <formula id="11">$n \times n$</formula> </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" line="375" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" bodystart="375" bodyend="612"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1a499a10417278f4d2c8dd86f0d2efa045" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NMAX</declname>
+            <defname>NMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::getrf</definition>
+        <argsstring>(int n, T *A, int lda, int *ipiv, int &amp;info)</argsstring>
+        <name>getrf</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>ipiv</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+<para>This function computes the LU decomposition (with partial pivoting) of matrix <formula id="0">$A$</formula> <linebreak/>
+ <formula id="12">\begin{equation*} {P A = L U}\end{equation*}</formula> where <formula id="13">$P$</formula> is a permutation matrix, <formula id="0">$A$</formula> is a dense matrix of size <formula id="11">$n \times n$</formula>, <formula id="14">$L$</formula> is a lower triangular matrix with unit diagonal, and <formula id="8">$U$</formula> is an upper triangular matrix. This function does not implement pivoting.<linebreak/>
+ The maximum matrix size supported in FPGA is templated by NMAX. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>data type (support float and double) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NMAX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum number of rows/columns of input matrix </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NCU</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of computation unit </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of rows/cols of matrix A </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">A</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input matrix, and overwritten by the output upper and lower triangular matrix </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">lda</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>leading dimention of input matrix A </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">pivot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>indices, row i of matrix A is stored in row[i] </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output info (unused) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/getrf.hpp" line="155" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/getrf.hpp" bodystart="155" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1a8620e2ea1438eed2d5f042cff3463473" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NMAX</declname>
+            <defname>NMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::getrf_nopivot</definition>
+        <argsstring>(int n, T *A, int lda, int &amp;info)</argsstring>
+        <name>getrf_nopivot</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+<para>This function computes the LU decomposition (without pivoting) of matrix <formula id="0">$A$</formula> <linebreak/>
+ <formula id="15">\begin{equation*} {A = L U}\end{equation*}</formula> where <formula id="0">$A$</formula> is a dense matrix of size <formula id="11">$n \times n$</formula>, <formula id="14">$L$</formula> is a lower triangular matrix with unit diagonal, and <formula id="8">$U$</formula> is an upper triangular matrix. This function does not implement pivoting.<linebreak/>
+ The maximum matrix size supported in FPGA is templated by NMAX. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>data type (support float and double) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NMAX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum number of rows/cols of input matrix </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NCU</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of computation unit </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of rows/cols of matrix A </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">A</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input matrix </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">lda</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>leading dimention of input matrix A </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output info (unused) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/getrf_nopivot.hpp" line="118" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/getrf_nopivot.hpp" bodystart="118" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1a86d85c78cb26ccbc608e10f2140c297b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NMAX</declname>
+            <defname>NMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::potrf</definition>
+        <argsstring>(int m, T *A, int lda, int &amp;info)</argsstring>
+        <name>potrf</name>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+<para>This function computes the Cholesky decomposition of matrix <formula id="0">$A$</formula> <linebreak/>
+ <formula id="16">\begin{equation*} {A = L {L}^T}\end{equation*}</formula> where <formula id="0">$A$</formula> is a dense symmetric positive-definite matrix of size <formula id="7">$m \times m$</formula>, <formula id="14">$L$</formula> is a lower triangular matrix, and <formula id="17">${L}^T$</formula> is the transposed matrix of <formula id="14">$L$</formula>.<linebreak/>
+The maximum matrix size supported in FPGA is templated by NMAX. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>data type (support float and double) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NMAX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum number of rows/columns of input matrix </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NCU</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of computation unit </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of rows/cols of matrix A </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">A</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input matrix of size <formula id="7">$m \times m$</formula> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">lda</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>leading dimention of input matrix A </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output info (unused) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/potrf.hpp" line="157" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/potrf.hpp" bodystart="157" bodyend="183"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" line="33" column="1"/>
+  </compounddef>
+</doxygen>

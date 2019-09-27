@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="namespacexf_1_1solver_1_1internalgetrf" kind="namespace" language="C++">
+    <compoundname>xf::solver::internalgetrf</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internalgetrf_1a6b3d757f684ad31a4b2204537c21071f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NRCU</declname>
+            <defname>NRCU</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCMAX</declname>
+            <defname>NCMAX</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internalgetrf::subUpdate</definition>
+        <argsstring>(T A[NRCU][NCMAX], T rows[NCMAX], T cols[NCMAX], int rs, int re, int cs, int ce)</argsstring>
+        <name>subUpdate</name>
+        <param>
+          <type>T</type>
+          <declname>A</declname>
+          <array>[NRCU][NCMAX]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>rows</declname>
+          <array>[NCMAX]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>cols</declname>
+          <array>[NCMAX]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rs</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>re</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>cs</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ce</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/getrf.hpp" line="34" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/getrf.hpp" bodystart="34" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internalgetrf_1a0b460ab0a8f6002c6dd00c52e8a88187" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NRCU</declname>
+            <defname>NRCU</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCMAX</declname>
+            <defname>NCMAX</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internalgetrf::getrf_core</definition>
+        <argsstring>(int m, int n, T A[NCU][NRCU][NCMAX], int pivot[NCMAX], int lda)</argsstring>
+        <name>getrf_core</name>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>A</declname>
+          <array>[NCU][NRCU][NCMAX]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pivot</declname>
+          <array>[NCMAX]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lda</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/getrf.hpp" line="59" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/getrf.hpp" bodystart="59" bodyend="132"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/getrf.hpp" line="30" column="1"/>
+  </compounddef>
+</doxygen>

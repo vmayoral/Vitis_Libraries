@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="pomatrixinverse_8hpp" kind="file" language="C++">
+    <compoundname>pomatrixinverse.hpp</compoundname>
+    <innernamespace refid="namespacexf">xf</innernamespace>
+    <innernamespace refid="namespacexf_1_1solver">xf::solver</innernamespace>
+    <innernamespace refid="namespacexf_1_1solver_1_1internal__pomi">xf::solver::internal_pomi</innernamespace>
+    <briefdescription>
+<para>This files contains implementation of SPD matrix inverse. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/pomatrixinverse.hpp"/>
+  </compounddef>
+</doxygen>

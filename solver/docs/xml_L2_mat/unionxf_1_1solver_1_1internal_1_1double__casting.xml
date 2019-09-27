@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="unionxf_1_1solver_1_1internal_1_1double__casting" kind="union" language="C++" prot="public">
+    <compoundname>xf::solver::internal::double_casting</compoundname>
+    <includes refid="gesvj_8hpp" local="no">gesvj.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="unionxf_1_1solver_1_1internal_1_1double__casting_1a7325f534e68e4c846dee7bc3221cf94a" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double xf::solver::internal::double_casting::d</definition>
+        <argsstring></argsstring>
+        <name>d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" line="36" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="unionxf_1_1solver_1_1internal_1_1double__casting_1a6d6b30a3074a5a2c44924f6550754a02" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t xf::solver::internal::double_casting::i</definition>
+        <argsstring></argsstring>
+        <name>i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" line="37" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" line="35" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/gesvj.hpp" bodystart="35" bodyend="38"/>
+    <listofallmembers>
+      <member refid="unionxf_1_1solver_1_1internal_1_1double__casting_1a7325f534e68e4c846dee7bc3221cf94a" prot="public" virt="non-virtual"><scope>xf::solver::internal::double_casting</scope><name>d</name></member>
+      <member refid="unionxf_1_1solver_1_1internal_1_1double__casting_1a6d6b30a3074a5a2c44924f6550754a02" prot="public" virt="non-virtual"><scope>xf::solver::internal::double_casting</scope><name>i</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

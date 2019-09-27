@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="namespacexf_1_1solver_1_1internal__trtrs" kind="namespace" language="C++">
+    <compoundname>xf::solver::internal_trtrs</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__trtrs_1af477bea312dc00303d69c342f5bfb18f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal_trtrs::trisolver_L</definition>
+        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataB[NCU][(N+NCU - 1)/NCU], T dataX[N])</argsstring>
+        <name>trisolver_L</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataB</declname>
+          <array>[NCU][(N+NCU - 1)/NCU]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataX</declname>
+          <array>[N]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/trtrs.hpp" line="30" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/trtrs.hpp" bodystart="30" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__trtrs_1ae15eb0d752abafbd2d84450b823f8292" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>NCU</declname>
+            <defname>NCU</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void xf::solver::internal_trtrs::trisolver_U</definition>
+        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataB[NCU][(N+NCU - 1)/NCU], T dataX[N])</argsstring>
+        <name>trisolver_U</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataA</declname>
+          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataB</declname>
+          <array>[NCU][(N+NCU - 1)/NCU]</array>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>dataX</declname>
+          <array>[N]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/trtrs.hpp" line="53" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/trtrs.hpp" bodystart="53" bodyend="73"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/trtrs.hpp" line="27" column="1"/>
+  </compounddef>
+</doxygen>

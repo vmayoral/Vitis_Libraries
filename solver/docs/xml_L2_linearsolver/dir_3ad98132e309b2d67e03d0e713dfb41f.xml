@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_3ad98132e309b2d67e03d0e713dfb41f" kind="dir">
+    <compoundname>/proj/autoesl/fengx/work/xf_solver/L2/include/hw</compoundname>
+    <innerdir refid="dir_af8657569edf2e2739a881ebc8af0e5c">/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/"/>
+  </compounddef>
+</doxygen>
