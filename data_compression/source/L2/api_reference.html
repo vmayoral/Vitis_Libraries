@@ -6,14 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Kernel APIs Reference &mdash; LZ Compression Library 1.0 documentation</title>
+  <title>Kernel APIs Reference &mdash; Vitis Data Compression Library v2019.2 documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
-  
-    <link rel="shortcut icon" href="../../_static/xf-favicon.ico"/>
   
   
   
@@ -35,7 +59,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Demo" href="demo.html" />
@@ -43,7 +66,54 @@
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -53,12 +123,9 @@
           
 
           
-            <a href="../../index.html">
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Data Compression Library
           
 
-          
-            
-            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -66,7 +133,7 @@
             
             
               <div class="version">
-                1.0
+                2019.2
               </div>
             
           
@@ -83,6 +150,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -104,12 +172,18 @@
 <li class="toctree-l2"><a class="reference internal" href="design.html">Kernel Design</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Kernel APIs Reference</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#global-functions">Global Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#xilhuffmankernel">xilHuffmanKernel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xillz4compress">xilLz4Compress</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#xillz4compressstream">xilLz4CompressStream</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xillz4decompress">xilLz4Decompress</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xillz4decompressstream">xilLz4DecompressStream</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xillz77compress">xilLz77Compress</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xilsnappycompress">xilSnappyCompress</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xilsnappydecompress">xilSnappyDecompress</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xiltreegenkernel">xilTreegenKernel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xilzlibdecompressstream">xilZlibDecompressStream</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xildecompresszlib">xilDecompressZlib</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xildecompressstreamk2k">xilDecompressStreamk2k</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xilzlibdm">xilZlibDm</a></li>
 </ul>
 </li>
 </ul>
@@ -125,8 +199,16 @@
 </ul>
 
             
+			<p class="caption"><span class="caption-text">This Page</span></p>
+				<ul class="current">
+				  <li class="toctree-l1"><a href="../../_sources/source/L2/api_reference.rst.txt"
+						rel="nofollow">Show Source</a></li>
+					<li class="toctree-l1"><a href="https://github.com/Xilinx/xf_compression/blob/master/docs/source/overview.rst/source/L2/api_reference.rst"
+						   rel="nofollow">View on GitHub</a></li>						
+				</ul>
           
         </div>
+        
       </div>
     </nav>
 
@@ -136,7 +218,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">LZ Compression Library</a>
+          <a href="../../index.html">Vitis Data Compression Library</a>
         
       </nav>
 
@@ -165,7 +247,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="L2.html">L2 Kernel User Guide</a> &raquo;</li>
         
@@ -194,6 +276,74 @@
 </div>
 <div class="section" id="global-functions">
 <h2>Global Functions<a class="headerlink" href="#global-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="xilhuffmankernel">
+<span id="cid-xilhuffmankernel"></span><span id="doxid-huffman-kernel-8hpp-1a73386a1eec0f7704e0e3f3a7bfc1d90b"></span><h3>xilHuffmanKernel<a class="headerlink" href="#xilhuffmankernel" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;huffman_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilHuffmanKernel</span> <span class="p">(</span>
+    <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_block_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">compressd_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_litmtree_codes</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_distree_codes</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_bitlentree_codes</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_litmtree_blen</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_dtree_blen</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_bitlentree_blen</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_max_codes</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">block_size_in_kb</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span>
+    <span class="p">)</span></pre>
+<p>Huffman kernel top function.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>input stream</p></td>
+</tr>
+<tr class="row-even"><td><p>out</p></td>
+<td><p>output stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>in_block_size</p></td>
+<td><p>input block size</p></td>
+</tr>
+<tr class="row-even"><td><p>compressd_size</p></td>
+<td><p>compressed size output</p></td>
+</tr>
+<tr class="row-odd"><td><p>dyn_litmtree_codes</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-even"><td><p>dyn_distree_codes</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-odd"><td><p>dyn_bitlentree_codes</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-even"><td><p>dyn_litmtree_blen</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-odd"><td><p>dyn_dtree_blen</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-even"><td><p>dyn_bitlentree_blen</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-odd"><td><p>dyn_max_codes</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-even"><td><p>block_size_in_kb</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-odd"><td><p>input_size</p></td>
+<td><p>input size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="xillz4compress">
 <span id="cid-xillz4compress"></span><span id="doxid-lz4-compress-kernel-8hpp-1aa11e26152bb864a14a1b2019faf0dee9"></span><h3>xilLz4Compress<a class="headerlink" href="#xillz4compress" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_compress_kernel.hpp&quot;</span></pre>
@@ -230,38 +380,6 @@
 </tr>
 <tr class="row-even"><td><p>input_size</p></td>
 <td><p>input data size</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="xillz4compressstream">
-<span id="cid-xillz4compressstream"></span><span id="doxid-lz4-compress-stream-kernel-8hpp-1a6d79149b75972c5baf6f229de87af8e3"></span><h3>xilLz4CompressStream<a class="headerlink" href="#xillz4compressstream" title="Permalink to this headline">¶</a></h3>
-<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_compress_stream_kernel.hpp&quot;</span></pre>
-<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilLz4CompressStream</span> <span class="p">(</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">hStream8b_t</span><span class="o">&gt;&amp;</span> <span class="n">inAxiStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">hStream8b_t</span><span class="o">&gt;&amp;</span> <span class="n">outAxiStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">hStream32b_t</span><span class="o">&gt;&amp;</span> <span class="n">compressedSizeAxis</span><span class="p">,</span>
-    <span class="kt">uint32_t</span> <span class="n">inputSize</span>
-    <span class="p">)</span></pre>
-<p>LZ4 compression streaming kernel.</p>
-<p class="rubric">Parameters:</p>
-<table class="colwidths-given docutils align-center">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>inAxiStream</p></td>
-<td><p>Input axi stream</p></td>
-</tr>
-<tr class="row-even"><td><p>outAxiStream</p></td>
-<td><p>Output axi stream</p></td>
-</tr>
-<tr class="row-odd"><td><p>compressedSizeAxis</p></td>
-<td><p>Axi stream to transfer compressed data size</p></td>
-</tr>
-<tr class="row-even"><td><p>inputSize</p></td>
-<td><p>Input data size</p></td>
 </tr>
 </tbody>
 </table>
@@ -307,15 +425,15 @@
 </table>
 </div>
 <div class="section" id="xillz4decompressstream">
-<span id="cid-xillz4decompressstream"></span><span id="doxid-lz4-decompress-stream-kernel-8hpp-1ae7ce7f2a2c87341067f3931e8626c32a"></span><h3>xilLz4DecompressStream<a class="headerlink" href="#xillz4decompressstream" title="Permalink to this headline">¶</a></h3>
+<span id="cid-xillz4decompressstream"></span><span id="doxid-lz4-decompress-stream-kernel-8hpp-1a0ffa45369b4c6f97c73a42ec4649703d"></span><h3>xilLz4DecompressStream<a class="headerlink" href="#xillz4decompressstream" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_decompress_stream_kernel.hpp&quot;</span></pre>
 <pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilLz4DecompressStream</span> <span class="p">(</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">hStream8b_t</span><span class="o">&gt;&amp;</span> <span class="n">inAxiStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">hStream8b_t</span><span class="o">&gt;&amp;</span> <span class="n">outAxiStream</span><span class="p">,</span>
-    <span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">inputSize</span><span class="p">,</span>
-    <span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">outputSize</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">kStream8b_t</span><span class="o">&gt;&amp;</span> <span class="n">inaxistream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">kStream8b_t</span><span class="o">&gt;&amp;</span> <span class="n">outaxistream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">inputSize</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">outputSize</span>
     <span class="p">)</span></pre>
-<p>LZ4 decompression streaming kernel.</p>
+<p>LZ4 decompression kernel to kernel streaming kernel.</p>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given docutils align-center">
 <colgroup>
@@ -323,10 +441,10 @@
 <col style="width: 80%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>inAxiStream</p></td>
+<tr class="row-odd"><td><p>inaxistream</p></td>
 <td><p>Input axi stream</p></td>
 </tr>
-<tr class="row-even"><td><p>outAxiStream</p></td>
+<tr class="row-even"><td><p>outaxistream</p></td>
 <td><p>Output axi stream</p></td>
 </tr>
 <tr class="row-odd"><td><p>inputSize</p></td>
@@ -334,6 +452,54 @@
 </tr>
 <tr class="row-even"><td><p>outputSize</p></td>
 <td><p>Output decompressed data size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xillz77compress">
+<span id="cid-xillz77compress"></span><span id="doxid-lz77-compress-kernel-8hpp-1ad11932c3613ace790b1e555f6928707b"></span><h3>xilLz77Compress<a class="headerlink" href="#xillz77compress" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz77_compress_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilLz77Compress</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">compressd_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_block_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_ltree_freq</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_dtree_freq</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">block_size_in_kb</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span>
+    <span class="p">)</span></pre>
+<p>LZ77 compression kernel top function.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>input stream</p></td>
+</tr>
+<tr class="row-even"><td><p>out</p></td>
+<td><p>output stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>compressd_size</p></td>
+<td><p>compressed size output</p></td>
+</tr>
+<tr class="row-even"><td><p>in_block_size</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-odd"><td><p>dyn_ltree_freq</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-even"><td><p>dyn_dtree_freq</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-odd"><td><p>block_size_in_kb</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-even"><td><p>input_size</p></td>
+<td><p>input size</p></td>
 </tr>
 </tbody>
 </table>
@@ -418,6 +584,206 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="xiltreegenkernel">
+<span id="cid-xiltreegenkernel"></span><span id="doxid-treegen-kernel-8hpp-1a1e8e726c83065c6452fefa9796a7f311"></span><h3>xilTreegenKernel<a class="headerlink" href="#xiltreegenkernel" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;treegen_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilTreegenKernel</span> <span class="p">(</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_ltree_freq</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_dtree_freq</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_bltree_freq</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_ltree_codes</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_dtree_codes</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_bltree_codes</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_ltree_blen</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_dtree_blen</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_bltree_blen</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">max_codes</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">block_size_in_kb</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">blocks_per_chunk</span>
+    <span class="p">)</span></pre>
+<p>Treegen kernel top function.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>dyn_ltree_freq</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-even"><td><p>dyn_dtree_freq</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-odd"><td><p>dyn_bltree_freq</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-even"><td><p>dyn_ltree_codes</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-odd"><td><p>dyn_dtree_codes</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-even"><td><p>dyn_bltree_codes</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-odd"><td><p>dyn_ltree_blen</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-even"><td><p>dyn_dtree_blen</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-odd"><td><p>dyn_bltree_blen</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-even"><td><p>max_codes</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-odd"><td><p>block_size_in_kb</p></td>
+<td><p>description needed…</p></td>
+</tr>
+<tr class="row-even"><td><p>input_size</p></td>
+<td><p>input size</p></td>
+</tr>
+<tr class="row-odd"><td><p>blocks_per_chunk</p></td>
+<td><p>description needed…</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xilzlibdecompressstream">
+<span id="cid-xilzlibdecompressstream"></span><span id="doxid-xil-zlib-decompress-stream-kernel-8hpp-1a6d68de805372f4643dd96b11541abd42"></span><h3>xilZlibDecompressStream<a class="headerlink" href="#xilzlibdecompressstream" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;xil_zlib_decompress_stream_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilZlibDecompressStream</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">hStream16b_t</span><span class="o">&gt;&amp;</span> <span class="n">inaxistream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">hStream8b_t</span><span class="o">&gt;&amp;</span> <span class="n">outaxistream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">hStream32b_t</span><span class="o">&gt;&amp;</span> <span class="n">encodedsize</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span>
+    <span class="p">)</span></pre>
+<p>Zlib decompression host stream kernel top function.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>inaxistream</p></td>
+<td><p>16-bit input host axi stream</p></td>
+</tr>
+<tr class="row-even"><td><p>outaxistream</p></td>
+<td><p>8-bit output host axi stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>encodedsize</p></td>
+<td><p>compressed size output axi stream</p></td>
+</tr>
+<tr class="row-even"><td><p>input_size</p></td>
+<td><p>input size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xildecompresszlib">
+<span id="cid-xildecompresszlib"></span><span id="doxid-zlib-decompress-kernel-8hpp-1a152782b597a1236d5709753d9f8a9c8a"></span><h3>xilDecompressZlib<a class="headerlink" href="#xildecompresszlib" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;zlib_decompress_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilDecompressZlib</span> <span class="p">(</span>
+    <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">encoded_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span>
+    <span class="p">)</span></pre>
+<p>Zlib decompression kernel top function.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>input stream</p></td>
+</tr>
+<tr class="row-even"><td><p>out</p></td>
+<td><p>output stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>encoded_size</p></td>
+<td><p>decompressed size output</p></td>
+</tr>
+<tr class="row-even"><td><p>input_size</p></td>
+<td><p>input size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xildecompressstreamk2k">
+<span id="cid-xildecompressstreamk2k"></span><span id="doxid-zlib-decompress-stream-k2k-kernel-8hpp-1a95a38be820756eef9e5f3d6931dd5baf"></span><h3>xilDecompressStreamk2k<a class="headerlink" href="#xildecompressstreamk2k" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;zlib_decompress_stream_k2k_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilDecompressStreamk2k</span> <span class="p">(</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">kStream16b_t</span><span class="o">&gt;&amp;</span> <span class="n">inaxistreamd</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">kStream8b_t</span><span class="o">&gt;&amp;</span> <span class="n">outaxistreamd</span>
+    <span class="p">)</span></pre>
+<p>Zlib decompression stream kernel top function.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>input_size</p></td>
+<td><p>input size</p></td>
+</tr>
+<tr class="row-even"><td><p>inaxistreamd</p></td>
+<td><p>input kernel axi stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>outaxistreamd</p></td>
+<td><p>output kernel axi stream</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xilzlibdm">
+<span id="cid-xilzlibdm"></span><span id="doxid-zlib-dm-kernel-8hpp-1ae2bb9153f63ce9c2c2b17139e2e0d29c"></span><h3>xilZlibDm<a class="headerlink" href="#xilzlibdm" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;zlib_dm_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilZlibDm</span> <span class="p">(</span>
+    <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">encoded_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">kStream16b_t</span><span class="o">&gt;&amp;</span> <span class="n">instreamk</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">kStream8b_t</span><span class="o">&gt;&amp;</span> <span class="n">outstreamk</span>
+    <span class="p">)</span></pre>
+<p>Zlib data mover kernel top function. It reads data from memory and streams it to zlib decompression kernel.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>input stream</p></td>
+</tr>
+<tr class="row-even"><td><p>out</p></td>
+<td><p>output stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>encoded_size</p></td>
+<td><p>decompressed size output</p></td>
+</tr>
+<tr class="row-even"><td><p>input_size</p></td>
+<td><p>input size</p></td>
+</tr>
+<tr class="row-odd"><td><p>instreamk</p></td>
+<td><p>input axi kernel stream (written by this kernel)</p></td>
+</tr>
+<tr class="row-even"><td><p>outstreamk</p></td>
+<td><p>output axi kernel stream (read by this kernel)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
@@ -439,14 +805,18 @@
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -456,7 +826,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

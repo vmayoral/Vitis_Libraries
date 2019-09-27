@@ -1,0 +1,304 @@
+.. index:: pair: class; xilSnappy
+.. _doxid-classxilSnappy:
+.. _cid-xilsnappy:
+
+class xilSnappy
+===============
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include "xil_snappy.hpp"
+
+
+Overview
+~~~~~~~~
+
+:ref:`xilSnappy <doxid-classxilSnappy>` class.
+
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// fields
+
+	bool :ref:`m_bin_flow<doxid-classxilSnappy_1a20cfbee8658f19fb7256e29b55a50aec>`
+	uint32_t :ref:`m_block_size_in_kb<doxid-classxilSnappy_1a73651e7b80598c026ed86672ef3d1d32>`
+	bool :ref:`m_switch_flow<doxid-classxilSnappy_1af84c4bfc0c0bb2e515d65ede5a0c7153>`
+
+Fields
+------
+
+.. _doxid-classxilSnappy_1a20cfbee8658f19fb7256e29b55a50aec:
+.. _cid-xilsnappy::m_bin_flow:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	bool m_bin_flow
+
+Binary flow compress/decompress
+
+.. _doxid-classxilSnappy_1a73651e7b80598c026ed86672ef3d1d32:
+.. _cid-xilsnappy::m_block_size_in_kb:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	uint32_t m_block_size_in_kb
+
+Block Size
+
+.. _doxid-classxilSnappy_1af84c4bfc0c0bb2e515d65ede5a0c7153:
+.. _cid-xilsnappy::m_switch_flow:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	bool m_switch_flow
+
+Switch between FPGA/Standard flows
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxilSnappy_1a3ca6901d1b4b173415ce203a745882d7:
+.. _cid-xilsnappy::init:
+
+init
+----
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int init (const std::string& binaryFile)
+
+Initialize the class object.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - binaryFile
+
+        - file to be read
+
+.. _doxid-classxilSnappy_1a1002af1f56586a6b8e095790ff925363:
+.. _cid-xilsnappy::release:
+
+release
+-------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int release ()
+
+release
+
+.. _doxid-classxilSnappy_1a624376d791f4598741feda54e0592a5e:
+.. _cid-xilsnappy::compress:
+
+compress
+--------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	uint64_t compress (
+	    uint8_t* in,
+	    uint8_t* out,
+	    uint64_t actual_size,
+	    uint32_t host_buffer_size,
+	    bool file_list_flag
+	    )
+
+This module does the overlapped execution of compression between Kernel and Host. I/O operations between Host and Device are overlapped with kernel execution between multiple compute units.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - in
+
+        - input byte sequence
+
+    *
+        - out
+
+        - output byte sequence
+
+    *
+        - actual_size
+
+        - input size
+
+    *
+        - host_buffer_size
+
+        - host buffer size
+
+.. _doxid-classxilSnappy_1a24c12553a8f35f862c74d09be813da96:
+.. _cid-xilsnappy::decompresssequential:
+
+decompressSequential
+--------------------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	uint64_t decompressSequential (
+	    uint8_t* in,
+	    uint8_t* out,
+	    uint64_t actual_size,
+	    bool file_list_flag
+	    )
+
+Decompress sequential.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - in
+
+        - input byte sequence
+
+    *
+        - out
+
+        - output byte sequence
+
+    *
+        - actual_size
+
+        - input size
+
+.. _doxid-classxilSnappy_1a60e255e9a14216696ab15dcebc25a4c4:
+.. _cid-xilsnappy::compressfile:
+
+compressFile
+------------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	uint64_t compressFile (
+	    std::string& inFile_name,
+	    std::string& outFile_name,
+	    uint64_t actual_size,
+	    bool file_list_flag
+	    )
+
+This module is provided to support compress API and it's not recommended to use for high throughput.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - inFile_name
+
+        - input file name
+
+    *
+        - outFile_name
+
+        - output file name
+
+    *
+        - actual_size
+
+        - input size
+
+.. _doxid-classxilSnappy_1a888a39f3e67f520c92f26b5c4de41e71:
+.. _cid-xilsnappy::decompressfile:
+
+decompressFile
+--------------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	uint64_t decompressFile (
+	    std::string& inFile_name,
+	    std::string& outFile_name,
+	    uint64_t actual_size,
+	    bool file_list_flag
+	    )
+
+This module is provided to support decompress API and not recommended to use for higher throughput.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - inFile_name
+
+        - input file name
+
+    *
+        - outFile_name
+
+        - output file name
+
+    *
+        - actual_size
+
+        - input size
+
+.. _doxid-classxilSnappy_1a6c3e9343b15443ad6dbdf2e0252c3980:
+.. _cid-xilsnappy::xilsnappy:
+
+xilSnappy
+---------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	xilSnappy ()
+
+Class constructor.
+
+.. _doxid-classxilSnappy_1a8b50e3c376a2f3d11f0c88c2d800bce9:
+.. _cid-xilsnappy::~xilsnappy:
+
+~xilSnappy
+----------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	~xilSnappy ()
+
+Class destructor.
+

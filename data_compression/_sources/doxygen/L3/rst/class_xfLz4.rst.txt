@@ -1,0 +1,326 @@
+.. index:: pair: class; xfLz4
+.. _doxid-classxfLz4:
+.. _cid-xflz4:
+
+class xfLz4
+===========
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include "xil_lz4.hpp"
+
+
+Overview
+~~~~~~~~
+
+:ref:`xfLz4 <doxid-classxfLz4>` class.
+
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// fields
+
+	bool :ref:`m_bin_flow<doxid-classxfLz4_1addd4291939adfb4b305eb1c91d2d18f1>`
+	uint32_t :ref:`m_block_size_in_kb<doxid-classxfLz4_1a69f5e20a07fdb32c7b037a5402ba7cce>`
+	bool :ref:`m_switch_flow<doxid-classxfLz4_1a08f12f9108a2f062c698353774636e0c>`
+
+Fields
+------
+
+.. _doxid-classxfLz4_1addd4291939adfb4b305eb1c91d2d18f1:
+.. _cid-xflz4::m_bin_flow:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	bool m_bin_flow
+
+Binary flow compress/decompress
+
+.. _doxid-classxfLz4_1a69f5e20a07fdb32c7b037a5402ba7cce:
+.. _cid-xflz4::m_block_size_in_kb:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	uint32_t m_block_size_in_kb
+
+Block Size
+
+.. _doxid-classxfLz4_1a08f12f9108a2f062c698353774636e0c:
+.. _cid-xflz4::m_switch_flow:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	bool m_switch_flow
+
+Switch between FPGA/Standard flows
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxfLz4_1af5d2021bab6f194d8f6ef428a3df5327:
+.. _cid-xflz4::init:
+
+init
+----
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int init (const std::string& binaryFile)
+
+Initialize the class object.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - binaryFile
+
+        - file to be read
+
+.. _doxid-classxfLz4_1a2de013e306c32863e819be1b9a7416d4:
+.. _cid-xflz4::release:
+
+release
+-------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int release ()
+
+release
+
+.. _doxid-classxfLz4_1a170357f9639762107b37548849870036:
+.. _cid-xflz4::compress:
+
+compress
+--------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	uint64_t compress (
+	    uint8_t* in,
+	    uint8_t* out,
+	    uint64_t actual_size,
+	    uint32_t host_buffer_size,
+	    bool file_list_flag
+	    )
+
+This module does the sequential execution of compression where all the I/O operations and kernel execution are done one after another in sequential order.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - in
+
+        - input byte sequence
+
+    *
+        - out
+
+        - output byte sequence
+
+    *
+        - actual_size
+
+        - input size
+
+    *
+        - host_buffer_size
+
+        - host buffer size
+
+.. _doxid-classxfLz4_1a8b107d4a4c752dc1f7edd288f04f75c5:
+.. _cid-xflz4::decompress:
+
+decompress
+----------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	uint64_t decompress (
+	    uint8_t* in,
+	    uint8_t* out,
+	    uint64_t actual_size,
+	    uint64_t original_size,
+	    uint32_t host_buffer_size,
+	    bool file_list_flag
+	    )
+
+Decompress.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - in
+
+        - input byte sequence
+
+    *
+        - out
+
+        - output byte sequence
+
+    *
+        - actual_size
+
+        - input size
+
+    *
+        - original_size
+
+        - original size
+
+    *
+        - host_buffer_size
+
+        - host buffer size
+
+.. _doxid-classxfLz4_1afb34221e1ae53b1e1b6dc6d9103ce9c8:
+.. _cid-xflz4::decompressfile:
+
+decompressFile
+--------------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	uint64_t decompressFile (
+	    std::string& inFile_name,
+	    std::string& outFile_name,
+	    uint64_t actual_size,
+	    bool file_list_flag
+	    )
+
+This module does the memory mapped execution of decompression where the I/O operations and kernel execution is done in sequential order.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - in
+
+        - input byte sequence
+
+    *
+        - out
+
+        - output byte sequence
+
+    *
+        - actual_size
+
+        - input size
+
+    *
+        - original_size
+
+        - original size
+
+    *
+        - host_buffer_size
+
+        - host buffer size
+
+.. _doxid-classxfLz4_1a7cbfd6022b99726121e11838ae856330:
+.. _cid-xflz4::compressfile:
+
+compressFile
+------------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	uint64_t compressFile (
+	    std::string& inFile_name,
+	    std::string& outFile_name,
+	    uint64_t actual_size,
+	    bool file_list_flag
+	    )
+
+This module is provided to support compress API and it's not recommended to use for high throughput.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - inFile_name
+
+        - input file name
+
+    *
+        - outFile_name
+
+        - output file name
+
+    *
+        - actual_size
+
+        - input size
+
+.. _doxid-classxfLz4_1ad8ce1e54801cf4cb850d9942e18369bc:
+.. _cid-xflz4::xflz4:
+
+xfLz4
+-----
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	xfLz4 ()
+
+Class constructor.
+
+.. _doxid-classxfLz4_1a506db4fdf6e240ceee97c156cf8695bd:
+.. _cid-xflz4::~xflz4:
+
+~xfLz4
+------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	~xfLz4 ()
+
+Class destructor.
+

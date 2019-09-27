@@ -6,14 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Primitive APIs in xf::compression &mdash; LZ Compression Library 1.0 documentation</title>
+  <title>Primitive APIs in xf::compression &mdash; Vitis Data Compression Library v2019.2 documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
-  
-    <link rel="shortcut icon" href="../../_static/xf-favicon.ico"/>
   
   
   
@@ -35,7 +59,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="L2 Kernel User Guide" href="../L2/L2.html" />
@@ -43,7 +66,54 @@
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -53,12 +123,9 @@
           
 
           
-            <a href="../../index.html">
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Data Compression Library
           
 
-          
-            
-            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -66,7 +133,7 @@
             
             
               <div class="version">
-                1.0
+                2019.2
               </div>
             
           
@@ -83,6 +150,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -108,6 +176,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#axis2hlsstream">axis2hlsStream</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#streamdatadm2k">streamDataDm2k</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#streamdatak2dm">streamDataK2dm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#streamdatak2dmfixedsize">streamDataK2dmFixedSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kstreamread">kStreamRead</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kstreamwrite">kStreamWrite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kstreamwritefixedsize">kStreamWriteFixedSize</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lz4compress">lz4Compress</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lz4divide">lz4Divide</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lz4decompress">lz4Decompress</a></li>
@@ -118,8 +190,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#lzfilter">lzFilter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mm2snb">mm2sNb</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mm2snbroundoff">mm2sNbRoundOff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mm2ssimple">mm2sSimple</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#s2mmeosnb">s2mmEosNb</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#s2mmnb">s2mmNb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#s2mmeossimple">s2mmEosSimple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#s2mmeosnbzlib">s2mmEosNbZlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#s2mmsimple">s2mmSimple</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#snappycompress">snappyCompress</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#snappydivide">snappyDivide</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#snappydecompress">snappyDecompress</a></li>
@@ -140,8 +216,16 @@
 </ul>
 
             
+			<p class="caption"><span class="caption-text">This Page</span></p>
+				<ul class="current">
+				  <li class="toctree-l1"><a href="../../_sources/source/L1/api_reference.rst.txt"
+						rel="nofollow">Show Source</a></li>
+					<li class="toctree-l1"><a href="https://github.com/Xilinx/xf_compression/blob/master/docs/source/overview.rst/source/L1/api_reference.rst"
+						   rel="nofollow">View on GitHub</a></li>						
+				</ul>
           
         </div>
+        
       </div>
     </nav>
 
@@ -151,7 +235,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">LZ Compression Library</a>
+          <a href="../../index.html">Vitis Data Compression Library</a>
         
       </nav>
 
@@ -180,7 +264,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="L1.html">L1 Module User Guide</a> &raquo;</li>
         
@@ -360,12 +444,12 @@
 </table>
 </div>
 <div class="section" id="streamdatak2dm">
-<span id="cid-xf-compression-streamdatak2dm"></span><span id="doxid-namespacexf-1-1compression-1ae46cc628c0117229054d4dea39e6cc17"></span><h2>streamDataK2dm<a class="headerlink" href="#streamdatak2dm" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-compression-streamdatak2dm"></span><span id="doxid-namespacexf-1-1compression-1a4b9ced671a025fd34483f74819f110b0"></span><h2>streamDataK2dm<a class="headerlink" href="#streamdatak2dm" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;axi_stream_utils.hpp&quot;</span></pre>
 <pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">streamDataK2dm</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;&gt;&amp;</span> <span class="n">out</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">bytEos</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">encodedSize</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">dataSize</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">kStream8b_t</span><span class="o">&gt;&amp;</span> <span class="n">dmOutStream</span>
     <span class="p">)</span></pre>
 <p>Read data from kernel axi stream byte by byte and write to hls stream and indicate end of stream.</p>
@@ -387,6 +471,131 @@
 </tr>
 <tr class="row-even"><td><p>dmOutStream</p></td>
 <td><p>input kernel axi stream to be read</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="streamdatak2dmfixedsize">
+<span id="cid-xf-compression-streamdatak2dmfixedsize"></span><span id="doxid-namespacexf-1-1compression-1aaa9ba7134885c8a872d5556a4a81cf21"></span><h2>streamDataK2dmFixedSize<a class="headerlink" href="#streamdatak2dmfixedsize" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;axi_stream_utils.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">streamDataK2dmFixedSize</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;&gt;&amp;</span> <span class="n">out</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">kStream8b_t</span><span class="o">&gt;&amp;</span> <span class="n">dmOutStream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">dataSize</span>
+    <span class="p">)</span></pre>
+<p>Read data from kernel axi stream byte by byte and write to hls stream for given output size.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>out</p></td>
+<td><p>output hls stream</p></td>
+</tr>
+<tr class="row-even"><td><p>dmOutStream</p></td>
+<td><p>input kernel axi stream to be read</p></td>
+</tr>
+<tr class="row-odd"><td><p>dataSize</p></td>
+<td><p>size of data in streams</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="kstreamread">
+<span id="cid-xf-compression-kstreamread"></span><span id="doxid-namespacexf-1-1compression-1ab786bd2b026f70c6efb9d9c4366a9159"></span><h2>kStreamRead<a class="headerlink" href="#kstreamread" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;kernel_stream_utils.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">uint32_t</span> <span class="n">DATAWIDTH</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">kStreamRead</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="n">DATAWIDTH</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inKStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">DATAWIDTH</span><span class="o">&gt;&gt;&amp;</span> <span class="n">readStream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span>
+    <span class="p">)</span></pre>
+<p>Read N-bit wide data from internal streams output by compression modules and write to output axi stream. N is the template parameter DATAWIDTH.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>DATAWIDTH</p></td>
+<td><p>data width of the kernel stream</p></td>
+</tr>
+<tr class="row-even"><td><p>inKStream</p></td>
+<td><p>input axi kernel stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>readStream</p></td>
+<td><p>internal hls stream to be read for processing</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="kstreamwrite">
+<span id="cid-xf-compression-kstreamwrite"></span><span id="doxid-namespacexf-1-1compression-1a3bb7b44a0e13f789879e4cee7b47e257"></span><h2>kStreamWrite<a class="headerlink" href="#kstreamwrite" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;kernel_stream_utils.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">uint32_t</span> <span class="n">DATAWIDTH</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">kStreamWrite</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="n">DATAWIDTH</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outKStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">DATAWIDTH</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outDataStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">byteEos</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">dataSize</span>
+    <span class="p">)</span></pre>
+<p>Read N-bit wide data from internal hls streams and write to axi kernel stream till the end of stream. N is the template parameter DATAWIDTH.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>DATAWIDTH</p></td>
+<td><p>data width of the kernel stream</p></td>
+</tr>
+<tr class="row-even"><td><p>outKStream</p></td>
+<td><p>output kernel stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>outDataStream</p></td>
+<td><p>output data stream from internal modules</p></td>
+</tr>
+<tr class="row-even"><td><p>byteEos</p></td>
+<td><p>internal stream which indicates end of data stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>dataSize</p></td>
+<td><p>size of data in streams</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="kstreamwritefixedsize">
+<span id="cid-xf-compression-kstreamwritefixedsize"></span><span id="doxid-namespacexf-1-1compression-1acbb02d6fef687b30a25f9a6026b4251a"></span><h2>kStreamWriteFixedSize<a class="headerlink" href="#kstreamwritefixedsize" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;kernel_stream_utils.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">uint32_t</span> <span class="n">DATAWIDTH</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">kStreamWriteFixedSize</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="n">DATAWIDTH</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outKStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">DATAWIDTH</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outDataStream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">outputSize</span>
+    <span class="p">)</span></pre>
+<p>Read N-bit wide data from internal hls streams and write to axi kernel stream for the given size. N is the template parameter DATAWIDTH.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>DATAWIDTH</p></td>
+<td><p>data width of the kernel stream</p></td>
+</tr>
+<tr class="row-even"><td><p>outKStream</p></td>
+<td><p>output kernel stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>outDataStream</p></td>
+<td><p>output data stream from internal modules</p></td>
+</tr>
+<tr class="row-even"><td><p>dataSize</p></td>
+<td><p>size of data in streams</p></td>
 </tr>
 </tbody>
 </table>
@@ -432,9 +641,10 @@
 </table>
 </div>
 <div class="section" id="lz4divide">
-<span id="cid-xf-compression-lz4divide"></span><span id="doxid-namespacexf-1-1compression-1a6d894e598a08ce551be1ea538540a767"></span><h2>lz4Divide<a class="headerlink" href="#lz4divide" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-compression-lz4divide"></span><span id="doxid-namespacexf-1-1compression-1aa8ce481565fa95029f6a5d2bcd2288f6"></span><h2>lz4Divide<a class="headerlink" href="#lz4divide" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_compress.hpp&quot;</span></pre>
-<pre class="highlight title-code-block literal-block"><span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">lz4Divide</span> <span class="p">(</span>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">MAX_LIT_COUNT</span><span class="o">&gt;</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="n">lz4Divide</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;&amp;</span> <span class="n">lit_outStream</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">lz4_compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">lenOffset_Stream</span><span class="p">,</span>
@@ -450,22 +660,25 @@
 <col style="width: 80%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>inStream</p></td>
+<tr class="row-odd"><td><p>MAX_LIT_COUNT</p></td>
+<td><p>maximum literal count</p></td>
+</tr>
+<tr class="row-even"><td><p>inStream</p></td>
 <td><p>reference of input literals stream</p></td>
 </tr>
-<tr class="row-even"><td><p>lit_outStream</p></td>
+<tr class="row-odd"><td><p>lit_outStream</p></td>
 <td><p>Offset-length stream for literals in input stream</p></td>
 </tr>
-<tr class="row-odd"><td><p>lenOffset_Stream</p></td>
+<tr class="row-even"><td><p>lenOffset_Stream</p></td>
 <td><p>output data stream</p></td>
 </tr>
-<tr class="row-even"><td><p>input_size</p></td>
+<tr class="row-odd"><td><p>input_size</p></td>
 <td><p>end flag for stream</p></td>
 </tr>
-<tr class="row-odd"><td><p>max_lit_limit</p></td>
+<tr class="row-even"><td><p>max_lit_limit</p></td>
 <td><p>Size for compressed stream</p></td>
 </tr>
-<tr class="row-even"><td><p>index</p></td>
+<tr class="row-odd"><td><p>index</p></td>
 <td><p>size of input</p></td>
 </tr>
 </tbody>
@@ -843,6 +1056,44 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="mm2ssimple">
+<span id="cid-xf-compression-mm2ssimple"></span><span id="doxid-namespacexf-1-1compression-1ae3778b17a59ae8333caa3b813cb33beb"></span><h2>mm2sSimple<a class="headerlink" href="#mm2ssimple" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;mm2s.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">DATAWIDTH</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">BURST_SIZE</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">mm2sSimple</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">uintMemWidth_t</span><span class="o">&gt;&amp;</span> <span class="n">outstream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">inputSize</span>
+    <span class="p">)</span></pre>
+<p>Read data from 512-bit wide axi memory interface and write to stream.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>DATAWIDTH</p></td>
+<td><p>width of data bus</p></td>
+</tr>
+<tr class="row-even"><td><p>BURST_SIZE</p></td>
+<td><p>burst size of the data transfers</p></td>
+</tr>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>pointer to input memory</p></td>
+</tr>
+<tr class="row-even"><td><p>outstream</p></td>
+<td><p>output stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>inputSize</p></td>
+<td><p>size of the data</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="s2mmeosnb">
 <span id="cid-xf-compression-s2mmeosnb"></span><span id="doxid-namespacexf-1-1compression-1abf8c23016af9dd2af0991eba67b001db"></span><h2>s2mmEosNb<a class="headerlink" href="#s2mmeosnb" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;s2mm.hpp&quot;</span></pre>
@@ -951,6 +1202,147 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="s2mmeossimple">
+<span id="cid-xf-compression-s2mmeossimple"></span><span id="doxid-namespacexf-1-1compression-1a45cb9f59475436379c03556d5e4f525b"></span><h2>s2mmEosSimple<a class="headerlink" href="#s2mmeossimple" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;s2mm.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">class</span> <span class="n">STREAM_SIZE_DT</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">BURST_SIZE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">DATAWIDTH</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NUM_BLOCKS</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">s2mmEosSimple</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">DATAWIDTH</span><span class="o">&gt;*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">DATAWIDTH</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endOfStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">outSize</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">output_size</span>
+    <span class="p">)</span></pre>
+<p>This module reads DATAWIDTH data from stream based on size stream and writes the data to DDR.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>STREAM_SIZE_DT</p></td>
+<td><p>Stream size class instance</p></td>
+</tr>
+<tr class="row-even"><td><p>BURST_SIZE</p></td>
+<td><p>burst size of the data transfers</p></td>
+</tr>
+<tr class="row-odd"><td><p>DATAWIDTH</p></td>
+<td><p>width of data bus</p></td>
+</tr>
+<tr class="row-even"><td><p>NUM_BLOCKS</p></td>
+<td><p>number of blocks</p></td>
+</tr>
+<tr class="row-odd"><td><p>out</p></td>
+<td><p>output memory address</p></td>
+</tr>
+<tr class="row-even"><td><p>output_idx</p></td>
+<td><p>output index</p></td>
+</tr>
+<tr class="row-odd"><td><p>inStream</p></td>
+<td><p>input stream</p></td>
+</tr>
+<tr class="row-even"><td><p>endOfStream</p></td>
+<td><p>stream to indicate end of data stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>outSize</p></td>
+<td><p>output data size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="s2mmeosnbzlib">
+<span id="cid-xf-compression-s2mmeosnbzlib"></span><span id="doxid-namespacexf-1-1compression-1a47d7ad4176082bc96c2bac541eeb1ebc"></span><h2>s2mmEosNbZlib<a class="headerlink" href="#s2mmeosnbzlib" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;s2mm.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">class</span> <span class="n">STREAM_SIZE_DT</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">BURST_SIZE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">DATAWIDTH</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">NUM_BLOCKS</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">s2mmEosNbZlib</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">DATAWIDTH</span><span class="o">&gt;*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">output_idx</span> <span class="p">[</span><span class="n">PARALLEL_BLOCK</span><span class="p">],</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">DATAWIDTH</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endOfStream</span><span class="p">,</span>
+    <span class="n">STREAM_SIZE_DT</span> <span class="n">output_size</span> <span class="p">[</span><span class="n">PARALLEL_BLOCK</span><span class="p">],</span>
+    <span class="kt">uint32_t</span> <span class="n">outSize</span>
+    <span class="p">)</span></pre>
+<p>This module reads DATAWIDTH data from stream based on size stream and writes the data to DDR. Reading data from multiple data streams is non-blocking which is done using empty() API.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>STREAM_SIZE_DT</p></td>
+<td><p>Stream size class instance</p></td>
+</tr>
+<tr class="row-even"><td><p>BURST_SIZE</p></td>
+<td><p>burst size of the data transfers</p></td>
+</tr>
+<tr class="row-odd"><td><p>DATAWIDTH</p></td>
+<td><p>width of data bus</p></td>
+</tr>
+<tr class="row-even"><td><p>NUM_BLOCKS</p></td>
+<td><p>number of blocks</p></td>
+</tr>
+<tr class="row-odd"><td><p>out</p></td>
+<td><p>output memory address</p></td>
+</tr>
+<tr class="row-even"><td><p>output_idx</p></td>
+<td><p>output index</p></td>
+</tr>
+<tr class="row-odd"><td><p>inStream</p></td>
+<td><p>input stream</p></td>
+</tr>
+<tr class="row-even"><td><p>endOfStream</p></td>
+<td><p>stream to indicate end of data stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>outSize</p></td>
+<td><p>output data size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="s2mmsimple">
+<span id="cid-xf-compression-s2mmsimple"></span><span id="doxid-namespacexf-1-1compression-1a086f13150831e9a1a0af79d37483d1e7"></span><h2>s2mmSimple<a class="headerlink" href="#s2mmsimple" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;s2mm.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">DATAWIDTH</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">s2mmSimple</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">DATAWIDTH</span><span class="o">&gt;*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">DATAWIDTH</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">output_size</span>
+    <span class="p">)</span></pre>
+<p>This module reads N-bit data from stream based on size stream and writes the data to DDR. N is template parameter DATAWIDTH.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>DATAWIDTH</p></td>
+<td><p>Width of the input data stream</p></td>
+</tr>
+<tr class="row-even"><td><p>out</p></td>
+<td><p>output memory address</p></td>
+</tr>
+<tr class="row-odd"><td><p>inStream</p></td>
+<td><p>input hls stream</p></td>
+</tr>
+<tr class="row-even"><td><p>output_size</p></td>
+<td><p>output data size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="snappycompress">
 <span id="cid-xf-compression-snappycompress"></span><span id="doxid-namespacexf-1-1compression-1a6c557befca577c72f320e66870a4241b"></span><h2>snappyCompress<a class="headerlink" href="#snappycompress" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;snappy_compress.hpp&quot;</span></pre>
@@ -992,9 +1384,13 @@
 </table>
 </div>
 <div class="section" id="snappydivide">
-<span id="cid-xf-compression-snappydivide"></span><span id="doxid-namespacexf-1-1compression-1a7e0ce1861ebf042566bf6186274129c1"></span><h2>snappyDivide<a class="headerlink" href="#snappydivide" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-compression-snappydivide"></span><span id="doxid-namespacexf-1-1compression-1af85b5d937b065a3c89880f8c4d3686e9"></span><h2>snappyDivide<a class="headerlink" href="#snappydivide" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;snappy_compress.hpp&quot;</span></pre>
-<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">snappyDivide</span> <span class="p">(</span>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">MAX_LIT_COUNT</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">MAX_LIT_STREAM_SIZE</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">snappyDivide</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;&amp;</span> <span class="n">lit_outStream</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">snappy_compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">lenOffset_Stream</span><span class="p">,</span>
@@ -1255,14 +1651,18 @@
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -1272,7 +1672,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
