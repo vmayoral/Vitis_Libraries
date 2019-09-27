@@ -160,6 +160,7 @@
               <p class="caption"><span class="caption-text">Library Overview</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#design-flows">Design Flows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../overview.html#trademark-notice">Trademark Notice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../release.html">Release Note</a></li>
@@ -292,8 +293,8 @@ Due to different numbers of input streams of combineUnit / output streams of spi
 <li>4-stream-output split unit</li>
 <li>5-stream-output split unit</li>
 </ul>
-<p>For the combine unit, the input streams are combined from left to right, with the corresponding iputs from stream1 to streamN. (aka. output stream = [input stream1, input stream2, …, input streamN]).</p>
-<p>For the split unit, the output streams are splited from right to left, with the corresponding inputs from stream1 to streamN. (aka. [output streamN, …, output stream2, output stream1] = input stream).</p>
+<p>For the combine unit, the input streams are combined from left to right, with the corresponding inputs from stream1 to streamN. (aka. output stream = [input stream1, input stream2, …, input streamN]).</p>
+<p>For the split unit, the output streams are split from right to left, with the corresponding inputs from stream1 to streamN. (aka. [output streamN, …, output stream2, output stream1] = input stream).</p>
 <div class="admonition caution">
 <p class="first admonition-title">Caution</p>
 <ul class="last simple">

@@ -160,6 +160,7 @@
               <p class="caption"><span class="caption-text">Library Overview</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#design-flows">Design Flows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
@@ -500,8 +501,8 @@ keys as well as payloads after aggregate operations. And one internal loop is im
 all input rows with each iteration. Furthermore, all PUs are working in parallel to achieve higher
 performance.</p>
 <a class="reference internal image-reference" href="../_images/gqe_aggr_detail.png"><img alt="Detais Diagram of Hash Group Aggregate" class="align-center" src="../_images/gqe_aggr_detail.png" style="width: 665.4px; height: 421.8px;" /></a>
-<p>Also, both input and output table’s data structure is same as join kernel. The whole configuration is
-composed of 128 32-bit slot. And the detail map of configuration buffer are listed in the table:</p>
+<p>Also, the data structure of input and output tables is same as join kernel. The whole configuration is
+composed of 128 32-bit slot. And the details of configuration buffers are listed in the table:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
@@ -694,15 +695,15 @@ key columns. This kernel is designed to scale the problem size that can be handl
 To reduce the size of intermediate data, it is equipped with dynamic filter like other kernels.</p>
 <a class="reference internal image-reference" href="../_images/gqe_part_kernel.png"><img alt="GQE Part Kernel" class="align-center" src="../_images/gqe_part_kernel.png" style="width: 656.5999999999999px; height: 275.09999999999997px;" /></a>
 <p>The internal of this kernel is illustrated in the figure above. It consists of two input buffers and one output buffer.
-Firstly, input table is scanned into multiple columns and then perform filter if related condition is given
-in configuration buffer. After that, each row will be dispatched into various buckets based on the hash value of
+Firstly, the kernel scans the input tables into multiple columns and then it filters them (if the related condition is
+given in configuration buffer). After that, each row will be dispatched into various buckets based on the hash value of
 primary key. Finally, every full hash bucket will trigger on one burst write into output buffer.</p>
 <p>The details for hash partition is shown in the following figure. One URAM array is used to buffer one burst length rows
 for each hash part. And the following module behind build PU will spilt each row into multiple columns for compatible
 output format with other kernels.</p>
 <a class="reference internal image-reference" href="../_images/gqe_part_detail.png"><img alt="Detais Diagram of Hash Partition" class="align-center" src="../_images/gqe_part_detail.png" style="width: 799.4px; height: 354.9px;" /></a>
 <p>To simplify the design, GQE partition kernel can reuse the scan and filter configuration with GQE join kernel. Also,
-as mentioned above, both input and output table’s data structure is same as join kernel.</p>
+as mentioned above, the data structure of input and output tables is the same as join kernel.</p>
 <p>The hardware resource utilization of single hash partition is shown in the table below (work as 200MHz).</p>
 <table border="1" class="docutils">
 <colgroup>

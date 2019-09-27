@@ -160,6 +160,7 @@
               <p class="caption"><span class="caption-text">Library Overview</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#design-flows">Design Flows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
@@ -366,7 +367,7 @@
     <span class="p">)</span>
 </pre>
 <p>Overload for most common aggregations.</p>
-<p>As shown below in the parameters, this function can calculate one of a range of statistics, including minimal, maximal, average(mean), variance, L1 norm, L2 norm. It can also calculate the sum and count.</p>
+<p>As shown below in the parameters, this function can calculate one of a range of statistics, including minimal, maximal, average (mean), variance, L1 norm, L2 norm. It can also calculate the sum and count.</p>
 <p>The limitation in this function is that the output data type must match with the input data type. In some cases, the sum or count may overflow the output type, but it can be safely covered by other aggregation overloads.</p>
 <p>Note that minimum, maximum, sum, count, number of non-zero, L1 norm as well as L2 norm aggregate functions will all be returned as zero when the input is empty.</p>
 <p>For group-by aggregation, please refer to the <code class="docutils literal notranslate"><span class="pre">hashGroupAggregateMPU</span></code> primitive.</p>
@@ -4090,7 +4091,7 @@ primitive, which offers smaller utilization, and requires no external buffer acc
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">strm_out_e</span> <span class="p">[</span><span class="n">CMP_NUM</span><span class="p">]</span>
     <span class="p">)</span>
 </pre>
-<p>nested loop join function</p>
+<p>Nested loop join function.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -4207,7 +4208,7 @@ primitive, which offers smaller utilization, and requires no external buffer acc
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_row_strm</span>
     <span class="p">)</span>
 </pre>
-<p>scan 1 column from DDR/HBM buffers.</p>
+<p>Scan 1 column from DDR/HBM buffers.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -4260,7 +4261,7 @@ primitive, which offers smaller utilization, and requires no external buffer acc
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_row_strm</span>
     <span class="p">)</span>
 </pre>
-<p>scan 2 columns from DDR/HBM buffers.</p>
+<p>Scan 2 columns from DDR/HBM buffers.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -4325,7 +4326,7 @@ primitive, which offers smaller utilization, and requires no external buffer acc
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_row_strm</span>
     <span class="p">)</span>
 </pre>
-<p>scan 3 columns from DDR/HBM buffers.</p>
+<p>Scan 3 columns from DDR/HBM buffers.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -4402,7 +4403,7 @@ primitive, which offers smaller utilization, and requires no external buffer acc
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_row_strm</span>
     <span class="p">)</span>
 </pre>
-<p>scan 4 columns from DDR/HBM buffers.</p>
+<p>Scan 4 columns from DDR/HBM buffers.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -4491,7 +4492,7 @@ primitive, which offers smaller utilization, and requires no external buffer acc
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_row_strm</span>
     <span class="p">)</span>
 </pre>
-<p>scan 5 columns from DDR/HBM buffers.</p>
+<p>Scan 5 columns from DDR/HBM buffers.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -4592,7 +4593,7 @@ primitive, which offers smaller utilization, and requires no external buffer acc
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_row_strm</span>
     <span class="p">)</span>
 </pre>
-<p>scan 6 columns from DDR/HBM buffers.</p>
+<p>Scan 6 columns from DDR/HBM buffers.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -4688,7 +4689,7 @@ primitive, which offers smaller utilization, and requires no external buffer acc
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">e_row_strm</span> <span class="p">[</span><span class="n">ch_num</span><span class="p">]</span>
     <span class="p">)</span>
 </pre>
-<p>scan one column from DDR/HBM buffers, emit multiple rows concurrently.</p>
+<p>Scan one column from DDR/HBM buffers, emit multiple rows concurrently.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -4745,7 +4746,7 @@ primitive, which offers smaller utilization, and requires no external buffer acc
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">e_row_strm</span> <span class="p">[</span><span class="n">ch_num</span><span class="p">]</span>
     <span class="p">)</span>
 </pre>
-<p>scan two columns from DDR/HBM buffers, emit multiple rows concurrently.</p>
+<p>Scan two columns from DDR/HBM buffers, emit multiple rows concurrently.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -4814,7 +4815,7 @@ primitive, which offers smaller utilization, and requires no external buffer acc
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">e_row_strm</span> <span class="p">[</span><span class="n">ch_num</span><span class="p">]</span>
     <span class="p">)</span>
 </pre>
-<p>scan three columns from DDR/HBM buffers, emit multiple rows concurrently.</p>
+<p>Scan three columns from DDR/HBM buffers, emit multiple rows concurrently.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -5212,7 +5213,7 @@ primitive, which offers smaller utilization, and requires no external buffer acc
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_out_strm</span>
     <span class="p">)</span>
 </pre>
-<p>one stream input static evaluation</p>
+<p>One stream input static evaluation.</p>
 <p>static_eval function calculates the experssion result that user defined. This result will be passed to aggregate module as the input. When calling this API, the <code class="docutils literal notranslate"><span class="pre">T</span></code> <code class="docutils literal notranslate"><span class="pre">T_O</span></code> are the input/output data types for each parameter of user code. E.g.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">decl</span>
 <span class="n">long</span> <span class="n">user_func</span><span class="p">(</span><span class="nb">int</span> <span class="n">a</span><span class="p">);</span>
@@ -5221,7 +5222,7 @@ primitive, which offers smaller utilization, and requires no external buffer acc
   <span class="n">in1_strm</span><span class="p">,</span> <span class="n">e_in_strm</span><span class="p">,</span> <span class="n">out_strm</span><span class="p">,</span> <span class="n">e_out_strm</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>in the above call, <code class="docutils literal notranslate"><span class="pre">int</span></code> is the data type of input of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> , and <code class="docutils literal notranslate"><span class="pre">long</span></code> is the return type of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> .</p>
+<p>In the above call, <code class="docutils literal notranslate"><span class="pre">int</span></code> is the data type of input of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> , and <code class="docutils literal notranslate"><span class="pre">long</span></code> is the return type of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> .</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -5273,7 +5274,7 @@ primitive, which offers smaller utilization, and requires no external buffer acc
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_out_strm</span>
     <span class="p">)</span>
 </pre>
-<p>two stream input static evaluation</p>
+<p>Two stream input static evaluation.</p>
 <p>static_eval function calculate the experssion result that user defined. This result will be passed to aggregate module as the input. When calling this API, the <code class="docutils literal notranslate"><span class="pre">T1</span></code> <code class="docutils literal notranslate"><span class="pre">T2</span></code> <code class="docutils literal notranslate"><span class="pre">T_O</span></code> are the input/output data types for each parameter of user code. E.g.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">decl</span>
 <span class="n">long</span> <span class="n">user_func</span><span class="p">(</span><span class="nb">int</span> <span class="n">a</span><span class="p">,</span> <span class="nb">int</span> <span class="n">b</span><span class="p">);</span>
@@ -5282,7 +5283,7 @@ primitive, which offers smaller utilization, and requires no external buffer acc
   <span class="n">in1_strm</span><span class="p">,</span> <span class="n">in2_strm</span><span class="p">,</span> <span class="n">e_in_strm</span><span class="p">,</span> <span class="n">out_strm</span><span class="p">,</span> <span class="n">e_out_strm</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>in the above call, two <code class="docutils literal notranslate"><span class="pre">int</span></code> are the data type of input of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> , and <code class="docutils literal notranslate"><span class="pre">long</span></code> is the return type of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> .</p>
+<p>In the above call, two <code class="docutils literal notranslate"><span class="pre">int</span></code> are the data type of input of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> , and <code class="docutils literal notranslate"><span class="pre">long</span></code> is the return type of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> .</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -5342,7 +5343,7 @@ primitive, which offers smaller utilization, and requires no external buffer acc
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_out_strm</span>
     <span class="p">)</span>
 </pre>
-<p>three stream input static evaluation</p>
+<p>Three stream input static evaluation.</p>
 <p>static_eval function calculate the experssion result that user defined. This result will be passed to aggregate module as the input. When calling this API, the <code class="docutils literal notranslate"><span class="pre">T1</span></code> <code class="docutils literal notranslate"><span class="pre">T2</span></code> <code class="docutils literal notranslate"><span class="pre">T3</span></code> <code class="docutils literal notranslate"><span class="pre">T_O</span></code> are the input/output data types for each parameter of user code. E.g.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">decl</span>
 <span class="n">long</span> <span class="n">user_func</span><span class="p">(</span><span class="nb">int</span> <span class="n">a</span><span class="p">,</span> <span class="nb">int</span> <span class="n">b</span><span class="p">,</span> <span class="nb">int</span> <span class="n">c</span><span class="p">);</span>
@@ -5352,7 +5353,7 @@ primitive, which offers smaller utilization, and requires no external buffer acc
   <span class="n">out_strm</span><span class="p">,</span> <span class="n">e_out_strm</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>in the above call, three <code class="docutils literal notranslate"><span class="pre">int</span></code> are the data type of input of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> , and <code class="docutils literal notranslate"><span class="pre">long</span></code> is the return type of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> .</p>
+<p>In the above call, three <code class="docutils literal notranslate"><span class="pre">int</span></code> are the data type of input of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> , and <code class="docutils literal notranslate"><span class="pre">long</span></code> is the return type of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> .</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -5420,7 +5421,7 @@ primitive, which offers smaller utilization, and requires no external buffer acc
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_out_strm</span>
     <span class="p">)</span>
 </pre>
-<p>four stream input static evaluation</p>
+<p>Four stream input static evaluation.</p>
 <p>static_eval function calculate the experssion result that user defined. This result will be passed to aggregate module as the input. When calling this API, the <code class="docutils literal notranslate"><span class="pre">T1</span></code> <code class="docutils literal notranslate"><span class="pre">T2</span></code> <code class="docutils literal notranslate"><span class="pre">T3</span></code> <code class="docutils literal notranslate"><span class="pre">T_O</span></code> are the input/output data types for each parameter of user code. E.g.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">decl</span>
 <span class="n">long</span> <span class="n">user_func</span><span class="p">(</span><span class="nb">int</span> <span class="n">a</span><span class="p">,</span> <span class="nb">int</span> <span class="n">b</span><span class="p">,</span> <span class="nb">int</span> <span class="n">c</span><span class="p">,</span> <span class="nb">int</span> <span class="n">d</span><span class="p">);</span>
@@ -5430,7 +5431,7 @@ primitive, which offers smaller utilization, and requires no external buffer acc
   <span class="n">out_strm</span><span class="p">,</span> <span class="n">e_out_strm</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>in the above call, four <code class="docutils literal notranslate"><span class="pre">int</span></code> are the data type of input of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> , and <code class="docutils literal notranslate"><span class="pre">long</span></code> is the return type of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> .</p>
+<p>In the above call, four <code class="docutils literal notranslate"><span class="pre">int</span></code> are the data type of input of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> , and <code class="docutils literal notranslate"><span class="pre">long</span></code> is the return type of <code class="docutils literal notranslate"><span class="pre">user_func</span></code> .</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
