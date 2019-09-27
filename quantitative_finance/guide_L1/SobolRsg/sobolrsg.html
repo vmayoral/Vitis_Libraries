@@ -6,52 +6,124 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Sobol Sequence Generator &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
+  <title>Sobol Sequence Generator &mdash; Vitis Quantitative Finance Library v2019.2 documentation</title>
+  
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
+  
+  
+  
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
   
-    <link rel="shortcut icon" href="../../_static/xilinx-favicon.ico"/>
-  
-  
-  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Brownian Bridge Transform" href="../brownian/bb.html" />
     <link rel="prev" title="Pentadiagonal Matrix Solver" href="../Pentadiag/Pentadiag.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Quantitative Finance Library
           
 
           
@@ -61,7 +133,7 @@
             
             
               <div class="version">
-                1.0
+                2019.2
               </div>
             
           
@@ -78,6 +150,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -108,15 +181,15 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../brownian/bb.html">Brownian Bridge Transform</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../StochasticProcess/stochastic_process1d.html">StochasticProcess1D</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../StochasticProcess/ornsteinuhlenbeck_process.html">OrnsteinUhlenbeckProcess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StochasticProcess/stochastic_process1d.html">Stochastic Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StochasticProcess/ornsteinuhlenbeck_process.html">Ornstein-Uhlenbeck Process</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../fdmmesher/fdmmesher.html">Meshers</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../L1.html#l1-module-apis">L1 Module APIs</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide_L2/L2.html">L2 Kernel User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L3/L3.html">L3 Overlay User Guide</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
@@ -127,6 +200,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -165,7 +239,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../L1.html">L1 Module User Guide</a> &raquo;</li>
         
@@ -175,8 +249,6 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/guide_L1/SobolRsg/sobolrsg.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -192,56 +264,55 @@
 <h1>Sobol Sequence Generator<a class="headerlink" href="#sobol-sequence-generator" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p><cite>Sobol sequence generator(SSG)</cite> is one of important utilities needed by Monte Carlo Simulation. We provide SSG that generator determined distribution. The <cite>Sobol sequence</cite> is the most popular quasi-random sequence because of its simplicity and efficiency in implementation. Specifically, sobol sequence in base <cite>b=2</cite> ,it can be implemented efficiently using bit-vector operations to compute the radical inverse and there is only one point in the field <cite>[0,1)</cite> .</p>
+<p><cite>Sobol sequence generator (SSG)</cite> is one of the critical utilities needed by Monte-Carlo Simulation. We provide the SSG which can generate the sequence with a quasi-random distribution. The <cite>Sobol sequence</cite> is one of the most popular quasi-random sequence for its simplicity and efficiency in implementation. Specifically, sobol sequence in base <cite>b=2</cite>, it can be implemented efficiently using bit-vector operations to compute the radical inverse and there is only one point in the field <cite>[0,1)</cite> .</p>
 </div>
 <div class="section" id="algorithm">
 <h2>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this headline">¶</a></h2>
-<p><cite>Low-Discrepancy</cite> (LD) Sequence is a measure indicating how evenly a random sequence is distributed in sample space. The definition of discrepancy,</p>
+<p><cite>Low-Discrepancy</cite> (LD) Sequence is an indicator for how evenly a random sequence is distributed in sample space. The definition of discrepancy,</p>
 <div class="math notranslate nohighlight">
 \[D_{N}(P) = \underset{B \in J} {sup} \lvert \frac {A(B)}{N} - \lambda _{s}(B) \rvert\]</div>
 <p>A digital radical inverse</p>
 <div class="math notranslate nohighlight">
 \[\Phi _{b,C}(i) = (b^{-1} \cdots b^{-M}) \begin{bmatrix} C( a_{0}(i) \cdots a_{M-1}(i))^{T} \end{bmatrix}\]</div>
-<p>where <span class="math notranslate nohighlight">\(i =\sum_{l=0}^{M-1} a_{l}(i)b^{l}\)</span> , <cite>b</cite> is a nonnegative integers. Sobol sequence is a <span class="math notranslate nohighlight">\(b=2\)</span> of radical inversion and each dimensional radical inversion exists a identity matrices C.</p>
+<p>where <span class="math notranslate nohighlight">\(i =\sum_{l=0}^{M-1} a_{l}(i)b^{l}\)</span>, <span class="math notranslate nohighlight">\(b\)</span> is a non-negative integer. For each dimension of sobol sequence, it is comprised by a <span class="math notranslate nohighlight">\(b=2\)</span> radical inversion, which have a individual matrix C inside.</p>
 </div>
 <div class="section" id="gray-code-implementation">
 <h2>Gray Code Implementation<a class="headerlink" href="#gray-code-implementation" title="Permalink to this headline">¶</a></h2>
-<p>Here we give a brief outline of the details. With a generator matrix C, where the matrix-vector multiplications are performed in the finite field <span class="math notranslate nohighlight">\(Z_{b}\)</span> see <a class="reference external" href="http://web.maths.unsw.edu.au/~fkuo/sobol/">sobol reference</a>. To generate the <cite>j</cite> -th component of the points in a Sobol sequence, we need to choose a primitive polynomial of some degree <span class="math notranslate nohighlight">\(S_{j}\)</span> in the field <span class="math notranslate nohighlight">\(Z\)</span> , where <span class="math notranslate nohighlight">\(Z_{2}={0,1}\)</span> ,</p>
+<p>Here, we give a brief outline of the implementation. With a pre-calculated matrix C, where the matrix-vector multiplications are performed in the finite field <span class="math notranslate nohighlight">\(Z_{b}\)</span> see <a class="reference external" href="http://web.maths.unsw.edu.au/~fkuo/sobol/">sobol reference</a>. To generate the <cite>j</cite>-th component of the points in a Sobol sequence, we need to choose a primitive polynomial of some degree <span class="math notranslate nohighlight">\(S_{j}\)</span> in the field <span class="math notranslate nohighlight">\(Z\)</span>, where <span class="math notranslate nohighlight">\(Z_{2}={0,1}\)</span>, the equation is shown as follow:</p>
 <div class="math notranslate nohighlight">
-\[x^{S_{j}} + a_{1,j} x^{S_{j}-1} + a_{2,j} x^{S_{j}-2} + \cdots + a_{S_{j}-1,j} x^{1} + 1            (1)\]</div>
-<p>where the coefficients <span class="math notranslate nohighlight">\(a_{1,j} , a_{2,j} , \cdots , a_{S_{j}-1,j}\)</span> are either 0 or 1. We define a sequence of positive integers <span class="math notranslate nohighlight">\(\{ m_{1,j}, m_{2,j} , \cdots \}\)</span> by the recurrence relation,</p>
+\[x^{S_{j}} + a_{1,j} x^{S_{j}-1} + a_{2,j} x^{S_{j}-2} + \cdots + a_{S_{j}-1,j} x^{1} + 1\]</div>
+<p>where the coefficients <span class="math notranslate nohighlight">\(a_{1,j} , a_{2,j} , \cdots , a_{S_{j}-1,j}\)</span> are either 0 or 1. We define a sequence of positive integers <span class="math notranslate nohighlight">\(\{ m_{1,j}, m_{2,j} , \cdots \}\)</span> by the recurrence relation:</p>
 <div class="math notranslate nohighlight">
 \[m_{k,j} := 2a_{1,j} m_{k-1,j} \oplus 2^{2} a_{2,j} m_{k-2,j} \oplus \cdots \oplus \
-    2^{ S_{j}-1 } a_{S_{j}-1,j} m_{ k-S_{j} + 1, j} \oplus 2^{S_j} m_{k-S_j,j} \oplus m_{k-S_j,j},\]</div>
-<p>where <span class="math notranslate nohighlight">\(\oplus\)</span> is the bit-by-bit exclusive-or operator. The initial values <span class="math notranslate nohighlight">\(m_{1,j} , m_{2,j} , \cdots , m_{ S_{j},j}\)</span> can be chosen freely provided that each <span class="math notranslate nohighlight">\(m_{k,j} , 1 \le k \le S_{j}\)</span> , is odd and less than <span class="math notranslate nohighlight">\(2^{k}\)</span> . The so-called direction numbers <span class="math notranslate nohighlight">\(\{ \nu_{1,j}, \nu_{2,j}, \cdots \}\)</span> are defined by</p>
+    2^{ S_{j}-1 } a_{S_{j}-1,j} m_{ k-S_{j} + 1, j} \oplus 2^{S_j} m_{k-S_j,j} \oplus m_{k-S_j,j}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\oplus\)</span> is the bit-by-bit exclusive-or operator. The initial values <span class="math notranslate nohighlight">\(m_{1,j} , m_{2,j} , \cdots , m_{ S_{j},j}\)</span> can be chosen freely provided that each <span class="math notranslate nohighlight">\(m_{k,j} , 1 \le k \le S_{j}\)</span> , is odd and less than <span class="math notranslate nohighlight">\(2^{k}\)</span> . The so-called direction numbers <span class="math notranslate nohighlight">\(\{ \nu_{1,j}, \nu_{2,j}, \cdots \}\)</span> are defined by:</p>
 <div class="math notranslate nohighlight">
 \[\nu_{1,j} :=\frac { m_{k,j} } { 2^{k} }\]</div>
-<p>Then the <span class="math notranslate nohighlight">\(x_{i,j}\)</span> element of the <cite>j</cite> -th dimension of the <cite>i</cite> -th point in a Sobol sequence, can be generated by</p>
+<p>Then the <span class="math notranslate nohighlight">\(x_{i,j}\)</span> element of the <cite>j</cite>-th dimension of the <cite>i</cite>-th point in a Sobol sequence, can be generated by:</p>
 <div class="math notranslate nohighlight">
-\[x_{i,j} := i_{1} \nu_{1,j} \oplus i_{2} \nu_{2,j} \oplus \cdots \nu_{n,j}    (3)\]</div>
-<p>where <span class="math notranslate nohighlight">\(i_{k}\)</span> is the nth digit from the right when <span class="math notranslate nohighlight">\(i\)</span> is written in binary <span class="math notranslate nohighlight">\(i = ( \cdots i_{3} i_{2} i_{1} )_{2}\)</span> . Here and elsewhere in this article, we use the notation <span class="math notranslate nohighlight">\((.)_{2}\)</span> to denote the binary representation of numbers.
-The formula (3) corresponds to the original implementation of Sobol. The (binary-reflected) Gray code of an integer <span class="math notranslate nohighlight">\(i\)</span> is defined as</p>
+\[x_{i,j} := i_{1} \nu_{1,j} \oplus i_{2} \nu_{2,j} \oplus \cdots \nu_{n,j}\]</div>
+<p>where <span class="math notranslate nohighlight">\(i_{k}\)</span> is the <span class="math notranslate nohighlight">\(k\)</span>-th digit from the right-hand side when <span class="math notranslate nohighlight">\(i\)</span> is written in binary <span class="math notranslate nohighlight">\(i = ( \cdots i_{3} i_{2} i_{1} )_{2}\)</span>. Here and elsewhere in this article, we use the notation <span class="math notranslate nohighlight">\(()_{2}\)</span> to denote the binary representation of numbers.
+The formula above corresponds to the original implementation of Sobol. The (binary-reflected) Gray code of an integer <span class="math notranslate nohighlight">\(i\)</span> is defined as:</p>
 <div class="math notranslate nohighlight">
 \[gray(i) := i \oplus \lfloor \frac {i}{2} \rfloor =(\cdots i_3 i_2 i_1)_2 \oplus ( \cdots i_{4}  i_{3} i_{2})_{2}\]</div>
-<p>It has the property that the binary representations of <span class="math notranslate nohighlight">\(gray(i)\)</span> and <span class="math notranslate nohighlight">\(gray(i-1)\)</span> differ in only one position, namely, the index of the first 0 digit from the right in the binary representation of <span class="math notranslate nohighlight">\(i-1\)</span> .</p>
-<p>Instead of (3), we generate the points of Sobol using</p>
+<p>It has the property that the binary representations of <span class="math notranslate nohighlight">\(gray(i)\)</span> and <span class="math notranslate nohighlight">\(gray(i-1)\)</span> differs in only one position, namely, the index of the first 0 digit from the right in the binary representation of <span class="math notranslate nohighlight">\(i-1\)</span>.</p>
+<p>We generate the points of Sobol using</p>
 <div class="math notranslate nohighlight">
-\[\bar{x}_{i,j} := g_{i,1} \nu_{1,j} \oplus g_{i,2} \nu_{2,j} \oplus \cdots ,            (4)\]</div>
-<p>where <span class="math notranslate nohighlight">\(g_{i,k}\)</span> is the <cite>k</cite> -th digit from the right of the Gray code of <span class="math notranslate nohighlight">\(i\)</span> in binary, i.e., <span class="math notranslate nohighlight">\(gray(i) = ( \cdots g_{3} g_{2} g_{1})_{2}\)</span> . Equivalently, since <span class="math notranslate nohighlight">\(gray(i)\)</span> and <span class="math notranslate nohighlight">\(gray(i-1)\)</span> differ in one known position, we can generate the points recursively using</p>
+\[\bar{x}_{i,j} := g_{i,1} \nu_{1,j} \oplus g_{i,2} \nu_{2,j} \oplus \cdots\]</div>
+<p>where <span class="math notranslate nohighlight">\(g_{i,k}\)</span> is the <cite>k</cite>-th digit from the right of the Gray code of <span class="math notranslate nohighlight">\(i\)</span> in binary, i.e., <span class="math notranslate nohighlight">\(gray(i) = ( \cdots g_{3} g_{2} g_{1})_{2}\)</span>. Equivalently, since <span class="math notranslate nohighlight">\(gray(i)\)</span> and <span class="math notranslate nohighlight">\(gray(i-1)\)</span> differ in one known position, we can generate the points recursively using:</p>
 <div class="math notranslate nohighlight">
-\[\bar{x}_{0,j} := 0 , \bar{x}_{i,j} := \bar{x}_{i-1,j} \oplus \bar{x}_{c_{i-1},j} ,(5)\]</div>
-<p>where <span class="math notranslate nohighlight">\(c_{i}\)</span> is the index of the first 0 digit from the right in the binary representation of <span class="math notranslate nohighlight">\(i = ( \cdots i_{3} i_{2} i_{1})_{2}\)</span> . We have <span class="math notranslate nohighlight">\(c_{0}=1, c_{1}=2, c_{2}=1, c_{3}=3, c_{4}=1, c_{5}=2\)</span> , etc.</p>
-<p>With the implementation of Gray Code, we simply obtain the points in a different order, which still preserve their uniformity properties. It is because every block of <span class="math notranslate nohighlight">\(2^{m}\)</span> points for <span class="math notranslate nohighlight">\(m=0,1, \cdots\)</span> is the same as the original implementation. It is known that <span class="math notranslate nohighlight">\((4)\)</span> and <span class="math notranslate nohighlight">\((5)\)</span> can generate exactly the same sequence, and <span class="math notranslate nohighlight">\((4)\)</span> allows one to start from any position in the sequence, while <span class="math notranslate nohighlight">\((5)\)</span> is recursive and more computationally efficient.</p>
+\[\bar{x}_{0,j} := 0 , \bar{x}_{i,j} := \bar{x}_{i-1,j} \oplus \bar{x}_{c_{i-1},j}\]</div>
+<p>where <span class="math notranslate nohighlight">\(c_{i}\)</span> is the index of the first 0 digit from the right in the binary representation of <span class="math notranslate nohighlight">\(i = ( \cdots i_{3} i_{2} i_{1})_{2}\)</span>. We have <span class="math notranslate nohighlight">\(c_{0}=1, c_{1}=2, c_{2}=1, c_{3}=3, c_{4}=1, c_{5}=2\)</span>, etc.</p>
+<p>With the implementation of Gray Code, we simply obtain the points in a different order, which still preserve their uniformity properties. It is because every block of <span class="math notranslate nohighlight">\(2^{m}\)</span> points for <span class="math notranslate nohighlight">\(m=0,1, \cdots\)</span> is the same as the original implementation. It is known that the two equations closely mentioned above can generate exactly the same sequence, and the former one allows one to start from any position in the sequence, while the later one is recursive and more computationally efficient. The reference is <a class="reference external" href="https://web.maths.unsw.edu.au/~fkuo/sobol/joe-kuo-notes.pdf">equation reference</a>.</p>
 <div class="section" id="sobol-workflow">
 <h3>Sobol Workflow:<a class="headerlink" href="#sobol-workflow" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-center" id="my-figure-ssg-1d">
 <a class="reference internal image-reference" href="../../_images/ssg_1d.png"><img alt="sobol sequence generator workflow" src="../../_images/ssg_1d.png" style="width: 80%;" /></a>
 </div>
-<p>The initialization function will be processed at the beginning. Here it executes a operation for <span class="math notranslate nohighlight">\(addr=0\)</span>.</p>
 <div class="figure align-center" id="my-figure-ssg-nd">
 <a class="reference internal image-reference" href="../../_images/ssg_nd.PNG"><img alt="sobol sequence generator workflow" src="../../_images/ssg_nd.PNG" style="width: 80%;" /></a>
 </div>
-<p>The initialization function will set <span class="math notranslate nohighlight">\(addr=0\)</span> and read parameter list to initialize polynomial <span class="math notranslate nohighlight">\(m_{ S_{j},j}\)</span> . The parameter reference file <cite>new-joe-kuo-6.21201</cite> is given by <a class="reference external" href="http://web.maths.unsw.edu.au/~fkuo/sobol/">sobol reference</a> mentioned above. The parameter field correspondence are shown as follow:</p>
+<p>The initialization function will set <span class="math notranslate nohighlight">\(addr=0\)</span> and read parameter list to initialize polynomial <span class="math notranslate nohighlight">\(m_{ S_{j},j}\)</span>. The parameter reference file <cite>new-joe-kuo-6.21201</cite> is given by <a class="reference external" href="http://web.maths.unsw.edu.au/~fkuo/sobol/">sobol reference</a> mentioned above. The parameter field is shown as below:</p>
 <div class="figure align-center" id="my-figure-param">
 <a class="reference internal image-reference" href="../../_images/param.png"><img alt="bit field" src="../../_images/param.png" style="width: 80%;" /></a>
 </div>
@@ -260,21 +331,25 @@ The formula (3) corresponds to the original implementation of Sobol. The (binary
         <a href="../brownian/bb.html" class="btn btn-neutral float-right" title="Brownian Bridge Transform" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../Pentadiag/Pentadiag.html" class="btn btn-neutral" title="Pentadiagonal Matrix Solver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../Pentadiag/Pentadiag.html" class="btn btn-neutral float-left" title="Pentadiagonal Matrix Solver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -285,27 +360,16 @@ The formula (3) corresponds to the original implementation of Sobol. The (binary
   </div>
   
 
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

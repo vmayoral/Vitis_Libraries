@@ -6,51 +6,123 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Vitis Quantitative Finance Library &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
+  <title>Vitis Quantitative Finance Library &mdash; Vitis Quantitative Finance Library v2019.2 documentation</title>
+  
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
+  
+  
+  
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
   
-    <link rel="shortcut icon" href="_static/xilinx-favicon.ico"/>
-  
-  
-  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Requirements" href="overview.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="#" class="icon icon-home"> Vitis Quantitative Finance Library
+            <a href="#" class="icon icon-home" alt="Documentation Home"> Vitis Quantitative Finance Library
           
 
           
@@ -60,7 +132,7 @@
             
             
               <div class="version">
-                1.0
+                2019.2
               </div>
             
           
@@ -77,6 +149,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -95,7 +168,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide_L1/L1.html">L1 Module User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_L2/L2.html">L2 Kernel User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide_L3/L3.html">L3 Overlay User Guide</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
@@ -106,6 +179,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -144,7 +218,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
       <li>Vitis Quantitative Finance Library</li>
     
@@ -152,8 +226,6 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -168,7 +240,7 @@
   <div class="section" id="vitis-quantitative-finance-library">
 <h1>Vitis Quantitative Finance Library<a class="headerlink" href="#vitis-quantitative-finance-library" title="Permalink to this headline">¶</a></h1>
 <p>The Vitis Quantitative Finance Library is a Vitis Library aimed at providing a comprehensive FPGA acceleration library for quantitative finance.
-It is an open-source library that can be used in a variety of financial applications, such as modeling, trading, evaluation and risk management.</p>
+It is an open-sourced library that can be used in a variety of financial applications, such as modeling, trading, evaluation and risk management.</p>
 <p>The Vitis Quantitative Finance Library provides extensive APIs at three levels of abstraction:</p>
 <ul class="simple">
 <li>L1, the basic functions heavily used in higher level implementations. It includes statistical functions such as Random Number Generation (RNG), numerical methods, e.g., Monte Carlo Simulation, and linear algebra functions such as Singular Value Decomposition (SVD), and tridiagonal and pentadiagonal matrix solvers.</li>
@@ -177,59 +249,456 @@ It is an open-source library that can be used in a variety of financial applicat
 </ul>
 <div class="section" id="library-contents">
 <h2>Library Contents<a class="headerlink" href="#library-contents" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="74%" />
+<col width="21%" />
+<col width="5%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Library Class</th>
+<th class="head">Description</th>
+<th class="head">Layer</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="rst_L1/class_xf_fintech_MT19937.html#cid-xf-fintech-mt19937"><span class="std std-ref">MT19937</span></a></td>
+<td>Random number generator</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L1/class_xf_fintech_MT2203.html#cid-xf-fintech-mt2203"><span class="std std-ref">MT2203</span></a></td>
+<td>Random number generator</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L1/class_xf_fintech_MT19937IcnRng.html#cid-xf-fintech-mt19937icnrng"><span class="std std-ref">MT19937IcnRng</span></a></td>
+<td>Random number generator</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L1/class_xf_fintech_MT2203IcnRng.html#cid-xf-fintech-mt2203icnrng"><span class="std std-ref">MT2203IcnRng</span></a></td>
+<td>Random number generator</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L1/class_xf_fintech_MT19937BoxMullerNormalRng.html#cid-xf-fintech-mt19937boxmullernormalrng"><span class="std std-ref">MT19937BoxMullerNormalRng</span></a></td>
+<td>Produces a normal
+distribution from a
+uniform one</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L1/class_xf_fintech_MultiVariateNormalRng.html#cid-xf-fintech-multivariatenormalrng"><span class="std std-ref">MultiVariateNormalRng</span></a></td>
+<td>Random number generator</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L1/class_xf_fintech_SobolRsg.html#cid-xf-fintech-sobolrsg"><span class="std std-ref">SobolRsg</span></a></td>
+<td>Quasi-random number
+generator</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L1/class_xf_fintech_SobolRsg1D.html#cid-xf-fintech-sobolrsg1d"><span class="std std-ref">SobolRsg1D</span></a></td>
+<td>Quasi-random number
+generator</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L1/class_xf_fintech_BrownianBridge.html#cid-xf-fintech-brownianbridge"><span class="std std-ref">BrownianBridge</span></a></td>
+<td>Brownian bridge
+transformation using
+inverse simulation</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L1/class_xf_fintech_TrinomialTree.html#cid-xf-fintech-trinomialtree"><span class="std std-ref">TrinomialTree</span></a></td>
+<td>Lattice-based trinomial
+tree structure</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L1/class_xf_fintech_TreeLattice.html#cid-xf-fintech-treelattice"><span class="std std-ref">TreeLattice</span></a></td>
+<td>Generalized structure
+compatible with different
+models and instruments</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L1/class_xf_fintech_Fdm1dMesher.html#cid-xf-fintech-fdm1dmesher"><span class="std std-ref">Fdm1dMesher</span></a></td>
+<td>Discretization for finite
+difference method</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L1/class_xf_fintech_OrnsteinUhlenbeckProcess.html#cid-xf-fintech-ornsteinuhlenbeckprocess"><span class="std std-ref">OrnsteinUhlenbeckProcess</span></a></td>
+<td>A simple stochastic
+process</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L1/class_xf_fintech_StochasticProcess1D.html#cid-xf-fintech-stochasticprocess1d"><span class="std std-ref">StochasticProcess1D</span></a></td>
+<td>1-dimentional stochastic
+process derived by RNG</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L1/class_xf_fintech_HWModel.html#cid-xf-fintech-hwmodel"><span class="std std-ref">HWModel</span></a></td>
+<td>Hull-White model for
+tree engine</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L1/class_xf_fintech_G2Model.html#cid-xf-fintech-g2model"><span class="std std-ref">G2Model</span></a></td>
+<td>Two-additive-factor
+gaussian model for
+tree engine</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L1/class_xf_fintech_ECIRModel.html#cid-xf-fintech-ecirmodel"><span class="std std-ref">ECIRModel</span></a></td>
+<td>Extended Cox-Ingersoll-
+Ross model</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L1/class_xf_fintech_CIRModel.html#cid-xf-fintech-cirmodel"><span class="std std-ref">CIRModel</span></a></td>
+<td>Cox-Ingersoll-Ross model
+for tree engine</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L1/class_xf_fintech_VModel.html#cid-xf-fintech-vmodel"><span class="std std-ref">VModel</span></a></td>
+<td>Vasicek model for
+tree engine</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L1/class_xf_fintech_HestonModel.html#cid-xf-fintech-hestonmodel"><span class="std std-ref">HestonModel</span></a></td>
+<td>Heston process</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L1/class_xf_fintech_BKModel.html#cid-xf-fintech-bkmodel"><span class="std std-ref">BKModel</span></a></td>
+<td>Black-Karasinski model
+for tree engine</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L1/class_xf_fintech_BSModel.html#cid-xf-fintech-bsmodel"><span class="std std-ref">BSModel</span></a></td>
+<td>Black-Scholes process</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L2/class_xf_fintech_CPICapFloorEngine.html#cid-xf-fintech-cpicapfloorengine"><span class="std std-ref">CPICapFloorEngine</span></a></td>
+<td>Pricing Consumer price
+index (CPI) using
+cap/floor methods</td>
+<td>L2</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L2/class_xf_fintech_DiscountingBondEngine.html#cid-xf-fintech-discountingbondengine"><span class="std std-ref">DiscountingBondEngine</span></a></td>
+<td>Engine used to price
+discounting bond</td>
+<td>L2</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L2/class_xf_fintech_InflationCapFloorEngine.html#cid-xf-fintech-inflationcapfloorengine"><span class="std std-ref">InflationCapFloorEngine</span></a></td>
+<td>Pricing inflation using
+cap/floor methods</td>
+<td>L2</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L2/class_xf_fintech_FdHullWhiteEngine.html#cid-xf-fintech-fdhullwhiteengine"><span class="std std-ref">FdHullWhiteEngine</span></a></td>
+<td>Bermudan swaption pricing
+engine using finite-
+difference methods based
+on Hull-White model</td>
+<td>L2</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L2/class_xf_fintech_FdG2SwaptionEngine.html#cid-xf-fintech-fdg2swaptionengine"><span class="std std-ref">FdG2SwaptionEngine</span></a></td>
+<td>Bermudan swaption pricing
+engine using finite-
+difference methods based
+on two-additive-factor
+gaussian model</td>
+<td>L2</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L3/class_xf_fintech_DeviceManager.html#cid-xf-fintech-devicemanager"><span class="std std-ref">DeviceManager</span></a></td>
+<td>Used to enumerate
+available Xilinx devices</td>
+<td>L3</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L3/class_xf_fintech_Device.html#cid-xf-fintech-device"><span class="std std-ref">Device</span></a></td>
+<td>A class representing an
+individual accelerator
+card</td>
+<td>L3</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L3/class_xf_fintech_Trace.html#cid-xf-fintech-trace"><span class="std std-ref">Trace</span></a></td>
+<td>Used to control debug
+trace output</td>
+<td>L3</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="74%" />
+<col width="21%" />
+<col width="5%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Library Function</th>
+<th class="head">Description</th>
+<th class="head">Layer</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="rst_L1/namespace_xf_fintech.html#cid-xf-fintech-svd"><span class="std std-ref">svd</span></a></td>
+<td>Singular Value
+Decomposition using the
+Jacobi method</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L1/namespace_xf_fintech.html#cid-xf-fintech-mcsimulation"><span class="std std-ref">mcSimulation</span></a></td>
+<td>Monte-Carlo Framework
+implementation</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L1/namespace_xf_fintech.html#cid-xf-fintech-pentadiagcr"><span class="std std-ref">pentadiagCr</span></a></td>
+<td>Solver for pentadiagonal
+systems of equations
+using PCR</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L1/namespace_xf_fintech.html#cid-xf-fintech-boxmullertransform"><span class="std std-ref">boxMullerTransform</span></a></td>
+<td>Box-Muller transform from
+uniform random number to
+normal random number</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L1/namespace_xf_fintech.html#cid-xf-fintech-inversecumulativenormalppnd7"><span class="std std-ref">inverseCumulativeNormalPPND7</span></a></td>
+<td>Inverse Cumulative
+transform from random
+number to normal random
+number</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L1/namespace_xf_fintech.html#cid-xf-fintech-inversecumulativenormalacklam"><span class="std std-ref">inverseCumulativeNormalAcklam</span></a></td>
+<td>Inverse CumulativeNormal
+using Acklam’s
+approximation to transform
+uniform random number to
+normal random number</td>
+<td>L1</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L1/namespace_xf_fintech.html#cid-xf-fintech-trsvcore"><span class="std std-ref">trsvCore</span></a></td>
+<td>Solver for tridiagonal
+systems of equations
+using PCR</td>
+<td>L1</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-binomialtreeengine"><span class="std std-ref">binomialTreeEngine</span></a></td>
+<td>Binomial tree engine
+using CRR</td>
+<td>L2</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-cfbsmengine"><span class="std std-ref">cfBSMEngine</span></a></td>
+<td>Single option price plus
+associated Greeks</td>
+<td>L2</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-fddouglas"><span class="std std-ref">FdDouglas</span></a></td>
+<td>Top level callable
+function to perform the
+Douglas ADI method</td>
+<td>L2</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-hcfengine"><span class="std std-ref">hcfEngine</span></a></td>
+<td>Engine for Hestion
+Closed Form Solution</td>
+<td>L2</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-m76engine"><span class="std std-ref">M76Engine</span></a></td>
+<td>Engine for the Merton
+Jump Diffusion Model</td>
+<td>L2</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-mceuropeanengine"><span class="std std-ref">MCEuropeanEngine</span></a></td>
+<td>Monte-Carlo simulation of
+European-style options</td>
+<td>L2</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-mceuropeanpribypassengine"><span class="std std-ref">MCEuropeanPriBypassEngine</span></a></td>
+<td>Path pricer bypass variant</td>
+<td>L2</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-mceuropeanhestonengine"><span class="std std-ref">MCEuropeanHestonEngine</span></a></td>
+<td>Monte-Carlo simulation of
+European-style options
+using Heston model</td>
+<td>L2</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-mcmultiasseteuropeanhestonengine"><span class="std std-ref">MCmultiAssetEuropeanHestonEngine</span></a></td>
+<td>Monte-Carlo simulation of
+European-style options
+for multiple underlying
+asset</td>
+<td>L2</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-mcamericanenginepresamples"><span class="std std-ref">MCAmericanEnginePreSamples</span></a></td>
+<td>PreSample kernel: this
+kernel samples some amount
+of path and store them
+to external memory</td>
+<td>L2</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-mcamericanenginecalibrate"><span class="std std-ref">MCAmericanEngineCalibrate</span></a></td>
+<td>Calibrate kernel: this
+kernel reads the sample
+price data from external
+memory and use them to
+calculate the coefficient</td>
+<td>L2</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-mcamericanenginepricing"><span class="std std-ref">MCAmericanEnginePricing</span></a></td>
+<td>Pricing kernel</td>
+<td>L2</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-mcamericanengine"><span class="std std-ref">MCAmericanEngine</span></a></td>
+<td>Calibration process and
+pricing process all in
+one kernel</td>
+<td>L2</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-mcasiangeometricapengine"><span class="std std-ref">MCAsianGeometricAPEngine</span></a></td>
+<td>Asian Arithmetic Average
+Price Engine using Monte
+Carlo Method Based on
+Black-Scholes Model :
+geometric average version</td>
+<td>L2</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-mcasianarithmeticapengine"><span class="std std-ref">MCAsianArithmeticAPEngine</span></a></td>
+<td>arithmetic average version</td>
+<td>L2</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-mcasianarithmeticasengine"><span class="std std-ref">MCAsianArithmeticASEngine</span></a></td>
+<td>Asian Arithmetic Average
+Strike Engine using Monte
+Carlo Method Based on
+Black-Scholes Model :
+arithmetic average version</td>
+<td>L2</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-mcbarriernobiasengine"><span class="std std-ref">MCBarrierNoBiasEngine</span></a></td>
+<td>Barrier Option Pricing
+Engine using Monte Carlo
+Simulation</td>
+<td>L2</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-mcbarrierengine"><span class="std std-ref">MCBarrierEngine</span></a></td>
+<td>Barrier Option Pricing
+Engine using Monte Carlo
+Simulation</td>
+<td>L2</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-mccliquetengine"><span class="std std-ref">MCCliquetEngine</span></a></td>
+<td>Cliquet Option Pricing
+Engine using Monte Carlo
+Simulation</td>
+<td>L2</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-mcdigitalengine"><span class="std std-ref">MCDigitalEngine</span></a></td>
+<td>Digital Option Pricing
+Engine using Monte Carlo
+Simulation</td>
+<td>L2</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-mceuropeanhestongreeksengine"><span class="std std-ref">MCEuropeanHestonGreeksEngine</span></a></td>
+<td>European Option Greeks
+Calculating Engine using
+Monte Carlo Method based
+on Heston valuation model</td>
+<td>L2</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-mchullwhitecapfloorengine"><span class="std std-ref">MCHullWhiteCapFloorEngine</span></a></td>
+<td>Cap/Floor Pricing Engine
+using Monte Carlo
+Simulation</td>
+<td>L2</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-mcmccore"><span class="std std-ref">McmcCore</span></a></td>
+<td>Uses multiple Markov
+Chains to allow drawing
+samples from multi mode
+target distribution
+functions</td>
+<td>L2</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-treeswaptionengine"><span class="std std-ref">treeSwaptionEngine</span></a></td>
+<td>Tree swaption pricing
+engine using trinomial
+tree based on 1D lattice
+method</td>
+<td>L2</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-treeswaptionengine-2"><span class="std std-ref">treeSwapEngine</span></a></td>
+<td>Tree swap pricing engine
+using trinomial tree
+based on 1D lattice method</td>
+<td>L2</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-treeswapengine"><span class="std std-ref">treeCapFloprEngine</span></a></td>
+<td>Tree cap/floor engine
+using trinomial tree based
+on 1D lattice method</td>
+<td>L2</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rst_L2/namespace_xf_fintech.html#cid-xf-fintech-treeswapengine-2"><span class="std std-ref">treeCallableEngine</span></a></td>
+<td>Tree callable fixed rate
+bond pricing engine using
+trinomial tree based on
+1D lattice method</td>
+<td>L2</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="shell-environment">
 <h2>Shell Environment<a class="headerlink" href="#shell-environment" title="Permalink to this headline">¶</a></h2>
-<p>Setup the build environment using the Vitis and XRT scripts:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ source &lt;install path&gt;/Vitis/2019.2/settings64.sh
-$ source /opt/xilinx/xrt/setup.sh
-</pre></div>
-</div>
+<p>Setup the build environment using the Vitis and XRT scripts, and set the PLATFORM_REPO_PATHS to installation folder of platform files.</p>
+<pre class="highlight literal-block">
+<span></span><span class="nb">source</span> &lt;install path&gt;/Vitis/2019.2/settings64.sh
+<span class="nb">source</span> /opt/xilinx/xrt/setup.sh
+<span class="nb">export</span> <span class="nv">PLATFORM_REPO_PATHS</span><span class="o">=</span>/opt/xilinx/platforms
+</pre>
 </div>
 <div class="section" id="design-flows">
 <h2>Design Flows<a class="headerlink" href="#design-flows" title="Permalink to this headline">¶</a></h2>
-<p>Recommended design flows are categorised by the target level:</p>
+<p>Recommended design flows are categorized by the target level:</p>
 <ul class="simple">
 <li>L1</li>
 <li>L2</li>
 <li>L3</li>
 </ul>
-<p>The common tool and library prerequisites that apply across all design flows are documented in the requirements section.</p>
+<p>The common tool and library prerequisites that apply across all design flows are documented in the requirements section above.</p>
 <div class="section" id="l1">
 <h3>L1<a class="headerlink" href="#l1" title="Permalink to this headline">¶</a></h3>
 <p>L1 provides the low-level primitives used to build kernels.</p>
-<p>The recommend flow to evaluate and test L1 components uses the Vivado HLS tool. A top level C/C++ testbench (typically <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code>) prepares the input data, passes this to the design under test (typically <code class="docutils literal notranslate"><span class="pre">dut.cpp</span></code> which makes the L1 level library calls) then performs any output data post-processing and validation checks.</p>
-<p>A Makefile is used to drive this flow with available steps including <code class="docutils literal notranslate"><span class="pre">CSIM</span></code> (high level simulation), <code class="docutils literal notranslate"><span class="pre">CSYNTH</span></code> (high level synthesis to RTL) and <code class="docutils literal notranslate"><span class="pre">COSIM</span></code> (cosimulation between software testbench and generated RTL). The flow is launched from the shell by calling <code class="docutils literal notranslate"><span class="pre">make</span></code> with variables set as in the example below:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ . /opt/xilinx/xrt/setup.sh
-$ export PLATFORM_REPO_PATHS=/opt/xilinx/platforms
-$ cd L1/tests/ICD/
-$ make CSIM=1 CSYNTH=0 COSIM=0 DEVICE=xilinx_u250_xdma_201830_2 check # Only run C++ simulation
-</pre></div>
-</div>
-<p>As well as verifying functional correctness, the reports generated from this flow give an indication of logic utilisation, timing performance, latency and throughput. The output files of interest can be located at the example locations as shown below where the file names are correlated with the source code, i.e., the callable functions within the design under test.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Simulation</span> <span class="n">Log</span><span class="p">:</span> <span class="n">L1</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">ICD</span><span class="o">/</span><span class="n">prj</span><span class="o">/</span><span class="n">sol</span><span class="o">/</span><span class="n">csim</span><span class="o">/</span><span class="n">report</span><span class="o">/</span><span class="n">ICN_top_csim</span><span class="o">.</span><span class="n">log</span>
-<span class="n">Synthesis</span> <span class="n">Report</span><span class="p">:</span> <span class="n">L1</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">ICD</span><span class="o">/</span><span class="n">prj</span><span class="o">/</span><span class="n">sol</span><span class="o">/</span><span class="n">syn</span><span class="o">/</span><span class="n">report</span><span class="o">/</span><span class="n">ICN_top_csynth</span><span class="o">.</span><span class="n">rpt</span>
+<p>The recommend flow to evaluate and test L1 components is described as follows using the Vivado HLS tool. A top level C/C++ testbench (typically <cite>main.cpp</cite> or <cite>tb.cpp</cite>) prepares the input data, passes this to the design under test (typically <cite>dut.cpp</cite> which makes the L1 level library calls) then performs any output data post processing and validation checks.</p>
+<p>A Makefile is used to drive this flow with available steps including <cite>CSIM</cite> (high level simulation), <cite>CSYNTH</cite> (high level synthesis to RTL), <cite>COSIM</cite> (cosimulation between software testbench and generated RTL), VIVADO_SYN (synthesis by Vivado), and VIVADO_IMPL (implementation by Vivado). The flow is launched from the shell by calling <cite>make</cite> with variables set as in the example below:</p>
+<pre class="highlight literal-block">
+<span></span><span class="c1"># entering specific unit test project</span>
+<span class="nb">cd</span> L1/tests/specific_algorithm/
+<span class="c1"># Only run C++ simulation on U250</span>
+make run <span class="nv">CSIM</span><span class="o">=</span><span class="m">1</span> <span class="nv">CSYNTH</span><span class="o">=</span><span class="m">0</span> <span class="nv">COSIM</span><span class="o">=</span><span class="m">0</span> <span class="nv">VIVADO_SYN</span><span class="o">=</span><span class="m">0</span> <span class="nv">VIVADO_IMPL</span><span class="o">=</span><span class="m">0</span> <span class="nv">DEVICE</span><span class="o">=</span>u250_xdma_201830_1
+</pre>
+<p>As well as verifying functional correctness, the reports generated from this flow give an indication of logic utilization, timing performance, latency and throughput. The output files of interest can be located at the location examples as below where the file names are correlated with the source code. i.e. the callable functions within the design under test.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Simulation</span> <span class="n">Log</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">library_root</span><span class="o">&gt;/</span><span class="n">L1</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">bk_model</span><span class="o">/</span><span class="n">prj</span><span class="o">/</span><span class="n">solution1</span><span class="o">/</span><span class="n">csim</span><span class="o">/</span><span class="n">report</span><span class="o">/</span><span class="n">dut_csim</span><span class="o">.</span><span class="n">log</span>
+<span class="n">Synthesis</span> <span class="n">Report</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">library_root</span><span class="o">&gt;/</span><span class="n">L1</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">bk_model</span><span class="o">/</span><span class="n">prj</span><span class="o">/</span><span class="n">solution1</span><span class="o">/</span><span class="n">syn</span><span class="o">/</span><span class="n">report</span><span class="o">/</span><span class="n">dut_csynth</span><span class="o">.</span><span class="n">rpt</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="l2">
 <h3>L2<a class="headerlink" href="#l2" title="Permalink to this headline">¶</a></h3>
 <p>L2 provides the pricing engine APIs presented as kernels.</p>
-<p>The available flow for L2 based around the SDAccel tool facilitates the generation and packaging of pricing engine kernels along with the required host application for configuration and control. In addition to supporting FPGA platform targets, emulation options are available for preliminary investigations or where dedicated access to a hardware platform may not be available. Two emulation options are available, software emulation which performs a high level simulation of the pricing engine and hardware emulation which performs a cycle accurate simulation of the generated RTL for the kernel. This flow is makefile driven from the console where the target is selected as a command line parameter as in the examples below:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd L2/tests/McEuropeanEngine
+<p>The available flow for L2 based around the Vitis tool facilitates the generation and packaging of pricing engine kernels along with the required host application for configuration and control. In addition to supporting FPGA platform targets, emulation options are available for preliminary investigations or where dedicated access to a hardware platform may not be available. Two emulation options are available, software emulation performs a high level simulation of the pricing engine while hardware emulation performs a cycle-accurate simulation of the generated RTL for the kernel. This flow is makefile driven from the console where the target is selected as a command line parameter as in the examples below:</p>
+<pre class="highlight literal-block">
+<span></span><span class="nb">cd</span> L2/tests/GarmanKohlhagenEngine
 
-# run one of the following, software emulation, hardware    emulation or actual deployment on physical platform
-$ make run_sw_emu DEVICE=xilinx_u250_xdma_201830_2
-$ make run_hw_emu DEVICE=xilinx_u250_xdma_201830_2
-$ make run_hw DEVICE=xilinx_u250_xdma_201830_2
+<span class="c1"># build and run one of the following using U250 platform</span>
 
-# after a hardware system build has been completed, execution  can be repeated by running the host executable and passing it   the xclbin as an argument
-$ bin_xilinx_u250_xdma_201830_2/test.exe -mode fpga -xclbin xclbin_xilinx_u250_xdma_201830_2_sw_emu/kernel_mcae.xclbin
-</pre></div>
-</div>
-<p>The outputs of this flow are packaged kernel binaries (xclbin files) that can be downloaded to the FPGA platform, and host executables to configure and co-ordinate data transfers. The output files of interest can be located at the example locations as shown below where the file names are correlated with the source code.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Host</span> <span class="n">Executable</span><span class="p">:</span> <span class="n">L2</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">McEuropeanEngine</span><span class="o">/</span><span class="n">bin_xilinx_u250_xdma_201830_2</span><span class="o">/</span><span class="n">test</span><span class="o">.</span><span class="n">exe</span>
-<span class="n">Kernel</span> <span class="n">Packaged</span> <span class="n">Binary</span><span class="p">:</span> <span class="n">L2</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">McEuropeanEngine</span><span class="o">/</span><span class="n">xclbin_xilinx_u250_xdma_201830_2_sw_emu</span><span class="o">/</span><span class="n">kernel_mcae</span><span class="o">.</span><span class="n">xclbin</span>
+<span class="c1">#  * software emulation</span>
+make run <span class="nv">TARGET</span><span class="o">=</span>sw_emu <span class="nv">DEVICE</span><span class="o">=</span>u250_xdma_201830_1
+<span class="c1">#  * hardware emulation</span>
+make run <span class="nv">TARGET</span><span class="o">=</span>hw_emu <span class="nv">DEVICE</span><span class="o">=</span>u250_xdma_201830_1
+<span class="c1">#  * actual deployment on physical platform</span>
+make run <span class="nv">TARET</span><span class="o">=</span>hw <span class="nv">DEVICE</span><span class="o">=</span>u250_xdma_201830_1
+
+<span class="c1"># delete all xclbin and host binary</span>
+make cleanall
+</pre>
+<p>The outputs of this flow are packaged kernel binaries (xclbin files) that can be downloaded to the FPGA platform and host executables to configure and co-ordinate data transfers. The output files of interest can be located at the locations examples as below where the file names are correlated with the source code.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Host</span> <span class="n">Executable</span><span class="p">:</span> <span class="n">L2</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">GarmanKohlhagenEngine</span><span class="o">/</span><span class="n">bin_</span><span class="c1">#DEVICE/gk_test.exe</span>
+<span class="n">Kernel</span> <span class="n">Packaged</span> <span class="n">Binary</span><span class="p">:</span> <span class="n">L2</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">GarmanKohlhagenEngine</span><span class="o">/</span><span class="n">xclbin_</span><span class="c1">#DEVICE_#TARGET/gk_kernel.xclbin #ARGS</span>
 </pre></div>
 </div>
 <p>This flow can be used to verify functional correctness in hardware and enable real world performance to be measured.</p>
@@ -239,26 +708,26 @@ $ bin_xilinx_u250_xdma_201830_2/test.exe -mode fpga -xclbin xclbin_xilinx_u250_x
 <p>L3 provides the high level software APIs to deploy and run pricing engine kernels whilst abstracting the low level details of data transfer, kernel related resources configuration, and task scheduling.</p>
 <p>The flow for L3 is the only one where access to an FPGA platform is required.</p>
 <p>A prerequisite of this flow is that the packaged pricing engine kernel binaries (xclbin files) for the target FPGA platform target have been made available for download or have been custom built using the L2 flow described above.</p>
-<p>This flow is makefile driven from the console to initially generate a shared object (<code class="docutils literal notranslate"><span class="pre">L3/src/output/libxilinxfintech.so</span></code>):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd L3/src
-$ source env.sh
-$ make
-</pre></div>
-</div>
+<p>This flow is makefile driven from the console to initially generate a shared object (<code class="docutils literal notranslate"><span class="pre">L3/src/output/libxilinxfintech.so</span></code>).</p>
+<pre class="highlight literal-block">
+<span></span><span class="nb">cd</span> L3/src
+<span class="nb">source</span> env.sh
+make
+</pre>
 <p>The shared object file is written to the example location as shown below:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Library</span><span class="p">:</span> <span class="n">L3</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">libxilinxfintech</span><span class="o">.</span><span class="n">so</span>
 </pre></div>
 </div>
-<p>User applications can subsequently be built against this library as in the example provided:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd L3/examples/MonteCarlo
-$ make all
-$ cd output
+<p>User applications can subsequently be built against this library as in the example provided</p>
+<pre class="highlight literal-block">
+<span></span><span class="nb">cd</span> L3/examples/MonteCarlo
+make all
+<span class="nb">cd</span> output
 
-# manual step to copy or create symlinks to xclbin files in current directory
+<span class="c1"># manual step to copy or create symlinks to xclbin files in current directory</span>
 
-$ ./mc_example
-</pre></div>
-</div>
+./mc_example
+</pre>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -284,7 +753,7 @@ $ ./mc_example
 <li class="toctree-l2"><a class="reference internal" href="guide_L1/L1.html#l1-module-apis">L1 Module APIs</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L2/L2.html">L2 Kernel User Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="guide_L2/overview.html">Pricing Engine Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide_L2/kernel_design.html">Pricing Engine Kernel Design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide_L2/kernel_api.html">Pricing Engine Kernel APIs</a></li>
@@ -328,14 +797,18 @@ $ ./mc_example
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -346,27 +819,16 @@ $ ./mc_example
   </div>
   
 
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

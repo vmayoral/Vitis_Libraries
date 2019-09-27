@@ -7,50 +7,122 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Index &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
+  <title>Index &mdash; Vitis Quantitative Finance Library v2019.2 documentation</title>
+  
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
+  
+  
+  
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
   
-    <link rel="shortcut icon" href="_static/xilinx-favicon.ico"/>
-  
-  
-  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="index.html" class="icon icon-home"> Vitis Quantitative Finance Library
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Vitis Quantitative Finance Library
           
 
           
@@ -60,7 +132,7 @@
             
             
               <div class="version">
-                1.0
+                2019.2
               </div>
             
           
@@ -77,6 +149,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -95,7 +168,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide_L1/L1.html">L1 Module User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_L2/L2.html">L2 Kernel User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide_L3/L3.html">L3 Overlay User Guide</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
@@ -106,6 +179,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -144,7 +218,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Index</li>
     
@@ -170,6 +244,10 @@
  <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
  | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#N"><strong>N</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#Q"><strong>Q</strong></a>
  | <a href="#R"><strong>R</strong></a>
@@ -180,6 +258,15 @@
 </div>
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    blas
+
+      <ul>
+        <li><a href="rst_L1/namespace_xf_fintech_blas.html#index-0">namespace</a>
+</li>
+      </ul></li>
+  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     Bug List
@@ -467,6 +554,79 @@
 </li>
       </ul></li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    enums
+
+      <ul>
+        <li><a href="rst_L1/namespace_xf_fintech_enums.html#index-0">namespace</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    fintech
+
+      <ul>
+        <li><a href="rst_L1/namespace_xf_fintech.html#index-0">namespace</a>, <a href="rst_L2/namespace_xf_fintech.html#index-0">[1]</a>, <a href="rst_L3/namespace_xf_fintech.html#index-0">[2]</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    hestonfd
+
+      <ul>
+        <li><a href="rst_L3/namespace_xf_fintech_hestonfd.html#index-0">namespace</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    internal
+
+      <ul>
+        <li><a href="rst_L1/namespace_xf_fintech_internal.html#index-0">namespace</a>, <a href="rst_L2/namespace_xf_fintech_internal.html#index-0">[1]</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    namespace
+
+      <ul>
+        <li><a href="rst_L1/namespace_xf_fintech_blas.html#index-0">blas</a>
+</li>
+        <li><a href="rst_L1/namespace_xf_fintech_enums.html#index-0">enums</a>
+</li>
+        <li><a href="rst_L1/namespace_xf_fintech.html#index-0">fintech</a>, <a href="rst_L2/namespace_xf_fintech.html#index-0">[1]</a>, <a href="rst_L3/namespace_xf_fintech.html#index-0">[2]</a>
+</li>
+        <li><a href="rst_L3/namespace_xf_fintech_hestonfd.html#index-0">hestonfd</a>
+</li>
+        <li><a href="rst_L1/namespace_xf_fintech_internal.html#index-0">internal</a>, <a href="rst_L2/namespace_xf_fintech_internal.html#index-0">[1]</a>
+</li>
+        <li><a href="rst_L1/namespace_std.html#index-0">std</a>, <a href="rst_L2/namespace_std.html#index-0">[1]</a>, <a href="rst_L3/namespace_std.html#index-0">[2]</a>
+</li>
+        <li><a href="rst_L1/namespace_xf.html#index-0">xf</a>, <a href="rst_L2/namespace_xf.html#index-0">[1]</a>, <a href="rst_L3/namespace_xf.html#index-0">[2]</a>
+</li>
+      </ul></li>
+  </ul></td>
 </tr></table>
 
 <h2 id="P">P</h2>
@@ -478,7 +638,7 @@
       <ul>
         <li><a href="rst_L1/page_bug.html#index-0">Bug List</a>
 </li>
-        <li><a href="rst_L1/page_md__wrk_xcohdnobkup5_zhenhong_xf_fintech_L1_include_xf_fintech_README.html#index-0">README</a>
+        <li><a href="rst_L1/page_md__wrk_xcohdnobkup5_zhenhong_xf_fintech_2_L1_include_xf_fintech_README.html#index-0">README</a>
 </li>
       </ul></li>
   </ul></td>
@@ -504,7 +664,7 @@
     README
 
       <ul>
-        <li><a href="rst_L1/page_md__wrk_xcohdnobkup5_zhenhong_xf_fintech_L1_include_xf_fintech_README.html#index-0">page</a>
+        <li><a href="rst_L1/page_md__wrk_xcohdnobkup5_zhenhong_xf_fintech_2_L1_include_xf_fintech_README.html#index-0">page</a>
 </li>
       </ul></li>
   </ul></td>
@@ -513,6 +673,13 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    std
+
+      <ul>
+        <li><a href="rst_L1/namespace_std.html#index-0">namespace</a>, <a href="rst_L2/namespace_std.html#index-0">[1]</a>, <a href="rst_L3/namespace_std.html#index-0">[2]</a>
+</li>
+      </ul></li>
       <li>
     struct
 
@@ -563,6 +730,13 @@
 <h2 id="X">X</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    xf
+
+      <ul>
+        <li><a href="rst_L1/namespace_xf.html#index-0">namespace</a>, <a href="rst_L2/namespace_xf.html#index-0">[1]</a>, <a href="rst_L3/namespace_xf.html#index-0">[2]</a>
+</li>
+      </ul></li>
       <li>
     xf::fintech::BinomialTree
 
@@ -1053,6 +1227,8 @@
         <li><a href="rst_L2/struct_xf_fintech_internal_complex_num.html#index-0">struct</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     xf::fintech::internal::CORRAND
 
@@ -1060,8 +1236,6 @@
         <li><a href="rst_L1/class_xf_fintech_internal_CORRAND.html#index-0">class</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     xf::fintech::internal::CORRAND_2
 
@@ -1565,14 +1739,18 @@
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -1583,27 +1761,16 @@
   </div>
   
 
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

@@ -6,52 +6,124 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Black-Scholes Model &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
+  <title>Black-Scholes Model &mdash; Vitis Quantitative Finance Library v2019.2 documentation</title>
+  
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
+  
+  
+  
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
-    <link rel="shortcut icon" href="../_static/xilinx-favicon.ico"/>
-  
-  
-  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Heston Model" href="HT.html" />
     <link rel="prev" title="Pricing Models and Numerical Methods" href="../models_and_methods.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Quantitative Finance Library
           
 
           
@@ -61,7 +133,7 @@
             
             
               <div class="version">
-                1.0
+                2019.2
               </div>
             
           
@@ -78,6 +150,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -115,7 +188,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L1/L1.html">L1 Module User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/L2.html">L2 Kernel User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L3/L3.html">L3 Overlay User Guide</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
@@ -126,6 +199,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -164,7 +238,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../models_and_methods.html">Pricing Models and Numerical Methods</a> &raquo;</li>
         
@@ -174,8 +248,6 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/models/BS.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -191,8 +263,7 @@
 <span id="black-scholes"></span><h1>Black-Scholes Model<a class="headerlink" href="#black-scholes-model" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>The Black-Scholes Model is a mathematical model for the dynamics of a financial market containing the
-deviation investment instrument (from viki).</p>
+<p>The Black-Scholes Model is a mathematical model for the dynamics of a financial market containing derivative investment instruments (from wikipedia).</p>
 <p>This section explains the stochastic differential equation (stock price process) in continue form and in discrete form (used as stock price process).
 They are core part for option pricing.</p>
 </div>
@@ -201,8 +272,8 @@ They are core part for option pricing.</p>
 <p>The Continue form of Black-Scholes is:</p>
 <div class="math notranslate nohighlight">
 \[dS_t = \mu S_t dt + \sigma S_t dz\]</div>
-<p>where <span class="math notranslate nohighlight">\(S_t\)</span> is the stock price at time t. <span class="math notranslate nohighlight">\(\mu\)</span> is the stock’s expected rate of return. <span class="math notranslate nohighlight">\(\sigma\)</span> is the volatility of the stock price.
-The random variable <span class="math notranslate nohighlight">\(z\)</span> follows Winear process, i.e. <span class="math notranslate nohighlight">\(z\)</span> satisfies the follows the equation.</p>
+<p>where <span class="math notranslate nohighlight">\(S_t\)</span> is the stock price at time <span class="math notranslate nohighlight">\(t\)</span>. <span class="math notranslate nohighlight">\(\mu\)</span> is the stock’s expected rate of return. <span class="math notranslate nohighlight">\(\sigma\)</span> is the volatility of the stock price.
+The random variable <span class="math notranslate nohighlight">\(z\)</span> follows Winear process, i.e. <span class="math notranslate nohighlight">\(z\)</span> satisfies the following equation.</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li>The change of <span class="math notranslate nohighlight">\(\Delta z\)</span> during a sample period of time <span class="math notranslate nohighlight">\(\Delta t\)</span> is <span class="math notranslate nohighlight">\(\Delta z = \epsilon \sqrt{\Delta t}\)</span>, where <span class="math notranslate nohighlight">\(\epsilon\)</span> has a standardized normal distribution <span class="math notranslate nohighlight">\(\phi(0,1)\)</span>.</li>
@@ -250,11 +321,11 @@ i.e. the mean of <span class="math notranslate nohighlight">\(\frac{\Delta S_t}{
 <p>Its equivalent form is:</p>
 <div class="math notranslate nohighlight">
 \[S(t+\Delta t) = S(t)\exp [(\mu - \frac{\sigma^2}{2})\Delta t + \sigma \epsilon \sqrt{\Delta t}]\]</div>
-<p>Above formula is used to generate the path for <span class="math notranslate nohighlight">\(S\)</span>. In order to optimize the multiplication of <span class="math notranslate nohighlight">\(S\)</span> with adder operator in path pricer, in our implementation, the B-S path generator
+<p>The formula above is used to generate the path for <span class="math notranslate nohighlight">\(S\)</span>. In order to optimize the multiplication of <span class="math notranslate nohighlight">\(S\)</span> with adder operator in path pricer, in our implementation, the B-S path generator
 will fetch the normal random number <span class="math notranslate nohighlight">\(\epsilon\)</span> from RNG sequence and output the <span class="math notranslate nohighlight">\(\ln S\)</span> to path pricer.</p>
 <a class="reference internal image-reference" href="../_images/bs_1.PNG"><img alt="impl of BS" class="align-center" src="../_images/bs_1.PNG" style="width: 80%;" /></a>
-<p>Because there is accumulation of <span class="math notranslate nohighlight">\(\ln S\)</span>, the II could not be 1. Here, change order between paths and steps. Because the input random number are totally independent, the change of order will not affect
-the accurate of result. The pseudo-code is as follows.</p>
+<p>Because there is accumulation of <span class="math notranslate nohighlight">\(\ln S\)</span>, the initiation interval (II) cannot achieve 1. Here, change order between paths and steps. Because the input random number are totally independent,
+the change of order will not affect the accurate of the result. The pseudo-code is shown as follows.</p>
 <a class="reference internal image-reference" href="../_images/bs.PNG"><img alt="Optimization of Algorithm" class="align-center" src="../_images/bs.PNG" style="width: 80%;" /></a>
 </div>
 </div>
@@ -271,21 +342,25 @@ the accurate of result. The pseudo-code is as follows.</p>
         <a href="HT.html" class="btn btn-neutral float-right" title="Heston Model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../models_and_methods.html" class="btn btn-neutral" title="Pricing Models and Numerical Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../models_and_methods.html" class="btn btn-neutral float-left" title="Pricing Models and Numerical Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -296,27 +371,16 @@ the accurate of result. The pseudo-code is as follows.</p>
   </div>
   
 
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

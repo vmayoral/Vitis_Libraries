@@ -6,52 +6,124 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Brownian Bridge Transform &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
+  <title>Brownian Bridge Transform &mdash; Vitis Quantitative Finance Library v2019.2 documentation</title>
+  
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
+  
+  
+  
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
   
-    <link rel="shortcut icon" href="../../_static/xilinx-favicon.ico"/>
-  
-  
-  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="StochasticProcess1D" href="../StochasticProcess/stochastic_process1d.html" />
+    <link rel="next" title="Stochastic Process" href="../StochasticProcess/stochastic_process1d.html" />
     <link rel="prev" title="Sobol Sequence Generator" href="../SobolRsg/sobolrsg.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Quantitative Finance Library
           
 
           
@@ -61,7 +133,7 @@
             
             
               <div class="version">
-                1.0
+                2019.2
               </div>
             
           
@@ -78,6 +150,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -107,15 +180,15 @@
 <li class="toctree-l4"><a class="reference internal" href="#implementation">Implementation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../StochasticProcess/stochastic_process1d.html">StochasticProcess1D</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../StochasticProcess/ornsteinuhlenbeck_process.html">OrnsteinUhlenbeckProcess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StochasticProcess/stochastic_process1d.html">Stochastic Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StochasticProcess/ornsteinuhlenbeck_process.html">Ornstein-Uhlenbeck Process</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../fdmmesher/fdmmesher.html">Meshers</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../L1.html#l1-module-apis">L1 Module APIs</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../guide_L2/L2.html">L2 Pricing Engine Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide_L2/L2.html">L2 Kernel User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L3/L3.html">L3 Overlay User Guide</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
@@ -126,6 +199,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -164,7 +238,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../L1.html">L1 Module User Guide</a> &raquo;</li>
         
@@ -174,8 +248,6 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/guide_L1/brownian/bb.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -195,7 +267,7 @@
 <div class="math notranslate nohighlight">
 \[B_{t} := (W_{t} | W_{T} = 0), t \in [0, T]\]</div>
 <p>Generally, a Brownian bridge can be defined as:</p>
-<p>Suppose <span class="math notranslate nohighlight">\(\{W_{t}\}_{t \in [0,T]}\)</span> is a 1-dimensional Brownian motion,:math:<cite>a, b in mathbb{R}</cite>, then the process</p>
+<p>Suppose <span class="math notranslate nohighlight">\(\{W_{t}\}_{t \in [0,T]}\)</span> is an 1-dimensional Brownian motion, <span class="math notranslate nohighlight">\(a, b \in \mathbb{R}\)</span>, then the process</p>
 <div class="math notranslate nohighlight">
 \[B^{a,b}_{t} = a\dfrac{T-t}{T} + b\dfrac{t}{T} + (W_{t} - \dfrac{t}{T}W_{T}), t \in [0, T]\]</div>
 <p>is a Brownian bridge from <span class="math notranslate nohighlight">\(a\)</span> to <span class="math notranslate nohighlight">\(b\)</span>.</p>
@@ -205,7 +277,7 @@
 <p>where <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> is normal probability distribution.</p>
 <div class="section" id="theory">
 <h3>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">¶</a></h3>
-<p>Suppose <span class="math notranslate nohighlight">\(W\)</span> is a 1-dimensional Brownian motion, <span class="math notranslate nohighlight">\(a,b \in \mathbb{R}, 0 &lt; s &lt; t &lt; u\)</span>, then with known <span class="math notranslate nohighlight">\((W_{u}, W_{s})\)</span>, the conditional probability distribution is as follows:</p>
+<p>Suppose <span class="math notranslate nohighlight">\(W\)</span> is an 1-dimensional Brownian motion, <span class="math notranslate nohighlight">\(a,b \in \mathbb{R}, 0 &lt; s &lt; t &lt; u\)</span>, then with known <span class="math notranslate nohighlight">\((W_{u}, W_{s})\)</span>, the conditional probability distribution is as follows:</p>
 <div class="math notranslate nohighlight">
 \[W_{t} | (W_{u}=b, W_{s}=a) \sim \mathcal N (\dfrac{(u-t)a+(t-s)b}{u-s},\dfrac{(u-t)(t-s)}{u-s})\]</div>
 <p>The backward simulation method for Brownian bridge is to generate a sequence between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. Suppose we have constructed <span class="math notranslate nohighlight">\(k\)</span> points <span class="math notranslate nohighlight">\(W_{0}, W_{t_{1}}, ..., W_{t_{k-2}}, W_{T}\)</span>, we want to generate another point at time <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(t_{i} &lt; s &lt; t_{i+1}\)</span>. According to Markov and independent increments property of Brownian motion, we have</p>
@@ -217,7 +289,7 @@
 </div>
 <div class="section" id="generation-algorithm">
 <h3>Generation Algorithm<a class="headerlink" href="#generation-algorithm" title="Permalink to this headline">¶</a></h3>
-<p>We can design an algorithms for generating Brownian bridge according to the theory above. The backward generation algorithm for Brownian bridge is to generate a sequence between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. A practical strategy is called binary partitioning on <span class="math notranslate nohighlight">\([0, T]\)</span>. It is based on a procedure of gradually reducing the grid size to half. Specifically, we start from <span class="math notranslate nohighlight">\(T\)</span> (level 0), then <span class="math notranslate nohighlight">\(T/4, 3T/4\)</span>, then <span class="math notranslate nohighlight">\(T/8, 3T/8, 5T/8, 7T/8\)</span>, etc.</p>
+<p>We can design an algorithm for generating Brownian bridge according to the theory above. The backward generation algorithm for Brownian bridge is to generate a sequence between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. A practical strategy is called binary partitioning on <span class="math notranslate nohighlight">\([0, T]\)</span>. It is based on a procedure of gradually reducing the grid size to half. Specifically, we start from <span class="math notranslate nohighlight">\(T\)</span> (level 0), then <span class="math notranslate nohighlight">\(T/4, 3T/4\)</span>, then <span class="math notranslate nohighlight">\(T/8, 3T/8, 5T/8, 7T/8\)</span>, etc.</p>
 <p>The detailed algorithm:</p>
 <p>Input: a sequence of random variate <span class="math notranslate nohighlight">\(Z\)</span> with standardized normal distribution and length <span class="math notranslate nohighlight">\(N=2^{K}\)</span></p>
 <p>Output: a Brownian bridge sequence <span class="math notranslate nohighlight">\(W\)</span> in time range <span class="math notranslate nohighlight">\([0,T]\)</span> and length <span class="math notranslate nohighlight">\(N\)</span></p>
@@ -260,11 +332,11 @@
 </div>
 <div class="section" id="implementation">
 <h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
-<p>The transform function in class <cite>BrownianBridge</cite> transform a input sequence with number <cite>size</cite> to a output sequence. The output data applies to Brownian bridge process.
-Based on the algorithm, each point in output sequence is generated by previous calculated point. That is to say, each loop dependents on the output of previous loop.
-To solve the dependency, we divide the loop into 7 round. The loop body only depends on previous round, and the loop in each round has no dependence so that the II could achieve
-to 1.</p>
-<p>The details steps of our implementation is as follows:</p>
+<p>The transform function in class <cite>BrownianBridge</cite> transform an input sequence with number <cite>size</cite> to an output sequence. The output data applies to Brownian bridge process.
+Based on the algorithm, each point in output sequence is generated by previously calculated point. That is to say, each loop dependents on the output of previous loop.
+To eliminate the loop-carried dependency, we divide the loop into 7 rounds. The loop body only depends on previous round, and the loop in each round has no dependence so that the initiation interval (II) could achieve
+1.</p>
+<p>The detailed steps of our implementation is as follows:</p>
 <ol class="arabic simple">
 <li>Init: calculate the value of begin and end point.</li>
 <li>Round-1: divide the sequence into two parts, calculate value of the mid-point. Now the number of sub-sequence is 2.</li>
@@ -272,12 +344,12 @@ to 1.</p>
 <li>Round-3: divide each sub-sequence into two parts, calculate the value of mid-point. Then total number of sub-sequence is 8.</li>
 <li><span class="math notranslate nohighlight">\(\ldots\ldots\)</span></li>
 <li>Round-6: divide each sub-sequence into two parts, calculate the value of mid-point. Then total number of sub-sequence is 64.</li>
-<li>Round-7: in this round, the distance of each dependence is greater than the loop latency. So the II could achieve 1.</li>
+<li>Round-7: in this round, the distance of each dependency is greater than the loop latency. So the II could achieve 1.</li>
 </ol>
 <p>A more discrete description is provided by the following figures.
 In each round, the order of generated data is from left to right.</p>
 <a class="reference internal image-reference" href="../../_images/bb_div.PNG"><img alt="order of generated data" class="align-center" src="../../_images/bb_div.PNG" style="width: 80%;" /></a>
-<p>Each round shares the same hardware logic named trans_body. It gets begin and end value from the result buffer, then aggregate it with left_weight and right_weight to get the value of mid-point.
+<p>Each round shares the same hardware logic named trans_body. It gets begin and end value from the result buffer, then aggregate it with <cite>left_weight</cite> and <cite>right_weight</cite> to get the value of mid-point.
 It is present as follows:</p>
 <a class="reference internal image-reference" href="../../_images/bb_imp.PNG"><img alt="detailed impl" class="align-center" src="../../_images/bb_imp.PNG" style="width: 80%;" /></a>
 <div class="section" id="profiling">
@@ -353,24 +425,28 @@ It is present as follows:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../StochasticProcess/stochastic_process1d.html" class="btn btn-neutral float-right" title="StochasticProcess1D" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../StochasticProcess/stochastic_process1d.html" class="btn btn-neutral float-right" title="Stochastic Process" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../SobolRsg/sobolrsg.html" class="btn btn-neutral" title="Sobol Sequence Generator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../SobolRsg/sobolrsg.html" class="btn btn-neutral float-left" title="Sobol Sequence Generator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -381,27 +457,16 @@ It is present as follows:</p>
   </div>
   
 
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

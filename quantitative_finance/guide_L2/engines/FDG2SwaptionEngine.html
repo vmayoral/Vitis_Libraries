@@ -6,52 +6,124 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Vitis, library, Database, Quantitative Finance, Vision, Data Compression, Security, Solver, BLAS, Hardware, xfOpenCV, xfdatabase, xffintech, xfcompression, xfsecurity, xfsolver, xfblas, xfhardware"/>
+<meta name="description" content="Vitis software development platform includes an extensive set of open-source, performance-optimized libraries that offer out-of-the-box acceleration with minimal to zero-code changes to your existing applications, without the need to reimplement your algorithms from scratch to harness the benefits of Xilinx adaptive compute."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Internal Design of Finite-Difference G2 Bermudan Swaption Pricing Engine &mdash; Vitis Quantitative Finance Library 1.0 pre-alpha documentation</title>
+  <title>Internal Design of Finite-Difference G2 Bermudan Swaption Pricing Engine &mdash; Vitis Quantitative Finance Library v2019.2 documentation</title>
+  
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
+  
+  
+  
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
   
-    <link rel="shortcut icon" href="../../_static/xilinx-favicon.ico"/>
-  
-  
-  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Internal Design of Tree Bermudan Swaption Engine" href="TreeEngine.html" />
     <link rel="prev" title="Internal Design of Finite-Difference Hull-White Bermudan Swaption Pricing Engine" href="FDHullWhiteEngine.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Vitis Quantitative Finance Library
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Quantitative Finance Library
           
 
           
@@ -61,7 +133,7 @@
             
             
               <div class="version">
-                1.0
+                2019.2
               </div>
             
           
@@ -78,6 +150,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -96,7 +169,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../models_and_methods.html">Pricing Models and Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guide_L1/L1.html">L1 Module User Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../L2.html">L2 Pricing Engine Kernel User Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../L2.html">L2 Kernel User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../overview.html">Pricing Engine Overview</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../kernel_design.html">Pricing Engine Kernel Design</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="MCEuropeanEngine.html">Internal Design of MCEuropeanEngine</a></li>
@@ -145,6 +218,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -183,9 +257,9 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="../L2.html">L2 Pricing Engine Kernel User Guide</a> &raquo;</li>
+          <li><a href="../L2.html">L2 Kernel User Guide</a> &raquo;</li>
         
           <li><a href="../kernel_design.html">Pricing Engine Kernel Design</a> &raquo;</li>
         
@@ -195,8 +269,6 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/guide_L2/engines/FDG2SwaptionEngine.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -212,16 +284,16 @@
 <h1>Internal Design of Finite-Difference G2 Bermudan Swaption Pricing Engine<a class="headerlink" href="#internal-design-of-finite-difference-g2-bermudan-swaption-pricing-engine" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>The pricing engine is based on Finite-difference methods (FDM) to estimate the value of Bermudan Swaption. Here, we used the two-additive-factor gaussian G2 model instead of single-factor Hull-White model. The implemented concepts of finite-differences models are introduced in the following article <cite>Internal Design of Finite-difference Hull-White Bermudan Swaption Pricing Engine</cite>.</p>
-<p>Here, the owner is allowed to enter the swap on several pre-specified dates as well as coupon dates of the underlying swap. Notice that we evaluate the value of the swaption as a payer who pay the fixed leg and receive the floating leg of the interest rates.</p>
+<p>The pricing engine is based on Finite-difference methods (FDM) to estimate the value of Bermudan Swaption. Here, we used the two-additive-factor gaussian (G2) model instead of single-factor Hull-White model. The concept of finite-difference methods is introduced in the article <cite>Internal Design of Finite-difference Hull-White Bermudan Swaption Pricing Engine</cite>.</p>
+<p>For a swaption, the owner is allowed to enter the swap on several pre-specified dates as well as coupon dates of the underlying swap. Notice that we evaluate the value of the swaption as a payer who pay the fixed leg and receive the floating leg of the interest rates.</p>
 </div>
 <div class="section" id="implementation">
 <h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
 <p>The pricing process of Finite-Difference G2 Bermudan Swaption engine is shown in the figure below:</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../../_images/fdmg2swaptionengine.PNG"><img alt="pricing process of FdmG2SwaptionEngine" src="../../_images/fdmg2swaptionengine.PNG" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../_images/fdmg2swaptionengine.PNG"><img alt="pricing process of FdmG2SwaptionEngine" src="../../_images/fdmg2swaptionengine.PNG" style="width: 60%;" /></a>
 </div>
-<p>As we can see from the figure, the engine has three main modules: Initialization ,calculate and NPV. The former one is responsible for engine initialization: reading specific time points of the swaption from BRAM and  setting initial values. The second part is the main process that contains model initialization, meshers initialization using Ornstein-Uhlenbeck process, and builds up the derivative on x and y direction.</p>
+<p>As we can see from the figure, the engine has three main modules: Initialization, calculate and NPV. The former one is responsible for engine initialization: reading specific time points of the swaption from BRAM and setting initial values. The second part is the main process that contains model initialization, meshers initialization using Ornstein-Uhlenbeck process, and builds up the derivative on x and y dimension.</p>
 <p>The main logic of the engine is coded in the rollback method. We go backwards from a later time(maturity) to an earlier time in a given number of steps. This gives us a length <span class="math notranslate nohighlight">\(dt\)</span> for each step, which is set as the time step for the evolver. Then we start going back step by step, each time going from the current time <cite>t</cite> to the next time, <span class="math notranslate nohighlight">\(t-dt\)</span>. We have just made the step from <span class="math notranslate nohighlight">\(t_{4}\)</span> to <span class="math notranslate nohighlight">\(t_{3}\)</span> as described in the following paragraph, and it will set the control variable <cite>hit</cite> to true. It will also decrease the step size of the evolver <span class="math notranslate nohighlight">\(t_{4}-s\)</span>. It will lead to the stopping time point, immediately after performing the step. Another similar change of step would happen if there were  more than one stopping times in a single step; the code would then step from one to the other. Finally, the code will enter the hitted branch. It performs the remaining step <span class="math notranslate nohighlight">\(s-t_{3}\)</span> and then resets the step of the evolver to the default value.So the process is ready for the next regular step to <span class="math notranslate nohighlight">\(t_{2}\)</span>. Notice the last time is <span class="math notranslate nohighlight">\(stopping\_time[1]\)</span> instead of <span class="math notranslate nohighlight">\(stopping\_time[0]\)</span>.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/fdmg2swaptionenginerollback.PNG"><img alt="evolveback process of FdmG2SwaptionEngine" src="../../_images/fdmg2swaptionenginerollback.PNG" style="width: 100%;" /></a>
@@ -290,21 +362,25 @@
         <a href="TreeEngine.html" class="btn btn-neutral float-right" title="Internal Design of Tree Bermudan Swaption Engine" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="FDHullWhiteEngine.html" class="btn btn-neutral" title="Internal Design of Finite-Difference Hull-White Bermudan Swaption Pricing Engine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="FDHullWhiteEngine.html" class="btn btn-neutral float-left" title="Internal Design of Finite-Difference Hull-White Bermudan Swaption Pricing Engine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
-        &copy; Copyright 2019, Xilinx Inc.
+        
+        &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -315,27 +391,16 @@
   </div>
   
 
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
