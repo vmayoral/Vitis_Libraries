@@ -566,7 +566,7 @@ European Option Pricing Engine using Monte Carlo Method. This implementation use
     *
         - Antithetic
 
-        - anthithetic is used for variance reduction, default this feature is disabled.
+        - antithetic is used for variance reduction, default this feature is disabled.
 
     *
         - underlying
@@ -591,7 +591,7 @@ European Option Pricing Engine using Monte Carlo Method. This implementation use
     *
         - timeLength
 
-        - the time length of constract from start to end.
+        - the time length of contract from start to end.
 
     *
         - strike
@@ -616,7 +616,7 @@ European Option Pricing Engine using Monte Carlo Method. This implementation use
     *
         - requiredTolerance
 
-        - the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop, default 0.02.
+        - the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop, default 0.02.
 
     *
         - requiredSamples
@@ -709,7 +709,7 @@ path pricer bypass variant (interface compatible with standard MCEuropeanEngine)
     *
         - timeLength
 
-        - the time length of constract from start to end.
+        - the time length of contract from start to end.
 
     *
         - strike
@@ -734,7 +734,7 @@ path pricer bypass variant (interface compatible with standard MCEuropeanEngine)
     *
         - requiredTolerance
 
-        - the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop, default 0.02.
+        - the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop, default 0.02.
 
     *
         - requiredSamples
@@ -818,7 +818,7 @@ European Option Pricing Engine using Monte Carlo Method based on Heston valuatio
     *
         - Antithetic
 
-        - anthithetic is used for variance reduction, default this feature is disabled.
+        - antithetic is used for variance reduction, default this feature is disabled.
 
     *
         - underlying
@@ -888,7 +888,7 @@ European Option Pricing Engine using Monte Carlo Method based on Heston valuatio
     *
         - requiredTolerance
 
-        - the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop.
+        - the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop.
 
     *
         - requiredSamples
@@ -1048,7 +1048,7 @@ Multiple Asset European Option Pricing Engine using Monte Carlo Method based on 
     *
         - requiredTolerance
 
-        - the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop.
+        - the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop.
 
     *
         - requiredSamples
@@ -1140,7 +1140,7 @@ American Option Pricing Engine using Monte Carlo Method. PreSample kernel: this 
     *
         - timeLength
 
-        - the time length of constract from start to end.
+        - the time length of contract from start to end.
 
     *
         - strike
@@ -1235,7 +1235,7 @@ American Option Pricing Engine using Monte Carlo Method. Calibrate kernel: this 
     *
         - timeLength
 
-        - the time length of constract from start to end.
+        - the time length of contract from start to end.
 
     *
         - riskFreeRate
@@ -1354,7 +1354,7 @@ American Option Pricing Engine using Monte Carlo Method. Pricing kernel.
     *
         - timeLength
 
-        - the time length of constract from start to end.
+        - the time length of contract from start to end.
 
     *
         - strike
@@ -1384,7 +1384,7 @@ American Option Pricing Engine using Monte Carlo Method. Pricing kernel.
     *
         - requiredTolerance
 
-        - the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop, default 0.02.
+        - the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop, default 0.02.
 
     *
         - requiredSamples
@@ -1467,7 +1467,7 @@ American Option Pricing Engine using Monte Carlo Method. calibration process and
     *
         - UN_PRICING
 
-        - number of Monte Carlo Module of pricing process in parallel (in path dimension), which affects the latency and resources utilization, default 2. Three unroll numbers UN_PATH, UN_STEP and UN_PRICING are indenpendent. Each unroll number affects the execution speed of part of AmericanEngine. On-board test reveals that the pricing phase takes longest time of execution. Therefore, setting larger UN_PRICING benifits most with limited resources.
+        - number of Monte Carlo Module of pricing process in parallel (in path dimension), which affects the latency and resources utilization, default 2. Three unroll numbers UN_PATH, UN_STEP and UN_PRICING are independent. Each unroll number affects the execution speed of part of AmericanEngine. On-board test reveals that the pricing phase takes longest time of execution. Therefore, setting larger UN_PRICING benifits most with limited resources.
 
     *
         - underlying
@@ -1492,7 +1492,7 @@ American Option Pricing Engine using Monte Carlo Method. calibration process and
     *
         - timeLength
 
-        - the time length of constract from start to end.
+        - the time length of contract from start to end.
 
     *
         - strike
@@ -1527,7 +1527,7 @@ American Option Pricing Engine using Monte Carlo Method. calibration process and
     *
         - requiredTolerance
 
-        - the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop, default 0.02.
+        - the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop, default 0.02.
 
     *
         - requiredSamples
@@ -1665,7 +1665,7 @@ Asian Arithmetic Average Price Engine using Monte Carlo Method Based on Black-Sc
     *
         - maxSamples
 
-        - The maximum sample number. When reaching the it, the simulation will stop, default 2147483648.
+        - The maximum sample number. When reaching it, the simulation will stop, default 2147483648.
 
 .. _doxid-namespacexf_1_1fintech_1a37906d5a59c458515d77730c785a632d:
 .. _cid-xf::fintech::mcasianarithmeticapengine:
@@ -1783,7 +1783,7 @@ Asian Arithmetic Average Price Engine using Monte Carlo Method Based on Black-Sc
     *
         - maxSamples
 
-        - The maximum sample number. When reaching the it, the simulation will stop, default 2147483648.
+        - The maximum sample number. When reaching it, the simulation will stop, default 2147483648.
 
 .. _doxid-namespacexf_1_1fintech_1a134d13ba0ce4aff388cfefe82ef59dbb:
 .. _cid-xf::fintech::mcasianarithmeticasengine:
@@ -1886,7 +1886,7 @@ Asian Arithmetic Average Strike Engine using Monte Carlo Method Based on Black-S
     *
         - requiredTolerance
 
-        - the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop, default 0.02.
+        - the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop, default 0.02.
 
     *
         - requiredSamples
@@ -1901,7 +1901,7 @@ Asian Arithmetic Average Strike Engine using Monte Carlo Method Based on Black-S
     *
         - maxSamples
 
-        - the maximum sample number. When reaching the it, the simulation will stop, default 2,147,483,648.
+        - the maximum sample number. When reaching it, the simulation will stop, default 2,147,483,648.
 
 .. _doxid-namespacexf_1_1fintech_1a2053356d3f3c875bab6582a0ee466582:
 .. _cid-xf::fintech::mcbarriernobiasengine:
@@ -1982,7 +1982,7 @@ Barrier Option Pricing Engine using Monte Carlo Simulation. Using brownian bridg
     *
         - timeLength
 
-        - the time length of constract from start to end.
+        - the time length of contract from start to end.
 
     *
         - barrier
@@ -2017,12 +2017,12 @@ Barrier Option Pricing Engine using Monte Carlo Simulation. Using brownian bridg
     *
         - rebate
 
-        - rebate value which is paied when the option is not triggered, default 0.
+        - rebate value which is paid when the option is not triggered, default 0.
 
     *
         - requiredTolerance
 
-        - the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop, default 0.02.
+        - the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop, default 0.02.
 
     *
         - requiredSamples
@@ -2037,7 +2037,7 @@ Barrier Option Pricing Engine using Monte Carlo Simulation. Using brownian bridg
     *
         - maxSamples
 
-        - the maximum sample number. When reaching the it, the simulation will stop, default 2,147,483,648.
+        - the maximum sample number. When reaching it, the simulation will stop, default 2,147,483,648.
 
 .. _doxid-namespacexf_1_1fintech_1ad6e615ba343a9039546315bcf070a358:
 .. _cid-xf::fintech::mcbarrierengine:
@@ -2118,7 +2118,7 @@ Barrier Option Pricing Engine using Monte Carlo Simulation.
     *
         - timeLength
 
-        - the time length of constract from start to end.
+        - the time length of contract from start to end.
 
     *
         - barrier
@@ -2153,12 +2153,12 @@ Barrier Option Pricing Engine using Monte Carlo Simulation.
     *
         - rebate
 
-        - rebate value which is paied when the option is not triggered, default 0.
+        - rebate value which is paid when the option is not triggered, default 0.
 
     *
         - requiredTolerance
 
-        - the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop, default 0.02.
+        - the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop, default 0.02.
 
     *
         - requiredSamples
@@ -2173,7 +2173,7 @@ Barrier Option Pricing Engine using Monte Carlo Simulation.
     *
         - maxSamples
 
-        - the maximum sample number. When reaching the it, the simulation will stop, default 2,147,483,648.
+        - the maximum sample number. When reaching it, the simulation will stop, default 2,147,483,648.
 
 .. _doxid-namespacexf_1_1fintech_1ac52142b8d515ad1f662143a0b5ed8efd:
 .. _cid-xf::fintech::mccliquetengine:
@@ -2252,7 +2252,7 @@ Cliquet Option Pricing Engine using Monte Carlo Simulation. The B-S model used t
     *
         - timeLength
 
-        - the time length of constract from start to end.
+        - the time length of contract from start to end.
 
     *
         - strike
@@ -2282,7 +2282,7 @@ Cliquet Option Pricing Engine using Monte Carlo Simulation. The B-S model used t
     *
         - requiredTolerance
 
-        - the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop. default 0.02.
+        - the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop. default 0.02.
 
     *
         - requiredSamples
@@ -2297,7 +2297,7 @@ Cliquet Option Pricing Engine using Monte Carlo Simulation. The B-S model used t
     *
         - maxSamples
 
-        - the maximum sample number. When reaching the it, the simulation will stop, default 2,147,483,648.
+        - the maximum sample number. When reaching it, the simulation will stop, default 2,147,483,648.
 
 .. _doxid-namespacexf_1_1fintech_1a9d69a96bfebdb5a593eaa7624bbda70c:
 .. _cid-xf::fintech::mcdigitalengine:
@@ -2335,7 +2335,7 @@ Defined in <xf_fintech/mc_engine.hpp>
 	    unsigned int maxSamples = 134217727
 	    )
 
-Digital Option Pricing Engine using Monte Carlo Simulation. The B-S model is used to descirble dynamics of undelying asset price.
+Digital Option Pricing Engine using Monte Carlo Simulation. The B-S model is used to describe dynamics of undelying asset price.
 
 
 
@@ -2377,7 +2377,7 @@ Digital Option Pricing Engine using Monte Carlo Simulation. The B-S model is use
     *
         - timeLength
 
-        - the time length of constract from start to end.
+        - the time length of contract from start to end.
 
     *
         - strike
@@ -2412,7 +2412,7 @@ Digital Option Pricing Engine using Monte Carlo Simulation. The B-S model is use
     *
         - requiredTolerance
 
-        - the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop, default 0.02.
+        - the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop, default 0.02.
 
     *
         - requiredSamples
@@ -2427,7 +2427,7 @@ Digital Option Pricing Engine using Monte Carlo Simulation. The B-S model is use
     *
         - maxSamples
 
-        - the maximum sample number. When reaching the it, the simulation will stop, default 2,147,483,648.
+        - the maximum sample number. When reaching it, the simulation will stop, default 2,147,483,648.
 
 .. _doxid-namespacexf_1_1fintech_1ac918b8f101d6d8888908f95baf976a3a:
 .. _cid-xf::fintech::mceuropeanhestongreeksengine:
@@ -2560,7 +2560,7 @@ European Option Greeks Calculating Engine using Monte Carlo Method based on Hest
     *
         - requiredTolerance
 
-        - the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop.
+        - the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop.
 
     *
         - requiredSamples
@@ -2611,7 +2611,7 @@ Defined in <xf_fintech/mc_engine.hpp>
 	    unsigned int maxSamples = 134217727
 	    )
 
-Cap/Floor Pricing Engine using Monte Carlo Simulation. The Hull-White model is used to descirble dynamics of short-term interest. This engine assume a flat term structure.
+Cap/Floor Pricing Engine using Monte Carlo Simulation. The Hull-White model is used to describe dynamics of short-term interest. This engine assume a flat term structure.
 
 
 
@@ -2658,7 +2658,7 @@ Cap/Floor Pricing Engine using Monte Carlo Simulation. The Hull-White model is u
     *
         - alpha
 
-        - Hull White model paramter
+        - Hull White model parameter
 
     *
         - sigma
@@ -2678,7 +2678,7 @@ Cap/Floor Pricing Engine using Monte Carlo Simulation. The Hull-White model is u
     *
         - requiredTolerance
 
-        - the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop, default 0.02.
+        - the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop, default 0.02.
 
     *
         - requiredSamples
@@ -2693,7 +2693,7 @@ Cap/Floor Pricing Engine using Monte Carlo Simulation. The Hull-White model is u
     *
         - maxSamples
 
-        - the maximum sample number. When reaching the it, the simulation will stop, default 2,147,483,648.
+        - the maximum sample number. When reaching it, the simulation will stop, default 2,147,483,648.
 
 .. _doxid-namespacexf_1_1fintech_1a855a9d5a760f861d9f4824b72012a62a:
 .. _cid-xf::fintech::mcmccore:

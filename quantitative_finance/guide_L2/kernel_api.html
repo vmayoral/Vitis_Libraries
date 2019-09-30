@@ -720,7 +720,7 @@
 <td>number of Monte Carlo Module in parallel, which affects the latency and resources utilization, default 10.</td>
 </tr>
 <tr class="row-odd"><td>Antithetic</td>
-<td>anthithetic is used for variance reduction, default this feature is disabled.</td>
+<td>antithetic is used for variance reduction, default this feature is disabled.</td>
 </tr>
 <tr class="row-even"><td>underlying</td>
 <td>intial value of underlying asset at time 0.</td>
@@ -735,7 +735,7 @@
 <td>risk-free interest rate.</td>
 </tr>
 <tr class="row-even"><td>timeLength</td>
-<td>the time length of constract from start to end.</td>
+<td>the time length of contract from start to end.</td>
 </tr>
 <tr class="row-odd"><td>strike</td>
 <td>the strike price also known as exericse price, which is settled in the contract.</td>
@@ -750,7 +750,7 @@
 <td>output array.</td>
 </tr>
 <tr class="row-odd"><td>requiredTolerance</td>
-<td>the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop, default 0.02.</td>
+<td>the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop, default 0.02.</td>
 </tr>
 <tr class="row-even"><td>requiredSamples</td>
 <td>the samples number required. When reaching the required number, simulation will stop, default 1024.</td>
@@ -817,7 +817,7 @@
 <td>risk-free interest rate.</td>
 </tr>
 <tr class="row-odd"><td>timeLength</td>
-<td>the time length of constract from start to end.</td>
+<td>the time length of contract from start to end.</td>
 </tr>
 <tr class="row-even"><td>strike</td>
 <td>the strike price also known as exericse price, which is settled in the contract.</td>
@@ -832,7 +832,7 @@
 <td>output array.</td>
 </tr>
 <tr class="row-even"><td>requiredTolerance</td>
-<td>the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop, default 0.02.</td>
+<td>the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop, default 0.02.</td>
 </tr>
 <tr class="row-odd"><td>requiredSamples</td>
 <td>the samples number required. When reaching the required number, simulation will stop, default 1024.</td>
@@ -896,7 +896,7 @@
 <td>methods which is used to discrete the stochastic process. Currently, five discrete types, including kDTPartialTruncation, kDTFullTruncation, kDTReflection, kDTQuadraticExponential and kDTQuadraticExponentialMartingale, are supported, default kDTQuadraticExponential.</td>
 </tr>
 <tr class="row-even"><td>Antithetic</td>
-<td>anthithetic is used for variance reduction, default this feature is disabled.</td>
+<td>antithetic is used for variance reduction, default this feature is disabled.</td>
 </tr>
 <tr class="row-odd"><td>underlying</td>
 <td>the initial price of underlying asset at time 0.</td>
@@ -938,7 +938,7 @@
 <td>pricing result array of this engine.</td>
 </tr>
 <tr class="row-even"><td>requiredTolerance</td>
-<td>the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop.</td>
+<td>the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop.</td>
 </tr>
 <tr class="row-odd"><td>requiredSamples</td>
 <td>the samples number required. When reaching the required number, simulation will stop, default 1024.</td>
@@ -1048,7 +1048,7 @@
 <td>pricing result array of this engine.</td>
 </tr>
 <tr class="row-odd"><td>requiredTolerance</td>
-<td>the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop.</td>
+<td>the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop.</td>
 </tr>
 <tr class="row-even"><td>requiredSamples</td>
 <td>the samples number required. When reaching the required number, simulation will stop, default 1024.</td>
@@ -1114,7 +1114,7 @@
 <td>risk-free interest rate.</td>
 </tr>
 <tr class="row-odd"><td>timeLength</td>
-<td>the time length of constract from start to end.</td>
+<td>the time length of contract from start to end.</td>
 </tr>
 <tr class="row-even"><td>strike</td>
 <td>the strike price also known as exericse price, which is settled in the contract.</td>
@@ -1181,7 +1181,7 @@
 <td>number of Monte Carlo Module in parallel (in time steps dimension), which affects the latency and resources utilization, default 2. [this Unroll is completely resource bounded, unrelated to other params]</td>
 </tr>
 <tr class="row-even"><td>timeLength</td>
-<td>the time length of constract from start to end.</td>
+<td>the time length of contract from start to end.</td>
 </tr>
 <tr class="row-odd"><td>riskFreeRate</td>
 <td>risk-free interest rate.</td>
@@ -1264,7 +1264,7 @@
 <td>risk-free interest rate.</td>
 </tr>
 <tr class="row-odd"><td>timeLength</td>
-<td>the time length of constract from start to end.</td>
+<td>the time length of contract from start to end.</td>
 </tr>
 <tr class="row-even"><td>strike</td>
 <td>the strike price also known as exericse price, which is settled in the contract.</td>
@@ -1282,7 +1282,7 @@
 <td>the output price data (size=1), can be stroed in DDR or HBM</td>
 </tr>
 <tr class="row-odd"><td>requiredTolerance</td>
-<td>the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop, default 0.02.</td>
+<td>the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop, default 0.02.</td>
 </tr>
 <tr class="row-even"><td>requiredSamples</td>
 <td>the samples number required. When reaching the required number, simulation will stop, default 1024.</td>
@@ -1345,7 +1345,7 @@
 <td>number of Monte Carlo Module of calibration process in parallel (in time steps dimension), which affects the latency and resources utilization, default 1.</td>
 </tr>
 <tr class="row-even"><td>UN_PRICING</td>
-<td>number of Monte Carlo Module of pricing process in parallel (in path dimension), which affects the latency and resources utilization, default 2. Three unroll numbers UN_PATH, UN_STEP and UN_PRICING are indenpendent. Each unroll number affects the execution speed of part of AmericanEngine. On-board test reveals that the pricing phase takes longest time of execution. Therefore, setting larger UN_PRICING benifits most with limited resources.</td>
+<td>number of Monte Carlo Module of pricing process in parallel (in path dimension), which affects the latency and resources utilization, default 2. Three unroll numbers UN_PATH, UN_STEP and UN_PRICING are independent. Each unroll number affects the execution speed of part of AmericanEngine. On-board test reveals that the pricing phase takes longest time of execution. Therefore, setting larger UN_PRICING benifits most with limited resources.</td>
 </tr>
 <tr class="row-odd"><td>underlying</td>
 <td>intial value of underlying asset at time 0.</td>
@@ -1360,7 +1360,7 @@
 <td>risk-free interest rate.</td>
 </tr>
 <tr class="row-odd"><td>timeLength</td>
-<td>the time length of constract from start to end.</td>
+<td>the time length of contract from start to end.</td>
 </tr>
 <tr class="row-even"><td>strike</td>
 <td>the strike price also known as exericse price, which is settled in the contract.</td>
@@ -1381,7 +1381,7 @@
 <td>the output price data (size=1), can be stroed in DDR or HBM</td>
 </tr>
 <tr class="row-even"><td>requiredTolerance</td>
-<td>the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop, default 0.02.</td>
+<td>the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop, default 0.02.</td>
 </tr>
 <tr class="row-odd"><td>requiredSamples</td>
 <td>the samples number required. When reaching the required number, simulation will stop, default 1024.</td>
@@ -1475,7 +1475,7 @@
 <td>Number of interval, default 100.</td>
 </tr>
 <tr class="row-odd"><td>maxSamples</td>
-<td>The maximum sample number. When reaching the it, the simulation will stop, default 2147483648.</td>
+<td>The maximum sample number. When reaching it, the simulation will stop, default 2147483648.</td>
 </tr>
 </tbody>
 </table>
@@ -1557,7 +1557,7 @@
 <td>Number of interval, default 100.</td>
 </tr>
 <tr class="row-odd"><td>maxSamples</td>
-<td>The maximum sample number. When reaching the it, the simulation will stop, default 2147483648.</td>
+<td>The maximum sample number. When reaching it, the simulation will stop, default 2147483648.</td>
 </tr>
 </tbody>
 </table>
@@ -1630,7 +1630,7 @@
 <td>Output array.</td>
 </tr>
 <tr class="row-even"><td>requiredTolerance</td>
-<td>the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop, default 0.02.</td>
+<td>the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop, default 0.02.</td>
 </tr>
 <tr class="row-odd"><td>requiredSamples</td>
 <td>the samples number required. When reaching the required number, simulation will stop, default 1024.</td>
@@ -1639,7 +1639,7 @@
 <td>the number of discrete steps from 0 to T, T is the expiry time, default 100.</td>
 </tr>
 <tr class="row-odd"><td>maxSamples</td>
-<td>the maximum sample number. When reaching the it, the simulation will stop, default 2,147,483,648.</td>
+<td>the maximum sample number. When reaching it, the simulation will stop, default 2,147,483,648.</td>
 </tr>
 </tbody>
 </table>
@@ -1700,7 +1700,7 @@
 <td>risk-free interest rate.</td>
 </tr>
 <tr class="row-odd"><td>timeLength</td>
-<td>the time length of constract from start to end.</td>
+<td>the time length of contract from start to end.</td>
 </tr>
 <tr class="row-even"><td>barrier</td>
 <td>single barrier value.</td>
@@ -1721,10 +1721,10 @@
 <td>output array.</td>
 </tr>
 <tr class="row-even"><td>rebate</td>
-<td>rebate value which is paied when the option is not triggered, default 0.</td>
+<td>rebate value which is paid when the option is not triggered, default 0.</td>
 </tr>
 <tr class="row-odd"><td>requiredTolerance</td>
-<td>the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop, default 0.02.</td>
+<td>the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop, default 0.02.</td>
 </tr>
 <tr class="row-even"><td>requiredSamples</td>
 <td>the samples number required. When reaching the required number, simulation will stop, default 1024.</td>
@@ -1733,7 +1733,7 @@
 <td>the number of discrete steps from 0 to T, T is the expiry time, default 100.</td>
 </tr>
 <tr class="row-even"><td>maxSamples</td>
-<td>the maximum sample number. When reaching the it, the simulation will stop, default 2,147,483,648.</td>
+<td>the maximum sample number. When reaching it, the simulation will stop, default 2,147,483,648.</td>
 </tr>
 </tbody>
 </table>
@@ -1794,7 +1794,7 @@
 <td>risk-free interest rate.</td>
 </tr>
 <tr class="row-odd"><td>timeLength</td>
-<td>the time length of constract from start to end.</td>
+<td>the time length of contract from start to end.</td>
 </tr>
 <tr class="row-even"><td>barrier</td>
 <td>single barrier value.</td>
@@ -1815,10 +1815,10 @@
 <td>output array.</td>
 </tr>
 <tr class="row-even"><td>rebate</td>
-<td>rebate value which is paied when the option is not triggered, default 0.</td>
+<td>rebate value which is paid when the option is not triggered, default 0.</td>
 </tr>
 <tr class="row-odd"><td>requiredTolerance</td>
-<td>the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop, default 0.02.</td>
+<td>the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop, default 0.02.</td>
 </tr>
 <tr class="row-even"><td>requiredSamples</td>
 <td>the samples number required. When reaching the required number, simulation will stop, default 1024.</td>
@@ -1827,7 +1827,7 @@
 <td>the number of discrete steps from 0 to T, T is the expiry time, default 100.</td>
 </tr>
 <tr class="row-even"><td>maxSamples</td>
-<td>the maximum sample number. When reaching the it, the simulation will stop, default 2,147,483,648.</td>
+<td>the maximum sample number. When reaching it, the simulation will stop, default 2,147,483,648.</td>
 </tr>
 </tbody>
 </table>
@@ -1886,7 +1886,7 @@
 <td>risk-free interest rate.</td>
 </tr>
 <tr class="row-odd"><td>timeLength</td>
-<td>the time length of constract from start to end.</td>
+<td>the time length of contract from start to end.</td>
 </tr>
 <tr class="row-even"><td>strike</td>
 <td>the strike price also known as exericse price, which is settled in the contract.</td>
@@ -1904,7 +1904,7 @@
 <td>output array.</td>
 </tr>
 <tr class="row-odd"><td>requiredTolerance</td>
-<td>the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop. default 0.02.</td>
+<td>the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop. default 0.02.</td>
 </tr>
 <tr class="row-even"><td>requiredSamples</td>
 <td>the samples number required. When reaching the required number, simulation will stop, default 1024.</td>
@@ -1913,7 +1913,7 @@
 <td>the number of discrete steps from 0 to T, T is the expiry time, default 100.</td>
 </tr>
 <tr class="row-even"><td>maxSamples</td>
-<td>the maximum sample number. When reaching the it, the simulation will stop, default 2,147,483,648.</td>
+<td>the maximum sample number. When reaching it, the simulation will stop, default 2,147,483,648.</td>
 </tr>
 </tbody>
 </table>
@@ -1946,7 +1946,7 @@
     <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">maxSamples</span> <span class="o">=</span> <span class="mi">134217727</span>
     <span class="p">)</span>
 </pre>
-<p>Digital Option Pricing Engine using Monte Carlo Simulation. The B-S model is used to descirble dynamics of undelying asset price.</p>
+<p>Digital Option Pricing Engine using Monte Carlo Simulation. The B-S model is used to describe dynamics of undelying asset price.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -1973,7 +1973,7 @@
 <td>risk-free interest rate.</td>
 </tr>
 <tr class="row-odd"><td>timeLength</td>
-<td>the time length of constract from start to end.</td>
+<td>the time length of contract from start to end.</td>
 </tr>
 <tr class="row-even"><td>strike</td>
 <td>the strike price also known as exericse price, which is settled in the contract.</td>
@@ -1994,7 +1994,7 @@
 <td>output array.</td>
 </tr>
 <tr class="row-even"><td>requiredTolerance</td>
-<td>the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop, default 0.02.</td>
+<td>the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop, default 0.02.</td>
 </tr>
 <tr class="row-odd"><td>requiredSamples</td>
 <td>the samples number required. When reaching the required number, simulation will stop, default 1024.</td>
@@ -2003,7 +2003,7 @@
 <td>the number of discrete steps from 0 to T, T is the expiry time, default 100.</td>
 </tr>
 <tr class="row-odd"><td>maxSamples</td>
-<td>the maximum sample number. When reaching the it, the simulation will stop, default 2,147,483,648.</td>
+<td>the maximum sample number. When reaching it, the simulation will stop, default 2,147,483,648.</td>
 </tr>
 </tbody>
 </table>
@@ -2096,7 +2096,7 @@
 <td>output calculated greeks.</td>
 </tr>
 <tr class="row-odd"><td>requiredTolerance</td>
-<td>the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop.</td>
+<td>the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop.</td>
 </tr>
 <tr class="row-even"><td>requiredSamples</td>
 <td>the samples number required. When reaching the required number, simulation will stop, default 1024.</td>
@@ -2136,7 +2136,7 @@
     <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">maxSamples</span> <span class="o">=</span> <span class="mi">134217727</span>
     <span class="p">)</span>
 </pre>
-<p>Cap/Floor Pricing Engine using Monte Carlo Simulation. The Hull-White model is used to descirble dynamics of short-term interest. This engine assume a flat term structure.</p>
+<p>Cap/Floor Pricing Engine using Monte Carlo Simulation. The Hull-White model is used to describe dynamics of short-term interest. This engine assume a flat term structure.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -2166,7 +2166,7 @@
 <td>period between each settlement date.</td>
 </tr>
 <tr class="row-even"><td>alpha</td>
-<td>Hull White model paramter</td>
+<td>Hull White model parameter</td>
 </tr>
 <tr class="row-odd"><td>sigma</td>
 <td>Hull White model parameter</td>
@@ -2178,7 +2178,7 @@
 <td>Array to store result</td>
 </tr>
 <tr class="row-even"><td>requiredTolerance</td>
-<td>the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop, default 0.02.</td>
+<td>the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop, default 0.02.</td>
 </tr>
 <tr class="row-odd"><td>requiredSamples</td>
 <td>the samples number required. When reaching the required number, simulation will stop, default 1024.</td>
@@ -2187,7 +2187,7 @@
 <td>the number of cap/floor settlement date.</td>
 </tr>
 <tr class="row-odd"><td>maxSamples</td>
-<td>the maximum sample number. When reaching the it, the simulation will stop, default 2,147,483,648.</td>
+<td>the maximum sample number. When reaching it, the simulation will stop, default 2,147,483,648.</td>
 </tr>
 </tbody>
 </table>
