@@ -119,7 +119,7 @@ The expertation E of the process.
     *
         - t0
 
-        - the time at the begin of processing
+        - the time at the beginning of processing
 
     *
         - x0
@@ -169,7 +169,7 @@ The standard deviation S of the process.
     *
         - t0
 
-        - the time at the begin of processing
+        - the time at the beginning of processing
 
     *
         - x0
@@ -219,7 +219,7 @@ The variance of the process.
     *
         - t0
 
-        - the time at the begin of processing
+        - the time at the beginning of processing
 
     *
         - x0
@@ -256,7 +256,7 @@ Defined in <xf_fintech/ornstein_uhlenbeck_process.hpp>
 	    DT dw
 	    ) const
 
-As this process will only be excuted for once in the prcing engine and it is not the critical time consumer,then it is optimized for minimum resource utilization while having a reasonable latency.
+As this process will only be executed for once in the prcing engine and it is not the critical time consumer,then it is optimized for minimum resource utilization while having a reasonable latency.
 
 
 

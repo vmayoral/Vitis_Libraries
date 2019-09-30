@@ -17,7 +17,7 @@ template class xf::fintech::MT19937_ICN_RNG <double>
 Overview
 ~~~~~~~~
 
-Normal distributed random number generator based on InvserCumulative function, output datatype is double. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_m_t19937___i_c_n___r_n_g_3_01double_01_4>`
+Normal distributed random number generator based on InverseCumulative function, output datatype is double. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_m_t19937___i_c_n___r_n_g_3_01double_01_4>`
 
 .. _doxid-classxf_1_1fintech_1_1_m_t19937___i_c_n___r_n_g_3_01double_01_4_1a4761caa7d22a193b91863604117cea23:
 .. _cid-xf::fintech::mt19937_icn_rng::uniformrng:
@@ -61,7 +61,7 @@ Normal distributed random number generator based on InvserCumulative function, o
 Detailed Documentation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Normal distributed random number generator based on InvserCumulative function, output datatype is double.
+Normal distributed random number generator based on InverseCumulative function, output datatype is double.
 
 Methods
 -------

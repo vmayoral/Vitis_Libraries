@@ -53,7 +53,7 @@ Defined in <xf_fintech/brownian_bridge.hpp>
 	    hls::stream <DT>& out_strm
 	    )
 
-Transform in_strm to out_strm using browain bridge transformation.
+Transform in_strm to out_strm using brownian bridge transformation.
 
 
 

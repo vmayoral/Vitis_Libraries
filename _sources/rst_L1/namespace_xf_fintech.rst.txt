@@ -416,7 +416,7 @@ Monte Carlo Framework implementation.
     *
         - requiredTolerance
 
-        - the tolerance required. If requiredSamples is not set, when reaching the required tolearance, simulation will stop.
+        - the tolerance required. If requiredSamples is not set, when reaching the required tolerance, simulation will stop.
 
     *
         - requiredSamples

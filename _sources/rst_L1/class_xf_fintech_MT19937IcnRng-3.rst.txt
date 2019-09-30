@@ -17,7 +17,7 @@ template class xf::fintech::MT19937IcnRng <float>
 Overview
 ~~~~~~~~
 
-Normally distributed random number generator based on InvserCumulative function, output datatype is float. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01float_01_4>`
+Normally distributed random number generator based on InverseCumulative function, output datatype is float. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01float_01_4>`
 
 .. _doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng_3_01float_01_4_1aa83b71168aa478af497ae4a3770485aa:
 .. _cid-xf::fintech::mt19937icnrng::uniformrng-2:

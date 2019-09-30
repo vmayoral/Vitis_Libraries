@@ -143,7 +143,7 @@ Defined in <xf_fintech/bs_model.hpp>
 
 	void stdDeviation ()
 
-calculate standard variance
+stdDeviation calculate standard variance
 
 .. _doxid-classxf_1_1fintech_1_1_b_s_model_1aa50f4406f8b69a7a274a83baa79e1d51:
 .. _cid-xf::fintech::bsmodel::updatedrift:

@@ -1151,7 +1151,7 @@ American Option Pricing Engine using Monte Carlo Method. Calibrate kernel: this 
     *
         - timeLength
 
-        - the time length of constract from start to end.
+        - the time length of contract from start to end.
 
     *
         - riskFreeRate

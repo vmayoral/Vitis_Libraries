@@ -17,7 +17,7 @@ template class xf::fintech::MT19937IcnRng
 Overview
 ~~~~~~~~
 
-Normally distributed random number generator based on InvserCumulative function. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng>`
+Normally distributed random number generator based on InverseCumulative function. :ref:`More...<details-doxid-classxf_1_1fintech_1_1_m_t19937_icn_rng>`
 
 .. ref-code-block:: cpp
 	:class: overview-code-block

@@ -148,7 +148,7 @@ initilize the private members of class
     *
         - mu
 
-        - A fator for step.
+        - A factor for step.
 
     *
         - nominal

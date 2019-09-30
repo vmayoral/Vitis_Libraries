@@ -251,7 +251,7 @@ Address of head of state vector in array mt/mt_1.
 
 	ap_uint <:ref:`W<doxid-classxf_1_1fintech_1_1_m_t__2203_1aa70200a5357662c79275cf954916ce27>`> A
 
-Configurable Paramter A.
+Configurable parameter A.
 
 .. _doxid-classxf_1_1fintech_1_1_m_t__2203_1afb9e60f270f43b570a66b4cf2f78ee6e:
 .. _cid-xf::fintech::mt_2203::b:
@@ -260,7 +260,7 @@ Configurable Paramter A.
 
 	ap_uint <:ref:`W<doxid-classxf_1_1fintech_1_1_m_t__2203_1aa70200a5357662c79275cf954916ce27>`> B
 
-Configurable Paramter B.
+Configurable parameter B.
 
 .. _doxid-classxf_1_1fintech_1_1_m_t__2203_1a1cdacf5fa392951262eaa2f53695f452:
 .. _cid-xf::fintech::mt_2203::c:
@@ -269,5 +269,5 @@ Configurable Paramter B.
 
 	ap_uint <:ref:`W<doxid-classxf_1_1fintech_1_1_m_t__2203_1aa70200a5357662c79275cf954916ce27>`> C
 
-Configurable Paramter C.
+Configurable parameter C.
 

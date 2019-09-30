@@ -113,7 +113,7 @@ the expertation E of the process
     *
         - t0
 
-        - the time at the begin of processing
+        - the time at the beginning of processing
 
     *
         - x0
@@ -163,7 +163,7 @@ the variance of the process
     *
         - t0
 
-        - the time at the begin of processing
+        - the time at the beginning of processing
 
     *
         - x0
