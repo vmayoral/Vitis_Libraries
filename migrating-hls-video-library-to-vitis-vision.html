@@ -1,0 +1,1997 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="SDSoC Tutorials"/>
+<meta name="description" content="The SDSoC (Software-Defined System-On-Chip) environment is an Eclipse-based Integrated Development Environment (IDE) for implementing heterogeneous embedded systems using the Zynq-7000 SoC and Zynq UltraScale+ MPSoC platforms."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<meta name=" xlnxproductname" content="SDSoC">
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+  
+  <title>Migrating HLS Video Library to Vitis vision &mdash; Vitis Vision Library  documentation</title>
+  
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Vitis Vision Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Vitis Vision Library User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#getting-started-with-vitis-vision">Getting Started with Vitis Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#getting-started-with-hls">Getting Started with HLS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#design-examples-using-vitis-vision-library">Design Examples Using Vitis Vision Library</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Vitis Vision Library API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html#xf-mat-image-container-class">xf::Mat Image Container Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html#xfopencv-library-functions">xfOpenCV Library Functions</a></li>
+</ul>
+
+            
+			<p class="caption"><span class="caption-text">This Page</span></p>
+				<ul class="current">
+				  <li class="toctree-l1"><a href="_sources/migrating-hls-video-library-to-vitis-vision.rst.txt"
+						rel="nofollow">Show Source</a></li>
+					<li class="toctree-l1"><a href="https://github.com/gitenterprise.xilinx.com/FaaSApps/Vitis_Libraries/blob/master/vision/docs//migrating-hls-video-library-to-vitis-vision.rst"
+						   rel="nofollow">View on GitHub</a></li>						
+				</ul>
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Vitis Vision Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Migrating HLS Video Library to Vitis vision</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/migrating-hls-video-library-to-vitis-vision.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="migrating-hls-video-library-to-vitis-vision">
+<h1>Migrating HLS Video Library to Vitis vision<a class="headerlink" href="#migrating-hls-video-library-to-vitis-vision" title="Permalink to this headline">¶</a></h1>
+<p>The HLS video library will soon be deprecated. All the functions and
+most of the infrastructure available in HLS video library are now
+available in Vitis vision with their names changed and some modifications.
+These HLS video library functions ported to Vitis vision supports build
+flow also.</p>
+<p>This section provides the details on using the C++ video processing
+functions and the infrastructure present in HLS video library.</p>
+<div class="section" id="infrastructure-functions-and-classes">
+<h2>Infrastructure Functions and Classes<a class="headerlink" href="#infrastructure-functions-and-classes" title="Permalink to this headline">¶</a></h2>
+<p>All the functions imported from HLS video library now take xf::cv::Mat (in
+sync with Vitis vision library) to represent image data instead of hls::Mat.
+The main difference between these two is that the hls::Mat uses
+hls::stream to store the data whereas xf::cv::Mat uses a pointer. Therefore,
+hls:: Mat cannot be exactly replaced with xf::cv::Mat for migrating.</p>
+<p>Below table summarizes the differences between member functions of
+hls::Mat to xf::cv::Mat.</p>
+<table border="1" class="docutils" id="id4">
+<caption><span class="caption-text">Table : Infrastructure Functions and Classes</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="31%" />
+<col width="31%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Member Function</th>
+<th class="head">hls::Mat (HLS Video
+lib)</th>
+<th class="head">xf::cv::Mat (Vitis vision
+lib)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>channels()</td>
+<td>Returns the number
+of channels</td>
+<td>Returns the number
+of channels</td>
+</tr>
+<tr class="row-odd"><td>type()</td>
+<td>Returns the enum
+value of pixel type</td>
+<td>Returns the enum
+value of pixel type</td>
+</tr>
+<tr class="row-even"><td>depth()</td>
+<td>Returns the enum
+value of pixel type</td>
+<td>Returns the depth of
+pixel including
+channels</td>
+</tr>
+<tr class="row-odd"><td>read()</td>
+<td>Readout a value and
+return it as a
+scalar from stream</td>
+<td>Readout a value from
+a given location and
+return it as a
+packed (for
+multi-pixel/clock)
+value.</td>
+</tr>
+<tr class="row-even"><td>operator &gt;&gt;</td>
+<td>Similar to read()</td>
+<td>Not available in
+Vitis vision</td>
+</tr>
+<tr class="row-odd"><td>operator &lt;&lt;</td>
+<td>Similar to write()</td>
+<td>Not available in
+Vitis vision</td>
+</tr>
+<tr class="row-even"><td>Write()</td>
+<td>Write a scalar value
+into the stream</td>
+<td>Writes a packed (for
+multi-pixel/clock)
+value into the given
+location.</td>
+</tr>
+</tbody>
+</table>
+<p>Infrastructure files available in HLS Video Library hls_video_core.h,
+hls_video_mem.h, hls_video_types.h are moved to xf_video_core.h,
+xf_video_mem.h, xf_video_types.h in Vitis vision Library and
+hls_video_imgbase.h is deprecated. Code inside these files unchanged
+except that these are now under xf::cv::namespace.</p>
+</div>
+<div class="section" id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Memory Window Buffer</dt>
+<dd>hls::window is now xf::cv::window. No change in the implementation,
+except the namespace change. This is located in “xf_video_mem.h”
+file.</dd>
+<dt>Memory Line Buffer</dt>
+<dd>hls::LineBuffer is now xf::cv::LineBuffer. No difference between the two,
+except xf::cv::LineBuffer has extra template arguments for inferring
+different types of RAM structures, for the storage structure used.
+Default storage type is “RAM_S2P_BRAM” with RESHAPE_FACTOR=1.
+Complete description can be found here
+<a class="reference external" href="MigratingHLSVideoLibrarytoVitisvision.html#ndi1542884914646">xf::cv::LineBuffer</a>. This is
+located in xf_video_mem.h file.</dd>
+</dl>
+</div>
+<div class="section" id="funtions">
+<h2>Funtions<a class="headerlink" href="#funtions" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>OpenCV interface functions</dt>
+<dd>These functions covert image data of OpenCV Mat format to/from HLS
+AXI types. HLS Video Library had 14 interface functions, out of
+which, two functions are available in Vitis vision Library:
+cvMat2AXIvideo and AXIvideo2cvMat located in “xf_axi.h” file. The
+rest are all deprecated.</dd>
+<dt>AXI4-Stream I/O Functions</dt>
+<dd>The I/O functions which convert hls::Mat to/from AXI4-Stream
+compatible data type (hls::stream) are hls::AXIvideo2Mat,
+hls::Mat2AXIvideo. These functions are now deprecated and added 2 new
+functions xf::cv::AXIvideo2xfMat and xf::cv:: xfMat2AXIvideo to facilitate
+the xf::cv::Mat to/from conversion. To use these functions, the header
+file “xf_infra.h” must be included.</dd>
+</dl>
+</div>
+<div class="section" id="xf-cv-window">
+<h2>xf::cv::window<a class="headerlink" href="#xf-cv-window" title="Permalink to this headline">¶</a></h2>
+<p>A template class to represent the 2D window buffer. It has three
+parameters to specify the number of rows, columns in window buffer and
+the pixel data type.</p>
+<div class="section" id="class-definition">
+<h3>Class definition<a class="headerlink" href="#class-definition" title="Permalink to this headline">¶</a></h3>
+<div class="code c highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span><span class="o">&lt;</span><span class="nb">int</span> <span class="n">ROWS</span><span class="p">,</span> <span class="nb">int</span> <span class="n">COLS</span><span class="p">,</span> <span class="n">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">Window</span> <span class="p">{</span>
+<span class="n">public</span><span class="p">:</span>
+    <span class="n">Window</span><span class="p">()</span>
+   <span class="o">/*</span> <span class="n">Window</span> <span class="n">main</span> <span class="n">APIs</span> <span class="o">*/</span>
+    <span class="n">void</span> <span class="n">shift_pixels_left</span><span class="p">();</span>
+    <span class="n">void</span> <span class="n">shift_pixels_right</span><span class="p">();</span>
+    <span class="n">void</span> <span class="n">shift_pixels_up</span><span class="p">();</span>
+    <span class="n">void</span> <span class="n">shift_pixels_down</span><span class="p">();</span>
+    <span class="n">void</span> <span class="n">insert_pixel</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">,</span> <span class="nb">int</span> <span class="n">row</span><span class="p">,</span> <span class="nb">int</span> <span class="n">col</span><span class="p">);</span>
+    <span class="n">void</span> <span class="n">insert_row</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">[</span><span class="n">COLS</span><span class="p">],</span> <span class="nb">int</span> <span class="n">row</span><span class="p">);</span>
+    <span class="n">void</span> <span class="n">insert_top_row</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">[</span><span class="n">COLS</span><span class="p">]);</span>
+    <span class="n">void</span> <span class="n">insert_bottom_row</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">[</span><span class="n">COLS</span><span class="p">]);</span>
+    <span class="n">void</span> <span class="n">insert_col</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">[</span><span class="n">ROWS</span><span class="p">],</span> <span class="nb">int</span> <span class="n">col</span><span class="p">);</span>
+    <span class="n">void</span> <span class="n">insert_left_col</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">[</span><span class="n">ROWS</span><span class="p">]);</span>
+    <span class="n">void</span> <span class="n">insert_right_col</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">[</span><span class="n">ROWS</span><span class="p">]);</span>
+    <span class="n">T</span><span class="o">&amp;</span> <span class="n">getval</span><span class="p">(</span><span class="nb">int</span> <span class="n">row</span><span class="p">,</span> <span class="nb">int</span> <span class="n">col</span><span class="p">);</span>
+    <span class="n">T</span><span class="o">&amp;</span> <span class="n">operator</span> <span class="p">()(</span><span class="nb">int</span> <span class="n">row</span><span class="p">,</span> <span class="nb">int</span> <span class="n">col</span><span class="p">);</span>
+    <span class="n">T</span> <span class="n">val</span><span class="p">[</span><span class="n">ROWS</span><span class="p">][</span><span class="n">COLS</span><span class="p">];</span>
+<span class="c1">#ifdef __DEBUG__</span>
+    <span class="n">void</span> <span class="n">restore_val</span><span class="p">();</span>
+    <span class="n">void</span> <span class="n">window_print</span><span class="p">();</span>
+    <span class="n">T</span> <span class="n">val_t</span><span class="p">[</span><span class="n">ROWS</span><span class="p">][</span><span class="n">COLS</span><span class="p">];</span>
+<span class="c1">#endif</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="parameter-descriptions">
+<h3>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions" title="Permalink to this headline">¶</a></h3>
+<p>The following table lists the xf::cv::Window class members and their
+descriptions.</p>
+<table border="1" class="docutils" id="id5">
+<caption><span class="caption-text">Table : Window Function Parameter Descriptions</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Val</td>
+<td>2-D array to hold the contents of buffer.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="member-function-description">
+<h3>Member Function Description<a class="headerlink" href="#member-function-description" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils" id="id6">
+<caption><span class="caption-text">Table : Member Function Description</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Function</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>shift_pixels_left()</td>
+<td>Shift the window left, that moves
+all stored data within the window
+right, leave the leftmost column
+(col = COLS-1) for inserting new
+data.</td>
+</tr>
+<tr class="row-odd"><td>shift_pixels_right()</td>
+<td>Shift the window right, that
+moves all stored data within the
+window left, leave the rightmost
+column (col = 0) for inserting
+new data.</td>
+</tr>
+<tr class="row-even"><td>shift_pixels_up()</td>
+<td>Shift the window up, that moves
+all stored data within the window
+down, leave the top row (row =
+ROWS-1) for inserting new data.</td>
+</tr>
+<tr class="row-odd"><td>shift_pixels_down()</td>
+<td>Shift the window down, that moves
+all stored data within the window
+up, leave the bottom row (row =
+0) for inserting new data.</td>
+</tr>
+<tr class="row-even"><td>insert_pixel(T value, int row,
+int col)</td>
+<td>Insert a new element value at
+location (row, column) of the
+window.</td>
+</tr>
+<tr class="row-odd"><td>insert_row(T value[COLS], int
+row)</td>
+<td>Inserts a set of values in any
+row of the window.</td>
+</tr>
+<tr class="row-even"><td>insert_top_row(T value[COLS])</td>
+<td>Inserts a set of values in the
+top row = 0 of the window.</td>
+</tr>
+<tr class="row-odd"><td>insert_bottom_row(T value[COLS])</td>
+<td>Inserts a set of values in the
+bottom row = ROWS-1 of the
+window.</td>
+</tr>
+<tr class="row-even"><td>insert_col(T value[ROWS], int
+col)</td>
+<td>Inserts a set of values in any
+column of the window.</td>
+</tr>
+<tr class="row-odd"><td>insert_left_col(T value[ROWS])</td>
+<td>Inserts a set of values in left
+column = 0 of the window.</td>
+</tr>
+<tr class="row-even"><td>insert_right_col(T value[ROWS])</td>
+<td>Inserts a set of values in right
+column = COLS-1 of the window.</td>
+</tr>
+<tr class="row-odd"><td>T&amp; getval(int row, int col)</td>
+<td>Returns the data value in the
+window at position (row,column).</td>
+</tr>
+<tr class="row-even"><td>T&amp; operator ()(int row, int col)</td>
+<td>Returns the data value in the
+window at position (row,column).</td>
+</tr>
+<tr class="row-odd"><td>restore_val()</td>
+<td>Restore the contents of window
+buffer to another array.</td>
+</tr>
+<tr class="row-even"><td>window_print()</td>
+<td>Print all the data present in
+window buffer onto console.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="template-parameter-description">
+<h3>Template Parameter Description<a class="headerlink" href="#template-parameter-description" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils" id="id7">
+<caption><span class="caption-text">Table : Template Parameter Description</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ROWS</td>
+<td>Number of rows in the window buffer.</td>
+</tr>
+<tr class="row-odd"><td>COLS</td>
+<td>Number of columns in the window buffer.</td>
+</tr>
+<tr class="row-even"><td>T</td>
+<td>Data type of pixel in the window buffer.</td>
+</tr>
+</tbody>
+</table>
+<p>Sample code for window buffer declaration</p>
+<div class="code c highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Window</span><span class="o">&lt;</span><span class="n">K_ROWS</span><span class="p">,</span> <span class="n">K_COLS</span><span class="p">,</span> <span class="n">unsigned</span> <span class="n">char</span><span class="o">&gt;</span> <span class="n">kernel</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="xf-cv-linebuffer">
+<span id="ariaid-title5"></span><h2>xf::cv::LineBuffer<a class="headerlink" href="#xf-cv-linebuffer" title="Permalink to this headline">¶</a></h2>
+<p>A template class to represent 2D line buffer. It has three parameters to
+specify the number of rows, columns in window buffer and the pixel data
+type.</p>
+<div class="section" id="class-definition-1">
+<span id="id1"></span><h3>Class definition<a class="headerlink" href="#class-definition-1" title="Permalink to this headline">¶</a></h3>
+<div class="code c highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span><span class="o">&lt;</span><span class="nb">int</span> <span class="n">ROWS</span><span class="p">,</span> <span class="nb">int</span> <span class="n">COLS</span><span class="p">,</span> <span class="n">typename</span> <span class="n">T</span><span class="p">,</span> <span class="n">XF_ramtype_e</span> <span class="n">MEM_TYPE</span><span class="o">=</span><span class="n">RAM_S2P_BRAM</span><span class="p">,</span> <span class="nb">int</span> <span class="n">RESHAPE_FACTOR</span><span class="o">=</span><span class="mi">1</span><span class="o">&gt;</span>
+ <span class="k">class</span> <span class="nc">LineBuffer</span> <span class="p">{</span>
+<span class="n">public</span><span class="p">:</span>
+    <span class="n">LineBuffer</span><span class="p">()</span>
+       <span class="o">/*</span> <span class="n">LineBuffer</span> <span class="n">main</span> <span class="n">APIs</span> <span class="o">*/</span>
+    <span class="o">/*</span> <span class="n">LineBuffer</span> <span class="n">main</span> <span class="n">APIs</span> <span class="o">*/</span>
+    <span class="n">void</span> <span class="n">shift_pixels_up</span><span class="p">(</span><span class="nb">int</span> <span class="n">col</span><span class="p">);</span>
+    <span class="n">void</span> <span class="n">shift_pixels_down</span><span class="p">(</span><span class="nb">int</span> <span class="n">col</span><span class="p">);</span>
+    <span class="n">void</span> <span class="n">insert_bottom_row</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">,</span> <span class="nb">int</span> <span class="n">col</span><span class="p">);</span>
+    <span class="n">void</span> <span class="n">insert_top_row</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">,</span> <span class="nb">int</span> <span class="n">col</span><span class="p">);</span>
+    <span class="n">void</span> <span class="n">get_col</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">[</span><span class="n">ROWS</span><span class="p">],</span> <span class="nb">int</span> <span class="n">col</span><span class="p">);</span>
+    <span class="n">T</span><span class="o">&amp;</span> <span class="n">getval</span><span class="p">(</span><span class="nb">int</span> <span class="n">row</span><span class="p">,</span> <span class="nb">int</span> <span class="n">col</span><span class="p">);</span>
+    <span class="n">T</span><span class="o">&amp;</span> <span class="n">operator</span> <span class="p">()(</span><span class="nb">int</span> <span class="n">row</span><span class="p">,</span> <span class="nb">int</span> <span class="n">col</span><span class="p">);</span>
+
+    <span class="o">/*</span> <span class="n">Back</span> <span class="n">compatible</span> <span class="n">APIs</span> <span class="o">*/</span>
+    <span class="n">void</span> <span class="n">shift_up</span><span class="p">(</span><span class="nb">int</span> <span class="n">col</span><span class="p">);</span>
+    <span class="n">void</span> <span class="n">shift_down</span><span class="p">(</span><span class="nb">int</span> <span class="n">col</span><span class="p">);</span>
+    <span class="n">void</span> <span class="n">insert_bottom</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">,</span> <span class="nb">int</span> <span class="n">col</span><span class="p">);</span>
+    <span class="n">void</span> <span class="n">insert_top</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">,</span> <span class="nb">int</span> <span class="n">col</span><span class="p">);</span>
+    <span class="n">T</span> <span class="n">val</span><span class="p">[</span><span class="n">ROWS</span><span class="p">][</span><span class="n">COLS</span><span class="p">];</span>
+<span class="c1">#ifdef __DEBUG__</span>
+    <span class="n">void</span> <span class="n">restore_val</span><span class="p">();</span>
+    <span class="n">void</span> <span class="n">linebuffer_print</span><span class="p">(</span><span class="nb">int</span> <span class="n">col</span><span class="p">);</span>
+    <span class="n">T</span> <span class="n">val_t</span><span class="p">[</span><span class="n">ROWS</span><span class="p">][</span><span class="n">COLS</span><span class="p">];</span>
+<span class="c1">#endif</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="parameter-descriptions-1">
+<span id="id2"></span><h3>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions-1" title="Permalink to this headline">¶</a></h3>
+<p>The following table lists the xf::cv::LineBuffer class members and their
+descriptions.</p>
+<table border="1" class="docutils" id="id8">
+<caption><span class="caption-text">Table : Line Buffer Function Parameter Descriptions</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Val</td>
+<td>2-D array to hold the contents of line buffer.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="member-functions-description">
+<h3>Member Functions Description<a class="headerlink" href="#member-functions-description" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils" id="id9">
+<caption><span class="caption-text">Table : Member Functions Description</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Function</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>shift_pixels_up(int col)</td>
+<td>Line buffer contents Shift up,
+new values will be placed in the
+bottom row=ROWS-1.</td>
+</tr>
+<tr class="row-odd"><td>shift_pixels_down(int col)</td>
+<td>Line buffer contents Shift down,
+new values will be placed in the
+top row=0.</td>
+</tr>
+<tr class="row-even"><td>insert_bottom_row(T value, int
+col)</td>
+<td>Inserts a new value in bottom
+row= ROWS-1 of the line buffer.</td>
+</tr>
+<tr class="row-odd"><td>insert_top_row(T value, int col)</td>
+<td>Inserts a new value in top row=0
+of the line buffer.</td>
+</tr>
+<tr class="row-even"><td>get_col(T value[ROWS], int col)</td>
+<td>Get a column value of the line
+buffer.</td>
+</tr>
+<tr class="row-odd"><td>T&amp; getval(int row, int col)</td>
+<td>Returns the data value in the
+line buffer at position (row,
+column).</td>
+</tr>
+<tr class="row-even"><td>T&amp; operator ()(int row, int col);</td>
+<td>Returns the data value in the
+line buffer at position (row,
+column).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="template-parameter-description-1">
+<span id="id3"></span><h3>Template Parameter Description<a class="headerlink" href="#template-parameter-description-1" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils" id="id10">
+<caption><span class="caption-text">Table : Template Parameter Description</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ROWS</td>
+<td>Number of rows in line buffer.</td>
+</tr>
+<tr class="row-odd"><td>COLS</td>
+<td>Number of columns in line buffer.</td>
+</tr>
+<tr class="row-even"><td>T</td>
+<td>Data type of pixel in line
+buffer.</td>
+</tr>
+<tr class="row-odd"><td>MEM_TYPE</td>
+<td>Type of storage element. It takes
+one of the following enumerated
+values: RAM_1P_BRAM, RAM_1P_URAM,
+RAM_2P_BRAM, RAM_2P_URAM,
+RAM_S2P_BRAM, RAM_S2P_URAM,
+RAM_T2P_BRAM, RAM_T2P_URAM.</td>
+</tr>
+<tr class="row-even"><td>RESHAPE_FACTOR</td>
+<td>Specifies the amount to divide an
+array.</td>
+</tr>
+</tbody>
+</table>
+<p>Sample code for line buffer declaration:</p>
+<div class="code c highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LineBuffer</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1920</span><span class="p">,</span> <span class="n">XF_8UC3</span><span class="p">,</span> <span class="n">RAM_S2P_URAM</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;</span>     <span class="n">buff</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="video-processing-functions">
+<span id="ariaid-title6"></span><h2>Video Processing Functions<a class="headerlink" href="#video-processing-functions" title="Permalink to this headline">¶</a></h2>
+<p>The following table summarizes the video processing functions ported
+from HLS Video Library into Vitis vision Library along with the API
+modifications.</p>
+<table border="1" class="docutils" id="id11">
+<caption><span class="caption-text">Table : Video Processing Functions</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="8%" />
+<col width="39%" />
+<col width="53%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Functions</th>
+<th class="head">HLS Video Library -API</th>
+<th class="head">xfOpenCV Library-API</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>addS</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC_T, typename _T, int DST_T&gt;</p>
+<p class="last">void AddS(Mat&lt;ROWS, COLS, SRC_T&gt;&amp;src,Scalar&lt;HLS_MAT_CN(SRC_T), _T&gt; scl, Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst)</p>
+</td>
+<td><p class="first">template&lt;int POLICY_TYPE, int SRC_T, int ROWS, int COLS, int NPC =1&gt;</p>
+<p class="last">void addS(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src1, unsigned char _scl[XF_CHANNELS(SRC_T,NPC)],xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _dst)</p>
+</td>
+</tr>
+<tr class="row-odd"><td>AddWeighted</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC1_T, int SRC2_T, int DST_T, typename P_T&gt;</p>
+<p class="last">void AddWeighted(Mat&lt;ROWS, COLS, SRC1_T&gt;&amp; src1,P_T alpha,Mat&lt;ROWS, COLS, SRC2_T&gt;&amp; src2,P_T beta, P_T gamma,Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst)</p>
+</td>
+<td><p class="first">template&lt; int SRC_T,int DST_T, int ROWS, int COLS, int NPC = 1&gt;</p>
+<p class="last">void addWeighted(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; src1,float alpha, xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; src2,float beta, float gama, xf::Mat&lt;DST_T, ROWS, COLS, NPC&gt; &amp; dst)</p>
+</td>
+</tr>
+<tr class="row-even"><td>Cmp</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC1_T, int SRC2_T, int DST_T&gt;</p>
+<p>void Cmp(Mat&lt;ROWS, COLS, SRC1_T&gt;&amp; src1,Mat&lt;ROWS, COLS, SRC2_T&gt;&amp; src2,</p>
+<p class="last">Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst,int cmp_op)</p>
+</td>
+<td><p class="first">template&lt;int CMP_OP, int SRC_T, int ROWS, int COLS, int NPC =1&gt;</p>
+<p class="last">void compare(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src1, xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src2,xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _dst)</p>
+</td>
+</tr>
+<tr class="row-odd"><td>CmpS</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC_T, typename P_T, int DST_T&gt;</p>
+<p class="last">void CmpS(Mat&lt;ROWS, COLS, SRC_T&gt;&amp; src, P_T value, Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst, int cmp_op)</p>
+</td>
+<td><p class="first">template&lt;int CMP_OP, int SRC_T, int ROWS, int COLS, int NPC =1&gt;</p>
+<p class="last">void compare(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src1, unsigned char _scl[XF_CHANNELS(SRC_T,NPC)],xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _dst)</p>
+</td>
+</tr>
+<tr class="row-even"><td>Max</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC1_T, int SRC2_T, int DST_T&gt;</p>
+<p>void Max(Mat&lt;ROWS, COLS, SRC1_T&gt;&amp; src1,</p>
+<p>Mat&lt;ROWS, COLS, SRC2_T&gt;&amp; src2,</p>
+<p class="last">Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst)</p>
+</td>
+<td><p class="first">template&lt;int SRC_T, int ROWS, int COLS, int NPC =1&gt;</p>
+<p class="last">void Max(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src1, xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src2,xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _dst)</p>
+</td>
+</tr>
+<tr class="row-odd"><td>MaxS</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC_T, typename _T, int DST_T&gt;</p>
+<p>void MaxS(Mat&lt;ROWS, COLS, SRC_T&gt;&amp; src,</p>
+<p class="last">_T value, Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst)</p>
+</td>
+<td><p class="first">template&lt; int SRC_T, int ROWS, int COLS, int NPC =1&gt;</p>
+<p class="last">void max(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src1, unsigned char _scl[XF_CHANNELS(SRC_T,NPC)],xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _dst)</p>
+</td>
+</tr>
+<tr class="row-even"><td>Min</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC1_T, int SRC2_T, int DST_T&gt;</p>
+<p>void Min(Mat&lt;ROWS, COLS, SRC1_T&gt;&amp; src1,</p>
+<p>Mat&lt;ROWS, COLS, SRC2_T&gt;&amp; src2,</p>
+<p class="last">Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst)</p>
+</td>
+<td><p class="first">template&lt; int SRC_T, int ROWS, int COLS, int NPC =1&gt;</p>
+<p class="last">void Min(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src1, xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src2,xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _dst)</p>
+</td>
+</tr>
+<tr class="row-odd"><td>MinS</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC_T, typename _T, int DST_T&gt;</p>
+<p>void MinS(Mat&lt;ROWS, COLS, SRC_T&gt;&amp; src,</p>
+<p class="last">_T value,Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst)</p>
+</td>
+<td><p class="first">template&lt; int SRC_T, int ROWS, int COLS, int NPC =1&gt;</p>
+<p class="last">void min(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src1, unsigned char _scl[XF_CHANNELS(SRC_T,NPC)],xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _dst)</p>
+</td>
+</tr>
+<tr class="row-even"><td>PaintMask</td>
+<td><p class="first">template&lt;int SRC_T,int MASK_T,int ROWS,int COLS&gt;</p>
+<p>void PaintMask(</p>
+<p>Mat&lt;ROWS,COLS,SRC_T&gt; &amp;_src,</p>
+<p>Mat&lt;ROWS,COLS,MASK_T&gt;&amp;_mask,</p>
+<p class="last">Mat&lt;ROWS,COLS,SRC_T&gt;&amp;_dst,Scalar&lt;HLS_MAT_CN(SRC_T),HLS_TNAME(SRC_T)&gt; _color)</p>
+</td>
+<td><p class="first">template&lt; int SRC_T,int MASK_T, int ROWS, int COLS,int NPC=1&gt;</p>
+<p class="last">void paintmask(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src_mat, xf::Mat&lt;MASK_T, ROWS, COLS, NPC&gt; &amp; in_mask, xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _dst_mat, unsigned char _color[XF_CHANNELS(SRC_T,NPC)])</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Reduce</td>
+<td><p class="first">template&lt;typename INTER_SUM_T, int ROWS, int COLS, int SRC_T, int DST_ROWS, int DST_COLS, int DST_T&gt;</p>
+<p>void Reduce(</p>
+<p>Mat&lt;ROWS, COLS, SRC_T&gt; &amp;src,</p>
+<p>Mat&lt;DST_ROWS, DST_COLS, DST_T&gt; &amp;dst,</p>
+<p>int dim,</p>
+<p class="last">int op=HLS_REDUCE_SUM)</p>
+</td>
+<td><p class="first">template&lt; int REDUCE_OP, int SRC_T,int DST_T, int ROWS, int COLS,int ONE_D_HEIGHT, int ONE_D_WIDTH, int NPC=1&gt;</p>
+<p class="last">void reduce(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src_mat, xf::Mat&lt;DST_T, ONE_D_HEIGHT, ONE_D_WIDTH, 1&gt; &amp; _dst_mat, unsigned char dim)</p>
+</td>
+</tr>
+<tr class="row-even"><td>Zero</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC_T, int DST_T&gt;</p>
+<p>void Zero(Mat&lt;ROWS, COLS, SRC_T&gt;&amp; src,</p>
+<p class="last">Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst)</p>
+</td>
+<td><p class="first">template&lt; int SRC_T, int ROWS, int COLS, int NPC =1&gt;</p>
+<p class="last">void zero(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src1,xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _dst)</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Sum</td>
+<td><p class="first">template&lt;typename DST_T, int ROWS, int COLS, int SRC_T&gt;</p>
+<p>Scalar&lt;HLS_MAT_CN(SRC_T), DST_T&gt; Sum(</p>
+<p class="last">Mat&lt;ROWS, COLS, SRC_T&gt;&amp; src)</p>
+</td>
+<td><p class="first">template&lt; int SRC_T, int ROWS, int COLS, int NPC = 1&gt;</p>
+<p class="last">void sum(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; src1, double sum[XF_CHANNELS(SRC_T,NPC)] )</p>
+</td>
+</tr>
+<tr class="row-even"><td>SubS</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC_T, typename _T, int DST_T&gt;</p>
+<p>void SubS(Mat&lt;ROWS, COLS, SRC_T&gt;&amp; src,</p>
+<p>Scalar&lt;HLS_MAT_CN(SRC_T), _T&gt; scl,</p>
+<p class="last">Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst)</p>
+</td>
+<td><p class="first">template&lt;int POLICY_TYPE, int SRC_T, int ROWS, int COLS, int NPC =1&gt;</p>
+<p class="last">void SubS(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src1, unsigned char _scl[XF_CHANNELS(SRC_T,NPC)],xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _dst)</p>
+</td>
+</tr>
+<tr class="row-odd"><td>SubRS</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC_T, typename _T, int DST_T&gt;</p>
+<p>void SubRS(Mat&lt;ROWS, COLS, SRC_T&gt;&amp; src,</p>
+<p>Scalar&lt;HLS_MAT_CN(SRC_T), _T&gt; scl,</p>
+<p class="last">Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst)</p>
+</td>
+<td><p class="first">template&lt;int POLICY_TYPE, int SRC_T, int ROWS, int COLS, int NPC =1&gt;</p>
+<p class="last">void SubRS(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src1, unsigned char _scl[XF_CHANNELS(SRC_T,NPC)],xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _dst)</p>
+</td>
+</tr>
+<tr class="row-even"><td>Set</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC_T, typename _T, int DST_T&gt;</p>
+<p>void Set(Mat&lt;ROWS, COLS, SRC_T&gt;&amp; src,</p>
+<p>Scalar&lt;HLS_MAT_CN(SRC_T), _T&gt; scl,</p>
+<p class="last">Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst)</p>
+</td>
+<td><p class="first">template&lt; int SRC_T, int ROWS, int COLS, int NPC =1&gt;</p>
+<p class="last">void set(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src1, unsigned char _scl[XF_CHANNELS(SRC_T,NPC)],xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _dst)</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Absdiff</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC1_T, int SRC2_T, int DST_T&gt;</p>
+<p>void AbsDiff(</p>
+<p>Mat&lt;ROWS, COLS, SRC1_T&gt;&amp; src1,</p>
+<p>Mat&lt;ROWS, COLS, SRC2_T&gt;&amp; src2,</p>
+<p class="last">Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst)</p>
+</td>
+<td><p class="first">template&lt;int SRC_T, int ROWS, int COLS, int NPC =1&gt;</p>
+<p class="last">void absdiff(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src1,xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src2,xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _dst)</p>
+</td>
+</tr>
+<tr class="row-even"><td>And</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC1_T, int SRC2_T, int DST_T&gt;</p>
+<p>void And(</p>
+<p>Mat&lt;ROWS, COLS, SRC1_T&gt;&amp; src1,</p>
+<p>Mat&lt;ROWS, COLS, SRC2_T&gt;&amp; src2,</p>
+<p class="last">Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst)</p>
+</td>
+<td><p class="first">template&lt;int SRC_T, int ROWS, int COLS, int NPC = 1&gt;</p>
+<p class="last">void bitwise_and(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src1, xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src2, xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp;_dst)</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Dilate</td>
+<td><p class="first">template&lt;int Shape_type,int ITERATIONS,int SRC_T, int DST_T, typename KN_T,int IMG_HEIGHT,int IMG_WIDTH,int K_HEIGHT,int K_WIDTH&gt;</p>
+<p class="last">void Dilate(Mat&lt;IMG_HEIGHT, IMG_WIDTH, SRC_T&gt;&amp;_src,Mat&lt;IMG_HEIGHT, IMG_WIDTH, DST_T&amp;_dst,Window&lt;K_HEIGHT,K_WIDTH,KN_T&gt;&amp;_kernel)</p>
+</td>
+<td><p class="first">template&lt;int BORDER_TYPE, int TYPE, int ROWS, int COLS,int K_SHAPE,int K_ROWS,int K_COLS, int ITERATIONS, int NPC=1&gt;</p>
+<p class="last">void dilate (xf::Mat&lt;TYPE, ROWS, COLS, NPC&gt; &amp; _src, xf::Mat&lt;TYPE, ROWS, COLS, NPC&gt; &amp; _dst,unsigned char _kernel[K_ROWS*K_COLS])</p>
+</td>
+</tr>
+<tr class="row-even"><td>Duplicate</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC_T, int DST_T&gt;</p>
+<p class="last">void Duplicate(Mat&lt;ROWS, COLS, SRC_T&gt;&amp; src,Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst1,Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst2)</p>
+</td>
+<td><p class="first">template&lt;int SRC_T, int ROWS, int COLS,int NPC&gt;</p>
+<p class="last">void duplicateMat(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src, xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _dst1,xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _dst2)</p>
+</td>
+</tr>
+<tr class="row-odd"><td>EqualizeHist</td>
+<td><p class="first">template&lt;int SRC_T, int DST_T,int ROW, int COL&gt;</p>
+<p class="last">void EqualizeHist(Mat&lt;ROW, COL, SRC_T&gt;&amp;_src,Mat&lt;ROW, COL, DST_T&gt;&amp;_dst)</p>
+</td>
+<td><p class="first">template&lt;int SRC_T, int ROWS, int COLS, int NPC = 1&gt;</p>
+<p class="last">void equalizeHist(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src,xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src1,xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _dst)</p>
+</td>
+</tr>
+<tr class="row-even"><td>erode</td>
+<td><p class="first">template&lt;int Shape_type,int ITERATIONS,int SRC_T, int DST_T, typename KN_T,int IMG_HEIGHT,int IMG_WIDTH,int K_HEIGHT,int K_WIDTH&gt;</p>
+<p class="last">void Erode(Mat&lt;IMG_HEIGHT, IMG_WIDTH, SRC_T&gt;&amp;_src,Mat&lt;IMG_HEIGHT,IMG_WIDTH,DST_T&gt;&amp;_dst,Window&lt;K_HEIGHT,K_WIDTH,KN_T&gt;&amp;_kernel)</p>
+</td>
+<td><p class="first">template&lt;int BORDER_TYPE, int TYPE, int ROWS, int COLS,int K_SHAPE,int K_ROWS,int K_COLS, int ITERATIONS, int NPC=1&gt;</p>
+<p class="last">void erode (xf::Mat&lt;TYPE, ROWS, COLS, NPC&gt; &amp; _src, xf::Mat&lt;TYPE, ROWS, COLS, NPC&gt; &amp; _dst,unsigned char _kernel[K_ROWS*K_COLS])</p>
+</td>
+</tr>
+<tr class="row-odd"><td>FASTX</td>
+<td><p class="first">template&lt;int SRC_T,int ROWS,int COLS&gt;</p>
+<p>void FASTX(Mat&lt;ROWS,COLS,SRC_T&gt; &amp;_src,</p>
+<p class="last">Mat&lt;ROWS,COLS,HLS_8UC1&gt;&amp;_mask,HLS_TNAME(SRC_T)_threshold,bool _nomax_supression)</p>
+</td>
+<td><p class="first">template&lt;int NMS,int SRC_T,int ROWS, int COLS,int NPC=1&gt;</p>
+<p class="last">void fast(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src_mat,xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _dst_mat,unsigned char _threshold)</p>
+</td>
+</tr>
+<tr class="row-even"><td>Filter2D</td>
+<td><p class="first">template&lt;int SRC_T, int DST_T, typename KN_T, typename POINT_T,</p>
+<p>int IMG_HEIGHT,int IMG_WIDTH,int K_HEIGHT,int K_WIDTH&gt;</p>
+<p class="last">void Filter2D(Mat&lt;IMG_HEIGHT, IMG_WIDTH, SRC_T&gt; &amp;_src,Mat&lt;IMG_HEIGHT, IMG_WIDTH, DST_T&gt; &amp;_dst,Window&lt;K_HEIGHT,K_WIDTH,KN_T&gt;&amp;_kernel,Point_&lt;POINT_T&gt;anchor)</p>
+</td>
+<td><p class="first">template&lt;int BORDER_TYPE,int FILTER_WIDTH,int FILTER_HEIGHT, int SRC_T,int DST_T, int ROWS, int COLS,int NPC&gt;</p>
+<p class="last">void filter2D(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src_mat,xf::Mat&lt;DST_T, ROWS, COLS, NPC&gt; &amp; _dst_mat,short int filter[FILTER_HEIGHT*FILTER_WIDTH],unsigned char _shift)</p>
+</td>
+</tr>
+<tr class="row-odd"><td>GaussianBlur</td>
+<td><p class="first">template&lt;int KH,int KW,typename BORDERMODE,int SRC_T,int DST_T,int ROWS,int COLS&gt;</p>
+<p>void GaussianBlur(Mat&lt;ROWS, COLS, SRC_T&gt;</p>
+<p>&amp;_src, Mat&lt;ROWS, COLS, DST_T&gt;</p>
+<p class="last">&amp;_dst,double sigmaX=0,double sigmaY=0)</p>
+</td>
+<td><p class="first">template&lt;int FILTER_SIZE, int BORDER_TYPE, int SRC_T, int ROWS, int COLS,int NPC = 1&gt;</p>
+<p class="last">void GaussianBlur(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src, xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _dst, float sigma)</p>
+</td>
+</tr>
+<tr class="row-even"><td>Harris</td>
+<td><p class="first">template&lt;int blockSize,int Ksize,typename KT,int SRC_T,int DST_T,int ROWS,int COLS&gt;</p>
+<p>void Harris(Mat&lt;ROWS, COLS, SRC_T&gt;</p>
+<p class="last">&amp;_src,Mat&lt;ROWS, COLS, DST_T&gt;&amp;_dst,KT k,int threshold</p>
+</td>
+<td><p class="first">template&lt;int FILTERSIZE,int BLOCKWIDTH, int NMSRADIUS,int SRC_T,int ROWS, int COLS,int NPC=1,bool USE_URAM=false&gt;</p>
+<p class="last">void cornerHarris(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; src,xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; dst,uint16_t threshold, uint16_t k)</p>
+</td>
+</tr>
+<tr class="row-odd"><td>CornerHarris</td>
+<td><p class="first">template&lt;int blockSize,int Ksize,typename KT,int SRC_T,int DST_T,int ROWS,int COLS&gt;</p>
+<p>void CornerHarris(</p>
+<p class="last">Mat&lt;ROWS, COLS, SRC_T&gt;&amp;_src,Mat&lt;ROWS, COLS, DST_T&gt;&amp;_dst,KT k)</p>
+</td>
+<td><p class="first">template&lt;int FILTERSIZE,int BLOCKWIDTH, int NMSRADIUS,int SRC_T,int ROWS, int COLS,int NPC=1,bool USE_URAM=false&gt;</p>
+<p class="last">void cornerHarris(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; src,xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; dst,uint16_t threshold, uint16_t k</p>
+</td>
+</tr>
+<tr class="row-even"><td>HoughLines2</td>
+<td><p class="first">template&lt;unsigned int theta,unsigned int rho,typename AT,typename RT,int SRC_T,int ROW,int COL,unsigned int linesMax&gt;</p>
+<p>void HoughLines2(Mat&lt;ROW,COL,SRC_T&gt; &amp;_src,</p>
+<p class="last">Polar_&lt;AT,RT&gt; (&amp;_lines)[linesMax],unsigned int threshold)</p>
+</td>
+<td><p class="first">template&lt;unsigned int RHO,unsigned int THETA,int MAXLINES,int DIAG,int MINTHETA,int MAXTHETA,int SRC_T, int ROWS, int COLS,int NPC&gt;</p>
+<p class="last">void HoughLines(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src_mat,float outputrho[MAXLINES],float outputtheta[MAXLINES],short threshold,short linesmax)</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Integral</td>
+<td><p class="first">template&lt;int SRC_T, int DST_T,</p>
+<p>int ROWS,int COLS&gt;</p>
+<p>void Integral(Mat&lt;ROWS, COLS, SRC_T&gt;&amp;_src,</p>
+<p class="last">Mat&lt;ROWS+1, COLS+1, DST_T&gt;&amp;_sum )</p>
+</td>
+<td><p class="first">template&lt;int SRC_TYPE,int DST_TYPE, int ROWS, int COLS, int NPC&gt;</p>
+<p class="last">void integral(xf::Mat&lt;SRC_TYPE, ROWS, COLS, NPC&gt; &amp; _src_mat, xf::Mat&lt;DST_TYPE, ROWS, COLS, NPC&gt; &amp; _dst_mat)</p>
+</td>
+</tr>
+<tr class="row-even"><td>Merge</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC_T, int DST_T&gt;</p>
+<p>void Merge(</p>
+<p>Mat&lt;ROWS, COLS, SRC_T&gt;&amp; src0,</p>
+<p>Mat&lt;ROWS, COLS, SRC_T&gt;&amp; src1,</p>
+<p>Mat&lt;ROWS, COLS, SRC_T&gt;&amp; src2,</p>
+<p>Mat&lt;ROWS, COLS, SRC_T&gt;&amp; src3,</p>
+<p class="last">Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst)</p>
+</td>
+<td><p class="first">template&lt;int SRC_T, int DST_T, int ROWS, int COLS, int NPC=1&gt;</p>
+<p class="last">void merge(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp;_src1, xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp;_src2, xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp;_src3, xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp;_src4, xf::Mat&lt;DST_T, ROWS, COLS, NPC&gt; &amp;_dst)</p>
+</td>
+</tr>
+<tr class="row-odd"><td>MinMaxLoc</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC_T, typename P_T&gt;</p>
+<p>void MinMaxLoc(Mat&lt;ROWS, COLS, SRC_T&gt;&amp; src,</p>
+<p>P_T* min_val,P_T* max_val,Point&amp; min_loc,</p>
+<p class="last">Point&amp; max_loc)</p>
+</td>
+<td><p class="first">template&lt;int SRC_T,int ROWS,int COLS,int NPC=0&gt;</p>
+<p class="last">void minMaxLoc(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src,int32_t *min_value, int32_t *max_value,uint16_t *_minlocx, uint16_t *_minlocy, uint16_t *_maxlocx, uint16_t *_maxlocy )</p>
+</td>
+</tr>
+<tr class="row-even"><td>Mul</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC1_T, int SRC2_T, int DST_T&gt;</p>
+<p>void Mul(Mat&lt;ROWS, COLS, SRC1_T&gt;&amp; src1,</p>
+<p>Mat&lt;ROWS, COLS, SRC2_T&gt;&amp; src2,</p>
+<p class="last">Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst)</p>
+</td>
+<td><p class="first">template&lt;int POLICY_TYPE, int SRC_T, int ROWS, int COLS, int NPC = 1&gt;</p>
+<p class="last">void multiply(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; src1, xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; src2, xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; dst,float scale)</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Not</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC_T, int DST_T&gt;</p>
+<p>void Not(Mat&lt;ROWS, COLS, SRC_T&gt;&amp; src,</p>
+<p class="last">Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst)</p>
+</td>
+<td><p class="first">template&lt;int SRC_T, int ROWS, int COLS, int NPC = 1&gt;</p>
+<p class="last">void bitwise_not(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; src, xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; dst)</p>
+</td>
+</tr>
+<tr class="row-even"><td>Range</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC_T, int DST_T, typename P_T&gt;</p>
+<p>void Range(Mat&lt;ROWS, COLS, SRC_T&gt;&amp; src,</p>
+<p>Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst,</p>
+<p class="last">P_T start,P_T end)</p>
+</td>
+<td><p class="first">template&lt;int SRC_T, int ROWS, int COLS,int NPC=1&gt;</p>
+<p class="last">void inRange(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; src,unsigned char lower_thresh,unsigned char upper_thresh,xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; dst)</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Resize</td>
+<td><p class="first">template&lt;int SRC_T, int ROWS,int COLS,int DROWS,int DCOLS&gt;</p>
+<p>void Resize (</p>
+<p>Mat&lt;ROWS, COLS, SRC_T&gt; &amp;_src,</p>
+<p>Mat&lt;DROWS, DCOLS, SRC_T&gt; &amp;_dst,</p>
+<p class="last">int interpolation=HLS_INTER_LINEAR )</p>
+</td>
+<td><p class="first">template&lt;int INTERPOLATION_TYPE, int TYPE, int SRC_ROWS, int SRC_COLS, int DST_ROWS, int DST_COLS, int NPC, int MAX_DOWN_SCALE&gt;</p>
+<p class="last">void resize (xf::Mat&lt;TYPE, SRC_ROWS, SRC_COLS, NPC&gt; &amp; _src, xf::Mat&lt;TYPE, DST_ROWS, DST_COLS, NPC&gt; &amp; _dst)</p>
+</td>
+</tr>
+<tr class="row-even"><td>sobel</td>
+<td><p class="first">template&lt;int XORDER, int YORDER, int SIZE, int SRC_T, int DST_T, int ROWS,int COLS,int DROWS,int DCOLS&gt;</p>
+<p>void Sobel (Mat&lt;ROWS, COLS, SRC_T&gt;</p>
+<p class="last">&amp;_src,Mat&lt;DROWS, DCOLS, DST_T&gt; &amp;_dst)</p>
+</td>
+<td><p class="first">template&lt;int BORDER_TYPE,int FILTER_TYPE, int SRC_T,int DST_T, int ROWS, int COLS,int NPC=1,bool USE_URAM = false&gt;</p>
+<p class="last">void Sobel(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src_mat,xf::Mat&lt;DST_T, ROWS, COLS, NPC&gt; &amp; _dst_matx,xf::Mat&lt;DST_T, ROWS, COLS, NPC&gt; &amp; _dst_maty)</p>
+</td>
+</tr>
+<tr class="row-odd"><td>split</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC_T, int DST_T&gt;</p>
+<p>void Split(</p>
+<p>Mat&lt;ROWS, COLS, SRC_T&gt;&amp; src,</p>
+<p>Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst0,</p>
+<p>Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst1,</p>
+<p>Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst2,</p>
+<p class="last">Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst3)</p>
+</td>
+<td><p class="first">template&lt;int SRC_T, int DST_T, int ROWS, int COLS, int NPC=1&gt;</p>
+<p class="last">void extractChannel(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src_mat, xf::Mat&lt;DST_T, ROWS, COLS, NPC&gt; &amp; _dst_mat, uint16_t _channel)</p>
+</td>
+</tr>
+<tr class="row-even"><td>Threshold</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC_T, int DST_T&gt;</p>
+<p>void Threshold(</p>
+<p>Mat&lt;ROWS, COLS, SRC_T&gt;&amp; src,</p>
+<p>Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst,</p>
+<p>HLS_TNAME(SRC_T) thresh,</p>
+<p>HLS_TNAME(DST_T) maxval,</p>
+<p class="last">int thresh_type)</p>
+</td>
+<td><p class="first">template&lt;int THRESHOLD_TYPE, int SRC_T, int ROWS, int COLS,int NPC=1&gt;</p>
+<p class="last">void Threshold(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src_mat,xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _dst_mat,short int thresh,short int maxval )</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Scale</td>
+<td><p class="first">template&lt;int ROWS, int COLS, int SRC_T, int DST_T, typename P_T&gt;</p>
+<p class="last">void Scale(Mat&lt;ROWS, COLS, SRC_T&gt;&amp; src,Mat&lt;ROWS, COLS, DST_T&gt;&amp; dst, P_T scale=1.0,P_T shift=0.0)</p>
+</td>
+<td><p class="first">template&lt; int SRC_T,int DST_T, int ROWS, int COLS, int NPC = 1&gt;</p>
+<p class="last">void scale(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; src1, xf::Mat&lt;DST_T, ROWS, COLS, NPC&gt; &amp; dst,float scale, float shift)</p>
+</td>
+</tr>
+<tr class="row-even"><td>InitUndistortRectifyMapInverse</td>
+<td><p class="first">template&lt;typename CMT, typename DT, typename ICMT, int ROWS, int COLS, int MAP1_T, int MAP2_T, int N&gt;</p>
+<p>void InitUndistortRectifyMapInverse (</p>
+<p class="last">Window&lt;3,3, CMT&gt; cameraMatrix,DT(&amp;distCoeffs)[N],Window&lt;3,3, ICMT&gt; ir, Mat&lt;ROWS, COLS, MAP1_T&gt; &amp;map1,Mat&lt;ROWS, COLS, MAP2_T&gt; &amp;map2,int noRotation=false)</p>
+</td>
+<td><p class="first">template&lt; int CM_SIZE, int DC_SIZE, int MAP_T, int ROWS, int COLS, int NPC &gt;</p>
+<p>void InitUndistortRectifyMapInverse (</p>
+<p>ap_fixed&lt;32,12&gt; *cameraMatrix,</p>
+<p>ap_fixed&lt;32,12&gt; *distCoeffs,</p>
+<p>ap_fixed&lt;32,12&gt; *ir,</p>
+<p class="last">xf::Mat&lt;MAP_T, ROWS, COLS, NPC&gt; &amp;_mapx_mat,xf::Mat&lt;MAP_T, ROWS, COLS, NPC&gt; &amp;_mapy_mat,int _cm_size, int _dc_size)</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Avg, mean, AvgStddev</td>
+<td><p class="first">template&lt;typename DST_T, int ROWS, int COLS, int SRC_T&gt;</p>
+<p class="last">DST_T Mean(Mat&lt;ROWS, COLS, SRC_T&gt;&amp; src)</p>
+</td>
+<td>template&lt;int SRC_T,int ROWS, int COLS,int NPC=1&gt;void meanStdDev(xf::Mat&lt;SRC_T, ROWS, COLS, NPC&gt; &amp; _src,unsigned short* _mean,unsigned short* _stddev)</td>
+</tr>
+<tr class="row-even"><td>CvtColor</td>
+<td><p class="first">template&lt;typename CONVERSION,int SRC_T, int DST_T,int ROWS,int COLS&gt;</p>
+<p>void CvtColor(Mat&lt;ROWS, COLS, SRC_T&gt; &amp;_src,</p>
+<p class="last">Mat&lt;ROWS, COLS, DST_T&gt; &amp;_dst)</p>
+</td>
+<td>Color Conversion</td>
+</tr>
+</tbody>
+</table>
+<p>Note: All the functions except Reduce can process N-pixels per clock
+where N is power of 2.</p>
+</div>
+</div>
+<div class="section" id="using-the-vitis-vision-library">
+<h1>Using the Vitis vision Library<a class="headerlink" href="#using-the-vitis-vision-library" title="Permalink to this headline">¶</a></h1>
+<p>This section describes using the Vitis vision library in the Vitis development
+environment.</p>
+<p>Note: The instructions in this section assume that you have downloaded
+and installed all the required packages. For more information, see the
+<a class="reference external" href="getting-started-with-sdsoc.html#gyt1504034261161">Prerequisites</a>.</p>
+<p>include folder constitutes all the necessary components to build a
+Computer Vision or Image Processing pipeline using the library. The
+folders common and core contain the infrastructure that the library
+functions need for basic functions, Mat class, and macros. The library
+functions are categorized into 4 folders, features, video,dnn, and
+imgproc based on the operation they perform. The names of the folders
+are self-explanatory.</p>
+<p>To work with the library functions, you need to include the path to the
+The Vitis vision library is structured as shown in the following table. The
+include folder in the Vitis project. You can include relevant header files
+for the library functions you will be working with after you source the
+include folder’s path to the compiler. For example, if you would like to
+work with Harris Corner Detector and Bilateral Filter, you must use the
+following lines in the host code:</p>
+<div class="code c highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include “features/xf_harris.hpp” //for Harris Corner Detector</span>
+<span class="c1">#include “imgproc/xf_bilateral_filter.hpp” //for Bilateral Filter</span>
+<span class="c1">#include “video/xf_kalmanfilter.hpp”</span>
+</pre></div>
+</div>
+<p>After the headers are included, you can work with the library functions
+as described in the <a class="reference external" href="api-reference.html#ycb1504034263746">Vitis vision Library API
+Reference</a> using the examples
+in the examples folder as reference.</p>
+<p>The following table gives the name of the header file, including the
+folder name, which contains the library function.</p>
+<table border="1" class="docutils" id="id12">
+<caption><span class="caption-text">Table : Vitis vision Library Contents</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="55%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Function Name</th>
+<th class="head">File Path in the include folder</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>xf::cv::accumulate</td>
+<td>imgproc/xf_accumulate_image.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::accumulateSquare</td>
+<td>imgproc/xf_accumulate_squared.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::accumulateWeighted</td>
+<td>imgproc/xf_accumulate_weighted.hp
+p</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::absdiff, xf::cv::add,
+xf::cv::subtract, xf::cv::bitwise_and,
+xf::cv::bitwise_or, xf::cv::bitwise_not,
+xf::cv::bitwise_xor,xf::cv::multiply
+,xf::cv::Max, xf::cv::Min,xf::cv::compare,
+xf::cv::zero, xf::cv::addS, xf::cv::SubS,
+xf::cv::SubRS ,xf::cv::compareS,
+xf::cv::MaxS, xf::cv::MinS, xf::cv::set</td>
+<td>core/xf_arithm.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::addWeighted</td>
+<td>imgproc/xf_add_weighted.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::autowhitebalance</td>
+<td>imgproc/xf_autowhitebalance.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::bilateralFilter</td>
+<td>imgproc/xf_histogram.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::boxFilter</td>
+<td>imgproc/xf_box_filter.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::boundingbox</td>
+<td>imgproc/xf_boundingbox.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::badpixelcorrection</td>
+<td>imgproc/xf_bpc.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::Canny</td>
+<td>imgproc/xf_canny.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::Colordetect</td>
+<td>imgproc/xf_colorthresholding.hpp,
+imgproc/xf_bgr2hsv.hpp,
+imgproc/xf_erosion.hpp,
+imgproc/xf_dilation.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::merge</td>
+<td>imgproc/xf_channel_combine.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::extractChannel</td>
+<td>imgproc/xf_channel_extract.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::convertTo</td>
+<td>imgproc/xf_convert_bitdepth.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::crop</td>
+<td>imgproc/xf_crop.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::filter2D</td>
+<td>imgproc/xf_custom_convolution.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::nv122iyuv, xf::cv::nv122rgba,
+xf::cv::nv122yuv4, xf::cv::nv212iyuv,
+xf::cv::nv212rgba, xf::cv::nv212yuv4,
+xf::cv::rgba2yuv4, xf::cv::rgba2iyuv,
+xf::cv::rgba2nv12, xf::cv::rgba2nv21,
+xf::cv::uyvy2iyuv, xf::cv::uyvy2nv12,
+xf::cv::uyvy2rgba, xf::cv::yuyv2iyuv,
+xf::cv::yuyv2nv12, xf::cv::yuyv2rgba,
+xf::cv::rgb2iyuv,xf::cv::rgb2nv12,
+xf::cv::rgb2nv21, xf::cv::rgb2yuv4,
+xf::cv::rgb2uyvy, xf::cv::rgb2yuyv,
+xf::cv::rgb2bgr, xf::cv::bgr2uyvy,
+xf::cv::bgr2yuyv, xf::cv::bgr2rgb,
+xf::cv::bgr2nv12, xf::cv::bgr2nv21,
+xf::cv::iyuv2nv12, xf::cv::iyuv2rgba,
+xf::cv::iyuv2rgb, xf::cv::iyuv2yuv4,
+xf::cv::nv122uyvy, xf::cv::nv122yuyv,
+xf::cv::nv122nv21, xf::cv::nv212rgb,
+xf::cv::nv212bgr, xf::cv::nv212uyvy,
+xf::cv::nv212yuyv, xf::cv::nv212nv12,
+xf::cv::uyvy2rgb, xf::cv::uyvy2bgr,
+xf::cv::uyvy2yuyv, xf::cv::yuyv2rgb,
+xf::cv::yuyv2bgr, xf::cv::yuyv2uyvy,
+xf::cv::rgb2gray, xf::cv::bgr2gray,
+xf::cv::gray2rgb, xf::cv::gray2bgr,
+xf::cv::rgb2xyz, xf::cv::bgr2xyz…</td>
+<td>imgproc/xf_cvt_color.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::dilate</td>
+<td>imgproc/xf_dilation.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::demosaicing</td>
+<td>imgproc/xf_demosaicing.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::erode</td>
+<td>imgproc/xf_erosion.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::fast</td>
+<td>features/xf_fast.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::GaussianBlur</td>
+<td>imgproc/xf_gaussian_filter.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::gaincontrol</td>
+<td>imgproc/xf_gaincontrol.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::gammacorrection</td>
+<td>imgproc/xf_gammacorrection</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::cornerHarris</td>
+<td>features/xf_harris.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::calcHist</td>
+<td>imgproc/xf_histogram.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::equalizeHist</td>
+<td>imgproc/xf_hist_equalize.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::HOGDescriptor</td>
+<td>imgproc/xf_hog_descriptor.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::Houghlines</td>
+<td>imgproc/xf_houghlines.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::inRange</td>
+<td>imgproc/xf_inrange.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::integralImage</td>
+<td>imgproc/xf_integral_image.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::densePyrOpticalFlow</td>
+<td>video/xf_pyr_dense_optical_flow.h
+pp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::DenseNonPyrLKOpticalFlow</td>
+<td>video/xf_dense_npyr_optical_flow.
+hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::LUT</td>
+<td>imgproc/xf_lut.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::KalmanFilter</td>
+<td>video/xf_kalmanfilter.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::magnitude</td>
+<td>core/xf_magnitude.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::MeanShift</td>
+<td>imgproc/xf_mean_shift.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::meanStdDev</td>
+<td>core/xf_mean_stddev.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::medianBlur</td>
+<td>imgproc/xf_median_blur.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::minMaxLoc</td>
+<td>core/xf_min_max_loc.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::OtsuThreshold</td>
+<td>imgproc/xf_otsuthreshold.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::phase</td>
+<td>core/xf_phase.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::preProcess</td>
+<td>dnn/xf_pre_process.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::paintmask</td>
+<td>imgproc/xf_paintmask.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::pyrDown</td>
+<td>imgproc/xf_pyr_down.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::pyrUp</td>
+<td>imgproc/xf_pyr_up.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::reduce</td>
+<td>imgrpoc/xf_reduce.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::remap</td>
+<td>imgproc/xf_remap.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::resize</td>
+<td>imgproc/xf_resize.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::scale</td>
+<td>imgproc/xf_scale.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::Scharr</td>
+<td>imgproc/xf_scharr.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::SemiGlobalBM</td>
+<td>imgproc/xf_sgbm.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::Sobel</td>
+<td>imgproc/xf_sobel.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::StereoPipeline</td>
+<td>imgproc/xf_stereo_pipeline.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::sum</td>
+<td>imgproc/xf_sum.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::StereoBM</td>
+<td>imgproc/xf_stereoBM.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::SVM</td>
+<td>imgproc/xf_svm.hpp</td>
+</tr>
+<tr class="row-even"><td>xf::cv::Threshold</td>
+<td>imgproc/xf_threshold.hpp</td>
+</tr>
+<tr class="row-odd"><td>xf::cv::warpTransform</td>
+<td>imgproc/xf_warp_transform.hpp</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="changing-the-hardware-kernel-configuration">
+<h1>Changing the Hardware Kernel Configuration<a class="headerlink" href="#changing-the-hardware-kernel-configuration" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Update the &lt;path to vision git
+folder&gt;/visoin/L1/examples/&lt;function&gt;/build/xf_config_params.h file.</div></blockquote>
+</div>
+<div class="section" id="using-the-vitis-vision-library-functions-on-hardware">
+<h1>Using the Vitis Vision Library Functions on Hardware<a class="headerlink" href="#using-the-vitis-vision-library-functions-on-hardware" title="Permalink to this headline">¶</a></h1>
+<p>The following table lists the Vitis vision library functions and the command
+to run the respective examples on hardware. It is assumed that your
+design is completely built and the board has booted up correctly.</p>
+<table border="1" class="docutils" id="id13">
+<caption><span class="caption-text">Table : Using the Vitis vision Library Function on Hardware</span><a class="headerlink" href="#id13" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="21%" />
+<col width="40%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Example</th>
+<th class="head">Function Name</th>
+<th class="head">Usage on Hardware</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>accumulate</td>
+<td>xf::cv::accumulate</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-odd"><td>accumulatesq
+uared</td>
+<td>xf::cv::accumulateSquare</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-even"><td>accumulatewe
+ighted</td>
+<td>xf::cv::accumulateWeighted</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-odd"><td>addS</td>
+<td>xf::cv::addS</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>arithm</td>
+<td>xf::cv::absdiff,
+xf::cv::subtract,
+xf::cv::bitwise_and,
+xf::cv::bitwise_or,
+xf::cv::bitwise_not,
+xf::cv::bitwise_xor</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-odd"><td>addweighted</td>
+<td>xf::cv::addWeighted</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-even"><td>Autowhite
+balance</td>
+<td>xf::cv::autowhitebalance</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Bilateralfil
+ter</td>
+<td>xf::cv::bilateralFilter</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Boxfilter</td>
+<td>xf::cv::boxFilter</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Badpixelcorr
+ection</td>
+<td>xf::cv::badpixelcorrection</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Boundingbox</td>
+<td>xf::cv::boundingbox</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;
+&lt;No of ROI’s&gt;</td>
+</tr>
+<tr class="row-odd"><td>Canny</td>
+<td>xf::cv::Canny</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>channelcombi
+ne</td>
+<td>xf::cv::merge</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;
+&lt;path to input image 3&gt;
+&lt;path to input image 4&gt;</td>
+</tr>
+<tr class="row-odd"><td>Channelextra
+ct</td>
+<td>xf::cv::extractChannel</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Colordetect</td>
+<td>xf::cv::bgr2hsv,
+xf::cv::colorthresholding,
+xf::cv:: erode, xf::cv::
+dilate</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>compare</td>
+<td>xf::cv::compare</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-even"><td>compareS</td>
+<td>xf::cv::compareS</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Convertbitde
+pth</td>
+<td>xf::cv::convertTo</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Cornertracke
+r</td>
+<td>xf::cv::cornerTracker</td>
+<td>./exe &lt;input video&gt; &lt;no.
+of frames&gt; &lt;Harris
+Threshold&gt; &lt;No. of
+frames after which
+Harris Corners are
+Reset&gt;</td>
+</tr>
+<tr class="row-odd"><td>crop</td>
+<td>xf::cv::crop</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Customconv</td>
+<td>xf::cv::filter2D</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>cvtcolor
+IYUV2NV12</td>
+<td>xf::cv::iyuv2nv12</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;
+&lt;path to input image 3&gt;</td>
+</tr>
+<tr class="row-even"><td>cvtcolor
+IYUV2RGBA</td>
+<td>xf::cv::iyuv2rgba</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;
+&lt;path to input image 3&gt;</td>
+</tr>
+<tr class="row-odd"><td>cvtcolor
+IYUV2YUV4</td>
+<td>xf::cv::iyuv2yuv4</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;
+&lt;path to input image 3&gt;
+&lt;path to input image 4&gt;
+&lt;path to input image 5&gt;
+&lt;path to input image 6&gt;</td>
+</tr>
+<tr class="row-even"><td>cvtcolor
+NV122IYUV</td>
+<td>xf::cv::nv122iyuv</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-odd"><td>cvtcolor
+NV122RGBA</td>
+<td>xf::cv::nv122rgba</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-even"><td>cvtcolor
+NV122YUV4</td>
+<td>xf::cv::nv122yuv4</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-odd"><td>cvtcolor
+NV212IYUV</td>
+<td>xf::cv::nv212iyuv</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-even"><td>cvtcolor
+NV212RGBA</td>
+<td>xf::cv::nv212rgba</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-odd"><td>cvtcolor
+NV212YUV4</td>
+<td>xf::cv::nv212yuv4</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-even"><td>cvtcolor
+RGBA2YUV4</td>
+<td>xf::cv::rgba2yuv4</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>cvtcolor
+RGBA2IYUV</td>
+<td>xf::cv::rgba2iyuv</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>cvtcolor
+RGBA2NV12</td>
+<td>xf::cv::rgba2nv12</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>cvtcolor
+RGBA2NV21</td>
+<td>xf::cv::rgba2nv21</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>cvtcolor
+UYVY2IYUV</td>
+<td>xf::cv::uyvy2iyuv</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>cvtcolor
+UYVY2NV12</td>
+<td>xf::cv::uyvy2nv12</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>cvtcolor
+UYVY2RGBA</td>
+<td>xf::cv::uyvy2rgba</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>cvtcolor
+YUYV2IYUV</td>
+<td>xf::cv::yuyv2iyuv</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>cvtcolor
+YUYV2NV12</td>
+<td>xf::cv::yuyv2nv12</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>cvtcolor
+YUYV2RGBA</td>
+<td>xf::cv::yuyv2rgba</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Demosaicing</td>
+<td>xf::cv::demosaicing</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Difference
+of Gaussian</td>
+<td>xf::cv::GaussianBlur,
+xf::cv::duplicateMat,
+xf::cv::delayMat, and
+xf::cv::subtract</td>
+<td>./&lt;exe-name&gt;.elf &lt;path
+to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Dilation</td>
+<td>xf::cv::dilate</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Erosion</td>
+<td>xf::cv::erode</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Fast</td>
+<td>xf::cv::fast</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Gaussianfilt
+er</td>
+<td>xf::cv::GaussianBlur</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Gaincontrol</td>
+<td>xf::cv::gaincontrol</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Gammacorrec
+tion</td>
+<td>xf::cv::gammacorrection</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Harris</td>
+<td>xf::cv::cornerHarris</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Histogram</td>
+<td>xf::cv::calcHist</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Histequializ
+e</td>
+<td>xf::cv::equalizeHist</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Hog</td>
+<td>xf::cv::HOGDescriptor</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Houghlines</td>
+<td>xf::cv::HoughLines</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>inRange</td>
+<td>xf::cv::inRange</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Integralimg</td>
+<td>xf::cv::integralImage</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Lkdensepyrof</td>
+<td>xf::cv::densePyrOpticalFlo
+w</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-even"><td>Lknpyroflow</td>
+<td>xf::cv::DenseNonPyr
+LKOpticalFlow</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-odd"><td>Lut</td>
+<td>xf::cv::LUT</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Kalman
+Filter</td>
+<td>xf::cv::KalmanFilter</td>
+<td>./&lt;executable name&gt;.elf</td>
+</tr>
+<tr class="row-odd"><td>Magnitude</td>
+<td>xf::cv::magnitude</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Max</td>
+<td>xf::cv::Max</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-odd"><td>MaxS</td>
+<td>xf::cv::MaxS</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>meanshifttra
+cking</td>
+<td>xf::cv::MeanShift</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input
+video/input image files&gt;
+&lt;Number of objects to
+track&gt;</td>
+</tr>
+<tr class="row-odd"><td>meanstddev</td>
+<td>xf::cv::meanStdDev</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>medianblur</td>
+<td>xf::cv::medianBlur</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Min</td>
+<td>xf::cv::Min</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-even"><td>MinS</td>
+<td>xf::cv::MinS</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Minmaxloc</td>
+<td>xf::cv::minMaxLoc</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>otsuthreshol
+d</td>
+<td>xf::cv::OtsuThreshold</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>paintmask</td>
+<td>xf::cv::paintmask</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Phase</td>
+<td>xf::cv::phase</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>Pyrdown</td>
+<td>xf::cv::pyrDown</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>Pyrup</td>
+<td>xf::cv::pyrUp</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>reduce</td>
+<td>xf::cv::reduce</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>remap</td>
+<td>xf::cv::remap</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;
+&lt;path to mapx data&gt;
+&lt;path to mapy data&gt;</td>
+</tr>
+<tr class="row-odd"><td>Resize</td>
+<td>xf::cv::resize</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>scale</td>
+<td>xf::cv::scale</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>scharrfilter</td>
+<td>xf::cv::Scharr</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>set</td>
+<td>xf::cv::set</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>SemiGlobalBM</td>
+<td>xf::cv::SemiGlobalBM</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to left image&gt;
+&lt;path to right image&gt;</td>
+</tr>
+<tr class="row-even"><td>sobelfilter</td>
+<td>xf::cv::Sobel</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>stereopipeli
+ne</td>
+<td>xf::cv::StereoPipeline</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to left image&gt;
+&lt;path to right image&gt;</td>
+</tr>
+<tr class="row-even"><td>stereolbm</td>
+<td>xf::cv::StereoBM</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to left image&gt;
+&lt;path to right image&gt;</td>
+</tr>
+<tr class="row-odd"><td>subRS</td>
+<td>xf::cv::SubRS</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>subS</td>
+<td>xf::cv::SubS</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>sum</td>
+<td>xf::cv::sum</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image 1&gt;
+&lt;path to input image 2&gt;</td>
+</tr>
+<tr class="row-even"><td>svm</td>
+<td>xf::cv::SVM</td>
+<td>./&lt;executable name&gt;.elf</td>
+</tr>
+<tr class="row-odd"><td>threshold</td>
+<td>xf::cv::Threshold</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-even"><td>warptransfor
+m</td>
+<td>xf::cv::warpTransform</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+<tr class="row-odd"><td>zero</td>
+<td>xf::cv::zero</td>
+<td>./&lt;executable name&gt;.elf
+&lt;path to input image&gt;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo" class="copyright">
+    <p>
+        
+        &copy; Copyright 2019, Xilinx
+
+    </p>
+  </div>
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

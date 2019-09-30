@@ -6,11 +6,38 @@
 <head>
   <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="SDSoC Tutorials"/>
+<meta name="description" content="The SDSoC (Software-Defined System-On-Chip) environment is an Eclipse-based Integrated Development Environment (IDE) for implementing heterogeneous embedded systems using the Zynq-7000 SoC and Zynq UltraScale+ MPSoC platforms."/>
+<meta name="xlnxdocumentclass" content="Document"> 
+<meta name="xlnxdocumenttypes" content="Tutorials"> 
+<meta name=" xlnxproductname" content="SDSoC">
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>Getting Started with HLS &mdash; xfOpenCV v1.0 documentation</title>
+  <title>Getting Started with HLS &mdash; Vitis Vision Library  documentation</title>
   
-
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
   
   
   
@@ -25,6 +52,7 @@
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -38,7 +66,54 @@
 </head>
 
 <body class="wy-body-for-nav">
-
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
    
   <div class="wy-grid-for-nav">
     
@@ -48,7 +123,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> xfOpenCV
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Vitis Vision Library
           
 
           
@@ -56,6 +131,10 @@
 
           
             
+            
+              <div class="version">
+                v1.0
+              </div>
             
           
 
@@ -71,6 +150,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -78,16 +158,31 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">xfOpenCV Library User Guide</a></li>
-</ul>
+              <p class="caption"><span class="caption-text">Vitis Vision Library User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="api-reference.html">xfOpenCV Library API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#getting-started-with-vitis-vision">Getting Started with Vitis Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#getting-started-with-hls">Getting Started with HLS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#design-examples-using-vitis-vision-library">Design Examples Using Vitis Vision Library</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Vitis Vision Library API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html#xf-mat-image-container-class">xf::Mat Image Container Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html#xfopencv-library-functions">xfOpenCV Library Functions</a></li>
 </ul>
 
             
+			<p class="caption"><span class="caption-text">This Page</span></p>
+				<ul class="current">
+				  <li class="toctree-l1"><a href="_sources/getting-started-with-hls.rst.txt"
+						rel="nofollow">Show Source</a></li>
+					<li class="toctree-l1"><a href="https://github.com/gitenterprise.xilinx.com/FaaSApps/Vitis_Libraries/blob/master/vision/docs//getting-started-with-hls.rst"
+						   rel="nofollow">View on GitHub</a></li>						
+				</ul>
           
         </div>
+        
       </div>
     </nav>
 
@@ -97,7 +192,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">xfOpenCV</a>
+          <a href="index.html">Vitis Vision Library</a>
         
       </nav>
 
@@ -126,7 +221,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Getting Started with HLS</li>
     
@@ -148,39 +243,48 @@
            <div itemprop="articleBody">
             
   <div class="section" id="getting-started-with-hls">
-<span id="ariaid-title1"></span><h1>Getting Started with HLS<a class="headerlink" href="#getting-started-with-hls" title="Permalink to this headline">¶</a></h1>
-<p>The xfOpenCV library can be used to build applications in Vivado® HLS.
-This section provides details on how the xfOpenCV library components can
-be integrated into a design in Vivado HLS 2019.1. This section of the
+<h1>Getting Started with HLS<a class="headerlink" href="#getting-started-with-hls" title="Permalink to this headline">¶</a></h1>
+<p>The Vitis vision library can be used to build applications in Vivado® HLS.
+This section provides details on how the Vitis vision library components can
+be integrated into a design in Vivado HLS 2019.2. This section of the
 document provides steps on how to run a single library component through
-the Vivado HLS 2019.1 use flow which includes, C-simulation,
+the Vivado HLS 2019.2 use flow which includes, C-simulation,
 C-synthesis, C/RTL co-simulation, and exporting the RTL as an IP.</p>
 <p>You are required to do the following changes to facilitate proper
-functioning of the use model in Vivado HLS 2019.1:</p>
-<ol class="arabic simple">
-<li>Use of appropriate compile-time options - When using the xfOpenCV
+functioning of the use model in Vivado HLS 2019.2:</p>
+<ol class="arabic">
+<li><p class="first">Use of appropriate compile-time options - When using the Vitis vision
 functions in HLS, the <code class="docutils literal notranslate"><span class="pre">-D__SDSVHLS__</span></code> and <code class="docutils literal notranslate"><span class="pre">-std=c++0x</span></code> options
-need to be provided at the time of compilation:</li>
-<li>Specifying interface pragmas to the interface level arguments - For
+need to be provided at the time of compilation:</p>
+</li>
+<li><p class="first">Specifying interface pragmas to the interface level arguments - For
 the functions with top level interface arguments as pointers (with
 more than one read/write access), the <code class="docutils literal notranslate"><span class="pre">m_axi</span></code> Interface pragma must
-be specified. For example,</li>
+be specified. For example,</p>
+<div class="code c highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">lut_accel</span><span class="p">(</span><span class="n">xf</span><span class="p">::</span><span class="n">cv</span><span class="p">::</span><span class="n">Mat</span><span class="o">&lt;</span><span class="n">TYPE</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="n">WIDTH</span><span class="p">,</span> <span class="n">NPC1</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">imgInput</span><span class="p">,</span> <span class="n">xf</span><span class="p">::</span><span class="n">cv</span><span class="p">::</span><span class="n">Mat</span><span class="o">&lt;</span><span class="n">TYPE</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="n">WIDTH</span><span class="p">,</span> <span class="n">NPC1</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">imgOutput</span><span class="p">,</span> <span class="n">unsigned</span> <span class="n">char</span> <span class="o">*</span><span class="n">lut_ptr</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="c1">#pragma HLS INTERFACE m_axi depth=256 port=lut_ptr offset=direct bundle=lut_ptr</span>
+    <span class="n">xf</span><span class="p">::</span><span class="n">cv</span><span class="p">::</span><span class="n">LUT</span><span class="o">&lt;</span> <span class="n">TYPE</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="n">WIDTH</span><span class="p">,</span> <span class="n">NPC1</span><span class="o">&gt;</span> <span class="p">(</span><span class="n">imgInput</span><span class="p">,</span><span class="n">imgOutput</span><span class="p">,</span><span class="n">lut_ptr</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
 </ol>
 <div class="section" id="hls-standalone-mode">
-<span id="ariaid-title2"></span><h2>HLS Standalone Mode<a class="headerlink" href="#hls-standalone-mode" title="Permalink to this headline">¶</a></h2>
+<h2>HLS Standalone Mode<a class="headerlink" href="#hls-standalone-mode" title="Permalink to this headline">¶</a></h2>
 <p>The HLS standalone mode can be operated using the following two modes:</p>
 <ol class="arabic simple">
 <li>Tcl Script Mode</li>
 <li>GUI Mode</li>
 </ol>
 <div class="section" id="tcl-script-mode">
-<span id="ariaid-title3"></span><h3>Tcl Script Mode<a class="headerlink" href="#tcl-script-mode" title="Permalink to this headline">¶</a></h3>
+<h3>Tcl Script Mode<a class="headerlink" href="#tcl-script-mode" title="Permalink to this headline">¶</a></h3>
 <p>Use the following steps to operate the HLS Standalone Mode using Tcl
 Script:</p>
 <ol class="arabic simple">
 <li>In the Vivado® HLS tcl script file, update the cflags in all the
 add_files sections.</li>
-<li>Append the path to the xfOpenCV/include directory, as it contains all
+<li>Append the path to the vision/L1/include directory, as it contains all
 the header files required by the library.</li>
 <li>Add the <code class="docutils literal notranslate"><span class="pre">-D__SDSVHLS__</span></code> and <code class="docutils literal notranslate"><span class="pre">-std=c++0x</span></code> compiler flags.</li>
 </ol>
@@ -189,50 +293,79 @@ the header files required by the library.</li>
 when performing synthesis.</p>
 <p>For example:</p>
 <p>Setting flags for source files:</p>
+<div class="code c highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">add_files</span> <span class="n">xf_dilation_accel</span><span class="o">.</span><span class="n">cpp</span> <span class="o">-</span><span class="n">cflags</span> <span class="s2">&quot;-I&lt;path-to-include-directory&gt; -D__SDSVHLS__ -std=c++0x&quot;</span>
+</pre></div>
+</div>
 <p>Setting flags for testbench files:</p>
+<div class="code c highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">add_files</span> <span class="o">-</span><span class="n">tb</span> <span class="n">xf_dilation_tb</span><span class="o">.</span><span class="n">cpp</span> <span class="o">-</span><span class="n">cflags</span> <span class="s2">&quot;-I&lt;path-to-include-directory&gt; -D__SDSVHLS__ -std=c++0x&quot;</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="gui-mode">
-<span id="ariaid-title4"></span><h3>GUI Mode<a class="headerlink" href="#gui-mode" title="Permalink to this headline">¶</a></h3>
+<h3>GUI Mode<a class="headerlink" href="#gui-mode" title="Permalink to this headline">¶</a></h3>
 <p>Use the following steps to operate the HLS Standalone Mode using GUI:</p>
-<ol class="arabic simple">
-<li>Open Vivado® HLS in GUI mode and create a new project</li>
-<li>Specify the name of the project. For example - Dilation.</li>
-<li>Click Browse to enter a workspace folder used to store your projects.</li>
-<li>Click Next.</li>
-<li>Under the source files section, add the accel.cpp file which can be
+<ol class="arabic">
+<li><p class="first">Open Vivado® HLS in GUI mode and create a new project</p>
+</li>
+<li><p class="first">Specify the name of the project. For example - Dilation.</p>
+</li>
+<li><p class="first">Click Browse to enter a workspace folder used to store your projects.</p>
+</li>
+<li><p class="first">Click Next.</p>
+</li>
+<li><p class="first">Under the source files section, add the accel.cpp file which can be
 found in the examples folder. Also, fill the top function name (here
-it is dilation_accel).</li>
-<li>Click Next.</li>
-<li>Under the test bench section add tb.cpp.</li>
-<li>Click Next.</li>
-<li>Select the clock period to the required value (10ns in example).</li>
-<li>Select the suitable part. For example, <code class="docutils literal notranslate"><span class="pre">xczu9eg-ffvb1156-2-i</span></code>.</li>
-<li>Click Finish.</li>
-<li>Right click on the created project and select Project Settings.</li>
-<li>In the opened tab, select Simulation.</li>
-<li>Files added under the Test Bench section will be displayed. Select a
-file and click Edit CFLAGS.</li>
-<li>Enter
-<code class="docutils literal notranslate"><span class="pre">-I&lt;path-to-include-directory&gt;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-D__SDSVHLS__</span> <span class="pre">-std=c++0x</span></code>.
-Note: When using Vivado HLS in the Windows operating system, make
+it is dilation_accel).</p>
+</li>
+<li><p class="first">Click Next.</p>
+</li>
+<li><p class="first">Under the test bench section add tb.cpp.</p>
+</li>
+<li><p class="first">Click Next.</p>
+</li>
+<li><p class="first">Select the clock period to the required value (10ns in example).</p>
+</li>
+<li><p class="first">Select the suitable part. For example, <code class="docutils literal notranslate"><span class="pre">xczu9eg-ffvb1156-2-i</span></code>.</p>
+</li>
+<li><p class="first">Click Finish.</p>
+</li>
+<li><p class="first">Right click on the created project and select Project Settings.</p>
+</li>
+<li><p class="first">In the opened tab, select Simulation.</p>
+</li>
+<li><p class="first">Files added under the Test Bench section will be displayed. Select a
+file and click Edit CFLAGS.</p>
+</li>
+<li><p class="first">Enter
+<code class="docutils literal notranslate"><span class="pre">-I&lt;path-to-include-directory&gt;</span> <span class="pre">-D__SDSVHLS__</span> <span class="pre">-std=c++0x</span></code>.</p>
+<p>Note: When using Vivado HLS in the Windows operating system, make
 sure to provide the <code class="docutils literal notranslate"><span class="pre">-std=c++0x</span></code> flag only for C-Sim and Co-Sim. Do
-not include the flag when performing synthesis.</li>
-<li>Select Synthesis and repeat the above step for all the displayed
-files.</li>
-<li>Click OK.</li>
-<li>Run the C Simulation, select Clean Build and specify the required
-input arguments.</li>
-<li>Click OK.</li>
-<li>All the generated output files/images will be present in the
-solution1-&gt;csim-&gt;build.</li>
-<li>Run C synthesis.</li>
-<li>Run co-simulation by specifying the proper input arguments.</li>
-<li>The status of co-simulation can be observed on the console.</li>
+not include the flag when performing synthesis.</p>
+</li>
+<li><p class="first">Select Synthesis and repeat the above step for all the displayed
+files.</p>
+</li>
+<li><p class="first">Click OK.</p>
+</li>
+<li><p class="first">Run the C Simulation, select Clean Build and specify the required
+input arguments.</p>
+</li>
+<li><p class="first">Click OK.</p>
+</li>
+<li><p class="first">All the generated output files/images will be present in the
+solution1-&gt;csim-&gt;build.</p>
+</li>
+<li><p class="first">Run C synthesis.</p>
+</li>
+<li><p class="first">Run co-simulation by specifying the proper input arguments.</p>
+</li>
+<li><p class="first">The status of co-simulation can be observed on the console.</p>
+</li>
 </ol>
 </div>
 <div class="section" id="constraints-for-co-simulation">
-<span id="ariaid-title5"></span><h3>Constraints for Co-simulation<a class="headerlink" href="#constraints-for-co-simulation" title="Permalink to this headline">¶</a></h3>
-<p>There are few limitations in performing co-simulation of the xfOpenCV
+<h3>Constraints for Co-simulation<a class="headerlink" href="#constraints-for-co-simulation" title="Permalink to this headline">¶</a></h3>
+<p>There are few limitations in performing co-simulation of the Vitis vision
 functions. They are:</p>
 <ol class="arabic simple">
 <li>Functions with multiple accelerators are not supported.</li>
@@ -247,15 +380,15 @@ be equal to the actual input image size.</li>
 </div>
 </div>
 <div class="section" id="axi-video-interface-functions">
-<span id="ariaid-title6"></span><h2>AXI Video Interface Functions<a class="headerlink" href="#axi-video-interface-functions" title="Permalink to this headline">¶</a></h2>
-<p>xfOpenCV has functions that will transform the xf::Mat into Xilinx®
-Video Streaming interface and vice-versa. <code class="docutils literal notranslate"><span class="pre">xf::AXIvideo2xfMat()</span></code> and
-<code class="docutils literal notranslate"><span class="pre">xf::xfMat2AXIVideo()</span></code> act as video interfaces to the IPs of the
-xfOpenCV functions in the Vivado® IP integrator.
-<code class="docutils literal notranslate"><span class="pre">cvMat2AXIvideoxf</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;NPC&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">AXIvideo2cvMatxf&lt;NPC&gt;</span></code>
+<h2>AXI Video Interface Functions<a class="headerlink" href="#axi-video-interface-functions" title="Permalink to this headline">¶</a></h2>
+<p>Vitis vision has functions that will transform the xf::cv::Mat into Xilinx®
+Video Streaming interface and vice-versa. <code class="docutils literal notranslate"><span class="pre">xf::cv::AXIvideo2xfMat()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">xf::cv::xfMat2AXIVideo()</span></code> act as video interfaces to the IPs of the
+Vitis vision functions in the Vivado® IP integrator.
+<code class="docutils literal notranslate"><span class="pre">cvMat2AXIvideoxf&lt;NPC&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">AXIvideo2cvMatxf&lt;NPC&gt;</span></code>
 are used on the host side.</p>
-<table border="1" class="docutils" id="id7">
-<caption><span class="caption-text">Table 1. AXI Video Interface Functions</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">Table. AXI Video Interface Functions</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="41%" />
 <col width="59%" />
@@ -268,11 +401,11 @@ are used on the host side.</p>
 <tbody valign="top">
 <tr class="row-even"><td>AXIvideo2xfMat</td>
 <td>Converts data from an AXI4 video stream
-representation to xf::Mat format.</td>
+representation to xf::cv::Mat format.</td>
 </tr>
 <tr class="row-odd"><td>xfMat2AXIvideo</td>
-<td>Converts data stored as xf::Mat format
-to an AXI4 video stream.</td>
+<td>Converts data stored as xf::cv::Mat
+format to an AXI4 video stream.</td>
 </tr>
 <tr class="row-even"><td>cvMat2AXIvideoxf</td>
 <td>Converts data stored as cv::Mat format
@@ -285,17 +418,18 @@ representation to cv::Mat format.</td>
 </tbody>
 </table>
 <div class="section" id="axivideo2xfmat">
-<span id="ariaid-title7"></span><h3>AXIvideo2xfMat<a class="headerlink" href="#axivideo2xfmat" title="Permalink to this headline">¶</a></h3>
+<h3>AXIvideo2xfMat<a class="headerlink" href="#axivideo2xfmat" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">AXIvideo2xfMat</span></code> function receives a sequence of images using the
-AXI4 Streaming Video and produces an <code class="docutils literal notranslate"><span class="pre">xf::Mat</span></code> representation.</p>
-<div class="section" id="api-syntax">
-<h4>API Syntax<a class="headerlink" href="#api-syntax" title="Permalink to this headline">¶</a></h4>
+AXI4 Streaming Video and produces an <code class="docutils literal notranslate"><span class="pre">xf::cv::Mat</span></code> representation.</p>
+<p class="rubric">API Syntax</p>
+<div class="code c highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span><span class="o">&lt;</span><span class="nb">int</span> <span class="n">W</span><span class="p">,</span><span class="nb">int</span> <span class="n">T</span><span class="p">,</span><span class="nb">int</span> <span class="n">ROWS</span><span class="p">,</span> <span class="nb">int</span> <span class="n">COLS</span><span class="p">,</span><span class="nb">int</span> <span class="n">NPC</span><span class="o">&gt;</span>
+<span class="nb">int</span> <span class="n">AXIvideo2xfMat</span><span class="p">(</span><span class="n">hls</span><span class="p">::</span><span class="n">stream</span><span class="o">&lt;</span> <span class="n">ap_axiu</span><span class="o">&lt;</span><span class="n">W</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;</span> <span class="o">&gt;&amp;</span> <span class="n">AXI_video_strm</span><span class="p">,</span> <span class="n">xf</span><span class="p">::</span><span class="n">cv</span><span class="p">::</span><span class="n">Mat</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">ROWS</span><span class="p">,</span> <span class="n">COLS</span><span class="p">,</span> <span class="n">NPC</span><span class="o">&gt;&amp;</span> <span class="n">img</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="parameter-descriptions">
-<h4>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions" title="Permalink to this headline">¶</a></h4>
+<p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table border="1" class="docutils" id="id8">
-<caption><span class="caption-text">Table 2. AXIvideo2cvMatxf Function Parameter Description</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id2">
+<caption><span class="caption-text">Table. AXIvideo2cvMatxf Function Parameter Description</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="50%" />
 <col width="50%" />
@@ -342,20 +476,20 @@ ERROR_IO_EOL_LATE( 2 ) to indicate an unexpected line length, by
 detecting TLAST input.</p>
 <p>For more information about AXI interface see UG761.</p>
 </div>
-</div>
 <div class="section" id="xfmat2axivideo">
-<span id="ariaid-title8"></span><h3>xfMat2AXIvideo<a class="headerlink" href="#xfmat2axivideo" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">Mat2AXI</span></code> video function receives an xf::Mat representation of a
+<h3>xfMat2AXIvideo<a class="headerlink" href="#xfmat2axivideo" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">Mat2AXI</span></code> video function receives an xf::cv::Mat representation of a
 sequence of images and encodes it correctly using the AXI4 Streaming
 video protocol.</p>
-<div class="section" id="api-syntax-1">
-<span id="id1"></span><h4>API Syntax<a class="headerlink" href="#api-syntax-1" title="Permalink to this headline">¶</a></h4>
+<p class="rubric">API Syntax</p>
+<div class="code c highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span><span class="o">&lt;</span><span class="nb">int</span> <span class="n">W</span><span class="p">,</span> <span class="nb">int</span> <span class="n">T</span><span class="p">,</span> <span class="nb">int</span> <span class="n">ROWS</span><span class="p">,</span> <span class="nb">int</span> <span class="n">COLS</span><span class="p">,</span><span class="nb">int</span> <span class="n">NPC</span><span class="o">&gt;</span>
+<span class="nb">int</span> <span class="n">xfMat2AXIvideo</span><span class="p">(</span><span class="n">xf</span><span class="p">::</span><span class="n">cv</span><span class="p">::</span><span class="n">Mat</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">ROWS</span><span class="p">,</span> <span class="n">COLS</span><span class="p">,</span><span class="n">NPC</span><span class="o">&gt;&amp;</span> <span class="n">img</span><span class="p">,</span><span class="n">hls</span><span class="p">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">ap_axiu</span><span class="o">&lt;</span><span class="n">W</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;</span> <span class="o">&gt;&amp;</span> <span class="n">AXI_video_strm</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="parameter-descriptions-1">
-<span id="id2"></span><h4>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions-1" title="Permalink to this headline">¶</a></h4>
+<p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table border="1" class="docutils" id="id9">
-<caption><span class="caption-text">Table 3. xfMat2AXIvideo Function Parameter Description</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id3">
+<caption><span class="caption-text">Table. xfMat2AXIvideo Function Parameter Description</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="50%" />
 <col width="50%" />
@@ -402,19 +536,19 @@ protocol) type.</td>
 the same value. If there is mismatch it throws a compilation error in
 HLS.</p>
 </div>
-</div>
 <div class="section" id="cvmat2axivideoxf">
-<span id="ariaid-title9"></span><h3>cvMat2AXIvideoxf<a class="headerlink" href="#cvmat2axivideoxf" title="Permalink to this headline">¶</a></h3>
+<h3>cvMat2AXIvideoxf<a class="headerlink" href="#cvmat2axivideoxf" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">cvMat2Axivideoxf</span></code> function receives image as cv::Mat
 representation and produces the AXI4 streaming video of image.</p>
-<div class="section" id="api-syntax-2">
-<span id="id3"></span><h4>API Syntax<a class="headerlink" href="#api-syntax-2" title="Permalink to this headline">¶</a></h4>
+<p class="rubric">API Syntax</p>
+<div class="code c highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span><span class="o">&lt;</span><span class="nb">int</span> <span class="n">NPC</span><span class="p">,</span><span class="nb">int</span> <span class="n">W</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">cvMat2AXIvideoxf</span><span class="p">(</span><span class="n">cv</span><span class="p">::</span><span class="n">Mat</span><span class="o">&amp;</span> <span class="n">cv_mat</span><span class="p">,</span> <span class="n">hls</span><span class="p">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">ap_axiu</span><span class="o">&lt;</span><span class="n">W</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;</span> <span class="o">&gt;&amp;</span> <span class="n">AXI_video_strm</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="parameter-descriptions-2">
-<span id="id4"></span><h4>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions-2" title="Permalink to this headline">¶</a></h4>
+<p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table border="1" class="docutils" id="id10">
-<caption><span class="caption-text">Table 4. AXIvideo2cvMatxf Function Parameter Description</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id4">
+<caption><span class="caption-text">Table. AXIvideo2cvMatxf Function Parameter Description</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="50%" />
 <col width="50%" />
@@ -446,19 +580,19 @@ protocol) type.</td>
 </tbody>
 </table>
 </div>
-</div>
 <div class="section" id="axivideo2cvmatxf">
-<span id="ariaid-title10"></span><h3>AXIvideo2cvMatxf<a class="headerlink" href="#axivideo2cvmatxf" title="Permalink to this headline">¶</a></h3>
+<h3>AXIvideo2cvMatxf<a class="headerlink" href="#axivideo2cvmatxf" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">Axivideo2cvMatxf</span></code> function receives image as AXI4 streaming video
 and produces the cv::Mat representation of image</p>
-<div class="section" id="api-syntax-3">
-<span id="id5"></span><h4>API Syntax<a class="headerlink" href="#api-syntax-3" title="Permalink to this headline">¶</a></h4>
+<p class="rubric">API Syntax</p>
+<div class="code c highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span><span class="o">&lt;</span><span class="nb">int</span> <span class="n">NPC</span><span class="p">,</span><span class="nb">int</span> <span class="n">W</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="n">AXIvideo2cvMatxf</span><span class="p">(</span><span class="n">hls</span><span class="p">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">ap_axiu</span><span class="o">&lt;</span><span class="n">W</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;</span> <span class="o">&gt;&amp;</span> <span class="n">AXI_video_strm</span><span class="p">,</span> <span class="n">cv</span><span class="p">::</span><span class="n">Mat</span><span class="o">&amp;</span> <span class="n">cv_mat</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="parameter-descriptions-3">
-<span id="id6"></span><h4>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions-3" title="Permalink to this headline">¶</a></h4>
+<p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table border="1" class="docutils" id="id11">
-<caption><span class="caption-text">Table 5. AXIvideo2cvMatxf Function Parameter Description</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id5">
+<caption><span class="caption-text">Table. AXIvideo2cvMatxf Function Parameter Description</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="50%" />
 <col width="50%" />
@@ -492,7 +626,6 @@ protocol) type.</td>
 </div>
 </div>
 </div>
-</div>
 
 
            </div>
@@ -503,14 +636,18 @@ protocol) type.</td>
 
   <hr/>
 
-  <div role="contentinfo">
+  <div role="contentinfo" class="copyright">
     <p>
+        
         &copy; Copyright 2019, Xilinx
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
 </footer>
 
         </div>
@@ -520,7 +657,6 @@ protocol) type.</td>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
