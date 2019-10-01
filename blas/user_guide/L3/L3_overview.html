@@ -187,7 +187,7 @@
 				<ul class="current">
 				  <li class="toctree-l1"><a href="../../_sources/user_guide/L3/L3_overview.rst.txt"
 						rel="nofollow">Show Source</a></li>
-					<li class="toctree-l1"><a href="https://github.com/Xilinx/<ENTER GITHUB REPO PATH HERE>/blob/master/<ENTER DOC FOLDER HIERARCHY HERE>/user_guide/L3/L3_overview.rst"
+					<li class="toctree-l1"><a href="https://github.com/Xilinx/Vitis_Libraries/blob/master/blas/docs/src/user_guide/L3/L3_overview.rst"
 						   rel="nofollow">View on GitHub</a></li>						
 				</ul>
           
@@ -270,10 +270,49 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="L3_overview_content.html#using-the-xfblas-api">2. Using the XFBLAS API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="L3_overview_content.html#general-description">2.1 General description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="L3_overview_content.html#datatypes-reference">2.2 Datatypes Reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="L3_overview_content.html#xfblas-helper-function-reference">2.3 XFBLAS Helper Function Reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="L3_overview_content.html#xfblas-function-reference">2.4 XFBLAS Function Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L3_overview_content.html#general-description">2.1 General description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#error-status">2.1.1 Error status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblas-initialization">2.1.2 XFBLAS initialization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="L3_overview_content.html#datatypes-reference">2.2 Datatypes Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasstatus-t">2.2.1 xfblasStatus_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasengine-t">2.2.2 xfblasEngine_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasoperation-t">2.2.3 xfblasOperation_t</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="L3_overview_content.html#xfblas-helper-function-reference">2.3 XFBLAS Helper Function Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblascreate">2.3.1 xfblasCreate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasfree">2.3.2 xfblasFree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasdestroy">2.3.3 xfblasDestroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasmalloc">2.3.4 xfblasMalloc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblassetvector">2.3.5 xfblasSetVector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasgetvector">2.3.6 xfblasGetVector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblassetmatrix">2.3.7 xfblasSetMatrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasgetmatrix">2.3.8 xfblasGetMatrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblassetvectorasync">2.3.9 xfblasSetVectorAsync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasgetvectorasync">2.3.10 xfblasGetVectorAsync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblassetmatrixasync">2.3.11 xfblasSetMatrixAsync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasgetmatrixasync">2.3.12 xfblasGetMatrixAsync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasmallocrestricted">2.3.13 xfblasMallocRestricted</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblassetvectorrestricted">2.3.14 xfblasSetVectorRestricted</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasgetvectorrestricted">2.3.15 xfblasGetVectorRestricted</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblassetmatrixrestricted">2.3.16 xfblasSetMatrixRestricted</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasgetmatrixrestricted">2.3.17 xfblasGetMatrixRestricted</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblassetvectorrestrictedasync">2.3.18 xfblasSetVectorRestrictedAsync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasgetvectorrestrictedasync">2.3.19 xfblasGetVectorRestrictedAsync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblassetmatrixrestrictedasync">2.3.20 xfblasSetMatrixRestrictedAsync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasgetmatrixrestrictedasync">2.3.21 xfblasGetMatrixRestrictedAsync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasmallocmanaged">2.3.22 xfblasMallocManaged</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblaskernelsynchronize">2.3.23 xfblasKernelSynchronize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasdevicesynchronize">2.3.24 xfblasDeviceSynchronize</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="L3_overview_content.html#xfblas-function-reference">2.4 XFBLAS Function Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasgemm">2.4.1 xfblasGemm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="L3_overview_content.html#xfblasgemv">2.4.2 xfblasGemv</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="L3_overview_content.html#obtain-fpga-bitstream">3. Obtain FPGA bitstream</a></li>
