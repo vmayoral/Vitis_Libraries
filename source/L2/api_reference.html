@@ -178,12 +178,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#xillz4decompress">xilLz4Decompress</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xillz4decompressstream">xilLz4DecompressStream</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xilsnappycompress">xilSnappyCompress</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xilsnappycompressstream">xilSnappyCompressStream</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xilsnappydecompress">xilSnappyDecompress</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xilsnappydecompressstream">xilSnappyDecompressStream</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xiltreegenkernel">xilTreegenKernel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xildecompresszlib">xilDecompressZlib</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#xilzlibdecompressstream">xilZlibDecompressStream</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#xildecompressstreamk2k">xilDecompressStreamk2k</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#xilzlibdm">xilZlibDm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xildecompressstream">xilDecompressStream</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xillz77compress">xilLz77Compress</a></li>
 </ul>
 </li>
@@ -297,7 +297,7 @@
     <span class="p">)</span></pre>
 <p>Huffman kernel top function. This is an initial version of Huffman Kernel which does block based bit packing process. It uses dynamic huffman codes and bit lengths to encode the LZ77 (Byte Compressed Data) output. This version operates on 1MB block data per engine as this is suitable for use cases where raw data is over &gt;100MB and compression ratio is over 2.5x in order to achieve best throughput. This can be further optimized to achieve better throughput for smaller file usecase.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given docutils align-center">
+<table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -358,7 +358,7 @@
     <span class="p">)</span></pre>
 <p>LZ4 compression kernel takes the raw data as input and compresses the data in block based fashion and writes the output to global memory.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given docutils align-center">
+<table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -395,7 +395,7 @@
     <span class="p">)</span></pre>
 <p>LZ4 compression streaming kernel. It takes input from axi kernel stream and writes compressed data back to output axi kernel stream.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given docutils align-center">
+<table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -426,7 +426,7 @@
     <span class="p">)</span></pre>
 <p>LZ4 decompression kernel takes compressed data as input and process in block based fashion and writes the raw data to global memory.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given docutils align-center">
+<table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -464,7 +464,7 @@
     <span class="p">)</span></pre>
 <p>LZ4 decompression streaming kernel. It takes input from axi kernel stream and writes decompressed data back to output axi kernel stream.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given docutils align-center">
+<table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -498,7 +498,7 @@
     <span class="p">)</span></pre>
 <p>Snappy compression kernel takes the raw data as input and compresses the data in block based fashion and writes the output to global memory.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given docutils align-center">
+<table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -525,6 +525,34 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="xilsnappycompressstream">
+<span id="cid-xilsnappycompressstream"></span><span id="doxid-snappy-compress-stream-kernel-8hpp-1abc67939ecd54d3df5c9639ca5cce74c3"></span><h3>xilSnappyCompressStream<a class="headerlink" href="#xilsnappycompressstream" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;snappy_compress_stream_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilSnappyCompressStream</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inaxistream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outaxistream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">inputSize</span>
+    <span class="p">)</span></pre>
+<p>Snappy compression kernel takes the raw data as input from kernel axi stream and compresses the data in block based fashion and writes the output to kernel axi stream.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>inaxistream</p></td>
+<td><p>input kernel axi stream for raw data</p></td>
+</tr>
+<tr class="row-even"><td><p>outaxistream</p></td>
+<td><p>output kernel axi stream for compressed data</p></td>
+</tr>
+<tr class="row-odd"><td><p>inputSize</p></td>
+<td><p>input data size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="xilsnappydecompress">
 <span id="cid-xilsnappydecompress"></span><span id="doxid-snappy-decompress-mm-8hpp-1a70f1512f5f9d55b4aadc6baf57f6d6d6"></span><h3>xilSnappyDecompress<a class="headerlink" href="#xilsnappydecompress" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;snappy_decompress_mm.hpp&quot;</span></pre>
@@ -538,7 +566,7 @@
     <span class="p">)</span></pre>
 <p>Snappy decompression kernel takes compressed data as input and process in block based fashion and writes the raw data to global memory.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given docutils align-center">
+<table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -565,6 +593,35 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="xilsnappydecompressstream">
+<span id="cid-xilsnappydecompressstream"></span><span id="doxid-snappy-decompress-stream-kernel-8hpp-1aa787a86f1a30dca6c949102e74d9b802"></span><h3>xilSnappyDecompressStream<a class="headerlink" href="#xilsnappydecompressstream" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;snappy_decompress_stream_kernel.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilSnappyDecompressStream</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inaxistream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outaxistream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">inputSize</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">outputSize</span>
+    <span class="p">)</span></pre>
+<p>Snappy decompression kernel takes compressed data as input from kernel axi stream and process in block based fashion and writes the raw data to global memory.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>inaxistream</p></td>
+<td><p>input kernel axi stream for compressed data</p></td>
+</tr>
+<tr class="row-even"><td><p>outaxistream</p></td>
+<td><p>output kernel axi stream for decompressed data</p></td>
+</tr>
+<tr class="row-odd"><td><p>inputSize</p></td>
+<td><p>input data size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="xiltreegenkernel">
 <span id="cid-xiltreegenkernel"></span><span id="doxid-treegen-mm-8hpp-1a1e8e726c83065c6452fefa9796a7f311"></span><h3>xilTreegenKernel<a class="headerlink" href="#xiltreegenkernel" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;treegen_mm.hpp&quot;</span></pre>
@@ -585,7 +642,7 @@
     <span class="p">)</span></pre>
 <p>This is an initial version of dynamic huffman codes &amp; bit length generation kernel which takes literal and distance frequency data as input and generates dynamic huffman codes and bit length data. This version of the kernel performs better for larger data sets in synchronization with LZ77 and Huffman Kernels. It need to be optimized further to achieve better results for smaller block sizes (&lt;1MB) so that it improves for smaller file usecase.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given docutils align-center">
+<table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -644,7 +701,7 @@
     <span class="p">)</span></pre>
 <p>Zlib decompression kernel top function. This is an initial version of zlib decompression process. It does huffman bit upacking and lz77 decompression. This can be further optimized to achieve better throughput in case of less compression ratio case.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given docutils align-center">
+<table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -665,49 +722,17 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="xilzlibdecompressstream">
-<span id="cid-xilzlibdecompressstream"></span><span id="doxid-zlib-decompress-stream-8hpp-1a6d68de805372f4643dd96b11541abd42"></span><h3>xilZlibDecompressStream<a class="headerlink" href="#xilzlibdecompressstream" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="xildecompressstream">
+<span id="cid-xildecompressstream"></span><span id="doxid-zlib-decompress-stream-8hpp-1aef62299bb8fd0deee724583319590fb0"></span><h3>xilDecompressStream<a class="headerlink" href="#xildecompressstream" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;zlib_decompress_stream.hpp&quot;</span></pre>
-<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilZlibDecompressStream</span> <span class="p">(</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">hStream16b_t</span><span class="o">&gt;&amp;</span> <span class="n">inaxistream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">hStream8b_t</span><span class="o">&gt;&amp;</span> <span class="n">outaxistream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">hStream32b_t</span><span class="o">&gt;&amp;</span> <span class="n">encodedsize</span><span class="p">,</span>
-    <span class="kt">uint32_t</span> <span class="n">input_size</span>
-    <span class="p">)</span></pre>
-<p>Zlib decompression host stream kernel top function.</p>
-<p class="rubric">Parameters:</p>
-<table class="colwidths-given docutils align-center">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>inaxistream</p></td>
-<td><p>16-bit input host axi stream</p></td>
-</tr>
-<tr class="row-even"><td><p>outaxistream</p></td>
-<td><p>8-bit output host axi stream</p></td>
-</tr>
-<tr class="row-odd"><td><p>encodedsize</p></td>
-<td><p>compressed size output axi stream</p></td>
-</tr>
-<tr class="row-even"><td><p>input_size</p></td>
-<td><p>input size</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="xildecompressstreamk2k">
-<span id="cid-xildecompressstreamk2k"></span><span id="doxid-zlib-decompress-stream-k2k-8hpp-1a1a50a858d2af4f5ea267e8b5e0c2b931"></span><h3>xilDecompressStreamk2k<a class="headerlink" href="#xildecompressstreamk2k" title="Permalink to this headline">¶</a></h3>
-<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;zlib_decompress_stream_k2k.hpp&quot;</span></pre>
-<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilDecompressStreamk2k</span> <span class="p">(</span>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilDecompressStream</span> <span class="p">(</span>
     <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="mi">16</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inaxistreamd</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outaxistreamd</span>
     <span class="p">)</span></pre>
 <p>Zlib decompression stream kernel top function.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given docutils align-center">
+<table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -721,46 +746,6 @@
 </tr>
 <tr class="row-odd"><td><p>outaxistreamd</p></td>
 <td><p>output kernel axi stream</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="xilzlibdm">
-<span id="cid-xilzlibdm"></span><span id="doxid-zlib-dm-8hpp-1a7ca0848a84309bfd408bae8e554b1702"></span><h3>xilZlibDm<a class="headerlink" href="#xilzlibdm" title="Permalink to this headline">¶</a></h3>
-<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;zlib_dm.hpp&quot;</span></pre>
-<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilZlibDm</span> <span class="p">(</span>
-    <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
-    <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
-    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">encoded_size</span><span class="p">,</span>
-    <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="mi">16</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">instreamk</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outstreamk</span>
-    <span class="p">)</span></pre>
-<p>Zlib data mover kernel top function. It reads data from memory and streams it to zlib decompression kernel.</p>
-<p class="rubric">Parameters:</p>
-<table class="colwidths-given docutils align-center">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>in</p></td>
-<td><p>input stream</p></td>
-</tr>
-<tr class="row-even"><td><p>out</p></td>
-<td><p>output stream</p></td>
-</tr>
-<tr class="row-odd"><td><p>encoded_size</p></td>
-<td><p>decompressed size output</p></td>
-</tr>
-<tr class="row-even"><td><p>input_size</p></td>
-<td><p>input size</p></td>
-</tr>
-<tr class="row-odd"><td><p>instreamk</p></td>
-<td><p>input axi kernel stream (written by this kernel)</p></td>
-</tr>
-<tr class="row-even"><td><p>outstreamk</p></td>
-<td><p>output axi kernel stream (read by this kernel)</p></td>
 </tr>
 </tbody>
 </table>
@@ -780,7 +765,7 @@
     <span class="p">)</span></pre>
 <p>LZ77 compression kernel takes the raw data as input and compresses the data in block based fashion and writes the output to global memory. LZ77 is a byte based compression scheme. The resulting output from this kernel is represented in packet form of 32bit length &lt;Literal, Match Length, Distance&gt;. It also generates output of literal and distance frequencies for dynamic huffman tree generation. The output generated by this kernel is referred by TreeGen and Huffman Kernels.</p>
 <p class="rubric">Parameters:</p>
-<table class="colwidths-given docutils align-center">
+<table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />

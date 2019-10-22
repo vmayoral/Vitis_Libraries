@@ -28,21 +28,23 @@ Global Namespace
 .. _cid-uintv_t-4:
 .. _doxid-snappy__decompress_8hpp_1ab805d07be734b0dfbb9070be4cbb458f:
 .. _cid-encoded_dt:
+.. _doxid-snappy__decompress__core_8hpp_1a488a8f4be3eaad5790117e9b3297c9b5:
+.. _cid-compressd_dt-3:
 .. _doxid-snappy__decompress__core_8hpp_1af681c220c8c571aa4bfbc318238e68ab:
 .. _cid-uintv_t-5:
 .. _doxid-lz4__compress__core_8hpp_1aa83c3d160c727d23517ede34927d7c17:
 .. _cid-c_lz4maxliteralcount:
 .. _doxid-snappy__compress__core_8hpp_1ad67f6da6c4e62107a209ae25f6eed03e:
 .. _cid-c_snappymaxliteralstream:
-.. _doxid-lz4__compress__test_8cpp_1ada9477e7fec935d378d850bffc7ed10f:
+.. _doxid-lz4__compress__test_8cpp_1ae7fab014f7cd71a21e8f7af31af87d26:
 .. _cid-c_minoffset:
-.. _doxid-lz4__compress__test_8cpp_1a90e94fa767ab685964e185a2312f4e84:
+.. _doxid-lz4__compress__test_8cpp_1a2403eab14d48690148a30e295853e390:
 .. _cid-c_minmatch:
-.. _doxid-snappy__compress__test_8cpp_1ada9477e7fec935d378d850bffc7ed10f:
+.. _doxid-snappy__compress__test_8cpp_1ae7fab014f7cd71a21e8f7af31af87d26:
 .. _cid-c_minoffset-2:
-.. _doxid-snappy__compress__test_8cpp_1a90e94fa767ab685964e185a2312f4e84:
+.. _doxid-snappy__compress__test_8cpp_1a2403eab14d48690148a30e295853e390:
 .. _cid-c_minmatch-2:
-.. _doxid-upSizer__test_8cpp_1a4bd89ae3274f17ed07a6df2c7594f8cb:
+.. _doxid-upSizer__test_8cpp_1a529c9321ee0a9d92e014582608f599a2:
 .. _cid-c_factor:
 .. _doxid-deflate__trees_8hpp_1a2926521639c9a8d32f71a2ab1434ea2c:
 .. _cid-findmin:
@@ -74,15 +76,15 @@ Global Namespace
 .. _cid-aop:
 .. _doxid-downsizer__test_8cpp_1ad4da4e8993f480f2b3c7d8fbebd947b5:
 .. _cid-aop-2:
-.. _doxid-lz4__compress__core_8hpp_1a7b846473f310e6962ca8b763772cf862:
+.. _doxid-snappy__decompress__core_8hpp_1a7b846473f310e6962ca8b763772cf862:
 .. _cid-bit:
 .. _doxid-snappy__compress__core_8hpp_1a7b846473f310e6962ca8b763772cf862:
 .. _cid-bit-2:
-.. _doxid-lz4__decompress__core_8hpp_1a7b846473f310e6962ca8b763772cf862:
-.. _cid-bit-3:
-.. _doxid-snappy__decompress__core_8hpp_1a7b846473f310e6962ca8b763772cf862:
-.. _cid-bit-4:
 .. _doxid-inflate__huffman_8hpp_1a7b846473f310e6962ca8b763772cf862:
+.. _cid-bit-3:
+.. _doxid-lz4__decompress__core_8hpp_1a7b846473f310e6962ca8b763772cf862:
+.. _cid-bit-4:
+.. _doxid-lz4__compress__core_8hpp_1a7b846473f310e6962ca8b763772cf862:
 .. _cid-bit-5:
 .. _doxid-inflate__huffman_8hpp_1a5967693540f086cfa357f68978bf0be7:
 .. _cid-bits:
@@ -114,27 +116,27 @@ Global Namespace
 .. _cid-least_val:
 .. _doxid-inflate__huffman_8hpp_1ae0cd07521182c5def196e0307f698833:
 .. _cid-literal_stage:
-.. _doxid-lz4__compress__test_8cpp_1a7decf7774339d5dbf13fc30726d73bea:
-.. _cid-lop:
 .. _doxid-lz4__decompress__test_8cpp_1a7decf7774339d5dbf13fc30726d73bea:
+.. _cid-lop:
+.. _doxid-lz4__compress__test_8cpp_1a7decf7774339d5dbf13fc30726d73bea:
 .. _cid-lop-2:
 .. _doxid-snappy__compress__test_8cpp_1a7decf7774339d5dbf13fc30726d73bea:
 .. _cid-lop-3:
-.. _doxid-lz4__decompress__test_8cpp_1a2b8f8e3bbe3f6e707f3f920dfeb2be7b:
-.. _cid-low_offset:
 .. _doxid-snappy__decompress__test_8cpp_1a2b8f8e3bbe3f6e707f3f920dfeb2be7b:
+.. _cid-low_offset:
+.. _doxid-lz4__decompress__test_8cpp_1a2b8f8e3bbe3f6e707f3f920dfeb2be7b:
 .. _cid-low_offset-2:
-.. _doxid-snappy__decompress__test_8cpp_1af0f756bfd33c38e7b36c1f10dcb0ba99:
-.. _cid-low_offset_state:
 .. _doxid-lz4__decompress__test_8cpp_1af0f756bfd33c38e7b36c1f10dcb0ba99:
+.. _cid-low_offset_state:
+.. _doxid-snappy__decompress__test_8cpp_1af0f756bfd33c38e7b36c1f10dcb0ba99:
 .. _cid-low_offset_state-2:
-.. _doxid-snappy__compress__test_8cpp_1ab093d1684c2f65f96339d0378a178aa0:
-.. _cid-lz_dict_size:
 .. _doxid-lz4__compress__test_8cpp_1ab093d1684c2f65f96339d0378a178aa0:
+.. _cid-lz_dict_size:
+.. _doxid-snappy__compress__test_8cpp_1ab093d1684c2f65f96339d0378a178aa0:
 .. _cid-lz_dict_size-2:
-.. _doxid-lz4__compress__test_8cpp_1a9147cd813d2460298aa6dc78122c6498:
-.. _cid-lz_hash_bit:
 .. _doxid-snappy__compress__test_8cpp_1a9147cd813d2460298aa6dc78122c6498:
+.. _cid-lz_hash_bit:
+.. _doxid-lz4__compress__test_8cpp_1a9147cd813d2460298aa6dc78122c6498:
 .. _cid-lz_hash_bit-2:
 .. _doxid-snappy__compress__test_8cpp_1af2cda7e0f4a90b5bd73b287e9a52cb24:
 .. _cid-lz_max_offset_limit:
@@ -146,49 +148,55 @@ Global Namespace
 .. _cid-match_dist_stage:
 .. _doxid-inflate__huffman_8hpp_1a8b009638c0ec6bf451655a46b2dae907:
 .. _cid-match_dist_write_stage:
-.. _doxid-snappy__compress__test_8cpp_1a113fb963ba98e31e3c41eb9599b1497d:
-.. _cid-match_len:
 .. _doxid-lz4__compress__test_8cpp_1a113fb963ba98e31e3c41eb9599b1497d:
+.. _cid-match_len:
+.. _doxid-snappy__compress__test_8cpp_1a113fb963ba98e31e3c41eb9599b1497d:
 .. _cid-match_len-2:
 .. _doxid-inflate__huffman_8hpp_1a718ee0b826f3b02f419fcaaf6a479f52:
 .. _cid-match_length_stage:
-.. _doxid-snappy__compress__test_8cpp_1a32e585b69aa9798cd0335f8e8ff8404d:
-.. _cid-match_level:
 .. _doxid-lz4__compress__test_8cpp_1a32e585b69aa9798cd0335f8e8ff8404d:
+.. _cid-match_level:
+.. _doxid-snappy__compress__test_8cpp_1a32e585b69aa9798cd0335f8e8ff8404d:
 .. _cid-match_level-2:
-.. _doxid-snappy__decompress__test_8cpp_1a36f419731c0d40403a0b2accb2982599:
-.. _cid-match_state:
 .. _doxid-lz4__decompress__test_8cpp_1a36f419731c0d40403a0b2accb2982599:
+.. _cid-match_state:
+.. _doxid-snappy__decompress__test_8cpp_1a36f419731c0d40403a0b2accb2982599:
 .. _cid-match_state-2:
-.. _doxid-inflate__huffman_8hpp_1a6fcad31e688110d9d61bdcc99b2a59d7:
-.. _cid-maxbits:
 .. _doxid-inflate__trees_8hpp_1a6fcad31e688110d9d61bdcc99b2a59d7:
+.. _cid-maxbits:
+.. _doxid-inflate__huffman_8hpp_1a6fcad31e688110d9d61bdcc99b2a59d7:
 .. _cid-maxbits-2:
 .. _doxid-deflate__trees_8hpp_1a51c241e7ad52441b8d4c1fd5f498b3b9:
 .. _cid-max_bits:
-.. _doxid-lz4__compress__test_8cpp_1a773437eda00419e55ebcf14bf1ef5a4d:
-.. _cid-max_match_len:
+.. _doxid-lz4__compress__core_8hpp_1a388d7cbd7167357dd8aa63c2c90e3b8a:
+.. _cid-max_lit_count:
+.. _doxid-snappy__compress__core_8hpp_1a388d7cbd7167357dd8aa63c2c90e3b8a:
+.. _cid-max_lit_count-2:
+.. _doxid-snappy__compress__core_8hpp_1ad13a6e3dfd4f5858c1c0e4d81b7e7237:
+.. _cid-max_lit_stream_size:
 .. _doxid-snappy__compress__test_8cpp_1a773437eda00419e55ebcf14bf1ef5a4d:
+.. _cid-max_match_len:
+.. _doxid-lz4__compress__test_8cpp_1a773437eda00419e55ebcf14bf1ef5a4d:
 .. _cid-max_match_len-2:
-.. _doxid-lz4__decompress__test_8cpp_1a31a6872795fec3b57775c7e0059fee83:
-.. _cid-max_offset:
 .. _doxid-snappy__decompress__test_8cpp_1a31a6872795fec3b57775c7e0059fee83:
+.. _cid-max_offset:
+.. _doxid-lz4__decompress__test_8cpp_1a31a6872795fec3b57775c7e0059fee83:
 .. _cid-max_offset-2:
 .. _doxid-inflate__huffman_8hpp_1a79d8075203f66de43561298655e7066a:
 .. _cid-nextbyte:
-.. _doxid-snappy__compress__test_8cpp_1a52cab5c557e96dc15148629e854d6d5e:
-.. _cid-offset_window:
 .. _doxid-lz4__compress__test_8cpp_1a52cab5c557e96dc15148629e854d6d5e:
+.. _cid-offset_window:
+.. _doxid-snappy__compress__test_8cpp_1a52cab5c557e96dc15148629e854d6d5e:
 .. _cid-offset_window-2:
-.. _doxid-snappy__compress__core_8hpp_1a0532714a43e57d86b6e5002db6924684:
-.. _cid-parallel_block:
 .. _doxid-lz4__compress__core_8hpp_1a0532714a43e57d86b6e5002db6924684:
+.. _cid-parallel_block:
+.. _doxid-snappy__compress__core_8hpp_1a0532714a43e57d86b6e5002db6924684:
 .. _cid-parallel_block-2:
 .. _doxid-inflate__huffman_8hpp_1a860e68b5a98ed7fa89d1a9e89e74a73c:
 .. _cid-readbits:
-.. _doxid-snappy__decompress__test_8cpp_1af24d57192c431f4e3554b6c6be093153:
-.. _cid-read_state:
 .. _doxid-lz4__decompress__test_8cpp_1af24d57192c431f4e3554b6c6be093153:
+.. _cid-read_state:
+.. _doxid-snappy__decompress__test_8cpp_1af24d57192c431f4e3554b6c6be093153:
 .. _cid-read_state-2:
 .. _doxid-snappy__decompress__test_8cpp_1aca4b4a1895b8640f925648aec3c406dd:
 .. _cid-sop:
@@ -230,17 +238,18 @@ Global Namespace
 	typedef ap_uint <BIT> uintV_t
 	typedef ap_uint <8> uintV_t
 	typedef ap_uint <32> encoded_dt
+	typedef ap_uint <32> compressd_dt
 	typedef ap_uint <BIT> uintV_t
 
 	// global variables
 
 	const int c_lz4MaxLiteralCount
 	const int c_snappyMaxLiteralStream
-	int const c_minOffset
-	int const c_minMatch
-	int const c_minOffset
-	int const c_minMatch
-	int const c_factor
+	const int c_minOffset
+	const int c_minMatch
+	const int c_minOffset
+	const int c_minMatch
+	const int c_factor
 
 	// macros
 
@@ -292,6 +301,9 @@ Global Namespace
 	#define MAXBITS
 	#define MAXBITS
 	#define MAX_BITS
+	#define MAX_LIT_COUNT
+	#define MAX_LIT_COUNT
+	#define MAX_LIT_STREAM_SIZE
 	#define MAX_MATCH_LEN
 	#define MAX_MATCH_LEN
 	#define MAX_OFFSET
