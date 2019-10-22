@@ -286,25 +286,32 @@
 <p>As shown in the above summary of reference 2.5.1, we can know the implementation process of the Poly1305 algorithm. In order to improve the timing and reduce the latency for HLS implementation, we optimize the multiplication and modulo operations in the algorithm. The optimization idea is:</p>
 <ul class="simple">
 <li>In order to improve the timing for multiplication operation, the multiplier and the multiplicand are separated into 27-bit and 18-bit arrays, and the result is multiplied to obtain the final result.</li>
-<li>For modulo operation <span class="math notranslate nohighlight">\(X=mod(A,P)\)</span>, where <span class="math notranslate nohighlight">\(P=2^{130}-5\)</span>, we can do special processing to reduce the latency. Please see the code for details.</li>
+<li>For modulo operation <span class="math notranslate nohighlight">\(X=mod(A,P)\)</span>, where <span class="math notranslate nohighlight">\(P=2^{130}-5\)</span>, we could take some tricks to reduce the latency. First, let <span class="math notranslate nohighlight">\(N=\frac{A-X}{P}\)</span>, the equation can be transformed to <span class="math notranslate nohighlight">\(X=A-NP=A-2^{130}N+5N\)</span>. Then, let <span class="math notranslate nohighlight">\(X1=mod(A,2^{130})\)</span> and <span class="math notranslate nohighlight">\(N1=\frac{A}{2^{130}}\)</span>,  we can get <span class="math notranslate nohighlight">\(X2=X1+5*N1\)</span>. Finally, if <span class="math notranslate nohighlight">\(X2&lt;P\)</span>, there is <span class="math notranslate nohighlight">\(X=X2\)</span>, otherwise, let <span class="math notranslate nohighlight">\(A=X2\)</span>, then repeat the previous step. For more information, please refer to the code.</li>
+</ul>
+<p>For the Poly1305, We provide two APIs: <cite>poly1305</cite> and <cite>poly1305MultiChan</cite>.</p>
+<ul class="simple">
+<li><cite>poly1305</cite> takes a 32-byte one-time key and a message and produces a 16-byte tag. This tag is used to authenticate the message.</li>
+<li><cite>poly1305MultiChan</cite> takes N 32-byte one-time keys and N messages and produces N 16-byte tags. These tags are used to authenticate the corresponding messages.</li>
 </ul>
 </div>
 <div class="section" id="performance">
 <h2>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h2>
-<p>The hardware resource utilizations are listed in <code class="xref std std-numref docutils literal notranslate"><span class="pre">tabpoly1</span></code> below:</p>
-<span id="tabpoly1"></span><table border="1" class="docutils align-center" id="id1">
-<caption><span class="caption-text">Hardware resources for the Poly1305 (Vivado 2019.1)</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<p>The hardware resource utilizations are listed in <code class="xref std std-numref docutils literal notranslate"><span class="pre">tabpoly</span></code> below:</p>
+<span id="tabpoly"></span><table border="1" class="docutils align-center" id="id1">
+<caption><span class="caption-text">Hardware resources for the Poly1305 (the poly1305MultiChan’s N is 16)</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="13%" />
-<col width="13%" />
-<col width="13%" />
-<col width="13%" />
-<col width="14%" />
-<col width="14%" />
-<col width="22%" />
+<col width="20%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="11%" />
+<col width="11%" />
+<col width="17%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>BRAM</td>
+<tr class="row-odd"><td>API</td>
+<td>BRAM</td>
 <td>DSP</td>
 <td>FF</td>
 <td>LUT</td>
@@ -312,13 +319,23 @@
 <td>SRL</td>
 <td>clock period(ns)</td>
 </tr>
-<tr class="row-even"><td>0</td>
-<td>65</td>
-<td>5776</td>
-<td>2405</td>
-<td>757</td>
-<td>92</td>
-<td>2.883</td>
+<tr class="row-even"><td>poly1305</td>
+<td>0</td>
+<td>40</td>
+<td>5269</td>
+<td>2751</td>
+<td>778</td>
+<td>16</td>
+<td>2.732</td>
+</tr>
+<tr class="row-odd"><td>poly1305MultiChan</td>
+<td>0</td>
+<td>40</td>
+<td>5394</td>
+<td>3216</td>
+<td>834</td>
+<td>90</td>
+<td>2.727</td>
 </tr>
 </tbody>
 </table>
