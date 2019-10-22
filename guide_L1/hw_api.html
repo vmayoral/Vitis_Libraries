@@ -249,6 +249,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#aes256ofbencrypt">aes256OfbEncrypt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#aes256ofbdecrypt">aes256OfbDecrypt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#poly1305">poly1305</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#poly1305multichan">poly1305MultiChan</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rc4">rc4</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sha1">sha1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sha224">sha224</a></li>
@@ -266,12 +267,16 @@
 <li class="toctree-l3"><a class="reference internal" href="#aes128xtsdecrypt">aes128XtsDecrypt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#aes256xtsencrypt">aes256XtsEncrypt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#aes256xtsdecrypt">aes256XtsDecrypt</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#template-class-xf-security-aesenc-192">template class xf::security::aesEnc &lt;192&gt;</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#template-class-xf-security-aesdec">template class xf::security::aesDec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#template-class-xf-security-aesenc">template class xf::security::aesEnc</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#updatekey">updateKey</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#process">process</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#template-class-xf-security-aesdec">template class xf::security::aesDec</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cid-xf-security-aesdec-updatekey">updateKey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cid-xf-security-aesdec-process">process</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#template-class-xf-security-rsa">template class xf::security::rsa</a></li>
 </ul>
 </li>
@@ -769,7 +774,7 @@
 </table>
 </div>
 <div class="section" id="aes128ccmencrypt">
-<span id="cid-xf-security-aes128ccmencrypt"></span><span id="doxid-namespacexf-1-1security-1ad8ce4920dd46899d52256af3b2b1225b"></span><h2>aes128CcmEncrypt<a class="headerlink" href="#aes128ccmencrypt" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-security-aes128ccmencrypt"></span><span id="doxid-namespacexf-1-1security-1ad46f1f886572d932d63aa7cb814ba1c2"></span><h2>aes128CcmEncrypt<a class="headerlink" href="#aes128ccmencrypt" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/ccm.hpp&quot;</span>
 </pre>
@@ -781,7 +786,7 @@
 <span class="kt">void</span> <span class="n">aes128CcmEncrypt</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">payloadStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherkeyStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span> <span class="p">(</span><span class="mi">15</span> <span class="o">-</span> <span class="n">_q</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">nonceStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span> <span class="p">(</span><span class="mi">15</span><span class="o">-</span><span class="n">_q</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">nonceStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">ADStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenADStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenPldStrm</span><span class="p">,</span>
@@ -845,7 +850,7 @@ Confidentiality” The implementation is modified for better performance.</p>
 </table>
 </div>
 <div class="section" id="aes128ccmdecrypt">
-<span id="cid-xf-security-aes128ccmdecrypt"></span><span id="doxid-namespacexf-1-1security-1a8df9fdfe26fb841d7ee23ad30d1dc223"></span><h2>aes128CcmDecrypt<a class="headerlink" href="#aes128ccmdecrypt" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-security-aes128ccmdecrypt"></span><span id="doxid-namespacexf-1-1security-1a20a4d5e439c3e3c931adc74039cddf70"></span><h2>aes128CcmDecrypt<a class="headerlink" href="#aes128ccmdecrypt" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/ccm.hpp&quot;</span>
 </pre>
@@ -857,7 +862,7 @@ Confidentiality” The implementation is modified for better performance.</p>
 <span class="kt">void</span> <span class="n">aes128CcmDecrypt</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">payloadStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherkeyStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span> <span class="p">(</span><span class="mi">15</span> <span class="o">-</span> <span class="n">_q</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">nonceStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span> <span class="p">(</span><span class="mi">15</span><span class="o">-</span><span class="n">_q</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">nonceStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">ADStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenADStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenPldStrm</span><span class="p">,</span>
@@ -921,7 +926,7 @@ Confidentiality” The implementation is modified for better performance.</p>
 </table>
 </div>
 <div class="section" id="aes192ccmencrypt">
-<span id="cid-xf-security-aes192ccmencrypt"></span><span id="doxid-namespacexf-1-1security-1a4bbe457910e835b74a0336d1f5613927"></span><h2>aes192CcmEncrypt<a class="headerlink" href="#aes192ccmencrypt" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-security-aes192ccmencrypt"></span><span id="doxid-namespacexf-1-1security-1a6eb5aba07a922e2f99491fa56d072667"></span><h2>aes192CcmEncrypt<a class="headerlink" href="#aes192ccmencrypt" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/ccm.hpp&quot;</span>
 </pre>
@@ -933,7 +938,7 @@ Confidentiality” The implementation is modified for better performance.</p>
 <span class="kt">void</span> <span class="n">aes192CcmEncrypt</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">payloadStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">192</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherkeyStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span> <span class="p">(</span><span class="mi">15</span> <span class="o">-</span> <span class="n">_q</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">nonceStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span> <span class="p">(</span><span class="mi">15</span><span class="o">-</span><span class="n">_q</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">nonceStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">ADStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenADStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenPldStrm</span><span class="p">,</span>
@@ -997,7 +1002,7 @@ Confidentiality” The implementation is modified for better performance.</p>
 </table>
 </div>
 <div class="section" id="aes192ccmdecrypt">
-<span id="cid-xf-security-aes192ccmdecrypt"></span><span id="doxid-namespacexf-1-1security-1aa650b50a53bdaa417eff859389b1175b"></span><h2>aes192CcmDecrypt<a class="headerlink" href="#aes192ccmdecrypt" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-security-aes192ccmdecrypt"></span><span id="doxid-namespacexf-1-1security-1aaa920c49e27e6963ccdb29fe39bb1492"></span><h2>aes192CcmDecrypt<a class="headerlink" href="#aes192ccmdecrypt" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/ccm.hpp&quot;</span>
 </pre>
@@ -1009,7 +1014,7 @@ Confidentiality” The implementation is modified for better performance.</p>
 <span class="kt">void</span> <span class="n">aes192CcmDecrypt</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">payloadStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">192</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherkeyStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span> <span class="p">(</span><span class="mi">15</span> <span class="o">-</span> <span class="n">_q</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">nonceStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span> <span class="p">(</span><span class="mi">15</span><span class="o">-</span><span class="n">_q</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">nonceStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">ADStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenADStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenPldStrm</span><span class="p">,</span>
@@ -1073,7 +1078,7 @@ Confidentiality” The implementation is modified for better performance.</p>
 </table>
 </div>
 <div class="section" id="aes256ccmencrypt">
-<span id="cid-xf-security-aes256ccmencrypt"></span><span id="doxid-namespacexf-1-1security-1a5b75f374529dbe05f5e77eab8dab9b5b"></span><h2>aes256CcmEncrypt<a class="headerlink" href="#aes256ccmencrypt" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-security-aes256ccmencrypt"></span><span id="doxid-namespacexf-1-1security-1ab6f66f04e25bb14520961acf9b89e0ad"></span><h2>aes256CcmEncrypt<a class="headerlink" href="#aes256ccmencrypt" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/ccm.hpp&quot;</span>
 </pre>
@@ -1085,7 +1090,7 @@ Confidentiality” The implementation is modified for better performance.</p>
 <span class="kt">void</span> <span class="n">aes256CcmEncrypt</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">payloadStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherkeyStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span> <span class="p">(</span><span class="mi">15</span> <span class="o">-</span> <span class="n">_q</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">nonceStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span> <span class="p">(</span><span class="mi">15</span><span class="o">-</span><span class="n">_q</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">nonceStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">ADStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenADStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenPldStrm</span><span class="p">,</span>
@@ -1149,7 +1154,7 @@ Confidentiality” The implementation is modified for better performance.</p>
 </table>
 </div>
 <div class="section" id="aes256ccmdecrypt">
-<span id="cid-xf-security-aes256ccmdecrypt"></span><span id="doxid-namespacexf-1-1security-1a8e6bebb4e46e40e74d467bad17902c2e"></span><h2>aes256CcmDecrypt<a class="headerlink" href="#aes256ccmdecrypt" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-security-aes256ccmdecrypt"></span><span id="doxid-namespacexf-1-1security-1a9e7730079a9b9503d1d9262ee02c2f03"></span><h2>aes256CcmDecrypt<a class="headerlink" href="#aes256ccmdecrypt" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/ccm.hpp&quot;</span>
 </pre>
@@ -1161,7 +1166,7 @@ Confidentiality” The implementation is modified for better performance.</p>
 <span class="kt">void</span> <span class="n">aes256CcmDecrypt</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">payloadStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherkeyStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span> <span class="p">(</span><span class="mi">15</span> <span class="o">-</span> <span class="n">_q</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">nonceStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span> <span class="p">(</span><span class="mi">15</span><span class="o">-</span><span class="n">_q</span><span class="p">)</span><span class="o">&gt;&gt;&amp;</span> <span class="n">nonceStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">ADStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenADStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenPldStrm</span><span class="p">,</span>
@@ -2305,7 +2310,7 @@ Confidentiality” The implementation is modified for better performance.</p>
 </table>
 </div>
 <div class="section" id="chacha20">
-<span id="cid-xf-security-chacha20"></span><span id="doxid-namespacexf-1-1security-1a69def70ab12428ea13c129eb577599c7"></span><h2>chacha20<a class="headerlink" href="#chacha20" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-security-chacha20"></span><span id="doxid-namespacexf-1-1security-1acba0a56a5b2fed68befedb357d36b9f0"></span><h2>chacha20<a class="headerlink" href="#chacha20" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/chacha20.hpp&quot;</span>
 </pre>
@@ -2313,9 +2318,9 @@ Confidentiality” The implementation is modified for better performance.</p>
 <span></span><span class="kt">void</span> <span class="n">chacha20</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;&gt;&amp;</span> <span class="n">keyStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">counterNonceStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;&gt;&amp;</span> <span class="n">plainStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;&gt;&amp;</span> <span class="n">plainStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">ePlainStrm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;&gt;&amp;</span> <span class="n">cipherStrm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">eCipherStrm</span>
     <span class="p">)</span>
 </pre>
@@ -4148,18 +4153,62 @@ Confidentiality” The implementation is modified for better performance.</p>
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>keyStrm</td>
-<td>initail key</td>
+<td>Corresponding message key</td>
 </tr>
 <tr class="row-even"><td>payloadStrm</td>
 <td>For a massage, input block stream text, 128 bits per block, less than 128 bits, high padding 0</td>
 </tr>
 <tr class="row-odd"><td>lenPldStrm</td>
-<td>Length of payload in byte.</td>
+<td>Length of a massage in byte.</td>
 </tr>
 <tr class="row-even"><td>endLenStrm</td>
 <td>Flag to signal the end of the length streams.</td>
 </tr>
 <tr class="row-odd"><td>tagStrm</td>
+<td>Return a 16-byte tag to to authenticate the message.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="poly1305multichan">
+<span id="cid-xf-security-poly1305multichan"></span><span id="doxid-namespacexf-1-1security-1a5682951305b8f443fa1b215bd89ef1fc"></span><h2>poly1305MultiChan<a class="headerlink" href="#poly1305multichan" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_security/poly1305.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">N</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">poly1305MultiChan</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;&gt;&amp;</span> <span class="n">keyStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">payloadStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">lenPldStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endLenStrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&gt;&amp;</span> <span class="n">tagStrm</span>
+    <span class="p">)</span>
+</pre>
+<p>The poly1305MultiChan takes N 32-byte one-time keys and N messages and produces N 16-byte tags. These tags are used to authenticate the corresponding messages.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>N</td>
+<td>Channel number</td>
+</tr>
+<tr class="row-even"><td>keyStrm</td>
+<td>Corresponding message key</td>
+</tr>
+<tr class="row-odd"><td>payloadStrm</td>
+<td>For a massage, input block stream text, 128 bits per block, less than 128 bits, high padding 0</td>
+</tr>
+<tr class="row-even"><td>lenPldStrm</td>
+<td>Length of a massage in byte.</td>
+</tr>
+<tr class="row-odd"><td>endLenStrm</td>
+<td>Flag to signal the end of the length streams.</td>
+</tr>
+<tr class="row-even"><td>tagStrm</td>
 <td>Return a 16-byte tag to to authenticate the message.</td>
 </tr>
 </tbody>
@@ -4928,24 +4977,8 @@ Data on Block-Oriented Storage Devices” The implementation is optimized for be
 </tr>
 </tbody>
 </table>
-<div class="section" id="template-class-xf-security-aesenc-192">
-<span id="cid-xf-security-aesenc"></span><span id="doxid-classxf-1-1security-1-1aes-enc-3-01192-01-4"></span><span id="index-0"></span><h3>template class xf::security::aesEnc &lt;192&gt;<a class="headerlink" href="#template-class-xf-security-aesenc-192" title="Permalink to this headline">¶</a></h3>
-<div class="toctree-wrapper compound">
-</div>
-<pre class="highlight overview-code-block literal-block">
-<span></span><span class="cp">#include</span> <span class="cpf">&quot;aes.hpp&quot;</span>
-</pre>
-<pre class="highlight overview-code-block literal-block" id="cid-xf-security-aesenc-process">
-<span id="doxid-classxf-1-1security-1-1aes-enc-3-01192-01-4-1a430ec301b80e9bdd0053ad7a609afe3c"></span><span id="cid-xf-security-aesenc-updatekey"></span><span id="doxid-classxf-1-1security-1-1aes-enc-3-01192-01-4-1abe6a16d02e44bd81cd1570ce121308e5"></span><span id="cid-xf-security-aesenc-key-list"></span><span id="doxid-classxf-1-1security-1-1aes-enc-3-01192-01-4-1a9d557cd67354e4799931518c84914035"></span><span></span><span class="k">template</span> <span class="o">&lt;&gt;</span>
-<span class="k">class</span> <span class="n">aesEnc</span> <span class="o">&lt;</span><span class="mi">192</span><span class="o">&gt;</span>
-
-<span class="c1">// fields</span>
-
-<span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;</span> <span class="n">key_list</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span>
-</pre>
-</div>
-<div class="section" id="template-class-xf-security-aesdec">
-<span id="cid-xf-security-aesdec"></span><span id="doxid-classxf-1-1security-1-1aes-dec"></span><span id="index-1"></span><h3>template class xf::security::aesDec<a class="headerlink" href="#template-class-xf-security-aesdec" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="template-class-xf-security-aesenc">
+<span id="cid-xf-security-aesenc"></span><span id="doxid-classxf-1-1security-1-1aes-enc"></span><span id="index-0"></span><h3>template class xf::security::aesEnc<a class="headerlink" href="#template-class-xf-security-aesenc" title="Permalink to this headline">¶</a></h3>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight overview-code-block literal-block">
@@ -4953,6 +4986,85 @@ Data on Block-Oriented Storage Devices” The implementation is optimized for be
 </pre>
 <div class="section" id="overview">
 <h4>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h4>
+<p>AES encryption.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>W</td>
+<td>Bit width of AES key, which is 128, 192 or 256</td>
+</tr>
+</tbody>
+</table>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">W</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="n">aesEnc</span>
+</pre>
+</div>
+<div class="section" id="methods">
+<h4>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="section" id="updatekey">
+<span id="cid-xf-security-aesenc-updatekey"></span><span id="doxid-classxf-1-1security-1-1aes-enc-1a5811f888fdde7c553a28c9649cca6c1d"></span><h2>updateKey<a class="headerlink" href="#updatekey" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">updateKey</span> <span class="p">(</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">W</span><span class="o">&gt;</span> <span class="n">cipherkey</span><span class="p">)</span>
+</pre>
+<p>Update key before using it to encrypt.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>cipherkey</td>
+<td>Key to be used in encryption.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="process">
+<span id="cid-xf-security-aesenc-process"></span><span id="doxid-classxf-1-1security-1-1aes-enc-1a31210d0b8958c201d0c0a3f85851d432"></span><h2>process<a class="headerlink" href="#process" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">process</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;</span> <span class="n">plaintext</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">W</span><span class="o">&gt;</span> <span class="n">cipherkey</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;&amp;</span> <span class="n">ciphertext</span>
+    <span class="p">)</span>
+</pre>
+<p>Encrypt message using AES algorithm.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>plaintext</td>
+<td>Message to be encrypted.</td>
+</tr>
+<tr class="row-even"><td>cipherkey</td>
+<td>Key to be used in encryption.</td>
+</tr>
+<tr class="row-odd"><td>ciphertext</td>
+<td>Encryption result.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="template-class-xf-security-aesdec">
+<span id="cid-xf-security-aesdec"></span><span id="doxid-classxf-1-1security-1-1aes-dec"></span><span id="index-1"></span><h3>template class xf::security::aesDec<a class="headerlink" href="#template-class-xf-security-aesdec" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;aes.hpp&quot;</span>
+</pre>
+<div class="section" id="id1">
+<h4>Overview<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <p>AES decryption.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -4971,13 +5083,13 @@ Data on Block-Oriented Storage Devices” The implementation is optimized for be
 <span class="k">class</span> <span class="n">aesDec</span>
 </pre>
 </div>
-<div class="section" id="methods">
-<h4>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id2">
+<h4>Methods<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 </div>
 </div>
 </div>
-<div class="section" id="updatekey">
-<span id="cid-xf-security-aesdec-updatekey"></span><span id="doxid-classxf-1-1security-1-1aes-dec-1a85c333c06982631996e3b9985c0bff57"></span><h2>updateKey<a class="headerlink" href="#updatekey" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cid-xf-security-aesdec-updatekey">
+<span id="doxid-classxf-1-1security-1-1aes-dec-1a85c333c06982631996e3b9985c0bff57"></span><span id="id3"></span><h2>updateKey<a class="headerlink" href="#cid-xf-security-aesdec-updatekey" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">void</span> <span class="n">updateKey</span> <span class="p">(</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">W</span><span class="o">&gt;</span> <span class="n">cipherkey</span><span class="p">)</span>
 </pre>
@@ -4995,8 +5107,8 @@ Data on Block-Oriented Storage Devices” The implementation is optimized for be
 </tbody>
 </table>
 </div>
-<div class="section" id="process">
-<span id="cid-xf-security-aesdec-process"></span><span id="doxid-classxf-1-1security-1-1aes-dec-1af4de6eed2b69f73818a0df04180b354a"></span><h2>process<a class="headerlink" href="#process" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cid-xf-security-aesdec-process">
+<span id="doxid-classxf-1-1security-1-1aes-dec-1af4de6eed2b69f73818a0df04180b354a"></span><span id="id4"></span><h2>process<a class="headerlink" href="#cid-xf-security-aesdec-process" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">void</span> <span class="n">process</span> <span class="p">(</span>
     <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;</span> <span class="n">ciphertext</span><span class="p">,</span>
@@ -5030,8 +5142,8 @@ Data on Block-Oriented Storage Devices” The implementation is optimized for be
 <pre class="highlight overview-code-block literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;asymmetric.hpp&quot;</span>
 </pre>
-<div class="section" id="id1">
-<h4>Overview<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id5">
+<h4>Overview<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
 <p>RSA encryption/decryption class.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -5056,13 +5168,13 @@ Data on Block-Oriented Storage Devices” The implementation is optimized for be
 <span class="k">class</span> <span class="n">rsa</span>
 </pre>
 </div>
-<div class="section" id="id2">
-<h4>Methods<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id6">
+<h4>Methods<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
 </div>
 </div>
 </div>
 <div class="section" id="cid-xf-security-rsa-updatekey">
-<span id="doxid-classxf-1-1security-1-1rsa-1a7107a789ef82d05a03dacff227a13d17"></span><span id="id3"></span><h2>updateKey<a class="headerlink" href="#cid-xf-security-rsa-updatekey" title="Permalink to this headline">¶</a></h2>
+<span id="doxid-classxf-1-1security-1-1rsa-1a7107a789ef82d05a03dacff227a13d17"></span><span id="id7"></span><h2>updateKey<a class="headerlink" href="#cid-xf-security-rsa-updatekey" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">void</span> <span class="n">updateKey</span> <span class="p">(</span>
     <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">keyLength</span><span class="o">&gt;</span> <span class="n">modulus</span><span class="p">,</span>
@@ -5087,7 +5199,7 @@ Data on Block-Oriented Storage Devices” The implementation is optimized for be
 </table>
 </div>
 <div class="section" id="cid-xf-security-rsa-process">
-<span id="doxid-classxf-1-1security-1-1rsa-1aa06349cdbb66f951026511556f0ad07c"></span><span id="id4"></span><h2>process<a class="headerlink" href="#cid-xf-security-rsa-process" title="Permalink to this headline">¶</a></h2>
+<span id="doxid-classxf-1-1security-1-1rsa-1aa06349cdbb66f951026511556f0ad07c"></span><span id="id8"></span><h2>process<a class="headerlink" href="#cid-xf-security-rsa-process" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">void</span> <span class="n">process</span> <span class="p">(</span>
     <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">keyLength</span><span class="o">&gt;</span> <span class="n">message</span><span class="p">,</span>
