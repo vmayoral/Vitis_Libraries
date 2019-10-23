@@ -262,13 +262,13 @@
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="setup">
-<span id="cid-xf-fintech-treelattice-setup-3"></span><span id="doxid-classxf-1-1fintech-1-1-tree-lattice-1acce82982983b4f1fafd28893b0f905a2"></span><h3>setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
+<span id="cid-xf-fintech-treelattice-setup-3"></span><span id="doxid-classxf-1-1fintech-1-1-tree-lattice-1aede45b6c854340615d6e2adeeb5dd62f"></span><h3>setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="defined-in-xf-fintech-tree-lattice-hpp">
 <h4>Defined in &lt;xf_fintech/tree_lattice.hpp&gt;<a class="headerlink" href="#defined-in-xf-fintech-tree-lattice-hpp" title="Permalink to this headline">¶</a></h4>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">void</span> <span class="n">setup</span> <span class="p">(</span>
     <span class="n">Model</span><span class="o">&amp;</span> <span class="n">model</span><span class="p">,</span>
-    <span class="n">Process</span><span class="o">&amp;</span> <span class="n">process</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">process</span><span class="p">,</span>
     <span class="kt">unsigned</span> <span class="n">endCnt</span><span class="p">,</span>
     <span class="n">DT</span> <span class="n">r</span><span class="p">,</span>
     <span class="n">DT</span> <span class="n">x0</span><span class="p">,</span>
@@ -288,7 +288,7 @@
 <td>short-rate model for Tree Engine</td>
 </tr>
 <tr class="row-even"><td>process</td>
-<td>stochastic process</td>
+<td>parameters of stochastic process</td>
 </tr>
 <tr class="row-odd"><td>endCnt</td>
 <td>end counter of timepoints</td>
@@ -309,12 +309,12 @@
 </table>
 </div>
 <div class="section" id="cid-xf-fintech-treelattice-setup-4">
-<span id="doxid-classxf-1-1fintech-1-1-tree-lattice-1a1837ee9794d66aa789b9632dc6965676"></span><span id="id1"></span><h4>Defined in &lt;xf_fintech/tree_lattice.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-treelattice-setup-4" title="Permalink to this headline">¶</a></h4>
+<span id="doxid-classxf-1-1fintech-1-1-tree-lattice-1ae7cd8b2f90da72089fa7acfc0479dd5d"></span><span id="id1"></span><h4>Defined in &lt;xf_fintech/tree_lattice.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-treelattice-setup-4" title="Permalink to this headline">¶</a></h4>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">void</span> <span class="n">setup</span> <span class="p">(</span>
     <span class="n">Model</span><span class="o">&amp;</span> <span class="n">model</span><span class="p">,</span>
-    <span class="n">Process</span><span class="o">&amp;</span> <span class="n">process1</span><span class="p">,</span>
-    <span class="n">Process</span><span class="o">&amp;</span> <span class="n">process2</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">process1</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">process2</span><span class="p">,</span>
     <span class="kt">unsigned</span> <span class="n">endCnt</span><span class="p">,</span>
     <span class="n">DT</span> <span class="n">r</span><span class="p">,</span>
     <span class="n">DT</span> <span class="n">x0</span><span class="p">,</span>
@@ -334,10 +334,10 @@
 <td>short-rate model for Tree Engine</td>
 </tr>
 <tr class="row-even"><td>process1</td>
-<td>stochastic process</td>
+<td>parameters of stochastic process</td>
 </tr>
 <tr class="row-odd"><td>process2</td>
-<td>stochastic process</td>
+<td>parameters of stochastic process</td>
 </tr>
 <tr class="row-even"><td>endCnt</td>
 <td>end counter of timepoints</td>

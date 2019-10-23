@@ -258,12 +258,12 @@
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="initialization">
-<span id="cid-xf-fintech-trinomialtree-initialization"></span><span id="doxid-classxf-1-1fintech-1-1-trinomial-tree-1afdca51bf1b5dbf9ee4a9d548c219ee9e"></span><h3>initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">¶</a></h3>
+<span id="cid-xf-fintech-trinomialtree-initialization"></span><span id="doxid-classxf-1-1fintech-1-1-trinomial-tree-1a20723a085d71e96cbdffc10d94a5c837"></span><h3>initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="defined-in-xf-fintech-trinomial-tree-hpp">
 <h4>Defined in &lt;xf_fintech/trinomial_tree.hpp&gt;<a class="headerlink" href="#defined-in-xf-fintech-trinomial-tree-hpp" title="Permalink to this headline">¶</a></h4>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">void</span> <span class="n">initialization</span> <span class="p">(</span>
-    <span class="n">Process</span><span class="o">&amp;</span> <span class="n">pro</span><span class="p">,</span>
+    <span class="n">DT</span> <span class="n">processParam</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span>
     <span class="kt">unsigned</span> <span class="n">endCnt</span><span class="p">,</span>
     <span class="n">DT</span> <span class="n">x0_</span>
     <span class="p">)</span>
@@ -276,8 +276,8 @@
 <col width="80%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>pro</td>
-<td>stochastic process.</td>
+<tr class="row-odd"><td>processParam</td>
+<td>parameters of stochastic process.</td>
 </tr>
 <tr class="row-even"><td>endCnt</td>
 <td>end counter of timepoints</td>

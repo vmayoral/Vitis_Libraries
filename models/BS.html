@@ -325,7 +325,7 @@ i.e. the mean of <span class="math notranslate nohighlight">\(\frac{\Delta S_t}{
 will fetch the normal random number <span class="math notranslate nohighlight">\(\epsilon\)</span> from RNG sequence and output the <span class="math notranslate nohighlight">\(\ln S\)</span> to path pricer.</p>
 <a class="reference internal image-reference" href="../_images/bs_1.PNG"><img alt="impl of BS" class="align-center" src="../_images/bs_1.PNG" style="width: 80%;" /></a>
 <p>Because there is accumulation of <span class="math notranslate nohighlight">\(\ln S\)</span>, the initiation interval (II) cannot achieve 1. Here, change order between paths and steps. Because the input random number are totally independent,
-the change of order will not affect the accuracy of the result. The pseudo-code is shown as follows.</p>
+the change of order will not affect the accurate of the result. The pseudo-code is shown as follows.</p>
 <a class="reference internal image-reference" href="../_images/bs.PNG"><img alt="Optimization of Algorithm" class="align-center" src="../_images/bs.PNG" style="width: 80%;" /></a>
 </div>
 </div>
