@@ -407,8 +407,8 @@ Baseline is Quantlib, a Widely Used C++ Open Source Library, running on CPU with
 </tr>
 </tbody>
 </table>
-<p><a class="reference internal" href="TreeEngine.html#tab-mcae-resource"><span class="std std-numref">Table 24</span></a> gives the resource utilization report of four American option APIs. Note that the resource statistics are under specific UN configurations. These UN configurations are the templated parameters of the corresponding API.</p>
-<p>The complete Vitis demos of American Option Engine are executed with a U250 card on Nimbix. The performance of two demos is listed in <a class="reference internal" href="#tab-mcae-performance"><span class="std std-numref">Table 20</span></a>. In this table, kernel execution time and end-to-end execution time are calculated. Besides, for end-to-end execution time, since pipeline mode can be used, especially for 3-kernel version American option engine, pipeline mode execution time is also collected.</p>
+<p><a class="reference internal" href="TreeEngine.html#tab-mcae-resource"><span class="std std-numref">Table 24</span></a> gives the resource utilization report of four American option APIs. Note that the resource statistics are under specific UN (Unroll Number) configurations. These UN configurations are the templated parameters of the corresponding API.</p>
+<p>The complete Vitis demos of American Option Engine are executed with a U250 card on Nimbix. The performance of two demos is listed in <a class="reference internal" href="#tab-mcae-performance"><span class="std std-numref">Table 20</span></a>. In this table, kernel execution time and end-to-end execution time (E2E) are calculated. Besides, for end-to-end execution time, since pipeline mode can be used, especially for 3-kernel version American option engine, pipeline mode execution time is also collected.</p>
 <span id="tab-mcae-performance"></span><table border="1" class="docutils align-center" id="id4">
 <caption><span class="caption-number">Table 20 </span><span class="caption-text">Performance of American Option demos on U250</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
 <colgroup>

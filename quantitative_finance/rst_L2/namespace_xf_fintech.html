@@ -545,7 +545,7 @@
 <span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">DT</span><span class="o">&gt;</span>
 <span class="n">DT</span> <span class="n">hcfEngine</span> <span class="p">(</span><span class="k">struct</span> <a class="reference internal" href="struct_xf_fintech_hcfEngineInputDataType-2.html#doxid-structxf-1-1fintech-1-1hcf-engine-input-data-type"><span class="std std-ref">hcfEngineInputDataType</span></a><span></span> <span class="o">&lt;</span><span class="n">DT</span><span class="o">&gt;*</span> <span class="n">input_data</span><span class="p">)</span>
 </pre>
-<p>Engine for Hestion Closed Form Solution.</p>
+<p>Engine for Heston Closed Form Solution.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -2181,7 +2181,7 @@
 </div>
 </div>
 <div class="section" id="treeswaptionengine">
-<span id="cid-xf-fintech-treeswaptionengine"></span><span id="doxid-namespacexf-1-1fintech-1a64bc1fcfb6f69afa7690ce8679aa158f"></span><h2>treeSwaptionEngine<a class="headerlink" href="#treeswaptionengine" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-fintech-treeswaptionengine"></span><span id="doxid-namespacexf-1-1fintech-1a9f75a5673c4b2494739b7607d5008ef6"></span><h2>treeSwaptionEngine<a class="headerlink" href="#treeswaptionengine" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="defined-in-xf-fintech-tree-engine-hpp">
 <h3>Defined in &lt;xf_fintech/tree_engine.hpp&gt;<a class="headerlink" href="#defined-in-xf-fintech-tree-engine-hpp" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
@@ -2195,7 +2195,7 @@
     <span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">treeSwaptionEngine</span> <span class="p">(</span>
     <span class="n">Model</span><span class="o">&amp;</span> <span class="n">model</span><span class="p">,</span>
-    <span class="n">Process</span><span class="o">&amp;</span> <span class="n">process</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">process</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">type</span><span class="p">,</span>
     <span class="n">DT</span> <span class="n">fixedRate</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">timestep</span><span class="p">,</span>
@@ -2241,7 +2241,7 @@
 <td>short-rate model that has been initialized</td>
 </tr>
 <tr class="row-even"><td>process</td>
-<td>stochastic process that has been initialized</td>
+<td>parameters of stochastic process</td>
 </tr>
 <tr class="row-odd"><td>type</td>
 <td>0: Payer, 1: Receiver</td>
@@ -2286,7 +2286,7 @@
 </table>
 </div>
 <div class="section" id="cid-xf-fintech-treeswaptionengine-2">
-<span id="doxid-namespacexf-1-1fintech-1aa86db403cceb4d5b2af093c06d97a085"></span><span id="id17"></span><h3>Defined in &lt;xf_fintech/tree_engine.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-treeswaptionengine-2" title="Permalink to this headline">¶</a></h3>
+<span id="doxid-namespacexf-1-1fintech-1a455795712f15649cd47ecf7b5621dbf6"></span><span id="id17"></span><h3>Defined in &lt;xf_fintech/tree_engine.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-treeswaptionengine-2" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">template</span> <span class="o">&lt;</span>
     <span class="k">typename</span> <span class="n">DT</span><span class="p">,</span>
@@ -2298,8 +2298,8 @@
     <span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">treeSwaptionEngine</span> <span class="p">(</span>
     <span class="n">Model</span><span class="o">&amp;</span> <span class="n">model</span><span class="p">,</span>
-    <span class="n">Process</span><span class="o">&amp;</span> <span class="n">process1</span><span class="p">,</span>
-    <span class="n">Process</span><span class="o">&amp;</span> <span class="n">process2</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">process1</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">process2</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">type</span><span class="p">,</span>
     <span class="n">DT</span> <span class="n">fixedRate</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">timestep</span><span class="p">,</span>
@@ -2346,10 +2346,10 @@
 <td>short-rate model that has been initialized</td>
 </tr>
 <tr class="row-even"><td>process1</td>
-<td>1st dimensional stochastic process that has been initialized</td>
+<td>1st dimensional parameters of stochastic process</td>
 </tr>
 <tr class="row-odd"><td>process2</td>
-<td>2nd dimensional stochastic process that has been initialized</td>
+<td>2nd dimensional parameters of stochastic process</td>
 </tr>
 <tr class="row-even"><td>type</td>
 <td>0: Payer, 1: Receiver</td>
@@ -2398,7 +2398,7 @@
 </div>
 </div>
 <div class="section" id="treeswapengine">
-<span id="cid-xf-fintech-treeswapengine"></span><span id="doxid-namespacexf-1-1fintech-1ad1cd85cdfb855ad4c48b76924b9f684b"></span><h2>treeSwapEngine<a class="headerlink" href="#treeswapengine" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-fintech-treeswapengine"></span><span id="doxid-namespacexf-1-1fintech-1a16096b883b1b80e2ee52427ca048a496"></span><h2>treeSwapEngine<a class="headerlink" href="#treeswapengine" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id18">
 <h3>Defined in &lt;xf_fintech/tree_engine.hpp&gt;<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
@@ -2412,7 +2412,7 @@
     <span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">treeSwapEngine</span> <span class="p">(</span>
     <span class="n">Model</span><span class="o">&amp;</span> <span class="n">model</span><span class="p">,</span>
-    <span class="n">Process</span><span class="o">&amp;</span> <span class="n">process</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">process</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">type</span><span class="p">,</span>
     <span class="n">DT</span> <span class="n">fixedRate</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">timestep</span><span class="p">,</span>
@@ -2457,7 +2457,7 @@
 <td>short-rate model that has been initialized</td>
 </tr>
 <tr class="row-even"><td>process</td>
-<td>stochastic process that has been initialized</td>
+<td>parameters of stochastic process</td>
 </tr>
 <tr class="row-odd"><td>type</td>
 <td>0: Payer, 1: Receiver</td>
@@ -2499,7 +2499,7 @@
 </table>
 </div>
 <div class="section" id="cid-xf-fintech-treeswapengine-2">
-<span id="doxid-namespacexf-1-1fintech-1affdd59bcf42efe55fe8aa7d64bdcc0b1"></span><span id="id19"></span><h3>Defined in &lt;xf_fintech/tree_engine.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-treeswapengine-2" title="Permalink to this headline">¶</a></h3>
+<span id="doxid-namespacexf-1-1fintech-1ad6a2fcb5e22eb3b37e717821cb579cb4"></span><span id="id19"></span><h3>Defined in &lt;xf_fintech/tree_engine.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-treeswapengine-2" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">template</span> <span class="o">&lt;</span>
     <span class="k">typename</span> <span class="n">DT</span><span class="p">,</span>
@@ -2511,8 +2511,8 @@
     <span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">treeSwapEngine</span> <span class="p">(</span>
     <span class="n">Model</span><span class="o">&amp;</span> <span class="n">model</span><span class="p">,</span>
-    <span class="n">Process</span><span class="o">&amp;</span> <span class="n">process1</span><span class="p">,</span>
-    <span class="n">Process</span><span class="o">&amp;</span> <span class="n">process2</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">process1</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">process2</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">type</span><span class="p">,</span>
     <span class="n">DT</span> <span class="n">fixedRate</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">timestep</span><span class="p">,</span>
@@ -2558,10 +2558,10 @@
 <td>short-rate model that has been initialized</td>
 </tr>
 <tr class="row-even"><td>process1</td>
-<td>1st dimensional stochastic process that has been initialized</td>
+<td>1st dimensional parameters of stochastic process</td>
 </tr>
 <tr class="row-odd"><td>process2</td>
-<td>2nd dimensional stochastic process that has been initialized</td>
+<td>2nd dimensional parameters of stochastic process</td>
 </tr>
 <tr class="row-even"><td>type</td>
 <td>0: Payer, 1: Receiver</td>
@@ -2607,7 +2607,7 @@
 </div>
 </div>
 <div class="section" id="treecapfloorengine">
-<span id="cid-xf-fintech-treecapfloorengine"></span><span id="doxid-namespacexf-1-1fintech-1aaba3725f7298d58306833d771dd3f0e2"></span><h2>treeCapFloorEngine<a class="headerlink" href="#treecapfloorengine" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-fintech-treecapfloorengine"></span><span id="doxid-namespacexf-1-1fintech-1a6bab480b3a82112c37047e2cd6c6a7d0"></span><h2>treeCapFloorEngine<a class="headerlink" href="#treecapfloorengine" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id20">
 <h3>Defined in &lt;xf_fintech/tree_engine.hpp&gt;<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
@@ -2621,7 +2621,7 @@
     <span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">treeCapFloorEngine</span> <span class="p">(</span>
     <span class="n">Model</span><span class="o">&amp;</span> <span class="n">model</span><span class="p">,</span>
-    <span class="n">Process</span><span class="o">&amp;</span> <span class="n">process</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">process</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">type</span><span class="p">,</span>
     <span class="n">DT</span> <span class="n">fixedRate</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">timestep</span><span class="p">,</span>
@@ -2651,7 +2651,7 @@
 <td>short-rate model that has been initialized</td>
 </tr>
 <tr class="row-odd"><td>Process</td>
-<td>stochastic process that has been initialized</td>
+<td>parameters of stochastic process</td>
 </tr>
 <tr class="row-even"><td>DIM</td>
 <td>1D or 2D short-rate model</td>
@@ -2693,7 +2693,7 @@
 <td>nominal principal</td>
 </tr>
 <tr class="row-odd"><td>cfRate</td>
-<td>cap rate ans floor rate</td>
+<td>cap rate and floor rate</td>
 </tr>
 <tr class="row-even"><td>x0</td>
 <td>initial underlying</td>
@@ -2708,7 +2708,7 @@
 </table>
 </div>
 <div class="section" id="cid-xf-fintech-treecapfloorengine-2">
-<span id="doxid-namespacexf-1-1fintech-1a20e1a1b493f1afa1c812e3bd6497fe65"></span><span id="id21"></span><h3>Defined in &lt;xf_fintech/tree_engine.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-treecapfloorengine-2" title="Permalink to this headline">¶</a></h3>
+<span id="doxid-namespacexf-1-1fintech-1a109bfda083c61afe9e0f349d0a866365"></span><span id="id21"></span><h3>Defined in &lt;xf_fintech/tree_engine.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-treecapfloorengine-2" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">template</span> <span class="o">&lt;</span>
     <span class="k">typename</span> <span class="n">DT</span><span class="p">,</span>
@@ -2720,8 +2720,8 @@
     <span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">treeCapFloorEngine</span> <span class="p">(</span>
     <span class="n">Model</span><span class="o">&amp;</span> <span class="n">model</span><span class="p">,</span>
-    <span class="n">Process</span><span class="o">&amp;</span> <span class="n">process1</span><span class="p">,</span>
-    <span class="n">Process</span><span class="o">&amp;</span> <span class="n">process2</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">process1</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">process2</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">type</span><span class="p">,</span>
     <span class="n">DT</span> <span class="n">fixedRate</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">timestep</span><span class="p">,</span>
@@ -2767,10 +2767,10 @@
 <td>short-rate model that has been initialized</td>
 </tr>
 <tr class="row-even"><td>process1</td>
-<td>1st dimensional stochastic process that has been initialized</td>
+<td>1st dimensional parameters of stochastic process</td>
 </tr>
 <tr class="row-odd"><td>process2</td>
-<td>2nd dimensional stochastic process that has been initialized</td>
+<td>2nd dimensional parameters of stochastic process</td>
 </tr>
 <tr class="row-even"><td>type</td>
 <td>0: Cap, 1: Collar, 2: Floor</td>
@@ -2816,7 +2816,7 @@
 </div>
 </div>
 <div class="section" id="treecallableengine">
-<span id="cid-xf-fintech-treecallableengine"></span><span id="doxid-namespacexf-1-1fintech-1ab4a2f908b41eace19de90c3f680df326"></span><h2>treeCallableEngine<a class="headerlink" href="#treecallableengine" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-fintech-treecallableengine"></span><span id="doxid-namespacexf-1-1fintech-1a8cd1815f44f4cf9adc6f6f823e2eac73"></span><h2>treeCallableEngine<a class="headerlink" href="#treecallableengine" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id22">
 <h3>Defined in &lt;xf_fintech/tree_engine.hpp&gt;<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
@@ -2830,7 +2830,7 @@
     <span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">treeCallableEngine</span> <span class="p">(</span>
     <span class="n">Model</span><span class="o">&amp;</span> <span class="n">model</span><span class="p">,</span>
-    <span class="n">Process</span><span class="o">&amp;</span> <span class="n">process</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">process</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">type</span><span class="p">,</span>
     <span class="n">DT</span> <span class="n">fixedRate</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">timestep</span><span class="p">,</span>
@@ -2875,7 +2875,7 @@
 <td>short-rate model that has been initialized</td>
 </tr>
 <tr class="row-even"><td>process</td>
-<td>stochastic process that has been initialized</td>
+<td>parameters of stochastic process</td>
 </tr>
 <tr class="row-odd"><td>type</td>
 <td>type of the callability, 0: Call, 1: Put</td>
@@ -2917,7 +2917,7 @@
 </table>
 </div>
 <div class="section" id="cid-xf-fintech-treecallableengine-2">
-<span id="doxid-namespacexf-1-1fintech-1a26f261498fe3ce3dd46bc90e151d0580"></span><span id="id23"></span><h3>Defined in &lt;xf_fintech/tree_engine.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-treecallableengine-2" title="Permalink to this headline">¶</a></h3>
+<span id="doxid-namespacexf-1-1fintech-1ac273f267f4b547a2de3d60943f96968f"></span><span id="id23"></span><h3>Defined in &lt;xf_fintech/tree_engine.hpp&gt;<a class="headerlink" href="#cid-xf-fintech-treecallableengine-2" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">template</span> <span class="o">&lt;</span>
     <span class="k">typename</span> <span class="n">DT</span><span class="p">,</span>
@@ -2929,8 +2929,8 @@
     <span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">treeCallableEngine</span> <span class="p">(</span>
     <span class="n">Model</span><span class="o">&amp;</span> <span class="n">model</span><span class="p">,</span>
-    <span class="n">Process</span><span class="o">&amp;</span> <span class="n">process1</span><span class="p">,</span>
-    <span class="n">Process</span><span class="o">&amp;</span> <span class="n">process2</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">process1</span><span class="p">,</span>
+    <span class="n">DT</span><span class="o">*</span> <span class="n">process2</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">type</span><span class="p">,</span>
     <span class="n">DT</span> <span class="n">fixedRate</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">timestep</span><span class="p">,</span>
@@ -2976,10 +2976,10 @@
 <td>short-rate model that has been initialized</td>
 </tr>
 <tr class="row-even"><td>process1</td>
-<td>1st dimensional stochastic process that has been initialized</td>
+<td>1st dimensional parameters of stochastic process</td>
 </tr>
 <tr class="row-odd"><td>process2</td>
-<td>2nd dimensional stochastic process that has been initialized</td>
+<td>2nd dimensional parameters of stochastic process</td>
 </tr>
 <tr class="row-even"><td>type</td>
 <td>type of the callability, 0: Call, 1: Put</td>

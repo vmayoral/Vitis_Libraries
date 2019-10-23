@@ -308,7 +308,7 @@ It then writes the results back out. This level is where the HLS #pragmas are us
 </div>
 <div class="section" id="bt-engine-bt-engine-hpp">
 <h2>bt_engine (bt_engine.hpp)<a class="headerlink" href="#bt-engine-bt-engine-hpp" title="Permalink to this headline">¶</a></h2>
-<p>The code is a implementation of the Cox, Ross, &amp; Rubinstein (CRR) method and is template to accept different data types (float/double).
+<p>The code is an implementation of the Cox, Ross, &amp; Rubinstein (CRR) method and is template to accept different data types (float/double).
 It uses standard C++ and allows the code to be easily used in a software only environment by swapping to the standard math namespace.</p>
 <p>The implementation is broken into a number of steps:</p>
 <ul class="simple">
@@ -338,7 +338,7 @@ It uses standard C++ and allows the code to be easily used in a software only en
 <div class="section" id="binomialtreekernel-binomialtreekernel-cpp">
 <h2>binomialtreekernel (binomialtreekernel.cpp)<a class="headerlink" href="#binomialtreekernel-binomialtreekernel-cpp" title="Permalink to this headline">¶</a></h2>
 <p>The kernel is the HLS wrapper level which implements the pipelining and parallelization to allow high throughput. The kernel uses a dataflow methodology to pass the data through the design.</p>
-<p>The top leveli’s input and output ports are 512 bit wide, which is designed to match the whole DDR bus width and allowing vector access. In the case of float data type (4 bytes), sixteen parameters can be accessed from the bus in parallel. Each port is connected to its own AXI master with arbitration handled by the AXI switch and DDR controller under the hood.</p>
+<p>The top level’s input and output ports are 512 bit wide, which is designed to match the whole DDR bus width and allowing vector access. In the case of float data type (4 bytes), sixteen parameters can be accessed from the bus in parallel. Each port is connected to its own AXI master with arbitration handled by the AXI switch and DDR controller under the hood.</p>
 </div>
 <div class="section" id="resource-utilization">
 <h2>Resource Utilization<a class="headerlink" href="#resource-utilization" title="Permalink to this headline">¶</a></h2>
