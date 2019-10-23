@@ -17,7 +17,7 @@
     <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
     <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>2-Dimensional(Matrix) FFT L1 FPGA Module &mdash; Vitis FFT Library 1.0 beta documentation</title>
+  <title>2-Dimensional(Matrix) FFT L1 FPGA Module &mdash; Vitis DSP Library 1.0 beta documentation</title>
   
 <!-- Header information provided by Emily-->
     <meta name="apple-itunes-app" content="app-id=1063287962">
@@ -122,7 +122,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Vitis FFT Library
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Vitis DSP Library
           
 
           
@@ -205,13 +205,6 @@
 </ul>
 
             
-			<p class="caption"><span class="caption-text">This Page</span></p>
-				<ul class="current">
-				  <li class="toctree-l1"><a href="../_sources/user_guide/L1_2dfft.rst.txt"
-						rel="nofollow">Show Source</a></li>
-					<li class="toctree-l1"><a href="https://github.com/Xilinx/<ENTER GITHUB REPO PATH HERE>/blob/master/<ENTER DOC FOLDER HIERARCHY HERE>/user_guide/L1_2dfft.rst"
-						   rel="nofollow">View on GitHub</a></li>						
-				</ul>
           
         </div>
         
@@ -224,7 +217,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Vitis FFT Library</a>
+          <a href="../index.html">Vitis DSP Library</a>
         
       </nav>
 
@@ -261,8 +254,6 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/user_guide/L1_2dfft.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -306,7 +297,7 @@
 <h1>2-Dimensional(Matrix) FFT L1 FPGA Module<a class="headerlink" href="#dimensional-matrix-fft-l1-fpga-module" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>Vitis FFT library provides a fully synthesizable 2-Dimensional Fourier Transform as an L1 primitive.
+<p>Vitis DSP library provides a fully synthesizable 2-Dimensional Fast Fourier Transform(FFT) as an L1 primitive.
 This L1 primitive is designed to be easily transformed into an L2 Vitis kernel by adding memory adapters.
 The L1 primitive is designed to have a very wide streaming interface, as wide as device DDR memory
 widths on boards like Xilinx U200, U250 and U280. Adding memory adapters requires a plugin at the FFT input
@@ -454,9 +445,9 @@ description of these parameters is as follows:</p>
 <div class="section" id="fixed-point-2-d-fft-l1-module-usage">
 <h3>Fixed Point 2-D FFT L1 Module Usage<a class="headerlink" href="#fixed-point-2-d-fft-l1-module-usage" title="Permalink to this headline">¶</a></h3>
 <p>To use the fixed point Vitis 2-D FFT L1 module in a C++ HLS design:</p>
-<p>1- Clone the Vitis FFT Library git repository and add the following path to compiler include path:</p>
+<p>1- Clone the Vitis DSP Library git repository and add the following path to compiler include path:</p>
 <blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">REPO_PATH/vitis_fft/L1/include/hw/vitis_2dfft/fixed/</span></code></p>
+<div><p><code class="docutils literal notranslate"><span class="pre">REPO_PATH/dsp/L1/include/hw/vitis_2dfft/fixed/</span></code></p>
 </div></blockquote>
 <p>2- Include <code class="docutils literal notranslate"><span class="pre">vt_fft.hpp</span></code></p>
 <p>3- Use namespace <code class="docutils literal notranslate"><span class="pre">vitis::dsp::fft</span></code></p>
@@ -525,9 +516,9 @@ To use the 2-D FFT L1 library:</p>
 <div class="section" id="floating-point-2-d-fft-l1-module-usage">
 <h3>Floating Point 2-D FFT L1 Module Usage<a class="headerlink" href="#floating-point-2-d-fft-l1-module-usage" title="Permalink to this headline">¶</a></h3>
 <p>To use the Vitis 2-D FFT L1 module in a C++ HLS design:</p>
-<p>1- Clone the Vitis FFT Library git repository and add the following path to compiler include path:</p>
+<p>1- Clone the Vitis DSP Library git repository and add the following path to compiler include path:</p>
 <blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">REPO_PATH/vitis_fft/L1/include/hw/vitis_2dfft/float/</span></code></p>
+<div><p><code class="docutils literal notranslate"><span class="pre">REPO_PATH/dsp/L1/include/hw/vitis_2dfft/float/</span></code></p>
 </div></blockquote>
 <p>2- Include <code class="docutils literal notranslate"><span class="pre">vt_fft.hpp</span></code></p>
 <p>3- Use namespace <code class="docutils literal notranslate"><span class="pre">vitis::dsp::fft</span></code></p>
@@ -765,8 +756,8 @@ change the setting of environment variable <strong>TA_PATH</strong> to point to 
 <span class="nb">source</span> <span class="si">${</span><span class="nv">XILINX_VIVADO</span><span class="si">}</span>/settings64.sh
 </pre></div>
 </div>
-<p>The example discussed above is also provided as an example test and available at the following path : <code class="docutils literal notranslate"><span class="pre">REPO_PATH/L1/examples/2Dfix_impluse</span></code> it can be simulated, synthesized or co-simulated as follows:
-Simply go to the directory <code class="docutils literal notranslate"><span class="pre">REPO_PATH/L1/examples/2Dfix_impluse</span></code> and simulat,build and co-simulate project using : <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">run</span> <span class="pre">XPART='xcu200-fsgd2104-2-e'</span> <span class="pre">CSIM=1</span> <span class="pre">CSYNTH=1</span> <span class="pre">COSIM=1</span></code> you can choose the part number as required and by settting CSIM/CSYNTH/COSIM=0 choose what to build and run with make target</p>
+<p>The example discussed above is also provided as an example test and available at the following path : <code class="docutils literal notranslate"><span class="pre">REPO_PATH/dsp/L1/examples/2Dfix_impluse</span></code> it can be simulated, synthesized or co-simulated as follows:
+Simply go to the directory <code class="docutils literal notranslate"><span class="pre">REPO_PATH/dsp/L1/examples/2Dfix_impluse</span></code> and simulat,build and co-simulate project using : <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">run</span> <span class="pre">XPART='xcu200-fsgd2104-2-e'</span> <span class="pre">CSIM=1</span> <span class="pre">CSYNTH=1</span> <span class="pre">COSIM=1</span></code> you can choose the part number as required and by settting CSIM/CSYNTH/COSIM=0 choose what to build and run with make target</p>
 </div>
 </div>
 <div class="section" id="d-floating-point-example">
@@ -944,13 +935,13 @@ change the setting of environment variable <strong>TA_PATH</strong> to point to 
 <span class="nb">source</span> <span class="si">${</span><span class="nv">XILINX_VIVADO</span><span class="si">}</span>/settings64.sh
 </pre></div>
 </div>
-<p>The example discussed above is also provided as an example test and available at the following path : <code class="docutils literal notranslate"><span class="pre">REPO_PATH/L1/examples/2Dfloat_impluse</span></code> it can be simulated, synthesized or co-simulated as follows:
-Simply go to the directory <code class="docutils literal notranslate"><span class="pre">REPO_PATH/L1/examples/2Dfloat_impluse</span></code> and simulat,build and co-simulate project using : <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">run</span> <span class="pre">XPART='xcu200-fsgd2104-2-e'</span> <span class="pre">CSIM=1</span> <span class="pre">CSYNTH=1</span> <span class="pre">COSIM=1</span></code> you can choose the part number as required and by settting CSIM/CSYNTH/COSIM=0 choose what to build and run with make target</p>
+<p>The example discussed above is also provided as an example test and available at the following path : <code class="docutils literal notranslate"><span class="pre">REPO_PATH/dsp/L1/examples/2Dfloat_impluse</span></code> it can be simulated, synthesized or co-simulated as follows:
+Simply go to the directory <code class="docutils literal notranslate"><span class="pre">REPO_PATH/dsp/L1/examples/2Dfloat_impluse</span></code> and simulat,build and co-simulate project using : <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">run</span> <span class="pre">XPART='xcu200-fsgd2104-2-e'</span> <span class="pre">CSIM=1</span> <span class="pre">CSYNTH=1</span> <span class="pre">COSIM=1</span></code> you can choose the part number as required and by settting CSIM/CSYNTH/COSIM=0 choose what to build and run with make target</p>
 </div>
 </div>
 <div class="section" id="d-fft-tests">
 <h3>2-D FFT Tests<a class="headerlink" href="#d-fft-tests" title="Permalink to this headline">¶</a></h3>
-<p>Different tests are provided for fixed point and floating point 2-D FFT. These test can be ran indivisually using the makefile or they can all be lauched at the same time by using a provided script. All the 2-D FFT tests are in folder <code class="docutils literal notranslate"><span class="pre">REPO_PATH/L1/tests/hw/2dfft</span></code></p>
+<p>Different tests are provided for fixed point and floating point 2-D FFT. These test can be ran indivisually using the makefile or they can all be lauched at the same time by using a provided script. All the 2-D FFT tests are in folder <code class="docutils literal notranslate"><span class="pre">REPO_PATH/dsp/L1/tests/hw/2dfft</span></code></p>
 <div class="section" id="launching-an-individual-test">
 <h4>Launching an Individual Test<a class="headerlink" href="#launching-an-individual-test" title="Permalink to this headline">¶</a></h4>
 <dl class="simple">
@@ -962,12 +953,12 @@ Simply go to the directory <code class="docutils literal notranslate"><span clas
 <span class="nb">source</span> <span class="si">${</span><span class="nv">XILINX_VIVADO</span><span class="si">}</span>/settings64.sh
 </pre></div>
 </div>
-<p>Once the environment settings are done an idividual test can be launched by going to test folder ( any folder inside sub-directory at any level of <code class="docutils literal notranslate"><span class="pre">REPO_PATH/L1/test/hw/</span></code> that has Makefile is a test) and running the make command :
+<p>Once the environment settings are done an idividual test can be launched by going to test folder ( any folder inside sub-directory at any level of <code class="docutils literal notranslate"><span class="pre">REPO_PATH/dsp/L1/test/hw/</span></code> that has Makefile is a test) and running the make command :
 <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">run</span> <span class="pre">XPART='xcu200-fsgd2104-2-e'</span> <span class="pre">CSIM=1</span> <span class="pre">CSYNTH=1</span> <span class="pre">COSIM=1</span></code>  you can choose the part number as required and by settting CSIM/CSYNTH/COSIM=0 choose what to build and run with make target</p>
 </div>
 <div class="section" id="launching-all-the-tests-collectivey">
 <h4>Launching all the Tests Collectivey<a class="headerlink" href="#launching-all-the-tests-collectivey" title="Permalink to this headline">¶</a></h4>
-<p>Scripts are provided in <code class="docutils literal notranslate"><span class="pre">REPO_PATH/L1/test/</span></code> to find and launch all the test inside the repo. These scripts will try to find all the tests with this <code class="docutils literal notranslate"><span class="pre">test</span></code>  folder and launh them one by one and print the summary of tests passed. To launch this script first create a file called <code class="docutils literal notranslate"><span class="pre">set_env.sh</span></code> that setup up Vitis HLS compiler paths and should look something like this:</p>
+<p>Scripts are provided in <code class="docutils literal notranslate"><span class="pre">REPO_PATH/dsp/L1/test/</span></code> to find and launch all the test inside the repo. These scripts will try to find all the tests with this <code class="docutils literal notranslate"><span class="pre">test</span></code>  folder and launh them one by one and print the summary of tests passed. To launch this script first create a file called <code class="docutils literal notranslate"><span class="pre">set_env.sh</span></code> that setup up Vitis HLS compiler paths and should look something like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TA_PATH</span><span class="o">=</span><span class="s2">&quot;LOCAL VITIS INSTALL PATH&quot;</span>
 <span class="nb">export</span> <span class="nv">XILINX_VITIS</span><span class="o">=</span><span class="si">${</span><span class="nv">TA_PATH</span><span class="si">}</span>/Vitis/2019.2
 <span class="nb">export</span> <span class="nv">XILINX_VIVADO</span><span class="o">=</span><span class="si">${</span><span class="nv">TA_PATH</span><span class="si">}</span>/Vivado/2019.2
