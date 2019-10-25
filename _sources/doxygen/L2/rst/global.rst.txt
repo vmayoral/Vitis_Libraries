@@ -8,30 +8,25 @@ Global Namespace
 .. toctree::
 	:hidden:
 
+	struct_unpackerBlockInfo.rst
+	struct_unpackerChunkInfo.rst
 
 
-.. _doxid-huffman__fixed__table_8hpp_1a667c4fc94bcc4f4c83ca36544e44ca2f:
-.. _cid-fixed_lenlit_table:
-.. _doxid-huffman__fixed__table_8hpp_1a7875864b4e2d6248045fb44326faa3c8:
-.. _cid-fixed_lenlit_bl:
-.. _doxid-huffman__fixed__table_8hpp_1a39fc2755197b9179a4af6b4f2c19b326:
-.. _cid-fixed_dist_table:
-.. _doxid-huffman__fixed__table_8hpp_1a445275b799be96d6ed0497c5e9ee7e1b:
-.. _cid-fixed_dist_bl:
-.. _doxid-huffman__fixed__table_8hpp_1a396758d099d1dc5705e588cb45d63b00:
-.. _cid-fixed_len_code:
-.. _doxid-static__table__ptrs_8hpp_1aa51c145e78da9c4bea42185f9baeb72a:
-.. _cid-static_litml_op:
-.. _doxid-static__table__ptrs_8hpp_1a73ee7ff737dc7ed5833b16144b7a5b88:
-.. _cid-static_litml_bits:
-.. _doxid-static__table__ptrs_8hpp_1af9b2e46d88fe2fcb0cb1fc11444a62c1:
-.. _cid-static_litml_val:
-.. _doxid-static__table__ptrs_8hpp_1af18c067f52383aa63785fca6de6f22d7:
-.. _cid-static_dist_op:
-.. _doxid-static__table__ptrs_8hpp_1ae6180ed056e4dd546fc4775fd8be765a:
-.. _cid-static_dist_bits:
-.. _doxid-static__table__ptrs_8hpp_1a4def778c99adf733dff979157eb6b09a:
-.. _cid-static_dist_val:
+
+.. _doxid-lz4__p2p_8hpp_1a8575ad3343a06f2f5f77311dcab71db8:
+.. _cid-dt_blockinfo:
+.. _doxid-lz4__p2p_8hpp_1afd506421cd5963e8ece2f33fdfcff94e:
+.. _cid-dt_chunkinfo:
+.. _doxid-lz4__packer__mm_8hpp_1a294ce21f5608a3ce72fab891321a3542:
+.. _cid-uint512_t:
+.. _doxid-lz4__packer__mm_8hpp_1a1aa05919ceb42c4b9238e20e0517c0fa:
+.. _cid-uintv_t:
+.. _doxid-lz4__packer__mm_8hpp_1aff0bd2605e52d8c625cd852c9b97e1b1:
+.. _cid-c_gmem_burst_size:
+.. _doxid-lz4__packer__mm_8hpp_1ab990c5a1d0a5b69bf7c918815deced43:
+.. _cid-c_size_stream_depth:
+.. _doxid-lz4__packer__mm_8hpp_1a841acc278195151193ad3164d41dda40:
+.. _cid-max_literal_count:
 .. _doxid-zlib__config_8hpp_1ad9b35bd5633acb11aa4db5c956cccf89:
 .. _cid-gz_max_literal_count:
 .. _doxid-zlib__tables_8hpp_1a344c7fdcb97bf4f08b85219b32c66f64:
@@ -42,14 +37,54 @@ Global Namespace
 .. _cid-base_dist:
 .. _doxid-zlib__tables_8hpp_1a533c4010941c7701cb6d664cc256c9ba:
 .. _cid-base_length:
+.. _doxid-snappy__decompress__stream_8hpp_1a7b846473f310e6962ca8b763772cf862:
+.. _cid-bit:
+.. _doxid-lz4__decompress__mm_8hpp_1a7b846473f310e6962ca8b763772cf862:
+.. _cid-bit-2:
+.. _doxid-lz4__compress__stream_8hpp_1a7b846473f310e6962ca8b763772cf862:
+.. _cid-bit-3:
+.. _doxid-snappy__decompress__mm_8hpp_1a7b846473f310e6962ca8b763772cf862:
+.. _cid-bit-4:
+.. _doxid-zlib__lz77__compress__mm_8hpp_1a7b846473f310e6962ca8b763772cf862:
+.. _cid-bit-5:
+.. _doxid-snappy__compress__stream_8hpp_1a7b846473f310e6962ca8b763772cf862:
+.. _cid-bit-6:
+.. _doxid-zlib__huffman__enc__mm_8hpp_1a7b846473f310e6962ca8b763772cf862:
+.. _cid-bit-7:
+.. _doxid-snappy__compress__mm_8hpp_1a7b846473f310e6962ca8b763772cf862:
+.. _cid-bit-8:
+.. _doxid-lz4__compress__mm_8hpp_1a7b846473f310e6962ca8b763772cf862:
+.. _cid-bit-9:
+.. _doxid-zlib__decompress__mm_8hpp_1a7b846473f310e6962ca8b763772cf862:
+.. _cid-bit-10:
+.. _doxid-lz4__packer__mm_8hpp_1aad5fd7c19571b2108714cd8bb4da0f91:
+.. _cid-block_parition:
 .. _doxid-zlib__config_8hpp_1a9cb9f49d4ce20962a777d05bc7e530ca:
 .. _cid-bltree_size:
 .. _doxid-zlib__config_8hpp_1a9e19158a493307d4f211cdf223da8319:
 .. _cid-bl_codes:
-.. _doxid-zlib__tables_8hpp_1ada73318b0dc5e86bf6b172081c6ece77:
-.. _cid-distance_codes:
+.. _doxid-lz4__compress__mm_8hpp_1a9a791900578407287be67aee88ef7ddd:
+.. _cid-booster_offset_window:
+.. _doxid-snappy__compress__mm_8hpp_1a9a791900578407287be67aee88ef7ddd:
+.. _cid-booster_offset_window-2:
+.. _doxid-lz4__packer__mm_8hpp_1acc92ecc93a7b7a816dd4422b0c0e45bb:
+.. _cid-bsize_std_1024kb:
+.. _doxid-lz4__packer__mm_8hpp_1a583ce2a243fd53930014a563af968fa5:
+.. _cid-bsize_std_256kb:
+.. _doxid-lz4__packer__mm_8hpp_1a1eaa1eb48567ac2635906f6ee0a71267:
+.. _cid-bsize_std_4096kb:
+.. _doxid-lz4__packer__mm_8hpp_1af726fc384419a5733aa5b84e9b24651c:
+.. _cid-bsize_std_64kb:
+.. _doxid-zlib__lz77__compress__mm_8hpp_1a05216c357020a68f3aa13417f0f28417:
+.. _cid-dict_ele_width:
 .. _doxid-zlib__config_8hpp_1ada73318b0dc5e86bf6b172081c6ece77:
+.. _cid-distance_codes:
+.. _doxid-zlib__tables_8hpp_1ada73318b0dc5e86bf6b172081c6ece77:
 .. _cid-distance_codes-2:
+.. _doxid-zlib__huffman__enc__mm_8hpp_1a339221efc337bd8f704993fa62cdc2fe:
+.. _cid-dist_extra:
+.. _doxid-zlib__huffman__enc__mm_8hpp_1abab81c1ada38fed9923f8dc69b38d439:
+.. _cid-dist_rep:
 .. _doxid-zlib__config_8hpp_1a55382a9a0b26bb7dfc5df2ecd43cb500:
 .. _cid-dtree_size:
 .. _doxid-zlib__config_8hpp_1a9e7596921a3a653bf68d7049f1cfbf24:
@@ -58,68 +93,320 @@ Global Namespace
 .. _cid-extra_dcodes:
 .. _doxid-zlib__config_8hpp_1a0ea47ce476b845613b877a110dad982f:
 .. _cid-extra_lcodes:
+.. _doxid-lz4__packer__mm_8hpp_1a469c5697051b4de0f4a250234348df44:
+.. _cid-flg_byte:
+.. _doxid-zlib__lz77__compress__mm_8hpp_1a4ef9636ea91e8374d90b2df0834b35a3:
+.. _cid-get_diff_if_big:
+.. _doxid-lz4__packer__mm_8hpp_1a339363060eacccb8cf32c45034c8fde5:
+.. _cid-gmem_burst_size:
+.. _doxid-lz4__p2p__decompress__kernel_8hpp_1a339363060eacccb8cf32c45034c8fde5:
+.. _cid-gmem_burst_size-2:
+.. _doxid-snappy__compress__stream_8hpp_1a339363060eacccb8cf32c45034c8fde5:
+.. _cid-gmem_burst_size-3:
+.. _doxid-lz4__decompress__mm_8hpp_1a339363060eacccb8cf32c45034c8fde5:
+.. _cid-gmem_burst_size-4:
+.. _doxid-snappy__decompress__mm_8hpp_1a339363060eacccb8cf32c45034c8fde5:
+.. _cid-gmem_burst_size-5:
+.. _doxid-lz4__compress__mm_8hpp_1a339363060eacccb8cf32c45034c8fde5:
+.. _cid-gmem_burst_size-6:
+.. _doxid-zlib__lz77__compress__mm_8hpp_1a339363060eacccb8cf32c45034c8fde5:
+.. _cid-gmem_burst_size-7:
+.. _doxid-zlib__huffman__enc__mm_8hpp_1a339363060eacccb8cf32c45034c8fde5:
+.. _cid-gmem_burst_size-8:
+.. _doxid-snappy__compress__mm_8hpp_1a339363060eacccb8cf32c45034c8fde5:
+.. _cid-gmem_burst_size-9:
+.. _doxid-lz4__p2p_8hpp_1adc4507285c666c55ff263d92d799cab5:
+.. _cid-gmem_datawidth:
+.. _doxid-lz4__packer__mm_8hpp_1a1512e047741436f48d2ee378518f724f:
+.. _cid-gmem_dwidth:
+.. _doxid-snappy__decompress__mm_8hpp_1a1512e047741436f48d2ee378518f724f:
+.. _cid-gmem_dwidth-2:
+.. _doxid-lz4__unpacker__kernel_8hpp_1a1512e047741436f48d2ee378518f724f:
+.. _cid-gmem_dwidth-3:
+.. _doxid-snappy__compress__stream_8hpp_1a1512e047741436f48d2ee378518f724f:
+.. _cid-gmem_dwidth-4:
+.. _doxid-snappy__compress__mm_8hpp_1a1512e047741436f48d2ee378518f724f:
+.. _cid-gmem_dwidth-5:
+.. _doxid-lz4__p2p__decompress__kernel_8hpp_1a1512e047741436f48d2ee378518f724f:
+.. _cid-gmem_dwidth-6:
+.. _doxid-zlib__lz77__compress__mm_8hpp_1a1512e047741436f48d2ee378518f724f:
+.. _cid-gmem_dwidth-7:
+.. _doxid-zlib__huffman__enc__mm_8hpp_1a1512e047741436f48d2ee378518f724f:
+.. _cid-gmem_dwidth-8:
+.. _doxid-lz4__decompress__mm_8hpp_1a1512e047741436f48d2ee378518f724f:
+.. _cid-gmem_dwidth-9:
+.. _doxid-lz4__compress__mm_8hpp_1a1512e047741436f48d2ee378518f724f:
+.. _cid-gmem_dwidth-10:
 .. _doxid-zlib__config_8hpp_1a1b45302695680930829cac31d65e41e1:
 .. _cid-heap_size:
+.. _doxid-lz4__decompress__mm_8hpp_1a43034bdd0ae7c6267b05ff35ae97cddf:
+.. _cid-history_size:
+.. _doxid-zlib__decompress__mm_8hpp_1a43034bdd0ae7c6267b05ff35ae97cddf:
+.. _cid-history_size-2:
+.. _doxid-zlib__decompress__stream_8hpp_1a43034bdd0ae7c6267b05ff35ae97cddf:
+.. _cid-history_size-3:
+.. _doxid-snappy__decompress__stream_8hpp_1a43034bdd0ae7c6267b05ff35ae97cddf:
+.. _cid-history_size-4:
+.. _doxid-snappy__decompress__mm_8hpp_1a43034bdd0ae7c6267b05ff35ae97cddf:
+.. _cid-history_size-5:
 .. _doxid-zlib__tables_8hpp_1a8dd3b78c666b6592944b2acf1706e611:
 .. _cid-length_codes:
 .. _doxid-zlib__config_8hpp_1a8dd3b78c666b6592944b2acf1706e611:
 .. _cid-length_codes-2:
+.. _doxid-zlib__lz77__compress__mm_8hpp_1a8dd3b78c666b6592944b2acf1706e611:
+.. _cid-length_codes-3:
 .. _doxid-zlib__config_8hpp_1a3f59145500c9de746e7dc49fb98c29ef:
 .. _cid-literals:
 .. _doxid-zlib__config_8hpp_1afd5282b5b1633ae4b470fbb03dbf0b3d:
 .. _cid-literal_codes:
+.. _doxid-zlib__huffman__enc__mm_8hpp_1a4a091988fcfd7b626880400fcd40376b:
+.. _cid-lit_rep:
+.. _doxid-snappy__decompress__stream_8hpp_1a2b8f8e3bbe3f6e707f3f920dfeb2be7b:
+.. _cid-low_offset:
+.. _doxid-lz4__decompress__mm_8hpp_1a2b8f8e3bbe3f6e707f3f920dfeb2be7b:
+.. _cid-low_offset-2:
+.. _doxid-snappy__decompress__mm_8hpp_1a2b8f8e3bbe3f6e707f3f920dfeb2be7b:
+.. _cid-low_offset-3:
+.. _doxid-zlib__decompress__mm_8hpp_1a2b8f8e3bbe3f6e707f3f920dfeb2be7b:
+.. _cid-low_offset-4:
+.. _doxid-zlib__decompress__stream_8hpp_1a2b8f8e3bbe3f6e707f3f920dfeb2be7b:
+.. _cid-low_offset-5:
+.. _doxid-snappy__decompress__mm_8hpp_1af0f756bfd33c38e7b36c1f10dcb0ba99:
+.. _cid-low_offset_state:
+.. _doxid-lz4__decompress__mm_8hpp_1af0f756bfd33c38e7b36c1f10dcb0ba99:
+.. _cid-low_offset_state-2:
+.. _doxid-snappy__decompress__stream_8hpp_1af0f756bfd33c38e7b36c1f10dcb0ba99:
+.. _cid-low_offset_state-3:
 .. _doxid-zlib__config_8hpp_1a5b89ad0599c454b953aab3bb714067a7:
 .. _cid-ltree_size:
+.. _doxid-snappy__compress__mm_8hpp_1ab093d1684c2f65f96339d0378a178aa0:
+.. _cid-lz_dict_size:
+.. _doxid-lz4__compress__stream_8hpp_1ab093d1684c2f65f96339d0378a178aa0:
+.. _cid-lz_dict_size-2:
+.. _doxid-snappy__compress__stream_8hpp_1ab093d1684c2f65f96339d0378a178aa0:
+.. _cid-lz_dict_size-3:
+.. _doxid-lz4__compress__mm_8hpp_1ab093d1684c2f65f96339d0378a178aa0:
+.. _cid-lz_dict_size-4:
+.. _doxid-zlib__lz77__compress__mm_8hpp_1ab093d1684c2f65f96339d0378a178aa0:
+.. _cid-lz_dict_size-5:
+.. _doxid-lz4__compress__mm_8hpp_1a9147cd813d2460298aa6dc78122c6498:
+.. _cid-lz_hash_bit:
+.. _doxid-snappy__compress__stream_8hpp_1a9147cd813d2460298aa6dc78122c6498:
+.. _cid-lz_hash_bit-2:
+.. _doxid-zlib__lz77__compress__mm_8hpp_1a9147cd813d2460298aa6dc78122c6498:
+.. _cid-lz_hash_bit-3:
+.. _doxid-lz4__compress__stream_8hpp_1a9147cd813d2460298aa6dc78122c6498:
+.. _cid-lz_hash_bit-4:
+.. _doxid-snappy__compress__mm_8hpp_1a9147cd813d2460298aa6dc78122c6498:
+.. _cid-lz_hash_bit-5:
+.. _doxid-lz4__decompress__stream_8hpp_1ad456fc5edab36cbf92c4a821b12b2548:
+.. _cid-lz_history_size:
+.. _doxid-lz4__decompress__stream_8hpp_1a392588a3ae8ecd5ae9933e7dc42768df:
+.. _cid-lz_low_offset:
+.. _doxid-lz4__decompress__stream_8hpp_1a165460a26a826fdfc2dba1be9b5c2f51:
+.. _cid-lz_low_offset_state:
+.. _doxid-lz4__decompress__stream_8hpp_1a6d67d0bf06a54ca23d8b50a4072deb1d:
+.. _cid-lz_match_state:
+.. _doxid-lz4__decompress__stream_8hpp_1a9bf2c59f5595d462253cbb47a1cdee5b:
+.. _cid-lz_max_offset:
+.. _doxid-zlib__decompress__stream_8hpp_1af2cda7e0f4a90b5bd73b287e9a52cb24:
+.. _cid-lz_max_offset_limit:
+.. _doxid-zlib__decompress__mm_8hpp_1af2cda7e0f4a90b5bd73b287e9a52cb24:
+.. _cid-lz_max_offset_limit-2:
+.. _doxid-zlib__lz77__compress__mm_8hpp_1af2cda7e0f4a90b5bd73b287e9a52cb24:
+.. _cid-lz_max_offset_limit-3:
+.. _doxid-snappy__compress__stream_8hpp_1af2cda7e0f4a90b5bd73b287e9a52cb24:
+.. _cid-lz_max_offset_limit-4:
+.. _doxid-lz4__compress__stream_8hpp_1af2cda7e0f4a90b5bd73b287e9a52cb24:
+.. _cid-lz_max_offset_limit-5:
+.. _doxid-snappy__compress__mm_8hpp_1af2cda7e0f4a90b5bd73b287e9a52cb24:
+.. _cid-lz_max_offset_limit-6:
+.. _doxid-lz4__compress__mm_8hpp_1af2cda7e0f4a90b5bd73b287e9a52cb24:
+.. _cid-lz_max_offset_limit-7:
+.. _doxid-lz4__decompress__stream_8hpp_1a06c683c737b953090a4c842173703508:
+.. _cid-lz_read_state:
+.. _doxid-lz4__packer__mm_8hpp_1a61ebf417522c9f6f36c6623886d67213:
+.. _cid-magic_byte_1:
+.. _doxid-lz4__packer__mm_8hpp_1a3c514dc2fccf4d4a857502f6b853afa3:
+.. _cid-magic_byte_2:
+.. _doxid-lz4__packer__mm_8hpp_1ae57b794fe4bc9aac64890749cce69b89:
+.. _cid-magic_byte_3:
+.. _doxid-lz4__packer__mm_8hpp_1a2ca2da98990a1a3fa8f45b0aea8ccbd5:
+.. _cid-magic_byte_4:
+.. _doxid-lz4__packer__mm_8hpp_1a1a9ea1ca92a8c051263ff8018004ad91:
+.. _cid-marker:
+.. _doxid-lz4__compress__stream_8hpp_1a113fb963ba98e31e3c41eb9599b1497d:
+.. _cid-match_len:
+.. _doxid-lz4__compress__mm_8hpp_1a113fb963ba98e31e3c41eb9599b1497d:
+.. _cid-match_len-2:
+.. _doxid-snappy__compress__mm_8hpp_1a113fb963ba98e31e3c41eb9599b1497d:
+.. _cid-match_len-3:
+.. _doxid-zlib__lz77__compress__mm_8hpp_1a113fb963ba98e31e3c41eb9599b1497d:
+.. _cid-match_len-4:
+.. _doxid-snappy__compress__stream_8hpp_1a113fb963ba98e31e3c41eb9599b1497d:
+.. _cid-match_len-5:
+.. _doxid-lz4__compress__stream_8hpp_1a32e585b69aa9798cd0335f8e8ff8404d:
+.. _cid-match_level:
+.. _doxid-zlib__lz77__compress__mm_8hpp_1a32e585b69aa9798cd0335f8e8ff8404d:
+.. _cid-match_level-2:
+.. _doxid-snappy__compress__mm_8hpp_1a32e585b69aa9798cd0335f8e8ff8404d:
+.. _cid-match_level-3:
+.. _doxid-lz4__compress__mm_8hpp_1a32e585b69aa9798cd0335f8e8ff8404d:
+.. _cid-match_level-4:
+.. _doxid-snappy__compress__stream_8hpp_1a32e585b69aa9798cd0335f8e8ff8404d:
+.. _cid-match_level-5:
+.. _doxid-lz4__decompress__mm_8hpp_1a36f419731c0d40403a0b2accb2982599:
+.. _cid-match_state:
+.. _doxid-snappy__decompress__stream_8hpp_1a36f419731c0d40403a0b2accb2982599:
+.. _cid-match_state-2:
+.. _doxid-snappy__decompress__mm_8hpp_1a36f419731c0d40403a0b2accb2982599:
+.. _cid-match_state-3:
 .. _doxid-zlib__config_8hpp_1a589eefe5223c5fd3dba28cee344d4922:
 .. _cid-maxcode_size:
 .. _doxid-zlib__config_8hpp_1a8f9fea0ddde71a75c6caf59ba993ca4e:
 .. _cid-max_bl_bits:
-.. _doxid-snappy__compress__mm_8hpp_1a388d7cbd7167357dd8aa63c2c90e3b8a:
+.. _doxid-snappy__compress__stream_8hpp_1a388d7cbd7167357dd8aa63c2c90e3b8a:
 .. _cid-max_lit_count:
-.. _doxid-lz4__compress__mm_8hpp_1a388d7cbd7167357dd8aa63c2c90e3b8a:
-.. _cid-max_lit_count-2:
 .. _doxid-lz4__compress__stream_8hpp_1a388d7cbd7167357dd8aa63c2c90e3b8a:
+.. _cid-max_lit_count-2:
+.. _doxid-lz4__packer__mm_8hpp_1a388d7cbd7167357dd8aa63c2c90e3b8a:
 .. _cid-max_lit_count-3:
-.. _doxid-snappy__compress__stream__kernel_8hpp_1a388d7cbd7167357dd8aa63c2c90e3b8a:
+.. _doxid-snappy__compress__mm_8hpp_1a388d7cbd7167357dd8aa63c2c90e3b8a:
 .. _cid-max_lit_count-4:
-.. _doxid-snappy__compress__stream__kernel_8hpp_1ad13a6e3dfd4f5858c1c0e4d81b7e7237:
+.. _doxid-lz4__compress__mm_8hpp_1a388d7cbd7167357dd8aa63c2c90e3b8a:
+.. _cid-max_lit_count-5:
+.. _doxid-snappy__compress__stream_8hpp_1ad13a6e3dfd4f5858c1c0e4d81b7e7237:
 .. _cid-max_lit_stream_size:
 .. _doxid-snappy__compress__mm_8hpp_1ad13a6e3dfd4f5858c1c0e4d81b7e7237:
 .. _cid-max_lit_stream_size-2:
-.. _doxid-zlib__tables_8hpp_1ab7a9188dce25dac8d3a970c01b89b0c6:
+.. _doxid-zlib__lz77__compress__mm_8hpp_1ab7a9188dce25dac8d3a970c01b89b0c6:
 .. _cid-max_match:
-.. _doxid-zlib__tables_8hpp_1a7984ceb1ff48ac91172976b91ed43f60:
+.. _doxid-zlib__tables_8hpp_1ab7a9188dce25dac8d3a970c01b89b0c6:
+.. _cid-max_match-2:
+.. _doxid-lz4__compress__mm_8hpp_1a773437eda00419e55ebcf14bf1ef5a4d:
+.. _cid-max_match_len:
+.. _doxid-zlib__lz77__compress__mm_8hpp_1a773437eda00419e55ebcf14bf1ef5a4d:
+.. _cid-max_match_len-2:
+.. _doxid-lz4__compress__stream_8hpp_1a773437eda00419e55ebcf14bf1ef5a4d:
+.. _cid-max_match_len-3:
+.. _doxid-snappy__compress__stream_8hpp_1a773437eda00419e55ebcf14bf1ef5a4d:
+.. _cid-max_match_len-4:
+.. _doxid-snappy__compress__mm_8hpp_1a773437eda00419e55ebcf14bf1ef5a4d:
+.. _cid-max_match_len-5:
+.. _doxid-snappy__decompress__mm_8hpp_1a31a6872795fec3b57775c7e0059fee83:
+.. _cid-max_offset:
+.. _doxid-snappy__decompress__stream_8hpp_1a31a6872795fec3b57775c7e0059fee83:
+.. _cid-max_offset-2:
+.. _doxid-lz4__decompress__mm_8hpp_1a31a6872795fec3b57775c7e0059fee83:
+.. _cid-max_offset-3:
+.. _doxid-zlib__lz77__compress__mm_8hpp_1ac1f29ba54415975a2fa23e276fdf8a0f:
+.. _cid-min_block_size:
+.. _doxid-snappy__compress__mm_8hpp_1ac1f29ba54415975a2fa23e276fdf8a0f:
+.. _cid-min_block_size-2:
+.. _doxid-lz4__compress__mm_8hpp_1ac1f29ba54415975a2fa23e276fdf8a0f:
+.. _cid-min_block_size-3:
+.. _doxid-zlib__huffman__enc__mm_8hpp_1ac1f29ba54415975a2fa23e276fdf8a0f:
+.. _cid-min_block_size-4:
+.. _doxid-snappy__compress__stream_8hpp_1ac1f29ba54415975a2fa23e276fdf8a0f:
+.. _cid-min_block_size-5:
+.. _doxid-lz4__compress__mm_8hpp_1a7984ceb1ff48ac91172976b91ed43f60:
 .. _cid-min_match:
-.. _doxid-lz4__compress__mm_8hpp_1a0532714a43e57d86b6e5002db6924684:
+.. _doxid-snappy__compress__mm_8hpp_1a7984ceb1ff48ac91172976b91ed43f60:
+.. _cid-min_match-2:
+.. _doxid-zlib__lz77__compress__mm_8hpp_1a7984ceb1ff48ac91172976b91ed43f60:
+.. _cid-min_match-3:
+.. _doxid-snappy__compress__stream_8hpp_1a7984ceb1ff48ac91172976b91ed43f60:
+.. _cid-min_match-4:
+.. _doxid-lz4__compress__stream_8hpp_1a7984ceb1ff48ac91172976b91ed43f60:
+.. _cid-min_match-5:
+.. _doxid-zlib__tables_8hpp_1a7984ceb1ff48ac91172976b91ed43f60:
+.. _cid-min_match-6:
+.. _doxid-zlib__decompress__stream_8hpp_1a7984ceb1ff48ac91172976b91ed43f60:
+.. _cid-min_match-7:
+.. _doxid-zlib__decompress__mm_8hpp_1a7984ceb1ff48ac91172976b91ed43f60:
+.. _cid-min_match-8:
+.. _doxid-zlib__decompress__mm_8hpp_1a265e5b42d1cd6061c3d4a4e3723a338a:
+.. _cid-min_offset:
+.. _doxid-lz4__compress__stream_8hpp_1a265e5b42d1cd6061c3d4a4e3723a338a:
+.. _cid-min_offset-2:
+.. _doxid-snappy__compress__stream_8hpp_1a265e5b42d1cd6061c3d4a4e3723a338a:
+.. _cid-min_offset-3:
+.. _doxid-zlib__lz77__compress__mm_8hpp_1a265e5b42d1cd6061c3d4a4e3723a338a:
+.. _cid-min_offset-4:
+.. _doxid-zlib__decompress__stream_8hpp_1a265e5b42d1cd6061c3d4a4e3723a338a:
+.. _cid-min_offset-5:
+.. _doxid-lz4__compress__mm_8hpp_1a265e5b42d1cd6061c3d4a4e3723a338a:
+.. _cid-min_offset-6:
+.. _doxid-snappy__compress__mm_8hpp_1a265e5b42d1cd6061c3d4a4e3723a338a:
+.. _cid-min_offset-7:
+.. _doxid-zlib__huffman__enc__mm_8hpp_1aa16a8c3e8f342a8bb54cb6ece1ea97a5:
+.. _cid-ml_dist_rep:
+.. _doxid-zlib__huffman__enc__mm_8hpp_1a421123d90e9b0e3cf508f5c0ae513297:
+.. _cid-ml_extra:
+.. _doxid-lz4__compress__stream_8hpp_1a52cab5c557e96dc15148629e854d6d5e:
+.. _cid-offset_window:
+.. _doxid-lz4__compress__mm_8hpp_1a52cab5c557e96dc15148629e854d6d5e:
+.. _cid-offset_window-2:
+.. _doxid-snappy__compress__mm_8hpp_1a52cab5c557e96dc15148629e854d6d5e:
+.. _cid-offset_window-3:
+.. _doxid-snappy__compress__stream_8hpp_1a52cab5c557e96dc15148629e854d6d5e:
+.. _cid-offset_window-4:
+.. _doxid-zlib__lz77__compress__mm_8hpp_1a52cab5c557e96dc15148629e854d6d5e:
+.. _cid-offset_window-5:
+.. _doxid-zlib__lz77__compress__mm_8hpp_1a589b7a395b2f5673eff3157cd143f349:
+.. _cid-out_bytes:
+.. _doxid-lz4__packer__mm_8hpp_1ac7788e5e406d9559a95c047f12895658:
+.. _cid-pack_width:
+.. _doxid-snappy__compress__stream_8hpp_1a0532714a43e57d86b6e5002db6924684:
 .. _cid-parallel_block:
-.. _doxid-snappy__compress__mm_8hpp_1a0532714a43e57d86b6e5002db6924684:
-.. _cid-parallel_block-2:
 .. _doxid-lz4__compress__stream_8hpp_1a0532714a43e57d86b6e5002db6924684:
+.. _cid-parallel_block-2:
+.. _doxid-lz4__compress__mm_8hpp_1a0532714a43e57d86b6e5002db6924684:
 .. _cid-parallel_block-3:
-.. _doxid-snappy__compress__stream__kernel_8hpp_1a0532714a43e57d86b6e5002db6924684:
+.. _doxid-snappy__compress__mm_8hpp_1a0532714a43e57d86b6e5002db6924684:
 .. _cid-parallel_block-4:
+.. _doxid-lz4__packer__mm_8hpp_1a4b51c4f12c79f045322063e8d4b77cb5:
+.. _cid-parllel_byte:
+.. _doxid-snappy__decompress__stream_8hpp_1af24d57192c431f4e3554b6c6be093153:
+.. _cid-read_state:
+.. _doxid-lz4__decompress__mm_8hpp_1af24d57192c431f4e3554b6c6be093153:
+.. _cid-read_state-2:
+.. _doxid-snappy__decompress__mm_8hpp_1af24d57192c431f4e3554b6c6be093153:
+.. _cid-read_state-3:
 .. _doxid-zlib__config_8hpp_1a444fb2dc04c9f8d1594954862b96ba6b:
 .. _cid-reuse_prev_blen:
 .. _doxid-zlib__config_8hpp_1ae11da4861476138799f4000c4e466da3:
 .. _cid-reuse_zero_blen:
 .. _doxid-zlib__config_8hpp_1a9df517792fcbd4a3c30565c673dd458b:
 .. _cid-reuse_zero_blen_7:
+.. _doxid-zlib__huffman__enc__mm_8hpp_1a15de9bbd20c76f6a84a71769060100a4:
+.. _cid-send_output:
+.. _doxid-zlib__huffman__enc__mm_8hpp_1aef9947c0b7fc7a3c0ce3ebf616a651bb:
+.. _cid-write_token:
+.. _doxid-zlib__lz77__compress__mm_8hpp_1a3a3a3795eafe60850be8b44dad7bdcf7:
+.. _cid-d_code:
+.. _doxid-zlib__huffman__enc__mm_8hpp_1a3a3a3795eafe60850be8b44dad7bdcf7:
+.. _cid-d_code-2:
 .. ref-code-block:: cpp
 	:class: overview-code-block
 
+	// typedefs
+
+	typedef struct :ref:`unpackerBlockInfo<doxid-structunpackerBlockInfo>` dt_blockInfo
+	typedef struct :ref:`unpackerChunkInfo<doxid-structunpackerChunkInfo>` dt_chunkInfo
+	typedef ap_uint <GMEM_DWIDTH> uint512_t
+	typedef ap_uint <PACK_WIDTH> uintV_t
+
+	// structs
+
+	struct :ref:`unpackerBlockInfo<doxid-structunpackerBlockInfo>` 
+	struct :ref:`unpackerChunkInfo<doxid-structunpackerChunkInfo>` 
+
 	// global variables
 
-	const int fixed_lenlit_table[]
-	const int fixed_lenlit_bl[]
-	const int fixed_dist_table[]
-	const int fixed_dist_bl[]
-	const int fixed_len_code[]
-	const uint8_t static_litml_op[512]
-	const uint8_t static_litml_bits[512]
-	const uint16_t static_litml_val[512]
-	const uint8_t static_dist_op[32]
-	const uint8_t static_dist_bits[32]
-	const uint16_t static_dist_val[32]
+	const int c_gmem_burst_size
+	const int c_size_stream_depth
+	const int max_literal_count
 	const int gz_max_literal_count
 	const uint8_t length_code[MAX_MATCH - MIN_MATCH+1]
 	const uint8_t dist_code[512]
@@ -128,22 +415,126 @@ Global Namespace
 
 	// macros
 
+	#define BIT
+	#define BIT
+	#define BIT
+	#define BIT
+	#define BIT
+	#define BIT
+	#define BIT
+	#define BIT
+	#define BIT
+	#define BIT
+	#define BLOCK_PARITION
 	#define BLTREE_SIZE
 	#define BL_CODES
+	#define BOOSTER_OFFSET_WINDOW
+	#define BOOSTER_OFFSET_WINDOW
+	#define BSIZE_STD_1024KB
+	#define BSIZE_STD_256KB
+	#define BSIZE_STD_4096KB
+	#define BSIZE_STD_64KB
+	#define DICT_ELE_WIDTH
 	#define DISTANCE_CODES
 	#define DISTANCE_CODES
+	#define DIST_EXTRA
+	#define DIST_REP
 	#define DTREE_SIZE
 	#define EXTRA_BLCODES
 	#define EXTRA_DCODES
 	#define EXTRA_LCODES
+	#define FLG_BYTE
+
+	#define GET_DIFF_IF_BIG( \
+	    x, \
+	    y \
+	    )
+
+	#define GMEM_BURST_SIZE
+	#define GMEM_BURST_SIZE
+	#define GMEM_BURST_SIZE
+	#define GMEM_BURST_SIZE
+	#define GMEM_BURST_SIZE
+	#define GMEM_BURST_SIZE
+	#define GMEM_BURST_SIZE
+	#define GMEM_BURST_SIZE
+	#define GMEM_BURST_SIZE
+	#define GMEM_DATAWIDTH
+	#define GMEM_DWIDTH
+	#define GMEM_DWIDTH
+	#define GMEM_DWIDTH
+	#define GMEM_DWIDTH
+	#define GMEM_DWIDTH
+	#define GMEM_DWIDTH
+	#define GMEM_DWIDTH
+	#define GMEM_DWIDTH
+	#define GMEM_DWIDTH
+	#define GMEM_DWIDTH
 	#define HEAP_SIZE
+	#define HISTORY_SIZE
+	#define HISTORY_SIZE
+	#define HISTORY_SIZE
+	#define HISTORY_SIZE
+	#define HISTORY_SIZE
+	#define LENGTH_CODES
 	#define LENGTH_CODES
 	#define LENGTH_CODES
 	#define LITERALS
 	#define LITERAL_CODES
+	#define LIT_REP
+	#define LOW_OFFSET
+	#define LOW_OFFSET
+	#define LOW_OFFSET
+	#define LOW_OFFSET
+	#define LOW_OFFSET
+	#define LOW_OFFSET_STATE
+	#define LOW_OFFSET_STATE
+	#define LOW_OFFSET_STATE
 	#define LTREE_SIZE
+	#define LZ_DICT_SIZE
+	#define LZ_DICT_SIZE
+	#define LZ_DICT_SIZE
+	#define LZ_DICT_SIZE
+	#define LZ_DICT_SIZE
+	#define LZ_HASH_BIT
+	#define LZ_HASH_BIT
+	#define LZ_HASH_BIT
+	#define LZ_HASH_BIT
+	#define LZ_HASH_BIT
+	#define LZ_HISTORY_SIZE
+	#define LZ_LOW_OFFSET
+	#define LZ_LOW_OFFSET_STATE
+	#define LZ_MATCH_STATE
+	#define LZ_MAX_OFFSET
+	#define LZ_MAX_OFFSET_LIMIT
+	#define LZ_MAX_OFFSET_LIMIT
+	#define LZ_MAX_OFFSET_LIMIT
+	#define LZ_MAX_OFFSET_LIMIT
+	#define LZ_MAX_OFFSET_LIMIT
+	#define LZ_MAX_OFFSET_LIMIT
+	#define LZ_MAX_OFFSET_LIMIT
+	#define LZ_READ_STATE
+	#define MAGIC_BYTE_1
+	#define MAGIC_BYTE_2
+	#define MAGIC_BYTE_3
+	#define MAGIC_BYTE_4
+	#define MARKER
+	#define MATCH_LEN
+	#define MATCH_LEN
+	#define MATCH_LEN
+	#define MATCH_LEN
+	#define MATCH_LEN
+	#define MATCH_LEVEL
+	#define MATCH_LEVEL
+	#define MATCH_LEVEL
+	#define MATCH_LEVEL
+	#define MATCH_LEVEL
+	#define MATCH_STATE
+	#define MATCH_STATE
+	#define MATCH_STATE
 	#define MAXCODE_SIZE
 	#define MAX_BL_BITS
+	#define MAX_LIT_COUNT
 	#define MAX_LIT_COUNT
 	#define MAX_LIT_COUNT
 	#define MAX_LIT_COUNT
@@ -151,126 +542,73 @@ Global Namespace
 	#define MAX_LIT_STREAM_SIZE
 	#define MAX_LIT_STREAM_SIZE
 	#define MAX_MATCH
+	#define MAX_MATCH
+	#define MAX_MATCH_LEN
+	#define MAX_MATCH_LEN
+	#define MAX_MATCH_LEN
+	#define MAX_MATCH_LEN
+	#define MAX_MATCH_LEN
+	#define MAX_OFFSET
+	#define MAX_OFFSET
+	#define MAX_OFFSET
+	#define MIN_BLOCK_SIZE
+	#define MIN_BLOCK_SIZE
+	#define MIN_BLOCK_SIZE
+	#define MIN_BLOCK_SIZE
+	#define MIN_BLOCK_SIZE
 	#define MIN_MATCH
+	#define MIN_MATCH
+	#define MIN_MATCH
+	#define MIN_MATCH
+	#define MIN_MATCH
+	#define MIN_MATCH
+	#define MIN_MATCH
+	#define MIN_MATCH
+	#define MIN_OFFSET
+	#define MIN_OFFSET
+	#define MIN_OFFSET
+	#define MIN_OFFSET
+	#define MIN_OFFSET
+	#define MIN_OFFSET
+	#define MIN_OFFSET
+	#define ML_DIST_REP
+	#define ML_EXTRA
+	#define OFFSET_WINDOW
+	#define OFFSET_WINDOW
+	#define OFFSET_WINDOW
+	#define OFFSET_WINDOW
+	#define OFFSET_WINDOW
+	#define OUT_BYTES
+	#define PACK_WIDTH
 	#define PARALLEL_BLOCK
 	#define PARALLEL_BLOCK
 	#define PARALLEL_BLOCK
 	#define PARALLEL_BLOCK
+	#define PARLLEL_BYTE
+	#define READ_STATE
+	#define READ_STATE
+	#define READ_STATE
 	#define REUSE_PREV_BLEN
 	#define REUSE_ZERO_BLEN
 	#define REUSE_ZERO_BLEN_7
+	#define SEND_OUTPUT
+	#define WRITE_TOKEN
+
+	#define d_code( \
+	    dist, \
+	    dist_code \
+	    )
+
+	#define d_code( \
+	    dist, \
+	    dist_code \
+	    )
 
 
 .. FunctionSection
 
 Global Functions
 ~~~~~~~~~~~~~~~~
-
-.. _doxid-huffman__mm_8hpp_1a73386a1eec0f7704e0e3f3a7bfc1d90b:
-.. _cid-xilhuffmankernel:
-
-xilHuffmanKernel
-----------------
-
-
-.. code-block:: cpp
-	
-	#include "huffman_mm.hpp"
-
-
-
-.. ref-code-block:: cpp
-	:class: title-code-block
-
-	void xilHuffmanKernel (
-	    xf::compression::uintMemWidth_t* in,
-	    xf::compression::uintMemWidth_t* out,
-	    uint32_t* in_block_size,
-	    uint32_t* compressd_size,
-	    uint32_t* dyn_litmtree_codes,
-	    uint32_t* dyn_distree_codes,
-	    uint32_t* dyn_bitlentree_codes,
-	    uint32_t* dyn_litmtree_blen,
-	    uint32_t* dyn_dtree_blen,
-	    uint32_t* dyn_bitlentree_blen,
-	    uint32_t* dyn_max_codes,
-	    uint32_t block_size_in_kb,
-	    uint32_t input_size
-	    )
-
-Huffman kernel top function. This is an initial version of Huffman Kernel which does block based bit packing process. It uses dynamic huffman codes and bit lengths to encode the LZ77 (Byte Compressed Data) output. This version operates on 1MB block data per engine as this is suitable for use cases where raw data is over >100MB and compression ratio is over 2.5x in order to achieve best throughput. This can be further optimized to achieve better throughput for smaller file usecase.
-
-
-
-.. rubric:: Parameters:
-
-.. list-table::
-    :widths: 20 80
-
-    *
-        - in
-
-        - input stream
-
-    *
-        - out
-
-        - output stream
-
-    *
-        - in_block_size
-
-        - input block size
-
-    *
-        - compressd_size
-
-        - output compressed size
-
-    *
-        - dyn_litmtree_codes
-
-        - input literal and match length codes
-
-    *
-        - dyn_distree_codes
-
-        - input distance codes
-
-    *
-        - dyn_bitlentree_codes
-
-        - input bit-length codes
-
-    *
-        - dyn_litmtree_blen
-
-        - input literal and match length bit length data
-
-    *
-        - dyn_dtree_blen
-
-        - input distance bit length data
-
-    *
-        - dyn_bitlentree_blen
-
-        - input bit-length of bit length data
-
-    *
-        - dyn_max_codes
-
-        - input maximum codes
-
-    *
-        - block_size_in_kb
-
-        - input block size in bytes
-
-    *
-        - input_size
-
-        - input data size
 
 .. _doxid-lz4__compress__mm_8hpp_1aa11e26152bb864a14a1b2019faf0dee9:
 .. _cid-xillz4compress:
@@ -498,6 +836,282 @@ LZ4 decompression streaming kernel. It takes input from axi kernel stream and wr
 
         - Output decompressed data size
 
+.. _doxid-lz4__p2p__decompress__kernel_8hpp_1a115ff88a67a2fbf026601b36211766cf:
+.. _cid-xillz4p2pdecompress:
+
+xilLz4P2PDecompress
+-------------------
+
+
+.. code-block:: cpp
+	
+	#include "lz4_p2p_decompress_kernel.hpp"
+
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void xilLz4P2PDecompress (
+	    const xf::compression::uintMemWidth_t* in,
+	    xf::compression::uintMemWidth_t* out,
+	    :ref:`dt_blockInfo<doxid-structunpackerBlockInfo>`* bObj,
+	    :ref:`dt_chunkInfo<doxid-structunpackerChunkInfo>`* cObj,
+	    uint32_t block_size_in_kb,
+	    uint32_t compute_unit,
+	    uint8_t total_no_cu,
+	    uint32_t num_blocks
+	    )
+
+LZ4 P2P decompression kernel.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - in
+
+        - input stream width
+
+    *
+        - out
+
+        - output stream width
+
+    *
+        - in_block_size
+
+        - intput size
+
+    *
+        - in_compress_size
+
+        - output size
+
+    *
+        - block_start_idx
+
+        - start index of block
+
+    *
+        - no_blocks
+
+        - number of blocks for each compute unit
+
+    *
+        - block_size_in_kb
+
+        - block input size
+
+    *
+        - compute_unit
+
+        - particular compute unit
+
+    *
+        - total_no_cu
+
+        - number of compute units
+
+    *
+        - num_blocks
+
+        - number of blocks base don host buffersize
+
+.. _doxid-lz4__packer__mm_8hpp_1aa7e5e7288f5afb36dc289e54014f8b6c:
+.. _cid-xillz4packer:
+
+xilLz4Packer
+------------
+
+
+.. code-block:: cpp
+	
+	#include "lz4_packer_mm.hpp"
+
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void xilLz4Packer (
+	    const uint512_t* in,
+	    uint512_t* out,
+	    uint512_t* head_prev_blk,
+	    uint32_t* compressd_size,
+	    uint32_t* in_block_size,
+	    uint32_t* encoded_size,
+	    uint512_t* orig_input_data,
+	    uint32_t head_res_size,
+	    uint32_t offset,
+	    uint32_t block_size_in_kb,
+	    uint32_t no_blocks,
+	    uint32_t tail_bytes
+	    )
+
+LZ4 packer kernel takes the raw data as input and compresses the data in block based fashion and writes the output to global memory.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - in
+
+        - input raw data
+
+    *
+        - out
+
+        - output compressed data
+
+    *
+        - compressd_size
+
+        - compressed output size of each block
+
+    *
+        - in_block_size
+
+        - input block size of each block
+
+    *
+        - encode_size
+
+        - encoded size of each block
+
+    *
+        - orig_input_data
+
+        - raw input data
+
+    *
+        - head_res_size
+
+        - size of the header
+
+    *
+        - offset
+
+        - offset
+
+    *
+        - block_size_in_kb
+
+        - input block size in bytes
+
+    *
+        - no_blocks
+
+        - number of input blocks
+
+    *
+        - tail_bytes
+
+        - remaining bytes for the last block
+
+.. _doxid-lz4__unpacker__kernel_8hpp_1ace3994d66db1ef5e0adad95a23c24e01:
+.. _cid-xillz4unpacker:
+
+xilLz4Unpacker
+--------------
+
+
+.. code-block:: cpp
+	
+	#include "lz4_unpacker_kernel.hpp"
+
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void xilLz4Unpacker (
+	    const xf::compression::uintMemWidth_t* in,
+	    :ref:`dt_blockInfo<doxid-structunpackerBlockInfo>`* bObj,
+	    :ref:`dt_chunkInfo<doxid-structunpackerChunkInfo>`* cObj,
+	    uint32_t block_size_in_kb,
+	    uint8_t first_chunk,
+	    uint8_t total_no_cu,
+	    uint32_t num_blocks
+	    )
+
+Unapcker kernel.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - in
+
+        - input stream width
+
+    *
+        - in_block_size
+
+        - input block size
+
+    *
+        - in_compress_size
+
+        - input compress size
+
+    *
+        - block_start_idx
+
+        - start index of each input block
+
+    *
+        - no_blocks_per_cu
+
+        - number of blocks for each compute unit
+
+    *
+        - original_size
+
+        - original file size
+
+    *
+        - in_start_index
+
+        - input start index
+
+    *
+        - no_blocks
+
+        - number of blocks
+
+    *
+        - block_size_in_kb
+
+        - size of each block
+
+    *
+        - first_chunk
+
+        - first chunk to determine header
+
+    *
+        - total_no_cu
+
+        - number of decompress compute units
+
+    *
+        - num_blocks
+
+        - number of blocks based on host buffersize
+
 .. _doxid-snappy__compress__mm_8hpp_1a32ebd0013229e97db7baeba58ba3a54a:
 .. _cid-xilsnappycompress:
 
@@ -562,7 +1176,7 @@ Snappy compression kernel takes the raw data as input and compresses the data in
 
         - input data size
 
-.. _doxid-snappy__compress__stream__kernel_8hpp_1abc67939ecd54d3df5c9639ca5cce74c3:
+.. _doxid-snappy__compress__stream_8hpp_1abc67939ecd54d3df5c9639ca5cce74c3:
 .. _cid-xilsnappycompressstream:
 
 xilSnappyCompressStream
@@ -571,7 +1185,7 @@ xilSnappyCompressStream
 
 .. code-block:: cpp
 	
-	#include "snappy_compress_stream_kernel.hpp"
+	#include "snappy_compress_stream.hpp"
 
 
 
@@ -672,7 +1286,7 @@ Snappy decompression kernel takes compressed data as input and process in block 
 
         - number of blocks
 
-.. _doxid-snappy__decompress__stream__kernel_8hpp_1aa787a86f1a30dca6c949102e74d9b802:
+.. _doxid-snappy__decompress__stream_8hpp_1aa787a86f1a30dca6c949102e74d9b802:
 .. _cid-xilsnappydecompressstream:
 
 xilSnappyDecompressStream
@@ -681,7 +1295,7 @@ xilSnappyDecompressStream
 
 .. code-block:: cpp
 	
-	#include "snappy_decompress_stream_kernel.hpp"
+	#include "snappy_decompress_stream.hpp"
 
 
 
@@ -718,112 +1332,6 @@ Snappy decompression kernel takes compressed data as input from kernel axi strea
         - inputSize
 
         - input data size
-
-.. _doxid-treegen__mm_8hpp_1a1e8e726c83065c6452fefa9796a7f311:
-.. _cid-xiltreegenkernel:
-
-xilTreegenKernel
-----------------
-
-
-.. code-block:: cpp
-	
-	#include "treegen_mm.hpp"
-
-
-
-.. ref-code-block:: cpp
-	:class: title-code-block
-
-	void xilTreegenKernel (
-	    uint32_t* dyn_ltree_freq,
-	    uint32_t* dyn_dtree_freq,
-	    uint32_t* dyn_bltree_freq,
-	    uint32_t* dyn_ltree_codes,
-	    uint32_t* dyn_dtree_codes,
-	    uint32_t* dyn_bltree_codes,
-	    uint32_t* dyn_ltree_blen,
-	    uint32_t* dyn_dtree_blen,
-	    uint32_t* dyn_bltree_blen,
-	    uint32_t* max_codes,
-	    uint32_t block_size_in_kb,
-	    uint32_t input_size,
-	    uint32_t blocks_per_chunk
-	    )
-
-This is an initial version of dynamic huffman codes & bit length generation kernel which takes literal and distance frequency data as input and generates dynamic huffman codes and bit length data. This version of the kernel performs better for larger data sets in synchronization with LZ77 and Huffman Kernels. It need to be optimized further to achieve better results for smaller block sizes (<1MB) so that it improves for smaller file usecase.
-
-
-
-.. rubric:: Parameters:
-
-.. list-table::
-    :widths: 20 80
-
-    *
-        - dyn_ltree_freq
-
-        - input literal frequency data
-
-    *
-        - dyn_dtree_freq
-
-        - input distance frequency data
-
-    *
-        - dyn_bltree_freq
-
-        - output bit-length frequency data
-
-    *
-        - dyn_ltree_codes
-
-        - output literal codes
-
-    *
-        - dyn_dtree_codes
-
-        - output distance codes
-
-    *
-        - dyn_bltree_codes
-
-        - output bit-length codes
-
-    *
-        - dyn_ltree_blen
-
-        - output literal bit length data
-
-    *
-        - dyn_dtree_blen
-
-        - output distance bit length data
-
-    *
-        - dyn_bltree_blen
-
-        - output bit-length of bitlengths data
-
-    *
-        - max_codes
-
-        - output upper limit of codes for literal, distances, bitlengths
-
-    *
-        - block_size_in_kb
-
-        - input block size in bytes
-
-    *
-        - input_size
-
-        - input data size
-
-    *
-        - blocks_per_chunk
-
-        - number of blocks persent in current input data
 
 .. _doxid-zlib__decompress__mm_8hpp_1a152782b597a1236d5709753d9f8a9c8a:
 .. _cid-xildecompresszlib:
@@ -923,6 +1431,112 @@ Zlib decompression stream kernel top function.
 
         - output kernel axi stream
 
+.. _doxid-zlib__huffman__enc__mm_8hpp_1a73386a1eec0f7704e0e3f3a7bfc1d90b:
+.. _cid-xilhuffmankernel:
+
+xilHuffmanKernel
+----------------
+
+
+.. code-block:: cpp
+	
+	#include "zlib_huffman_enc_mm.hpp"
+
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void xilHuffmanKernel (
+	    xf::compression::uintMemWidth_t* in,
+	    xf::compression::uintMemWidth_t* out,
+	    uint32_t* in_block_size,
+	    uint32_t* compressd_size,
+	    uint32_t* dyn_litmtree_codes,
+	    uint32_t* dyn_distree_codes,
+	    uint32_t* dyn_bitlentree_codes,
+	    uint32_t* dyn_litmtree_blen,
+	    uint32_t* dyn_dtree_blen,
+	    uint32_t* dyn_bitlentree_blen,
+	    uint32_t* dyn_max_codes,
+	    uint32_t block_size_in_kb,
+	    uint32_t input_size
+	    )
+
+Huffman kernel top function. This is an initial version of Huffman Kernel which does block based bit packing process. It uses dynamic huffman codes and bit lengths to encode the LZ77 (Byte Compressed Data) output. This version operates on 1MB block data per engine as this is suitable for use cases where raw data is over >100MB and compression ratio is over 2.5x in order to achieve best throughput. This can be further optimized to achieve better throughput for smaller file usecase.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - in
+
+        - input stream
+
+    *
+        - out
+
+        - output stream
+
+    *
+        - in_block_size
+
+        - input block size
+
+    *
+        - compressd_size
+
+        - output compressed size
+
+    *
+        - dyn_litmtree_codes
+
+        - input literal and match length codes
+
+    *
+        - dyn_distree_codes
+
+        - input distance codes
+
+    *
+        - dyn_bitlentree_codes
+
+        - input bit-length codes
+
+    *
+        - dyn_litmtree_blen
+
+        - input literal and match length bit length data
+
+    *
+        - dyn_dtree_blen
+
+        - input distance bit length data
+
+    *
+        - dyn_bitlentree_blen
+
+        - input bit-length of bit length data
+
+    *
+        - dyn_max_codes
+
+        - input maximum codes
+
+    *
+        - block_size_in_kb
+
+        - input block size in bytes
+
+    *
+        - input_size
+
+        - input data size
+
 .. _doxid-zlib__lz77__compress__mm_8hpp_1ad11932c3613ace790b1e555f6928707b:
 .. _cid-xillz77compress:
 
@@ -998,4 +1612,110 @@ LZ77 compression kernel takes the raw data as input and compresses the data in b
         - input_size
 
         - input data size
+
+.. _doxid-zlib__treegen__mm_8hpp_1a1e8e726c83065c6452fefa9796a7f311:
+.. _cid-xiltreegenkernel:
+
+xilTreegenKernel
+----------------
+
+
+.. code-block:: cpp
+	
+	#include "zlib_treegen_mm.hpp"
+
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void xilTreegenKernel (
+	    uint32_t* dyn_ltree_freq,
+	    uint32_t* dyn_dtree_freq,
+	    uint32_t* dyn_bltree_freq,
+	    uint32_t* dyn_ltree_codes,
+	    uint32_t* dyn_dtree_codes,
+	    uint32_t* dyn_bltree_codes,
+	    uint32_t* dyn_ltree_blen,
+	    uint32_t* dyn_dtree_blen,
+	    uint32_t* dyn_bltree_blen,
+	    uint32_t* max_codes,
+	    uint32_t block_size_in_kb,
+	    uint32_t input_size,
+	    uint32_t blocks_per_chunk
+	    )
+
+This is an initial version of dynamic huffman codes & bit length generation kernel which takes literal and distance frequency data as input and generates dynamic huffman codes and bit length data. This version of the kernel performs better for larger data sets in synchronization with LZ77 and Huffman Kernels. It need to be optimized further to achieve better results for smaller block sizes (<1MB) so that it improves for smaller file usecase.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - dyn_ltree_freq
+
+        - input literal frequency data
+
+    *
+        - dyn_dtree_freq
+
+        - input distance frequency data
+
+    *
+        - dyn_bltree_freq
+
+        - output bit-length frequency data
+
+    *
+        - dyn_ltree_codes
+
+        - output literal codes
+
+    *
+        - dyn_dtree_codes
+
+        - output distance codes
+
+    *
+        - dyn_bltree_codes
+
+        - output bit-length codes
+
+    *
+        - dyn_ltree_blen
+
+        - output literal bit length data
+
+    *
+        - dyn_dtree_blen
+
+        - output distance bit length data
+
+    *
+        - dyn_bltree_blen
+
+        - output bit-length of bitlengths data
+
+    *
+        - max_codes
+
+        - output upper limit of codes for literal, distances, bitlengths
+
+    *
+        - block_size_in_kb
+
+        - input block size in bytes
+
+    *
+        - input_size
+
+        - input data size
+
+    *
+        - blocks_per_chunk
+
+        - number of blocks persent in current input data
 

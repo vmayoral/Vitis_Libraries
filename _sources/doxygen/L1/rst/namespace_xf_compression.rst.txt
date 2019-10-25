@@ -14,6 +14,8 @@ namespace compression
 .. _cid-xf::compression::streamdt:
 .. _doxid-lz4__compress_8hpp_1a5a144d8f44cabd29a372b35ca034e306:
 .. _cid-xf::compression::lz4_compressd_dt:
+.. _doxid-lz4__compress_8hpp_1a2bcf3f856b2554ff3e42118914ac6525:
+.. _cid-xf::compression::compressd_dt:
 .. _doxid-mm2s_8hpp_1a499ffa6d30e499c112e1ff0d30f74217:
 .. _cid-xf::compression::uintmemwidth_t:
 .. _doxid-snappy__compress_8hpp_1ab4e55f033c3c15aff4ddf6733ab52059:
@@ -60,20 +62,24 @@ namespace compression
 .. _cid-xf::compression::streamdatak2dm:
 .. _doxid-axi__stream__utils_8hpp_1a01f552c896d54ba7b48cf8f899da8e2e:
 .. _cid-xf::compression::streamdatak2dmfixedsize:
-.. _doxid-deflate__trees_8hpp_1a7bb2edbc1993143e0c5569b7f5c67474:
-.. _cid-xf::compression::reversebits:
-.. _doxid-deflate__trees_8hpp_1a8cf8a4b8cce6801d08b3f4377fcae520:
-.. _cid-xf::compression::reduceheap:
-.. _doxid-inflate__huffman_8hpp_1a8dbeb391a8dffb31f7ae5230bd5a7d3d:
-.. _cid-xf::compression::huffbitunpacker:
-.. _doxid-inflate__trees_8hpp_1a6dce429f1af2d05c56c54927179bff7f:
+.. _doxid-huffman__decoder_8hpp_1a6dce429f1af2d05c56c54927179bff7f:
 .. _cid-xf::compression::code_generator_array:
+.. _doxid-huffman__encoder_8hpp_1af766ab49b0943b9ab9fa704c8eda950b:
+.. _cid-xf::compression::bitpacking:
+.. _doxid-huffman__treegen_8hpp_1a7bb2edbc1993143e0c5569b7f5c67474:
+.. _cid-xf::compression::reversebits:
+.. _doxid-huffman__treegen_8hpp_1a8cf8a4b8cce6801d08b3f4377fcae520:
+.. _cid-xf::compression::reduceheap:
+.. _doxid-huffman__treegen_8hpp_1a2d12318fd43faea7660776a984d5a53f:
+.. _cid-xf::compression::huffconstructtree:
 .. _doxid-kernel__stream__utils_8hpp_1ab786bd2b026f70c6efb9d9c4366a9159:
 .. _cid-xf::compression::kstreamread:
 .. _doxid-kernel__stream__utils_8hpp_1a3bb7b44a0e13f789879e4cee7b47e257:
 .. _cid-xf::compression::kstreamwrite:
 .. _doxid-kernel__stream__utils_8hpp_1acbb02d6fef687b30a25f9a6026b4251a:
 .. _cid-xf::compression::kstreamwritefixedsize:
+.. _doxid-lz4__decompress_8hpp_1ab8c39f9c2abf8bcac3b4ba6df9b7a73b:
+.. _cid-xf::compression::lz4decompresssimple:
 .. _doxid-lz__decompress_8hpp_1a75d9bdfeaf9160fe3824d20fce59b707:
 .. _cid-xf::compression::lzdecompresszlibeos:
 .. _doxid-lz__decompress_8hpp_1ad8298e06f1660a038b5961b54daa9a56:
@@ -88,6 +94,8 @@ namespace compression
 .. _cid-xf::compression::mm2snbroundoff:
 .. _doxid-mm2s_8hpp_1ae3778b17a59ae8333caa3b813cb33beb:
 .. _cid-xf::compression::mm2ssimple:
+.. _doxid-mm2s_8hpp_1ab7abeebe2e63d0f6c38f59fe85bb7300:
+.. _cid-xf::compression::mm2s:
 .. _doxid-s2mm_8hpp_1abf8c23016af9dd2af0991eba67b001db:
 .. _cid-xf::compression::s2mmeosnb:
 .. _doxid-s2mm_8hpp_1a60443e8a36e5e2c5c95995e9a387dbcd:
@@ -98,22 +106,28 @@ namespace compression
 .. _cid-xf::compression::s2mmeossimple:
 .. _doxid-s2mm_8hpp_1a086f13150831e9a1a0af79d37483d1e7:
 .. _cid-xf::compression::s2mmsimple:
+.. _doxid-s2mm_8hpp_1af0b85e11bc64be4b84bcb73ff0558675:
+.. _cid-xf::compression::s2mm:
 .. _doxid-stream__downsizer_8hpp_1af0dd6df2dd3def8fe03cf1bcb0242fea:
 .. _cid-xf::compression::streamdownsizer:
 .. _doxid-stream__downsizer_8hpp_1a6a8abb131866b2039b8a790cdb03b3ec:
 .. _cid-xf::compression::streamdownsizerp2p:
+.. _doxid-stream__downsizer_8hpp_1a2c6c614841b29088e3aa0b1c88104452:
+.. _cid-xf::compression::streamdownsizerp2pcomp:
 .. _doxid-stream__upsizer_8hpp_1af54dd9dffdf3f3c37bde15680737b3b1:
 .. _cid-xf::compression::streamupsizer:
 .. _doxid-stream__upsizer_8hpp_1a36b991468a0b84916b936ba15b7bb28e:
 .. _cid-xf::compression::upsizereos:
+.. _doxid-stream__upsizer_8hpp_1ab0f5dac3babd9ebc24a4ed2ecb6fc43f:
+.. _cid-xf::compression::streamupsizerp2p:
 .. ref-code-block:: cpp
 	:class: overview-code-block
 
 	// typedefs
 
 	typedef ap_uint <8> streamDt
-	typedef ap_uint <32> :ref:`compressd_dt<doxid-inflate__huffman_8hpp_1a2bcf3f856b2554ff3e42118914ac6525>`
 	typedef ap_uint <64> lz4_compressd_dt
+	typedef ap_uint <32> compressd_dt
 	typedef ap_uint <kGMemDWidth> uintMemWidth_t
 	typedef ap_uint <64> snappy_compressd_dt
 
@@ -137,45 +151,6 @@ namespace compression
 	const int c_dTreeSize
 	const int c_bLTreeSize
 	const int c_maxCodeSize
-
-Typedefs
---------
-
-.. _doxid-inflate__huffman_8hpp_1a2bcf3f856b2554ff3e42118914ac6525:
-.. _cid-xf::compression::compressd_dt:
-.. ref-code-block:: cpp
-	:class: title-code-block
-
-	typedef ap_uint <32> compressd_dt
-
-This module does bit unpacking and generates a LZ77 byte compressed data and trasfer to lz_decompress module for further byte unpacking.
-
-
-
-.. rubric:: Parameters:
-
-.. list-table::
-    :widths: 20 80
-
-    *
-        - inStream
-
-        - input bit packed data
-
-    *
-        - outStream
-
-        - output lz77 compressed output in the form of 32bit packets (Literals, Match Length, Distances)
-
-    *
-        - endOfStream
-
-        - output completion of execution
-
-    *
-        - input_size
-
-        - input data size
 
 Global Variables
 ----------------
@@ -222,34 +197,30 @@ In case of uncompressed block Values below are used to set 3rd byte to following
 
 
 
-.. _doxid-deflate__trees_8hpp_1a2d12318fd43faea7660776a984d5a53f:
-.. _cid-xf::compression::huffconstructtree:
+.. _doxid-huffman__decoder_8hpp_1a4b9d0cd6ce37dca88c24b302093fb9e2:
+.. _cid-xf::compression::huffmandecoder:
 
-huffConstructTree
------------------
+huffmanDecoder
+--------------
 
 
 .. code-block:: cpp
 	
-	#include "deflate_trees.hpp"
+	#include "huffman_decoder.hpp"
 
 
 
 .. ref-code-block:: cpp
 	:class: title-code-block
 
-	template <
-	    uint32_t ELEMS,
-	    uint32_t MAX_LENGTH
-	    >
-	uint32_t huffConstructTree (
-	    uint32_t* tree_freq,
-	    uint32_t* tree_codes,
-	    uint32_t* tree_blen,
-	    uint32_t* tree_root
+	void huffmanDecoder (
+	    hls::stream <ap_uint <2*BIT>>& inStream,
+	    hls::stream <compressd_dt>& outStream,
+	    hls::stream <bool>& endOfStream,
+	    uint32_t input_size
 	    )
 
-This module generates huffman codes for either literal, distance or bitlength data.
+This module is zlib/gzip huffman decoder it generates a LZ77 byte compressed data and trasfer to lz_decompress_eos module for further byte unpacking.
 
 
 
@@ -259,24 +230,118 @@ This module generates huffman codes for either literal, distance or bitlength da
     :widths: 20 80
 
     *
-        - tree_freq
+        - inStream
 
-        - input frequency data of literals, distances or bit lengths
-
-    *
-        - tree_codes
-
-        - output huffman codes data
+        - input bit packed data
 
     *
-        - tree_blen
+        - outStream
 
-        - output huffan codes bit lengths
+        - output lz77 compressed output in the form of 32bit packets (Literals, Match Length, Distances)
 
     *
-        - tree_root
+        - endOfStream
 
-        - input buffer to construct codes and bit length information
+        - output completion of execution
+
+    *
+        - input_size
+
+        - input data size
+
+.. _doxid-huffman__encoder_8hpp_1af3c2a027756e654bd32b66dd3535c374:
+.. _cid-xf::compression::huffmanencoder:
+
+huffmanEncoder
+--------------
+
+
+.. code-block:: cpp
+	
+	#include "huffman_encoder.hpp"
+
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	void huffmanEncoder (
+	    hls::stream <encodedV_dt>& inStream,
+	    hls::stream <uint16_t>& outStream,
+	    hls::stream <uint8_t>& outStreamSize,
+	    uint32_t input_size,
+	    hls::stream <uint32_t>& inStreamLCodes,
+	    hls::stream <uint32_t>& inStreamLBlen,
+	    hls::stream <uint32_t>& inStreamDCodes,
+	    hls::stream <uint32_t>& inStreamDBlen,
+	    hls::stream <uint32_t>& inStreamBLCodes,
+	    hls::stream <uint32_t>& inStreamBLBlen,
+	    hls::stream <uint32_t>& inStreamMaxCode
+	    )
+
+This module does zlib/gzip dynamic huffman encoding.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - inStream
+
+        - input packet of 32bit size which contains either literal or match length and distance information. Example: [Literal (1 Byte) | ML (1 Byte) | DIST (2 Bytes)]
+
+    *
+        - outStream
+
+        - output bit encoded LZ77 compressed data
+
+    *
+        - outStreamSize
+
+        - output Stream Size
+
+    *
+        - input_size
+
+        - uncompressed data input size
+
+    *
+        - inStreamLCodes
+
+        - Huffman Literal Codes
+
+    *
+        - inStreamLBLen
+
+        - Huffman Literal Code Bit Lengths
+
+    *
+        - inStreamDCodes
+
+        - Huffman Distance Codes
+
+    *
+        - inStreamDBLen
+
+        - Huffman Distance Code Bit Lengths
+
+    *
+        - inStreamBLCodes
+
+        - Huffman BitLength Codes
+
+    *
+        - inStreamBLCodes
+
+        - Huffman BitLength Code Bit Lengths
+
+    *
+        - inStreamMaxCode
+
+        - Maximum codes for literal, distance and bitlengths
 
 .. _doxid-lz4__compress_8hpp_1aec51f097d8730e92b29f49e4d2cafd63:
 .. _cid-xf::compression::lz4compress:
@@ -363,7 +428,7 @@ lz4Divide
 	    int PARALLEL_UNITS
 	    >
 	static void lz4Divide (
-	    hls::stream <:ref:`compressd_dt<doxid-inflate__huffman_8hpp_1a2bcf3f856b2554ff3e42118914ac6525>`>& inStream,
+	    hls::stream <compressd_dt>& inStream,
 	    hls::stream <uint8_t>& lit_outStream,
 	    hls::stream <lz4_compressd_dt>& lenOffset_Stream,
 	    uint32_t input_size,
@@ -438,7 +503,7 @@ lz4Decompress
 
 	void lz4Decompress (
 	    hls::stream <ap_uint <8>>& inStream,
-	    hls::stream <:ref:`compressd_dt<doxid-inflate__huffman_8hpp_1a2bcf3f856b2554ff3e42118914ac6525>`>& outStream,
+	    hls::stream <compressd_dt>& outStream,
 	    uint32_t input_size
 	    )
 
@@ -465,6 +530,86 @@ This module reads the compressed data from input stream and decodes the offset, 
         - input_size
 
         - Input size
+
+.. _doxid-lz4__packer_8hpp_1ad21d5c05bffdeb0f0c658a6da1d082e2:
+.. _cid-xf::compression::lz4packer:
+
+lz4Packer
+---------
+
+
+.. code-block:: cpp
+	
+	#include "lz4_packer.hpp"
+
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    int PACK_WIDTH,
+	    int PARLLEL_BYTE
+	    >
+	uint32_t lz4Packer (
+	    hls::stream <ap_uint <PACK_WIDTH>>& inStream,
+	    hls::stream <ap_uint <PACK_WIDTH>>& outStream,
+	    hls::stream <uint32_t>& inStreamSize,
+	    hls::stream <uint32_t>& outStreamSize,
+	    uint32_t block_size_in_kb,
+	    uint32_t no_blocks,
+	    uint32_t head_res_size,
+	    uint32_t tail_bytes
+	    )
+
+Lz4 packer modules that packs the compressed data.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - inStream
+
+        - input data
+
+    *
+        - outStream
+
+        - output data
+
+    *
+        - inStreamSize
+
+        - size of the data in input stream
+
+    *
+        - outStreamSize
+
+        - ouput data size
+
+    *
+        - block_size_in_kb
+
+        - block size
+
+    *
+        - no_blocks
+
+        - number of input blocks
+
+    *
+        - head_res_size
+
+        - header size
+
+    *
+        - tail_bytes
+
+        - enabled for last block to handle final data
 
 .. _doxid-lz__compress_8hpp_1af5497dbaf33a90230a0ff12efaa1f921:
 .. _cid-xf::compression::lzcompress:
@@ -493,7 +638,7 @@ lzCompress
 	    >
 	void lzCompress (
 	    hls::stream <ap_uint <BIT>>& inStream,
-	    hls::stream <:ref:`compressd_dt<doxid-inflate__huffman_8hpp_1a2bcf3f856b2554ff3e42118914ac6525>`>& outStream,
+	    hls::stream <compressd_dt>& outStream,
 	    uint32_t input_size,
 	    uint32_t left_bytes
 	    )
@@ -586,7 +731,7 @@ lzDecompress
 	    int LOW_OFFSET
 	    >
 	void lzDecompress (
-	    hls::stream <:ref:`compressd_dt<doxid-inflate__huffman_8hpp_1a2bcf3f856b2554ff3e42118914ac6525>`>& inStream,
+	    hls::stream <compressd_dt>& inStream,
 	    hls::stream <ap_uint <8>>& outStream,
 	    uint32_t original_size
 	    )
@@ -661,8 +806,8 @@ lzBestMatchFilter
 	    int OFFSET_WINDOW
 	    >
 	void lzBestMatchFilter (
-	    hls::stream <:ref:`compressd_dt<doxid-inflate__huffman_8hpp_1a2bcf3f856b2554ff3e42118914ac6525>`>& inStream,
-	    hls::stream <:ref:`compressd_dt<doxid-inflate__huffman_8hpp_1a2bcf3f856b2554ff3e42118914ac6525>`>& outStream,
+	    hls::stream <compressd_dt>& inStream,
+	    hls::stream <compressd_dt>& outStream,
 	    uint32_t input_size,
 	    uint32_t left_bytes
 	    )
@@ -727,8 +872,8 @@ lzBooster
 	    int BOOSTER_OFFSET_WINDOW
 	    >
 	void lzBooster (
-	    hls::stream <:ref:`compressd_dt<doxid-inflate__huffman_8hpp_1a2bcf3f856b2554ff3e42118914ac6525>`>& inStream,
-	    hls::stream <:ref:`compressd_dt<doxid-inflate__huffman_8hpp_1a2bcf3f856b2554ff3e42118914ac6525>`>& outStream,
+	    hls::stream <compressd_dt>& inStream,
+	    hls::stream <compressd_dt>& outStream,
 	    uint32_t input_size,
 	    uint32_t left_bytes
 	    )
@@ -789,8 +934,8 @@ lzFilter
 	:class: title-code-block
 
 	static void lzFilter (
-	    hls::stream <:ref:`compressd_dt<doxid-inflate__huffman_8hpp_1a2bcf3f856b2554ff3e42118914ac6525>`>& inStream,
-	    hls::stream <:ref:`compressd_dt<doxid-inflate__huffman_8hpp_1a2bcf3f856b2554ff3e42118914ac6525>`>& outStream,
+	    hls::stream <compressd_dt>& inStream,
+	    hls::stream <compressd_dt>& outStream,
 	    uint32_t input_size,
 	    uint32_t left_bytes
 	    )
@@ -920,7 +1065,7 @@ snappyDivide
 	    int PARALLEL_UNITS
 	    >
 	void snappyDivide (
-	    hls::stream <:ref:`compressd_dt<doxid-inflate__huffman_8hpp_1a2bcf3f856b2554ff3e42118914ac6525>`>& inStream,
+	    hls::stream <compressd_dt>& inStream,
 	    hls::stream <uint8_t>& lit_outStream,
 	    hls::stream <snappy_compressd_dt>& lenOffset_Stream,
 	    uint32_t input_size,

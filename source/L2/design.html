@@ -170,9 +170,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="L2.html">L2 Kernel User Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Kernel Design</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#compression-kernel-design">Compression Kernel Design</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#decompression-kernel-design">Decompression Kernel Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lz-data-compression">LZ Data Compression</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compression-kernel-design">Compression Kernel Design</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#decompression-kernel-design">Decompression Kernel Design</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="api_reference.html">Kernel APIs Reference</a></li>
@@ -260,8 +263,10 @@
             
   <div class="section" id="kernel-design">
 <h1>Kernel Design<a class="headerlink" href="#kernel-design" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="lz-data-compression">
+<h2>LZ Data Compression<a class="headerlink" href="#lz-data-compression" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
 <p>Xilinx LZ data compression architecture is targeted for FPGAs. It aims to provide high throughput. This architecture is developed and tested on Xilinx Alveo U200. Even though this architecture is designed for LZ4 application, but it is generic enough to support various other LZ based data compression algorithms like Snappy, LZ77 and LZO.</p>
 <p>Xilinx FPGA based LZ data-compression architecture contains multiple compression engines which run concurrently to get higher throughput. Each compression engine is designed to process 1 byte/clock cycle &#64;300MHz. So, if design contains <strong>N</strong> compression engines, overall throughput will be <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">x</span> <span class="pre">300MB/s</span></code>. That means if we have <strong>8</strong> compression engines, then overall throuput will be <code class="docutils literal notranslate"><span class="pre">8</span> <span class="pre">x</span> <span class="pre">300</span> <span class="pre">=</span> <span class="pre">2.4GB/s</span></code>.</p>
 <div class="admonition note">
@@ -270,7 +275,7 @@
 </div>
 </div>
 <div class="section" id="compression-kernel-design">
-<h2>Compression Kernel Design<a class="headerlink" href="#compression-kernel-design" title="Permalink to this headline">¶</a></h2>
+<h3>Compression Kernel Design<a class="headerlink" href="#compression-kernel-design" title="Permalink to this headline">¶</a></h3>
 <p>The design for LZ compression kernel is shown in figure below.</p>
 <a class="reference internal image-reference" href="../../_images/lzx_comp.png"><img alt="LZ based Compression Kernel" class="align-center" src="../../_images/lzx_comp.png" style="width: 100%;" /></a>
 <p>Input data is divided into muliple blocks with 64K default block size(user configurable). Each block is sent to individual compression engine to compress concurrently in round-robin fashion.</p>
@@ -280,12 +285,13 @@
 <p>The compression engine design remains same for all LZ based compression algorithms. Only difference will be the <strong>Encoding</strong> sub-module in compression engine module, which will be unique for each algorithm.</p>
 </div>
 <div class="section" id="decompression-kernel-design">
-<h2>Decompression Kernel Design<a class="headerlink" href="#decompression-kernel-design" title="Permalink to this headline">¶</a></h2>
+<h3>Decompression Kernel Design<a class="headerlink" href="#decompression-kernel-design" title="Permalink to this headline">¶</a></h3>
 <p>The design for LZ decompression kernel is shown in figure below.</p>
 <a class="reference internal image-reference" href="../../_images/lzx_decomp.png"><img alt="LZ based Decompression Kernel" class="align-center" src="../../_images/lzx_decomp.png" style="width: 100%;" /></a>
 <p>The overall design remains similar to the compression kernel design. Input data is read from the global memory, converted to stream and distributed across the decompression engines in round robin fashion.</p>
 <p>Each decompression engine module contains multiple sub-modules processing 1 byte per clock cycle. Since the modules work in pipelined fashion, therefore, the throughput of each decompression engine is 1 byte per clock cycle.</p>
 <p>The decompression engine desing also remains same for all LZ based algorithms. Only difference will be the <strong>Decoding</strong>  sub-module in decompression engine module, which will be unique for each algorithm.</p>
+</div>
 </div>
 </div>
 

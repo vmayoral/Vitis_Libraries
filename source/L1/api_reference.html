@@ -170,10 +170,12 @@
 <li class="toctree-l1 current"><a class="reference internal" href="L1.html">L1 Module User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="overview.html">Primitive Overview</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Primitive APIs in <code class="docutils literal notranslate"><span class="pre">xf::compression</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#huffconstructtree">huffConstructTree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#huffmandecoder">huffmanDecoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#huffmanencoder">huffmanEncoder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lz4compress">lz4Compress</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lz4divide">lz4Divide</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lz4decompress">lz4Decompress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lz4packer">lz4Packer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lzcompress">lzCompress</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lzdecompress">lzDecompress</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lzbestmatchfilter">lzBestMatchFilter</a></li>
@@ -270,20 +272,16 @@
 <span id="l1-api-reference"></span><h1>Primitive APIs in <code class="docutils literal notranslate"><span class="pre">xf::compression</span></code><a class="headerlink" href="#primitive-apis-in-xf-compression" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="section" id="huffconstructtree">
-<span id="cid-xf-compression-huffconstructtree"></span><span id="doxid-deflate-trees-8hpp-1a2d12318fd43faea7660776a984d5a53f"></span><h2>huffConstructTree<a class="headerlink" href="#huffconstructtree" title="Permalink to this headline">¶</a></h2>
-<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;deflate_trees.hpp&quot;</span></pre>
-<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span>
-    <span class="kt">uint32_t</span> <span class="n">ELEMS</span><span class="p">,</span>
-    <span class="kt">uint32_t</span> <span class="n">MAX_LENGTH</span>
-    <span class="o">&gt;</span>
-<span class="kt">uint32_t</span> <span class="n">huffConstructTree</span> <span class="p">(</span>
-    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">tree_freq</span><span class="p">,</span>
-    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">tree_codes</span><span class="p">,</span>
-    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">tree_blen</span><span class="p">,</span>
-    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">tree_root</span>
+<div class="section" id="huffmandecoder">
+<span id="cid-xf-compression-huffmandecoder"></span><span id="doxid-huffman-decoder-8hpp-1a4b9d0cd6ce37dca88c24b302093fb9e2"></span><h2>huffmanDecoder<a class="headerlink" href="#huffmandecoder" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;huffman_decoder.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">huffmanDecoder</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">2</span><span class="o">*</span><span class="n">BIT</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endOfStream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span>
     <span class="p">)</span></pre>
-<p>This module generates huffman codes for either literal, distance or bitlength data.</p>
+<p>This module is zlib/gzip huffman decoder it generates a LZ77 byte compressed data and trasfer to lz_decompress_eos module for further byte unpacking.</p>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
@@ -291,17 +289,77 @@
 <col style="width: 80%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>tree_freq</p></td>
-<td><p>input frequency data of literals, distances or bit lengths</p></td>
+<tr class="row-odd"><td><p>inStream</p></td>
+<td><p>input bit packed data</p></td>
 </tr>
-<tr class="row-even"><td><p>tree_codes</p></td>
-<td><p>output huffman codes data</p></td>
+<tr class="row-even"><td><p>outStream</p></td>
+<td><p>output lz77 compressed output in the form of 32bit packets (Literals, Match Length, Distances)</p></td>
 </tr>
-<tr class="row-odd"><td><p>tree_blen</p></td>
-<td><p>output huffan codes bit lengths</p></td>
+<tr class="row-odd"><td><p>endOfStream</p></td>
+<td><p>output completion of execution</p></td>
 </tr>
-<tr class="row-even"><td><p>tree_root</p></td>
-<td><p>input buffer to construct codes and bit length information</p></td>
+<tr class="row-even"><td><p>input_size</p></td>
+<td><p>input data size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="huffmanencoder">
+<span id="cid-xf-compression-huffmanencoder"></span><span id="doxid-huffman-encoder-8hpp-1af3c2a027756e654bd32b66dd3535c374"></span><h2>huffmanEncoder<a class="headerlink" href="#huffmanencoder" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;huffman_encoder.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">huffmanEncoder</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">encodedV_dt</span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint16_t</span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;&amp;</span> <span class="n">outStreamSize</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">inStreamLCodes</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">inStreamLBlen</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">inStreamDCodes</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">inStreamDBlen</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">inStreamBLCodes</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">inStreamBLBlen</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">inStreamMaxCode</span>
+    <span class="p">)</span></pre>
+<p>This module does zlib/gzip dynamic huffman encoding.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>inStream</p></td>
+<td><p>input packet of 32bit size which contains either literal or match length and distance information. Example: [Literal (1 Byte) | ML (1 Byte) | DIST (2 Bytes)]</p></td>
+</tr>
+<tr class="row-even"><td><p>outStream</p></td>
+<td><p>output bit encoded LZ77 compressed data</p></td>
+</tr>
+<tr class="row-odd"><td><p>outStreamSize</p></td>
+<td><p>output Stream Size</p></td>
+</tr>
+<tr class="row-even"><td><p>input_size</p></td>
+<td><p>uncompressed data input size</p></td>
+</tr>
+<tr class="row-odd"><td><p>inStreamLCodes</p></td>
+<td><p>Huffman Literal Codes</p></td>
+</tr>
+<tr class="row-even"><td><p>inStreamLBLen</p></td>
+<td><p>Huffman Literal Code Bit Lengths</p></td>
+</tr>
+<tr class="row-odd"><td><p>inStreamDCodes</p></td>
+<td><p>Huffman Distance Codes</p></td>
+</tr>
+<tr class="row-even"><td><p>inStreamDBLen</p></td>
+<td><p>Huffman Distance Code Bit Lengths</p></td>
+</tr>
+<tr class="row-odd"><td><p>inStreamBLCodes</p></td>
+<td><p>Huffman BitLength Codes</p></td>
+</tr>
+<tr class="row-even"><td><p>inStreamBLCodes</p></td>
+<td><p>Huffman BitLength Code Bit Lengths</p></td>
+</tr>
+<tr class="row-odd"><td><p>inStreamMaxCode</p></td>
+<td><p>Maximum codes for literal, distance and bitlengths</p></td>
 </tr>
 </tbody>
 </table>
@@ -354,7 +412,7 @@
     <span class="kt">int</span> <span class="n">PARALLEL_UNITS</span>
     <span class="o">&gt;</span>
 <span class="k">static</span> <span class="kt">void</span> <span class="n">lz4Divide</span> <span class="p">(</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><a class="reference internal" href="../../doxygen/L1/rst/namespace_xf_compression.html#doxid-inflate-huffman-8hpp-1a2bcf3f856b2554ff3e42118914ac6525"><span class="std std-ref">compressd_dt</span></a><span></span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;&amp;</span> <span class="n">lit_outStream</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">lz4_compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">lenOffset_Stream</span><span class="p">,</span>
     <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
@@ -401,7 +459,7 @@
 <pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_decompress.hpp&quot;</span></pre>
 <pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">lz4Decompress</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><a class="reference internal" href="../../doxygen/L1/rst/namespace_xf_compression.html#doxid-inflate-huffman-8hpp-1a2bcf3f856b2554ff3e42118914ac6525"><span class="std std-ref">compressd_dt</span></a><span></span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
     <span class="kt">uint32_t</span> <span class="n">input_size</span>
     <span class="p">)</span></pre>
 <p>This module reads the compressed data from input stream and decodes the offset, match length and literals by processing in various decompress states.</p>
@@ -424,6 +482,58 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="lz4packer">
+<span id="cid-xf-compression-lz4packer"></span><span id="doxid-lz4-packer-8hpp-1ad21d5c05bffdeb0f0c658a6da1d082e2"></span><h2>lz4Packer<a class="headerlink" href="#lz4packer" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_packer.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">PACK_WIDTH</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">PARLLEL_BYTE</span>
+    <span class="o">&gt;</span>
+<span class="kt">uint32_t</span> <span class="n">lz4Packer</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">PACK_WIDTH</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">PACK_WIDTH</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">inStreamSize</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">outStreamSize</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">block_size_in_kb</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">no_blocks</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">head_res_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">tail_bytes</span>
+    <span class="p">)</span></pre>
+<p>Lz4 packer modules that packs the compressed data.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>inStream</p></td>
+<td><p>input data</p></td>
+</tr>
+<tr class="row-even"><td><p>outStream</p></td>
+<td><p>output data</p></td>
+</tr>
+<tr class="row-odd"><td><p>inStreamSize</p></td>
+<td><p>size of the data in input stream</p></td>
+</tr>
+<tr class="row-even"><td><p>outStreamSize</p></td>
+<td><p>ouput data size</p></td>
+</tr>
+<tr class="row-odd"><td><p>block_size_in_kb</p></td>
+<td><p>block size</p></td>
+</tr>
+<tr class="row-even"><td><p>no_blocks</p></td>
+<td><p>number of input blocks</p></td>
+</tr>
+<tr class="row-odd"><td><p>head_res_size</p></td>
+<td><p>header size</p></td>
+</tr>
+<tr class="row-even"><td><p>tail_bytes</p></td>
+<td><p>enabled for last block to handle final data</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="lzcompress">
 <span id="cid-xf-compression-lzcompress"></span><span id="doxid-lz-compress-8hpp-1af5497dbaf33a90230a0ff12efaa1f921"></span><h2>lzCompress<a class="headerlink" href="#lzcompress" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz_compress.hpp&quot;</span></pre>
@@ -438,7 +548,7 @@
     <span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">lzCompress</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">BIT</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><a class="reference internal" href="../../doxygen/L1/rst/namespace_xf_compression.html#doxid-inflate-huffman-8hpp-1a2bcf3f856b2554ff3e42118914ac6525"><span class="std std-ref">compressd_dt</span></a><span></span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
     <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
     <span class="kt">uint32_t</span> <span class="n">left_bytes</span>
     <span class="p">)</span></pre>
@@ -497,7 +607,7 @@
     <span class="kt">int</span> <span class="n">LOW_OFFSET</span>
     <span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">lzDecompress</span> <span class="p">(</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><a class="reference internal" href="../../doxygen/L1/rst/namespace_xf_compression.html#doxid-inflate-huffman-8hpp-1a2bcf3f856b2554ff3e42118914ac6525"><span class="std std-ref">compressd_dt</span></a><span></span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
     <span class="kt">uint32_t</span> <span class="n">original_size</span>
     <span class="p">)</span></pre>
@@ -544,8 +654,8 @@
     <span class="kt">int</span> <span class="n">OFFSET_WINDOW</span>
     <span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">lzBestMatchFilter</span> <span class="p">(</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><a class="reference internal" href="../../doxygen/L1/rst/namespace_xf_compression.html#doxid-inflate-huffman-8hpp-1a2bcf3f856b2554ff3e42118914ac6525"><span class="std std-ref">compressd_dt</span></a><span></span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><a class="reference internal" href="../../doxygen/L1/rst/namespace_xf_compression.html#doxid-inflate-huffman-8hpp-1a2bcf3f856b2554ff3e42118914ac6525"><span class="std std-ref">compressd_dt</span></a><span></span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
     <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
     <span class="kt">uint32_t</span> <span class="n">left_bytes</span>
     <span class="p">)</span></pre>
@@ -586,8 +696,8 @@
     <span class="kt">int</span> <span class="n">BOOSTER_OFFSET_WINDOW</span>
     <span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">lzBooster</span> <span class="p">(</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><a class="reference internal" href="../../doxygen/L1/rst/namespace_xf_compression.html#doxid-inflate-huffman-8hpp-1a2bcf3f856b2554ff3e42118914ac6525"><span class="std std-ref">compressd_dt</span></a><span></span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><a class="reference internal" href="../../doxygen/L1/rst/namespace_xf_compression.html#doxid-inflate-huffman-8hpp-1a2bcf3f856b2554ff3e42118914ac6525"><span class="std std-ref">compressd_dt</span></a><span></span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
     <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
     <span class="kt">uint32_t</span> <span class="n">left_bytes</span>
     <span class="p">)</span></pre>
@@ -624,8 +734,8 @@
 <span id="cid-xf-compression-lzfilter"></span><span id="doxid-lz-optional-8hpp-1ae86722f675ee482734f547af7170cc8b"></span><h2>lzFilter<a class="headerlink" href="#lzfilter" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz_optional.hpp&quot;</span></pre>
 <pre class="highlight title-code-block literal-block"><span></span><span class="k">static</span> <span class="kt">void</span> <span class="n">lzFilter</span> <span class="p">(</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><a class="reference internal" href="../../doxygen/L1/rst/namespace_xf_compression.html#doxid-inflate-huffman-8hpp-1a2bcf3f856b2554ff3e42118914ac6525"><span class="std std-ref">compressd_dt</span></a><span></span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><a class="reference internal" href="../../doxygen/L1/rst/namespace_xf_compression.html#doxid-inflate-huffman-8hpp-1a2bcf3f856b2554ff3e42118914ac6525"><span class="std std-ref">compressd_dt</span></a><span></span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
     <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
     <span class="kt">uint32_t</span> <span class="n">left_bytes</span>
     <span class="p">)</span></pre>
@@ -707,7 +817,7 @@
     <span class="kt">int</span> <span class="n">PARALLEL_UNITS</span>
     <span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">snappyDivide</span> <span class="p">(</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><a class="reference internal" href="../../doxygen/L1/rst/namespace_xf_compression.html#doxid-inflate-huffman-8hpp-1a2bcf3f856b2554ff3e42118914ac6525"><span class="std std-ref">compressd_dt</span></a><span></span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;&amp;</span> <span class="n">lit_outStream</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">snappy_compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">lenOffset_Stream</span><span class="p">,</span>
     <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>

@@ -1,0 +1,42 @@
+.. index:: pair: class; xflz4
+.. _doxid-classxflz4:
+.. _cid-xflz4-2:
+
+class xflz4
+===========
+
+.. toctree::
+	:hidden:
+
+
+
+
+
+.. _doxid-classxflz4_1aeefffb0f701dd823895a08587736b2b5:
+.. _cid-xflz4::m_bin_flow:
+.. _doxid-classxflz4_1a62dc3baca22b7fa9de4b9522385e9509:
+.. _cid-xflz4::m_block_size_in_kb:
+.. _doxid-classxflz4_1a3d50619efe9f6482d4d3dea717d1649e:
+.. _cid-xflz4::m_switch_flow:
+.. _doxid-classxflz4_1a32a2e5a5ff81ca7ea3814d6c8f2c30ed:
+.. _cid-xflz4::xflz4-2:
+.. _doxid-classxflz4_1a9e27dafab06458253ea566cc183e5737:
+.. _cid-xflz4::compress_in_line_multiple_files:
+.. _doxid-classxflz4_1a8465dc5a5784b38586c66f78c3791d90:
+.. _cid-xflz4::get_file_size-2:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// fields
+
+	bool m_bin_flow
+	uint32_t m_block_size_in_kb
+	bool m_switch_flow
+
+	// construction
+
+	xflz4 (
+	    const std::string& binaryFile,
+	    uint8_t
+	    )
+
