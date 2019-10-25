@@ -1,0 +1,426 @@
+.. index:: pair: class; xf::compression::xfZlib
+.. _doxid-classxf_1_1compression_1_1xfZlib:
+.. _cid-xf::compression::xfzlib:
+
+class xf::compression::xfZlib
+=============================
+
+.. toctree::
+	:hidden:
+
+.. code-block:: cpp
+	:class: overview-code-block
+
+	#include "zlib.hpp"
+
+
+Overview
+~~~~~~~~
+
+:ref:`xfZlib <doxid-classxf_1_1compression_1_1xfZlib>` class.
+
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// construction
+
+	:ref:`xfZlib<doxid-classxf_1_1compression_1_1xfZlib_1a57345550ceeee76470676610f87c0112>` (const std::string& binaryFile)
+
+Construction
+------------
+
+.. _doxid-classxf_1_1compression_1_1xfZlib_1a57345550ceeee76470676610f87c0112:
+.. _cid-xf::compression::xfzlib::xfzlib:
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	xfZlib (const std::string& binaryFile)
+
+Class constructor.
+
+
+.. FunctionSection
+
+Methods
+~~~~~~~
+
+.. _doxid-classxf_1_1compression_1_1xfZlib_1a8b482daa92200fb24c7f4f3aa2dd819b:
+.. _cid-xf::compression::xfzlib::init:
+
+init
+----
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int init (const std::string& binaryFile)
+
+Initialize the class object.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - binaryFile
+
+        - file to be read
+
+.. _doxid-classxf_1_1compression_1_1xfZlib_1a91fc4a2e65c2aa7d4ad480703edd2d49:
+.. _cid-xf::compression::xfzlib::release:
+
+release
+-------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int release ()
+
+release
+
+.. _doxid-classxf_1_1compression_1_1xfZlib_1ad61635c08121365479c39eb833104011:
+.. _cid-xf::compression::xfzlib::compress:
+
+compress
+--------
+
+
+compress overload (1)
++++++++++++++++++++++
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	uint64_t compress (
+	    uint8_t* in,
+	    uint8_t* out,
+	    uint64_t actual_size,
+	    uint32_t host_buffer_size,
+	    bool file_list_flag
+	    )
+
+This module does the overlapped execution of compression where data transfers and kernel computation are overlapped.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - in
+
+        - input byte sequence
+
+    *
+        - out
+
+        - output byte sequence
+
+    *
+        - actual_size
+
+        - input size
+
+    *
+        - host_buffer_size
+
+        - host buffer size
+
+    *
+        - file_list_flag
+
+        - flag for list of files
+
+.. _doxid-classxf_1_1compression_1_1xfZlib_1a166938b3999cb5c34c7ba9dd1b7cb0dd:
+.. _cid-xf::compression::xfzlib::compress-2:
+
+compress overload (2)
++++++++++++++++++++++
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	uint32_t compress (
+	    uint8_t* in,
+	    uint8_t* out,
+	    uint32_t actual_size,
+	    uint32_t host_buffer_size
+	    )
+
+This module does the overlapped execution of compression where data transfers and kernel computation are overlapped.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - in
+
+        - input byte sequence
+
+    *
+        - out
+
+        - output byte sequence
+
+    *
+        - actual_size
+
+        - input size
+
+    *
+        - host_buffer_size
+
+        - host buffer size
+
+.. _doxid-classxf_1_1compression_1_1xfZlib_1a3a38f2fd962e73904bff0a544e9f1942:
+.. _cid-xf::compression::xfzlib::decompress:
+
+decompress
+----------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	uint32_t decompress (
+	    uint8_t* in,
+	    uint8_t* out,
+	    uint32_t actual_size,
+	    int cu_run
+	    )
+
+This module does serial execution of decompression where data transfers and kernel execution in serial manner.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - in
+
+        - input byte sequence
+
+    *
+        - out
+
+        - output byte sequence
+
+    *
+        - actual_size
+
+        - input size
+
+    *
+        - cu_run
+
+        - compute unit number
+
+.. _doxid-classxf_1_1compression_1_1xfZlib_1add44116ad06aa8481a217a2bdecd710a:
+.. _cid-xf::compression::xfzlib::compress_buffer:
+
+compress_buffer
+---------------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int compress_buffer (
+	    uint8_t* in,
+	    uint8_t* out,
+	    uint64_t input_size
+	    )
+
+In shared library flow this call can be used for compress buffer in overlapped manner. This is used in libz.so created.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - in
+
+        - input byte sequence
+
+    *
+        - out
+
+        - output byte sequence
+
+    *
+        - input_size
+
+        - input size
+
+.. _doxid-classxf_1_1compression_1_1xfZlib_1a98d427f0d449ede696dbfdfe051c0ee5:
+.. _cid-xf::compression::xfzlib::decompress_buffer:
+
+decompress_buffer
+-----------------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	int decompress_buffer (
+	    uint8_t* in,
+	    uint8_t* out,
+	    uint64_t input_size
+	    )
+
+In shared library flow this call can be used for decompress buffer in serial manner. This is used in libz.so created.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - in
+
+        - input byte sequence
+
+    *
+        - out
+
+        - output byte sequence
+
+    *
+        - input_size
+
+        - input size
+
+.. _doxid-classxf_1_1compression_1_1xfZlib_1aafb0325fafae0b0f3139fa350eb71178:
+.. _cid-xf::compression::xfzlib::compress_file:
+
+compress_file
+-------------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	uint32_t compress_file (
+	    std::string& inFile_name,
+	    std::string& outFile_name,
+	    uint64_t input_size
+	    )
+
+This module does file operations and invokes compress API which internally does zlib compression on FPGA in overlapped manner.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - inFile_name
+
+        - input file name
+
+    *
+        - outFile_name
+
+        - output file name
+
+    *
+        - actual_size
+
+        - input size
+
+.. _doxid-classxf_1_1compression_1_1xfZlib_1a847206ba337f6811dbd477c1533586c3:
+.. _cid-xf::compression::xfzlib::decompress_file:
+
+decompress_file
+---------------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	uint32_t decompress_file (
+	    std::string& inFile_name,
+	    std::string& outFile_name,
+	    uint64_t input_size,
+	    int cu_run
+	    )
+
+This module does file operations and invokes decompress API which internally does zlib decompression on FPGA in overlapped manner.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - inFile_name
+
+        - input file name
+
+    *
+        - outFile_name
+
+        - output file name
+
+    *
+        - input_size
+
+        - input size
+
+    *
+        - cu_run
+
+        - compute unit number
+
+.. _doxid-classxf_1_1compression_1_1xfZlib_1aa2477f22a23fc8ce1ffa8c968c588f29:
+.. _cid-xf::compression::xfzlib::get_event_duration_ns:
+
+get_event_duration_ns
+---------------------
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	uint64_t get_event_duration_ns (const cl::Event& event)
+
+This module is used for profiling by using kernel events.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - inFile_name
+
+        - kernel events
+

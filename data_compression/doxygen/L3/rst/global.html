@@ -248,26 +248,83 @@
 <span id="id1"></span><h1>Global Namespace<a class="headerlink" href="#global-namespace" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound" id="index-0">
 </div>
-<pre class="highlight overview-code-block literal-block"><span></span><span class="c1">// namespaces</span>
+<pre class="highlight overview-code-block literal-block" id="cid-reuse-zero-blen-7"><span id="doxid-zlib-8hpp-1a9df517792fcbd4a3c30565c673dd458b"></span><span id="cid-reuse-zero-blen"></span><span id="doxid-zlib-8hpp-1ae11da4861476138799f4000c4e466da3"></span><span id="cid-reuse-prev-blen"></span><span id="doxid-zlib-8hpp-1a444fb2dc04c9f8d1594954862b96ba6b"></span><span id="cid-parallel-engines"></span><span id="doxid-zlib-8hpp-1ab562c4921caffd3dec9193c150565ba8"></span><span id="cid-overlap-buf-count-2"></span><span id="doxid-zlib-8hpp-1a2a7255f41772a29d279fba9f19e75cb6"></span><span id="cid-overlap-buf-count"></span><span id="doxid-lz4-p2p-comp-8hpp-1a2a7255f41772a29d279fba9f19e75cb6"></span><span id="cid-no-compress-bit"></span><span id="doxid-lz4-p2p-comp-8hpp-1ad143ee8db6176a6c69f026c38955d93d"></span><span id="cid-max-number-blocks-3"></span><span id="doxid-lz4-p2p-dec-8hpp-1ac0cd6e80757eac5e6534e8b103aa9857"></span><span id="cid-max-number-blocks-2"></span><span id="doxid-lz4-p2p-comp-8hpp-1ac0cd6e80757eac5e6534e8b103aa9857"></span><span id="cid-max-number-blocks"></span><span id="doxid-zlib-8hpp-1ac0cd6e80757eac5e6534e8b103aa9857"></span><span id="cid-max-in-buffer-size"></span><span id="doxid-lz4-p2p-dec-8hpp-1a9232f98f138c9ca956eb89381243a8a3"></span><span id="cid-max-in-buffer-partition"></span><span id="doxid-lz4-p2p-dec-8hpp-1aa28faef0aa5fe8f67529021398d0e7a1"></span><span id="cid-max-ddcomp-units"></span><span id="doxid-zlib-8hpp-1ac20f268e718bbd18834a14979b0cc365"></span><span id="cid-max-compute-units"></span><span id="doxid-lz4-p2p-comp-8hpp-1a58cec436353470a8402a6f0349f4cc1e"></span><span id="cid-max-ccomp-units"></span><span id="doxid-zlib-8hpp-1a34a3f51f1b4059900ade7a809650bdb9"></span><span id="cid-max-bsize-64kb"></span><span id="doxid-lz4-p2p-comp-8hpp-1abad9b3d7c8a535dae2adb1b20a0c6a91"></span><span id="cid-max-bsize-4096kb"></span><span id="doxid-lz4-p2p-comp-8hpp-1a2463594e1124803a15a5f9d64185e2dc"></span><span id="cid-max-bsize-256kb"></span><span id="doxid-lz4-p2p-comp-8hpp-1aded750959451539468b5026b4329ba35"></span><span id="cid-max-bsize-1024kb"></span><span id="doxid-lz4-p2p-comp-8hpp-1a3c12dd342edde5f115c776e7dd50cd4b"></span><span id="cid-max-bl-bits"></span><span id="doxid-zlib-8hpp-1a8f9fea0ddde71a75c6caf59ba993ca4e"></span><span id="cid-maxcode-size"></span><span id="doxid-zlib-8hpp-1a589eefe5223c5fd3dba28cee344d4922"></span><span id="cid-ltree-size"></span><span id="doxid-zlib-8hpp-1a5b89ad0599c454b953aab3bb714067a7"></span><span id="cid-literal-codes"></span><span id="doxid-zlib-8hpp-1afd5282b5b1633ae4b470fbb03dbf0b3d"></span><span id="cid-literals"></span><span id="doxid-zlib-8hpp-1a3f59145500c9de746e7dc49fb98c29ef"></span><span id="cid-length-codes"></span><span id="doxid-zlib-8hpp-1a8dd3b78c666b6592944b2acf1706e611"></span><span id="cid-kb"></span><span id="doxid-lz4-p2p-dec-8hpp-1a1841fd1a462d245d8c73dce55e2f45da"></span><span id="cid-host-buffer-size-3"></span><span id="doxid-zlib-8hpp-1a497efa0991ba86ef9bb13ec59e253984"></span><span id="cid-host-buffer-size-2"></span><span id="doxid-lz4-p2p-comp-8hpp-1a497efa0991ba86ef9bb13ec59e253984"></span><span id="cid-host-buffer-size"></span><span id="doxid-lz4-p2p-dec-8hpp-1a497efa0991ba86ef9bb13ec59e253984"></span><span id="cid-heap-size"></span><span id="doxid-zlib-8hpp-1a1b45302695680930829cac31d65e41e1"></span><span id="cid-extra-lcodes"></span><span id="doxid-zlib-8hpp-1a0ea47ce476b845613b877a110dad982f"></span><span id="cid-extra-dcodes"></span><span id="doxid-zlib-8hpp-1ae5ff8e171d249fa2b6fce8d66c4274d8"></span><span id="cid-extra-blcodes"></span><span id="doxid-zlib-8hpp-1a9e7596921a3a653bf68d7049f1cfbf24"></span><span id="cid-dtree-size"></span><span id="doxid-zlib-8hpp-1a55382a9a0b26bb7dfc5df2ecd43cb500"></span><span id="cid-distance-codes"></span><span id="doxid-zlib-8hpp-1ada73318b0dc5e86bf6b172081c6ece77"></span><span id="cid-bsize-std-64kb"></span><span id="doxid-lz4-p2p-comp-8hpp-1af726fc384419a5733aa5b84e9b24651c"></span><span id="cid-bsize-std-4096kb"></span><span id="doxid-lz4-p2p-comp-8hpp-1a1eaa1eb48567ac2635906f6ee0a71267"></span><span id="cid-bsize-std-256kb"></span><span id="doxid-lz4-p2p-comp-8hpp-1a583ce2a243fd53930014a563af968fa5"></span><span id="cid-bsize-std-1024kb"></span><span id="doxid-lz4-p2p-comp-8hpp-1acc92ecc93a7b7a816dd4422b0c0e45bb"></span><span id="cid-bsize-ncomp-64"></span><span id="doxid-lz4-p2p-comp-8hpp-1a65aaa3f0f6b0a599d983f5c50f2ab70e"></span><span id="cid-bsize-ncomp-4096"></span><span id="doxid-lz4-p2p-comp-8hpp-1ac58fd4cc8e64aa5e3fa9124c840d6125"></span><span id="cid-bsize-ncomp-256"></span><span id="doxid-lz4-p2p-comp-8hpp-1a0d912d3928f024a78faaa537a2132964"></span><span id="cid-bsize-ncomp-1024"></span><span id="doxid-lz4-p2p-comp-8hpp-1ab67e187c02cfc100d0bdc80353feeb73"></span><span id="cid-bl-codes"></span><span id="doxid-zlib-8hpp-1a9e19158a493307d4f211cdf223da8319"></span><span id="cid-bltree-size"></span><span id="doxid-zlib-8hpp-1a9cb9f49d4ce20962a777d05bc7e530ca"></span><span id="cid-block-size-in-kb-3"></span><span id="doxid-lz4-p2p-comp-8hpp-1a62f02bce640abc082ca8383428984e2f"></span><span id="cid-block-size-in-kb-2"></span><span id="doxid-lz4-p2p-dec-8hpp-1a62f02bce640abc082ca8383428984e2f"></span><span id="cid-block-size-in-kb"></span><span id="doxid-zlib-8hpp-1a62f02bce640abc082ca8383428984e2f"></span><span id="cid-get-file-size"></span><span id="doxid-zlib-8hpp-1a51b64b672a0faabbd85dc5be2bbaf2ba"></span><span id="cid-validate-2"></span><span id="doxid-zlib-8hpp-1ad223ab5d6ee4fdb68734b1ec47434119"></span><span id="cid-validate"></span><span id="doxid-lz4-p2p-comp-8hpp-1ad223ab5d6ee4fdb68734b1ec47434119"></span><span id="cid-gz-max-literal-count"></span><span id="doxid-zlib-8hpp-1ad9b35bd5633acb11aa4db5c956cccf89"></span><span></span><span class="c1">// namespaces</span>
 
 <span class="k">namespace</span> <a class="reference internal" href="namespace_xf.html#doxid-namespacexf"><span class="std std-ref">xf</span></a><span></span>
     <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_compression.html#doxid-namespacexf-1-1compression"><span class="std std-ref">xf::compression</span></a><span></span>
 
+<span class="c1">// classes</span>
+
+<span class="k">class</span> xfLz4<span></span>
+<span class="k">class</span> <a class="reference internal" href="class_xflz4.html#doxid-classxflz4"><span class="std std-ref">xflz4</span></a><span></span>
+
+<span class="c1">// global variables</span>
+
+<span class="k">const</span> <span class="kt">int</span> <span class="n">gz_max_literal_count</span>
+
 <span class="c1">// macros</span>
 
+<span class="cp">#define BLOCK_SIZE_IN_KB</span>
+<span class="cp">#define BLOCK_SIZE_IN_KB</span>
 <span class="cp">#define </span><a class="reference internal" href="#doxid-lz4-8hpp-1a62f02bce640abc082ca8383428984e2f"><span class="std std-ref">BLOCK_SIZE_IN_KB</span></a><span></span>
+<span class="cp">#define BLOCK_SIZE_IN_KB</span>
+<span class="cp">#define BLTREE_SIZE</span>
+<span class="cp">#define BL_CODES</span>
+<span class="cp">#define BSIZE_NCOMP_1024</span>
+<span class="cp">#define BSIZE_NCOMP_256</span>
+<span class="cp">#define BSIZE_NCOMP_4096</span>
+<span class="cp">#define BSIZE_NCOMP_64</span>
+<span class="cp">#define BSIZE_STD_1024KB</span>
+<span class="cp">#define BSIZE_STD_256KB</span>
+<span class="cp">#define BSIZE_STD_4096KB</span>
+<span class="cp">#define BSIZE_STD_64KB</span>
+<span class="cp">#define DISTANCE_CODES</span>
+<span class="cp">#define DTREE_SIZE</span>
+<span class="cp">#define EXTRA_BLCODES</span>
+<span class="cp">#define EXTRA_DCODES</span>
+<span class="cp">#define EXTRA_LCODES</span>
+<span class="cp">#define HEAP_SIZE</span>
+<span class="cp">#define HOST_BUFFER_SIZE</span>
+<span class="cp">#define HOST_BUFFER_SIZE</span>
+<span class="cp">#define HOST_BUFFER_SIZE</span>
 <span class="cp">#define </span><a class="reference internal" href="#doxid-lz4-8hpp-1a497efa0991ba86ef9bb13ec59e253984"><span class="std std-ref">HOST_BUFFER_SIZE</span></a><span></span>
+<span class="cp">#define KB</span>
+<span class="cp">#define LENGTH_CODES</span>
+<span class="cp">#define LITERALS</span>
+<span class="cp">#define LITERAL_CODES</span>
+<span class="cp">#define LTREE_SIZE</span>
+<span class="cp">#define MAXCODE_SIZE</span>
+<span class="cp">#define MAX_BL_BITS</span>
+<span class="cp">#define MAX_BSIZE_1024KB</span>
+<span class="cp">#define MAX_BSIZE_256KB</span>
+<span class="cp">#define MAX_BSIZE_4096KB</span>
+<span class="cp">#define MAX_BSIZE_64KB</span>
+<span class="cp">#define MAX_CCOMP_UNITS</span>
+<span class="cp">#define MAX_COMPUTE_UNITS</span>
 <span class="cp">#define </span><a class="reference internal" href="#doxid-lz4-8hpp-1a58cec436353470a8402a6f0349f4cc1e"><span class="std std-ref">MAX_COMPUTE_UNITS</span></a><span></span>
-<span class="cp">#define </span><a class="reference internal" href="#doxid-lz4-8hpp-1a2a7255f41772a29d279fba9f19e75cb6"><span class="std std-ref">OVERLAP_BUF_COUNT</span></a></pre>
+<span class="cp">#define MAX_DDCOMP_UNITS</span>
+<span class="cp">#define MAX_IN_BUFFER_PARTITION</span>
+<span class="cp">#define MAX_IN_BUFFER_SIZE</span>
+<span class="cp">#define MAX_NUMBER_BLOCKS</span>
+<span class="cp">#define MAX_NUMBER_BLOCKS</span>
+<span class="cp">#define MAX_NUMBER_BLOCKS</span>
+<span class="cp">#define NO_COMPRESS_BIT</span>
+<span class="cp">#define OVERLAP_BUF_COUNT</span>
+<span class="cp">#define </span><a class="reference internal" href="#doxid-lz4-8hpp-1a2a7255f41772a29d279fba9f19e75cb6"><span class="std std-ref">OVERLAP_BUF_COUNT</span></a><span></span>
+<span class="cp">#define OVERLAP_BUF_COUNT</span>
+<span class="cp">#define PARALLEL_ENGINES</span>
+<span class="cp">#define REUSE_PREV_BLEN</span>
+<span class="cp">#define REUSE_ZERO_BLEN</span>
+<span class="cp">#define REUSE_ZERO_BLEN_7</span></pre>
 <div class="section" id="macros">
 <h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
-<pre class="highlight title-code-block literal-block" id="cid-block-size-in-kb"><span id="doxid-lz4-8hpp-1a62f02bce640abc082ca8383428984e2f"></span><span></span><span class="cp">#define BLOCK_SIZE_IN_KB</span></pre>
+<pre class="highlight title-code-block literal-block" id="cid-block-size-in-kb-4"><span id="doxid-lz4-8hpp-1a62f02bce640abc082ca8383428984e2f"></span><span></span><span class="cp">#define BLOCK_SIZE_IN_KB</span></pre>
 <p>Default block size</p>
-<pre class="highlight title-code-block literal-block" id="cid-host-buffer-size"><span id="doxid-lz4-8hpp-1a497efa0991ba86ef9bb13ec59e253984"></span><span></span><span class="cp">#define HOST_BUFFER_SIZE</span></pre>
+<pre class="highlight title-code-block literal-block" id="cid-host-buffer-size-4"><span id="doxid-lz4-8hpp-1a497efa0991ba86ef9bb13ec59e253984"></span><span></span><span class="cp">#define HOST_BUFFER_SIZE</span></pre>
 <p>Maximum host buffer used to operate per kernel invocation</p>
-<pre class="highlight title-code-block literal-block" id="cid-max-compute-units"><span id="doxid-lz4-8hpp-1a58cec436353470a8402a6f0349f4cc1e"></span><span></span><span class="cp">#define MAX_COMPUTE_UNITS</span></pre>
+<pre class="highlight title-code-block literal-block" id="cid-max-compute-units-2"><span id="doxid-lz4-8hpp-1a58cec436353470a8402a6f0349f4cc1e"></span><span></span><span class="cp">#define MAX_COMPUTE_UNITS</span></pre>
 <p>Maximum compute units supported</p>
-<pre class="highlight title-code-block literal-block" id="cid-overlap-buf-count"><span id="doxid-lz4-8hpp-1a2a7255f41772a29d279fba9f19e75cb6"></span><span></span><span class="cp">#define OVERLAP_BUF_COUNT</span></pre>
+<pre class="highlight title-code-block literal-block" id="cid-overlap-buf-count-3"><span id="doxid-lz4-8hpp-1a2a7255f41772a29d279fba9f19e75cb6"></span><span></span><span class="cp">#define OVERLAP_BUF_COUNT</span></pre>
 <p>Value below is used to associate with Overlapped buffers, ideally overlapped execution requires 2 resources per invocation</p>
 </div>
 </div>

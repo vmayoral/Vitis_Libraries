@@ -17,7 +17,7 @@
     <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
     <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>L3 Overlay User Guide &mdash; Vitis Data Compression Library v2019.2 documentation</title>
+  <title>struct unpackerBlockInfo &mdash; Vitis Data Compression Library v2019.2 documentation</title>
   
 <!-- Header information provided by Emily-->
     <meta name="apple-itunes-app" content="app-id=1063287962">
@@ -43,26 +43,24 @@
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
     
 
   
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Overview" href="overview.html" />
-    <link rel="prev" title="Demo" href="../L2/demo.html" /> 
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -123,7 +121,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Data Compression Library
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Data Compression Library
           
 
           
@@ -140,7 +138,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -160,33 +158,28 @@
             
               <p class="caption"><span class="caption-text">Library Overview</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html">Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/overview.html#trademark-notice">Trademark Notice</a></li>
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../usecase.html">Typical Use Cases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../L1/L1.html">L1 Module User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../L2/L2.html">L2 Kernel User Guide</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">L3 Overlay User Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_reference.html">Overlay API Reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="demo.html">Demo</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/usecase.html">Typical Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/L2/L2.html">L2 Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/L3/L3.html">L3 Overlay User Guide</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Results</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../results.html">Benchmark Results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/results.html">Benchmark Results</a></li>
 </ul>
 
             
 			<p class="caption"><span class="caption-text">This Page</span></p>
 				<ul class="current">
-				  <li class="toctree-l1"><a href="../../_sources/source/L3/L3.rst.txt"
+				  <li class="toctree-l1"><a href="../../../_sources/doxygen/L2/rst/struct_unpackerBlockInfo.rst.txt"
 						rel="nofollow">Show Source</a></li>
-					<li class="toctree-l1"><a href="https://github.com/Xilinx/xf_compression/blob/master/docs/source/overview.rst/source/L3/L3.rst"
+					<li class="toctree-l1"><a href="https://github.com/Xilinx/xf_compression/blob/master/docs/source/overview.rst/doxygen/L2/rst/struct_unpackerBlockInfo.rst"
 						   rel="nofollow">View on GitHub</a></li>						
 				</ul>
           
@@ -201,7 +194,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">Vitis Data Compression Library</a>
+          <a href="../../../index.html">Vitis Data Compression Library</a>
         
       </nav>
 
@@ -230,15 +223,15 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>L3 Overlay User Guide</li>
+      <li>struct unpackerBlockInfo</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/source/L3/L3.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/doxygen/L2/rst/struct_unpackerBlockInfo.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -251,24 +244,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="l3-overlay-user-guide">
-<span id="l3-user-guide"></span><h1>L3 Overlay User Guide<a class="headerlink" href="#l3-overlay-user-guide" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="struct-unpackerblockinfo">
+<span id="cid-unpackerblockinfo"></span><span id="doxid-structunpackerblockinfo"></span><span id="index-0"></span><h1>struct unpackerBlockInfo<a class="headerlink" href="#struct-unpackerblockinfo" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference.html">Overlay API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../doxygen/L3/rst/class_xf_compression_xfLz4.html">class xf::compression::xfLz4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../doxygen/L3/rst/class_xf_compression_xfZlib.html">class xf::compression::xfZlib</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="demo.html#environment-setup">Environment Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="demo.html#zlib-application">Zlib Application</a></li>
-<li class="toctree-l2"><a class="reference internal" href="demo.html#lz4-application">LZ4 Application</a></li>
-</ul>
-</li>
-</ul>
 </div>
+<pre class="highlight overview-code-block literal-block" id="cid-unpackerblockinfo-padding"><span id="doxid-structunpackerblockinfo-1a4bf733821cbad04331716e5fd40f5eb9"></span><span id="cid-unpackerblockinfo-blockstartidx"></span><span id="doxid-structunpackerblockinfo-1ad1ff9bae24778d0633e2f0e6a47f1546"></span><span id="cid-unpackerblockinfo-blocksize"></span><span id="doxid-structunpackerblockinfo-1add12586bec0bc42280a57955c79836fc"></span><span id="cid-unpackerblockinfo-compressedsize"></span><span id="doxid-structunpackerblockinfo-1a741d08923eefe7ae2979c3f511af6b57"></span><span></span><span class="c1">// fields</span>
+
+<span class="kt">uint32_t</span> <span class="n">compressedSize</span>
+<span class="kt">uint32_t</span> <span class="n">blockSize</span>
+<span class="kt">uint32_t</span> <span class="n">blockStartIdx</span>
+<span class="kt">uint32_t</span> <span class="n">padding</span><span class="p">[(</span><span class="n">GMEM_DATAWIDTH</span><span class="o">/</span><span class="mi">32</span><span class="p">)</span> <span class="o">-</span> <span class="mi">3</span><span class="p">]</span></pre>
 </div>
 
 
@@ -276,15 +261,6 @@
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../L2/demo.html" class="btn btn-neutral float-left" title="Demo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
