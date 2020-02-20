@@ -1,0 +1,147 @@
+.. index:: pair: namespace; details
+.. _doxid-namespacexf_1_1compression_1_1details:
+.. _cid-xf::compression::details:
+
+namespace details
+=================
+
+.. toctree::
+	:hidden:
+
+
+
+
+
+.. _doxid-namespacexf_1_1compression_1_1details_1a5ac7215aaa4e1993e896a4ea8d9ada4f:
+.. _cid-xf::compression::details::c_maxbits:
+.. _doxid-namespacexf_1_1compression_1_1details_1a393084ea74c71d65dbcfc757d79019c8:
+.. _cid-xf::compression::details::c_leastval:
+.. _doxid-namespacexf_1_1compression_1_1details_1a4b2ea97bd9a2e8f13b27065742ffa1da:
+.. _cid-xf::compression::details::c_ltree_size:
+.. _doxid-namespacexf_1_1compression_1_1details_1a13afe532219ee24e0b4047cf6cfbfd3a:
+.. _cid-xf::compression::details::c_dtree_size:
+.. _doxid-namespacexf_1_1compression_1_1details_1a090052bfa8dae76bb78aff20cb044441:
+.. _cid-xf::compression::details::c_bltree_size:
+.. _doxid-namespacexf_1_1compression_1_1details_1a5ce9ffe8bab19af8ac3c5f3d19a2ecbd:
+.. _cid-xf::compression::details::axis2hlsstreamfixedsize:
+.. _doxid-namespacexf_1_1compression_1_1details_1af872fadef8ebc02cc56f89ca6dcdf484:
+.. _cid-xf::compression::details::hlsstream2axis:
+.. _doxid-namespacexf_1_1compression_1_1details_1ad9138ded852d2cf54f1c2ac88fcb1123:
+.. _cid-xf::compression::details::hlsstream2axistreamfixedsize:
+.. _doxid-namespacexf_1_1compression_1_1details_1a4293c293b14770712b228e7692eb202d:
+.. _cid-xf::compression::details::axis2hlsstream:
+.. _doxid-namespacexf_1_1compression_1_1details_1a95adffbb04343e6401a541ce23770427:
+.. _cid-xf::compression::details::streamdatadm2k:
+.. _doxid-namespacexf_1_1compression_1_1details_1aa5b218d60d7114e5d12a50fff459dc4e:
+.. _cid-xf::compression::details::streamdatak2dm:
+.. _doxid-namespacexf_1_1compression_1_1details_1a87396c04129399bfb3ebe92f4362f1d9:
+.. _cid-xf::compression::details::streamdatak2dmfixedsize:
+.. _doxid-namespacexf_1_1compression_1_1details_1a60bbf4e9c4cc1a690e3958bad3406db9:
+.. _cid-xf::compression::details::bytegen:
+.. _doxid-namespacexf_1_1compression_1_1details_1a6b1f3e8d9088df284760aa92dfbbc15b:
+.. _cid-xf::compression::details::huffmanbytegen:
+.. _doxid-namespacexf_1_1compression_1_1details_1a71a72d7ab31dadac36fa5a23434022c6:
+.. _cid-xf::compression::details::code_generator_array:
+.. _doxid-namespacexf_1_1compression_1_1details_1ae97cf9abe4e7bfe6c3acbc775f72fa08:
+.. _cid-xf::compression::details::bitpackingsize:
+.. _doxid-namespacexf_1_1compression_1_1details_1ae2da8340a38d2d2062230a0760623a1c:
+.. _cid-xf::compression::details::bitpacking:
+.. _doxid-namespacexf_1_1compression_1_1details_1a362a677a8d363251ea71409c730e7a81:
+.. _cid-xf::compression::details::findmin:
+.. _doxid-namespacexf_1_1compression_1_1details_1a5c6244e20c422c94465b9b1cb6152c8b:
+.. _cid-xf::compression::details::reversebits:
+.. _doxid-namespacexf_1_1compression_1_1details_1ac6a894b04f69275f3574e4cfde248a77:
+.. _cid-xf::compression::details::reduceheap:
+.. _doxid-namespacexf_1_1compression_1_1details_1a0086be1ab33d0346c9cdbc6ed0f83509:
+.. _cid-xf::compression::details::lzliteralupsizer:
+.. _doxid-namespacexf_1_1compression_1_1details_1af72503ec9ef4f837c598a5f7f4363f0e:
+.. _cid-xf::compression::details::lzprocessingunit:
+.. _doxid-namespacexf_1_1compression_1_1details_1a5582cf9d6ba938cfd345e471618e49c3:
+.. _cid-xf::compression::details::kstreamread:
+.. _doxid-namespacexf_1_1compression_1_1details_1a3beee5195d6519338c8b97f526436b46:
+.. _cid-xf::compression::details::kstreamwrite:
+.. _doxid-namespacexf_1_1compression_1_1details_1a18a06da1eb46ae8360879990117c6980:
+.. _cid-xf::compression::details::kstreamwritefixedsize:
+.. _doxid-namespacexf_1_1compression_1_1details_1af3d9519e7ef858dc0351513932bcaa28:
+.. _cid-xf::compression::details::lz4compresspart1:
+.. _doxid-namespacexf_1_1compression_1_1details_1a35dd201c35401317d412021849a91c8f:
+.. _cid-xf::compression::details::lz4compresspart2:
+.. _doxid-namespacexf_1_1compression_1_1details_1a28f14085fa5ebe71802d6aeeeb6c207e:
+.. _cid-xf::compression::details::mm2snb:
+.. _doxid-namespacexf_1_1compression_1_1details_1aea6795a25abc8a742d49f7ba8f9f30b1:
+.. _cid-xf::compression::details::mm2multstream:
+.. _doxid-namespacexf_1_1compression_1_1details_1ad80d567d4d31ae62adcff3a421b3a12b:
+.. _cid-xf::compression::details::mm2multstreamsimple:
+.. _doxid-namespacexf_1_1compression_1_1details_1aae639bba6c7a35537125fcdce8f38963:
+.. _cid-xf::compression::details::mm2multstreamdownsizer:
+.. _doxid-namespacexf_1_1compression_1_1details_1acb9927156f1d5ebf9755a70cda2cc80a:
+.. _cid-xf::compression::details::mm2multstreamnew:
+.. _doxid-namespacexf_1_1compression_1_1details_1acc68842b9970321b520fa81970b114f7:
+.. _cid-xf::compression::details::mm2singlestream:
+.. _doxid-namespacexf_1_1compression_1_1details_1a766f74206e0996f33407102845c41425:
+.. _cid-xf::compression::details::mm2streamdownsizer:
+.. _doxid-namespacexf_1_1compression_1_1details_1a84c5fbb80d2471df9ee17edf40e022b9:
+.. _cid-xf::compression::details::mm2stream:
+.. _doxid-namespacexf_1_1compression_1_1details_1a72e6e1e7e738a4e5ad7e197315c38f69:
+.. _cid-xf::compression::details::mm2s_freq:
+.. _doxid-namespacexf_1_1compression_1_1details_1a17603499d28f9e51c916735fbd057e1f:
+.. _cid-xf::compression::details::mm2snbfreq:
+.. _doxid-namespacexf_1_1compression_1_1details_1a2e5bf37502f12abeecf5b713b2a61b30:
+.. _cid-xf::compression::details::mm2snbroundoff:
+.. _doxid-namespacexf_1_1compression_1_1details_1af8fa8c309ccbdea028890d612cef1c48:
+.. _cid-xf::compression::details::mm2ssimple:
+.. _doxid-namespacexf_1_1compression_1_1details_1aebab5165184b9a7feca2a7359d83982f:
+.. _cid-xf::compression::details::mm2ssimple-2:
+.. _doxid-namespacexf_1_1compression_1_1details_1a3b0202f258df8649bc8fdac943b165d0:
+.. _cid-xf::compression::details::mm2s:
+.. _doxid-namespacexf_1_1compression_1_1details_1a070f1dbb12007baaed674641b55065d0:
+.. _cid-xf::compression::details::stream2mmupsizer:
+.. _doxid-namespacexf_1_1compression_1_1details_1aefaaed77eb15e4d5038a0a87829d4e72:
+.. _cid-xf::compression::details::singlestream2mm:
+.. _doxid-namespacexf_1_1compression_1_1details_1a2abdad565add6b78522e56ec759b22b7:
+.. _cid-xf::compression::details::stream2mm:
+.. _doxid-namespacexf_1_1compression_1_1details_1af97f47ee5ca054143d233e883046fc1f:
+.. _cid-xf::compression::details::s2mmeosnb:
+.. _doxid-namespacexf_1_1compression_1_1details_1aaa09cb04dcc6fdb2fcae9ce5a5647ae7:
+.. _cid-xf::compression::details::s2mmeosnbfreq:
+.. _doxid-namespacexf_1_1compression_1_1details_1a3006fde03bf6ccc234113aceecd13542:
+.. _cid-xf::compression::details::s2mm_compress:
+.. _doxid-namespacexf_1_1compression_1_1details_1a257d42756c1125a8b72a597bb6d192a2:
+.. _cid-xf::compression::details::s2mmnb:
+.. _doxid-namespacexf_1_1compression_1_1details_1a9383d4deabc927d4f17d1dd338b1b8c4:
+.. _cid-xf::compression::details::s2mmnb-2:
+.. _doxid-namespacexf_1_1compression_1_1details_1a0d6d1c1e4e14f6080a64c25e4fcc03bd:
+.. _cid-xf::compression::details::s2mmeossimple:
+.. _doxid-namespacexf_1_1compression_1_1details_1a797ffb6b3f1bf93abcb960cc44cb38c7:
+.. _cid-xf::compression::details::s2mmsimple:
+.. _doxid-namespacexf_1_1compression_1_1details_1aa6cd8ade48dfed49e3968210f79d4320:
+.. _cid-xf::compression::details::s2mm:
+.. _doxid-namespacexf_1_1compression_1_1details_1aa5358ad57cfa3aba4e9003ace1cd5d3c:
+.. _cid-xf::compression::details::snappycompresspart1:
+.. _doxid-namespacexf_1_1compression_1_1details_1a6dadc251c1ae8518b401078ebca37b8e:
+.. _cid-xf::compression::details::snappycompresspart2:
+.. _doxid-namespacexf_1_1compression_1_1details_1a8bc71954ca811d6c7baad8b0368d21a3:
+.. _cid-xf::compression::details::streamdownsizer:
+.. _doxid-namespacexf_1_1compression_1_1details_1a27b3adf491023a5186a2df1031400359:
+.. _cid-xf::compression::details::streamdownsizerp2p:
+.. _doxid-namespacexf_1_1compression_1_1details_1ae7509896961fcffe698baf1ea8ee2603:
+.. _cid-xf::compression::details::streamdownsizerp2pcomp:
+.. _doxid-namespacexf_1_1compression_1_1details_1a096a0abed265b66635d13081be2d4f5c:
+.. _cid-xf::compression::details::streamupsizer:
+.. _doxid-namespacexf_1_1compression_1_1details_1aa6ebfb12f625761f6cbdedd9a6385304:
+.. _cid-xf::compression::details::upsizereos:
+.. _doxid-namespacexf_1_1compression_1_1details_1a4e86a40b11cca7c26a727bf43d61ed91:
+.. _cid-xf::compression::details::upsizer_sizestream:
+.. _doxid-namespacexf_1_1compression_1_1details_1a447fb9a9bf4992a2ff67805d2864edaa:
+.. _cid-xf::compression::details::streamupsizerp2p:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// global variables
+
+	const uint8_t c_maxBits
+	const uint8_t c_leastVal
+	const uint16_t c_ltree_size
+	const uint16_t c_dtree_size
+	const uint16_t c_bltree_size
+

@@ -1,0 +1,529 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Header information provided by Emily-->
+    <meta name="Language" content="en">
+    <meta name="Location" content="us">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
+  
+  <title>class xf::compression::xfZlib &mdash; Vitis Data Compression Library v2019.2 documentation</title>
+  
+<!-- Header information provided by Emily-->
+    <meta name="apple-itunes-app" content="app-id=1063287962">
+    <meta name="google-play-app" content="app-id=com.marketing.xilinxgo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/d3dd8c60ed.js"></script>
+    
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.css" type="text/css">
+    <link rel="stylesheet" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all.min.css" type="text/css">
+    
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/clientlibs/granite/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/header-footer.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Demos" href="../../../source/L3/demo.html" />
+    <link rel="prev" title="class xf::compression::xfLz4" href="class_xf_compression_xfLz4.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+<div class="xilinx-bs3">
+    <noindex>
+        <header data-component="header">
+            <nav class="navbar navbar-default">
+                <div class="container main-nav">
+                    <div class="row">
+                        <div class="col-xs-5 col-sm-2 logo-column">
+                            <div class="logo">
+                                <a href="https://www.xilinx.com/">
+                                    <img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 navbar-column">
+                            <div class="navbar navbar-collapse collapse" id="xilinx-main-menu">
+                                <ul class="nav navbar-nav nav-justified">
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://developer.xilinx.com/">
+                                            Developers
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://www.xilinx.com/support.html">
+                                            Support
+                                        </a>
+                                    </li>
+                                    <li class="accordion-toggle-icons" data-component="toggle-dropdown">
+                                        <a href="https://forums.xilinx.com/">
+                                            Forums
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mini-nav col-sm-2">
+                            <button type="button" data-function="xilinx-mobile-menu" id="nav-toggle" class="navbar-toggle collapsed visible-xs-block" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </noindex>
+</div>
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Data Compression Library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2019.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Library Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/overview.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/overview.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/overview.html#trademark-notice">Trademark Notice</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/usecase.html">Typical Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/L1/L1.html">L1 Module User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/L2/L2.html">L2 Kernel User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/L3/L3.html">L3 Overlay User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Benchmark Results</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/results.html">Benchmark Results</a></li>
+</ul>
+
+            
+			<p class="caption"><span class="caption-text">This Page</span></p>
+				<ul class="current">
+				  <li class="toctree-l1"><a href="../../../_sources/doxygen/L3/rst/class_xf_compression_xfZlib.rst.txt"
+						rel="nofollow">Show Source</a></li>						
+				</ul>
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Vitis Data Compression Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../source/L3/L3.html">L3 Overlay User Guide</a> &raquo;</li>
+        
+          <li><a href="../../../source/L3/api_reference.html">Overlay API Reference</a> &raquo;</li>
+        
+      <li>class xf::compression::xfZlib</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/doxygen/L3/rst/class_xf_compression_xfZlib.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-xf-compression-xfzlib">
+<span id="cid-xf-compression-xfzlib"></span><span id="doxid-classxf-1-1compression-1-1xfzlib"></span><span id="index-0"></span><h1>class xf::compression::xfZlib<a class="headerlink" href="#class-xf-compression-xfzlib" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;zlib.hpp&quot;</span></pre>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#doxid-classxf-1-1compression-1-1xfzlib"><span class="std std-ref">xfZlib</span></a> class.</p>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-compression-xfzlib-get-event-duration-ns"><span id="doxid-classxf-1-1compression-1-1xfzlib-1aa2477f22a23fc8ce1ffa8c968c588f29"></span><span></span><span class="c1">// construction</span>
+
+xfZlib<span></span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">binaryFile</span><span class="p">,</span>
+    <span class="kt">uint8_t</span> <span class="n">c_max_cr</span> <span class="o">=</span> <span class="n">MAX_CR</span><span class="p">,</span>
+    <span class="kt">uint8_t</span> <span class="n">cd_flow</span> <span class="o">=</span> <span class="n">BOTH</span><span class="p">,</span>
+    <span class="kt">uint8_t</span> <span class="n">device_id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="kt">uint8_t</span> <span class="n">profile</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span></pre>
+<div class="section" id="construction">
+<h3>Construction<a class="headerlink" href="#construction" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block" id="cid-xf-compression-xfzlib-xfzlib"><span id="doxid-classxf-1-1compression-1-1xfzlib-1a6345f61a95db047563ba3db83c34acb4"></span><span></span><span class="n">xfZlib</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">binaryFile</span><span class="p">,</span>
+    <span class="kt">uint8_t</span> <span class="n">c_max_cr</span> <span class="o">=</span> <span class="n">MAX_CR</span><span class="p">,</span>
+    <span class="kt">uint8_t</span> <span class="n">cd_flow</span> <span class="o">=</span> <span class="n">BOTH</span><span class="p">,</span>
+    <span class="kt">uint8_t</span> <span class="n">device_id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="kt">uint8_t</span> <span class="n">profile</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span></pre>
+<p>Constructor responsible for creating various host/device buffers.</p>
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="compress">
+<span id="cid-xf-compression-xfzlib-compress"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1a166938b3999cb5c34c7ba9dd1b7cb0dd"></span><h3>compress<a class="headerlink" href="#compress" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">uint32_t</span> <span class="n">compress</span> <span class="p">(</span>
+    <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">actual_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">host_buffer_size</span>
+    <span class="p">)</span></pre>
+<p>This method does the overlapped execution of compression where data transfers and kernel computation are overlapped.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>input byte sequence</p></td>
+</tr>
+<tr class="row-even"><td><p>out</p></td>
+<td><p>output byte sequence</p></td>
+</tr>
+<tr class="row-odd"><td><p>actual_size</p></td>
+<td><p>input size</p></td>
+</tr>
+<tr class="row-even"><td><p>host_buffer_size</p></td>
+<td><p>host buffer size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="decompress">
+<span id="cid-xf-compression-xfzlib-decompress"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1a3a38f2fd962e73904bff0a544e9f1942"></span><h3>decompress<a class="headerlink" href="#decompress" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">uint32_t</span> <span class="n">decompress</span> <span class="p">(</span>
+    <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">actual_size</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">cu_run</span>
+    <span class="p">)</span></pre>
+<p>This method does serial execution of decompression where data transfers and kernel execution in serial manner.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>input byte sequence</p></td>
+</tr>
+<tr class="row-even"><td><p>out</p></td>
+<td><p>output byte sequence</p></td>
+</tr>
+<tr class="row-odd"><td><p>actual_size</p></td>
+<td><p>input size</p></td>
+</tr>
+<tr class="row-even"><td><p>cu_run</p></td>
+<td><p>compute unit number</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="compress-buffer">
+<span id="cid-xf-compression-xfzlib-compress-buffer"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1add44116ad06aa8481a217a2bdecd710a"></span><h3>compress_buffer<a class="headerlink" href="#compress-buffer" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">int</span> <span class="n">compress_buffer</span> <span class="p">(</span>
+    <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="kt">uint64_t</span> <span class="n">input_size</span>
+    <span class="p">)</span></pre>
+<p>In shared library flow this call can be used for compress buffer in overlapped manner. This is used in libz.so created.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>input byte sequence</p></td>
+</tr>
+<tr class="row-even"><td><p>out</p></td>
+<td><p>output byte sequence</p></td>
+</tr>
+<tr class="row-odd"><td><p>input_size</p></td>
+<td><p>input size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="decompress-buffer">
+<span id="cid-xf-compression-xfzlib-decompress-buffer"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1a98d427f0d449ede696dbfdfe051c0ee5"></span><h3>decompress_buffer<a class="headerlink" href="#decompress-buffer" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">int</span> <span class="n">decompress_buffer</span> <span class="p">(</span>
+    <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="kt">uint64_t</span> <span class="n">input_size</span>
+    <span class="p">)</span></pre>
+<p>In shared library flow this call can be used for decompress buffer in serial manner. This is used in libz.so created.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>input byte sequence</p></td>
+</tr>
+<tr class="row-even"><td><p>out</p></td>
+<td><p>output byte sequence</p></td>
+</tr>
+<tr class="row-odd"><td><p>input_size</p></td>
+<td><p>input size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="compress-file">
+<span id="cid-xf-compression-xfzlib-compress-file"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1aafb0325fafae0b0f3139fa350eb71178"></span><h3>compress_file<a class="headerlink" href="#compress-file" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">uint32_t</span> <span class="n">compress_file</span> <span class="p">(</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">inFile_name</span><span class="p">,</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">outFile_name</span><span class="p">,</span>
+    <span class="kt">uint64_t</span> <span class="n">input_size</span>
+    <span class="p">)</span></pre>
+<p>This method does file operations and invokes compress API which internally does zlib compression on FPGA in overlapped manner.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>inFile_name</p></td>
+<td><p>input file name</p></td>
+</tr>
+<tr class="row-even"><td><p>outFile_name</p></td>
+<td><p>output file name</p></td>
+</tr>
+<tr class="row-odd"><td><p>actual_size</p></td>
+<td><p>input size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="decompress-file">
+<span id="cid-xf-compression-xfzlib-decompress-file"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1a847206ba337f6811dbd477c1533586c3"></span><h3>decompress_file<a class="headerlink" href="#decompress-file" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">uint32_t</span> <span class="n">decompress_file</span> <span class="p">(</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">inFile_name</span><span class="p">,</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">outFile_name</span><span class="p">,</span>
+    <span class="kt">uint64_t</span> <span class="n">input_size</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">cu_run</span>
+    <span class="p">)</span></pre>
+<p>This method does file operations and invokes decompress API which internally does zlib decompression on FPGA in overlapped manner.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>inFile_name</p></td>
+<td><p>input file name</p></td>
+</tr>
+<tr class="row-even"><td><p>outFile_name</p></td>
+<td><p>output file name</p></td>
+</tr>
+<tr class="row-odd"><td><p>input_size</p></td>
+<td><p>input size</p></td>
+</tr>
+<tr class="row-even"><td><p>cu_run</p></td>
+<td><p>compute unit number</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="init">
+<span id="cid-xf-compression-xfzlib-init"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1af168fb98389a6be83abb57659bfb3485"></span><h3>init<a class="headerlink" href="#init" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">init</span> <span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">binaryFile</span><span class="p">)</span></pre>
+<p>OpenCL setup initialization.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>binaryFile</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="release">
+<span id="cid-xf-compression-xfzlib-release"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1a161a134c573011f422026e83597b96b3"></span><h3>release<a class="headerlink" href="#release" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">release</span> <span class="p">()</span></pre>
+<p>OpenCL setup release.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../../source/L3/demo.html" class="btn btn-neutral float-right" title="Demos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="class_xf_compression_xfLz4.html" class="btn btn-neutral float-left" title="class xf::compression::xfLz4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo" class="copyright">
+    <p>
+        
+        &copy; Copyright 2019, Xilinx
+
+    </p>
+  </div>
+<!--
+    
+    
+      Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+-->
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
