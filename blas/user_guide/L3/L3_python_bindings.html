@@ -17,7 +17,7 @@
     <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
     <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>1. Introduction &mdash; Vitis BLAS Library 1.0 beta documentation</title>
+  <title>L3 Python bindings &mdash; Vitis BLAS Library 1.0 beta documentation</title>
   
 <!-- Header information provided by Emily-->
     <meta name="apple-itunes-app" content="app-id=1063287962">
@@ -61,8 +61,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="L1 Compute APIs" href="L1_compute_api.html" />
-    <link rel="prev" title="L1 API Overview" href="L1_overview.html" /> 
+    <link rel="next" title="L3 API application" href="L3_application.html" />
+    <link rel="prev" title="L3 API test" href="L3_test.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -167,26 +167,37 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="L1.html">L1 Primitives User Guide</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="L1_overview.html">L1 API Overview</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">1. Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#l1-primitives-usage">2. L1 primitives’ usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#matrix-storage-used-in-l1-primitives">3. Matrix storage used in L1 primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/L1.html">L1 Primitives User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="L3.html">L3 API User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="L3_overview.html">L3 API Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L3_example.html">L3 API example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L3_benchmark.html">L3 API benchmark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L3_test.html">L3 API test</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">L3 Python bindings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">1. Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#set-python-environment">1.1 Set Python Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#build-shared-library">1.2 Build shared library</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="L1_compute_api.html">L1 Compute APIs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="L1_data_mover.html">L1 Data mover</a></li>
-<li class="toctree-l2"><a class="reference internal" href="L1_test.html">L1 Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pyenvguide.html">Python environment setup guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-xfblas-l3-python-api">2. Using the XFBLAS L3 Python API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general-description">2.1 General description</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#xfblas-initialization">2.1.1 XFBLAS initialization</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../L3/L3.html">L3 API User Guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xfblas-helper-function-reference">2.2 XFBLAS Helper Function Reference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="L3_application.html">L3 API application</a></li>
+</ul>
+</li>
 </ul>
 
             
 			<p class="caption"><span class="caption-text">This Page</span></p>
 				<ul class="current">
-				  <li class="toctree-l1"><a href="../../_sources/user_guide/L1/L1_overview_content.rst.txt"
+				  <li class="toctree-l1"><a href="../../_sources/user_guide/L3/L3_python_bindings.rst.txt"
 						rel="nofollow">Show Source</a></li>						
 				</ul>
           
@@ -232,17 +243,15 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="L1.html">L1 Primitives User Guide</a> &raquo;</li>
+          <li><a href="L3.html">L3 API User Guide</a> &raquo;</li>
         
-          <li><a href="L1_overview.html">L1 API Overview</a> &raquo;</li>
-        
-      <li>1. Introduction</li>
+      <li>L3 Python bindings</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/user_guide/L1/L1_overview_content.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/user_guide/L3/L3_python_bindings.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -255,42 +264,39 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p id="user-guide-overview-content-l1">XFBLAS L1 primitives are the C++ implementation of BLAS functions. These implementations are intended to be used by HLS (High Level Synthesis) users to build FPGA logic for their applications.</p>
+  <div class="section" id="l3-python-bindings">
+<span id="python-bindings-l3"></span><h1>L3 Python bindings<a class="headerlink" href="#l3-python-bindings" title="Permalink to this headline">¶</a></h1>
+<p>XFBLAS level 3 provides Python bindings that users could use XFBLAS libraries in Python. Examples of using XFBLAS Python bindings in keras to do classification are also available to try. Applications for using Python API could be found in <a class="reference internal" href="L3_application.html"><span class="doc">L3 API application</span></a>.</p>
 <div class="section" id="introduction">
-<h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>L1 primitives’ implementations include computation and data mover modules. The computation modules always have stream interfaces. The data mover modules move data between vectors’ and matrices’ on-chip storage and the computation modules. This design strategy allows FPGA application programmers to quickly develop a high-performed logic by simply chaining serval computation and data mover modules together. The organization of XFBLAS L1 files and directories, as described below, reflects this design strategy.</p>
-<ul class="simple">
-<li><p><strong>L1/include/hw/xf_blas</strong>: the directory that contains the computation modules</p></li>
-<li><p><strong>L1/include/hw/xf_blas.hpp</strong>: the header file for L1 primitivers’ users</p></li>
-<li><p><strong>L1/include/hw/helpers/dataMover</strong>: the directory that contains the data mover modules</p></li>
-<li><p><strong>L1/include/hw/helpers/funcs</strong>: the directory that contains the common computation modules used by several primitives</p></li>
-<li><p><strong>L1/include/hw/helpers/utils</strong>: the directory that contains the utilities used in the primitives’ implementations</p></li>
-<li><p><strong>L1/test/hw</strong>: the directory that contains the top modules used for testing each implemented primitive, including its computation and data mover modules</p></li>
-<li><p><strong>L1/test/sw</strong>: the directory that contains the testbench and test infrastructure support for the primitives</p></li>
-<li><p><strong>L1/test/build</strong>: the directory that includes the vivado_hls script used for creating vivado_hls project to test each primitive’s implementation</p></li>
-<li><p><strong>L1/test/run_test.py</strong>: the python script for testing L1 primitives’ implementations</p></li>
-<li><p><strong>L1/test/set_env.sh</strong>: the shell script for setting up the environment used for testing L1 primitives.</p></li>
-</ul>
-<p>More information about computation and data mover modules can be found in <a class="reference internal" href="L1_compute_api.html"><span class="doc">L1 computation APIs</span></a> and <a class="reference internal" href="L1_data_mover.html"><span class="doc">L1 data mover APIs</span></a>.</p>
+<h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="set-python-environment">
+<h3>1.1 Set Python Environment<a class="headerlink" href="#set-python-environment" title="Permalink to this headline">¶</a></h3>
+<p>Please refer to <a class="reference internal" href="../L1/pyenvguide.html"><span class="doc">Python environment setup guide</span></a>.</p>
 </div>
-<div class="section" id="l1-primitives-usage">
-<h1>2. L1 primitives’ usage<a class="headerlink" href="#l1-primitives-usage" title="Permalink to this headline">¶</a></h1>
-<p>XFBLAS L1 primitives are intended to be used by hardware developers to implement an application or algorithm specific FPGA logic in HLS. The following example code shows a typical usage of L1 primitives.</p>
-<p>The uut_top.cpp file in each primitive folder under L1/tests/hw directory provides a usage example of combining computation and data mover modules of the primitive. More information about testing L1 primitives can be found in <a class="reference internal" href="L1_test.html"><span class="doc">Test L1 primitives</span></a>.</p>
+<div class="section" id="build-shared-library">
+<h3>1.2 Build shared library<a class="headerlink" href="#build-shared-library" title="Permalink to this headline">¶</a></h3>
+<p>L3 Python bindings use ctypes to wrap the L3 API functions in pure Python. In order to call these Python functions, users need to build the xfblas.so by Makefile in L3/src/sw/python_api locally.</p>
 </div>
-<div class="section" id="matrix-storage-used-in-l1-primitives">
-<h1>3. Matrix storage used in L1 primitives<a class="headerlink" href="#matrix-storage-used-in-l1-primitives" title="Permalink to this headline">¶</a></h1>
-<p>The data mover components move matrices’ and vectors’ data stored in the on-chip memory, normally BRAM or URAM slices, into streams to feed the computation modules. The following matrix storage formats are supported.</p>
-<ul class="simple">
-<li><p>row-major matrix</p></li>
-<li><p>row-major symmetric matrix</p></li>
-<li><p>row-major packed symmetric matrix</p></li>
-<li><p>row-major triangular matrix</p></li>
-<li><p>row-major packed triangular matrix</p></li>
-<li><p>column-major banded matrix</p></li>
-<li><p>column-major banded symmetric matrix</p></li>
-</ul>
-<p>More information about matrix storage formats and data mover components can be found in <a class="reference internal" href="L1_data_mover.html"><span class="doc">Data movers used in L1 primitives</span></a>.</p>
+</div>
+<div class="section" id="using-the-xfblas-l3-python-api">
+<h2>2. Using the XFBLAS L3 Python API<a class="headerlink" href="#using-the-xfblas-l3-python-api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="general-description">
+<h3>2.1 General description<a class="headerlink" href="#general-description" title="Permalink to this headline">¶</a></h3>
+<p>This section describes how to use the XFBLAS library API level Python bindings. To use the library, users need to source PYTHONPATH to the directory of xfblas_L3.py and import xfblas_L3 as xfblas at the beginning of the Python file.</p>
+<div class="section" id="xfblas-initialization">
+<h4>2.1.1 XFBLAS initialization<a class="headerlink" href="#xfblas-initialization" title="Permalink to this headline">¶</a></h4>
+<p>To initialize the library, call the following two functions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xfblas_L3</span> <span class="k">as</span> <span class="nn">xfblas</span>
+<span class="n">args</span><span class="p">,</span> <span class="n">xclbin_opts</span> <span class="o">=</span> <span class="n">xfblas</span><span class="o">.</span><span class="n">processCommandLine</span><span class="p">()</span>
+<span class="n">xfblas</span><span class="o">.</span><span class="n">createGemm</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="n">xclbin_opts</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="xfblas-helper-function-reference">
+<h3>2.2 XFBLAS Helper Function Reference<a class="headerlink" href="#xfblas-helper-function-reference" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
 </div>
 
 
@@ -301,10 +307,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="L1_compute_api.html" class="btn btn-neutral float-right" title="L1 Compute APIs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="L3_application.html" class="btn btn-neutral float-right" title="L3 API application" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="L1_overview.html" class="btn btn-neutral float-left" title="L1 API Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="L3_test.html" class="btn btn-neutral float-left" title="L3 API test" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

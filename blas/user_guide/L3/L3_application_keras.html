@@ -17,7 +17,7 @@
     <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
     <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/favicon.ico">
   
-  <title>1. Introduction &mdash; Vitis BLAS Library 1.0 beta documentation</title>
+  <title>XFBLAS L3 based Keras MLP Acceleration &mdash; Vitis BLAS Library 1.0 beta documentation</title>
   
 <!-- Header information provided by Emily-->
     <meta name="apple-itunes-app" content="app-id=1063287962">
@@ -61,8 +61,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="L1 Compute APIs" href="L1_compute_api.html" />
-    <link rel="prev" title="L1 API Overview" href="L1_overview.html" /> 
+    <link rel="prev" title="L3 API application" href="L3_application.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -167,26 +166,31 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="L1.html">L1 Primitives User Guide</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="L1_overview.html">L1 API Overview</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">1. Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#l1-primitives-usage">2. L1 primitives’ usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#matrix-storage-used-in-l1-primitives">3. Matrix storage used in L1 primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/L1.html">L1 Primitives User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="L3.html">L3 API User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="L3_overview.html">L3 API Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L3_example.html">L3 API example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L3_benchmark.html">L3 API benchmark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L3_test.html">L3 API test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="L3_python_bindings.html">L3 Python bindings</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="L3_application.html">L3 API application</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">XFBLAS L3 based Keras MLP Acceleration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">1. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#python-classes-for-using-keras">2. Python Classes for using Keras</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#steps-to-run-the-application">3. Steps to run the application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#details">3. details</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="L1_compute_api.html">L1 Compute APIs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="L1_data_mover.html">L1 Data mover</a></li>
-<li class="toctree-l2"><a class="reference internal" href="L1_test.html">L1 Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pyenvguide.html">Python environment setup guide</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../L3/L3.html">L3 API User Guide</a></li>
+</ul>
+</li>
 </ul>
 
             
 			<p class="caption"><span class="caption-text">This Page</span></p>
 				<ul class="current">
-				  <li class="toctree-l1"><a href="../../_sources/user_guide/L1/L1_overview_content.rst.txt"
+				  <li class="toctree-l1"><a href="../../_sources/user_guide/L3/L3_application_keras.rst.txt"
 						rel="nofollow">Show Source</a></li>						
 				</ul>
           
@@ -232,17 +236,17 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="L1.html">L1 Primitives User Guide</a> &raquo;</li>
+          <li><a href="L3.html">L3 API User Guide</a> &raquo;</li>
         
-          <li><a href="L1_overview.html">L1 API Overview</a> &raquo;</li>
+          <li><a href="L3_application.html">L3 API application</a> &raquo;</li>
         
-      <li>1. Introduction</li>
+      <li>XFBLAS L3 based Keras MLP Acceleration</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/user_guide/L1/L1_overview_content.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/user_guide/L3/L3_application_keras.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -255,42 +259,74 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p id="user-guide-overview-content-l1">XFBLAS L1 primitives are the C++ implementation of BLAS functions. These implementations are intended to be used by HLS (High Level Synthesis) users to build FPGA logic for their applications.</p>
+  <div class="section" id="xfblas-l3-based-keras-mlp-acceleration">
+<span id="keras-application-l3"></span><h1>XFBLAS L3 based Keras MLP Acceleration<a class="headerlink" href="#xfblas-l3-based-keras-mlp-acceleration" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
-<h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>L1 primitives’ implementations include computation and data mover modules. The computation modules always have stream interfaces. The data mover modules move data between vectors’ and matrices’ on-chip storage and the computation modules. This design strategy allows FPGA application programmers to quickly develop a high-performed logic by simply chaining serval computation and data mover modules together. The organization of XFBLAS L1 files and directories, as described below, reflects this design strategy.</p>
-<ul class="simple">
-<li><p><strong>L1/include/hw/xf_blas</strong>: the directory that contains the computation modules</p></li>
-<li><p><strong>L1/include/hw/xf_blas.hpp</strong>: the header file for L1 primitivers’ users</p></li>
-<li><p><strong>L1/include/hw/helpers/dataMover</strong>: the directory that contains the data mover modules</p></li>
-<li><p><strong>L1/include/hw/helpers/funcs</strong>: the directory that contains the common computation modules used by several primitives</p></li>
-<li><p><strong>L1/include/hw/helpers/utils</strong>: the directory that contains the utilities used in the primitives’ implementations</p></li>
-<li><p><strong>L1/test/hw</strong>: the directory that contains the top modules used for testing each implemented primitive, including its computation and data mover modules</p></li>
-<li><p><strong>L1/test/sw</strong>: the directory that contains the testbench and test infrastructure support for the primitives</p></li>
-<li><p><strong>L1/test/build</strong>: the directory that includes the vivado_hls script used for creating vivado_hls project to test each primitive’s implementation</p></li>
-<li><p><strong>L1/test/run_test.py</strong>: the python script for testing L1 primitives’ implementations</p></li>
-<li><p><strong>L1/test/set_env.sh</strong>: the shell script for setting up the environment used for testing L1 primitives.</p></li>
-</ul>
-<p>More information about computation and data mover modules can be found in <a class="reference internal" href="L1_compute_api.html"><span class="doc">L1 computation APIs</span></a> and <a class="reference internal" href="L1_data_mover.html"><span class="doc">L1 data mover APIs</span></a>.</p>
+<h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Keras is Python based machine learning framework. It provides high level neural network APIs. It can run on top of other low level neural network frameworks for numerical computations. XFBLAS L3 Python APIs could be used for full connected Keras model and could provide better performance compared to CPU result.</p>
+<p>In L3/applications/MLP/keras/simple, an example of using Keras to do classification on a simple model showed that how to use XFBLAS L3 Python APIs in Keras applications.</p>
 </div>
-<div class="section" id="l1-primitives-usage">
-<h1>2. L1 primitives’ usage<a class="headerlink" href="#l1-primitives-usage" title="Permalink to this headline">¶</a></h1>
-<p>XFBLAS L1 primitives are intended to be used by hardware developers to implement an application or algorithm specific FPGA logic in HLS. The following example code shows a typical usage of L1 primitives.</p>
-<p>The uut_top.cpp file in each primitive folder under L1/tests/hw directory provides a usage example of combining computation and data mover modules of the primitive. More information about testing L1 primitives can be found in <a class="reference internal" href="L1_test.html"><span class="doc">Test L1 primitives</span></a>.</p>
+<div class="section" id="python-classes-for-using-keras">
+<h2>2. Python Classes for using Keras<a class="headerlink" href="#python-classes-for-using-keras" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="matrix-storage-used-in-l1-primitives">
-<h1>3. Matrix storage used in L1 primitives<a class="headerlink" href="#matrix-storage-used-in-l1-primitives" title="Permalink to this headline">¶</a></h1>
-<p>The data mover components move matrices’ and vectors’ data stored in the on-chip memory, normally BRAM or URAM slices, into streams to feed the computation modules. The following matrix storage formats are supported.</p>
+<div class="section" id="steps-to-run-the-application">
+<h2>3. Steps to run the application<a class="headerlink" href="#steps-to-run-the-application" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>row-major matrix</p></li>
-<li><p>row-major symmetric matrix</p></li>
-<li><p>row-major packed symmetric matrix</p></li>
-<li><p>row-major triangular matrix</p></li>
-<li><p>row-major packed triangular matrix</p></li>
-<li><p>column-major banded matrix</p></li>
-<li><p>column-major banded symmetric matrix</p></li>
+<li><p>Build shared library</p></li>
+<li><p>set PYTHONPATH</p></li>
+<li><p>find the path to the xclbin and run the command (currently U200 and U250 are supported, xclbin could be downloaded in <a class="reference external" href="https://www.xilinx.com/bin/public/openDownload?filename=vitis_BLAS_library_r1.0_xclbin.tar">Vitis BLAS library xclbins</a> )</p></li>
 </ul>
-<p>More information about matrix storage formats and data mover components can be found in <a class="reference internal" href="L1_data_mover.html"><span class="doc">Data movers used in L1 primitives</span></a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/xilinx/xrt/setup.sh
+<span class="nb">cd</span> L3/src/sw/python_api/
+make
+<span class="nb">cd</span> ../../../applications/MLP/keras/simple/
+<span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span>../../../../src/sw/python_api:./
+python mlp.py --data data/SansEC_Train_Data.csv --model best_model.h5 --xclbin PATH_TO_FCN_XCLBIN/gemx.xclbin --cfg PATH_TO_FCN_XCLBIN/config_info.dat --lib ../../../../src/sw/python_api/lib/xfblas.so
+</pre></div>
+</div>
+</div>
+<div class="section" id="details">
+<h2>3. details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+<p>This Keras application is using xclbin that included FCN (Fully Connected Network) engine. FCN engine is based on GEMM operation with post scales and pRelu supported.</p>
+<ul class="simple">
+<li><p>FCN :</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>C = pRelu(((A * B + X) * alpha) &gt;&gt; beta; where A, B, X and C are dense matrices, alpha and beta are integers.</p></li>
+<li><p>pRelu: for each c in C; c = (c &lt; 0)? ((c * pRelu_alpha) &gt;&gt; pRelu_beta): c; where pRelu_alpha and pRelu_beta are integers.</p></li>
+</ol>
+<p>The following two packages are required for using XFBLAS L3 Python APIs:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xfblas_L3</span> <span class="k">as</span> <span class="nn">xfblas</span>
+<span class="kn">import</span> <span class="nn">mlp_common</span>
+</pre></div>
+</div>
+<p>Only predict is done by FPGA, so CPU pre-trained 3-layer model is saved in best_model.h5, users could also set option –train to True to re-train the model.</p>
+<p>Option –run_async is for the case when xclbin has multiple compute units, users could set it to True to run those CUs in parallel. For larger input sizes, this will bring better performance compared to run one by one. Currently, 2 CUs could be put in U200 xclbin, and 4 CUs could be put in U250 xclbins.</p>
+<p>In the mlp.py, users first need to do the initialization, one fpga_rt is required for one CU, in the following code, model is the Keras Sequential model, its weight matrices are loaded from given model file best_model.h5. xclbin_opts is the paramater loaded from config_info.dat.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fpga_rt</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">fpga_out</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numKernels</span><span class="p">):</span>
+  <span class="n">fpga_rt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mlp_common</span><span class="o">.</span><span class="n">init_fpga</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">xclbin_opts</span><span class="p">,</span> <span class="n">g_wgt_scale</span><span class="p">,</span> <span class="n">g_bias_scale</span><span class="p">,</span> <span class="n">g_post_scale</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>After initialization, input sample need to be sent to FPGA for predict, and results will be returned to fpga_out.</p>
+<p>For non-async case, simply call predict function will do the job.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numKernels</span><span class="p">):</span>
+    <span class="n">fpga_out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fpga_rt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">g_in_scale</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>For async case,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numKernels</span><span class="p">):</span>
+    <span class="n">fpga_rt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">send_matrices</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="n">xfblas</span><span class="o">.</span><span class="n">executeAsync</span><span class="p">(</span><span class="n">numKernels</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numKernels</span><span class="p">):</span>
+    <span class="n">fpga_out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fpga_rt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>In the given example, the activation function of the last layer is softmax, so CPU softmax function is called after getting the results from FPGA. Users could apply different activation function after getting results from FPGA.</p>
+</div>
 </div>
 
 
@@ -301,10 +337,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="L1_compute_api.html" class="btn btn-neutral float-right" title="L1 Compute APIs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="L1_overview.html" class="btn btn-neutral float-left" title="L1 API Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="L3_application.html" class="btn btn-neutral float-left" title="L3 API application" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
