@@ -41,7 +41,7 @@ cd $2/docs
 
 echo "Setting ENV variables..."
 export PROJ_PATH=`pwd`/../
-export HTML_DEST_DIR=`pwd`/../../$basename_basename/$2/master/html
+export HTML_DEST_DIR=`pwd`/../../$basename_basename/$2/
 export PATH=$PATH\:/usr/share/
 
 while true; do
@@ -56,5 +56,5 @@ done
 cd ../../
 rm -rf $2 $4
 cd $abs_basename
-cp -rf docs master/html/source/L2/
+cp -rf docs source/L2/
 echo "Documentation can be review by opening index.html"
