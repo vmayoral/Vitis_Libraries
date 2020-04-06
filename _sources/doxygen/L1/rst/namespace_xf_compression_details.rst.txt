@@ -82,9 +82,9 @@ namespace details
 .. _cid-xf::compression::details::mm2multstream:
 .. _doxid-namespacexf_1_1compression_1_1details_1ad80d567d4d31ae62adcff3a421b3a12b:
 .. _cid-xf::compression::details::mm2multstreamsimple:
-.. _doxid-namespacexf_1_1compression_1_1details_1aae639bba6c7a35537125fcdce8f38963:
+.. _doxid-namespacexf_1_1compression_1_1details_1a0b09d07279faa9e1dc4ec8401d76824f:
 .. _cid-xf::compression::details::mm2multstreamdownsizer:
-.. _doxid-namespacexf_1_1compression_1_1details_1acb9927156f1d5ebf9755a70cda2cc80a:
+.. _doxid-namespacexf_1_1compression_1_1details_1a51953431e5c83c6f5732f8c8389e6669:
 .. _cid-xf::compression::details::mm2multstreamnew:
 .. _doxid-namespacexf_1_1compression_1_1details_1acc68842b9970321b520fa81970b114f7:
 .. _cid-xf::compression::details::mm2singlestream:
