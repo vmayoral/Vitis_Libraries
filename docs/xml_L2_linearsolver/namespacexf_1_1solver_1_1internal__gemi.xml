@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
-  <compounddef id="namespacexf_1_1solver_1_1internal__gemi" kind="namespace" language="C++">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="namespacexf_1_1solver_1_1internal__gemi" kind="namespace">
     <compoundname>xf::solver::internal_gemi</compoundname>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__gemi_1a4945d04c1e8c9f15d794e3c20021a96e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__gemi_1a6deff673e1dffee57499c59af6198b44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -21,7 +21,7 @@
         </templateparamlist>
         <type>void</type>
         <definition>void xf::solver::internal_gemi::trisolver_L</definition>
-        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataB[NCU][(N+NCU - 1)/NCU], T dataX[N])</argsstring>
+        <argsstring>(int n, T dataA[NCU][(N+NCU-1)/NCU][N], T dataB[NCU][(N+NCU-1)/NCU], T dataX[N])</argsstring>
         <name>trisolver_L</name>
         <param>
           <type>int</type>
@@ -30,12 +30,12 @@
         <param>
           <type>T</type>
           <declname>dataA</declname>
-          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+          <array>[NCU][(N+NCU-1)/NCU][N]</array>
         </param>
         <param>
           <type>T</type>
           <declname>dataB</declname>
-          <array>[NCU][(N+NCU - 1)/NCU]</array>
+          <array>[NCU][(N+NCU-1)/NCU]</array>
         </param>
         <param>
           <type>T</type>
@@ -48,9 +48,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" line="30" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" bodystart="30" bodyend="50"/>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" line="30" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" bodystart="30" bodyend="48"/>
       </memberdef>
-      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__gemi_1a789a4309dc8b5ed9950ddbfabb561f6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__gemi_1aca93abb22ceba7bc96c5ebed8ff07858" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -68,7 +68,7 @@
         </templateparamlist>
         <type>void</type>
         <definition>void xf::solver::internal_gemi::trisolver_U</definition>
-        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataB[NCU][(N+NCU - 1)/NCU], T dataX[N])</argsstring>
+        <argsstring>(int n, T dataA[NCU][(N+NCU-1)/NCU][N], T dataB[NCU][(N+NCU-1)/NCU], T dataX[N])</argsstring>
         <name>trisolver_U</name>
         <param>
           <type>int</type>
@@ -77,12 +77,12 @@
         <param>
           <type>T</type>
           <declname>dataA</declname>
-          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+          <array>[NCU][(N+NCU-1)/NCU][N]</array>
         </param>
         <param>
           <type>T</type>
           <declname>dataB</declname>
-          <array>[NCU][(N+NCU - 1)/NCU]</array>
+          <array>[NCU][(N+NCU-1)/NCU]</array>
         </param>
         <param>
           <type>T</type>
@@ -95,9 +95,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" line="53" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" bodystart="53" bodyend="73"/>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" line="51" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" bodystart="51" bodyend="69"/>
       </memberdef>
-      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__gemi_1af2a912b09f485f318a2d875bbb4e1fce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__gemi_1a5b447ff13b3bbc61ba858d18edb57a4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -115,7 +115,7 @@
         </templateparamlist>
         <type>void</type>
         <definition>void xf::solver::internal_gemi::inverse</definition>
-        <argsstring>(int n, int P[N], T dataA[NCU][(N+NCU - 1)/NCU][N], T dataX[N][N])</argsstring>
+        <argsstring>(int n, int P[N], T dataA[NCU][(N+NCU-1)/NCU][N], T dataX[N][N])</argsstring>
         <name>inverse</name>
         <param>
           <type>int</type>
@@ -129,7 +129,7 @@
         <param>
           <type>T</type>
           <declname>dataA</declname>
-          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+          <array>[NCU][(N+NCU-1)/NCU][N]</array>
         </param>
         <param>
           <type>T</type>
@@ -142,7 +142,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" line="76" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" bodystart="76" bodyend="110"/>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" line="72" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" bodystart="72" bodyend="108"/>
       </memberdef>
       <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__gemi_1a6a4bdd34ccf5b5eaafdccfaf56d72a96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -193,9 +193,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" line="113" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" bodystart="113" bodyend="119"/>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" line="111" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" bodystart="111" bodyend="117"/>
       </memberdef>
-      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__gemi_1a2fdd988b0db9bd56abf5878ee9aae9d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__gemi_1a879fea5be1884bd7b4533d3ca13f41aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -213,7 +213,7 @@
         </templateparamlist>
         <type>void</type>
         <definition>void xf::solver::internal_gemi::inverse_core</definition>
-        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataX[N][N])</argsstring>
+        <argsstring>(int n, T dataA[NCU][(N+NCU-1)/NCU][N], T dataX[N][N])</argsstring>
         <name>inverse_core</name>
         <param>
           <type>int</type>
@@ -222,7 +222,7 @@
         <param>
           <type>T</type>
           <declname>dataA</declname>
-          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+          <array>[NCU][(N+NCU-1)/NCU][N]</array>
         </param>
         <param>
           <type>T</type>
@@ -235,7 +235,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" line="121" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" bodystart="121" bodyend="128"/>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" line="119" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/gematrixinverse.hpp" bodystart="119" bodyend="125"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
-  <compounddef id="unionxf_1_1solver_1_1internal_1_1double__cast__new" kind="union" language="C++" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="unionxf_1_1solver_1_1internal_1_1double__cast__new" kind="union" prot="public">
     <compoundname>xf::solver::internal::double_cast_new</compoundname>
     <includes refid="gesvdj_8hpp" local="no">gesvdj.hpp</includes>
       <sectiondef kind="public-attrib">

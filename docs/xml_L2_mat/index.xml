@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.14">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.5">
   <compound refid="unionxf_1_1solver_1_1internal_1_1double__cast__new" kind="union"><name>xf::solver::internal::double_cast_new</name>
     <member refid="unionxf_1_1solver_1_1internal_1_1double__cast__new_1ae618d53782741111e97050d85288dad8" kind="variable"><name>d</name></member>
     <member refid="unionxf_1_1solver_1_1internal_1_1double__cast__new_1a1efddecac427624210d4e868239fde32" kind="variable"><name>i</name></member>
@@ -29,9 +29,9 @@
     <member refid="namespacexf_1_1solver_1a86d85c78cb26ccbc608e10f2140c297b" kind="function"><name>potrf</name></member>
   </compound>
   <compound refid="namespacexf_1_1solver_1_1internal" kind="namespace"><name>xf::solver::internal</name>
-    <member refid="namespacexf_1_1solver_1_1internal_1ab475066dc031316e497529f93b97d5f0" kind="function"><name>updateColumns</name></member>
-    <member refid="namespacexf_1_1solver_1_1internal_1a85ccdc709e29ef31c1aa5fe8869d1f9d" kind="function"><name>update</name></member>
-    <member refid="namespacexf_1_1solver_1_1internal_1aff9b5f09f8b827ab92dc510531cbeb5d" kind="function"><name>qrf</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal_1af55a4c2fbe3ff53869bc9ccb05b50c02" kind="function"><name>updateColumns</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal_1ad8102ac3d3d3c563e75fefd413817680" kind="function"><name>update</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal_1ad59a4e8fb17a54a2a8398c523565da29" kind="function"><name>qrf</name></member>
     <member refid="namespacexf_1_1solver_1_1internal_1a8f2c74edab5dcce8c56064e2f7667d55" kind="function"><name>jacobi_rotation_2x2</name></member>
     <member refid="namespacexf_1_1solver_1_1internal_1a1ca13651365e8bea947adbe881fa58ee" kind="function"><name>swapTwo</name></member>
     <member refid="namespacexf_1_1solver_1_1internal_1ab59a13abf1abdb093f910a7e398e37c3" kind="function"><name>GenBlockMat</name></member>
@@ -50,10 +50,10 @@
     <member refid="namespacexf_1_1solver_1_1internal_1aa4917299c2fd454532267908e8f76944" kind="function"><name>read_to_2cols</name></member>
     <member refid="namespacexf_1_1solver_1_1internal_1aa7fa46af494d5848625778515f85d8f6" kind="function"><name>rowUpdate</name></member>
     <member refid="namespacexf_1_1solver_1_1internal_1a893b086163868745116c1a13c8a4c5ca" kind="function"><name>getrf_nopivot_core</name></member>
-    <member refid="namespacexf_1_1solver_1_1internal_1a713f7b1a154f468f6fa30fde5bf679dd" kind="function"><name>chol_col</name></member>
-    <member refid="namespacexf_1_1solver_1_1internal_1adbd492e61179a13632fb32adef9f2497" kind="function"><name>chol_jj</name></member>
-    <member refid="namespacexf_1_1solver_1_1internal_1a61a8301dc333e7c780cb8c07bc98aeca" kind="function"><name>chol_col_wrapper</name></member>
-    <member refid="namespacexf_1_1solver_1_1internal_1a12123b06ac77e65ed299e6ad496c35f7" kind="function"><name>cholesky_core</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal_1ab4887555d40c2e2b1c78e73976ea9c32" kind="function"><name>chol_col</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal_1ac6e51b75c4355f8a90e0974a982779a3" kind="function"><name>chol_jj</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal_1afa65ea570adec57819b45d90c2b064bd" kind="function"><name>chol_col_wrapper</name></member>
+    <member refid="namespacexf_1_1solver_1_1internal_1a75ba2bf52fd98c6cdbc0c27ae1a14877" kind="function"><name>cholesky_core</name></member>
   </compound>
   <compound refid="namespacexf_1_1solver_1_1internalgetrf" kind="namespace"><name>xf::solver::internalgetrf</name>
     <member refid="namespacexf_1_1solver_1_1internalgetrf_1a6b3d757f684ad31a4b2204537c21071f" kind="function"><name>subUpdate</name></member>

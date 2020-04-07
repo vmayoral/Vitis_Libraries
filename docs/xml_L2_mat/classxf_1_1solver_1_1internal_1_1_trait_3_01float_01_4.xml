@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
-  <compounddef id="classxf_1_1solver_1_1internal_1_1_trait_3_01float_01_4" kind="class" language="C++" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classxf_1_1solver_1_1internal_1_1_trait_3_01float_01_4" kind="class" prot="public">
     <compoundname>xf::solver::internal::Trait&lt; float &gt;</compoundname>
     <includes refid="geqrf_8hpp" local="no">geqrf.hpp</includes>
     <templateparamlist>

@@ -16,11 +16,11 @@ namespace internal
 
 
 
-.. _doxid-namespacexf_1_1solver_1_1internal_1ab475066dc031316e497529f93b97d5f0:
+.. _doxid-namespacexf_1_1solver_1_1internal_1af55a4c2fbe3ff53869bc9ccb05b50c02:
 .. _cid-xf::solver::internal::updatecolumns:
-.. _doxid-namespacexf_1_1solver_1_1internal_1a85ccdc709e29ef31c1aa5fe8869d1f9d:
+.. _doxid-namespacexf_1_1solver_1_1internal_1ad8102ac3d3d3c563e75fefd413817680:
 .. _cid-xf::solver::internal::update:
-.. _doxid-namespacexf_1_1solver_1_1internal_1aff9b5f09f8b827ab92dc510531cbeb5d:
+.. _doxid-namespacexf_1_1solver_1_1internal_1ad59a4e8fb17a54a2a8398c523565da29:
 .. _cid-xf::solver::internal::qrf:
 .. _doxid-namespacexf_1_1solver_1_1internal_1a8f2c74edab5dcce8c56064e2f7667d55:
 .. _cid-xf::solver::internal::jacobi_rotation_2x2:
@@ -50,13 +50,13 @@ namespace internal
 .. _cid-xf::solver::internal::rowupdate:
 .. _doxid-namespacexf_1_1solver_1_1internal_1a893b086163868745116c1a13c8a4c5ca:
 .. _cid-xf::solver::internal::getrf_nopivot_core:
-.. _doxid-namespacexf_1_1solver_1_1internal_1a713f7b1a154f468f6fa30fde5bf679dd:
+.. _doxid-namespacexf_1_1solver_1_1internal_1ab4887555d40c2e2b1c78e73976ea9c32:
 .. _cid-xf::solver::internal::chol_col:
-.. _doxid-namespacexf_1_1solver_1_1internal_1adbd492e61179a13632fb32adef9f2497:
+.. _doxid-namespacexf_1_1solver_1_1internal_1ac6e51b75c4355f8a90e0974a982779a3:
 .. _cid-xf::solver::internal::chol_jj:
-.. _doxid-namespacexf_1_1solver_1_1internal_1a61a8301dc333e7c780cb8c07bc98aeca:
+.. _doxid-namespacexf_1_1solver_1_1internal_1afa65ea570adec57819b45d90c2b064bd:
 .. _cid-xf::solver::internal::chol_col_wrapper:
-.. _doxid-namespacexf_1_1solver_1_1internal_1a12123b06ac77e65ed299e6ad496c35f7:
+.. _doxid-namespacexf_1_1solver_1_1internal_1a75ba2bf52fd98c6cdbc0c27ae1a14877:
 .. _cid-xf::solver::internal::cholesky_core:
 .. ref-code-block:: cpp
 	:class: overview-code-block
@@ -90,8 +90,10 @@ calc_converge
 -------------
 
 
-Defined in <MatrixDecomposition/gesvj.hpp>
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: cpp
+	
+	#include "MatrixDecomposition/gesvj.hpp"
+
 
 
 .. ref-code-block:: cpp
@@ -114,8 +116,10 @@ read_and_gen_2x2
 ----------------
 
 
-Defined in <MatrixDecomposition/gesvj.hpp>
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: cpp
+	
+	#include "MatrixDecomposition/gesvj.hpp"
+
 
 
 .. ref-code-block:: cpp
@@ -150,8 +154,10 @@ read_V_2cols
 ------------
 
 
-Defined in <MatrixDecomposition/gesvj.hpp>
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: cpp
+	
+	#include "MatrixDecomposition/gesvj.hpp"
+
 
 
 .. ref-code-block:: cpp
@@ -181,8 +187,10 @@ read_to_2cols
 -------------
 
 
-Defined in <MatrixDecomposition/gesvj.hpp>
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: cpp
+	
+	#include "MatrixDecomposition/gesvj.hpp"
+
 
 
 .. ref-code-block:: cpp
