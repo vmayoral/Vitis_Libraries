@@ -26,8 +26,10 @@ syevj
 -----
 
 
-Defined in <EigenSolver/syevj.hpp>
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: cpp
+	
+	#include "EigenSolver/syevj.hpp"
+
 
 
 .. ref-code-block:: cpp

@@ -42,8 +42,10 @@ gelinearsolver
 --------------
 
 
-Defined in <LinearSolver/gelinearsolver.hpp>
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: cpp
+	
+	#include "LinearSolver/gelinearsolver.hpp"
+
 
 
 .. ref-code-block:: cpp
@@ -140,8 +142,10 @@ gematrixinverse
 ---------------
 
 
-Defined in <LinearSolver/gematrixinverse.hpp>
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: cpp
+	
+	#include "LinearSolver/gematrixinverse.hpp"
+
 
 
 .. ref-code-block:: cpp
@@ -218,8 +222,10 @@ gtsv
 ----
 
 
-Defined in <LinearSolver/gtsv_pcr.hpp>
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: cpp
+	
+	#include "LinearSolver/gtsv_pcr.hpp"
+
 
 
 .. ref-code-block:: cpp
@@ -289,8 +295,10 @@ polinearsolver
 --------------
 
 
-Defined in <LinearSolver/polinearsolver.hpp>
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: cpp
+	
+	#include "LinearSolver/polinearsolver.hpp"
+
 
 
 .. ref-code-block:: cpp
@@ -387,8 +395,10 @@ pomatrixinverse
 ---------------
 
 
-Defined in <LinearSolver/pomatrixinverse.hpp>
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: cpp
+	
+	#include "LinearSolver/pomatrixinverse.hpp"
+
 
 
 .. ref-code-block:: cpp
@@ -465,8 +475,10 @@ trtrs
 -----
 
 
-Defined in <LinearSolver/trtrs.hpp>
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: cpp
+	
+	#include "LinearSolver/trtrs.hpp"
+
 
 
 .. ref-code-block:: cpp

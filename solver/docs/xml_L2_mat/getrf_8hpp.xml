@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
-  <compounddef id="getrf_8hpp" kind="file" language="C++">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="getrf_8hpp" kind="file">
     <compoundname>getrf.hpp</compoundname>
     <includes local="no">hls_math.h</includes>
     <incdepgraph>
@@ -9,7 +9,7 @@
       </node>
       <node id="13">
         <label>/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/getrf.hpp</label>
-        <link refid="getrf_8hpp"/>
+        <link refid="getrf.hpp"/>
         <childnode refid="14" relation="include">
         </childnode>
       </node>
