@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
-  <compounddef id="namespacexf_1_1solver_1_1internal__polinear" kind="namespace" language="C++">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="namespacexf_1_1solver_1_1internal__polinear" kind="namespace">
     <compoundname>xf::solver::internal_polinear</compoundname>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__polinear_1af8173a44a8664165dc001f1aa4dea24c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__polinear_1a2d1f98c4c48726ae12335300a9236aeb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -21,7 +21,7 @@
         </templateparamlist>
         <type>void</type>
         <definition>void xf::solver::internal_polinear::chol_col</definition>
-        <argsstring>(int n, T dataA[(N+NCU - 1)/NCU][N], T dataj[N], T tmp1_i, int num, int j)</argsstring>
+        <argsstring>(int n, T dataA[(N+NCU-1)/NCU][N], T dataj[N], T tmp1_i, int num, int j)</argsstring>
         <name>chol_col</name>
         <param>
           <type>int</type>
@@ -30,7 +30,7 @@
         <param>
           <type>T</type>
           <declname>dataA</declname>
-          <array>[(N+NCU - 1)/NCU][N]</array>
+          <array>[(N+NCU-1)/NCU][N]</array>
         </param>
         <param>
           <type>T</type>
@@ -57,7 +57,7 @@
         </inbodydescription>
         <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" line="30" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" bodystart="30" bodyend="68"/>
       </memberdef>
-      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__polinear_1aeeaa3cdde54bd736bc5f93877917b2c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__polinear_1ad39ccc9f38adf830720c062ec4b976eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -75,12 +75,12 @@
         </templateparamlist>
         <type>void</type>
         <definition>void xf::solver::internal_polinear::chol_jj</definition>
-        <argsstring>(T dataA[NCU][(N+NCU - 1)/NCU][N], T dataj[NCU][N], T &amp;tmp1_j, int &amp;j)</argsstring>
+        <argsstring>(T dataA[NCU][(N+NCU-1)/NCU][N], T dataj[NCU][N], T &amp;tmp1_j, int &amp;j)</argsstring>
         <name>chol_jj</name>
         <param>
           <type>T</type>
           <declname>dataA</declname>
-          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+          <array>[NCU][(N+NCU-1)/NCU][N]</array>
         </param>
         <param>
           <type>T</type>
@@ -103,7 +103,7 @@
         </inbodydescription>
         <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" line="71" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" bodystart="71" bodyend="110"/>
       </memberdef>
-      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__polinear_1a8d334fc961128174e6275d8cf761e2f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__polinear_1abfd2c5fdaabcf25b5f8d520c3974370c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -121,7 +121,7 @@
         </templateparamlist>
         <type>void</type>
         <definition>void xf::solver::internal_polinear::chol_col_wrapper</definition>
-        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataj[NCU][N], T tmp1, int j)</argsstring>
+        <argsstring>(int n, T dataA[NCU][(N+NCU-1)/NCU][N], T dataj[NCU][N], T tmp1, int j)</argsstring>
         <name>chol_col_wrapper</name>
         <param>
           <type>int</type>
@@ -130,7 +130,7 @@
         <param>
           <type>T</type>
           <declname>dataA</declname>
-          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+          <array>[NCU][(N+NCU-1)/NCU][N]</array>
         </param>
         <param>
           <type>T</type>
@@ -153,7 +153,7 @@
         </inbodydescription>
         <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" line="113" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" bodystart="113" bodyend="122"/>
       </memberdef>
-      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__polinear_1a3779e98360c98f175de768c7b82e4cde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__polinear_1ae5be1623066362d37fa34f3f5f17536a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -171,7 +171,7 @@
         </templateparamlist>
         <type>void</type>
         <definition>void xf::solver::internal_polinear::trisolver_L</definition>
-        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataB[NCU][(N+NCU - 1)/NCU], T dataX[N])</argsstring>
+        <argsstring>(int n, T dataA[NCU][(N+NCU-1)/NCU][N], T dataB[NCU][(N+NCU-1)/NCU], T dataX[N])</argsstring>
         <name>trisolver_L</name>
         <param>
           <type>int</type>
@@ -180,12 +180,12 @@
         <param>
           <type>T</type>
           <declname>dataA</declname>
-          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+          <array>[NCU][(N+NCU-1)/NCU][N]</array>
         </param>
         <param>
           <type>T</type>
           <declname>dataB</declname>
-          <array>[NCU][(N+NCU - 1)/NCU]</array>
+          <array>[NCU][(N+NCU-1)/NCU]</array>
         </param>
         <param>
           <type>T</type>
@@ -198,9 +198,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" line="125" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" bodystart="125" bodyend="145"/>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" line="125" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" bodystart="125" bodyend="143"/>
       </memberdef>
-      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__polinear_1afd93e5d1c528d74fc252041941195126" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__polinear_1a82eeb60365dfc5f33ea6be9bd9e8a87e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -218,7 +218,7 @@
         </templateparamlist>
         <type>void</type>
         <definition>void xf::solver::internal_polinear::trisolver_U</definition>
-        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataB[NCU][(N+NCU - 1)/NCU], T dataX[N])</argsstring>
+        <argsstring>(int n, T dataA[NCU][(N+NCU-1)/NCU][N], T dataB[NCU][(N+NCU-1)/NCU], T dataX[N])</argsstring>
         <name>trisolver_U</name>
         <param>
           <type>int</type>
@@ -227,12 +227,12 @@
         <param>
           <type>T</type>
           <declname>dataA</declname>
-          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+          <array>[NCU][(N+NCU-1)/NCU][N]</array>
         </param>
         <param>
           <type>T</type>
           <declname>dataB</declname>
-          <array>[NCU][(N+NCU - 1)/NCU]</array>
+          <array>[NCU][(N+NCU-1)/NCU]</array>
         </param>
         <param>
           <type>T</type>
@@ -245,9 +245,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" line="148" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" bodystart="148" bodyend="168"/>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" line="146" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" bodystart="146" bodyend="164"/>
       </memberdef>
-      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__polinear_1a0b34ea041afb9dc037bacaea13de397d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__polinear_1ae8630dc52f29c69311a31660087ce737" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -265,7 +265,7 @@
         </templateparamlist>
         <type>void</type>
         <definition>void xf::solver::internal_polinear::solver</definition>
-        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataB[NCU][(N+NCU - 1)/NCU], T dataX[N])</argsstring>
+        <argsstring>(int n, T dataA[NCU][(N+NCU-1)/NCU][N], T dataB[NCU][(N+NCU-1)/NCU], T dataX[N])</argsstring>
         <name>solver</name>
         <param>
           <type>int</type>
@@ -274,12 +274,12 @@
         <param>
           <type>T</type>
           <declname>dataA</declname>
-          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+          <array>[NCU][(N+NCU-1)/NCU][N]</array>
         </param>
         <param>
           <type>T</type>
           <declname>dataB</declname>
-          <array>[NCU][(N+NCU - 1)/NCU]</array>
+          <array>[NCU][(N+NCU-1)/NCU]</array>
         </param>
         <param>
           <type>T</type>
@@ -292,9 +292,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" line="171" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" bodystart="171" bodyend="192"/>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" line="167" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" bodystart="167" bodyend="189"/>
       </memberdef>
-      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__polinear_1a46ffa78e448a2d9336e7de71a80cf30a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal__polinear_1af2d9fa832c5bda0da19a54fa9cf661bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -312,7 +312,7 @@
         </templateparamlist>
         <type>void</type>
         <definition>void xf::solver::internal_polinear::solver_core</definition>
-        <argsstring>(int n, int b, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataB[NCU][(N+NCU - 1)/NCU], T dataX[N])</argsstring>
+        <argsstring>(int n, int b, T dataA[NCU][(N+NCU-1)/NCU][N], T dataB[NCU][(N+NCU-1)/NCU], T dataX[N])</argsstring>
         <name>solver_core</name>
         <param>
           <type>int</type>
@@ -325,12 +325,12 @@
         <param>
           <type>T</type>
           <declname>dataA</declname>
-          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+          <array>[NCU][(N+NCU-1)/NCU][N]</array>
         </param>
         <param>
           <type>T</type>
           <declname>dataB</declname>
-          <array>[NCU][(N+NCU - 1)/NCU]</array>
+          <array>[NCU][(N+NCU-1)/NCU]</array>
         </param>
         <param>
           <type>T</type>
@@ -343,7 +343,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" line="195" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" bodystart="195" bodyend="219"/>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" line="192" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/LinearSolver/polinearsolver.hpp" bodystart="192" bodyend="215"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

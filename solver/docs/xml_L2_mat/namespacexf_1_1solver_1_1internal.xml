@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
-  <compounddef id="namespacexf_1_1solver_1_1internal" kind="namespace" language="C++">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="namespacexf_1_1solver_1_1internal" kind="namespace">
     <compoundname>xf::solver::internal</compoundname>
-    <innerclass refid="unionxf_1_1solver_1_1internal_1_1double__cast__new" prot="public">xf::solver::internal::double_cast_new</innerclass>
-    <innerclass refid="unionxf_1_1solver_1_1internal_1_1double__casting" prot="public">xf::solver::internal::double_casting</innerclass>
     <innerclass refid="classxf_1_1solver_1_1internal_1_1_trait" prot="public">xf::solver::internal::Trait</innerclass>
     <innerclass refid="classxf_1_1solver_1_1internal_1_1_trait_3_01double_01_4" prot="public">xf::solver::internal::Trait&lt; double &gt;</innerclass>
     <innerclass refid="classxf_1_1solver_1_1internal_1_1_trait_3_01float_01_4" prot="public">xf::solver::internal::Trait&lt; float &gt;</innerclass>
+    <innerclass refid="unionxf_1_1solver_1_1internal_1_1double__cast__new" prot="public">xf::solver::internal::double_cast_new</innerclass>
+    <innerclass refid="unionxf_1_1solver_1_1internal_1_1double__casting" prot="public">xf::solver::internal::double_casting</innerclass>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1ab475066dc031316e497529f93b97d5f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1af55a4c2fbe3ff53869bc9ccb05b50c02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename DataType</type>
@@ -31,12 +31,12 @@
         </templateparamlist>
         <type>void</type>
         <definition>void xf::solver::internal::updateColumns</definition>
-        <argsstring>(DataType matrix[M][(N+K - 1)/K], int m, int n, DataType v[M], DataType beta, int cIdx, int baseCol)</argsstring>
+        <argsstring>(DataType matrix[M][(N+K-1)/K], int m, int n, DataType v[M], DataType beta, int cIdx, int baseCol)</argsstring>
         <name>updateColumns</name>
         <param>
           <type>DataType</type>
           <declname>matrix</declname>
-          <array>[M][(N+K - 1)/K]</array>
+          <array>[M][(N+K-1)/K]</array>
         </param>
         <param>
           <type>int</type>
@@ -71,7 +71,7 @@
         </inbodydescription>
         <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" line="66" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" bodystart="66" bodyend="133"/>
       </memberdef>
-      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a85ccdc709e29ef31c1aa5fe8869d1f9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1ad8102ac3d3d3c563e75fefd413817680" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename DataType</type>
@@ -94,12 +94,12 @@
         </templateparamlist>
         <type>void</type>
         <definition>void xf::solver::internal::update</definition>
-        <argsstring>(DataType matrix[K][M][(N+K - 1)/K], int m, int n, DataType v[K][M], DataType &amp;beta, int i)</argsstring>
+        <argsstring>(DataType matrix[K][M][(N+K-1)/K], int m, int n, DataType v[K][M], DataType &amp;beta, int i)</argsstring>
         <name>update</name>
         <param>
           <type>DataType</type>
           <declname>matrix</declname>
-          <array>[K][M][(N+K - 1)/K]</array>
+          <array>[K][M][(N+K-1)/K]</array>
         </param>
         <param>
           <type>int</type>
@@ -130,7 +130,7 @@
         </inbodydescription>
         <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" line="136" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" bodystart="136" bodyend="142"/>
       </memberdef>
-      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1aff9b5f09f8b827ab92dc510531cbeb5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1ad59a4e8fb17a54a2a8398c523565da29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename DataType</type>
@@ -153,7 +153,7 @@
         </templateparamlist>
         <type>void</type>
         <definition>void xf::solver::internal::qrf</definition>
-        <argsstring>(int m, int n, DataType matrix[K][M][(N+K - 1)/K], int lda, DataType tau[N])</argsstring>
+        <argsstring>(int m, int n, DataType matrix[K][M][(N+K-1)/K], int lda, DataType tau[N])</argsstring>
         <name>qrf</name>
         <param>
           <type>int</type>
@@ -166,7 +166,7 @@
         <param>
           <type>DataType</type>
           <declname>matrix</declname>
-          <array>[K][M][(N+K - 1)/K]</array>
+          <array>[K][M][(N+K-1)/K]</array>
         </param>
         <param>
           <type>int</type>
@@ -183,7 +183,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" line="145" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" bodystart="145" bodyend="243"/>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" line="145" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/geqrf.hpp" bodystart="145" bodyend="242"/>
       </memberdef>
       <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a8f2c74edab5dcce8c56064e2f7667d55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1352,7 +1352,7 @@
         </inbodydescription>
         <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/getrf_nopivot.hpp" line="57" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/getrf_nopivot.hpp" bodystart="57" bodyend="98"/>
       </memberdef>
-      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a713f7b1a154f468f6fa30fde5bf679dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1ab4887555d40c2e2b1c78e73976ea9c32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -1370,7 +1370,7 @@
         </templateparamlist>
         <type>void</type>
         <definition>void xf::solver::internal::chol_col</definition>
-        <argsstring>(int n, T dataA[(N+NCU - 1)/NCU][N], T dataj[N], T tmp1_i, int num, int j)</argsstring>
+        <argsstring>(int n, T dataA[(N+NCU-1)/NCU][N], T dataj[N], T tmp1_i, int num, int j)</argsstring>
         <name>chol_col</name>
         <param>
           <type>int</type>
@@ -1379,7 +1379,7 @@
         <param>
           <type>T</type>
           <declname>dataA</declname>
-          <array>[(N+NCU - 1)/NCU][N]</array>
+          <array>[(N+NCU-1)/NCU][N]</array>
         </param>
         <param>
           <type>T</type>
@@ -1406,7 +1406,7 @@
         </inbodydescription>
         <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/potrf.hpp" line="32" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/potrf.hpp" bodystart="32" bodyend="70"/>
       </memberdef>
-      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1adbd492e61179a13632fb32adef9f2497" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1ac6e51b75c4355f8a90e0974a982779a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -1424,12 +1424,12 @@
         </templateparamlist>
         <type>void</type>
         <definition>void xf::solver::internal::chol_jj</definition>
-        <argsstring>(T dataA[NCU][(N+NCU - 1)/NCU][N], T dataj[NCU][N], T &amp;tmp1_j, int &amp;j)</argsstring>
+        <argsstring>(T dataA[NCU][(N+NCU-1)/NCU][N], T dataj[NCU][N], T &amp;tmp1_j, int &amp;j)</argsstring>
         <name>chol_jj</name>
         <param>
           <type>T</type>
           <declname>dataA</declname>
-          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+          <array>[NCU][(N+NCU-1)/NCU][N]</array>
         </param>
         <param>
           <type>T</type>
@@ -1452,7 +1452,7 @@
         </inbodydescription>
         <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/potrf.hpp" line="73" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/potrf.hpp" bodystart="73" bodyend="112"/>
       </memberdef>
-      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a61a8301dc333e7c780cb8c07bc98aeca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1afa65ea570adec57819b45d90c2b064bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -1470,7 +1470,7 @@
         </templateparamlist>
         <type>void</type>
         <definition>void xf::solver::internal::chol_col_wrapper</definition>
-        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N], T dataj[NCU][N], T tmp1, int j)</argsstring>
+        <argsstring>(int n, T dataA[NCU][(N+NCU-1)/NCU][N], T dataj[NCU][N], T tmp1, int j)</argsstring>
         <name>chol_col_wrapper</name>
         <param>
           <type>int</type>
@@ -1479,7 +1479,7 @@
         <param>
           <type>T</type>
           <declname>dataA</declname>
-          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+          <array>[NCU][(N+NCU-1)/NCU][N]</array>
         </param>
         <param>
           <type>T</type>
@@ -1502,7 +1502,7 @@
         </inbodydescription>
         <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/potrf.hpp" line="115" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/potrf.hpp" bodystart="115" bodyend="124"/>
       </memberdef>
-      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a12123b06ac77e65ed299e6ad496c35f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacexf_1_1solver_1_1internal_1a75ba2bf52fd98c6cdbc0c27ae1a14877" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -1520,7 +1520,7 @@
         </templateparamlist>
         <type>void</type>
         <definition>void xf::solver::internal::cholesky_core</definition>
-        <argsstring>(int n, T dataA[NCU][(N+NCU - 1)/NCU][N])</argsstring>
+        <argsstring>(int n, T dataA[NCU][(N+NCU-1)/NCU][N])</argsstring>
         <name>cholesky_core</name>
         <param>
           <type>int</type>
@@ -1529,7 +1529,7 @@
         <param>
           <type>T</type>
           <declname>dataA</declname>
-          <array>[NCU][(N+NCU - 1)/NCU][N]</array>
+          <array>[NCU][(N+NCU-1)/NCU][N]</array>
         </param>
         <briefdescription>
         </briefdescription>
@@ -1537,7 +1537,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/potrf.hpp" line="127" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/potrf.hpp" bodystart="127" bodyend="137"/>
+        <location file="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/potrf.hpp" line="127" column="1" bodyfile="/proj/autoesl/fengx/work/xf_solver/L2/include/hw/MatrixDecomposition/potrf.hpp" bodystart="127" bodyend="136"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

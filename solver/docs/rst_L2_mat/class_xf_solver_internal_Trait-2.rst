@@ -11,7 +11,7 @@ template class xf::solver::internal::Trait <double>
 .. code-block:: cpp
 	:class: overview-code-block
 
-	#include <geqrf.hpp>
+	#include "geqrf.hpp"
 
 
 

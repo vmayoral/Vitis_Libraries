@@ -38,8 +38,14 @@ geqrf
 -----
 
 
-Defined in <MatrixDecomposition/geqrf.hpp>
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+geqrf overload (1)
+++++++++++++++++++
+
+
+.. code-block:: cpp
+	
+	#include "MatrixDecomposition/geqrf.hpp"
+
 
 
 .. ref-code-block:: cpp
@@ -130,8 +136,10 @@ gesvdj
 ------
 
 
-Defined in <MatrixDecomposition/gesvdj.hpp>
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: cpp
+	
+	#include "MatrixDecomposition/gesvdj.hpp"
+
 
 
 .. ref-code-block:: cpp
@@ -238,8 +246,10 @@ gesvj
 -----
 
 
-Defined in <MatrixDecomposition/gesvj.hpp>
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: cpp
+	
+	#include "MatrixDecomposition/gesvj.hpp"
+
 
 
 .. ref-code-block:: cpp
@@ -280,6 +290,11 @@ The maximum matrix size supported in FPGA is templated by NCMAX, NRMAX.
 
     *
         - T
+
+        - 
+
+    *
+        - :
 
         - the data type of gesvj
 
@@ -340,8 +355,10 @@ getrf
 -----
 
 
-Defined in <MatrixDecomposition/getrf.hpp>
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: cpp
+	
+	#include "MatrixDecomposition/getrf.hpp"
+
 
 
 .. ref-code-block:: cpp
@@ -426,8 +443,10 @@ getrf_nopivot
 -------------
 
 
-Defined in <MatrixDecomposition/getrf_nopivot.hpp>
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: cpp
+	
+	#include "MatrixDecomposition/getrf_nopivot.hpp"
+
 
 
 .. ref-code-block:: cpp
@@ -506,8 +525,10 @@ potrf
 -----
 
 
-Defined in <MatrixDecomposition/potrf.hpp>
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: cpp
+	
+	#include "MatrixDecomposition/potrf.hpp"
+
 
 
 .. ref-code-block:: cpp
