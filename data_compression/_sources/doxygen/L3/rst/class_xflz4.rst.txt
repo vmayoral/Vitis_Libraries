@@ -1,8 +1,8 @@
-.. index:: pair: class; xflz4
-.. _doxid-classxflz4:
-.. _cid-xflz4-2:
+.. index:: pair: class; xfLz4
+.. _doxid-classxfLz4:
+.. _cid-xflz4:
 
-class xflz4
+class xfLz4
 ===========
 
 .. toctree::
@@ -12,20 +12,16 @@ class xflz4
 
 
 
-.. _doxid-classxflz4_1a3e9f8190e723a3aa1f1316177f338370:
-.. _cid-xflz4::xflz4-2:
-.. _doxid-classxflz4_1a9e27dafab06458253ea566cc183e5737:
-.. _cid-xflz4::compress_in_line_multiple_files:
-.. _doxid-classxflz4_1a8465dc5a5784b38586c66f78c3791d90:
-.. _cid-xflz4::get_file_size-2:
+.. _doxid-classxfLz4_1aa8ba8ffba63ceb3d39a1600ccc36b227:
+.. _cid-xflz4::xflz4:
+.. _doxid-classxfLz4_1a528f929539a52ae3693c8427da480ba6:
+.. _cid-xflz4::decompress_in_line_multiple_files:
+.. _doxid-classxfLz4_1ae646fa73ab42f5b86172d5bedb18f8bd:
+.. _cid-xflz4::get_file_size:
 .. ref-code-block:: cpp
 	:class: overview-code-block
 
 	// construction
 
-	xflz4 (
-	    const std::string& binaryFile,
-	    uint8_t device_id,
-	    uint32_t m_block_kb
-	    )
+	xfLz4 (const std::string& binaryFile)
 
