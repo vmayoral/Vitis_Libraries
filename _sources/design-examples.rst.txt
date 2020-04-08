@@ -1,3 +1,10 @@
+
+.. meta::
+   :keywords: Vision, Library, Vitis Vision Library, Iterative Pyramidal, Corner Tracking, cornerUpdate, cornersImgToList, 
+   :description: Design examples Using Vitis Vision library.
+   :xlnxdocumentclass: Document
+   :xlnxdocumenttype: Tutorials
+
 .. _design-example:
 
 Design Examples Using Vitis Vision Library
@@ -365,7 +372,6 @@ from the Vitis vision library. They are:
 
 -  xf::cv::GaussianBlur
 -  xf::cv::duplicateMat
--  xf::cv::delayMat
 -  xf::cv::subtract
 
 The Difference of Gaussian Filter function can be implemented by
@@ -373,10 +379,7 @@ applying Gaussian Filter on the original source image, and that Gaussian
 blurred image is duplicated as two images. The Gaussian blur function is
 applied to one of the duplicated images, whereas the other one is stored
 as it is. Later, perform the Subtraction function on, two times Gaussian
-applied image and one of the duplicated image. Here, the duplicated
-image has to wait until the Gaussian applied for other one generates at
-least for one pixel output. Therefore, here xf::cv::delayMat function is
-used to add delay.
+applied image and one of the duplicated image. 
 
 .. figure:: ./images/crx1554997276344.png
    :alt: 
@@ -392,26 +395,24 @@ example.
    
     #pragma HLS INTERFACE m_axi      port=img_in        offset=slave  bundle=gmem0
     #pragma HLS INTERFACE m_axi      port=img_out       offset=slave  bundle=gmem1  
-    #pragma HLS INTERFACE s_axilite  port=sigma 		bundle=control
-    #pragma HLS INTERFACE s_axilite  port=rows 		bundle=control
-    #pragma HLS INTERFACE s_axilite  port=cols 		bundle=control
-    #pragma HLS INTERFACE s_axilite  port=return 		bundle=control
+    #pragma HLS INTERFACE s_axilite  port=sigma 			          bundle=control
+	#pragma HLS INTERFACE s_axilite  port=rows 			          bundle=control
+	#pragma HLS INTERFACE s_axilite  port=cols 			          bundle=control
+    #pragma HLS INTERFACE s_axilite  port=return 			          bundle=control
     
     xf::cv::Mat<TYPE, HEIGHT, WIDTH, NPC1> imgInput(rows, cols);
     xf::cv::Mat<TYPE, HEIGHT, WIDTH, NPC1> imgin1(rows, cols);
     xf::cv::Mat<TYPE, HEIGHT, WIDTH, NPC1> imgin2(rows, cols);
     xf::cv::Mat<TYPE, HEIGHT, WIDTH, NPC1> imgin3(rows, cols);
     xf::cv::Mat<TYPE, HEIGHT, WIDTH, NPC1> imgin4(rows, cols);
-    xf::cv::Mat<TYPE, HEIGHT, WIDTH, NPC1> imgin5(rows, cols);
     xf::cv::Mat<TYPE, HEIGHT, WIDTH, NPC1> imgOutput(rows, cols);
 
  
     #pragma HLS STREAM variable=imgInput.data depth=2
     #pragma HLS STREAM variable=imgin1.data depth=2
     #pragma HLS STREAM variable=imgin2.data depth=2
-    #pragma HLS STREAM variable=imgin3.data depth=2
+    #pragma HLS STREAM variable=imgin3.data depth=15360
     #pragma HLS STREAM variable=imgin4.data depth=2
-    #pragma HLS STREAM variable=imgin5.data depth=2
     #pragma HLS STREAM variable=imgOutput.data depth=2
    
     #pragma HLS DATAFLOW
@@ -423,9 +424,8 @@ example.
     // Run xfOpenCV kernel:
     xf::cv::GaussianBlur<FILTER_WIDTH, XF_BORDER_CONSTANT, TYPE, HEIGHT, WIDTH, NPC1>(imgInput, imgin1, sigma);
     xf::cv::duplicateMat<TYPE, HEIGHT, WIDTH, NPC1>(imgin1, imgin2, imgin3);
-    xf::cv::delayMat<MAXDELAY, TYPE, HEIGHT, WIDTH, NPC1>(imgin3, imgin5);
     xf::cv::GaussianBlur<FILTER_WIDTH, XF_BORDER_CONSTANT, TYPE, HEIGHT, WIDTH, NPC1>(imgin2, imgin4, sigma);
-    xf::cv::subtract<XF_CONVERT_POLICY_SATURATE, TYPE, HEIGHT, WIDTH, NPC1>(imgin5, imgin4, imgOutput);
+    xf::cv::subtract<XF_CONVERT_POLICY_SATURATE, TYPE, HEIGHT, WIDTH, NPC1>(imgin3, imgin4, imgOutput);
 
     // Convert output xf::cv::Mat object to output array:
     xf::cv::xfMat2Array<PTR_WIDTH, TYPE, HEIGHT, WIDTH, NPC1>(imgOutput, img_out);
@@ -439,8 +439,7 @@ xf::cv::duplicateMat. The imgin2 and imgin3 are the duplicate images of
 Gaussian applied image. Again gaussian blur is applied to imgin2 and the
 result is stored in imgin4. Now, perform the subtraction between imgin4
 and imgin3, but here imgin3 has to wait up to at least one pixel of
-imgin4 generation. So, delay has applied for imgin3 and stored in
-imgin5. Finally the subtraction performed on imgin4 and imgin5.
+imgin4 generation. Finally the subtraction performed on imgin3 and imgin4.
 
 .. _stereo-vision: 
 
