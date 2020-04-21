@@ -347,14 +347,14 @@
 <li class="toctree-l1 current"><a class="reference internal" href="L1.html">L1 Module User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="overview.html">Primitive Overview</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Primitive APIs in <code class="docutils literal notranslate"><span class="pre">xf::compression</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#huffmandecoderfixed">huffmanDecoderFixed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#huffmandecoderdynamic">huffmanDecoderDynamic</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#huffmandecoderfull">huffmanDecoderFull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#huffmandecoder">huffmanDecoder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#huffmanencoder">huffmanEncoder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lz4compress">lz4Compress</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lz4decompress">lz4Decompress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lz4multibytedecompress">lz4MultiByteDecompress</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lz4packer">lz4Packer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lzdecompress">lzDecompress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lzmultibytedecompress">lzMultiByteDecompress</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lzbestmatchfilter">lzBestMatchFilter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lzbooster">lzBooster</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lzfilter">lzFilter</a></li>
@@ -446,75 +446,15 @@
 <span id="l1-api-reference"></span><h1>Primitive APIs in <code class="docutils literal notranslate"><span class="pre">xf::compression</span></code><a class="headerlink" href="#primitive-apis-in-xf-compression" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="section" id="huffmandecoderfixed">
-<span id="cid-xf-compression-huffmandecoderfixed"></span><span id="doxid-namespacexf-1-1compression-1ad15267154c288ef7ae702ac1ebde84ea"></span><h2>huffmanDecoderFixed<a class="headerlink" href="#huffmandecoderfixed" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="huffmandecoder">
+<span id="cid-xf-compression-huffmandecoder"></span><span id="doxid-namespacexf-1-1compression-1abaf4aef4dadf6d9f068683bdb86002a1"></span><h2>huffmanDecoder<a class="headerlink" href="#huffmandecoder" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;huffman_decoder.hpp&quot;</span></pre>
-<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">huffmanDecoderFixed</span> <span class="p">(</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">16</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endOfStream</span><span class="p">,</span>
-    <span class="kt">uint32_t</span> <span class="n">input_size</span>
-    <span class="p">)</span></pre>
-<p>This module is ZLIB/GZIP Fixed Huffman Decoder. It takes ZLIB/GZIP Huffman encoded data as input and generates decoded data in LZ77 format (literal, length, offset)</p>
-<p class="rubric">Parameters:</p>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>inStream</p></td>
-<td><p>input bit packed data</p></td>
-</tr>
-<tr class="row-even"><td><p>outStream</p></td>
-<td><p>output lz77 compressed output in the form of 32bit packets (Literals, Match Length, Distances)</p></td>
-</tr>
-<tr class="row-odd"><td><p>endOfStream</p></td>
-<td><p>output completion of execution</p></td>
-</tr>
-<tr class="row-even"><td><p>input_size</p></td>
-<td><p>input data size</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="huffmandecoderdynamic">
-<span id="cid-xf-compression-huffmandecoderdynamic"></span><span id="doxid-namespacexf-1-1compression-1aee0ea85eed03e63e3c5fe660405b613b"></span><h2>huffmanDecoderDynamic<a class="headerlink" href="#huffmandecoderdynamic" title="Permalink to this headline">¶</a></h2>
-<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;huffman_decoder.hpp&quot;</span></pre>
-<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">ByteGenLoopII</span> <span class="o">=</span> <span class="mi">2</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">huffmanDecoderDynamic</span> <span class="p">(</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">16</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endOfStream</span><span class="p">,</span>
-    <span class="kt">uint32_t</span> <span class="n">input_size</span>
-    <span class="p">)</span></pre>
-<p>This module is ZLIB/GZIP Dynamic Huffman Decoder. It takes ZLIB/GZIP Huffman encoded data as input and generates decoded data in LZ77 format(literal, length, offset).</p>
-<p class="rubric">Parameters:</p>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>inStream</p></td>
-<td><p>input bit packed data</p></td>
-</tr>
-<tr class="row-even"><td><p>outStream</p></td>
-<td><p>output lz77 compressed output in the form of 32bit packets (Literals, Match Length, Distances)</p></td>
-</tr>
-<tr class="row-odd"><td><p>endOfStream</p></td>
-<td><p>output completion of execution</p></td>
-</tr>
-<tr class="row-even"><td><p>input_size</p></td>
-<td><p>input data size</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="huffmandecoderfull">
-<span id="cid-xf-compression-huffmandecoderfull"></span><span id="doxid-namespacexf-1-1compression-1a88c7124ebbf360c1576f655e3be06c5d"></span><h2>huffmanDecoderFull<a class="headerlink" href="#huffmandecoderfull" title="Permalink to this headline">¶</a></h2>
-<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;huffman_decoder.hpp&quot;</span></pre>
-<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">huffmanDecoderFull</span> <span class="p">(</span>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="n">eHuffmanType</span> <span class="n">DECODER</span> <span class="o">=</span> <span class="n">FULL</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">ByteGenLoopII</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">USE_GZIP</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">huffmanDecoder</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">16</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">compressd_dt</span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endOfStream</span><span class="p">,</span>
@@ -528,36 +468,40 @@
 <col style="width: 80%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>inStream</p></td>
+<tr class="row-odd"><td><p>DECODER</p></td>
+<td><p>Fixed, Full, Dynamic huffman block support</p></td>
+</tr>
+<tr class="row-even"><td><p>ByteGenLoopII</p></td>
+<td><p>core bytegenerator loop initiation interval</p></td>
+</tr>
+<tr class="row-odd"><td><p>USE_GZIP</p></td>
+<td><p>switch that controls GZIP/ZLIB header processing</p></td>
+</tr>
+<tr class="row-even"><td><p>inStream</p></td>
 <td><p>input bit packed data</p></td>
 </tr>
-<tr class="row-even"><td><p>outStream</p></td>
+<tr class="row-odd"><td><p>outStream</p></td>
 <td><p>output lz77 compressed output in the form of 32bit packets (Literals, Match Length, Distances)</p></td>
 </tr>
-<tr class="row-odd"><td><p>endOfStream</p></td>
+<tr class="row-even"><td><p>endOfStream</p></td>
 <td><p>output completion of execution</p></td>
 </tr>
-<tr class="row-even"><td><p>input_size</p></td>
+<tr class="row-odd"><td><p>input_size</p></td>
 <td><p>input data size</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="huffmanencoder">
-<span id="cid-xf-compression-huffmanencoder"></span><span id="doxid-namespacexf-1-1compression-1af3c2a027756e654bd32b66dd3535c374"></span><h2>huffmanEncoder<a class="headerlink" href="#huffmanencoder" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-compression-huffmanencoder"></span><span id="doxid-namespacexf-1-1compression-1a2efd8a3878037e3f17f934e400e0d3b4"></span><h2>huffmanEncoder<a class="headerlink" href="#huffmanencoder" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;huffman_encoder.hpp&quot;</span></pre>
 <pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">huffmanEncoder</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">encodedV_dt</span><span class="o">&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint16_t</span><span class="o">&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;&amp;</span> <span class="n">outStreamSize</span><span class="p">,</span>
     <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">inStreamLCodes</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">inStreamLBlen</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">inStreamDCodes</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">inStreamDBlen</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">inStreamBLCodes</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">inStreamBLBlen</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;&amp;</span> <span class="n">inStreamMaxCode</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint16_t</span><span class="o">&gt;&amp;</span> <span class="n">inStreamCodes</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;&amp;</span> <span class="n">inStreamCodeSize</span>
     <span class="p">)</span></pre>
 <p>This module does zlib/gzip dynamic huffman encoding.</p>
 <p class="rubric">Parameters:</p>
@@ -579,26 +523,11 @@
 <tr class="row-even"><td><p>input_size</p></td>
 <td><p>uncompressed data input size</p></td>
 </tr>
-<tr class="row-odd"><td><p>inStreamLCodes</p></td>
-<td><p>Huffman Literal Codes</p></td>
+<tr class="row-odd"><td><p>inStreamCodes</p></td>
+<td><p>Huffman Codes</p></td>
 </tr>
-<tr class="row-even"><td><p>inStreamLBLen</p></td>
-<td><p>Huffman Literal Code Bit Lengths</p></td>
-</tr>
-<tr class="row-odd"><td><p>inStreamDCodes</p></td>
-<td><p>Huffman Distance Codes</p></td>
-</tr>
-<tr class="row-even"><td><p>inStreamDBLen</p></td>
-<td><p>Huffman Distance Code Bit Lengths</p></td>
-</tr>
-<tr class="row-odd"><td><p>inStreamBLCodes</p></td>
-<td><p>Huffman BitLength Codes</p></td>
-</tr>
-<tr class="row-even"><td><p>inStreamBLCodes</p></td>
-<td><p>Huffman BitLength Code Bit Lengths</p></td>
-</tr>
-<tr class="row-odd"><td><p>inStreamMaxCode</p></td>
-<td><p>Maximum codes for literal, distance and bitlengths</p></td>
+<tr class="row-even"><td><p>inStreamCodeSize</p></td>
+<td><p>HuffmanCode Lengths</p></td>
 </tr>
 </tbody>
 </table>
@@ -672,6 +601,50 @@
 </tr>
 <tr class="row-odd"><td><p>input_size</p></td>
 <td><p>Input size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="lz4multibytedecompress">
+<span id="cid-xf-compression-lz4multibytedecompress"></span><span id="doxid-namespacexf-1-1compression-1a6a577ed478c06a67461388f98797ad3c"></span><h2>lz4MultiByteDecompress<a class="headerlink" href="#lz4multibytedecompress" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_decompress.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">PARALLEL_BYTES</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">lz4MultiByteDecompress</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">PARALLEL_BYTES</span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint16_t</span><span class="o">&gt;&amp;</span> <span class="n">litlenStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">PARALLEL_BYTES</span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;&gt;&amp;</span> <span class="n">litStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">16</span><span class="o">&gt;&gt;&amp;</span> <span class="n">offsetStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint16_t</span><span class="o">&gt;&amp;</span> <span class="n">matchlenStream</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">input_size</span>
+    <span class="p">)</span></pre>
+<p>This module reads the compressed data from input stream and decodes the offset, match length and literals by processing in various decompress states. It can process the data in parallel defined by PARALLEL BYTES template parameter.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>PARALLEL_BYTES</p></td>
+<td><p>number of bytes processed in parallel (4,8)</p></td>
+</tr>
+<tr class="row-even"><td><p>inStream</p></td>
+<td><p>input stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>litlenStream</p></td>
+<td><p>literal length stream</p></td>
+</tr>
+<tr class="row-even"><td><p>litStream</p></td>
+<td><p>literal stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>offsetStream</p></td>
+<td><p>offset stream</p></td>
+</tr>
+<tr class="row-even"><td><p>matchlenStream</p></td>
+<td><p>match length only stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>input_size</p></td>
+<td><p>input size of the block</p></td>
 </tr>
 </tbody>
 </table>
@@ -754,11 +727,11 @@
 <col style="width: 80%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>LOW_OFFSET</p></td>
-<td><p>low offset</p></td>
-</tr>
-<tr class="row-even"><td><p>HISTORY_SIZE</p></td>
+<tr class="row-odd"><td><p>HISTORY_SIZE</p></td>
 <td><p>history size</p></td>
+</tr>
+<tr class="row-even"><td><p>LOW_OFFSET</p></td>
+<td><p>low offset</p></td>
 </tr>
 <tr class="row-odd"><td><p>inStream</p></td>
 <td><p>input stream</p></td>
@@ -768,6 +741,64 @@
 </tr>
 <tr class="row-odd"><td><p>original_size</p></td>
 <td><p>original size</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="lzmultibytedecompress">
+<span id="cid-xf-compression-lzmultibytedecompress"></span><span id="doxid-namespacexf-1-1compression-1a8f1ccc8daec6317e9c26577ac06e6e9e"></span><h2>lzMultiByteDecompress<a class="headerlink" href="#lzmultibytedecompress" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz_decompress.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">PARALLEL_BYTES</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">HISTORY_SIZE</span><span class="p">,</span>
+    <span class="k">class</span> <span class="n">SIZE_DT</span> <span class="o">=</span> <span class="kt">uint8_t</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">lzMultiByteDecompress</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">SIZE_DT</span><span class="o">&gt;&amp;</span> <span class="n">litlenStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">PARALLEL_BYTES</span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;&gt;&amp;</span> <span class="n">litStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">16</span><span class="o">&gt;&gt;&amp;</span> <span class="n">offsetStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">SIZE_DT</span><span class="o">&gt;&amp;</span> <span class="n">matchlenStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">PARALLEL_BYTES</span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endOfStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint64_t</span><span class="o">&gt;&amp;</span> <span class="n">sizeOutStream</span>
+    <span class="p">)</span></pre>
+<p>This module writes the literals to the output stream as it is and when match length and offset are read, the literals will be read from the local dictionary based on offset until match length. This module can process data in parallel defined by PARALLEL_BYTES template argument.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>PARALLEL_BYTES</p></td>
+<td><p>number of bytes processed in parallel (4, 8)</p></td>
+</tr>
+<tr class="row-even"><td><p>HISTORY_SIZE</p></td>
+<td><p>history size</p></td>
+</tr>
+<tr class="row-odd"><td><p>SIZE_DT</p></td>
+<td><p>input data type</p></td>
+</tr>
+<tr class="row-even"><td><p>litlenStream</p></td>
+<td><p>literal length stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>litStream</p></td>
+<td><p>literals only stream</p></td>
+</tr>
+<tr class="row-even"><td><p>offsetStream</p></td>
+<td><p>offset only stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>matchlenStream</p></td>
+<td><p>match length only stream</p></td>
+</tr>
+<tr class="row-even"><td><p>outStream</p></td>
+<td><p>output stream</p></td>
+</tr>
+<tr class="row-odd"><td><p>endOfStream</p></td>
+<td><p>end of stream</p></td>
+</tr>
+<tr class="row-even"><td><p>sizeOutStream</p></td>
+<td><p>output size stream</p></td>
 </tr>
 </tbody>
 </table>

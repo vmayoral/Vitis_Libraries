@@ -361,8 +361,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#xilsnappycompressstream">xilSnappyCompressStream</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xilsnappydecompress">xilSnappyDecompress</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xilsnappydecompressstream">xilSnappyDecompressStream</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#xildecompressfixed">xilDecompressFixed</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#xildecompressfull">xilDecompressFull</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cid-xilsnappydecompress-2">xilSnappyDecompress</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cid-xilsnappydecompressstream-2">xilSnappyDecompressStream</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xildecompressstream">xilDecompressStream</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xilhuffmankernel">xilHuffmanKernel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xillz77compress">xilLz77Compress</a></li>
@@ -598,11 +598,11 @@
 </table>
 </div>
 <div class="section" id="cid-xillz4decompress-2">
-<span id="doxid-lz4-multibyte-decompress-mm-8hpp-1acf6728ba62074fd173cb146ecb59433e"></span><span id="id1"></span><h3>xilLz4Decompress<a class="headerlink" href="#cid-xillz4decompress-2" title="Permalink to this headline">¶</a></h3>
+<span id="doxid-lz4-multibyte-decompress-mm-8hpp-1a125e46ad8f1530bf082e0a0956597a97"></span><span id="id1"></span><h3>xilLz4Decompress<a class="headerlink" href="#cid-xillz4decompress-2" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_multibyte_decompress_mm.hpp&quot;</span></pre>
 <pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilLz4Decompress</span> <span class="p">(</span>
-    <span class="k">const</span> <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
-    <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">PARALLEL_BYTE</span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">PARALLEL_BYTE</span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;*</span> <span class="n">out</span><span class="p">,</span>
     <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_block_size</span><span class="p">,</span>
     <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_compress_size</span><span class="p">,</span>
     <span class="kt">uint32_t</span> <span class="n">block_size_in_kb</span><span class="p">,</span>
@@ -948,16 +948,18 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="xildecompressfixed">
-<span id="cid-xildecompressfixed"></span><span id="doxid-zlib-decompress-fixed-8hpp-1a90f665a76525be220999fad8fa87e3c8"></span><h3>xilDecompressFixed<a class="headerlink" href="#xildecompressfixed" title="Permalink to this headline">¶</a></h3>
-<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;zlib_decompress_fixed.hpp&quot;</span></pre>
-<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilDecompressFixed</span> <span class="p">(</span>
-    <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="n">kGMemDWidth</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inaxistreamd</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="n">kGMemDWidth</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outaxistreamd</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="mi">64</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">sizestreamd</span>
+<div class="section" id="cid-xilsnappydecompress-2">
+<span id="doxid-snappy-multibyte-decompress-mm-8hpp-1a70f1512f5f9d55b4aadc6baf57f6d6d6"></span><span id="id2"></span><h3>xilSnappyDecompress<a class="headerlink" href="#cid-xilsnappydecompress-2" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;snappy_multibyte_decompress_mm.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilSnappyDecompress</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_block_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_compress_size</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">block_size_in_kb</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">no_blocks</span>
     <span class="p">)</span></pre>
-<p>Zlib decompression fixed kernel top function.</p>
+<p>Snappy decompression kernel takes compressed data as input and process in block based fashion and writes the raw data to global memory.</p>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
@@ -965,28 +967,37 @@
 <col style="width: 80%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>input_size</p></td>
-<td><p>input size</p></td>
+<tr class="row-odd"><td><p>in</p></td>
+<td><p>input compressed data</p></td>
 </tr>
-<tr class="row-even"><td><p>inaxistreamd</p></td>
-<td><p>input kernel axi stream</p></td>
+<tr class="row-even"><td><p>out</p></td>
+<td><p>output raw data</p></td>
 </tr>
-<tr class="row-odd"><td><p>outaxistreamd</p></td>
-<td><p>output kernel axi stream</p></td>
+<tr class="row-odd"><td><p>in_block_size</p></td>
+<td><p>input block size of each block</p></td>
+</tr>
+<tr class="row-even"><td><p>in_compress_size</p></td>
+<td><p>compress size of each block</p></td>
+</tr>
+<tr class="row-odd"><td><p>block_size_in_kb</p></td>
+<td><p>block size in bytes</p></td>
+</tr>
+<tr class="row-even"><td><p>no_blocks</p></td>
+<td><p>number of blocks</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="xildecompressfull">
-<span id="cid-xildecompressfull"></span><span id="doxid-zlib-decompress-full-8hpp-1a44b0f3636bbd9564d7c362f8828ab564"></span><h3>xilDecompressFull<a class="headerlink" href="#xildecompressfull" title="Permalink to this headline">¶</a></h3>
-<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;zlib_decompress_full.hpp&quot;</span></pre>
-<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilDecompressFull</span> <span class="p">(</span>
-    <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="n">kGMemDWidth</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inaxistreamd</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="n">kGMemDWidth</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outaxistreamd</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="mi">64</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">sizestreamd</span>
+<div class="section" id="cid-xilsnappydecompressstream-2">
+<span id="doxid-snappy-multibyte-decompress-stream-8hpp-1af5afb87c9ee4b1ef6c55a8cf6f302bd5"></span><span id="id3"></span><h3>xilSnappyDecompressStream<a class="headerlink" href="#cid-xilsnappydecompressstream-2" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;snappy_multibyte_decompress_stream.hpp&quot;</span></pre>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilSnappyDecompressStream</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="n">MULTIPLE_BYTES</span><span class="o">*</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inaxistream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="n">MULTIPLE_BYTES</span><span class="o">*</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outaxistream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outaxistreameos</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">inputSize</span>
     <span class="p">)</span></pre>
-<p>Zlib decompression full kernel top function.</p>
+<p>Snappy decompression streaming kernel takes compressed data as input from kernel axi stream and process in block based fashion and writes the raw data to global memory.</p>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
@@ -994,14 +1005,14 @@
 <col style="width: 80%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>input_size</p></td>
-<td><p>input size</p></td>
+<tr class="row-odd"><td><p>inaxistream</p></td>
+<td><p>input kernel axi stream for compressed data</p></td>
 </tr>
-<tr class="row-even"><td><p>inaxistreamd</p></td>
-<td><p>input kernel axi stream</p></td>
+<tr class="row-even"><td><p>outaxistream</p></td>
+<td><p>output kernel axi stream for decompressed data</p></td>
 </tr>
-<tr class="row-odd"><td><p>outaxistreamd</p></td>
-<td><p>output kernel axi stream</p></td>
+<tr class="row-odd"><td><p>inputSize</p></td>
+<td><p>input data size</p></td>
 </tr>
 </tbody>
 </table>
@@ -1036,20 +1047,15 @@
 </table>
 </div>
 <div class="section" id="xilhuffmankernel">
-<span id="cid-xilhuffmankernel"></span><span id="doxid-zlib-huffman-enc-mm-8hpp-1a73386a1eec0f7704e0e3f3a7bfc1d90b"></span><h3>xilHuffmanKernel<a class="headerlink" href="#xilhuffmankernel" title="Permalink to this headline">¶</a></h3>
+<span id="cid-xilhuffmankernel"></span><span id="doxid-zlib-huffman-enc-mm-8hpp-1a4aa715bde9401101a5332c02b5e94fb7"></span><h3>xilHuffmanKernel<a class="headerlink" href="#xilhuffmankernel" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;zlib_huffman_enc_mm.hpp&quot;</span></pre>
 <pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">xilHuffmanKernel</span> <span class="p">(</span>
     <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">lit_freq</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dist_freq</span><span class="p">,</span>
     <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
     <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">in_block_size</span><span class="p">,</span>
     <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">compressd_size</span><span class="p">,</span>
-    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_litmtree_codes</span><span class="p">,</span>
-    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_distree_codes</span><span class="p">,</span>
-    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_bitlentree_codes</span><span class="p">,</span>
-    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_litmtree_blen</span><span class="p">,</span>
-    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_dtree_blen</span><span class="p">,</span>
-    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_bitlentree_blen</span><span class="p">,</span>
-    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">dyn_max_codes</span><span class="p">,</span>
     <span class="kt">uint32_t</span> <span class="n">block_size_in_kb</span><span class="p">,</span>
     <span class="kt">uint32_t</span> <span class="n">input_size</span>
     <span class="p">)</span></pre>
@@ -1169,7 +1175,7 @@
     <span class="kt">uint32_t</span> <span class="n">input_size</span><span class="p">,</span>
     <span class="kt">uint32_t</span> <span class="n">blocks_per_chunk</span>
     <span class="p">)</span></pre>
-<p>This is an initial version of dynamic huffman codes &amp; bit length generation kernel which takes literal and distance frequency data as input and generates dynamic huffman codes and bit length data. This version of the kernel performs better for larger data sets in synchronization with LZ77 and Huffman Kernels. It need to be optimized further to achieve better results for smaller block sizes (&lt;1MB) so that it improves for smaller file usecase.</p>
+<p>This is a resource optimized version of huffman treegen kernel. It takes literal and distance frequency data as input through single input stream and generates dynamic huffman codes and bit length data which is output through a single output stream. This kernel does not use DDR in any way and is optimised for both speed and low resource usage.</p>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
@@ -1177,44 +1183,11 @@
 <col style="width: 80%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>dyn_ltree_freq</p></td>
-<td><p>input literal frequency data</p></td>
+<tr class="row-odd"><td><p>freqStream</p></td>
+<td><p>24-bit input stream for getting frequency data</p></td>
 </tr>
-<tr class="row-even"><td><p>dyn_dtree_freq</p></td>
-<td><p>input distance frequency data</p></td>
-</tr>
-<tr class="row-odd"><td><p>dyn_bltree_freq</p></td>
-<td><p>output bit-length frequency data</p></td>
-</tr>
-<tr class="row-even"><td><p>dyn_ltree_codes</p></td>
-<td><p>output literal codes</p></td>
-</tr>
-<tr class="row-odd"><td><p>dyn_dtree_codes</p></td>
-<td><p>output distance codes</p></td>
-</tr>
-<tr class="row-even"><td><p>dyn_bltree_codes</p></td>
-<td><p>output bit-length codes</p></td>
-</tr>
-<tr class="row-odd"><td><p>dyn_ltree_blen</p></td>
-<td><p>output literal bit length data</p></td>
-</tr>
-<tr class="row-even"><td><p>dyn_dtree_blen</p></td>
-<td><p>output distance bit length data</p></td>
-</tr>
-<tr class="row-odd"><td><p>dyn_bltree_blen</p></td>
-<td><p>output bit-length of bitlengths data</p></td>
-</tr>
-<tr class="row-even"><td><p>max_codes</p></td>
-<td><p>output upper limit of codes for literal, distances, bitlengths</p></td>
-</tr>
-<tr class="row-odd"><td><p>block_size_in_kb</p></td>
-<td><p>input block size in bytes</p></td>
-</tr>
-<tr class="row-even"><td><p>input_size</p></td>
-<td><p>input data size</p></td>
-</tr>
-<tr class="row-odd"><td><p>blocks_per_chunk</p></td>
-<td><p>number of blocks persent in current input data</p></td>
+<tr class="row-even"><td><p>codeStream</p></td>
+<td><p>20-bit output stream sending huffman codes and bit-lengths data</p></td>
 </tr>
 </tbody>
 </table>
