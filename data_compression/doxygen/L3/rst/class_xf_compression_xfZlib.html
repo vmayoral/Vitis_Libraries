@@ -338,24 +338,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../source/overview.html#trademark-notice">Trademark Notice</a></li>
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/usecase.html">Typical Use Cases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/L2/L2.html">L2 Kernel User Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../../source/L3/L3.html">L3 Overlay User Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../../source/L3/overview.html">L3 Overlay APIs</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../../source/L3/api_reference.html">Overlay API Reference</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="class_xf_compression_xfLz4.html">class xf::compression::xfLz4</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">class xf::compression::xfZlib</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/L3/demo.html">Demos</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/L3/L3.html">L3 Overlay User Guide</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Results</span></p>
 <ul>
@@ -449,16 +436,18 @@ xfZlib<span></span> <span class="p">(</span>
     <span class="kt">uint8_t</span> <span class="n">c_max_cr</span> <span class="o">=</span> <span class="n">MAX_CR</span><span class="p">,</span>
     <span class="kt">uint8_t</span> <span class="n">cd_flow</span> <span class="o">=</span> <span class="n">BOTH</span><span class="p">,</span>
     <span class="kt">uint8_t</span> <span class="n">device_id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="kt">uint8_t</span> <span class="n">profile</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="kt">uint8_t</span> <span class="n">profile</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="kt">uint8_t</span> <span class="n">d_type</span> <span class="o">=</span> <span class="n">DYNAMIC</span>
     <span class="p">)</span></pre>
 <div class="section" id="construction">
 <h3>Construction<a class="headerlink" href="#construction" title="Permalink to this headline">¶</a></h3>
-<pre class="highlight title-code-block literal-block" id="cid-xf-compression-xfzlib-xfzlib"><span id="doxid-classxf-1-1compression-1-1xfzlib-1a6345f61a95db047563ba3db83c34acb4"></span><span></span><span class="n">xfZlib</span> <span class="p">(</span>
+<pre class="highlight title-code-block literal-block" id="cid-xf-compression-xfzlib-xfzlib"><span id="doxid-classxf-1-1compression-1-1xfzlib-1a3db5ae5c69b1ac4368bfb8bea672b0ed"></span><span></span><span class="n">xfZlib</span> <span class="p">(</span>
     <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">binaryFile</span><span class="p">,</span>
     <span class="kt">uint8_t</span> <span class="n">c_max_cr</span> <span class="o">=</span> <span class="n">MAX_CR</span><span class="p">,</span>
     <span class="kt">uint8_t</span> <span class="n">cd_flow</span> <span class="o">=</span> <span class="n">BOTH</span><span class="p">,</span>
     <span class="kt">uint8_t</span> <span class="n">device_id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="kt">uint8_t</span> <span class="n">profile</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="kt">uint8_t</span> <span class="n">profile</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="kt">uint8_t</span> <span class="n">d_type</span> <span class="o">=</span> <span class="n">DYNAMIC</span>
     <span class="p">)</span></pre>
 <p>Constructor responsible for creating various host/device buffers.</p>
 </div>
@@ -555,11 +544,12 @@ xfZlib<span></span> <span class="p">(</span>
 </table>
 </div>
 <div class="section" id="decompress-buffer">
-<span id="cid-xf-compression-xfzlib-decompress-buffer"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1a98d427f0d449ede696dbfdfe051c0ee5"></span><h3>decompress_buffer<a class="headerlink" href="#decompress-buffer" title="Permalink to this headline">¶</a></h3>
+<span id="cid-xf-compression-xfzlib-decompress-buffer"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1ad715a91653ba71f08347b91fd54f9b65"></span><h3>decompress_buffer<a class="headerlink" href="#decompress-buffer" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block"><span></span><span class="kt">int</span> <span class="n">decompress_buffer</span> <span class="p">(</span>
     <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
     <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
-    <span class="kt">uint64_t</span> <span class="n">input_size</span>
+    <span class="kt">uint64_t</span> <span class="n">input_size</span><span class="p">,</span>
+    <span class="kt">uint8_t</span> <span class="n">cu_id</span>
     <span class="p">)</span></pre>
 <p>In shared library flow this call can be used for decompress buffer in serial manner. This is used in libz.so created.</p>
 <p class="rubric">Parameters:</p>
@@ -640,8 +630,11 @@ xfZlib<span></span> <span class="p">(</span>
 </table>
 </div>
 <div class="section" id="init">
-<span id="cid-xf-compression-xfzlib-init"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1af168fb98389a6be83abb57659bfb3485"></span><h3>init<a class="headerlink" href="#init" title="Permalink to this headline">¶</a></h3>
-<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">init</span> <span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">binaryFile</span><span class="p">)</span></pre>
+<span id="cid-xf-compression-xfzlib-init"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1a151d309e6e0c686933ad3b4a7ca995af"></span><h3>init<a class="headerlink" href="#init" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block"><span></span><span class="kt">void</span> <span class="n">init</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">binaryFile</span><span class="p">,</span>
+    <span class="kt">uint8_t</span> <span class="n">dtype</span>
+    <span class="p">)</span></pre>
 <p>OpenCL setup initialization.</p>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given docutils align-default">

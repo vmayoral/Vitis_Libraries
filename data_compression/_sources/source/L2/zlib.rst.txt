@@ -9,21 +9,22 @@ Follow build instructions to generate host executable and binary.
 The binary host file generated is named as "**xil_zlib**" and it is present in ``./build`` directory.
 
 
+
 Results
 -------
 
 Overall Resource Utilization 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Table below presents resource utilization of Xilinx Zlib compress/decompress kernels 
+Table below presents resource utilization of Xilinx Zlib compress/decompress kernels. The final Fmax achieved is 284MHz 
 
-========== ===== ====== ==== ===== ===== ======
-Flow       LUT   LUTMem REG  BRAM  URAM  Fmax
-========== ===== ====== ==== ===== ===== ======
-Compress   134K  30K    134K 140   48    287MHz
----------- ----- ------ ---- ----- ----- ------
-DeCompress 12.9K 626    19K  12    42    300MHz
-========== ===== ====== ==== ===== ===== ======
+========== ===== ====== ===== ===== ===== 
+Flow       LUT   LUTMem REG   BRAM  URAM  
+========== ===== ====== ===== ===== ===== 
+Compress   82.6K 26K    84.7K  105   48    
+---------- ----- ------ ----- ----- ----- 
+DeCompress 13.8K 506    13.7K  8     4     
+========== ===== ====== ===== ===== ===== 
 
 Compress Kernel Resource Utilization
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -31,25 +32,23 @@ Compress Kernel Resource Utilization
 ======== ===== ======= ===== ===== ===== 
 Kernel   LUT   LUTMem  REG   BRAM  URAM 
 ======== ===== ======= ===== ===== =====
-LZ77     49.3K 14.8K   61.3K 74    48   
+LZ77     43.8K 10.4K   46.9K 69    48   
 -------- ----- ------- ----- ----- -----
-TreeGen  8.4K  544     9.5K  15    0   
--------- ----- ------- ----- ----- -----
-Huffman  76.6K 15.2K   63.5K 53    0
+Huffman  38.8K 10.2K   37.8K 36    0
 ======== ===== ======= ===== ===== =====
 
 Decompress Kernel Resource Utilization
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-=========== ===== ======= ===== ===== 
-Kernel      LUT   LUTMem  REG   BRAM  
-=========== ===== ======= ===== =====
-Decompress  8.8K  99      7.1K  12     
------------ ----- ------- ----- -----
-DmReader    1.3K  159     2.3K  1
------------ ----- ------- ----- ----- 
-DmWriter    908   34      1.6K  1
-=========== ===== ======= ===== =====
+=========== ===== ======= ===== ===== =====
+Kernel      LUT   LUTMem  REG   BRAM  URAM
+=========== ===== ======= ===== ===== =====
+Decompress  10.7K 162     8.1K  4     4
+----------- ----- ------- ----- ----- -----
+DmReader    2.1K  294     3.8K  3     0
+----------- ----- ------- ----- ----- -----
+DmWriter    1K    50      1.8K  1     0
+=========== ===== ======= ===== ===== =====
 
 
 Performance Data
@@ -58,12 +57,14 @@ Performance Data
 +----------------------------+------------------------+
 | Topic                      | Best Kernel Throughput |
 +============================+========================+
-|  Compression               | 1.4 GB/s               |
+| Compression                | 2 GB/s                 |
 +----------------------------+------------------------+
-| Decompression              | 286 MB/s               |
+| Decompression              | 733 MB/s               |
 +----------------------------+------------------------+
 | Average Compression Ratio  | 2.74 (Silesia Corpus)  |
 +----------------------------+------------------------+
+
+.. [*] Decompression uses high fmax options (Bitwidth: 32bit, ByteGen Loop: 2) 
 
 Executable Usage:
 

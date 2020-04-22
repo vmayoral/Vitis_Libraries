@@ -10,6 +10,7 @@ Global Namespace
 
 	namespace_xf.rst
 	enum_comp_decom_flows.rst
+	enum_d_type.rst
 	enum_list_mode.rst
 	struct_zlib_aligned_allocator.rst
 	class_xfLz4.rst
@@ -112,6 +113,7 @@ Global Namespace
 	// enums
 
 	enum :ref:`comp_decom_flows<doxid-zlib_8hpp_1a8eb459d4c8cba9871238a9a94c8d861f>`
+	enum :ref:`d_type<doxid-zlib_8hpp_1a505e39af05f260eba9fc403d2a4ac54b>`
 	enum :ref:`list_mode<doxid-zlib_8hpp_1aad11276a757f9cae59a334fcbec9adce>`
 
 	// structs

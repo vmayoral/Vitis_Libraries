@@ -9,15 +9,32 @@ namespace compression
 	:hidden:
 
 	namespace_xf_compression_details.rst
+	enum_xf_compression_eHuffmanType.rst
+	struct_xf_compression_Codeword.rst
+	struct_xf_compression_Symbol.rst
 
 
 
 .. _doxid-namespacexf_1_1compression_1a8ca006fee7f286d35d08e313f7c8e4fc:
 .. _cid-xf::compression::streamdt:
+.. _doxid-namespacexf_1_1compression_1a27e675975c806599c6006e921d62a703:
+.. _cid-xf::compression::frequency:
+.. _doxid-namespacexf_1_1compression_1a8f934ea30b1013fb741a4a887eda46a7:
+.. _cid-xf::compression::histogram:
 .. _doxid-namespacexf_1_1compression_1a2bcf3f856b2554ff3e42118914ac6525:
 .. _cid-xf::compression::compressd_dt:
 .. _doxid-namespacexf_1_1compression_1a499ffa6d30e499c112e1ff0d30f74217:
 .. _cid-xf::compression::uintmemwidth_t:
+.. _doxid-namespacexf_1_1compression_1aed3c6af94b0ad32839a0b967ec8ab300:
+.. _cid-xf::compression::c_tgnsymbolbits:
+.. _doxid-namespacexf_1_1compression_1ad5f2cf7e6e852832703deb9da5e1556a:
+.. _cid-xf::compression::c_tgnbitlengthbits:
+.. _doxid-namespacexf_1_1compression_1adbf942f812f864c600be66240492988a:
+.. _cid-xf::compression::c_tgnsymbolsize:
+.. _doxid-namespacexf_1_1compression_1a8d86b5b2e73845412aa78af32acdb55c:
+.. _cid-xf::compression::c_tgntreedepth:
+.. _doxid-namespacexf_1_1compression_1ac8d739eba2fb3bef2c04664bb9620274:
+.. _cid-xf::compression::c_tgnmaxbits:
 .. _doxid-namespacexf_1_1compression_1a4ab4a06d9431beab6b4626be715fc6fc:
 .. _cid-xf::compression::bsize_std_256kb:
 .. _doxid-namespacexf_1_1compression_1abbd4493ade4021944af752fbf4c91983:
@@ -46,21 +63,17 @@ namespace compression
 .. _cid-xf::compression::c_bltreesize:
 .. _doxid-namespacexf_1_1compression_1a9a710f6021ff8fcdfb109306161d635e:
 .. _cid-xf::compression::c_maxcodesize:
-.. _doxid-namespacexf_1_1compression_1a2d12318fd43faea7660776a984d5a53f:
-.. _cid-xf::compression::huffconstructtree:
-.. _doxid-namespacexf_1_1compression_1a449e544bdbd3463664fb32397a5d93a0:
-.. _cid-xf::compression::inflatedynamic:
-.. _doxid-namespacexf_1_1compression_1a45c0585bb4540e9283cc3201cb23338e:
-.. _cid-xf::compression::inflatefixed:
-.. _doxid-namespacexf_1_1compression_1a81cdc200bcbdb06e831a56dc88f18362:
-.. _cid-xf::compression::inflatefull:
-.. _doxid-namespacexf_1_1compression_1a4b5cf9411aa2614a5d7cb838417e0845:
+.. _doxid-namespacexf_1_1compression_1ae6d002d6c9057207d6fa04125d075a4d:
+.. _cid-xf::compression::zlibtreegencore:
+.. _doxid-namespacexf_1_1compression_1ab68ef2340f960179405c11b20ea8dd9c:
+.. _cid-xf::compression::zlibtreegeninmmoutstream:
+.. _doxid-namespacexf_1_1compression_1a14c8e771d18d684daa7576fa520ae9ad:
+.. _cid-xf::compression::inflate:
+.. _doxid-namespacexf_1_1compression_1af56bb41950dc6f26949afc53ecd04e35:
 .. _cid-xf::compression::inflatemultibyte:
-.. _doxid-namespacexf_1_1compression_1a7977ae00ceffa8e526f3ac114ecfae48:
-.. _cid-xf::compression::zlibmultibytedecompressengine:
-.. _doxid-namespacexf_1_1compression_1aa66ab25af48f6a949d18286f564413ba:
+.. _doxid-namespacexf_1_1compression_1a5fcad7d51ab3195dfe12994cf25921ed:
 .. _cid-xf::compression::inflatemultibytemm:
-.. _doxid-namespacexf_1_1compression_1a222b7e16133744214935fd5129bb3d74:
+.. _doxid-namespacexf_1_1compression_1a2557a82d717e585ab59dce272df01742:
 .. _cid-xf::compression::hlslz4core:
 .. _doxid-namespacexf_1_1compression_1a3a6bf242519f9cda41a04fd81113b1b3:
 .. _cid-xf::compression::hlslz4:
@@ -68,20 +81,24 @@ namespace compression
 .. _cid-xf::compression::lz4compressmm:
 .. _doxid-namespacexf_1_1compression_1ab8c39f9c2abf8bcac3b4ba6df9b7a73b:
 .. _cid-xf::compression::lz4decompresssimple:
-.. _doxid-namespacexf_1_1compression_1a6a577ed478c06a67461388f98797ad3c:
-.. _cid-xf::compression::lz4multibytedecompress:
-.. _doxid-namespacexf_1_1compression_1a27d67ddaac70b2826e5fb273fdbc0cb9:
-.. _cid-xf::compression::lz4multibytedecoder:
 .. _doxid-namespacexf_1_1compression_1a35649dfabbaaf9eeb28519c691885f87:
 .. _cid-xf::compression::lz4decompressengine:
-.. _doxid-namespacexf_1_1compression_1ab49a07b001410bc52e91f44c960de69a:
-.. _cid-xf::compression::lzmultibytedecompress:
+.. _doxid-namespacexf_1_1compression_1a7acac729182c466dd5fd6775e572503c:
+.. _cid-xf::compression::lzmultibytedecoder:
 .. _doxid-namespacexf_1_1compression_1ad563832ae258d131b90a7be4766730c4:
 .. _cid-xf::compression::lzdecompresszlibeos:
 .. _doxid-namespacexf_1_1compression_1abe4bb9ab9f3e2bb6a6479add04d4e232:
 .. _cid-xf::compression::lz77divide:
-.. _doxid-namespacexf_1_1compression_1adb30f0746a27fcb828d0a29c1fa0f76a:
+.. _doxid-namespacexf_1_1compression_1aa036e9da15f34ff1061334b7f3e32e44:
 .. _cid-xf::compression::lzxdecompressengine:
+.. _doxid-namespacexf_1_1compression_1adc147d5d488dc4be18c3d9421565cdbe:
+.. _cid-xf::compression::snappyheaderprocessing:
+.. _doxid-namespacexf_1_1compression_1a6271122ed624069813a0e5cd973646db:
+.. _cid-xf::compression::snappymultibytedecompress:
+.. _doxid-namespacexf_1_1compression_1ae3df4c0b9c1ef327db6db7fde744e3bf:
+.. _cid-xf::compression::snappydecompressengine:
+.. _doxid-namespacexf_1_1compression_1adfca8e8520c767df8d4b098fae7e73bb:
+.. _cid-xf::compression::snappydecompresscoreengine:
 .. ref-code-block:: cpp
 	:class: overview-code-block
 
@@ -92,11 +109,27 @@ namespace compression
 	// typedefs
 
 	typedef ap_uint <8> streamDt
+	typedef ap_uint <c_frequency_bits> Frequency
+	typedef ap_uint <12> Histogram
 	typedef ap_uint <32> compressd_dt
 	typedef ap_uint <kGMemDWidth> uintMemWidth_t
 
+	// enums
+
+	enum :ref:`eHuffmanType<doxid-namespacexf_1_1compression_1aa1aa80766d59d3c350c68fd7bab47d49>`
+
+	// structs
+
+	struct :ref:`Codeword<doxid-structxf_1_1compression_1_1Codeword>` 
+	struct :ref:`Symbol<doxid-structxf_1_1compression_1_1Symbol>` 
+
 	// global variables
 
+	static const static uint8_t c_tgnSymbolBits
+	static const static uint8_t c_tgnBitlengthBits
+	static const static uint16_t c_tgnSymbolSize
+	static const static uint16_t c_tgnTreeDepth
+	static const static uint16_t c_tgnMaxBits
 	const auto :ref:`BSIZE_STD_64KB<doxid-namespacexf_1_1compression_1a54fef513f3238f9e8041389c73ed24bc>`
 	const auto BSIZE_STD_256KB
 	const auto BSIZE_STD_1024KB
@@ -161,63 +194,11 @@ In case of uncompressed block Values below are used to set 3rd byte to following
 
 
 
-.. _doxid-namespacexf_1_1compression_1ad15267154c288ef7ae702ac1ebde84ea:
-.. _cid-xf::compression::huffmandecoderfixed:
+.. _doxid-namespacexf_1_1compression_1abaf4aef4dadf6d9f068683bdb86002a1:
+.. _cid-xf::compression::huffmandecoder:
 
-huffmanDecoderFixed
--------------------
-
-
-.. code-block:: cpp
-	
-	#include "huffman_decoder.hpp"
-
-
-
-.. ref-code-block:: cpp
-	:class: title-code-block
-
-	void huffmanDecoderFixed (
-	    hls::stream <ap_uint <16>>& inStream,
-	    hls::stream <compressd_dt>& outStream,
-	    hls::stream <bool>& endOfStream,
-	    uint32_t input_size
-	    )
-
-This module is ZLIB/GZIP Fixed Huffman Decoder. It takes ZLIB/GZIP Huffman encoded data as input and generates decoded data in LZ77 format (literal, length, offset)
-
-
-
-.. rubric:: Parameters:
-
-.. list-table::
-    :widths: 20 80
-
-    *
-        - inStream
-
-        - input bit packed data
-
-    *
-        - outStream
-
-        - output lz77 compressed output in the form of 32bit packets (Literals, Match Length, Distances)
-
-    *
-        - endOfStream
-
-        - output completion of execution
-
-    *
-        - input_size
-
-        - input data size
-
-.. _doxid-namespacexf_1_1compression_1aee0ea85eed03e63e3c5fe660405b613b:
-.. _cid-xf::compression::huffmandecoderdynamic:
-
-huffmanDecoderDynamic
----------------------
+huffmanDecoder
+--------------
 
 
 .. code-block:: cpp
@@ -229,60 +210,12 @@ huffmanDecoderDynamic
 .. ref-code-block:: cpp
 	:class: title-code-block
 
-	template <int ByteGenLoopII = 2>
-	void huffmanDecoderDynamic (
-	    hls::stream <ap_uint <16>>& inStream,
-	    hls::stream <compressd_dt>& outStream,
-	    hls::stream <bool>& endOfStream,
-	    uint32_t input_size
-	    )
-
-This module is ZLIB/GZIP Dynamic Huffman Decoder. It takes ZLIB/GZIP Huffman encoded data as input and generates decoded data in LZ77 format(literal, length, offset).
-
-
-
-.. rubric:: Parameters:
-
-.. list-table::
-    :widths: 20 80
-
-    *
-        - inStream
-
-        - input bit packed data
-
-    *
-        - outStream
-
-        - output lz77 compressed output in the form of 32bit packets (Literals, Match Length, Distances)
-
-    *
-        - endOfStream
-
-        - output completion of execution
-
-    *
-        - input_size
-
-        - input data size
-
-.. _doxid-namespacexf_1_1compression_1a88c7124ebbf360c1576f655e3be06c5d:
-.. _cid-xf::compression::huffmandecoderfull:
-
-huffmanDecoderFull
-------------------
-
-
-.. code-block:: cpp
-	
-	#include "huffman_decoder.hpp"
-
-
-
-.. ref-code-block:: cpp
-	:class: title-code-block
-
-	void huffmanDecoderFull (
+	template <
+	    eHuffmanType DECODER = FULL,
+	    int ByteGenLoopII = 2,
+	    bool USE_GZIP = 0
+	    >
+	void huffmanDecoder (
 	    hls::stream <ap_uint <16>>& inStream,
 	    hls::stream <compressd_dt>& outStream,
 	    hls::stream <bool>& endOfStream,
@@ -299,6 +232,21 @@ This module is ZLIB/GZIP Fixed, Dynamic and Stored block supported decoder. It t
     :widths: 20 80
 
     *
+        - DECODER
+
+        - Fixed, Full, Dynamic huffman block support
+
+    *
+        - ByteGenLoopII
+
+        - core bytegenerator loop initiation interval
+
+    *
+        - USE_GZIP
+
+        - switch that controls GZIP/ZLIB header processing
+
+    *
         - inStream
 
         - input bit packed data
@@ -318,7 +266,7 @@ This module is ZLIB/GZIP Fixed, Dynamic and Stored block supported decoder. It t
 
         - input data size
 
-.. _doxid-namespacexf_1_1compression_1af3c2a027756e654bd32b66dd3535c374:
+.. _doxid-namespacexf_1_1compression_1a2efd8a3878037e3f17f934e400e0d3b4:
 .. _cid-xf::compression::huffmanencoder:
 
 huffmanEncoder
@@ -339,13 +287,8 @@ huffmanEncoder
 	    hls::stream <uint16_t>& outStream,
 	    hls::stream <uint8_t>& outStreamSize,
 	    uint32_t input_size,
-	    hls::stream <uint32_t>& inStreamLCodes,
-	    hls::stream <uint32_t>& inStreamLBlen,
-	    hls::stream <uint32_t>& inStreamDCodes,
-	    hls::stream <uint32_t>& inStreamDBlen,
-	    hls::stream <uint32_t>& inStreamBLCodes,
-	    hls::stream <uint32_t>& inStreamBLBlen,
-	    hls::stream <uint32_t>& inStreamMaxCode
+	    hls::stream <uint16_t>& inStreamCodes,
+	    hls::stream <uint8_t>& inStreamCodeSize
 	    )
 
 This module does zlib/gzip dynamic huffman encoding.
@@ -378,39 +321,14 @@ This module does zlib/gzip dynamic huffman encoding.
         - uncompressed data input size
 
     *
-        - inStreamLCodes
+        - inStreamCodes
 
-        - Huffman Literal Codes
-
-    *
-        - inStreamLBLen
-
-        - Huffman Literal Code Bit Lengths
+        - Huffman Codes
 
     *
-        - inStreamDCodes
+        - inStreamCodeSize
 
-        - Huffman Distance Codes
-
-    *
-        - inStreamDBLen
-
-        - Huffman Distance Code Bit Lengths
-
-    *
-        - inStreamBLCodes
-
-        - Huffman BitLength Codes
-
-    *
-        - inStreamBLCodes
-
-        - Huffman BitLength Code Bit Lengths
-
-    *
-        - inStreamMaxCode
-
-        - Maximum codes for literal, distance and bitlengths
+        - HuffmanCode Lengths
 
 .. _doxid-namespacexf_1_1compression_1a962b32f6f806f0b719eace7032403e58:
 .. _cid-xf::compression::lz4compress:
@@ -526,6 +444,76 @@ This module reads the compressed data from input stream and decodes the offset, 
         - input_size
 
         - Input size
+
+.. _doxid-namespacexf_1_1compression_1a6a577ed478c06a67461388f98797ad3c:
+.. _cid-xf::compression::lz4multibytedecompress:
+
+lz4MultiByteDecompress
+----------------------
+
+
+.. code-block:: cpp
+	
+	#include "lz4_decompress.hpp"
+
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <int PARALLEL_BYTES>
+	void lz4MultiByteDecompress (
+	    hls::stream <ap_uint <PARALLEL_BYTES*8>>& inStream,
+	    hls::stream <uint16_t>& litlenStream,
+	    hls::stream <ap_uint <PARALLEL_BYTES*8>>& litStream,
+	    hls::stream <ap_uint <16>>& offsetStream,
+	    hls::stream <uint16_t>& matchlenStream,
+	    uint32_t input_size
+	    )
+
+This module reads the compressed data from input stream and decodes the offset, match length and literals by processing in various decompress states. It can process the data in parallel defined by PARALLEL BYTES template parameter.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - PARALLEL_BYTES
+
+        - number of bytes processed in parallel (4,8)
+
+    *
+        - inStream
+
+        - input stream
+
+    *
+        - litlenStream
+
+        - literal length stream
+
+    *
+        - litStream
+
+        - literal stream
+
+    *
+        - offsetStream
+
+        - offset stream
+
+    *
+        - matchlenStream
+
+        - match length only stream
+
+    *
+        - input_size
+
+        - input size of the block
 
 .. _doxid-namespacexf_1_1compression_1ad21d5c05bffdeb0f0c658a6da1d082e2:
 .. _cid-xf::compression::lz4packer:
@@ -653,14 +641,14 @@ This module writes the literals to the output stream as it is and when match len
     :widths: 20 80
 
     *
-        - LOW_OFFSET
-
-        - low offset
-
-    *
         - HISTORY_SIZE
 
         - history size
+
+    *
+        - LOW_OFFSET
+
+        - low offset
 
     *
         - inStream
@@ -676,6 +664,96 @@ This module writes the literals to the output stream as it is and when match len
         - original_size
 
         - original size
+
+.. _doxid-namespacexf_1_1compression_1a8f1ccc8daec6317e9c26577ac06e6e9e:
+.. _cid-xf::compression::lzmultibytedecompress:
+
+lzMultiByteDecompress
+---------------------
+
+
+.. code-block:: cpp
+	
+	#include "lz_decompress.hpp"
+
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    int PARALLEL_BYTES,
+	    int HISTORY_SIZE,
+	    class SIZE_DT = uint8_t
+	    >
+	void lzMultiByteDecompress (
+	    hls::stream <SIZE_DT>& litlenStream,
+	    hls::stream <ap_uint <PARALLEL_BYTES*8>>& litStream,
+	    hls::stream <ap_uint <16>>& offsetStream,
+	    hls::stream <SIZE_DT>& matchlenStream,
+	    hls::stream <ap_uint <PARALLEL_BYTES*8>>& outStream,
+	    hls::stream <bool>& endOfStream,
+	    hls::stream <uint64_t>& sizeOutStream
+	    )
+
+This module writes the literals to the output stream as it is and when match length and offset are read, the literals will be read from the local dictionary based on offset until match length. This module can process data in parallel defined by PARALLEL_BYTES template argument.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - PARALLEL_BYTES
+
+        - number of bytes processed in parallel (4, 8)
+
+    *
+        - HISTORY_SIZE
+
+        - history size
+
+    *
+        - SIZE_DT
+
+        - input data type
+
+    *
+        - litlenStream
+
+        - literal length stream
+
+    *
+        - litStream
+
+        - literals only stream
+
+    *
+        - offsetStream
+
+        - offset only stream
+
+    *
+        - matchlenStream
+
+        - match length only stream
+
+    *
+        - outStream
+
+        - output stream
+
+    *
+        - endOfStream
+
+        - end of stream
+
+    *
+        - sizeOutStream
+
+        - output size stream
 
 .. _doxid-namespacexf_1_1compression_1ad607c4532afbc791230dacdb4a3e4b47:
 .. _cid-xf::compression::lzbestmatchfilter:

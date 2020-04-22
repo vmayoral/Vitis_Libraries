@@ -458,16 +458,15 @@ LZ based data compression algorithms.</p>
 <div class="section" id="resource-utilization">
 <h3>Resource Utilization<a class="headerlink" href="#resource-utilization" title="Permalink to this headline">¶</a></h3>
 <p>Table below presents resource utilization of Xilinx Snappy
-compress/decompress kernels with 8 engines for single compute unit. It
-is possible to extend number of engines to achieve higher throughput.</p>
+compress/decompress kernels with 8 engines for single compute unit.
+The final Fmax achieved for this design is 299MHz</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 24%" />
-<col style="width: 12%" />
+<col style="width: 28%" />
 <col style="width: 14%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
+<col style="width: 17%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
 <col style="width: 14%" />
 </colgroup>
 <thead>
@@ -477,25 +476,22 @@ is possible to extend number of engines to achieve higher throughput.</p>
 <th class="head"><p>REG</p></th>
 <th class="head"><p>BRAM</p></th>
 <th class="head"><p>URAM</p></th>
-<th class="head"><p>Fmax</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Compress</p></td>
-<td><p>52.7K</p></td>
-<td><p>13.8K</p></td>
-<td><p>64.8K</p></td>
-<td><p>50</p></td>
+<td><p>47K</p></td>
+<td><p>10.1K</p></td>
+<td><p>49.6K</p></td>
 <td><p>48</p></td>
-<td><p>300MHz</p></td>
+<td><p>48</p></td>
 </tr>
 <tr class="row-odd"><td><p>DeCompress</p></td>
-<td><p>30.7K</p></td>
-<td><p>13.4K</p></td>
-<td><p>39.4K</p></td>
+<td><p>33.7K</p></td>
+<td><p>14K</p></td>
+<td><p>43.8K</p></td>
 <td><p>146</p></td>
 <td><p>0</p></td>
-<td><p>300MHz</p></td>
 </tr>
 </tbody>
 </table>
