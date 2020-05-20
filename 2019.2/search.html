@@ -6,11 +6,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
-		<meta content="Vision, Library, Vitis Vision Library, user guide" name="keywords" />
-<meta content="Vitis vision library provides a software interface for computer vision functions accelerated on an FPGA device." name="description" />
-<meta content="Document" name="xlnxdocumentclass" />
-<meta content="Tutorials" name="xlnxdocumenttype" />
-
+		
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 		<link rel="stylesheet" href="https://static.cloud.coveo.com/searchui/v2.4382/css/CoveoFullSearch.css"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -31,6 +27,7 @@
   
 
   
+    
       <script type="text/javascript" src="_static/js/jquery.min.js"></script>	
 	  <script type="text/javascript" src="_static/js/gtm.js"></script>
   <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
@@ -53,6 +50,7 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
+    <script type="text/javascript" src="_static/searchtools.js"></script>
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
@@ -61,8 +59,7 @@
   <link rel="stylesheet" href="_static/css/header-footer.min.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Overview" href="overview.html" /> 
+    <link rel="search" title="Search" href="#" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -300,7 +297,7 @@
           
 
           
-            <a href="#" class="icon icon-home" alt="Documentation Home"> Vitis Vision Library
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Vitis Vision Library
           
 
           
@@ -317,7 +314,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="#" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -350,11 +347,6 @@
 </ul>
 
             
-			<p class="caption"><span class="caption-text">This Page</span></p>
-				<ul class="current">
-				  <li class="toctree-l1"><a href="_sources/index.rst.txt"
-						rel="nofollow">Show Source</a></li>						
-				</ul>
           
         </div>
         
@@ -367,7 +359,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">Vitis Vision Library</a>
+          <a href="index.html">Vitis Vision Library</a>
         
       </nav>
 
@@ -396,16 +388,14 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Vitis Vision Library</li>
+      <li>Search</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -417,153 +407,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="vitis-vision-library">
-<h1>Vitis Vision Library<a class="headerlink" href="#vitis-vision-library" title="Permalink to this headline">¶</a></h1>
-<p>The Vitis Vision library is a FPGA device optimized Vitis vision library intended for application
-developers using Zynq®-7000 SoC and Zynq® UltraScale+™ MPSoC and PCIE based (Virtex and U200 …) devices.
-Vitis vision library provides a software interface for computer vision functions accelerated on an FPGA device.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Vitis Vision library functions are mostly similar in functionality to their OpenCV equivalent. Any deviations, if present, are documented.</p>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Vitis Vision Library User Guide</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#basic-features">Basic Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#vitis-vision-kernel-on-vitis">Vitis Vision Kernel on Vitis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#vitis-vision-library-contents">Vitis Vision Library Contents</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="overview.html#getting-started-with-vitis-vision">Getting Started with Vitis Vision</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#vitis-design-methodology">Vitis Design Methodology</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#evaluating-the-functionality">Evaluating the Functionality</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#using-the-vitis-vision-library">Using the Vitis vision Library</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="overview.html#getting-started-with-hls">Getting Started with HLS</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#hls-standalone-mode">HLS Standalone Mode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#axi-video-interface-functions">AXI Video Interface Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#migrating-hls-video-library-to-vitis-vision">Migrating HLS Video Library to Vitis vision</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="overview.html#design-examples-using-vitis-vision-library">Design Examples Using Vitis Vision Library</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#interative-pyramidal">Iterative Pyramidal Dense Optical Flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#corner-tracking">Corner Tracking Using Optical Flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#id9">Color Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#difference-gaussian-filter">Difference of Gaussian Filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#stereo-vision">Stereo Vision Pipeline</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#id13">X + ML Pipeline</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Vitis Vision Library API Reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="api-reference.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api-reference.html#xf-cv-mat-image-container-class">xf::cv::Mat Image Container Class</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#class-definition">Class Definition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#pixel-level-parallelism">Pixel-Level Parallelism</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#data-types">Data Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#xf-cv-imread">xf::cv::imread</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#xf-cv-imwrite">xf::cv::imwrite</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#xf-cv-absdiff">xf::cv::absDiff</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#xf-cv-convertto">xf::cv::convertTo</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api-reference.html#vitis-vision-library-functions">Vitis Vision Library Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#absolute-difference">Absolute Difference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#accumulate">Accumulate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#accumulate-squared">Accumulate Squared</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#accumulate-weighted">Accumulate Weighted</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#adds">AddS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#addweighted">Addweighted</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#id5">Autowhitebalance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#badpixelcorrection">Badpixelcorrection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#bilateral-filter">Bilateral Filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#bit-depth-conversion">Bit Depth Conversion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#bitwise-and">Bitwise AND</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#bitwise-not">Bitwise NOT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#bitwise-or">Bitwise OR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#bitwise-xor">Bitwise XOR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#box-filter">Box Filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#boundingbox">BoundingBox</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#canny-edge-detection">Canny Edge Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#channel-combine">Channel Combine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#channel-extract">Channel Extract</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#color-conversion">Color Conversion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#color-thresholding">Color Thresholding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#compare">Compare</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#compares">CompareS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#crop">Crop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#custom-convolution">Custom Convolution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#delay">Delay</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#demosaicing">Demosaicing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#dilate">Dilate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#duplicate">Duplicate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#erode">Erode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#fast-corner-detection">FAST Corner Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#gaincontrol">Gaincontrol</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#gammacorrection">Gammacorrection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#gaussian-filter">Gaussian Filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#gradient-magnitude">Gradient Magnitude</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#gradient-phase">Gradient Phase</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#harris-corner-detection">Harris Corner Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#histogram-computation">Histogram Computation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#histogram-equalization">Histogram Equalization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#hog">HOG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#houghlines">HoughLines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#preprocessing-for-deep-neural-networks">Preprocessing for Deep Neural Networks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#pyramid-up">Pyramid Up</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#pyramid-down">Pyramid Down</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#initundistortrectifymapinverse">InitUndistortRectifyMapInverse</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#inrange">InRange</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#integral-image">Integral Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#dense-pyramidal-lk-optical">Dense Pyramidal LK Optical Flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#dense-non-pyramidal-lk-optical">Dense Non-Pyramidal LK Optical Flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#kalman-filter">Kalman Filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#mean-and-standard-deviation">Mean and Standard Deviation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#max">Max</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#maxs">MaxS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#median-blur-filter">Median Blur Filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#min">Min</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#mins">MinS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#minmax-location">MinMax Location</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#mean-shift-tracking">Mean Shift Tracking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#otsu-threshold">Otsu Threshold</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#paintmask">Paintmask</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#pixel-wise-addition">Pixel-Wise Addition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#pixel-wise-multiplication">Pixel-Wise Multiplication</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#pixel-wise-subtraction">Pixel-Wise Subtraction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#reduce">Reduce</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#remap">Remap</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#resolution-conversion">Resolution Conversion (Resize)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#bgr2hsv">BGR2HSV</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#convertscaleabs">convertScaleAbs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#scharr-filter">Scharr Filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#set">Set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#sobel-filter">Sobel Filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#semi-global-method-for-stereo-disparity-estimation">Semi Global Method for Stereo Disparity Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#stereo-local-block-matching">Stereo Local Block Matching</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#subrs">SubRS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#subs">SubS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#sum">Sum</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#svm">SVM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#thresholding">Thresholding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#atan2">Atan2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#inverse-reciprocal">Inverse (Reciprocal)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#look-up-table">Look Up Table</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#square-root">Square Root</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#warptransform">WarpTransform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-reference.html#zero">Zero</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
+  <noscript>
+  <div id="fallback" class="admonition warning">
+    <p class="last">
+      Please activate JavaScript to enable the search functionality.
+    </p>
+  </div>
+  </noscript>
 
+  
+  <div id="search-results">
+  
+  </div>
 
            </div>
            
@@ -579,20 +434,13 @@ Vitis vision library provides a software interface for computer vision functions
 	  
 	  <!-- Sphinx Page Footer block -->
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-    </div>
-  
 
   <hr/>
 
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on April 03, 2020.
+        Last updated on April 21, 2020.
       </span>
 
     </p>
