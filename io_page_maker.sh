@@ -8,7 +8,8 @@ mkdir -p $4
 io_updator() {
     echo "Copying updated files..."
     cp -rf L1/README.rst docs/source/L1/overview.rst
-    cp -rf L2/demos/README.rst docs/source/L2/overview.rst
+    cp -rf L2/demos/README.rst docs/source/L2/design.rst
+    cp -rf L3/demos/README.rst docs/source/L3/design.rst
     cp -rf L3/README.rst docs/source/L3/overview.rst
     ls_files="$(git ls-files)"
     for f in $ls_files; do
@@ -59,5 +60,4 @@ done
 cd ../../
 rm -rf $2 $3
 cd $abs_basename
-cp -rf $4/docs $4/source/L2/
 echo "Documentation can be review by opening index.html"

@@ -1,0 +1,26 @@
+.. index:: pair: struct; BlockInfo
+.. _doxid-structBlockInfo:
+.. _cid-blockinfo:
+
+struct BlockInfo
+================
+
+.. toctree::
+	:hidden:
+
+
+
+
+
+.. _doxid-structBlockInfo_1a377e32e4cfd6d8e947f2451f53c93f9e:
+.. _cid-blockinfo::compresssize:
+.. _doxid-structBlockInfo_1a48d8c98946f3d65ba1eeb5b3ef252868:
+.. _cid-blockinfo::storedblock:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// fields
+
+	uint32_t compressSize
+	bool storedBlock
+
