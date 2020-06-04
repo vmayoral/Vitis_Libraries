@@ -6,7 +6,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
-		<meta content="BLAS, Library, Vitis BLAS Library, XFBLAS, example, level 3" name="keywords" />
+		<meta content="BLAS, Library, Vitis BLAS Library, Vitis BLAS, example, level 3" name="keywords" />
 <meta content="Vitis BLAS library level 3 appliction programming interface example." name="description" />
 <meta content="Document" name="xlnxdocumentclass" />
 <meta content="Tutorials" name="xlnxdocumenttype" />
@@ -432,18 +432,18 @@
   <div class="section" id="l3-api-example">
 <span id="example-l3"></span><h1>L3 API example<a class="headerlink" href="#l3-api-example" title="Permalink to this headline">¶</a></h1>
 <p>For example code references please follow the link below.</p>
-<p><strong>1. XFBLAS L3 compilation</strong></p>
+<p><strong>1. Vitis BLAS L3 compilation</strong></p>
 <p>All examples provided here could be built with compilation steps similar to the following:</p>
 <pre class="highlight literal-block">
 <span></span>g++ -O0 -std<span class="o">=</span>c++11 -fPIC -Wextra -Wall -Wno-ignored-attributes -Wno-unused-parameter -Wno-unused-variable -I<span class="k">$(</span>XILINX_XRT<span class="k">)</span>/include -I/include/sw -o example.exe example.cpp -L<span class="k">$(</span>XILINX_XRT<span class="k">)</span>/lib -lz -lstdc++ -lrt -pthread -lxrt_core -ldl -luuid
 </pre>
-<p><strong>2. XFBLAS L3 run</strong></p>
+<p><strong>2. Vitis BLAS L3 run</strong></p>
 <p>Most of the examples could be run with steps similar to the following in machine with HW device installed. Detailed usages are also provided in each section.</p>
 <pre class="highlight literal-block">
 <span></span>./example.exe PATH_TO_XCLBIN/example.xclbin PATH_TO_XCLBIN/config_info.dat
 </pre>
-<p><strong>3. XFBLAS L3 code example</strong></p>
-<p>The following is an example of how to use XFBLAS API. Users always need to include header file xf_blas.hpp.</p>
+<p><strong>3. Vitis BLAS L3 code example</strong></p>
+<p>The following is an example of how to use Vitis BLAS API. Users always need to include header file xf_blas.hpp.</p>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_blas.hpp&quot;</span><span class="cp"></span>
 
@@ -530,7 +530,7 @@
   <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
 <span class="p">}</span>
 </pre>
-<p>These API functions run on the first kernel by default, but they could support multi-kernels xclbin. Users will need to put numbers of kernels or index of the kernel in those functions to let the API know. The following code shows how to initialize XFBLAS library to support a xclbin with 2 kernels and run with the second kernel.</p>
+<p>These API functions run on the first kernel by default, but they could support multi-kernels xclbin. Users will need to put numbers of kernels or index of the kernel in those functions to let the API know. The following code shows how to initialize Vitis BLAS library to support a xclbin with 2 kernels and run with the second kernel.</p>
 <pre class="highlight literal-block">
 <span></span><span class="n">xfblasStatus_t</span> <span class="n">status</span> <span class="o">=</span> <span class="n">xfblasCreate</span><span class="p">(</span><span class="n">l_xclbinFile</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="n">l_configFile</span><span class="p">,</span> <span class="n">l_logFile</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="n">XFBLAS_ENGINE_GEMM</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
 <span class="n">status</span> <span class="o">=</span> <span class="n">xfblasMallocRestricted</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">),</span><span class="n">a</span><span class="p">,</span><span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
@@ -542,7 +542,7 @@
 <span class="n">status</span> <span class="o">=</span> <span class="n">xfblasGemm</span><span class="p">(</span><span class="n">XFBLAS_OP_N</span><span class="p">,</span> <span class="n">XFBLAS_OP_N</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 <span class="n">status</span> <span class="o">=</span> <span class="n">xfblasGetMatrixRestricted</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 </pre>
-<p><strong>4. XFBLAS L3 example</strong></p>
+<p><strong>4. Vitis BLAS L3 example</strong></p>
 <p>Please see L3 example folder for more example cases.</p>
 <div class="toctree-wrapper compound">
 <ul>

@@ -6,8 +6,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
-		<meta content="BLAS, Library, Vitis BLAS Library, XFBLAS, level 3" name="keywords" />
-<meta content="Vitis BLAS library level 3 provides Python bindings that users could use XFBLAS libraries in Python." name="description" />
+		<meta content="BLAS, Library, Vitis BLAS Library, Vitis BLAS, level 3" name="keywords" />
+<meta content="Vitis BLAS library level 3 provides Python bindings that users could use Vitis BLAS libraries in Python." name="description" />
 <meta content="Document" name="xlnxdocumentclass" />
 <meta content="Tutorials" name="xlnxdocumenttype" />
 
@@ -355,12 +355,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#build-shared-library">1.2 Build shared library</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#using-the-xfblas-l3-python-api">2. Using the XFBLAS L3 Python API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-vitis-blas-l3-python-api">2. Using the Vitis BLAS L3 Python API</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#general-description">2.1 General description</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#xfblas-initialization">2.1.1 XFBLAS initialization</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#vitis-blas-initialization">2.1.1 Vitis BLAS initialization</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#xfblas-helper-function-reference">2.2 XFBLAS Helper Function Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vitis-blas-helper-function-reference">2.2 Vitis BLAS Helper Function Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -442,7 +442,7 @@
             
   <div class="section" id="l3-python-bindings">
 <span id="python-bindings-l3"></span><h1>L3 Python bindings<a class="headerlink" href="#l3-python-bindings" title="Permalink to this headline">¶</a></h1>
-<p>XFBLAS level 3 provides Python bindings that users could use XFBLAS libraries in Python. Examples of using XFBLAS Python bindings in keras to do classification are also available to try. Applications for using Python API could be found in <a class="reference internal" href="L3_application.html"><span class="doc">L3 API application</span></a>.</p>
+<p>Vitis BLAS level 3 provides Python bindings that users could use Vitis BLAS libraries in Python. Examples of using Vitis BLAS Python bindings in keras to do classification are also available to try. Applications for using Python API could be found in <a class="reference internal" href="L3_application.html"><span class="doc">L3 API application</span></a>.</p>
 <div class="section" id="introduction">
 <h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="set-python-environment">
@@ -454,13 +454,13 @@
 <p>L3 Python bindings use ctypes to wrap the L3 API functions in pure Python. In order to call these Python functions, users need to build the xfblas.so by Makefile in L3/src/sw/python_api locally.</p>
 </div>
 </div>
-<div class="section" id="using-the-xfblas-l3-python-api">
-<h2>2. Using the XFBLAS L3 Python API<a class="headerlink" href="#using-the-xfblas-l3-python-api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-the-vitis-blas-l3-python-api">
+<h2>2. Using the Vitis BLAS L3 Python API<a class="headerlink" href="#using-the-vitis-blas-l3-python-api" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="general-description">
 <h3>2.1 General description<a class="headerlink" href="#general-description" title="Permalink to this headline">¶</a></h3>
-<p>This section describes how to use the XFBLAS library API level Python bindings. To use the library, users need to source PYTHONPATH to the directory of xfblas_L3.py and import xfblas_L3 as xfblas at the beginning of the Python file.</p>
-<div class="section" id="xfblas-initialization">
-<h4>2.1.1 XFBLAS initialization<a class="headerlink" href="#xfblas-initialization" title="Permalink to this headline">¶</a></h4>
+<p>This section describes how to use the Vitis BLAS library API level Python bindings. To use the library, users need to source PYTHONPATH to the directory of xfblas_L3.py and import xfblas_L3 as xfblas at the beginning of the Python file.</p>
+<div class="section" id="vitis-blas-initialization">
+<h4>2.1.1 Vitis BLAS initialization<a class="headerlink" href="#vitis-blas-initialization" title="Permalink to this headline">¶</a></h4>
 <p>To initialize the library, call the following two functions.</p>
 <pre class="highlight literal-block">
 <span></span><span class="kn">import</span> <span class="nn">xfblas_L3</span> <span class="kn">as</span> <span class="nn">xfblas</span>
@@ -469,8 +469,8 @@
 </pre>
 </div>
 </div>
-<div class="section" id="xfblas-helper-function-reference">
-<h3>2.2 XFBLAS Helper Function Reference<a class="headerlink" href="#xfblas-helper-function-reference" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="vitis-blas-helper-function-reference">
+<h3>2.2 Vitis BLAS Helper Function Reference<a class="headerlink" href="#vitis-blas-helper-function-reference" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>
