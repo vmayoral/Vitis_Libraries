@@ -43,7 +43,6 @@
         <script type="text/javascript" src="../../_static/jquery.js"></script>
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -344,6 +343,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../L2/L2.html">L2 Kernel User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="L3.html">L3 Overlay User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="overview.html">L3 Overlay APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_reference.html">Overlay API Reference</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="demo.html">Demos</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="lz4_app.html">LZ4 Application</a></li>
@@ -442,12 +442,12 @@
 guidelines to build and deployment.</p>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>ZLIB is an Open Source data compression library [Reference] which provides
+<p>ZLIB is an Open Source data compression library which provides
 high compression ratio compared to Limpel Ziev based data compression algorithms
 (Byte Compression). It applies two levels of compression,</p>
 <ul class="simple">
-<li><p>Byte Level (Limpel Ziev â€“ LZ Based Compression Scheme)</p></li>
-<li><p>Bit Level (Huffman â€“ Entropy)</p></li>
+<li>Byte Level (Limpel Ziev  LZ Based Compression Scheme)</li>
+<li>Bit Level (Huffman Entropy)</li>
 </ul>
 <p>Due to its high compression ratio it takes higher precedence over LZ based
 compression schemes. Traditionally the CPU based solutions are limited to MB/s
@@ -462,26 +462,31 @@ compression and decompression.</p>
 <p>The host executable generated is named as “<strong>xil_zlib</strong>” and it is generated in <code class="docutils literal notranslate"><span class="pre">./build</span></code> directory.</p>
 <p>Following is the usage of the executable:</p>
 <ol class="arabic">
-<li><p>To execute single file for compression                 : <code class="docutils literal notranslate"><span class="pre">./build/xil_zlib</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-c</span> <span class="pre">&lt;input</span> <span class="pre">file_name&gt;</span></code></p></li>
-<li><p>To execute single file for decompression           : <code class="docutils literal notranslate"><span class="pre">./build/xil_zlib</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-d</span> <span class="pre">&lt;compressed</span> <span class="pre">file_name&gt;</span></code></p></li>
-<li><p>To validate single file (compress &amp; decompress)    : <code class="docutils literal notranslate"><span class="pre">./build/xil_zlib</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-v</span> <span class="pre">&lt;input</span> <span class="pre">file_name&gt;</span></code></p></li>
-<li><p>To validate multiple files (compress &amp; decompress) : <code class="docutils literal notranslate"><span class="pre">./build/xil_zlib</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-l</span> <span class="pre">&lt;files.list&gt;</span></code></p>
+<li><p class="first">To execute single file for compression                 : <code class="docutils literal notranslate"><span class="pre">./build/xil_zlib</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-c</span> <span class="pre">&lt;input</span> <span class="pre">file_name&gt;</span></code></p>
+</li>
+<li><p class="first">To execute single file for decompression           : <code class="docutils literal notranslate"><span class="pre">./build/xil_zlib</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-d</span> <span class="pre">&lt;compressed</span> <span class="pre">file_name&gt;</span></code></p>
+</li>
+<li><p class="first">To validate single file (compress &amp; decompress)    : <code class="docutils literal notranslate"><span class="pre">./build/xil_zlib</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-v</span> <span class="pre">&lt;input</span> <span class="pre">file_name&gt;</span></code></p>
+</li>
+<li><p class="first">To validate multiple files (compress &amp; decompress) : <code class="docutils literal notranslate"><span class="pre">./build/xil_zlib</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-l</span> <span class="pre">&lt;files.list&gt;</span></code></p>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;files.list&gt;</span></code>: Contains various file names with current path</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;files.list&gt;</span></code>: Contains various file names with current path</li>
 </ul>
 </div></blockquote>
 </li>
 </ol>
 <p>The usage of the generated executable is as follows:</p>
-<pre class="highlight literal-block"><span></span>Usage: application.exe -<span class="o">[</span>-h-c-d-sx-v-l-k<span class="o">]</span>
+<pre class="highlight literal-block">
+<span></span>Usage: application.exe -<span class="o">[</span>-h-c-d-sx-v-l-k<span class="o">]</span>
      --help,                 -h      Print Help Options   Default: <span class="o">[</span>false<span class="o">]</span>
      --compress,             -c      Compress
      --decompress,           -d      Decompress
      --single_xclbin,        -sx     Single XCLBIN        Default: <span class="o">[</span>single<span class="o">]</span>
      --file_list,            -l      List of Input Files
      --compress_decompress,  -v      Compress Decompress
-     --cu,                   -k      CU                   Default: <span class="o">[</span><span class="m">0</span><span class="o">]</span></pre>
+     --cu,                   -k      CU                   Default: <span class="o">[</span><span class="m">0</span><span class="o">]</span>
+</pre>
 </div>
 <div class="section" id="software-api-usage">
 <h2>Software API Usage<a class="headerlink" href="#software-api-usage" title="Permalink to this headline">¶</a></h2>
@@ -489,7 +494,8 @@ compression and decompression.</p>
 <div class="section" id="zlib-compress">
 <h3>Zlib Compress<a class="headerlink" href="#zlib-compress" title="Permalink to this headline">¶</a></h3>
 <p>Code Snippet below explains the general usage of Zlib compress library.</p>
-<pre class="highlight literal-block"><span></span><span class="c1">// Input: Raw File</span>
+<pre class="highlight literal-block">
+<span></span><span class="c1">// Input: Raw File</span>
 <span class="c1">// Output: Compress File (.zlib)</span>
 
 <span class="cp">#include</span> <span class="cpf">&quot;zlib.hpp&quot;</span><span class="cp"></span>
@@ -505,12 +511,14 @@ compression and decompression.</p>
 <span class="c1">// File I/O operations</span>
 <span class="c1">// Invoke FPGA Accelerated Zlib Compress</span>
 <span class="c1">// xf::compression::compress()</span>
-<span class="kt">uint32_t</span> <span class="n">enc_bytes</span> <span class="o">=</span> <span class="n">xlz</span><span class="o">-&gt;</span><span class="n">compress_file</span><span class="p">(</span><span class="n">inFile</span><span class="p">,</span> <span class="n">outFile</span><span class="p">,</span> <span class="n">input_size</span><span class="p">);</span></pre>
+<span class="kt">uint32_t</span> <span class="n">enc_bytes</span> <span class="o">=</span> <span class="n">xlz</span><span class="o">-&gt;</span><span class="n">compress_file</span><span class="p">(</span><span class="n">inFile</span><span class="p">,</span> <span class="n">outFile</span><span class="p">,</span> <span class="n">input_size</span><span class="p">);</span>
+</pre>
 </div>
 <div class="section" id="zlib-decompress">
 <h3>Zlib Decompress<a class="headerlink" href="#zlib-decompress" title="Permalink to this headline">¶</a></h3>
 <p>Code Snippet below explains the general usage of Zlib decompress library.</p>
-<pre class="highlight literal-block"><span></span><span class="c1">// Input: Compress File (.zlib)</span>
+<pre class="highlight literal-block">
+<span></span><span class="c1">// Input: Compress File (.zlib)</span>
 <span class="c1">// Output: Raw File</span>
 
 <span class="cp">#include</span> <span class="cpf">&quot;zlib.hpp&quot;</span><span class="cp"></span>
@@ -526,14 +534,17 @@ compression and decompression.</p>
 <span class="c1">// File I/O operations</span>
 <span class="c1">// Internally invokes FPGA Accelerated Zlib Compress</span>
 <span class="c1">// xf::compression::decompress()</span>
-<span class="kt">uint32_t</span> <span class="n">dec_bytes</span> <span class="o">=</span> <span class="n">xlz</span><span class="o">-&gt;</span><span class="n">decompress_file</span><span class="p">(</span><span class="n">inFile</span><span class="p">,</span> <span class="n">outFile</span><span class="p">,</span> <span class="n">input_size</span><span class="p">);</span></pre>
+<span class="kt">uint32_t</span> <span class="n">dec_bytes</span> <span class="o">=</span> <span class="n">xlz</span><span class="o">-&gt;</span><span class="n">decompress_file</span><span class="p">(</span><span class="n">inFile</span><span class="p">,</span> <span class="n">outFile</span><span class="p">,</span> <span class="n">input_size</span><span class="p">);</span>
+</pre>
 </div>
 <div class="section" id="zlib-shared-library-libz-so">
 <h3>Zlib Shared Library (libz.so)<a class="headerlink" href="#zlib-shared-library-libz-so" title="Permalink to this headline">¶</a></h3>
 <p>The makefile presented in this demo can be used to create standard
 <code class="docutils literal notranslate"><span class="pre">libz.so</span></code> which can be linked against the user applications.</p>
-<pre class="highlight literal-block"><span></span><span class="m">1</span>. make lib <span class="o">(</span>To Create libz.so<span class="o">)</span>
-<span class="m">2</span>. Location: ./build/libz.so</pre>
+<pre class="highlight literal-block">
+<span></span><span class="m">1</span>. make lib <span class="o">(</span>To Create libz.so<span class="o">)</span>
+<span class="m">2</span>. Location: ./build/libz.so
+</pre>
 <p>Note: This feature is first release it is ideal to use FPGA based compress and
 decompress for standard compliance.</p>
 </div>
@@ -546,7 +557,6 @@ decompress for standard compliance.</p>
           </div>
           <footer>
 <!-- Atalwar: Moved the footer code to layout.html to resolve conflict with the Xilinx template -->
-
 </footer>
 
         </div>

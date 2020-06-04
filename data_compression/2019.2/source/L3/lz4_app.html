@@ -43,7 +43,6 @@
         <script type="text/javascript" src="../../_static/jquery.js"></script>
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -344,6 +343,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../L2/L2.html">L2 Kernel User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="L3.html">L3 Overlay User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="overview.html">L3 Overlay APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_reference.html">Overlay API Reference</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="demo.html">Demos</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">LZ4 Application</a><ul>
@@ -446,18 +446,21 @@ decompression which achieves throughput &gt;GB/s and this application is scalabl
 <p>This application is present in <code class="docutils literal notranslate"><span class="pre">L3/demos/lz4_app</span></code> directory. Follow build instructions to generate executable and binary.</p>
 <p>The binary host file generated is named as “<strong>xil_lz4</strong>” and it is present in <code class="docutils literal notranslate"><span class="pre">./build</span></code> directory.</p>
 <ol class="arabic">
-<li><p>To execute single file for compression       : <code class="docutils literal notranslate"><span class="pre">./build/xil_lz4</span> <span class="pre">-cx</span> <span class="pre">&lt;compress</span> <span class="pre">xclbin&gt;</span> <span class="pre">-c</span> <span class="pre">&lt;file_name&gt;</span></code></p></li>
-<li><p>To execute single file for decompression     : <code class="docutils literal notranslate"><span class="pre">./build/xil_lz4</span> <span class="pre">-dx</span> <span class="pre">&lt;decompress</span> <span class="pre">xclbin&gt;</span> <span class="pre">-d</span> <span class="pre">&lt;file_name.lz4&gt;</span></code></p></li>
-<li><p>To validate various files together           : <code class="docutils literal notranslate"><span class="pre">./build/xil_lz4</span> <span class="pre">-cx</span> <span class="pre">&lt;compress</span> <span class="pre">xclbin&gt;</span> <span class="pre">-dx</span> <span class="pre">&lt;decompress</span> <span class="pre">xclbin&gt;</span> <span class="pre">-l</span> <span class="pre">&lt;files.list&gt;</span></code></p>
+<li><p class="first">To execute single file for compression       : <code class="docutils literal notranslate"><span class="pre">./build/xil_lz4</span> <span class="pre">-cx</span> <span class="pre">&lt;compress</span> <span class="pre">xclbin&gt;</span> <span class="pre">-c</span> <span class="pre">&lt;file_name&gt;</span></code></p>
+</li>
+<li><p class="first">To execute single file for decompression     : <code class="docutils literal notranslate"><span class="pre">./build/xil_lz4</span> <span class="pre">-dx</span> <span class="pre">&lt;decompress</span> <span class="pre">xclbin&gt;</span> <span class="pre">-d</span> <span class="pre">&lt;file_name.lz4&gt;</span></code></p>
+</li>
+<li><p class="first">To validate various files together           : <code class="docutils literal notranslate"><span class="pre">./build/xil_lz4</span> <span class="pre">-cx</span> <span class="pre">&lt;compress</span> <span class="pre">xclbin&gt;</span> <span class="pre">-dx</span> <span class="pre">&lt;decompress</span> <span class="pre">xclbin&gt;</span> <span class="pre">-l</span> <span class="pre">&lt;files.list&gt;</span></code></p>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;files.list&gt;</span></code>: Contains various file names with current path</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;files.list&gt;</span></code>: Contains various file names with current path</li>
 </ul>
 </div></blockquote>
 </li>
 </ol>
 <p>The usage of the generated executable is as follows:</p>
-<pre class="highlight literal-block"><span></span>Usage: application.exe -<span class="o">[</span>-h-c-l-d-B-x<span class="o">]</span>
+<pre class="highlight literal-block">
+<span></span>Usage: application.exe -<span class="o">[</span>-h-c-l-d-B-x<span class="o">]</span>
      --help,             -h      Print Help Options   Default: <span class="o">[</span>false<span class="o">]</span>
      --compress_xclbin   -cx     Compress binary
      --compress,         -c      Compress
@@ -465,11 +468,13 @@ decompression which achieves throughput &gt;GB/s and this application is scalabl
      --decompress_xclbin -dx     Decompress binary
      --decompress,       -d      Decompress
      --block_size,       -B      Compress Block Size <span class="o">[</span><span class="m">0</span>-64: <span class="m">1</span>-256: <span class="m">2</span>-1024: <span class="m">3</span>-4096<span class="o">]</span> Default: <span class="o">[</span><span class="m">0</span><span class="o">]</span>
-     --flow,             -x      Validation <span class="o">[</span><span class="m">0</span>-All: <span class="m">1</span>-XcXd: <span class="m">2</span>-XcSd: <span class="m">3</span>-ScXd<span class="o">]</span> Default: <span class="o">[</span><span class="m">1</span><span class="o">]</span></pre>
+     --flow,             -x      Validation <span class="o">[</span><span class="m">0</span>-All: <span class="m">1</span>-XcXd: <span class="m">2</span>-XcSd: <span class="m">3</span>-ScXd<span class="o">]</span> Default: <span class="o">[</span><span class="m">1</span><span class="o">]</span>
+</pre>
 <div class="section" id="lz4-compress">
 <h3>LZ4 Compress<a class="headerlink" href="#lz4-compress" title="Permalink to this headline">¶</a></h3>
 <p>Code Snippet below explains the general usage of LZ4 compress library.</p>
-<pre class="highlight literal-block"><span></span><span class="c1">// Input: Raw File</span>
+<pre class="highlight literal-block">
+<span></span><span class="c1">// Input: Raw File</span>
 <span class="c1">// Output: Compress File (.lz4)</span>
 
 <span class="cp">#include</span> <span class="cpf">&quot;lz4.hpp&quot;</span><span class="cp"></span>
@@ -503,12 +508,14 @@ decompression which achieves throughput &gt;GB/s and this application is scalabl
 
 <span class="c1">// Release OpenCL objects</span>
 <span class="c1">// Release device buffers</span>
-<span class="n">xlz</span><span class="p">.</span><span class="n">release</span><span class="p">();</span></pre>
+<span class="n">xlz</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
+</pre>
 </div>
 <div class="section" id="lz4-decompress">
 <h3>LZ4 Decompress<a class="headerlink" href="#lz4-decompress" title="Permalink to this headline">¶</a></h3>
 <p>Code Snippet below explains the general usage of LZ4 compress library.</p>
-<pre class="highlight literal-block"><span></span><span class="c1">// Input: Compressed File (.lz4)</span>
+<pre class="highlight literal-block">
+<span></span><span class="c1">// Input: Compressed File (.lz4)</span>
 <span class="c1">// Output: Raw File</span>
 
 <span class="cp">#include</span> <span class="cpf">&quot;lz4.hpp&quot;</span><span class="cp"></span>
@@ -542,7 +549,8 @@ decompression which achieves throughput &gt;GB/s and this application is scalabl
 
 <span class="c1">// Release OpenCL objects</span>
 <span class="c1">// Release device buffers</span>
-<span class="n">xlz</span><span class="p">.</span><span class="n">release</span><span class="p">();</span></pre>
+<span class="n">xlz</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
+</pre>
 </div>
 </div>
 </div>
@@ -553,7 +561,6 @@ decompression which achieves throughput &gt;GB/s and this application is scalabl
           </div>
           <footer>
 <!-- Atalwar: Moved the footer code to layout.html to resolve conflict with the Xilinx template -->
-
 </footer>
 
         </div>

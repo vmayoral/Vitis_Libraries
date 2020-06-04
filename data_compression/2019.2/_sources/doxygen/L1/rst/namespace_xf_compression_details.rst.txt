@@ -14,11 +14,11 @@ namespace details
 
 .. _doxid-namespacexf_1_1compression_1_1details_1a49037c81c9d059d8ee458b70a6dfd428:
 .. _cid-xf::compression::details::digit:
-.. _doxid-namespacexf_1_1compression_1_1details_1a4a1bc78ce69bb0a42efad08e0f2a8207:
+.. _doxid-namespacexf_1_1compression_1_1details_1af654427f3388dd2d07412ce0d5c3055f:
 .. _cid-xf::compression::details::radix:
-.. _doxid-namespacexf_1_1compression_1_1details_1a4194cb598739028d62842f047cde4e75:
+.. _doxid-namespacexf_1_1compression_1_1details_1acddc861da1f1a37b18d2d9047f4e9ca7:
 .. _cid-xf::compression::details::bits_per_loop:
-.. _doxid-namespacexf_1_1compression_1_1details_1a1efb22f087a31389d9e880b97b13abfc:
+.. _doxid-namespacexf_1_1compression_1_1details_1a606e21a82d7f2a96cee9cdffb0cf92a6:
 .. _cid-xf::compression::details::internal_node:
 .. _doxid-namespacexf_1_1compression_1_1details_1a5ce9ffe8bab19af8ac3c5f3d19a2ecbd:
 .. _cid-xf::compression::details::axis2hlsstreamfixedsize:
@@ -34,12 +34,14 @@ namespace details
 .. _cid-xf::compression::details::streamdatak2dm:
 .. _doxid-namespacexf_1_1compression_1_1details_1a87396c04129399bfb3ebe92f4362f1d9:
 .. _cid-xf::compression::details::streamdatak2dmfixedsize:
-.. _doxid-namespacexf_1_1compression_1_1details_1afbbf37ac2fc76804f44b10476d875bc9:
+.. _doxid-namespacexf_1_1compression_1_1details_1a1ca4955ea05903c6067aac5019829189:
 .. _cid-xf::compression::details::streamdatak2dmmultibytesize:
-.. _doxid-namespacexf_1_1compression_1_1details_1a6b1f3e8d9088df284760aa92dfbbc15b:
+.. _doxid-namespacexf_1_1compression_1_1details_1a3ed63ea75bc7b47754235230d5f73083:
+.. _cid-xf::compression::details::huffmanbytegenstatic:
+.. _doxid-namespacexf_1_1compression_1_1details_1a287a67e125c7b4d4a848ce84ac668bdb:
 .. _cid-xf::compression::details::huffmanbytegen:
-.. _doxid-namespacexf_1_1compression_1_1details_1a71a72d7ab31dadac36fa5a23434022c6:
-.. _cid-xf::compression::details::code_generator_array:
+.. _doxid-namespacexf_1_1compression_1_1details_1a7634252338b4ecf9dd31e0b92ea89c25:
+.. _cid-xf::compression::details::code_generator_array_dyn:
 .. _doxid-namespacexf_1_1compression_1_1details_1ae97cf9abe4e7bfe6c3acbc775f72fa08:
 .. _cid-xf::compression::details::bitpackingsize:
 .. _doxid-namespacexf_1_1compression_1_1details_1ae2da8340a38d2d2062230a0760623a1c:
@@ -82,7 +84,7 @@ namespace details
 .. _cid-xf::compression::details::kstreamwrite:
 .. _doxid-namespacexf_1_1compression_1_1details_1a18a06da1eb46ae8360879990117c6980:
 .. _cid-xf::compression::details::kstreamwritefixedsize:
-.. _doxid-namespacexf_1_1compression_1_1details_1a0b3d66261aae1033bdbecf6e49309be7:
+.. _doxid-namespacexf_1_1compression_1_1details_1a41175bde7ca6009b491cb0bd31ae2567:
 .. _cid-xf::compression::details::kstreamwritemultibytesize:
 .. _doxid-namespacexf_1_1compression_1_1details_1af3d9519e7ef858dc0351513932bcaa28:
 .. _cid-xf::compression::details::lz4compresspart1:
@@ -167,7 +169,7 @@ namespace details
 
 	// global variables
 
-	static const static uint8_t RADIX
-	static const static uint8_t BITS_PER_LOOP
-	static const static ap_uint <c_tgnSymbolBits> INTERNAL_NODE
+	static const uint8_t RADIX
+	static const uint8_t BITS_PER_LOOP
+	static const ap_uint <c_tgnSymbolBits> INTERNAL_NODE
 
