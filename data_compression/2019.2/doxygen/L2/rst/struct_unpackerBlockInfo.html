@@ -43,7 +43,6 @@
         <script type="text/javascript" src="../../../_static/jquery.js"></script>
         <script type="text/javascript" src="../../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -419,12 +418,14 @@
 <span id="cid-unpackerblockinfo"></span><span id="doxid-structunpackerblockinfo"></span><span id="index-0"></span><h1>struct unpackerBlockInfo<a class="headerlink" href="#struct-unpackerblockinfo" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<pre class="highlight overview-code-block literal-block" id="cid-unpackerblockinfo-padding"><span id="doxid-structunpackerblockinfo-1a4bf733821cbad04331716e5fd40f5eb9"></span><span id="cid-unpackerblockinfo-blockstartidx"></span><span id="doxid-structunpackerblockinfo-1ad1ff9bae24778d0633e2f0e6a47f1546"></span><span id="cid-unpackerblockinfo-blocksize"></span><span id="doxid-structunpackerblockinfo-1add12586bec0bc42280a57955c79836fc"></span><span id="cid-unpackerblockinfo-compressedsize"></span><span id="doxid-structunpackerblockinfo-1a741d08923eefe7ae2979c3f511af6b57"></span><span></span><span class="c1">// fields</span>
+<pre class="highlight overview-code-block literal-block" id="cid-unpackerblockinfo-padding">
+<span id="doxid-structunpackerblockinfo-1a8898717738b6d1e46890f71340badd1d"></span><span id="cid-unpackerblockinfo-blockstartidx"></span><span id="doxid-structunpackerblockinfo-1ad1ff9bae24778d0633e2f0e6a47f1546"></span><span id="cid-unpackerblockinfo-blocksize"></span><span id="doxid-structunpackerblockinfo-1add12586bec0bc42280a57955c79836fc"></span><span id="cid-unpackerblockinfo-compressedsize"></span><span id="doxid-structunpackerblockinfo-1a741d08923eefe7ae2979c3f511af6b57"></span><span></span><span class="c1">// fields</span>
 
 <span class="kt">uint32_t</span> <span class="n">compressedSize</span>
 <span class="kt">uint32_t</span> <span class="n">blockSize</span>
 <span class="kt">uint32_t</span> <span class="n">blockStartIdx</span>
-<span class="kt">uint32_t</span> <span class="n">padding</span><span class="p">[(</span><span class="n">GMEM_DATAWIDTH</span><span class="o">/</span><span class="mi">32</span><span class="p">)</span> <span class="o">-</span> <span class="mi">3</span><span class="p">]</span></pre>
+<span class="kt">uint32_t</span> <span class="n">padding</span><span class="p">[(</span><span class="n">GMEM_DATAWIDTH</span><span class="o">/</span><span class="mi">32</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+</pre>
 </div>
 
 
@@ -433,7 +434,6 @@
           </div>
           <footer>
 <!-- Atalwar: Moved the footer code to layout.html to resolve conflict with the Xilinx template -->
-
 </footer>
 
         </div>

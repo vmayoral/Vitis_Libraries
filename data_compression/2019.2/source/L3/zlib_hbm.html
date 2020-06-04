@@ -43,7 +43,6 @@
         <script type="text/javascript" src="../../_static/jquery.js"></script>
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -425,8 +424,8 @@ guidelines to build and deployment.</p>
 high compression ratio compared to Limpel Ziev based data compression algorithms
 (Byte Compression). It applies two levels of compression,</p>
 <ul class="simple">
-<li><p>Byte Level (Limpel Ziev  LZ Based Compression Scheme)</p></li>
-<li><p>Bit Level (Huffman Entropy)</p></li>
+<li>Byte Level (Limpel Ziev  LZ Based Compression Scheme)</li>
+<li>Bit Level (Huffman Entropy)</li>
 </ul>
 <p>Due to its high compression ratio it takes higher precedence over LZ based
 compression schemes. Traditionally the CPU based solutions are limited to MB/s
@@ -434,9 +433,11 @@ speed but there is a high demand for accelerated ZLIB which provides throughput
 in terms of GB/s.</p>
 <p>This demo is aimed at showcasing Xilinx Alveo U50 (HBM Platform) acceleration of ZLIB for both
 compression and decompression.</p>
-<pre class="highlight literal-block"><span></span>Tested Tool: <span class="m">2019</span>.2
+<pre class="highlight literal-block">
+<span></span>Tested Tool: <span class="m">2019</span>.2
 Tested XRT: <span class="m">2019</span>.2
-Tested XSA: xilinx_u50_xdma_201920_1</pre>
+Tested XSA: xilinx_u50_xdma_201920_1
+</pre>
 </div>
 <div class="section" id="executable-usage">
 <h2>Executable Usage<a class="headerlink" href="#executable-usage" title="Permalink to this headline">¶</a></h2>
@@ -444,19 +445,23 @@ Tested XSA: xilinx_u50_xdma_201920_1</pre>
 <p>The host executable generated is named as “<strong>xil_zlib_8b</strong>” and it is generated in <code class="docutils literal notranslate"><span class="pre">./build</span></code> directory.</p>
 <p>Following is the usage of the executable:</p>
 <ol class="arabic">
-<li><p>To execute single file for compression                 : <code class="docutils literal notranslate"><span class="pre">./build/xil_zlib</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-c</span> <span class="pre">&lt;input</span> <span class="pre">file_name&gt;</span></code></p></li>
-<li><p>To execute single file for decompression           : <code class="docutils literal notranslate"><span class="pre">./build/xil_zlib</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-d</span> <span class="pre">&lt;compressed</span> <span class="pre">file_name&gt;</span></code></p></li>
-<li><p>To validate single file (compress &amp; decompress)    : <code class="docutils literal notranslate"><span class="pre">./build/xil_zlib</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-v</span> <span class="pre">&lt;input</span> <span class="pre">file_name&gt;</span></code></p></li>
-<li><p>To validate multiple files (compress &amp; decompress) : <code class="docutils literal notranslate"><span class="pre">./build/xil_zlib</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-l</span> <span class="pre">&lt;files.list&gt;</span></code></p>
+<li><p class="first">To execute single file for compression                 : <code class="docutils literal notranslate"><span class="pre">./build/xil_zlib</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-c</span> <span class="pre">&lt;input</span> <span class="pre">file_name&gt;</span></code></p>
+</li>
+<li><p class="first">To execute single file for decompression           : <code class="docutils literal notranslate"><span class="pre">./build/xil_zlib</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-d</span> <span class="pre">&lt;compressed</span> <span class="pre">file_name&gt;</span></code></p>
+</li>
+<li><p class="first">To validate single file (compress &amp; decompress)    : <code class="docutils literal notranslate"><span class="pre">./build/xil_zlib</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-v</span> <span class="pre">&lt;input</span> <span class="pre">file_name&gt;</span></code></p>
+</li>
+<li><p class="first">To validate multiple files (compress &amp; decompress) : <code class="docutils literal notranslate"><span class="pre">./build/xil_zlib</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-l</span> <span class="pre">&lt;files.list&gt;</span></code></p>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;files.list&gt;</span></code>: Contains various file names with current path</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;files.list&gt;</span></code>: Contains various file names with current path</li>
 </ul>
 </div></blockquote>
 </li>
 </ol>
 <p>The usage of the generated executable is as follows:</p>
-<pre class="highlight literal-block"><span></span>Usage: application.exe -<span class="o">[</span>-h-c-d-sx-v-l-k-id-mcr<span class="o">]</span>
+<pre class="highlight literal-block">
+<span></span>Usage: application.exe -<span class="o">[</span>-h-c-d-sx-v-l-k-id-mcr<span class="o">]</span>
      --help,                 -h      Print Help Options   Default: <span class="o">[</span>false<span class="o">]</span>
      --compress,             -c      Compress
      --decompress,           -d      Decompress
@@ -465,7 +470,8 @@ Tested XSA: xilinx_u50_xdma_201920_1</pre>
      --compress_decompress,  -v      Compress Decompress
      --cu,                   -k      CU                   Default: <span class="o">[</span><span class="m">0</span><span class="o">]</span>
      --id,                   -id     Device ID            Default: <span class="o">[</span><span class="m">0</span><span class="o">]</span>
-     --max_cr,               -mcr    Maximum CR           Default: <span class="o">[</span><span class="m">10</span><span class="o">]</span></pre>
+     --max_cr,               -mcr    Maximum CR           Default: <span class="o">[</span><span class="m">10</span><span class="o">]</span>
+</pre>
 <hr class="docutils" />
 </div>
 </div>
@@ -476,7 +482,6 @@ Tested XSA: xilinx_u50_xdma_201920_1</pre>
           </div>
           <footer>
 <!-- Atalwar: Moved the footer code to layout.html to resolve conflict with the Xilinx template -->
-
 </footer>
 
         </div>

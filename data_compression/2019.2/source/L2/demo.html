@@ -9,7 +9,7 @@
 		<meta content="Vitis, Library, Data Compression, Xilinx, FPGA OpenCL Kernels, LZ4 Demo, Snappy Demo, ZLIB Demo, GZip Demo" name="keywords" />
 <meta content="This section provides various application demos" name="description" />
 <meta content="Document" name="xlnxdocumentclass" />
-<meta content="Tutorials" name="xlnxdocumenttype" />
+<meta content="Tutorials" name="xlnxdocumenttypes" />
 
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 		<link rel="stylesheet" href="https://static.cloud.coveo.com/searchui/v2.4382/css/CoveoFullSearch.css"/>
@@ -47,7 +47,6 @@
         <script type="text/javascript" src="../../_static/jquery.js"></script>
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -346,7 +345,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../usecase.html">Typical Use Cases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="L2.html">L2 Kernel User Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">L2 Kernel Demos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_reference.html">Kernel APIs Reference</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Demos</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="gzip.html">Xilinx GZip Compression and Decompression</a></li>
@@ -439,7 +438,7 @@
             
   <div class="section" id="demos">
 <h1>Demos<a class="headerlink" href="#demos" title="Permalink to this headline">¶</a></h1>
-<p>Demo examples for lz4, snappy, lz4_streaming, zlib and gzip kernels are present in <strong>L2/demos/</strong> directory.</p>
+<p>Demo examples for <strong>lz4</strong>, <strong>snappy</strong>, <strong>lz4_streaming</strong>, <strong>zlib</strong> and <strong>gzip</strong> kernels are available in the <code class="docutils literal notranslate"><span class="pre">L2/demos/</span></code> directory.</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">List of Demos</span></p>
 <ul>
@@ -451,26 +450,32 @@
 <li class="toctree-l1"><a class="reference internal" href="zlib.html">Xilinx ZLIB Compression and Decompression</a></li>
 </ul>
 </div>
-<p>Before building any of the examples, following commands need to be executed:</p>
-<pre class="highlight literal-block"><span></span>$ <span class="nb">source</span> &lt;Vitis_Installed_Path&gt;/installs/lin64/Vitis/2019.2/settings64.sh
-$ <span class="nb">source</span> &lt;Vitis_Installed_Path&gt;/xbb/xrt/packages/setup.sh</pre>
+<p>Execute the following commands before building any of the examples:</p>
+<pre class="highlight literal-block">
+<span></span>$ <span class="nb">source</span> &lt;Vitis_Installed_Path&gt;/installs/lin64/Vitis/2019.2/settings64.sh
+$ <span class="nb">source</span> &lt;Vitis_Installed_Path&gt;/xbb/xrt/packages/setup.sh
+</pre>
 <div class="section" id="build-instructions">
 <h2>Build Instructions<a class="headerlink" href="#build-instructions" title="Permalink to this headline">¶</a></h2>
-<p>To compile and test run this example execute the following commands:</p>
-<pre class="highlight literal-block"><span></span>$ make run <span class="nv">TARGET</span><span class="o">=</span>sw_emu</pre>
+<p>Execute the following commands to compile and test run this example:</p>
+<pre class="highlight literal-block">
+<span></span>$ make run <span class="nv">TARGET</span><span class="o">=</span>sw_emu
+</pre>
 <p>Variable <code class="docutils literal notranslate"><span class="pre">TARGET</span></code> can take the following values:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><strong>sw_emu</strong>    : software emulation</p></li>
-<li><p><strong>hw_emu</strong>    : hardware emulation</p></li>
-<li><p><strong>hw</strong>        : run on actual hardware</p></li>
+<li><strong>sw_emu</strong>    : software emulation</li>
+<li><strong>hw_emu</strong>    : hardware emulation</li>
+<li><strong>hw</strong>        : run on actual hardware</li>
 </ul>
 </div></blockquote>
-<p>By default the target device is set as Alveo U200. In order to target a different
-device use “DEVICE” argument. Example below explains the same.</p>
-<pre class="highlight literal-block"><span></span>make run <span class="nv">TARGET</span><span class="o">=</span>sw_emu <span class="nv">DEVICE</span><span class="o">=</span>&lt;new_device.xpfm&gt;</pre>
+<p>By default, the target device is set as Alveo U200. In order to target a different
+device, use the  <code class="docutils literal notranslate"><span class="pre">DEVICE</span></code> argument. For example:</p>
+<pre class="highlight literal-block">
+<span></span>make run <span class="nv">TARGET</span><span class="o">=</span>sw_emu <span class="nv">DEVICE</span><span class="o">=</span>&lt;new_device.xpfm&gt;
+</pre>
 <p>Build instructions explained in this section are common for all the
-applications but the generated executable names differ.</p>
+applications. The generated executable names may differ.</p>
 </div>
 </div>
 
@@ -480,7 +485,6 @@ applications but the generated executable names differ.</p>
           </div>
           <footer>
 <!-- Atalwar: Moved the footer code to layout.html to resolve conflict with the Xilinx template -->
-
 </footer>
 
         </div>
