@@ -6,7 +6,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
-		<meta content="BLAS, Library, Vitis BLAS Library, XFBLAS, Keras MLP, Acceleration" name="keywords" />
+		<meta content="BLAS, Library, Vitis BLAS Library, Vitis BLAS, Keras MLP, Acceleration" name="keywords" />
 <meta content="Keras is Python based machine learning framework. It provides high level neural network APIs." name="description" />
 <meta content="Document" name="xlnxdocumentclass" />
 <meta content="Tutorials" name="xlnxdocumenttype" />
@@ -350,7 +350,7 @@
 <li class="toctree-l2"><a class="reference internal" href="L3_test.html">L3 API test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="L3_python_bindings.html">L3 Python bindings</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="L3_application.html">L3 API application</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">XFBLAS L3 based Keras MLP Acceleration</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Vitis BLAS L3 based Keras MLP Acceleration</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#introduction">1. Introduction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#python-classes-for-using-keras">2. Python Classes for using Keras</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#steps-to-run-the-application">3. Steps to run the application</a></li>
@@ -416,7 +416,7 @@
         
           <li><a href="L3_application.html">L3 API application</a> &raquo;</li>
         
-      <li>XFBLAS L3 based Keras MLP Acceleration</li>
+      <li>Vitis BLAS L3 based Keras MLP Acceleration</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -435,12 +435,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="xfblas-l3-based-keras-mlp-acceleration">
-<span id="keras-application-l3"></span><h1>XFBLAS L3 based Keras MLP Acceleration<a class="headerlink" href="#xfblas-l3-based-keras-mlp-acceleration" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="vitis-blas-l3-based-keras-mlp-acceleration">
+<span id="keras-application-l3"></span><h1>Vitis BLAS L3 based Keras MLP Acceleration<a class="headerlink" href="#vitis-blas-l3-based-keras-mlp-acceleration" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Keras is Python based machine learning framework. It provides high level neural network APIs. It can run on top of other low level neural network frameworks for numerical computations. XFBLAS L3 Python APIs could be used for full connected Keras model and could provide better performance compared to CPU result.</p>
-<p>In L3/applications/MLP/keras/simple, an example of using Keras to do classification on a simple model showed that how to use XFBLAS L3 Python APIs in Keras applications.</p>
+<p>Keras is Python based machine learning framework. It provides high level neural network APIs. It can run on top of other low level neural network frameworks for numerical computations. Vitis BLAS L3 Python APIs could be used for full connected Keras model and could provide better performance compared to CPU result.</p>
+<p>In L3/applications/MLP/keras/simple, an example of using Keras to do classification on a simple model showed that how to use Vitis BLAS L3 Python APIs in Keras applications.</p>
 </div>
 <div class="section" id="python-classes-for-using-keras">
 <h2>2. Python Classes for using Keras<a class="headerlink" href="#python-classes-for-using-keras" title="Permalink to this headline">¶</a></h2>
@@ -471,7 +471,7 @@ python mlp.py --data data/SansEC_Train_Data.csv --model best_model.h5 --xclbin P
 <li>C = pRelu(((A * B + X) * alpha) &gt;&gt; beta; where A, B, X and C are dense matrices, alpha and beta are integers.</li>
 <li>pRelu: for each c in C; c = (c &lt; 0)? ((c * pRelu_alpha) &gt;&gt; pRelu_beta): c; where pRelu_alpha and pRelu_beta are integers.</li>
 </ol>
-<p>The following two packages are required for using XFBLAS L3 Python APIs:</p>
+<p>The following two packages are required for using Vitis BLAS L3 Python APIs:</p>
 <pre class="highlight literal-block">
 <span></span><span class="kn">import</span> <span class="nn">xfblas_L3</span> <span class="kn">as</span> <span class="nn">xfblas</span>
 <span class="kn">import</span> <span class="nn">mlp_common</span>

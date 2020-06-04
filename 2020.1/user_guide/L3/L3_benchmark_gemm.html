@@ -356,7 +356,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#reference">1.4 Reference</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#benchmarking-xfblasgemm-xilinx-s-xfblas-library">2. Benchmarking xfblasGemm - Xilinx’s XFBLAS library</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#benchmarking-xfblasgemm-xilinx-s-vitis-blas-library">2. Benchmarking xfblasGemm - Xilinx’s Vitis BLAS library</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#id1">2.1 Benchmarking Steps</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#performance-results-on-nimbix-cloud">2.2 Performance Results on Nimbix Cloud</a></li>
 </ul>
@@ -450,7 +450,7 @@
 <h2>1. Benchmarking Intel® Math Kernel Library (MKL)<a class="headerlink" href="#benchmarking-intel-math-kernel-library-mkl" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="introduction">
 <h3>1.1 Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
-<p>Intel® Math Kernel Library provides performance improvement of math functions, e.g. GEMM, when running with Intel processors. To compare with Xilinx’s XFBLAS library, you can use our run-script (run_gemm_mkl.sh) to generate the data and performance benchmark.</p>
+<p>Intel® Math Kernel Library provides performance improvement of math functions, e.g. GEMM, when running with Intel processors. To compare with Xilinx’s Vitis BLAS library, you can use our run-script (run_gemm_mkl.sh) to generate the data and performance benchmark.</p>
 </div>
 <div class="section" id="benchmarking-steps">
 <span id="mkl-benchmark"></span><h3>1.2 Benchmarking Steps<a class="headerlink" href="#benchmarking-steps" title="Permalink to this headline">¶</a></h3>
@@ -465,7 +465,7 @@
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">FPGA is not required in Intel® Math Kernel Library but will be used in Xilinx’s XFBLAS library.</p>
+<p class="last">FPGA is not required in Intel® Math Kernel Library but will be used in Xilinx’s Vitis BLAS library.</p>
 </div>
 </div>
 <div class="section" id="install-intel-mk-library">
@@ -658,8 +658,8 @@
 <p>[2] <a class="reference external" href="https://software.intel.com/en-us/articles/benchmarking-gemm-with-intel-mkl-and-blis-on-intel-processors">Benchmarking GEMM on Intel® Architecture Processors</a></p>
 </div>
 </div>
-<div class="section" id="benchmarking-xfblasgemm-xilinx-s-xfblas-library">
-<h2>2. Benchmarking xfblasGemm - Xilinx’s XFBLAS library<a class="headerlink" href="#benchmarking-xfblasgemm-xilinx-s-xfblas-library" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="benchmarking-xfblasgemm-xilinx-s-vitis-blas-library">
+<h2>2. Benchmarking xfblasGemm - Xilinx’s Vitis BLAS library<a class="headerlink" href="#benchmarking-xfblasgemm-xilinx-s-vitis-blas-library" title="Permalink to this headline">¶</a></h2>
 <p>Before benchmarking xfblashGemm, please download <a class="reference external" href="https://www.xilinx.com/bin/public/openDownload?filename=vitis_BLAS_library_r1.0_xclbin.tar">xf blas xclbin files</a>, unzip the file with “tar -xvzf” command, and copy the folder u250_xdma_201830_2 to directory L3/overlay.</p>
 <div class="section" id="id1">
 <h3>2.1 Benchmarking Steps<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
