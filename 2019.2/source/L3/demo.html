@@ -8,8 +8,6 @@
 		<meta charset="utf-8">
 		<meta content="Vitis, Library, Data Compression, Xilinx, FPGA OpenCL Kernels, LZ4 Demo, ZLIB Demo" name="keywords" />
 <meta content="This section provides various application demos" name="description" />
-<meta content="Document" name="xlnxdocumentclass" />
-<meta content="Tutorials" name="xlnxdocumenttype" />
 
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 		<link rel="stylesheet" href="https://static.cloud.coveo.com/searchui/v2.4382/css/CoveoFullSearch.css"/>
@@ -47,7 +45,6 @@
         <script type="text/javascript" src="../../_static/jquery.js"></script>
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -348,6 +345,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../L2/L2.html">L2 Kernel User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="L3.html">L3 Overlay User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="overview.html">L3 Overlay APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_reference.html">Overlay API Reference</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Demos</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="lz4_app.html">LZ4 Application</a></li>
@@ -438,12 +436,11 @@
             
   <div class="section" id="demos">
 <h1>Demos<a class="headerlink" href="#demos" title="Permalink to this headline">¶</a></h1>
-<p>This section presents integration of various modules from L1, L2 levels in
+<p>This page describes the integration of various modules from L1, L2 levels in
 combination with software APIs to derive end application that can be directly
 deployed or creation of shared library that can be integrated with external
 applications.</p>
-<p>Demo examples for Zlib and Lz4 applications are present in <strong>L3/demos/</strong>
-directory.</p>
+<p>Demo examples for <strong>Zlib</strong> and <strong>Lz4</strong> applications are available in the <code class="docutils literal notranslate"><span class="pre">L3/demos/</span></code> directory.</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">List of Demos</span></p>
 <ul>
@@ -453,24 +450,28 @@ directory.</p>
 </div>
 <div class="section" id="environment-setup">
 <h2>Environment Setup<a class="headerlink" href="#environment-setup" title="Permalink to this headline">¶</a></h2>
-<p>Instructions below setup Vitis environment for builid the application. These
+<p>Execute the following commands to setup the Vitis environment for building the application. These
 instructions are applicable for all the demos under this category.</p>
-<pre class="highlight literal-block"><span></span><span class="nv">$source</span> &lt;Vitis_Installation_Path&gt;/installs/lin64/Vitis/2019.2/settings64.csh
-<span class="nv">$source</span> &lt;Vitis_Installation_Path&gt;/xbb/xrt/packages/setup.sh</pre>
+<pre class="highlight literal-block">
+<span></span><span class="nv">$source</span> &lt;Vitis_Installation_Path&gt;/installs/lin64/Vitis/2019.2/settings64.csh
+<span class="nv">$source</span> &lt;Vitis_Installation_Path&gt;/xbb/xrt/packages/setup.sh
+</pre>
 <div class="section" id="build-instructions">
 <h3>Build Instructions<a class="headerlink" href="#build-instructions" title="Permalink to this headline">¶</a></h3>
-<p>To compile and test run this application execute the following commands:</p>
-<pre class="highlight literal-block"><span></span>$ make run <span class="nv">TARGET</span><span class="o">=</span>sw_emu</pre>
+<p>Execute the following command to compile and test run this application:</p>
+<pre class="highlight literal-block">
+<span></span>$ make run <span class="nv">TARGET</span><span class="o">=</span>sw_emu
+</pre>
 <p>Variable <code class="docutils literal notranslate"><span class="pre">TARGET</span></code> can take the following values:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><strong>sw_emu</strong>    : software emulation</p></li>
-<li><p><strong>hw_emu</strong>    : hardware emulation</p></li>
-<li><p><strong>hw</strong>        : run on actual hardware</p></li>
+<li><strong>sw_emu</strong>    : software emulation</li>
+<li><strong>hw_emu</strong>    : hardware emulation</li>
+<li><strong>hw</strong>        : run on actual hardware</li>
 </ul>
 </div></blockquote>
-<p>Build instructions are common for all the application but generated executable
-differ.</p>
+<p>Build instructions are common for all the applications. The generated executable
+may differ.</p>
 </div>
 </div>
 </div>
@@ -481,7 +482,6 @@ differ.</p>
           </div>
           <footer>
 <!-- Atalwar: Moved the footer code to layout.html to resolve conflict with the Xilinx template -->
-
 </footer>
 
         </div>

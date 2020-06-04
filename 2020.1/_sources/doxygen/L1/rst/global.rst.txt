@@ -9,7 +9,6 @@ Global Namespace
 	:hidden:
 
 	namespace_xf.rst
-	struct_BlockInfo.rst
 
 
 
@@ -37,8 +36,6 @@ Global Namespace
 .. _cid-uintv_t:
 .. _doxid-snappy__decompress_8hpp_1ab805d07be734b0dfbb9070be4cbb458f:
 .. _cid-encoded_dt-2:
-.. _doxid-snappy__decompress_8hpp_1a29ded4c555355c7f677bfcfdb1c1c5b6:
-.. _cid-dt_blockinfo:
 .. _doxid-gzip__dec__full__huffman_2gzip__decompress__test_8cpp_1a7ddda1be7486c4f06f7f47327469deb3:
 .. _cid-in_t:
 .. _doxid-gzip__dec__full__huffman_2gzip__decompress__test_8cpp_1a1c8370222d54bc6e88185077f2072593:
@@ -887,7 +884,6 @@ Global Namespace
 	typedef ap_uint <32> compressd_dt
 	typedef ap_uint <8> uintV_t
 	typedef ap_uint <32> encoded_dt
-	typedef struct :ref:`BlockInfo<doxid-structBlockInfo>` dt_blockInfo
 	typedef ap_uint <IN_BITWIDTH> in_t
 	typedef ap_uint <OUT_BITWIDTH> out_t
 	typedef ap_uint <IN_BITWIDTH> in_t
@@ -921,10 +917,6 @@ Global Namespace
 	typedef :ref:`xf::compression::Codeword<doxid-structxf_1_1compression_1_1Codeword>` Codeword
 	typedef xf::compression::Frequency Frequency
 	typedef :ref:`xf::compression::Codeword<doxid-structxf_1_1compression_1_1Codeword>` Codeword
-
-	// structs
-
-	struct :ref:`BlockInfo<doxid-structBlockInfo>` 
 
 	// global variables
 
