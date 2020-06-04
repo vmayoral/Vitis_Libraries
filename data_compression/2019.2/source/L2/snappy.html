@@ -43,7 +43,6 @@
         <script type="text/javascript" src="../../_static/jquery.js"></script>
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -342,7 +341,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../usecase.html">Typical Use Cases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="L2.html">L2 Kernel User Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">L2 Kernel Demos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_reference.html">Kernel APIs Reference</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="demo.html">Demos</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="gzip.html">Xilinx GZip Compression and Decompression</a></li>
@@ -451,8 +450,6 @@ To know more about standard Snappy application please refer
 <a class="reference external" href="https://github.com/snappy/snappy">https://github.com/snappy/snappy</a></p>
 <p>This application is accelerated using generic hardware architecture for
 LZ based data compression algorithms.</p>
-<p>For more details refer this
-<a class="reference external" href="https://xilinx.github.io/Vitis_Libraries/data_compression/source/L2/design.html">link</a></p>
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="resource-utilization">
@@ -460,38 +457,38 @@ LZ based data compression algorithms.</p>
 <p>Table below presents resource utilization of Xilinx Snappy
 compress/decompress kernels with 8 engines for single compute unit.
 The final Fmax achieved for this design is 299MHz</p>
-<table class="docutils align-default">
+<table border="1" class="docutils">
 <colgroup>
-<col style="width: 28%" />
-<col style="width: 14%" />
-<col style="width: 17%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
+<col width="28%" />
+<col width="14%" />
+<col width="17%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Flow</p></th>
-<th class="head"><p>LUT</p></th>
-<th class="head"><p>LUTMem</p></th>
-<th class="head"><p>REG</p></th>
-<th class="head"><p>BRAM</p></th>
-<th class="head"><p>URAM</p></th>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Flow</th>
+<th class="head">LUT</th>
+<th class="head">LUTMem</th>
+<th class="head">REG</th>
+<th class="head">BRAM</th>
+<th class="head">URAM</th>
 </tr>
 </thead>
-<tbody>
-<tr class="row-even"><td><p>Compress</p></td>
-<td><p>47K</p></td>
-<td><p>10.1K</p></td>
-<td><p>49.6K</p></td>
-<td><p>48</p></td>
-<td><p>48</p></td>
+<tbody valign="top">
+<tr class="row-even"><td>Compress</td>
+<td>47K</td>
+<td>10.1K</td>
+<td>49.6K</td>
+<td>48</td>
+<td>48</td>
 </tr>
-<tr class="row-odd"><td><p>DeCompress</p></td>
-<td><p>33.7K</p></td>
-<td><p>14K</p></td>
-<td><p>43.8K</p></td>
-<td><p>146</p></td>
-<td><p>0</p></td>
+<tr class="row-odd"><td>DeCompress</td>
+<td>33.7K</td>
+<td>14K</td>
+<td>43.8K</td>
+<td>146</td>
+<td>0</td>
 </tr>
 </tbody>
 </table>
@@ -500,25 +497,25 @@ The final Fmax achieved for this design is 299MHz</p>
 <h3>Performance Data<a class="headerlink" href="#performance-data" title="Permalink to this headline">¶</a></h3>
 <p>Table below presents the best kernel throughput achieved with single
 compute unit during execution of this application.</p>
-<table class="docutils align-default">
+<table border="1" class="docutils">
 <colgroup>
-<col style="width: 54%" />
-<col style="width: 46%" />
+<col width="54%" />
+<col width="46%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Topic</p></th>
-<th class="head"><p>Results</p></th>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Topic</th>
+<th class="head">Results</th>
 </tr>
 </thead>
-<tbody>
-<tr class="row-even"><td><p>Best Compression Throughput</p></td>
-<td><p>1.5 GB/s</p></td>
+<tbody valign="top">
+<tr class="row-even"><td>Best Compression Throughput</td>
+<td>2.1 GB/s</td>
 </tr>
-<tr class="row-odd"><td><p>Best Decompression Throughput</p></td>
-<td><p>1.8 GB/s</p></td>
+<tr class="row-odd"><td>Best Decompression Throughput</td>
+<td>1.8 GB/s</td>
 </tr>
-<tr class="row-even"><td><p>Average Compression Ratio</p></td>
-<td><p>2.15x (Silesia Benchmark)</p></td>
+<tr class="row-even"><td>Average Compression Ratio</td>
+<td>2.15x (Silesia Benchmark)</td>
 </tr>
 </tbody>
 </table>
@@ -594,7 +591,6 @@ units.</p>
           </div>
           <footer>
 <!-- Atalwar: Moved the footer code to layout.html to resolve conflict with the Xilinx template -->
-
 </footer>
 
         </div>

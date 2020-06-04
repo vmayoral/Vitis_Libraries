@@ -6,7 +6,9 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
-		
+		<meta content="Vitis, Library, Data Compression, Xilinx, LZ4 Demo, ZLIB Demo" name="keywords" />
+<meta content="This section provides various Vitis Data Compression applications which are complete (Includes Host/Device management)" name="description" />
+
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 		<link rel="stylesheet" href="https://static.cloud.coveo.com/searchui/v2.4382/css/CoveoFullSearch.css"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -43,7 +45,6 @@
         <script type="text/javascript" src="../../_static/jquery.js"></script>
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -343,10 +344,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../L2/L2.html">L2 Kernel User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="L3.html">L3 Overlay User Guide</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">L3 Overlay APIs</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
-</ul>
-</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">L3 Overlay APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_reference.html">Overlay API Reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="demo.html">Demos</a></li>
 </ul>
@@ -429,14 +428,11 @@
             
   <div class="section" id="l3-overlay-apis">
 <h1>L3 Overlay APIs<a class="headerlink" href="#l3-overlay-apis" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>This section provides usage of data compression applications at software API
-level. Applications provided in this section can be used in three ways.</p>
-<pre class="highlight literal-block"><span></span>a.  Use the L3/demos applications as-is.
-b.  Create shared library out of L3/demos applications.
-c.  to generate configuration bits <span class="k">for</span> run-time-configurable primitives.</pre>
 </div>
+<div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>This page describes the usage of data compression applications at the software API level.</p>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">L3/demos</span></code> applications as-is or can create a shared library out of <code class="docutils literal notranslate"><span class="pre">L3/demos</span></code> applications to generate configuration bits for the run-time configurable primitives.</p>
 </div>
 
 
@@ -445,7 +441,6 @@ c.  to generate configuration bits <span class="k">for</span> run-time-configura
           </div>
           <footer>
 <!-- Atalwar: Moved the footer code to layout.html to resolve conflict with the Xilinx template -->
-
 </footer>
 
         </div>

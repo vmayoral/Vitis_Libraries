@@ -20,7 +20,7 @@ struct unpackerChunkInfo
 .. _cid-unpackerchunkinfo::numblocks:
 .. _doxid-structunpackerChunkInfo_1aa298c12f402078e95acef4dfac17c1e1:
 .. _cid-unpackerchunkinfo::numblockspercu:
-.. _doxid-structunpackerChunkInfo_1aac5c6c3e2e2c2408678aae766125c134:
+.. _doxid-structunpackerChunkInfo_1a27ef665c9e23274a53566dc78e489dd9:
 .. _cid-unpackerchunkinfo::padding:
 .. ref-code-block:: cpp
 	:class: overview-code-block
@@ -31,5 +31,5 @@ struct unpackerChunkInfo
 	uint32_t originalSize
 	uint32_t numBlocks
 	uint32_t numBlocksPerCU[2]
-	uint32_t padding[(GMEM_DATAWIDTH/32) - 5]
+	uint32_t padding[(GMEM_DATAWIDTH/32)-5]
 

@@ -10,6 +10,7 @@ namespace compression
 
 	namespace_xf_compression_details.rst
 	enum_xf_compression_eHuffmanType.rst
+	struct_xf_compression_BlockInfo.rst
 	struct_xf_compression_Codeword.rst
 	struct_xf_compression_Symbol.rst
 	struct_xf_compression_lz4BlockInfo.rst
@@ -28,6 +29,8 @@ namespace compression
 .. _cid-xf::compression::dt_lz4blockinfo:
 .. _doxid-namespacexf_1_1compression_1a499ffa6d30e499c112e1ff0d30f74217:
 .. _cid-xf::compression::uintmemwidth_t:
+.. _doxid-namespacexf_1_1compression_1af98ad0ba11aa57ba531b4bca2fb2a460:
+.. _cid-xf::compression::dt_blockinfo:
 .. _doxid-namespacexf_1_1compression_1a41fcd3cacbb588959c35e53fb629eae4:
 .. _cid-xf::compression::c_tgnsymbolbits:
 .. _doxid-namespacexf_1_1compression_1a902e9cfee37a6cdc60793c443aeb17b1:
@@ -108,7 +111,7 @@ namespace compression
 .. _cid-xf::compression::mm2slz4packer:
 .. _doxid-namespacexf_1_1compression_1a4713ff751908810fa768b2a56dea6ab3:
 .. _cid-xf::compression::lz4packermm:
-.. _doxid-namespacexf_1_1compression_1a7acac729182c466dd5fd6775e572503c:
+.. _doxid-namespacexf_1_1compression_1ab8463c6e94353b3428c2b202e608cc39:
 .. _cid-xf::compression::lzmultibytedecoder:
 .. _doxid-namespacexf_1_1compression_1ad563832ae258d131b90a7be4766730c4:
 .. _cid-xf::compression::lzdecompresszlibeos:
@@ -116,13 +119,15 @@ namespace compression
 .. _cid-xf::compression::lz77divide:
 .. _doxid-namespacexf_1_1compression_1aa036e9da15f34ff1061334b7f3e32e44:
 .. _cid-xf::compression::lzxdecompressengine:
-.. _doxid-namespacexf_1_1compression_1ad369224da3746c7a6aad235825c31dd1:
+.. _doxid-namespacexf_1_1compression_1aaae093543d5c5d7be652efd45c19cd9f:
+.. _cid-xf::compression::reg:
+.. _doxid-namespacexf_1_1compression_1a17e2313e6237969be68d8896a599b910:
 .. _cid-xf::compression::snappyheaderprocessing:
-.. _doxid-namespacexf_1_1compression_1ad536c80537d4c2832b2a23ab5787d385:
+.. _doxid-namespacexf_1_1compression_1aa19e1141ba9f53921d60d11c88f613e6:
 .. _cid-xf::compression::snappymultibytedecompress:
-.. _doxid-namespacexf_1_1compression_1ae3df4c0b9c1ef327db6db7fde744e3bf:
+.. _doxid-namespacexf_1_1compression_1a3f0585a5a401d0e5ef37f51a0ff8b103:
 .. _cid-xf::compression::snappydecompressengine:
-.. _doxid-namespacexf_1_1compression_1ab5bcd1162899bdf9d622d3240c4cf83c:
+.. _doxid-namespacexf_1_1compression_1a6b66eb2ae79da7623edf83492ef1318c:
 .. _cid-xf::compression::snappydecompresscoreengine:
 .. ref-code-block:: cpp
 	:class: overview-code-block
@@ -139,6 +144,7 @@ namespace compression
 	typedef ap_uint <32> compressd_dt
 	typedef struct :ref:`xf::compression::lz4BlockInfo<doxid-structxf_1_1compression_1_1lz4BlockInfo>` dt_lz4BlockInfo
 	typedef ap_uint <kGMemDWidth> uintMemWidth_t
+	typedef struct :ref:`xf::compression::BlockInfo<doxid-structxf_1_1compression_1_1BlockInfo>` dt_blockInfo
 
 	// enums
 
@@ -146,6 +152,7 @@ namespace compression
 
 	// structs
 
+	struct :ref:`BlockInfo<doxid-structxf_1_1compression_1_1BlockInfo>` 
 	struct :ref:`Codeword<doxid-structxf_1_1compression_1_1Codeword>` 
 	struct :ref:`Symbol<doxid-structxf_1_1compression_1_1Symbol>` 
 	struct :ref:`lz4BlockInfo<doxid-structxf_1_1compression_1_1lz4BlockInfo>` 

@@ -6,7 +6,9 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
-		
+		<meta content="Vitis, Library, Data Compression, Xilinx, L1 Modules, Data Compression HLS, ZLIB HLS, LZ4 HLS, Google Snappy HLS , HLS Streams, HLS Dataflow, HLS Pipeline, HLS Unroll, HLS Array Partition" name="keywords" />
+<meta content="Vitis Data Compression library L1 module overview" name="description" />
+
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 		<link rel="stylesheet" href="https://static.cloud.coveo.com/searchui/v2.4382/css/CoveoFullSearch.css"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -43,7 +45,6 @@
         <script type="text/javascript" src="../../_static/jquery.js"></script>
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -428,19 +429,11 @@
             
   <div class="section" id="primitive-overview">
 <h1>Primitive Overview<a class="headerlink" href="#primitive-overview" title="Permalink to this headline">¶</a></h1>
-<p>The Level 1 APIs of Vitis Data Compression Library is presented as HLS
-C++ modules. This Algorithm Library provides a range of primitives for implementing data compression in C++ for Vitis. Headers for these hardware APIs can be found in <code class="docutils literal notranslate"><span class="pre">include</span></code> directory of the package.</p>
+<p>The Algorithm library provides a range of primitives for implementing data compression in C++ for Vitis. Headers for these hardware APIs can be found in the <code class="docutils literal notranslate"><span class="pre">include</span></code> directory of the package.</p>
 <div class="section" id="stream-based-interface">
 <h2>Stream-based Interface<a class="headerlink" href="#stream-based-interface" title="Permalink to this headline">¶</a></h2>
 <p>The interface of primitives in this library are mostly HLS streams, with the main input stream along with output stream throughout the dataflow.</p>
-<p>The benefits of this interface are</p>
-<ul class="simple">
-<li><p>Within a HLS dataflow region, all primitives connected via HLS streams can work in parallel, and this is the key to FPGA acceleration.</p></li>
-</ul>
-<p>This level of API is mainly provided for hardware-savvy developers. The
-API description and design details of these modules can be found in L1
-Module User Guide section of the <a class="reference external" href="https://xilinx.github.io/Vitis_Libraries/data_compression/source/L1/L1.html">library
-document</a>.</p>
+<p>Within a HLS dataflow region, all primitives connected via HLS streams can work in parallel resulting in the FPGA acceleration.</p>
 </div>
 </div>
 
@@ -450,7 +443,6 @@ document</a>.</p>
           </div>
           <footer>
 <!-- Atalwar: Moved the footer code to layout.html to resolve conflict with the Xilinx template -->
-
 </footer>
 
         </div>
