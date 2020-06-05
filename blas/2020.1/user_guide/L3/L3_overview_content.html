@@ -6,7 +6,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
-		<meta content="BLAS, Library, Vitis BLAS Library, XFBLAS, level 3" name="keywords" />
+		<meta content="BLAS, Library, Vitis BLAS Library, Vitis BLAS, level 3" name="keywords" />
 <meta content="Vitis BLAS library level 3 provides software API functions to offload BLAS operations to pre-built FPGA images." name="description" />
 <meta content="Document" name="xlnxdocumentclass" />
 <meta content="Tutorials" name="xlnxdocumenttype" />
@@ -357,10 +357,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#supported-datatypes">1.3 Supported Datatypes</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#using-the-xfblas-api">2. Using the XFBLAS API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-vitis-blas-api">2. Using the Vitis BLAS API</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#general-description">2.1 General description</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#error-status">2.1.1 Error status</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#xfblas-initialization">2.1.2 XFBLAS initialization</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#vitis-blas-initialization">2.1.2 Vitis BLAS initialization</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#datatypes-reference">2.2 Datatypes Reference</a><ul>
@@ -369,7 +369,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#xfblasoperation-t">2.2.3 xfblasOperation_t</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#xfblas-helper-function-reference">2.3 XFBLAS Helper Function Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#vitis-blas-helper-function-reference">2.3 Vitis BLAS Helper Function Reference</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#xfblascreate">2.3.1 xfblasCreate</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#xfblasfree">2.3.2 xfblasFree</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#xfblasdestroy">2.3.3 xfblasDestroy</a></li>
@@ -396,7 +396,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#xfblasdevicesynchronize">2.3.24 xfblasDeviceSynchronize</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#xfblas-function-reference">2.4 XFBLAS Function Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#vitis-blas-function-reference">2.4 Vitis BLAS Function Reference</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#xfblasgemm">2.4.1 xfblasGemm</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#xfblasgemv">2.4.2 xfblasGemv</a></li>
 </ul>
@@ -487,20 +487,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p id="user-guide-overview-content-l3">XFBLAS level 3 provides software API functions to offload BLAS operations to pre-built FPGA images.</p>
+  <p id="user-guide-overview-content-l3">Vitis BLAS level 3 provides software API functions to offload BLAS operations to pre-built FPGA images.</p>
 <div class="section" id="introduction">
 <h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>The XFBLAS level 3 library is an implementation of BLAS on top of the XILINX runtime (XRT). It allows software developers to use XFBLAS library without writing any runtime functions and hardware configurations.</p>
+<p>The Vitis BLAS level 3 library is an implementation of BLAS on top of the XILINX runtime (XRT). It allows software developers to use Vitis BLAS library without writing any runtime functions and hardware configurations.</p>
 <div class="section" id="data-layout">
 <h2>1.1 Data layout<a class="headerlink" href="#data-layout" title="Permalink to this headline">¶</a></h2>
-<p>XFBLAS library uses row-major storage. The array index of a matrix element could be calculated by the following macro.</p>
+<p>Vitis BLAS library uses row-major storage. The array index of a matrix element could be calculated by the following macro.</p>
 <pre class="highlight literal-block">
 <span></span><span class="c1"># define IDX2R(i,j,ld) ( ( (i)*(ld) ) + (j) )</span>
 </pre>
 </div>
 <div class="section" id="memory-allocation">
 <h2>1.2 Memory Allocation<a class="headerlink" href="#memory-allocation" title="Permalink to this headline">¶</a></h2>
-<p>XFBLAS level 3 library supports three different versions of APIs to support memory allocation in device. Users could choose from different versions to better support their application based on the cases. Examples for using three different versions could be found in <a class="reference internal" href="L3_example.html"><span class="doc">BLAS Level 3 example</span></a>.</p>
+<p>Vitis BLAS level 3 library supports three different versions of APIs to support memory allocation in device. Users could choose from different versions to better support their application based on the cases. Examples for using three different versions could be found in <a class="reference internal" href="L3_example.html"><span class="doc">BLAS Level 3 example</span></a>.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="32%" />
@@ -552,17 +552,17 @@
 </ul>
 </div>
 </div>
-<div class="section" id="using-the-xfblas-api">
-<h1>2. Using the XFBLAS API<a class="headerlink" href="#using-the-xfblas-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="using-the-vitis-blas-api">
+<h1>2. Using the Vitis BLAS API<a class="headerlink" href="#using-the-vitis-blas-api" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="general-description">
 <h2>2.1 General description<a class="headerlink" href="#general-description" title="Permalink to this headline">¶</a></h2>
-<p>This section describes how to use the XFBLAS library API level.</p>
+<p>This section describes how to use the Vitis BLAS library API level.</p>
 <div class="section" id="error-status">
 <h3>2.1.1 Error status<a class="headerlink" href="#error-status" title="Permalink to this headline">¶</a></h3>
-<p>XFBLAS API function calls return the error status of datatype <a class="reference internal" href="#xfblasstatus-t">xfblasStatus_t</a>.</p>
+<p>Vitis BLAS API function calls return the error status of datatype <a class="reference internal" href="#xfblasstatus-t">xfblasStatus_t</a>.</p>
 </div>
-<div class="section" id="xfblas-initialization">
-<h3>2.1.2 XFBLAS initialization<a class="headerlink" href="#xfblas-initialization" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="vitis-blas-initialization">
+<h3>2.1.2 Vitis BLAS initialization<a class="headerlink" href="#vitis-blas-initialization" title="Permalink to this headline">¶</a></h3>
 <p>To initialize the library, xfblasCreate() function must be called. This function will open the device, download the FPGA image to the device  and create context on the selected compute unit. For a multi-kernels xclbin, contexts will be opened on the corresponding compute units. Please refer to <a class="reference internal" href="L3_example_gemm.html"><span class="doc">gemm example</span></a> for detail usage.</p>
 </div>
 </div>
@@ -570,50 +570,11 @@
 <h2>2.2 Datatypes Reference<a class="headerlink" href="#datatypes-reference" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="xfblasstatus-t">
 <h3>2.2.1 xfblasStatus_t<a class="headerlink" href="#xfblasstatus-t" title="Permalink to this headline">¶</a></h3>
-<p>The type is used for function status returns. All XFBLAS level 3 library functions return status which has the following values.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="20%" />
-<col width="75%" />
-<col width="5%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Item</th>
-<th class="head">Meaning</th>
-<th class="head">Value</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>XFBLAS_STATUS_SUCCESS</td>
-<td>The function is completed successfully</td>
-<td>0</td>
-</tr>
-<tr class="row-odd"><td>XFBLAS_STATUS_NOT_INITIALIZED</td>
-<td>The XFBLAS library was not initialized. This is usually caused by not calling function xfblasCreate previously.</td>
-<td>1</td>
-</tr>
-<tr class="row-even"><td>XFBLAS_STATUS_INVALID_VALUE</td>
-<td>An unsupported value or parameter was passed to the function. For example, an negative matrix size.</td>
-<td>2</td>
-</tr>
-<tr class="row-odd"><td>XFBLAS_STATUS_ALLOC_FAILED</td>
-<td>Memory allocation failed inside the XFBLAS library.</td>
-<td>3</td>
-</tr>
-<tr class="row-even"><td>XFBLAS_STATUS_NOT_SUPPORTED</td>
-<td>The functionality requested is not supported yet.</td>
-<td>4</td>
-</tr>
-<tr class="row-odd"><td>XFBLAS_STATUS_NOT_PADDED</td>
-<td>For restricted mode, matrix sizes are not padded correctly.</td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
+<p>The type is used for function status returns. All Vitis BLAS level 3 library functions return status which has the following values.</p>
 </div>
 <div class="section" id="xfblasengine-t">
 <h3>2.2.2 xfblasEngine_t<a class="headerlink" href="#xfblasengine-t" title="Permalink to this headline">¶</a></h3>
-<p>The xfblasEngine_t type indicates which engine needs to be performed when initializes the XFBLAS library. xfblasEngine_t type should be matched with the FPGA bitstream.</p>
+<p>The xfblasEngine_t type indicates which engine needs to be performed when initializes the Vitis BLAS library. xfblasEngine_t type should be matched with the FPGA bitstream.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="41%" />
@@ -661,14 +622,14 @@
 </table>
 </div>
 </div>
-<div class="section" id="xfblas-helper-function-reference">
-<h2>2.3 XFBLAS Helper Function Reference<a class="headerlink" href="#xfblas-helper-function-reference" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="vitis-blas-helper-function-reference">
+<h2>2.3 Vitis BLAS Helper Function Reference<a class="headerlink" href="#vitis-blas-helper-function-reference" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="xfblascreate">
 <h3>2.3.1 xfblasCreate<a class="headerlink" href="#xfblascreate" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="n">xfblasStatus_t</span> <span class="n">xfblasCreate</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">xclbin</span><span class="p">,</span> <span class="n">string</span> <span class="n">configFile</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">logFile</span><span class="p">,</span> <span class="n">xfblasEngine_t</span> <span class="n">engineName</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelNumber</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 </pre>
-<p>This function initializes the XFBLAS library and creates a handle for the specific engine. It must be called prior to any other XFBLAS library calls.</p>
+<p>This function initializes the Vitis BLAS library and creates a handle for the specific engine. It must be called prior to any other Vitis BLAS library calls.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -686,7 +647,7 @@
 <td>file path to log file</td>
 </tr>
 <tr class="row-even"><td>engineName</td>
-<td>XFBLAS engine to run</td>
+<td>Vitis BLAS engine to run</td>
 </tr>
 <tr class="row-odd"><td>kernelNumber</td>
 <td>number of kernels that is being used, default is 1</td>
@@ -766,7 +727,7 @@
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="n">xfblasStatus_t</span> <span class="n">xfblasDestroy</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">kernelNumber</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">deviceIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 </pre>
-<p>This function releases handle used by the XFBLAS library.</p>
+<p>This function releases handle used by the Vitis BLAS library.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -1803,8 +1764,8 @@
 </table>
 </div>
 </div>
-<div class="section" id="xfblas-function-reference">
-<h2>2.4 XFBLAS Function Reference<a class="headerlink" href="#xfblas-function-reference" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="vitis-blas-function-reference">
+<h2>2.4 Vitis BLAS Function Reference<a class="headerlink" href="#vitis-blas-function-reference" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="xfblasgemm">
 <h3>2.4.1 xfblasGemm<a class="headerlink" href="#xfblasgemm" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
