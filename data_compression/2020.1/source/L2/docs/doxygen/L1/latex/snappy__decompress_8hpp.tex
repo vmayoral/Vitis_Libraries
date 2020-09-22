@@ -1,0 +1,39 @@
+\hypertarget{snappy__decompress_8hpp}{\section{/wrk/xhdhdnobkup3/rsarkari/\-Library/\-Pages/xf\-\_\-compression/\-L1/include/hw/snappy\-\_\-decompress.hpp File Reference}
+\label{snappy__decompress_8hpp}\index{/wrk/xhdhdnobkup3/rsarkari/\-Library/\-Pages/xf\-\_\-compression/\-L1/include/hw/snappy\-\_\-decompress.\-hpp@{/wrk/xhdhdnobkup3/rsarkari/\-Library/\-Pages/xf\-\_\-compression/\-L1/include/hw/snappy\-\_\-decompress.\-hpp}}
+}
+
+
+Header for modules used for snappy decompression kernle.  
+
+
+{\ttfamily \#include \char`\"{}hls\-\_\-stream.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$ap\-\_\-int.\-h$>$}\\*
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}lz\-\_\-decompress.\-hpp\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structxf_1_1compression_1_1BlockInfo}{xf\-::compression\-::\-Block\-Info}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacexf_1_1compression_af98ad0ba11aa57ba531b4bca2fb2a460}{typedef struct \\*
+\hyperlink{structxf_1_1compression_1_1BlockInfo}{xf\-::compression\-::\-Block\-Info} {\bfseries xf\-::compression\-::dt\-\_\-block\-Info}}\label{namespacexf_1_1compression_af98ad0ba11aa57ba531b4bca2fb2a460}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacexf_1_1compression_a3f0585a5a401d0e5ef37f51a0ff8b103}{{\footnotesize template$<$int P\-A\-R\-A\-L\-L\-E\-L\-\_\-\-B\-Y\-T\-E\-S, int H\-I\-S\-T\-O\-R\-Y\-\_\-\-S\-I\-Z\-E, class S\-I\-Z\-E\-\_\-\-D\-T  = ap\-\_\-uint$<$17$>$$>$ }\\void {\bfseries xf\-::compression\-::snappy\-Decompress\-Engine} (hls\-::stream$<$ ap\-\_\-uint$<$ P\-A\-R\-A\-L\-L\-E\-L\-\_\-\-B\-Y\-T\-E\-S $\ast$8 $>$ $>$ \&in\-Stream, hls\-::stream$<$ ap\-\_\-uint$<$ P\-A\-R\-A\-L\-L\-E\-L\-\_\-\-B\-Y\-T\-E\-S $\ast$8 $>$ $>$ \&out\-Stream, hls\-::stream$<$ bool $>$ \&out\-Stream\-Eo\-S, hls\-::stream$<$ uint32\-\_\-t $>$ \&out\-Size\-Stream, const uint32\-\_\-t \-\_\-input\-\_\-size)}\label{namespacexf_1_1compression_a3f0585a5a401d0e5ef37f51a0ff8b103}
+
+\item 
+\hypertarget{namespacexf_1_1compression_a6b66eb2ae79da7623edf83492ef1318c}{{\footnotesize template$<$int P\-A\-R\-A\-L\-L\-E\-L\-\_\-\-B\-Y\-T\-E\-S, int H\-I\-S\-T\-O\-R\-Y\-\_\-\-S\-I\-Z\-E, class S\-I\-Z\-E\-\_\-\-D\-T  = ap\-\_\-uint$<$17$>$$>$ }\\void {\bfseries xf\-::compression\-::snappy\-Decompress\-Core\-Engine} (hls\-::stream$<$ ap\-\_\-uint$<$ P\-A\-R\-A\-L\-L\-E\-L\-\_\-\-B\-Y\-T\-E\-S $\ast$8 $>$ $>$ \&in\-Stream, hls\-::stream$<$ ap\-\_\-uint$<$ P\-A\-R\-A\-L\-L\-E\-L\-\_\-\-B\-Y\-T\-E\-S $\ast$8 $>$ $>$ \&out\-Stream, hls\-::stream$<$ bool $>$ \&out\-Stream\-Eo\-S, hls\-::stream$<$ uint32\-\_\-t $>$ \&out\-Size\-Stream, hls\-::stream$<$ uint32\-\_\-t $>$ \&block\-Size\-Stream)}\label{namespacexf_1_1compression_a6b66eb2ae79da7623edf83492ef1318c}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header for modules used for snappy decompression kernle. This file is part of Vitis Data Compression Library. 
