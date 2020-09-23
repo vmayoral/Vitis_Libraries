@@ -1,0 +1,77 @@
+\hypertarget{zstd__specs_8hpp}{\section{/wrk/xhdhdnobkup3/rsarkari/\-Library/\-Pages/xf\-\_\-compression/\-L1/include/hw/zstd\-\_\-specs.hpp File Reference}
+\label{zstd__specs_8hpp}\index{/wrk/xhdhdnobkup3/rsarkari/\-Library/\-Pages/xf\-\_\-compression/\-L1/include/hw/zstd\-\_\-specs.\-hpp@{/wrk/xhdhdnobkup3/rsarkari/\-Library/\-Pages/xf\-\_\-compression/\-L1/include/hw/zstd\-\_\-specs.\-hpp}}
+}
+
+
+Custom data types, constants and stored tables for use in Z\-S\-T\-D decompress kernel.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structxf_1_1compression_1_1details_1_1FseBSState}{xf\-::compression\-::details\-::\-Fse\-B\-S\-State}
+\item 
+struct \hyperlink{structxf_1_1compression_1_1details_1_1HuffmanTable}{xf\-::compression\-::details\-::\-Huffman\-Table}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries xf\-Block\-Type\-\_\-t} \{ {\bfseries R\-A\-W\-\_\-\-B\-L\-O\-C\-K} = 0, 
+{\bfseries R\-L\-E\-\_\-\-B\-L\-O\-C\-K}, 
+{\bfseries C\-M\-P\-\_\-\-B\-L\-O\-C\-K}, 
+{\bfseries I\-N\-V\-A\-L\-I\-D\-\_\-\-B\-L\-O\-C\-K}
+ \}
+\item 
+enum {\bfseries xf\-Lit\-Block\-Type\-\_\-t} \{ {\bfseries R\-A\-W\-\_\-\-L\-B\-L\-O\-C\-K} = 0, 
+{\bfseries R\-L\-E\-\_\-\-L\-B\-L\-O\-C\-K}, 
+{\bfseries C\-M\-P\-\_\-\-L\-B\-L\-O\-C\-K}, 
+{\bfseries T\-R\-E\-E\-L\-E\-S\-S\-\_\-\-L\-B\-L\-O\-C\-K}
+ \}
+\item 
+enum {\bfseries xf\-Symbol\-Comp\-Mode\-\_\-t} \{ {\bfseries P\-R\-E\-D\-E\-F\-I\-N\-E\-D\-\_\-\-M\-O\-D\-E} = 0, 
+{\bfseries R\-L\-E\-\_\-\-M\-O\-D\-E}, 
+{\bfseries F\-S\-E\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-M\-O\-D\-E}, 
+{\bfseries R\-E\-P\-E\-A\-T\-\_\-\-M\-O\-D\-E}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacexf_1_1compression_1_1details_a215832aa1a5eb852e79e76738a202cc7}{const uint32\-\_\-t {\bfseries xf\-::compression\-::details\-::k\-Magic\-Number} = 0x\-F\-D2\-F\-B528}\label{namespacexf_1_1compression_1_1details_a215832aa1a5eb852e79e76738a202cc7}
+
+\item 
+\hypertarget{namespacexf_1_1compression_1_1details_ae7c7e804fc3c575d043c0517c2c12304}{const uint32\-\_\-t {\bfseries xf\-::compression\-::details\-::k\-Skip\-Frame\-Magic\-Number} = 0x184\-D2\-A50}\label{namespacexf_1_1compression_1_1details_ae7c7e804fc3c575d043c0517c2c12304}
+
+\item 
+\hypertarget{namespacexf_1_1compression_1_1details_a5ad203d5d50dda5c7ceb608c69000be5}{const uint32\-\_\-t {\bfseries xf\-::compression\-::details\-::k\-Skippable\-Frame\-Mask} = 0x\-F\-F\-F\-F\-F\-F\-F0}\label{namespacexf_1_1compression_1_1details_a5ad203d5d50dda5c7ceb608c69000be5}
+
+\item 
+\hypertarget{namespacexf_1_1compression_1_1details_a236b3a475c25b7397440915d50ace0b6}{const uint16\-\_\-t {\bfseries xf\-::compression\-::details\-::k\-Max\-Char\-Lit} = 35}\label{namespacexf_1_1compression_1_1details_a236b3a475c25b7397440915d50ace0b6}
+
+\item 
+\hypertarget{namespacexf_1_1compression_1_1details_adcc937b260e046c72e746123e3072116}{const uint16\-\_\-t {\bfseries xf\-::compression\-::details\-::k\-Max\-Char\-Def\-Offset} = 28}\label{namespacexf_1_1compression_1_1details_adcc937b260e046c72e746123e3072116}
+
+\item 
+\hypertarget{namespacexf_1_1compression_1_1details_a788ff4aa84cd4942c98c546c862ca225}{const uint16\-\_\-t {\bfseries xf\-::compression\-::details\-::k\-Max\-Char\-Offset} = 31}\label{namespacexf_1_1compression_1_1details_a788ff4aa84cd4942c98c546c862ca225}
+
+\item 
+\hypertarget{namespacexf_1_1compression_1_1details_a4e186e4e48929f981965a75a3666fd78}{const uint16\-\_\-t {\bfseries xf\-::compression\-::details\-::k\-Max\-Char\-Matchlen} = 52}\label{namespacexf_1_1compression_1_1details_a4e186e4e48929f981965a75a3666fd78}
+
+\item 
+\hypertarget{namespacexf_1_1compression_1_1details_a9e731ac38ff283364646f9f8c2b5b7fa}{const uint16\-\_\-t {\bfseries xf\-::compression\-::details\-::k\-Max\-Char\-Huffman} = 255}\label{namespacexf_1_1compression_1_1details_a9e731ac38ff283364646f9f8c2b5b7fa}
+
+\item 
+const uint32\-\_\-t {\bfseries xf\-::compression\-::details\-::k\-L\-L\-Base} \mbox{[}k\-Max\-Char\-Lit+1\mbox{]}
+\item 
+const uint32\-\_\-t {\bfseries xf\-::compression\-::details\-::k\-M\-L\-Base} \mbox{[}k\-Max\-Char\-Matchlen+1\mbox{]}
+\item 
+const uint8\-\_\-t {\bfseries xf\-::compression\-::details\-::k\-L\-L\-Extra\-Bits} \mbox{[}k\-Max\-Char\-Lit+1\mbox{]}
+\item 
+const uint8\-\_\-t {\bfseries xf\-::compression\-::details\-::k\-M\-L\-Extra\-Bits} \mbox{[}k\-Max\-Char\-Matchlen+1\mbox{]}
+\item 
+const int16\-\_\-t {\bfseries xf\-::compression\-::details\-::default\-Distribution} \mbox{[}k\-Max\-Char\-Lit+k\-Max\-Char\-Def\-Offset+k\-Max\-Char\-Matchlen+3\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Custom data types, constants and stored tables for use in Z\-S\-T\-D decompress kernel. This file is part of Vitis Data Compression Library. 
