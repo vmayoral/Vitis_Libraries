@@ -1,0 +1,38 @@
+.. index:: pair: class; xlibz::driver::singleton
+.. _doxid-classxlibz_1_1driver_1_1singleton:
+.. _cid-xlibz::driver::singleton:
+
+class xlibz::driver::singleton
+==============================
+
+.. toctree::
+	:hidden:
+
+
+
+
+
+.. _doxid-classxlibz_1_1driver_1_1singleton_1a33a0a52a05bc7f52b9d8129beeb72927:
+.. _cid-xlibz::driver::singleton::lz77kernelmap:
+.. _doxid-classxlibz_1_1driver_1_1singleton_1a904eca5767a346b943a51951f12f6baa:
+.. _cid-xlibz::driver::singleton::deckernelmap:
+.. _doxid-classxlibz_1_1driver_1_1singleton_1a97b6263597c4a8b4c3d9d91743810d51:
+.. _cid-xlibz::driver::singleton::getinstance:
+.. _doxid-classxlibz_1_1driver_1_1singleton_1a7054e3c068b0aef77da6ae007f116ea8:
+.. _cid-xlibz::driver::singleton::getzlibinstance:
+.. _doxid-classxlibz_1_1driver_1_1singleton_1abdd7bf1d21c81b7b4d644b9517c29eec:
+.. _cid-xlibz::driver::singleton::getmapsize:
+.. _doxid-classxlibz_1_1driver_1_1singleton_1ae15aa369b44abd9d3b11b04b195de7b1:
+.. _cid-xlibz::driver::singleton::releasezlibobj:
+.. _doxid-classxlibz_1_1driver_1_1singleton_1a2332e36f4f21449855f98a20e904a11d:
+.. _cid-xlibz::driver::singleton::getdriverinstance:
+.. _doxid-classxlibz_1_1driver_1_1singleton_1af441ad6e72a663b47f4bc48ab2463515:
+.. _cid-xlibz::driver::singleton::releasedriverobj:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// fields
+
+	std::map <std::string, int> lz77KernelMap
+	std::map <std::string, int> decKernelMap
+

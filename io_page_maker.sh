@@ -28,6 +28,7 @@ cd ../../
 
 if [ -d $2 ]; then rm -rf $2; fi
 if [ -d $3 ]; then rm -rf $3; fi
+if [ -d $6 ]; then rm -rf $6; fi
 
 echo "Beginning Automation..."
 # Cloning Faas Tool Kit Repo
@@ -36,11 +37,12 @@ git clone https://gitenterprise.xilinx.com/$1/$3.git
 source $3/setup.sh
 # Cloning Vitis Compression Library
 git clone https://gitenterprise.xilinx.com/$1/$2.git -b $5
+git clone https://gitenterprise.xilinx.com/$1/$6.git 
 
 #echo "Getting Setup Ready..."
-cp -rf $3/share/themes/Sphinx_Xilinx_Template/_ext/ $2/docs/
-cp -rf $3/share/themes/Sphinx_Xilinx_Template/_themes/ $2/docs/
-cp -rf $3/share/themes/Sphinx_Xilinx_Template/_templates/ $2/docs/
+cp -rf $6/_ext/ $2/docs/
+cp -rf $6/_themes/ $2/docs/
+cp -rf $6/_templates/ $2/docs/
 cd $2/docs
 
 echo "Setting ENV variables..."
@@ -58,6 +60,8 @@ while true; do
 done
 
 cd ../../
-rm -rf $2 $3
+cp -rf $2/docs/ $HTML_DEST_DIR/source/L2
+cp -rf $2/docs/ $HTML_DEST_DIR/source/L3
+rm -rf $2 $3 $6
 cd $abs_basename
 echo "Documentation can be review by opening index.html"
