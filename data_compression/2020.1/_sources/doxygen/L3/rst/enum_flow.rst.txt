@@ -1,0 +1,23 @@
+.. index:: pair: enum; flow
+.. _doxid-xlibz_8hpp_1a0dc7d0fe5a8f75433aa8d560f6fe1001:
+.. _cid-flow:
+
+enum flow
+=========
+
+
+
+
+
+.. _doxid-xlibz_8hpp_1a0dc7d0fe5a8f75433aa8d560f6fe1001a292608eb1b4ca0932e01c8eb82b481ca:
+.. _cid-flow::xilinx_deflate:
+.. _doxid-xlibz_8hpp_1a0dc7d0fe5a8f75433aa8d560f6fe1001a170205b104eea600b1745f12b8410350:
+.. _cid-flow::xilinx_inflate:
+.. ref-code-block:: cpp
+	:class: overview-code-block
+
+	// enum values
+
+	XILINX_DEFLATE = 1
+	XILINX_INFLATE 
+
