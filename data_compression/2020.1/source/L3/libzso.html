@@ -416,38 +416,45 @@
             
   <div class="section" id="zlib-so-demo">
 <h1>Zlib (SO) Demo<a class="headerlink" href="#zlib-so-demo" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="infrastructure">
-<h2>Infrastructure<a class="headerlink" href="#infrastructure" title="Permalink to this headline">¶</a></h2>
-<p>List below presents infrastructure required to build &amp; deploy this demo.
-Mandatory requirements are marked accordingly in order to get this demo working in
-deployment environment. Vitis is required only for development.</p>
-<blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">Vitis:</span> <span class="pre">2020.1_released</span> <span class="pre">(Only</span> <span class="pre">for</span> <span class="pre">Developers)</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">XRT:</span> <span class="pre">2020.1_PU1</span> <span class="pre">(Mandatory)</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">XRM:</span> <span class="pre">2020.1_released</span> <span class="pre">(Mandatory)</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">SHELL:</span> <span class="pre">u50_gen3x16_xdma_201920_3</span> <span class="pre">(Mandatory)</span></code></p>
-</div></blockquote>
+<p>This demo presents usage and generation of libz.so (FPGA port).
+This demo support Alveo U200, Alveo U280, Alveo U50 (2020.1 Vitis)</p>
+<div class="section" id="build-instructions">
+<h2>Build Instructions<a class="headerlink" href="#build-instructions" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="application-usage">
 <h2>Application Usage<a class="headerlink" href="#application-usage" title="Permalink to this headline">¶</a></h2>
-<p><strong>Compression</strong>     –&gt;  <code class="docutils literal notranslate"><span class="pre">./xzlib</span> <span class="pre">input_file</span></code></p>
-<p><strong>Decompression</strong>   –&gt;  <code class="docutils literal notranslate"><span class="pre">./xzlib</span> <span class="pre">-d</span> <span class="pre">input_file.zlib</span></code></p>
-<p><strong>Test Flow</strong>       –&gt;  <code class="docutils literal notranslate"><span class="pre">./xzlib</span> <span class="pre">-t</span> <span class="pre">input_file</span></code></p>
-<p><strong>No Acceleration</strong> –&gt;  <code class="docutils literal notranslate"><span class="pre">./xzlib</span> <span class="pre">-t</span> <span class="pre">input_file</span> <span class="pre">-n</span> <span class="pre">0</span></code></p>
-<p><strong>Help</strong>           –&gt;  <code class="docutils literal notranslate"><span class="pre">./xzlib</span> <span class="pre">-h</span></code></p>
-<p><strong>Regression</strong>     –&gt; Refer <code class="docutils literal notranslate"><span class="pre">run.sh</span></code> script to understand usage of various options provided with <code class="docutils literal notranslate"><span class="pre">xzlib</span></code> utility.</p>
+<p>Following instructions helps in testing and validation.</p>
+<p>Copy <code class="docutils literal notranslate"><span class="pre">libz.so</span></code> to current directory
+from <code class="docutils literal notranslate"><span class="pre">L3/demos/libzso_app/build/</span></code> directory. In case of make run
+this step is automated.</p>
+<div class="section" id="environment-setup">
+<h3>Environment Setup:<a class="headerlink" href="#environment-setup" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">LD_LIBRARY_PATH=$(PWD):$(LD_LIBRARY_PATH)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">LD_LIBRARY_PATH=$(PWD):$(LD_LIBRARY_PATH)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">XILINX_LIBZ_XCLBIN=&lt;path</span> <span class="pre">to</span> <span class="pre">xclbin&gt;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/opt/Xilinx/Vitis/2020.1/settings64.sh</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/opt/Xilinx/xbb/xrt/packages/setup.sh</span></code></p>
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>It is must to set the LD_LIBRARY_PATH to environment variable
+to the directory where libz.so inorder to use FPGA flow.</p>
 </div>
-<div class="section" id="deployment">
-<h2>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h2>
-<p><strong>#1</strong> <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">setup.csh</span> <span class="pre">&lt;absolute</span> <span class="pre">path</span> <span class="pre">to</span> <span class="pre">xclbin&gt;</span></code> –&gt; Setup of XRT, XRM, Environment Variables, XRM Daemon Start done</p>
-<p><strong>#2</strong>  <code class="docutils literal notranslate"><span class="pre">./xrmxclbin.sh</span> <span class="pre">&lt;number</span> <span class="pre">of</span> <span class="pre">devices&gt;</span></code> –&gt; XRM loads XCLBIN to devices as per user input</p>
-<p><strong>#3</strong> Build libz.so (Shared Object file) - <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">lib</span> <span class="pre">ENABLE_XRM=yes</span></code> –&gt; Current directory contains libz.so.1.2.7</p>
-<p><strong>#4</strong> Build xzlib (Host Executable) - <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">host</span> <span class="pre">ENABLE_XRM=yes</span></code> –&gt; ./build directory contains <code class="docutils literal notranslate"><span class="pre">xzlib</span></code> executable</p>
+<div class="section" id="compression">
+<h3>Compression:<a class="headerlink" href="#compression" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">./build/zlib_so.exe</span> <span class="pre">-c</span> <span class="pre">&lt;input_file&gt;</span></code></p>
 </div>
-<div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p><strong>[XRM Build and Installation]</strong>: <a class="reference external" href="https://xilinx.github.io/XRM/Build.html">https://xilinx.github.io/XRM/Build.html</a></p>
-<p><strong>[XRM Test Instructions]</strong>: <a class="reference external" href="https://xilinx.github.io/XRM/Test.html">https://xilinx.github.io/XRM/Test.html</a></p>
+<div class="section" id="decompression">
+<h3>Decompression:<a class="headerlink" href="#decompression" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">./build/zlib_so.exe</span> <span class="pre">-d</span> <span class="pre">&lt;input_file.zlib&gt;</span></code></p>
+</div>
+<div class="section" id="validate-both-flows">
+<h3>Validate (Both flows):<a class="headerlink" href="#validate-both-flows" title="Permalink to this headline">¶</a></h3>
+<p>This command does compress/decompress and
+compares results.</p>
+<p><code class="docutils literal notranslate"><span class="pre">./build/zlib_so.exe</span> <span class="pre">-v</span> <span class="pre">&lt;input_file&gt;</span></code></p>
+</div>
+<div class="section" id="help-section">
+<h3>Help Section:<a class="headerlink" href="#help-section" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">./build/zlib_so.exe</span> <span class="pre">-h</span></code></p>
+</div>
 </div>
 </div>
 
@@ -485,13 +492,6 @@ deployment environment. Vitis is required only for development.</p>
       });
   </script>
 
-   <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-
-  <script type="text/javascript" id="searchindexloader"></script>     	    
-	    
-	    
   
   
     

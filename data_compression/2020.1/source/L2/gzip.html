@@ -342,13 +342,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="L2.html">L2 Kernel User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="overview.html">L2 Kernel Demos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design.html">Kernel Design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_reference.html">Kernel APIs Reference</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="demo.html">Demos</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Xilinx GZip Compression and Decompression</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#results">Results</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#executable-usage">Executable Usage</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#standard-gzip-support">Standard GZip Support</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="lz4.html">Xilinx LZ4 Compression and Decompression</a></li>
@@ -599,10 +596,7 @@
 <tr><td class="label">[*]</td><td>Decompression uses high fmax options (Bitwidth: 32bit, ByteGen Loop: 2)</td></tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="section" id="executable-usage">
-<h2>Executable Usage<a class="headerlink" href="#executable-usage" title="Permalink to this headline">¶</a></h2>
+<p>Executable Usage:</p>
 <ol class="arabic">
 <li><p class="first">To execute single file for compression                 : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-c</span> <span class="pre">&lt;input</span> <span class="pre">file_name&gt;</span></code></p>
 </li>
@@ -630,19 +624,6 @@
      --cu,                   -k      CU                   Default: <span class="o">[</span><span class="m">0</span><span class="o">]</span>
 </pre>
 </div>
-<div class="section" id="standard-gzip-support">
-<h2>Standard GZip Support<a class="headerlink" href="#standard-gzip-support" title="Permalink to this headline">¶</a></h2>
-<p>This application is compatible with standard Gzip application (compress/decompres).
-Compatibility is validated on Linux environment.</p>
-<p>Following is the command to use standard “<strong>gzip</strong>” to decompress files
-compressed using Xilinx GZip application.</p>
-<pre class="highlight literal-block">
-<span></span>gzip -dc &lt;compressed_file.gz&gt;  &gt; out
-</pre>
-<p>At present we dont support CRC32 check for GZip, due this following error
-message is expected while running the above command.</p>
-<p>Expected Error Message:</p>
-<p><code class="docutils literal notranslate"><span class="pre">invalid</span> <span class="pre">compressed</span> <span class="pre">data--crc</span> <span class="pre">error</span></code></p>
 </div>
 </div>
 
@@ -689,13 +670,6 @@ message is expected while running the above command.</p>
       });
   </script>
 
-   <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-
-  <script type="text/javascript" id="searchindexloader"></script>     	    
-	    
-	    
   
   
     
