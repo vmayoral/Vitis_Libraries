@@ -59,7 +59,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Demos" href="demo.html" />
-    <link rel="prev" title="Kernel Design" href="design.html" /> 
+    <link rel="prev" title="L2 Kernel Demos" href="overview.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -344,18 +344,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="L2.html">L2 Kernel User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="overview.html">L2 Kernel Demos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design.html">Kernel Design</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Kernel APIs Reference</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#global-functions">Global Functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#xiladler32">xilAdler32</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#xilchecksum32">xilChecksum32</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#xilcrc32">xilCrc32</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xillz4compress">xilLz4Compress</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xillz4compressstream">xilLz4CompressStream</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xillz4decompress">xilLz4Decompress</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xillz4decompressstream">xilLz4DecompressStream</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#cid-xillz4decompress-2">xilLz4Decompress</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cid-xillz4decompressstream-2">xilLz4DecompressStream</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xillz4p2pdecompress">xilLz4P2PDecompress</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xillz4packer">xilLz4Packer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xillz4unpacker">xilLz4Unpacker</a></li>
@@ -365,12 +360,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#xilsnappydecompressstream">xilSnappyDecompressStream</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#cid-xilsnappydecompress-2">xilSnappyDecompress</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#cid-xilsnappydecompressstream-2">xilSnappyDecompressStream</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#xilzlibcompressfull">xilZlibCompressFull</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xildecompressstream">xilDecompressStream</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xilhuffmankernel">xilHuffmanKernel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xillz77compress">xilLz77Compress</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xiltreegenkernel">xilTreegenKernel</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#xilzstddecompressstream">xilZstdDecompressStream</a></li>
 </ul>
 </li>
 </ul>
@@ -461,109 +454,6 @@
 </div>
 <div class="section" id="global-functions">
 <h2>Global Functions<a class="headerlink" href="#global-functions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="xiladler32">
-<span id="cid-xiladler32"></span><span id="doxid-adler32-mm-8hpp-1a35c098de6db9183cc37a5c34735c77da"></span><h3>xilAdler32<a class="headerlink" href="#xiladler32" title="Permalink to this headline">¶</a></h3>
-<pre class="highlight literal-block">
-<span></span><span class="cp">#include</span> <span class="cpf">&quot;adler32_mm.hpp&quot;</span>
-</pre>
-<pre class="highlight title-code-block literal-block">
-<span></span><span class="kt">void</span> <span class="n">xilAdler32</span> <span class="p">(</span>
-    <span class="k">const</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">PARALLEL_BYTES</span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;*</span> <span class="n">in</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;*</span> <span class="n">adlerData</span><span class="p">,</span>
-    <span class="kt">uint32_t</span> <span class="n">inSize</span>
-    <span class="p">)</span>
-</pre>
-<p>Adler32 kernel takes the raw data as input and generates the adler32 result.</p>
-<p class="rubric">Parameters:</p>
-<table border="1" class="colwidths-given docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>in</td>
-<td>input raw data</td>
-</tr>
-<tr class="row-even"><td>adlerData</td>
-<td>Adler data</td>
-</tr>
-<tr class="row-odd"><td>inSize</td>
-<td>input size</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="xilchecksum32">
-<span id="cid-xilchecksum32"></span><span id="doxid-checksum-mm-8hpp-1ab23593c0de276883039ae3aa40821ed9"></span><h3>xilChecksum32<a class="headerlink" href="#xilchecksum32" title="Permalink to this headline">¶</a></h3>
-<pre class="highlight literal-block">
-<span></span><span class="cp">#include</span> <span class="cpf">&quot;checksum_mm.hpp&quot;</span>
-</pre>
-<pre class="highlight title-code-block literal-block">
-<span></span><span class="kt">void</span> <span class="n">xilChecksum32</span> <span class="p">(</span>
-    <span class="k">const</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">PARALLEL_BYTES</span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;*</span> <span class="n">in</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;*</span> <span class="n">initData</span><span class="p">,</span>
-    <span class="kt">uint32_t</span> <span class="n">inSize</span><span class="p">,</span>
-    <span class="kt">bool</span> <span class="n">checksumType</span>
-    <span class="p">)</span>
-</pre>
-<p>Checksum kernel takes the raw data as input and generates the checksum result.</p>
-<p class="rubric">Parameters:</p>
-<table border="1" class="colwidths-given docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>in</td>
-<td>input raw data</td>
-</tr>
-<tr class="row-even"><td>initData</td>
-<td>input Initial data</td>
-</tr>
-<tr class="row-odd"><td>outData</td>
-<td>output checksum</td>
-</tr>
-<tr class="row-even"><td>inSize</td>
-<td>input size</td>
-</tr>
-<tr class="row-odd"><td>checksumType</td>
-<td>CRC/ADLER</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="xilcrc32">
-<span id="cid-xilcrc32"></span><span id="doxid-crc32-mm-8hpp-1a28eb1b17e7d1936bd0beaf57f41e59b3"></span><h3>xilCrc32<a class="headerlink" href="#xilcrc32" title="Permalink to this headline">¶</a></h3>
-<pre class="highlight literal-block">
-<span></span><span class="cp">#include</span> <span class="cpf">&quot;crc32_mm.hpp&quot;</span>
-</pre>
-<pre class="highlight title-code-block literal-block">
-<span></span><span class="kt">void</span> <span class="n">xilCrc32</span> <span class="p">(</span>
-    <span class="k">const</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">PARALLEL_BYTES</span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;*</span> <span class="n">in</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;*</span> <span class="n">crcData</span><span class="p">,</span>
-    <span class="kt">uint32_t</span> <span class="n">inSize</span>
-    <span class="p">)</span>
-</pre>
-<p>Crc32 kernel takes the raw data as input and generates the crc32 result.</p>
-<p class="rubric">Parameters:</p>
-<table border="1" class="colwidths-given docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>in</td>
-<td>input raw data</td>
-</tr>
-<tr class="row-even"><td>crcData</td>
-<td>CRC data</td>
-</tr>
-<tr class="row-odd"><td>inSize</td>
-<td>input size</td>
-</tr>
-</tbody>
-</table>
-</div>
 <div class="section" id="xillz4compress">
 <span id="cid-xillz4compress"></span><span id="doxid-lz4-compress-mm-8hpp-1aa11e26152bb864a14a1b2019faf0dee9"></span><h3>xilLz4Compress<a class="headerlink" href="#xillz4compress" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight literal-block">
@@ -760,39 +650,6 @@
 </tr>
 <tr class="row-even"><td>no_blocks</td>
 <td>number of blocks</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="cid-xillz4decompressstream-2">
-<span id="doxid-lz4-multibyte-decompress-stream-8hpp-1a7e7ff4bd37fbe77fe7ac81a84d744eb0"></span><span id="id2"></span><h3>xilLz4DecompressStream<a class="headerlink" href="#cid-xillz4decompressstream-2" title="Permalink to this headline">¶</a></h3>
-<pre class="highlight literal-block">
-<span></span><span class="cp">#include</span> <span class="cpf">&quot;lz4_multibyte_decompress_stream.hpp&quot;</span>
-</pre>
-<pre class="highlight title-code-block literal-block">
-<span></span><span class="kt">void</span> <span class="n">xilLz4DecompressStream</span> <span class="p">(</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="n">MULTIPLE_BYTES</span><span class="o">*</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inaxistream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="n">MULTIPLE_BYTES</span><span class="o">*</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outaxistream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="mi">32</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outaxistreamsize</span><span class="p">,</span>
-    <span class="kt">uint32_t</span> <span class="n">inputSize</span>
-    <span class="p">)</span>
-</pre>
-<p>Snappy decompression streaming kernel takes compressed data as input from kernel axi stream and process in block based fashion and writes the raw data to global memory.</p>
-<p class="rubric">Parameters:</p>
-<table border="1" class="colwidths-given docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>inaxistream</td>
-<td>input kernel axi stream for compressed data</td>
-</tr>
-<tr class="row-even"><td>outaxistream</td>
-<td>output kernel axi stream for decompressed data</td>
-</tr>
-<tr class="row-odd"><td>inputSize</td>
-<td>input data size</td>
 </tr>
 </tbody>
 </table>
@@ -1132,7 +989,7 @@
 </table>
 </div>
 <div class="section" id="cid-xilsnappydecompress-2">
-<span id="doxid-snappy-multibyte-decompress-mm-8hpp-1a70f1512f5f9d55b4aadc6baf57f6d6d6"></span><span id="id3"></span><h3>xilSnappyDecompress<a class="headerlink" href="#cid-xilsnappydecompress-2" title="Permalink to this headline">¶</a></h3>
+<span id="doxid-snappy-multibyte-decompress-mm-8hpp-1a70f1512f5f9d55b4aadc6baf57f6d6d6"></span><span id="id2"></span><h3>xilSnappyDecompress<a class="headerlink" href="#cid-xilsnappydecompress-2" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;snappy_multibyte_decompress_mm.hpp&quot;</span>
 </pre>
@@ -1176,7 +1033,7 @@
 </table>
 </div>
 <div class="section" id="cid-xilsnappydecompressstream-2">
-<span id="doxid-snappy-multibyte-decompress-stream-8hpp-1a62f91adb69f2d10747dec5b1220198b0"></span><span id="id4"></span><h3>xilSnappyDecompressStream<a class="headerlink" href="#cid-xilsnappydecompressstream-2" title="Permalink to this headline">¶</a></h3>
+<span id="doxid-snappy-multibyte-decompress-stream-8hpp-1a62f91adb69f2d10747dec5b1220198b0"></span><span id="id3"></span><h3>xilSnappyDecompressStream<a class="headerlink" href="#cid-xilsnappydecompressstream-2" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;snappy_multibyte_decompress_stream.hpp&quot;</span>
 </pre>
@@ -1207,81 +1064,6 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="xilzlibcompressfull">
-<span id="cid-xilzlibcompressfull"></span><span id="doxid-zlib-compress-mm-8hpp-1af4f5215f418363730bd1e2f9a8a75f2a"></span><h3>xilZlibCompressFull<a class="headerlink" href="#xilzlibcompressfull" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="xilzlibcompressfull-overload-1">
-<h4>xilZlibCompressFull overload (1)<a class="headerlink" href="#xilzlibcompressfull-overload-1" title="Permalink to this headline">¶</a></h4>
-<pre class="highlight literal-block">
-<span></span><span class="cp">#include</span> <span class="cpf">&quot;zlib_compress_mm.hpp&quot;</span>
-</pre>
-<pre class="highlight title-code-block literal-block">
-<span></span><span class="kt">void</span> <span class="n">xilZlibCompressFull</span> <span class="p">(</span>
-    <span class="k">const</span> <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
-    <span class="n">xf</span><span class="o">::</span><span class="n">compression</span><span class="o">::</span><span class="n">uintMemWidth_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
-    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">compressd_size</span><span class="p">,</span>
-    <span class="kt">uint32_t</span> <span class="n">input_size</span>
-    <span class="p">)</span>
-</pre>
-<p>ZLIB compression kernel takes the raw data as input and compresses the data in block based fashion and writes the output to global memory.</p>
-<p class="rubric">Parameters:</p>
-<table border="1" class="colwidths-given docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>in</td>
-<td>input raw data</td>
-</tr>
-<tr class="row-even"><td>out</td>
-<td>output compressed data</td>
-</tr>
-<tr class="row-odd"><td>compressd_size</td>
-<td>compressed output size of each block</td>
-</tr>
-<tr class="row-even"><td>input_size</td>
-<td>input data size</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="xilzlibcompressfull-overload-2">
-<span id="cid-xilzlibcompressfull-2"></span><span id="doxid-zlib-compress-multi-engine-mm-8hpp-1a7c7902437a9df5335d3490e6d4fe52f9"></span><h4>xilZlibCompressFull overload (2)<a class="headerlink" href="#xilzlibcompressfull-overload-2" title="Permalink to this headline">¶</a></h4>
-<pre class="highlight literal-block">
-<span></span><span class="cp">#include</span> <span class="cpf">&quot;zlib_compress_multi_engine_mm.hpp&quot;</span>
-</pre>
-<pre class="highlight title-code-block literal-block">
-<span></span><span class="kt">void</span> <span class="n">xilZlibCompressFull</span> <span class="p">(</span>
-    <span class="k">const</span> <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">GMEM_DWIDTH</span><span class="o">&gt;*</span> <span class="n">in</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">GMEM_DWIDTH</span><span class="o">&gt;*</span> <span class="n">out</span><span class="p">,</span>
-    <span class="kt">uint32_t</span><span class="o">*</span> <span class="n">compressd_size</span><span class="p">,</span>
-    <span class="kt">uint32_t</span> <span class="n">input_size</span>
-    <span class="p">)</span>
-</pre>
-<p>ZLIB compression kernel takes the raw data as input and compresses the data in parallel block based fashion and writes the output to global memory.</p>
-<p class="rubric">Parameters:</p>
-<table border="1" class="colwidths-given docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>in</td>
-<td>input raw data</td>
-</tr>
-<tr class="row-even"><td>out</td>
-<td>output compressed data</td>
-</tr>
-<tr class="row-odd"><td>compressd_size</td>
-<td>compressed output size of each block</td>
-</tr>
-<tr class="row-even"><td>input_size</td>
-<td>input data size</td>
-</tr>
-</tbody>
-</table>
-</div>
 </div>
 <div class="section" id="xildecompressstream">
 <span id="cid-xildecompressstream-2"></span><span id="doxid-zlib-decompress-stream-8hpp-1acecbaf1b713e6f8bbdf0047a6596d388"></span><h3>xilDecompressStream<a class="headerlink" href="#xildecompressstream" title="Permalink to this headline">¶</a></h3>
@@ -1474,39 +1256,6 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="xilzstddecompressstream">
-<span id="cid-xilzstddecompressstream"></span><span id="doxid-zstd-decompress-stream-8hpp-1af488c56d4c28fad772cef1c7e6437641"></span><h3>xilZstdDecompressStream<a class="headerlink" href="#xilzstddecompressstream" title="Permalink to this headline">¶</a></h3>
-<pre class="highlight literal-block">
-<span></span><span class="cp">#include</span> <span class="cpf">&quot;zstd_decompress_stream.hpp&quot;</span>
-</pre>
-<pre class="highlight title-code-block literal-block">
-<span></span><span class="kt">void</span> <span class="n">xilZstdDecompressStream</span> <span class="p">(</span>
-    <span class="kt">uint64_t</span> <span class="n">input_size</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="n">c_streamDWidth</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inaxistreamd</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="n">c_streamDWidth</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outaxistreamd</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="mi">64</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">sizestreamd</span>
-    <span class="p">)</span>
-</pre>
-<p>Zstd decompression stream kernel top function.</p>
-<p class="rubric">Parameters:</p>
-<table border="1" class="colwidths-given docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>input_size</td>
-<td>input size</td>
-</tr>
-<tr class="row-even"><td>inaxistreamd</td>
-<td>input kernel axi stream</td>
-</tr>
-<tr class="row-odd"><td>outaxistreamd</td>
-<td>output kernel axi stream</td>
-</tr>
-</tbody>
-</table>
-</div>
 </div>
 </div>
 
@@ -1529,7 +1278,7 @@
         <a href="demo.html" class="btn btn-neutral float-right" title="Demos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="design.html" class="btn btn-neutral float-left" title="Kernel Design" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="overview.html" class="btn btn-neutral float-left" title="L2 Kernel Demos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1553,13 +1302,6 @@
       });
   </script>
 
-   <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-
-  <script type="text/javascript" id="searchindexloader"></script>     	    
-	    
-	    
   
   
     
