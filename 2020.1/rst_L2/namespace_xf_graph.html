@@ -57,7 +57,7 @@
   <link rel="stylesheet" href="../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Design Internals" href="../guide_L2/internals.html" />
+    <link rel="next" title="namespace internal" href="namespace_xf_graph_internal.html" />
     <link rel="prev" title="API Document" href="../guide_L2/api.html" /> 
 	</head>
 	<body>
@@ -338,28 +338,30 @@
 <li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
 </ul>
+<p class="caption"><span class="caption-text">L1 User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/api.html">API Document</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/internals.html">Design Internals</a></li>
+</ul>
 <p class="caption"><span class="caption-text">L2 User Guide</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../guide_L2/api.html">API Document</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">namespace graph</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#bfs">bfs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#calcudegree">calcuDegree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#calcuweighteddegree">calcuWeightedDegree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#connectedcomponents">connectedComponents</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#convertcsrcsc">convertCsrCsc</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#labelpropagation">labelPropagation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pageranktop">pageRankTop</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#singlesourceshortestpath">singleSourceShortestPath</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#singlesourceunweightedshortestpath">singleSourceUnWeightedShortestPath</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#stronglyconnectedcomponents">stronglyConnectedComponents</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#trianglecount">triangleCount</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/api.html">API Document</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/internals.html">Design Internals</a></li>
+</ul>
+<p class="caption"><span class="caption-text">L3 User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L3/utilization_L3.html">User Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L3/api.html">API Document</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Plugin User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/tigergraph_integration.html">TigerGraph Integration</a></li>
 </ul>
 
             
@@ -430,19 +432,23 @@
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight overview-code-block literal-block" id="cid-xf-graph-preprocessdata">
-<span id="doxid-namespacexf-1-1graph-1a54304bcae353c4edd7b8d51440ce4c10"></span><span id="cid-xf-graph-pagerankcore"></span><span id="doxid-namespacexf-1-1graph-1a3aedeb50dfe1fb8fcc38dc1a4565baa2"></span><span></span><span class="c1">// namespaces</span>
+<span id="doxid-namespacexf-1-1graph-1a54304bcae353c4edd7b8d51440ce4c10"></span><span id="cid-xf-graph-pagerankcore-2"></span><span id="doxid-namespacexf-1-1graph-1ad28da956946c1af81a2ec5a47078b897"></span><span id="cid-xf-graph-pagerankcore"></span><span id="doxid-namespacexf-1-1graph-1a3aedeb50dfe1fb8fcc38dc1a4565baa2"></span><span></span><span class="c1">// namespaces</span>
 
-<span class="k">namespace</span> xf::graph::internal<span></span>
-    <span class="k">namespace</span> xf::graph::internal::bfs<span></span>
-    <span class="k">namespace</span> xf::graph::internal::calc_degree<span></span>
-    <span class="k">namespace</span> xf::graph::internal::connected_components<span></span>
-    <span class="k">namespace</span> xf::graph::internal::convert_csr_csc<span></span>
-    <span class="k">namespace</span> xf::graph::internal::hash_group_aggregate<span></span>
-    <span class="k">namespace</span> xf::graph::internal::label_propagation<span></span>
-    <span class="k">namespace</span> xf::graph::internal::pagerank<span></span>
-    <span class="k">namespace</span> xf::graph::internal::scc<span></span>
-    <span class="k">namespace</span> xf::graph::internal::shortest_path<span></span>
-    <span class="k">namespace</span> xf::graph::internal::triangle_count
+<span class="k">namespace</span> <a class="reference internal" href="namespace_xf_graph_internal.html#doxid-namespacexf-1-1graph-1-1internal"><span class="std std-ref">xf::graph::internal</span></a><span></span>
+    <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_graph_internal_bfs.html#doxid-namespacexf-1-1graph-1-1internal-1-1bfs"><span class="std std-ref">xf::graph::internal::bfs</span></a><span></span>
+    <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_graph_internal_calc_degree.html#doxid-namespacexf-1-1graph-1-1internal-1-1calc-degree"><span class="std std-ref">xf::graph::internal::calc_degree</span></a><span></span>
+    <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_graph_internal_connected_components.html#doxid-namespacexf-1-1graph-1-1internal-1-1connected-components"><span class="std std-ref">xf::graph::internal::connected_components</span></a><span></span>
+    <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_graph_internal_convert_csr_csc.html#doxid-namespacexf-1-1graph-1-1internal-1-1convert-csr-csc"><span class="std std-ref">xf::graph::internal::convert_csr_csc</span></a><span></span>
+    <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_graph_internal_hash_group_aggregate.html#doxid-namespacexf-1-1graph-1-1internal-1-1hash-group-aggregate"><span class="std std-ref">xf::graph::internal::hash_group_aggregate</span></a><span></span>
+    <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_graph_internal_label_propagation.html#doxid-namespacexf-1-1graph-1-1internal-1-1label-propagation"><span class="std std-ref">xf::graph::internal::label_propagation</span></a><span></span>
+    <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_graph_internal_mssp.html#doxid-namespacexf-1-1graph-1-1internal-1-1mssp"><span class="std std-ref">xf::graph::internal::mssp</span></a><span></span>
+    <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_graph_internal_pagerank.html#doxid-namespacexf-1-1graph-1-1internal-1-1pagerank"><span class="std std-ref">xf::graph::internal::pagerank</span></a><span></span>
+    <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_graph_internal_pagerankMultiChannel.html#doxid-namespacexf-1-1graph-1-1internal-1-1pagerank-multi-channel"><span class="std std-ref">xf::graph::internal::pagerankMultiChannel</span></a><span></span>
+    <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_graph_internal_scc.html#doxid-namespacexf-1-1graph-1-1internal-1-1scc"><span class="std std-ref">xf::graph::internal::scc</span></a><span></span>
+    <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_graph_internal_sssp.html#doxid-namespacexf-1-1graph-1-1internal-1-1sssp"><span class="std std-ref">xf::graph::internal::sssp</span></a><span></span>
+        <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_graph_internal_sssp_nopred.html#doxid-namespacexf-1-1graph-1-1internal-1-1sssp-1-1nopred"><span class="std std-ref">xf::graph::internal::sssp::nopred</span></a><span></span>
+        <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_graph_internal_sssp_pred.html#doxid-namespacexf-1-1graph-1-1internal-1-1sssp-1-1pred"><span class="std std-ref">xf::graph::internal::sssp::pred</span></a><span></span>
+    <span class="k">namespace</span> <a class="reference internal" href="namespace_xf_graph_internal_triangle_count.html#doxid-namespacexf-1-1graph-1-1internal-1-1triangle-count"><span class="std std-ref">xf::graph::internal::triangle_count</span></a>
 </pre>
 <div class="section" id="bfs">
 <span id="cid-xf-graph-bfs"></span><span id="doxid-namespacexf-1-1graph-1a2ab6ae4b57a11672b7c941bedbf0c5e8"></span><h2>bfs<a class="headerlink" href="#bfs" title="Permalink to this headline">¶</a></h2>
@@ -569,6 +575,8 @@
 </div>
 <div class="section" id="calcuweighteddegree">
 <span id="cid-xf-graph-calcuweighteddegree"></span><span id="doxid-namespacexf-1-1graph-1afa5d9f796636848d498c774a892b07a6"></span><h2>calcuWeightedDegree<a class="headerlink" href="#calcuweighteddegree" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="calcuweighteddegree-overload-1">
+<h3>calcuWeightedDegree overload (1)<a class="headerlink" href="#calcuweighteddegree-overload-1" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;calc_degree.hpp&quot;</span>
 </pre>
@@ -628,6 +636,72 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="calcuweighteddegree-overload-2">
+<span id="cid-xf-graph-calcuweighteddegree-2"></span><span id="doxid-namespacexf-1-1graph-1a48c2d6e014133d8abeecf3f7539e767e"></span><h3>calcuWeightedDegree overload (2)<a class="headerlink" href="#calcuweighteddegree-overload-2" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;calc_degree.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">MAXVERTEX</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">MAXEDGE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">LOG2CACHEDEPTH</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">LOG2DATAPERCACHELINE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">RAMTYPE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">unrollbin</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">CHANNELNUM</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">calcuWeightedDegree</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">numVertex</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">numEdge</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">numEdgePerChannel</span> <span class="p">[</span><span class="n">CHANNELNUM</span><span class="p">],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;</span> <span class="n">index</span> <span class="p">[</span><span class="n">MAXEDGE</span><span class="p">],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;</span> <span class="n">weight</span> <span class="p">[</span><span class="n">MAXEDGE</span><span class="p">],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;</span> <span class="n">degree</span> <span class="p">[</span><span class="n">MAXVERTEX</span><span class="p">]</span>
+    <span class="p">)</span>
+</pre>
+<p>calculate weighted degree algorithm is implemented</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>MAXVERTEX</td>
+<td>CSC/CSR data vertex(offset) array maxsize</td>
+</tr>
+<tr class="row-even"><td>MAXEDGE</td>
+<td>CSC/CSR data edge(indice) array maxsize</td>
+</tr>
+<tr class="row-odd"><td>LOG2CACHEDEPTH</td>
+<td>cache depth in Binary, the cache onchip memory is 512 bit x uramRow</td>
+</tr>
+<tr class="row-even"><td>LOG2DATAPERCACHELINE</td>
+<td>number of data in one 512bit in Binary, for double, it’s 3, for float, it’s 4</td>
+</tr>
+<tr class="row-odd"><td>RAMTYPE</td>
+<td>flag to tell use URAM LUTRAM or BRAM, 0 : LUTRAM, 1 : URAM, 2 : BRAM</td>
+</tr>
+<tr class="row-even"><td>numVertex</td>
+<td>CSR/CSC data vertex number</td>
+</tr>
+<tr class="row-odd"><td>numEdge</td>
+<td>CSR/CSC data edge number</td>
+</tr>
+<tr class="row-even"><td>index</td>
+<td>input CSR/CSC data index array</td>
+</tr>
+<tr class="row-odd"><td>weight</td>
+<td>input CSR/CSC data weight array, default float type.</td>
+</tr>
+<tr class="row-even"><td>degree</td>
+<td>output degree array, default float type.</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div class="section" id="connectedcomponents">
 <span id="cid-xf-graph-connectedcomponents"></span><span id="doxid-namespacexf-1-1graph-1aaa772ec159ce3ec073e2dcb29cf0d3af"></span><h2>connectedComponents<a class="headerlink" href="#connectedcomponents" title="Permalink to this headline">¶</a></h2>
@@ -974,15 +1048,163 @@
 </tr>
 </tbody>
 </table>
+<div class="section" id="pageranktop-overload-2">
+<span id="cid-xf-graph-pageranktop-2"></span><span id="doxid-namespacexf-1-1graph-1a98772eb5110d6b49c4183e41b4e5a940"></span><h3>pageRankTop overload (2)<a class="headerlink" href="#pageranktop-overload-2" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;pagerank_multi_channels.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="k">typename</span> <span class="n">T</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">MAXVERTEX</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">MAXEDGE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">LOG2UNROLL</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">WIDTHOR</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">LOG2CACHEDEPTH</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">LOG2DATAPERCACHELINECORE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">LOG2DATAPERCACHELINEDEGREE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">RAMTYPE</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">pageRankTop</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">numVertex</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">numEdge</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">nsource</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;*</span> <span class="n">sourceID</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">degreeCSR</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">offsetCSC</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">indexCSC</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">weightCSC</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">cntValFull0</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">buffPing0</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">buffPong0</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">cntValFull1</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">buffPing1</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">buffPong1</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">WIDTHOR</span><span class="o">&gt;*</span> <span class="n">orderUnroll</span><span class="p">,</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">resultInfo</span><span class="p">,</span>
+    <span class="n">T</span> <span class="n">randomProbability</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">T</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.85</span><span class="p">,</span>
+    <span class="n">T</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="mf">1e-4</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">numIter</span> <span class="o">=</span> <span class="mi">200</span>
+    <span class="p">)</span>
+</pre>
+<p>pagerank algorithm is implemented support: 1. HBM based board</p>
+<ol class="arabic simple">
+<li>double / float for PR value calculate</li>
+<li>weighted / unweighted graph / personalized graph</li>
+<li>2 channel / 6 channel, 2 channel will take 14 persudo channels of HBM while 6 channel will take 26 persudo channels of HBM</li>
+</ol>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>T</td>
+<td>date type of pagerank, double or float</td>
+</tr>
+<tr class="row-even"><td>MAXVERTEX</td>
+<td>CSC/CSR data vertex(offset) array maxsize</td>
+</tr>
+<tr class="row-odd"><td>MAXEDGE</td>
+<td>CSC/CSR data edge(indice) array maxsize</td>
+</tr>
+<tr class="row-even"><td>LOG2UNROLL</td>
+<td>log2 of unroll number for float adder</td>
+</tr>
+<tr class="row-odd"><td>WIDTHOR</td>
+<td>order array bandwidth, it’s 256 in our case</td>
+</tr>
+<tr class="row-even"><td>LOG2CACHEDEPTH</td>
+<td>log2(cache depth), the onchip memory for cache is 512bits x CACHEDEPTH (512 bits x 2^LOG2CACHEDEPTH)</td>
+</tr>
+<tr class="row-odd"><td>LOG2DATAPERCACHELINECORE</td>
+<td>param for module pageRankCore, log2 of number of data in one 512bit (64 byte), for double, it’s log2(64/sizeof(double)) = 3, for float, it’s log2(64/sizeof(float)) = 4</td>
+</tr>
+<tr class="row-even"><td>LOG2DATAPERCACHELINEDEGREE</td>
+<td>param for module calduDegree, log2 of number of data in one 512bit (64 byte), for double, it’s log2(64/sizeof(double)) = 3, for float, it’s log2(64/sizeof(float)) = 4</td>
+</tr>
+<tr class="row-odd"><td>RAMTYPE</td>
+<td>flag to tell use URAM LUTRAM or BRAM, 0 : LUTRAM, 1 : URAM, 2: BRAM</td>
+</tr>
+<tr class="row-even"><td>CHANNEL_NUM</td>
+<td>pingpong channel number for the design</td>
+</tr>
+<tr class="row-odd"><td>numVertex</td>
+<td>CSR/CSC data offsets number</td>
+</tr>
+<tr class="row-even"><td>numEdge</td>
+<td>CSR/CSC data indices number</td>
+</tr>
+<tr class="row-odd"><td>nsource</td>
+<td>source vertex ID number, 0 means not apply pagerank_personalized</td>
+</tr>
+<tr class="row-even"><td>sourceID</td>
+<td>source vertex ID array for pagerank_personalized</td>
+</tr>
+<tr class="row-odd"><td>degreeCSR</td>
+<td>temporary internal degree value</td>
+</tr>
+<tr class="row-even"><td>offsetCSC</td>
+<td>CSR/CSC data offset array</td>
+</tr>
+<tr class="row-odd"><td>indexCSC</td>
+<td>CSR/CSC data indice array</td>
+</tr>
+<tr class="row-even"><td>weightCSC</td>
+<td>CSR/CSC data weight array, support type float</td>
+</tr>
+<tr class="row-odd"><td>cntValFull0</td>
+<td>temporary internal initialized mulplier values, length equals to numVertex</td>
+</tr>
+<tr class="row-even"><td>buffPing0</td>
+<td>ping array to keep temporary pagerank value</td>
+</tr>
+<tr class="row-odd"><td>buffPong0</td>
+<td>pong array to keep temporary pagerank value</td>
+</tr>
+<tr class="row-even"><td>cntValFull1</td>
+<td>temporary internal initialized mulplier values, length equals to numVertex</td>
+</tr>
+<tr class="row-odd"><td>buffPing1</td>
+<td>ping array to keep temporary pagerank value</td>
+</tr>
+<tr class="row-even"><td>buffPong1</td>
+<td>pong array to keep temporary pagerank value</td>
+</tr>
+<tr class="row-odd"><td>orderUnroll</td>
+<td>temporary internal order array to keep initialized offset values</td>
+</tr>
+<tr class="row-even"><td>resultInfo</td>
+<td>The output information. resultInfo[0] is isResultinPong, resultInfo[1] is iterations.</td>
+</tr>
+<tr class="row-odd"><td>randomProbability</td>
+<td>initial PR value, normally 1.0 or 1.0/numVertex</td>
+</tr>
+<tr class="row-even"><td>alpha</td>
+<td>damping factor, normally 0.85</td>
+</tr>
+<tr class="row-odd"><td>tolerance</td>
+<td>converge tolerance</td>
+</tr>
+<tr class="row-even"><td>numIter</td>
+<td>max iteration</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div class="section" id="singlesourceshortestpath">
-<span id="cid-xf-graph-singlesourceshortestpath"></span><span id="doxid-namespacexf-1-1graph-1af8d0ffc093a43c6d5f0346557605ebfc"></span><h2>singleSourceShortestPath<a class="headerlink" href="#singlesourceshortestpath" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-graph-singlesourceshortestpath"></span><span id="doxid-namespacexf-1-1graph-1aaa24d7b213027cd04e06c9206da54af3"></span><h2>singleSourceShortestPath<a class="headerlink" href="#singlesourceshortestpath" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="singlesourceshortestpath-overload-1">
+<h3>singleSourceShortestPath overload (1)<a class="headerlink" href="#singlesourceshortestpath-overload-1" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;shortest_path.hpp&quot;</span>
 </pre>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="k">template</span> <span class="o">&lt;</span>
-    <span class="k">typename</span> <span class="n">WTYPE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">WIDTH</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">MAXOUTDEGREE</span>
     <span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">singleSourceShortestPath</span> <span class="p">(</span>
@@ -993,7 +1215,9 @@
     <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">queue512</span><span class="p">,</span>
     <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;*</span> <span class="n">queue32</span><span class="p">,</span>
     <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">distance512</span><span class="p">,</span>
-    <span class="n">WTYPE</span><span class="o">*</span> <span class="n">distance32</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">WIDTH</span><span class="o">&gt;*</span> <span class="n">distance32</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">pred512</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;*</span> <span class="n">pred32</span><span class="p">,</span>
     <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;*</span> <span class="n">info</span>
     <span class="p">)</span>
 </pre>
@@ -1005,14 +1229,86 @@
 <col width="80%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>WTYPE</td>
-<td>date type of the weight</td>
+<tr class="row-odd"><td>WIDTH</td>
+<td>date width of the weight and the result distance</td>
 </tr>
 <tr class="row-even"><td>MAXOUTDEGREE</td>
-<td>The max out put degree of the input graph supported. Large max out degree value distance32 in more URAM.</td>
+<td>The max out put degree of the input graph supported. Large max out degree value</td>
 </tr>
 <tr class="row-odd"><td>config</td>
-<td>The config data. config[0] is sourceID. config[1] is the number of vertices in the graph. config[2] is the max distance value. config[3] is the depth of the queue32.</td>
+<td>The config data. config[0] is the number of vertices in the graph. config[1] is the lower 32bit of the max distance value. config[2] is the higher 32bit of the max distance value. config[3] is the depth of the queue. config[4] is the option for the sssp: config[4].get_bit(0) is the weight/unweight switch, config[4].get_bit(1) is the path switch, config[4].get_bit(2) is the fixed/float switch. config[5] is sourceID.</td>
+</tr>
+<tr class="row-even"><td>offsetCSR</td>
+<td>The offsetCSR buffer that stores the offsetCSR data in CSR format</td>
+</tr>
+<tr class="row-odd"><td>indexCSR</td>
+<td>The indexCSR buffer that stores the indexCSR dada in CSR format</td>
+</tr>
+<tr class="row-even"><td>weightCSR</td>
+<td>The weight buffer that stores the weight data in CSR format</td>
+</tr>
+<tr class="row-odd"><td>queue512</td>
+<td>The shortest path requires a queue. The queue will be stored here in 512bit. Please allocate the same buffer with queue32 and budle to the same gmem port with queue32.</td>
+</tr>
+<tr class="row-even"><td>queue32</td>
+<td>The shortest path requires a queue. The queue will be stored here in 32bit. Please allocate the same buffer with queue512 and budle to the same gmem port with queue512.</td>
+</tr>
+<tr class="row-odd"><td>distance512</td>
+<td>The distance32 data. The width is 512. When allocating buffers, distance512 and distance32 should point to the same buffer. And please bundle distance512 and distance32 to the same gmem port.</td>
+</tr>
+<tr class="row-even"><td>distance32</td>
+<td>The distance32 data is stored here. When allocating buffers, distance512 and distance32 should point to the same buffer. And please bundle distance512 and distance32 to the same gmem port.</td>
+</tr>
+<tr class="row-odd"><td>pred512</td>
+<td>The predecessor data. The width is 512. When allocating buffers, pred512 and pred32 should point to the same buffer. And please bundle pred512 and pred32 to the same gmem port.</td>
+</tr>
+<tr class="row-even"><td>pred32</td>
+<td>The predecessor data is stored here. When allocating buffers, pred512 and pred32 should point to the same buffer. And please bundle pred512 and pred32 to the same gmem port.</td>
+</tr>
+<tr class="row-odd"><td>info</td>
+<td>The debug information. info[0] shows if the queue overflow. info[1] shows if the precessed graph exceeds the supported maxoutdegree.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="singlesourceshortestpath-overload-2">
+<span id="cid-xf-graph-singlesourceshortestpath-2"></span><span id="doxid-namespacexf-1-1graph-1afa684d58636bf9dee0e70ddbfa9e7f1b"></span><h3>singleSourceShortestPath overload (2)<a class="headerlink" href="#singlesourceshortestpath-overload-2" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;shortest_path.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">WIDTH</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">MAXOUTDEGREE</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">singleSourceShortestPath</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;*</span> <span class="n">config</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">offsetCSR</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">indexCSR</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">weightCSR</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">queue512</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;*</span> <span class="n">queue32</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">distance512</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">WIDTH</span><span class="o">&gt;*</span> <span class="n">distance32</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;*</span> <span class="n">info</span>
+    <span class="p">)</span>
+</pre>
+<p>singleSourceShortestPath the single source shortest path algorithm is implemented, the input is the matrix in CSR format.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>WIDTH</td>
+<td>date width of the weight and the result distance</td>
+</tr>
+<tr class="row-even"><td>MAXOUTDEGREE</td>
+<td>The max out put degree of the input graph supported. Large max out degree value</td>
+</tr>
+<tr class="row-odd"><td>config</td>
+<td>The config data. config[0] is the number of vertices in the graph. config[1] is the lower 32bit of the max distance value. config[2] is the higher 32bit of the max distance value. config[3] is the depth of the queue. config[4] is the option for the sssp: config[4].get_bit(0) is the weight/unweight switch, config[4].get_bit(2) is the fixed/float switch. config[5] is the sourceID.</td>
 </tr>
 <tr class="row-even"><td>offsetCSR</td>
 <td>The offsetCSR buffer that stores the offsetCSR data in CSR format</td>
@@ -1036,72 +1332,11 @@
 <td>The distance32 data is stored here. When allocating buffers, distance512 and distance32 should point to the same buffer. And please bundle distance512 and distance32 to the same gmem port.</td>
 </tr>
 <tr class="row-odd"><td>info</td>
-<td>The debug information. info[0] shows if the queue overflow.</td>
+<td>The debug information. info[0] shows if the queue overflow. info[1] shows if the precessed graph exceeds the supported maxoutdegree.</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="singlesourceunweightedshortestpath">
-<span id="cid-xf-graph-singlesourceunweightedshortestpath"></span><span id="doxid-namespacexf-1-1graph-1ad8a5d9079a7e6a1fda36f95fbbb85979"></span><h2>singleSourceUnWeightedShortestPath<a class="headerlink" href="#singlesourceunweightedshortestpath" title="Permalink to this headline">¶</a></h2>
-<pre class="highlight literal-block">
-<span></span><span class="cp">#include</span> <span class="cpf">&quot;shortest_path.hpp&quot;</span>
-</pre>
-<pre class="highlight title-code-block literal-block">
-<span></span><span class="k">template</span> <span class="o">&lt;</span>
-    <span class="k">typename</span> <span class="n">WTYPE</span><span class="p">,</span>
-    <span class="kt">int</span> <span class="n">MAXOUTDEGREE</span>
-    <span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">singleSourceUnWeightedShortestPath</span> <span class="p">(</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;*</span> <span class="n">config</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">offsetCSR</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">indexCSR</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">queue512</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;*</span> <span class="n">queue32</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">distance512</span><span class="p">,</span>
-    <span class="n">WTYPE</span><span class="o">*</span> <span class="n">distance32</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;*</span> <span class="n">info</span>
-    <span class="p">)</span>
-</pre>
-<p>singleSourceUnWeightedShortestPath the single source shortest path algorithm for unweighted is implemented, the input is the matrix in CSR format.</p>
-<p class="rubric">Parameters:</p>
-<table border="1" class="colwidths-given docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>WTYPE</td>
-<td>date type of the weight</td>
-</tr>
-<tr class="row-even"><td>MAXOUTDEGREE</td>
-<td>The max out put degree of the input graph supported. Large max out degree value distance32 in more URAM.</td>
-</tr>
-<tr class="row-odd"><td>config</td>
-<td>The config data. config[0] is sourceID. config[1] is the number of vertices in the graph. config[2] is the max distance value. config[3] is the depth of the queue32.</td>
-</tr>
-<tr class="row-even"><td>offsetCSR</td>
-<td>The offsetCSR buffer that stores the offsetCSR data in CSR format</td>
-</tr>
-<tr class="row-odd"><td>indexCSR</td>
-<td>The indexCSR buffer that stores the indexCSR dada in CSR format</td>
-</tr>
-<tr class="row-even"><td>queue512</td>
-<td>The shortest path requires a queue. The queue will be stored here in 512bit. Please allocate the same buffer with queue32 and budle to the same gmem port with queue32.</td>
-</tr>
-<tr class="row-odd"><td>queue32</td>
-<td>The shortest path requires a queue. The queue will be stored here in 32bit. Please allocate the same buffer with queue512 and budle to the same gmem port with queue512.</td>
-</tr>
-<tr class="row-even"><td>distance512</td>
-<td>The distance32 data. The width is 512. When allocating buffers, distance512 and distance32 should point to the same buffer. And please bundle distance512 and distance32 to the same gmem port.</td>
-</tr>
-<tr class="row-odd"><td>distance32</td>
-<td>The distance32 data is stored here. When allocating buffers, distance512 and distance32 should point to the same buffer. And please bundle distance512 and distance32 to the same gmem port.</td>
-</tr>
-<tr class="row-even"><td>info</td>
-<td>The debug information. info[0] shows if the queue overflow.</td>
-</tr>
-</tbody>
-</table>
 </div>
 <div class="section" id="stronglyconnectedcomponents">
 <span id="cid-xf-graph-stronglyconnectedcomponents"></span><span id="doxid-namespacexf-1-1graph-1acc42237f8a01ed41e003db2fed838927"></span><h2>stronglyConnectedComponents<a class="headerlink" href="#stronglyconnectedcomponents" title="Permalink to this headline">¶</a></h2>
@@ -1309,7 +1544,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../guide_L2/internals.html" class="btn btn-neutral float-right" title="Design Internals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="namespace_xf_graph_internal.html" class="btn btn-neutral float-right" title="namespace internal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../guide_L2/api.html" class="btn btn-neutral float-left" title="API Document" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -1336,6 +1571,13 @@
       });
   </script>
 
+   <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("searchindex.js"); });
+  </script>
+
+  <script type="text/javascript" id="searchindexloader"></script>     	    
+	    
+	    
   
   
     
