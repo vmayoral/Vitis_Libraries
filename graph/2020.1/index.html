@@ -337,12 +337,30 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html#trademark-notice">Trademark Notice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release.html">Release Note</a></li>
 </ul>
+<p class="caption"><span class="caption-text">L1 User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L1/api.html">API Document</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L1/internals.html">Design Internals</a></li>
+</ul>
 <p class="caption"><span class="caption-text">L2 User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="guide_L2/api.html">API Document</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="guide_L2/internals.html">Design Internals</a></li>
+</ul>
+<p class="caption"><span class="caption-text">L3 User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L3/utilization_L3.html">User Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L3/api.html">API Document</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Plugin User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="plugin/tigergraph_integration.html">TigerGraph Integration</a></li>
 </ul>
 
             
@@ -439,21 +457,45 @@ Otherwise, full path to .xpfm file needs to be provided via <code class="docutil
 </ul>
 </div>
 <div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">L1 User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L1/api.html">API Document</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_L1/namespace_xf_graph.html">namespace graph</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guide_L1/namespace_xf_graph.html#densesimilarity">denseSimilarity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_L1/namespace_xf_graph.html#id1">denseSimilarity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_L1/namespace_xf_graph.html#generalsimilarity">generalSimilarity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_L1/namespace_xf_graph.html#sorttopk">sortTopK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_L1/namespace_xf_graph.html#sparsesimilarity">sparseSimilarity</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L1/internals.html">Design Internals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_L1/primitives/similarityOverview.html">Similarity Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_L1/primitives/sortTopK.html">Top K Sort</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">L2 User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="guide_L2/api.html">API Document</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rst/namespace_xf_graph.html">namespace graph</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rst/namespace_xf_graph.html#bfs">bfs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rst/namespace_xf_graph.html#calcudegree">calcuDegree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rst/namespace_xf_graph.html#calcuweighteddegree">calcuWeightedDegree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rst/namespace_xf_graph.html#connectedcomponents">connectedComponents</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rst/namespace_xf_graph.html#convertcsrcsc">convertCsrCsc</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rst/namespace_xf_graph.html#labelpropagation">labelPropagation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rst/namespace_xf_graph.html#pageranktop">pageRankTop</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rst/namespace_xf_graph.html#singlesourceshortestpath">singleSourceShortestPath</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rst/namespace_xf_graph.html#singlesourceunweightedshortestpath">singleSourceUnWeightedShortestPath</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rst/namespace_xf_graph.html#stronglyconnectedcomponents">stronglyConnectedComponents</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rst/namespace_xf_graph.html#trianglecount">triangleCount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst_L2/namespace_xf_graph.html">namespace graph</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rst_L2/namespace_xf_graph.html#bfs">bfs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rst_L2/namespace_xf_graph.html#calcudegree">calcuDegree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rst_L2/namespace_xf_graph.html#calcuweighteddegree">calcuWeightedDegree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rst_L2/namespace_xf_graph.html#connectedcomponents">connectedComponents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rst_L2/namespace_xf_graph.html#convertcsrcsc">convertCsrCsc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rst_L2/namespace_xf_graph.html#labelpropagation">labelPropagation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rst_L2/namespace_xf_graph.html#pageranktop">pageRankTop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rst_L2/namespace_xf_graph.html#singlesourceshortestpath">singleSourceShortestPath</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rst_L2/namespace_xf_graph.html#stronglyconnectedcomponents">stronglyConnectedComponents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rst_L2/namespace_xf_graph.html#trianglecount">triangleCount</a></li>
 </ul>
 </li>
 </ul>
@@ -470,8 +512,54 @@ Otherwise, full path to .xpfm file needs to be provided via <code class="docutil
 <li class="toctree-l2"><a class="reference internal" href="guide_L2/kernels/TriangleCount.html">Internal Design of Triangle Counting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide_L2/kernels/LabelPropagation.html">Internal Design of Label Propagation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide_L2/kernels/PageRank.html">Internal Design of PageRank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_L2/kernels/PageRankMultiChannels.html">Internal Design of PageRankMultiChannels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide_L2/kernels/CalcuDgree.html">Internal Design of CalcuDgree</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide_L2/kernels/ConvertCscCsr.html">Internal Design of Convert CSC CSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_L1/primitives/generalSimilarity.html">Internal Design of General Similarity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_L1/primitives/sparseSimilarity.html">Internal Design of Sparse Similarity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_L1/primitives/denseSimilarity.html">Internal Design of Dense Similarity</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">L3 User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L3/utilization_L3.html">User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_L3/L3_internal/getting_started.html">Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guide_L3/L3_internal/getting_started.html#software-requirements">Software Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_L3/L3_internal/getting_started.html#hardware-requirements">Hardware Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_L3/L3_internal/getting_started.html#environment-setup">Environment Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_L3/L3_internal/getting_started.html#building-the-dynamic-library">Building the dynamic library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guide_L3/L3_internal/user_model.html">Running Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guide_L3/L3_internal/user_model.html#basic-flow">Basic Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_L3/L3_internal/user_model.html#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_L3/L3_internal/user_model.html#asynchronous-execution">Asynchronous Execution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L3/api.html">API Document</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_L3/L3_internal/api_func.html">namespace xf::graph::L3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_L3/L3_internal/api_class.html">L3 class</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Plugin User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="plugin/tigergraph_integration.html">TigerGraph Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plugin/tigergraph_integration.html#software-requirements">Software Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/tigergraph_integration.html#hardware-requirements">Hardware Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/tigergraph_integration.html#integration-flow">Integration Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/tigergraph_integration.html#running-flow">Running Flow</a></li>
 </ul>
 </li>
 </ul>
@@ -527,6 +615,13 @@ Otherwise, full path to .xpfm file needs to be provided via <code class="docutil
       });
   </script>
 
+   <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("searchindex.js"); });
+  </script>
+
+  <script type="text/javascript" id="searchindexloader"></script>     	    
+	    
+	    
   
   
     
