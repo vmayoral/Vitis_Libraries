@@ -457,7 +457,7 @@
 <h2>Interface<a class="headerlink" href="#interface" title="Permalink to this headline">¶</a></h2>
 <p>The input should be a set of vertex list with known size.
 The result will return a vertex list with each vertex corresponding similarity value.
-The config contains several boolean value to control the similarityType (0:Jaccard Similarity, 1:Cosine Similarity), dataType(0:uint32, 1:float, 2:uint64, 3:double, 4:int32, 5:int64). There are two dense similarity primitives are provided in the library. One can perform the computation of both uint and float, and it takes almost twice resource consumption compared with the other dense similarity primitive which can only support integer as its input.</p>
+The config contains several boolean value to control the similarityType (0:Jaccard Similarity, 1:Cosine Similarity), dataType(0:uint32, 1:float, 2:uint64, 3:double, 4:int32, 5:int64). There are two dense similarity primitives are provided in the library. One can perform the computation of both uint and float, and it takes almost twice resource consumption compared with the other dense similarity primitive which can only support integer as its input. For interger version of dense similarity, there is a design of 2-CU instantiation to get the best performance on the platform of U50.</p>
 <a class="reference internal image-reference" href="../../_images/dense_similarity_api.PNG"><img alt="API of Dense Similarity" class="align-center" src="../../_images/dense_similarity_api.PNG" style="width: 65%;" /></a>
 </div>
 <div class="section" id="implemention">
@@ -511,6 +511,17 @@ The hardware resource utilization and benchmark results are shown in the two tab
 <td>402</td>
 <td>16</td>
 <td>807</td>
+</tr>
+<tr class="row-even"><td><dl class="first last docutils">
+<dt>denseSimilarityKernel</dt>
+<dd>(int + 2CU)</dd>
+</dl>
+</td>
+<td>272521</td>
+<td>333259</td>
+<td>618</td>
+<td>48</td>
+<td>2364</td>
 </tr>
 </tbody>
 </table>
