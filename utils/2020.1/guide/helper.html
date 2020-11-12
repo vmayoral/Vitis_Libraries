@@ -349,12 +349,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#template-struct-xf-common-utils-hw-gcd">template struct xf::common::utils_hw::GCD</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#template-struct-xf-common-utils-hw-gcd-a-0">template struct xf::common::utils_hw::GCD &lt;_A, 0&gt;</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#template-struct-xf-common-utils-hw-lcm">template struct xf::common::utils_hw::LCM</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id3">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Overview</a></li>
 </ul>
 </li>
 </ul>
@@ -472,50 +471,21 @@
 </div>
 </div>
 </div>
-<div class="section" id="template-struct-xf-common-utils-hw-gcd">
-<span id="cid-xf-common-utils-hw-gcd"></span><span id="doxid-structxf-1-1common-1-1utils-hw-1-1-g-c-d"></span><span id="index-1"></span><h2>template struct xf::common::utils_hw::GCD<a class="headerlink" href="#template-struct-xf-common-utils-hw-gcd" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="template-struct-xf-common-utils-hw-gcd-a-0">
+<span id="cid-xf-common-utils-hw-gcd"></span><span id="doxid-structxf-1-1common-1-1utils-hw-1-1-g-c-d-3-01-a-00-010-01-4"></span><span id="index-1"></span><h2>template struct xf::common::utils_hw::GCD &lt;_A, 0&gt;<a class="headerlink" href="#template-struct-xf-common-utils-hw-gcd-a-0" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight overview-code-block literal-block">
-<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_utils_hw/common.hpp&quot;</span>
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;common.hpp&quot;</span>
 </pre>
-<div class="section" id="id1">
-<h3>Overview<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>Template to calculate Greatest Common Divisor ( <a class="reference internal" href="#doxid-structxf-1-1common-1-1utils-hw-1-1-g-c-d"><span class="std std-ref">GCD</span></a> ) of two integers.</p>
-<p class="rubric">Parameters:</p>
-<table border="1" class="colwidths-given docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>_A</td>
-<td>an integer</td>
-</tr>
-<tr class="row-even"><td>_B</td>
-<td>the other integer</td>
-</tr>
-</tbody>
-</table>
-<pre class="highlight overview-code-block literal-block">
-<span></span><span class="k">template</span> <span class="o">&lt;</span>
-    <span class="kt">int</span> <span class="n">_A</span><span class="p">,</span>
-    <span class="kt">int</span> <span class="n">_B</span>
-    <span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">GCD</span>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-common-utils-hw-gcd-value">
+<span id="doxid-structxf-1-1common-1-1utils-hw-1-1-g-c-d-3-01-a-00-010-01-4-1a0e4906db2108c772e27a1cdb8e12a4af"></span><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">_A</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">GCD</span> <span class="o">&lt;</span><span class="n">_A</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;</span>
 
 <span class="c1">// fields</span>
 
-<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <a class="reference internal" href="#doxid-structxf-1-1common-1-1utils-hw-1-1-g-c-d-1ac074664cab6b1c2ee7ebd9bb3ab2f9d9"><span class="std std-ref">value</span></a>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">value</span>
 </pre>
-<div class="section" id="id2">
-<h4>Fields<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<pre class="highlight title-code-block literal-block" id="cid-xf-common-utils-hw-gcd-value">
-<span id="doxid-structxf-1-1common-1-1utils-hw-1-1-g-c-d-1ac074664cab6b1c2ee7ebd9bb3ab2f9d9"></span><span></span><span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">value</span>
-</pre>
-<p>value of <a class="reference internal" href="#doxid-structxf-1-1common-1-1utils-hw-1-1-g-c-d"><span class="std std-ref">GCD</span></a> of _A and _B</p>
-</div>
-</div>
 </div>
 <div class="section" id="template-struct-xf-common-utils-hw-lcm">
 <span id="cid-xf-common-utils-hw-lcm"></span><span id="doxid-structxf-1-1common-1-1utils-hw-1-1-l-c-m"></span><span id="index-2"></span><h2>template struct xf::common::utils_hw::LCM<a class="headerlink" href="#template-struct-xf-common-utils-hw-lcm" title="Permalink to this headline">¶</a></h2>
@@ -524,8 +494,8 @@
 <pre class="highlight overview-code-block literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_utils_hw/common.hpp&quot;</span>
 </pre>
-<div class="section" id="id3">
-<h3>Overview<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>Overview<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Template to calculate Least Common Multiple(LCM) of two integers.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -553,8 +523,8 @@
 
 <span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <a class="reference internal" href="#doxid-structxf-1-1common-1-1utils-hw-1-1-l-c-m-1a8f8ac302ef660e7f7c5ba900fe8cef90"><span class="std std-ref">value</span></a>
 </pre>
-<div class="section" id="id4">
-<h4>Fields<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id2">
+<h4>Fields<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <pre class="highlight title-code-block literal-block" id="cid-xf-common-utils-hw-lcm-value">
 <span id="doxid-structxf-1-1common-1-1utils-hw-1-1-l-c-m-1a8f8ac302ef660e7f7c5ba900fe8cef90"></span><span></span><span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">value</span>
 </pre>
@@ -593,7 +563,7 @@
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on May 19, 2020.
+        Last updated on May 26, 2020.
       </span>
 
     </p>
