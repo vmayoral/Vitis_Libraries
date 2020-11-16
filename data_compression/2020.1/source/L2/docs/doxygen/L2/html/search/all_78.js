@@ -4,6 +4,8 @@ var searchData=
   ['xilchecksum32',['xilChecksum32',['../checksum__mm_8hpp.html#ab23593c0de276883039ae3aa40821ed9',1,'checksum_mm.hpp']]],
   ['xilcrc32',['xilCrc32',['../crc32__mm_8hpp.html#a28eb1b17e7d1936bd0beaf57f41e59b3',1,'crc32_mm.hpp']]],
   ['xildecompressstream',['xilDecompressStream',['../zlib__decompress__stream_8hpp.html#acecbaf1b713e6f8bbdf0047a6596d388',1,'zlib_decompress_stream.hpp']]],
+  ['xilgzipcompressfixedstreaming',['xilGzipCompressFixedStreaming',['../gzip__compress__fixed__stream_8hpp.html#a39ccf25386e5c4d39111d7f1a976eb54',1,'gzip_compress_fixed_stream.hpp']]],
+  ['xilgzipcompressstreaming',['xilGzipCompressStreaming',['../gzip__compress__stream_8hpp.html#a29ff2669ebc6c588ce24bb063fa9ce2e',1,'gzip_compress_stream.hpp']]],
   ['xilhuffmankernel',['xilHuffmanKernel',['../zlib__huffman__enc__mm_8hpp.html#a4aa715bde9401101a5332c02b5e94fb7',1,'zlib_huffman_enc_mm.hpp']]],
   ['xillz4compress',['xilLz4Compress',['../lz4__compress__mm_8hpp.html#aa11e26152bb864a14a1b2019faf0dee9',1,'lz4_compress_mm.hpp']]],
   ['xillz4compressstream',['xilLz4CompressStream',['../lz4__compress__stream_8hpp.html#a60b10683a7f866e64836d3a7130d4daf',1,'lz4_compress_stream.hpp']]],

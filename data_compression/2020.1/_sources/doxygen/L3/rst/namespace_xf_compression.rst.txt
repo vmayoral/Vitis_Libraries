@@ -17,6 +17,10 @@ namespace compression
 
 
 
+.. _doxid-namespacexf_1_1compression_1aa9069b0e2abd3593758030de16d2e6e4:
+.. _cid-xf::compression::event_compress_cb:
+.. _doxid-namespacexf_1_1compression_1ae9795d41dc2661a9db65a16f2e82385c:
+.. _cid-xf::compression::event_checksum_cb:
 .. _doxid-namespacexf_1_1compression_1a0e9974804ba17379a7b96631b8ac39b6:
 .. _cid-xf::compression::event_cb:
 .. ref-code-block:: cpp
