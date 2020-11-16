@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/rsarkari/Library/Pages/xf_compression/L1/include/hw/lz_decompress.hpp File Reference</title>
+<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/rbhartar/xfc/zstd/docs/masterUpdate/gh_pages/xf_compression/L1/include/hw/lz_decompress.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -102,18 +102,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aaae093543d5c5d7be652efd45c19cd9f"><td class="memTemplParams" colspan="2"><a class="anchor" id="aaae093543d5c5d7be652efd45c19cd9f"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aaae093543d5c5d7be652efd45c19cd9f"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::reg</b> (T d)</td></tr>
-<tr class="separator:aaae093543d5c5d7be652efd45c19cd9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93c4acecb44f6cbf5df905b37f080ef1"><td class="memTemplParams" colspan="2">template&lt;int HISTORY_SIZE, int LOW_OFFSET = 8&gt; </td></tr>
 <tr class="memitem:a93c4acecb44f6cbf5df905b37f080ef1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::lzDecompress</b> (hls::stream&lt; ap_uint&lt; 32 &gt; &gt; &amp;inStream, hls::stream&lt; ap_uint&lt; 8 &gt; &gt; &amp;outStream, uint32_t original_size)</td></tr>
 <tr class="memdesc:a93c4acecb44f6cbf5df905b37f080ef1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This module writes the literals to the output stream as it is and when match length and offset are read, the literals will be read from the local dictionary based on offset until match length.  <a href="#a93c4acecb44f6cbf5df905b37f080ef1">More...</a><br/></td></tr>
 <tr class="separator:a93c4acecb44f6cbf5df905b37f080ef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f1ccc8daec6317e9c26577ac06e6e9e"><td class="memTemplParams" colspan="2">template&lt;int PARALLEL_BYTES, int HISTORY_SIZE, class SIZE_DT  = uint8_t&gt; </td></tr>
-<tr class="memitem:a8f1ccc8daec6317e9c26577ac06e6e9e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::lzMultiByteDecompress</b> (hls::stream&lt; SIZE_DT &gt; &amp;litlenStream, hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;litStream, hls::stream&lt; ap_uint&lt; 16 &gt; &gt; &amp;offsetStream, hls::stream&lt; SIZE_DT &gt; &amp;matchlenStream, hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;endOfStream, hls::stream&lt; uint64_t &gt; &amp;sizeOutStream)</td></tr>
-<tr class="memdesc:a8f1ccc8daec6317e9c26577ac06e6e9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This module writes the literals to the output stream as it is and when match length and offset are read, the literals will be read from the local dictionary based on offset until match length. This module can process data in parallel defined by PARALLEL_BYTES template argument.  <a href="#a8f1ccc8daec6317e9c26577ac06e6e9e">More...</a><br/></td></tr>
-<tr class="separator:a8f1ccc8daec6317e9c26577ac06e6e9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3f7aaae78c4e1b12764b6d8e033188d"><td class="memTemplParams" colspan="2">template&lt;int PARALLEL_BYTES, int HISTORY_SIZE, class SIZE_DT  = uint8_t, class SIZE_OFFSET  = ap_uint&lt;16&gt;&gt; </td></tr>
+<tr class="memitem:aa3f7aaae78c4e1b12764b6d8e033188d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::lzMultiByteDecompress</b> (hls::stream&lt; SIZE_DT &gt; &amp;litlenStream, hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;litStream, hls::stream&lt; SIZE_OFFSET &gt; &amp;offsetStream, hls::stream&lt; SIZE_DT &gt; &amp;matchlenStream, hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;endOfStream, hls::stream&lt; uint64_t &gt; &amp;sizeOutStream)</td></tr>
+<tr class="memdesc:aa3f7aaae78c4e1b12764b6d8e033188d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This module writes the literals to the output stream as it is and when match length and offset are read, the literals will be read from the local dictionary based on offset until match length. This module can process data in parallel defined by PARALLEL_BYTES template argument.  <a href="#aa3f7aaae78c4e1b12764b6d8e033188d">More...</a><br/></td></tr>
+<tr class="separator:aa3f7aaae78c4e1b12764b6d8e033188d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7acac729182c466dd5fd6775e572503c"><td class="memTemplParams" colspan="2"><a class="anchor" id="a7acac729182c466dd5fd6775e572503c"></a>
 template&lt;int PARALLEL_BYTES, int HISTORY_SIZE, class SIZE_DT  = uint16_t&gt; </td></tr>
 <tr class="memitem:a7acac729182c466dd5fd6775e572503c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::lzMultiByteDecoder</b> (hls::stream&lt; SIZE_DT &gt; &amp;litlenStream, hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;litStream, hls::stream&lt; ap_uint&lt; 16 &gt; &gt; &amp;offsetStream, hls::stream&lt; SIZE_DT &gt; &amp;matchlenStream, hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;endOfStream, hls::stream&lt; uint32_t &gt; &amp;sizeOutStream)</td></tr>

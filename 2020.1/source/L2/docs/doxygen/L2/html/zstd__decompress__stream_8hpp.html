@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/rsarkari/Library/Pages/xf_compression/L2/include/zstd_decompress_stream.hpp File Reference</title>
+<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/rbhartar/xfc/zstd/docs/masterUpdate/gh_pages/xf_compression/L2/include/zstd_decompress_stream.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -107,12 +107,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:af2cda7e0f4a90b5bd73b287e9a52cb24"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af2cda7e0f4a90b5bd73b287e9a52cb24"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>LZ_MAX_OFFSET_LIMIT</b>&#160;&#160;&#160;32768</td></tr>
-<tr class="separator:af2cda7e0f4a90b5bd73b287e9a52cb24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43034bdd0ae7c6267b05ff35ae97cddf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43034bdd0ae7c6267b05ff35ae97cddf"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>HISTORY_SIZE</b>&#160;&#160;&#160;LZ_MAX_OFFSET_LIMIT</td></tr>
-<tr class="separator:a43034bdd0ae7c6267b05ff35ae97cddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a663d5804aee12e3655c9fb8aca8a56bd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a663d5804aee12e3655c9fb8aca8a56bd"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>ZSTD_BLOCK_SIZE_KB</b>&#160;&#160;&#160;32</td></tr>
 <tr class="separator:a663d5804aee12e3655c9fb8aca8a56bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,7 +117,7 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af488c56d4c28fad772cef1c7e6437641"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zstd__decompress__stream_8hpp.html#af488c56d4c28fad772cef1c7e6437641">xilZstdDecompressStream</a> (uint64_t input_size, hls::stream&lt; ap_axiu&lt; c_streamDWidth, 0, 0, 0 &gt; &gt; &amp;inaxistreamd, hls::stream&lt; ap_axiu&lt; c_streamDWidth, 0, 0, 0 &gt; &gt; &amp;outaxistreamd, hls::stream&lt; ap_axiu&lt; 64, 0, 0, 0 &gt; &gt; &amp;sizestreamd)</td></tr>
-<tr class="memdesc:af488c56d4c28fad772cef1c7e6437641"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zstd decompression stream kernel top function.  <a href="#af488c56d4c28fad772cef1c7e6437641">More...</a><br/></td></tr>
+<tr class="memdesc:af488c56d4c28fad772cef1c7e6437641"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is full ZStandard decompression streaming kernel function. It supports all block sizes and supports window size upto 128KB. It takes entire ZStd compressed file as input and produces decompressed file at the kernel output stream. This kernel does not use DDR memory, it uses streams instead. Intermediate data is stored in internal BRAMs and stream FIFOs, which helps to attain better decompression throughput.  <a href="#af488c56d4c28fad772cef1c7e6437641">More...</a><br/></td></tr>
 <tr class="separator:af488c56d4c28fad772cef1c7e6437641"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
@@ -131,6 +125,9 @@ Variables</h2></td></tr>
 <tr class="memitem:a27707621a3274cdafb1ab0696884b32a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27707621a3274cdafb1ab0696884b32a"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>c_streamDWidth</b> = 8 * MULTIPLE_BYTES</td></tr>
 <tr class="separator:a27707621a3274cdafb1ab0696884b32a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e740c1bd2d162754ee0a8bbfc25533e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0e740c1bd2d162754ee0a8bbfc25533e"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>c_windowSize</b> = ZSTD_BLOCK_SIZE_KB * 1024</td></tr>
+<tr class="separator:a0e740c1bd2d162754ee0a8bbfc25533e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header for zstd decompression streaming kernel. </p>
@@ -172,12 +169,13 @@ const int&#160;</td><td class="memItemRight" valign="bottom"><b>c_streamDWidth</
       </table>
 </div><div class="memdoc">
 
-<p>Zstd decompression stream kernel top function. </p>
+<p>This is full ZStandard decompression streaming kernel function. It supports all block sizes and supports window size upto 128KB. It takes entire ZStd compressed file as input and produces decompressed file at the kernel output stream. This kernel does not use DDR memory, it uses streams instead. Intermediate data is stored in internal BRAMs and stream FIFOs, which helps to attain better decompression throughput. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input_size</td><td>input size </td></tr>
     <tr><td class="paramname">inaxistreamd</td><td>input kernel axi stream </td></tr>
     <tr><td class="paramname">outaxistreamd</td><td>output kernel axi stream </td></tr>
+    <tr><td class="paramname">sizestreamd</td><td>output size kernel axi stream </td></tr>
   </table>
   </dd>
 </dl>

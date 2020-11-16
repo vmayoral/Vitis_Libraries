@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/rsarkari/Library/Pages/xf_compression/L1/include/hw/snappy_compress.hpp Source File</title>
+<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/rbhartar/xfc/zstd/docs/masterUpdate/gh_pages/xf_compression/L1/include/hw/snappy_compress.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -464,7 +464,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    hls::stream&lt;uint8_t&gt; lit_outStream(<span class="stringliteral">&quot;lit_outStream&quot;</span>);</div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    hls::stream&lt;ap_uint&lt;64&gt; &gt; lenOffset_Stream(<span class="stringliteral">&quot;lenOffset_Stream&quot;</span>);</div>
 <div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="preprocessor">#pragma HLS STREAM variable = lit_outStream depth = MAX_LIT_COUNT</span></div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="preprocessor">#pragma HLS STREAM variable = lit_outStream depth = MAX_LIT_STREAM_SIZE</span></div>
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma HLS STREAM variable = lenOffset_Stream depth = c_gmemBurstSize</span></div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="preprocessor">#pragma HLS BIND_STORAGE variable = lit_outStream type = FIFO impl = SRL</span></div>
