@@ -12,9 +12,9 @@ struct xlibData
 
 
 
-.. _doxid-structxlibData_1a25a95929b7546db2cd5f0dcac955c398:
+.. _doxid-structxlibData_1aae3bf4ee1c43a225f30608342c055a48:
 .. _cid-xlibdata::in_buf:
-.. _doxid-structxlibData_1affe6e84a5b174855692304be6c373e25:
+.. _doxid-structxlibData_1ab4e50cde44c135a807b7f9b12ea62ac8:
 .. _cid-xlibdata::out_buf:
 .. _doxid-structxlibData_1a7a176e85c1843a722fa47cb82d759b07:
 .. _cid-xlibdata::input_size:

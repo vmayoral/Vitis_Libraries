@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/rsarkari/Library/Pages/xf_compression/L2/include/zstd_decompress_stream.hpp Source File</title>
+<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/rbhartar/xfc/zstd/docs/masterUpdate/gh_pages/xf_compression/L2/include/zstd_decompress_stream.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -116,24 +116,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;zstd_decompress.hpp&quot;</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;ap_axi_sdata.h&quot;</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#define LZ_MAX_OFFSET_LIMIT 32768</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define HISTORY_SIZE LZ_MAX_OFFSET_LIMIT</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">// ZStd Block size and Window Size (lz history size)</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#ifndef ZSTD_BLOCK_SIZE_KB</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ZSTD_BLOCK_SIZE_KB 32</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#ifndef MULTIPLE_BYTES</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MULTIPLE_BYTES 4</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> c_streamDWidth = 8 * MULTIPLE_BYTES;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">void</span> <a class="code" href="zstd__decompress__stream_8hpp.html#af488c56d4c28fad772cef1c7e6437641">xilZstdDecompressStream</a>(uint64_t input_size,</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                             hls::stream&lt;ap_axiu&lt;c_streamDWidth, 0, 0, 0&gt; &gt;&amp; inaxistreamd,</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                             hls::stream&lt;ap_axiu&lt;c_streamDWidth, 0, 0, 0&gt; &gt;&amp; outaxistreamd,</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                             hls::stream&lt;ap_axiu&lt;64, 0, 0, 0&gt; &gt;&amp; sizestreamd);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif // _XFCOMPRESSION_ZSTD_DECOMPRESS_STREAM_HPP_</span></div>
-<div class="ttc" id="zstd__decompress__stream_8hpp_html_af488c56d4c28fad772cef1c7e6437641"><div class="ttname"><a href="zstd__decompress__stream_8hpp.html#af488c56d4c28fad772cef1c7e6437641">xilZstdDecompressStream</a></div><div class="ttdeci">void xilZstdDecompressStream(uint64_t input_size, hls::stream&lt; ap_axiu&lt; c_streamDWidth, 0, 0, 0 &gt; &gt; &amp;inaxistreamd, hls::stream&lt; ap_axiu&lt; c_streamDWidth, 0, 0, 0 &gt; &gt; &amp;outaxistreamd, hls::stream&lt; ap_axiu&lt; 64, 0, 0, 0 &gt; &gt; &amp;sizestreamd)</div><div class="ttdoc">Zstd decompression stream kernel top function. </div></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#ifndef MULTIPLE_BYTES</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MULTIPLE_BYTES 4</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> c_streamDWidth = 8 * MULTIPLE_BYTES;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">// window size is kept equal to block size in this design</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> c_windowSize = ZSTD_BLOCK_SIZE_KB * 1024;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> <a class="code" href="zstd__decompress__stream_8hpp.html#af488c56d4c28fad772cef1c7e6437641">xilZstdDecompressStream</a>(uint64_t input_size,</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                             hls::stream&lt;ap_axiu&lt;c_streamDWidth, 0, 0, 0&gt; &gt;&amp; inaxistreamd,</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                             hls::stream&lt;ap_axiu&lt;c_streamDWidth, 0, 0, 0&gt; &gt;&amp; outaxistreamd,</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                             hls::stream&lt;ap_axiu&lt;64, 0, 0, 0&gt; &gt;&amp; sizestreamd);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif // _XFCOMPRESSION_ZSTD_DECOMPRESS_STREAM_HPP_</span></div>
+<div class="ttc" id="zstd__decompress__stream_8hpp_html_af488c56d4c28fad772cef1c7e6437641"><div class="ttname"><a href="zstd__decompress__stream_8hpp.html#af488c56d4c28fad772cef1c7e6437641">xilZstdDecompressStream</a></div><div class="ttdeci">void xilZstdDecompressStream(uint64_t input_size, hls::stream&lt; ap_axiu&lt; c_streamDWidth, 0, 0, 0 &gt; &gt; &amp;inaxistreamd, hls::stream&lt; ap_axiu&lt; c_streamDWidth, 0, 0, 0 &gt; &gt; &amp;outaxistreamd, hls::stream&lt; ap_axiu&lt; 64, 0, 0, 0 &gt; &gt; &amp;sizestreamd)</div><div class="ttdoc">This is full ZStandard decompression streaming kernel function. It supports all block sizes and suppo...</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

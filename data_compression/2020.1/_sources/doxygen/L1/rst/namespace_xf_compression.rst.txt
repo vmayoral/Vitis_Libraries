@@ -111,6 +111,8 @@ namespace compression
 .. _cid-xf::compression::hlslz4:
 .. _doxid-namespacexf_1_1compression_1a215f70d34d584ac99e8076800831c65e:
 .. _cid-xf::compression::lz4compressmm:
+.. _doxid-namespacexf_1_1compression_1aaae093543d5c5d7be652efd45c19cd9f:
+.. _cid-xf::compression::reg:
 .. _doxid-namespacexf_1_1compression_1acdcd7f74593138e3fc256f5102fb2bec:
 .. _cid-xf::compression::lz4headerprocessing:
 .. _doxid-namespacexf_1_1compression_1a9ba7799d962d77fb60488ab2d3280e87:
@@ -125,8 +127,6 @@ namespace compression
 .. _cid-xf::compression::mm2slz4packer:
 .. _doxid-namespacexf_1_1compression_1a4713ff751908810fa768b2a56dea6ab3:
 .. _cid-xf::compression::lz4packermm:
-.. _doxid-namespacexf_1_1compression_1aaae093543d5c5d7be652efd45c19cd9f:
-.. _cid-xf::compression::reg:
 .. _doxid-namespacexf_1_1compression_1a7acac729182c466dd5fd6775e572503c:
 .. _cid-xf::compression::lzmultibytedecoder:
 .. _doxid-namespacexf_1_1compression_1a3d01e67994093b8e6c2ca9429cd93f92:
@@ -141,10 +141,12 @@ namespace compression
 .. _cid-xf::compression::lz77dividestatic:
 .. _doxid-namespacexf_1_1compression_1aa036e9da15f34ff1061334b7f3e32e44:
 .. _cid-xf::compression::lzxdecompressengine:
-.. _doxid-namespacexf_1_1compression_1a17e2313e6237969be68d8896a599b910:
-.. _cid-xf::compression::snappyheaderprocessing:
 .. _doxid-namespacexf_1_1compression_1a2c74d7fe8eb9cdcc249140383640dcda:
 .. _cid-xf::compression::snappymultibytedecompress:
+.. _doxid-namespacexf_1_1compression_1ab72d81b4948f8749c9c6b8873cc2eca5:
+.. _cid-xf::compression::snappyblockdecoder:
+.. _doxid-namespacexf_1_1compression_1aabd3e4c8a43db65490824f975e92ea27:
+.. _cid-xf::compression::snappymulticoredecompress:
 .. _doxid-namespacexf_1_1compression_1a3f0585a5a401d0e5ef37f51a0ff8b103:
 .. _cid-xf::compression::snappydecompressengine:
 .. _doxid-namespacexf_1_1compression_1a6b66eb2ae79da7623edf83492ef1318c:
@@ -165,10 +167,10 @@ namespace compression
 .. _cid-xf::compression::zlibcompressmm:
 .. _doxid-namespacexf_1_1compression_1a949b6241ed036f01c353db9df4d4e691:
 .. _cid-xf::compression::zlibcompressmultienginemm:
-.. _doxid-namespacexf_1_1compression_1aebd0ad376f9abb7451050d8047d5e115:
-.. _cid-xf::compression::zstddecompressstream:
-.. _doxid-namespacexf_1_1compression_1abccf4ceb0ebdfdf0a0be4ad529226980:
-.. _cid-xf::compression::zstddecompresscore:
+.. _doxid-namespacexf_1_1compression_1a817f7239d207e7b6f4f1564f203a4c36:
+.. _cid-xf::compression::zlibcompressstreaming:
+.. _doxid-namespacexf_1_1compression_1a25f2730236dc1773d37f6822b95aae98:
+.. _cid-xf::compression::zlibcompressstaticstreaming:
 .. ref-code-block:: cpp
 	:class: overview-code-block
 
@@ -712,7 +714,7 @@ This module writes the literals to the output stream as it is and when match len
 
         - original size
 
-.. _doxid-namespacexf_1_1compression_1a8f1ccc8daec6317e9c26577ac06e6e9e:
+.. _doxid-namespacexf_1_1compression_1aa3f7aaae78c4e1b12764b6d8e033188d:
 .. _cid-xf::compression::lzmultibytedecompress:
 
 lzMultiByteDecompress
@@ -731,12 +733,13 @@ lzMultiByteDecompress
 	template <
 	    int PARALLEL_BYTES,
 	    int HISTORY_SIZE,
-	    class SIZE_DT = uint8_t
+	    class SIZE_DT = uint8_t,
+	    class SIZE_OFFSET = ap_uint<16>
 	    >
 	void lzMultiByteDecompress (
 	    hls::stream <SIZE_DT>& litlenStream,
 	    hls::stream <ap_uint <PARALLEL_BYTES*8>>& litStream,
-	    hls::stream <ap_uint <16>>& offsetStream,
+	    hls::stream <SIZE_OFFSET>& offsetStream,
 	    hls::stream <SIZE_DT>& matchlenStream,
 	    hls::stream <ap_uint <PARALLEL_BYTES*8>>& outStream,
 	    hls::stream <bool>& endOfStream,
@@ -766,6 +769,11 @@ This module writes the literals to the output stream as it is and when match len
         - SIZE_DT
 
         - input data type
+
+    *
+        - SIZE_OFFSET
+
+        - offset data type
 
     *
         - litlenStream
@@ -1170,4 +1178,166 @@ This module decodes the compressed data based on the snappy decompression format
         - input_size
 
         - input data size
+
+.. _doxid-namespacexf_1_1compression_1a03096000fda00fee5072ab74e991a5ab:
+.. _cid-xf::compression::zstddecompressstream:
+
+zstdDecompressStream
+--------------------
+
+
+.. code-block:: cpp
+	
+	#include "zstd_decompress.hpp"
+
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    int PARALLEL_BYTE,
+	    int BLOCK_SIZE_KB,
+	    int LZ_MAX_OFFSET,
+	    int LMO_WIDTH
+	    >
+	void zstdDecompressStream (
+	    hls::stream <ap_uint <8*PARALLEL_BYTE>>& inStream,
+	    hls::stream <ap_uint <4>>& inStrobe,
+	    hls::stream <ap_uint <8*PARALLEL_BYTE>>& outStream,
+	    hls::stream <bool>& endOfStream,
+	    hls::stream <uint64_t>& sizeOutStream
+	    )
+
+This module decompresses the ZStd compressed file read from input stream. It reads the input stream till valid strobe input is provided. It produces the decompressed data at the output stream.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - PARALLEL_BYTE
+
+        - Data stream width in bytes
+
+    *
+        - BLOCK_SIZE_KB
+
+        - ZStd block size
+
+    *
+        - LZ_MAX_OFFSET
+
+        - LZ history size or Window size
+
+    *
+        - LMO_WIDTH
+
+        - data width for offset data
+
+    *
+        - inStream
+
+        - input stream
+
+    *
+        - inStrobe
+
+        - valid input strobe stream
+
+    *
+        - outStream
+
+        - output stream
+
+    *
+        - endOfStream
+
+        - end of output stream flag stream
+
+    *
+        - sizeOutStream
+
+        - output data size
+
+.. _doxid-namespacexf_1_1compression_1afd08f52cc74d322be28d23fbbcf20c78:
+.. _cid-xf::compression::zstddecompresscore:
+
+zstdDecompressCore
+------------------
+
+
+.. code-block:: cpp
+	
+	#include "zstd_decompress.hpp"
+
+
+
+.. ref-code-block:: cpp
+	:class: title-code-block
+
+	template <
+	    int PARALLEL_BYTE,
+	    int BLOCK_SIZE_KB,
+	    int LZ_MAX_OFFSET,
+	    int LMO_WIDTH = 15
+	    >
+	void zstdDecompressCore (
+	    hls::stream <ap_axiu <8*PARALLEL_BYTE, 0, 0, 0>>& inStream,
+	    hls::stream <ap_axiu <8*PARALLEL_BYTE, 0, 0, 0>>& outStream,
+	    hls::stream <ap_axiu <64, 0, 0, 0>>& outSizeStream,
+	    uint64_t inputSize
+	    )
+
+This module decompresses the ZStd compressed file read from input stream. It reads the input stream till the given input size. It produces the decompressed data at the output stream.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+    :widths: 20 80
+
+    *
+        - PARALLEL_BYTE
+
+        - Data stream width in bytes
+
+    *
+        - BLOCK_SIZE_KB
+
+        - ZStd block size
+
+    *
+        - LZ_MAX_OFFSET
+
+        - LZ history size or Window size
+
+    *
+        - LMO_WIDTH
+
+        - data width for offset data
+
+    *
+        - inStream
+
+        - input stream
+
+    *
+        - outStream
+
+        - output stream
+
+    *
+        - outSizeStream
+
+        - output data size
+
+    *
+        - inputSize
+
+        - size of input data
 
