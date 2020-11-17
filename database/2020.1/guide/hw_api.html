@@ -741,7 +741,7 @@
 </table>
 </div>
 <div class="section" id="bfgen">
-<span id="cid-xf-database-bfgen"></span><span id="doxid-namespacexf-1-1database-1a317db01103c0ac8581a68508b3df2519"></span><h2>bfGen<a class="headerlink" href="#bfgen" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-database-bfgen"></span><span id="doxid-namespacexf-1-1database-1a005f09635e21aaaff2b6927bd6941aba"></span><h2>bfGen<a class="headerlink" href="#bfgen" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_database/bloom_filter.hpp&quot;</span>
 </pre>
@@ -754,9 +754,9 @@
 <span class="kt">void</span> <span class="n">bfGen</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">STR_IN_W</span><span class="o">&gt;&gt;&amp;</span> <span class="n">msg_strm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">in_e_strm</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">IS_BRAM</span> <span class="o">?</span> <span class="mi">16</span> <span class="o">:</span><span class="mi">72</span><span class="o">&gt;*</span> <span class="n">bit_vector_ptr0</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">IS_BRAM</span> <span class="o">?</span> <span class="mi">16</span> <span class="o">:</span><span class="mi">72</span><span class="o">&gt;*</span> <span class="n">bit_vector_ptr1</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">IS_BRAM</span> <span class="o">?</span> <span class="mi">16</span> <span class="o">:</span><span class="mi">72</span><span class="o">&gt;*</span> <span class="n">bit_vector_ptr2</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">IS_BRAM</span><span class="o">?</span><span class="mi">16</span><span class="o">:</span><span class="mi">72</span><span class="o">&gt;*</span> <span class="n">bit_vector_ptr0</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">IS_BRAM</span><span class="o">?</span><span class="mi">16</span><span class="o">:</span><span class="mi">72</span><span class="o">&gt;*</span> <span class="n">bit_vector_ptr1</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">IS_BRAM</span><span class="o">?</span><span class="mi">16</span><span class="o">:</span><span class="mi">72</span><span class="o">&gt;*</span> <span class="n">bit_vector_ptr2</span>
     <span class="p">)</span>
 </pre>
 <p>Generate the bloomfilter in on-chip RAM blocks.</p>
@@ -795,7 +795,7 @@
 </table>
 </div>
 <div class="section" id="bfgenstream">
-<span id="cid-xf-database-bfgenstream"></span><span id="doxid-namespacexf-1-1database-1a2c0b43a467f6838532b80611212984a8"></span><h2>bfGenStream<a class="headerlink" href="#bfgenstream" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-database-bfgenstream"></span><span id="doxid-namespacexf-1-1database-1a93c03c8a6ce280434e65a865b85cad67"></span><h2>bfGenStream<a class="headerlink" href="#bfgenstream" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_database/bloom_filter.hpp&quot;</span>
 </pre>
@@ -808,7 +808,7 @@
 <span class="kt">void</span> <span class="n">bfGenStream</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">STR_IN_W</span><span class="o">&gt;&gt;&amp;</span> <span class="n">msg_strm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">in_e_strm</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">IS_BRAM</span> <span class="o">?</span> <span class="mi">16</span> <span class="o">:</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">bit_vet_strm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">IS_BRAM</span><span class="o">?</span><span class="mi">16</span><span class="o">:</span><span class="mi">64</span><span class="o">&gt;&gt;&amp;</span> <span class="n">bit_vet_strm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">out_e_strm</span>
     <span class="p">)</span>
 </pre>
@@ -844,7 +844,7 @@
 </table>
 </div>
 <div class="section" id="bfcheck">
-<span id="cid-xf-database-bfcheck"></span><span id="doxid-namespacexf-1-1database-1a74df228066ca71cc41b0435322a3a617"></span><h2>bfCheck<a class="headerlink" href="#bfcheck" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-database-bfcheck"></span><span id="doxid-namespacexf-1-1database-1a672e10a9f66cee3048832648c99ad905"></span><h2>bfCheck<a class="headerlink" href="#bfcheck" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_database/bloom_filter.hpp&quot;</span>
 </pre>
@@ -857,9 +857,9 @@
 <span class="kt">void</span> <span class="n">bfCheck</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">STR_IN_W</span><span class="o">&gt;&gt;&amp;</span> <span class="n">msg_strm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">in_e_strm</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">IS_BRAM</span> <span class="o">?</span> <span class="mi">16</span> <span class="o">:</span><span class="mi">72</span><span class="o">&gt;*</span> <span class="n">bit_vector_ptr0</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">IS_BRAM</span> <span class="o">?</span> <span class="mi">16</span> <span class="o">:</span><span class="mi">72</span><span class="o">&gt;*</span> <span class="n">bit_vector_ptr1</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">IS_BRAM</span> <span class="o">?</span> <span class="mi">16</span> <span class="o">:</span><span class="mi">72</span><span class="o">&gt;*</span> <span class="n">bit_vector_ptr2</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">IS_BRAM</span><span class="o">?</span><span class="mi">16</span><span class="o">:</span><span class="mi">72</span><span class="o">&gt;*</span> <span class="n">bit_vector_ptr0</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">IS_BRAM</span><span class="o">?</span><span class="mi">16</span><span class="o">:</span><span class="mi">72</span><span class="o">&gt;*</span> <span class="n">bit_vector_ptr1</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">IS_BRAM</span><span class="o">?</span><span class="mi">16</span><span class="o">:</span><span class="mi">72</span><span class="o">&gt;*</span> <span class="n">bit_vector_ptr2</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">out_v_strm</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">out_e_strm</span>
     <span class="p">)</span>
@@ -5861,7 +5861,7 @@ primitive, which offers smaller utilization, and requires no external buffer acc
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on May 14, 2020.
+        Last updated on May 26, 2020.
       </span>
 
     </p>
