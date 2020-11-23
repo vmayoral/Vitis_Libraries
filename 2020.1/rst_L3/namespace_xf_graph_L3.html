@@ -756,13 +756,13 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="cosinesimilarityssdensemulticard">
-<span id="cid-xf-graph-l3-cosinesimilarityssdensemulticard"></span><span id="doxid-namespacexf-1-1graph-1-1-l3-1afeac03290ccacd45f3d2a9c703943f95"></span><h2>cosineSimilaritySSDenseMultiCard<a class="headerlink" href="#cosinesimilarityssdensemulticard" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cosinesimilarityssdensemulticardblocking">
+<span id="cid-xf-graph-l3-cosinesimilarityssdensemulticardblocking"></span><span id="doxid-namespacexf-1-1graph-1-1-l3-1a32b1bde1a804c1acca05d5ff062fdbcd"></span><h2>cosineSimilaritySSDenseMultiCardBlocking<a class="headerlink" href="#cosinesimilarityssdensemulticardblocking" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_graph_L3.hpp&quot;</span>
 </pre>
 <pre class="highlight title-code-block literal-block">
-<span></span><span class="kt">int</span> <span class="n">cosineSimilaritySSDenseMultiCard</span> <span class="p">(</span>
+<span></span><span class="kt">int</span> <span class="n">cosineSimilaritySSDenseMultiCardBlocking</span> <span class="p">(</span>
     <a class="reference internal" href="class_xf_graph_L3_Handle.html#doxid-classxf-1-1graph-1-1-l3-1-1-handle"><span class="std std-ref">xf::graph::L3::Handle</span></a><span></span><span class="o">&amp;</span> <span class="n">handle</span><span class="p">,</span>
     <span class="kt">int32_t</span> <span class="n">deviceNm</span><span class="p">,</span>
     <span class="kt">int32_t</span> <span class="n">sourceNUM</span><span class="p">,</span>
@@ -774,6 +774,58 @@
     <span class="p">)</span>
 </pre>
 <p>The Multi-cards’ single source cosine similarity API for dense graph.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>handle</td>
+<td>Graph library <a class="reference internal" href="#doxid-namespacexf-1-1graph-1-1-l3"><span class="std std-ref">L3</span></a> handle</td>
+</tr>
+<tr class="row-even"><td>deviceNm</td>
+<td>FPGA card ID</td>
+</tr>
+<tr class="row-odd"><td>sourceNUM</td>
+<td>Input, sourceWeights buffer length of source vertex</td>
+</tr>
+<tr class="row-even"><td>sourceWeights</td>
+<td>Input, weights of the source vertex’s out members</td>
+</tr>
+<tr class="row-odd"><td>topK</td>
+<td>Input, the output similarity buffer length</td>
+</tr>
+<tr class="row-even"><td>gr</td>
+<td>Input, CSR graph of IDs’ type of int32_t and weights’ type of int32_t</td>
+</tr>
+<tr class="row-odd"><td>resultID</td>
+<td>Output, the topK highest similarity IDs</td>
+</tr>
+<tr class="row-even"><td>similarity</td>
+<td>Output, similarity values corresponding to theirs IDs</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cosinesimilarityssdensemulticard">
+<span id="cid-xf-graph-l3-cosinesimilarityssdensemulticard"></span><span id="doxid-namespacexf-1-1graph-1-1-l3-1abca59c6f970625bf1a410dffef13a2a5"></span><h2>cosineSimilaritySSDenseMultiCard<a class="headerlink" href="#cosinesimilarityssdensemulticard" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_graph_L3.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="o">&lt;</span><span class="n">event</span> <span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">cosineSimilaritySSDenseMultiCard</span> <span class="p">(</span>
+    <a class="reference internal" href="class_xf_graph_L3_Handle.html#doxid-classxf-1-1graph-1-1-l3-1-1-handle"><span class="std std-ref">xf::graph::L3::Handle</span></a><span></span><span class="o">&amp;</span> <span class="n">handle</span><span class="p">,</span>
+    <span class="kt">int32_t</span> <span class="n">deviceNm</span><span class="p">,</span>
+    <span class="kt">int32_t</span> <span class="n">sourceNUM</span><span class="p">,</span>
+    <span class="kt">int32_t</span><span class="o">*</span> <span class="n">sourceWeights</span><span class="p">,</span>
+    <span class="kt">int32_t</span> <span class="n">topK</span><span class="p">,</span>
+    <span class="n">xf</span><span class="o">::</span><span class="n">graph</span><span class="o">::</span><span class="n">Graph</span> <span class="o">&lt;</span><span class="kt">int32_t</span><span class="p">,</span> <span class="kt">int32_t</span><span class="o">&gt;**</span> <span class="n">g</span><span class="p">,</span>
+    <span class="kt">int32_t</span><span class="o">**</span> <span class="n">resultID</span><span class="p">,</span>
+    <span class="kt">float</span><span class="o">**</span> <span class="n">similarity</span>
+    <span class="p">)</span>
+</pre>
+<p>The Non-blocking Multi-cards’ single source cosine similarity API for dense graph.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
