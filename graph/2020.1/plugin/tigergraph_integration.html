@@ -442,14 +442,21 @@
 <ul class="simple">
 <li>Ubuntu 16.04 LTS</li>
 <li><a class="reference external" href="https://github.com/Xilinx/XRT">Xilinx RunTime (XRT)</a> 2020.1</li>
-<li><a class="reference external" href="https://github.com/Xilinx/XRM">Xilinx FPGA Resource Manager (XRM)</a> 2020.1</li>
+<li><a class="reference external" href="https://github.com/Xilinx/XRM">Xilinx FPGA Resource Manager (XRM)</a> 2020.2</li>
 </ul>
 <p>TigerGraph integration needs static boost version XRT. Please follow the steps:</p>
 <ul class="simple">
 <li>Download <a class="reference external" href="https://github.com/Xilinx/XRT">Xilinx RunTime (XRT)</a> release version source code</li>
+<li>sudo apt install libboost-program-options-dev</li>
+<li>sudo apt-get update</li>
+<li>sudo apt install libcurl4-gnutls-dev</li>
+<li>sudo apt-get update</li>
 <li>source PATH_XRT/src/runtime_src/tools/scripts/xrtdeps.sh</li>
+<li>mkdir PATH_XRT/boost</li>
 <li>source PATH_XRT/src/runtime_src/tools/scripts/boost.sh -prefix PATH_XRT/boost</li>
 <li>source PATH_XRT/build/build.sh -clean</li>
+<li>sudo apt intall cmake</li>
+<li>sudo apt-get update</li>
 <li>env XRT_BOOST_INSTALL=PATH_XRT/boost/xrt PATH_XRT/build/build.sh</li>
 <li>cd PATH_XRT/build/Debug and PATH_XRT/build/Release</li>
 <li>make packages</li>
@@ -465,9 +472,12 @@
 <h2>Integration Flow<a class="headerlink" href="#integration-flow" title="Permalink to this headline">¶</a></h2>
 <p>In order to simplify the integration of graph L3 and TigerGraph, a shell script is written. Please follow the following steps:</p>
 <ul class="simple">
-<li>Download <a class="reference external" href="https://www.tigergraph.com/">TigerGraph</a> 2.4.1</li>
+<li>Download <a class="reference external" href="https://www.tigergraph.com/">TigerGraph</a> 2.4.0</li>
 <li>Install TigerGraph</li>
-<li>cd PATH_GRAPH_LIB/plugin and ./install.sh</li>
+<li>cd PATH_GRAPH_LIB/plugin</li>
+<li>Change <cite>TigerGraphPath</cite> in install.sh, Makefile and tigergraph/MakeUdf to the path of TigerGraph installed</li>
+<li>Change TigerGraph path related parameters in tigergraph/bash_tigergraph</li>
+<li>./install.sh</li>
 </ul>
 </div>
 <div class="section" id="running-flow">
