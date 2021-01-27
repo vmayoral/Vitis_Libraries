@@ -412,7 +412,7 @@
     
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Vitis Libraries</li>
+      <li>Known Limitations and Dependencies</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -432,81 +432,23 @@
            <div itemprop="articleBody">
             
   <div class="section" id="vitis-libraries">
-<h1>Vitis Libraries v2020.2<a class="headerlink" href="#vitis-libraries" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html">Vitis&trade; unified software development platform</a>
-includes an extensive set of open-source, performance-optimized
-libraries that offer out-of-the-box acceleration with minimal to
-zero-code changes to your existing applications.</p>
-<hr/><div class="figure align-left">
-<img alt="Comprehensive Set of Domain-Specific Accelerated Libraries" src="_images/1569434411715.png" />
-</div>
-<div class="section" id="comprehensive-set-of-domain-specific-accelerated-libraries">
-<h2>Comprehensive Set of Domain-Specific Accelerated Libraries<a class="headerlink" href="#comprehensive-set-of-domain-specific-accelerated-libraries" title="Permalink to this headline">¶</a></h2>
-<p>Access a broad range of pre-optimized libraries that you can call as a
-software API to bring plug-n-play acceleration in your application or
-customize to design your own accelerator for Xilinx platforms across
-edge to cloud.</p>
+<h1>v2020.2 Known Limitations and Dependencies<a class="headerlink" href="#vitis-libraries" title="Permalink to this headline">¶</a></h1>
+<hr/>
+<div class="section">
+  <h2>Vitis Vision Library<a class="headerlink" >¶</a></h2>
+	<h3>Dependencies</h3>
 <ul class="simple">
-<li><p>Common Vitis accelerated-libraries for Math, Statistics, Linear
-Algebra and DSP offer a set of core functionality for a wide range of
-diverse applications.</p></li>
-<li><p>Domain-specific Vitis accelerated libraries offer out-of-the-box
-acceleration for workloads like Vision and Image Processing,
-Quantitative Finance, Database and Data Analytics, Data Compression
-and this list continues to expand with every release.</p></li>
-<li><p>Leverage the rich growing ecosystem of partner-accelerated libraries,
-framework plug-ins and accelerated applications to hit the ground
-running and accelerate your path to production.</p></li>
+  <li>OpenCV 3.4
+	  <ul class="simple">
+	  	<li><a href="https://www.xilinx.com/support/answers/75987.html">OpenCV Installation Guide for Vitis Vision Libraries (AR#75987)</a></li>
+	  </ul>
+	</li></ul>
+	<h3>Known Limitations</h3>
+<ul class="simple">
+	<li>Windows OS has path length limitations, kernel names must be smaller than 25 characters</li>
+	<li>'axiconv' function in L1 fails cosim because of a known HLS issue.</li>
+	<li>'bilateralfilter' function RO configuration is not supported.</li>
 </ul>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<hr/><div class="figure align-right">
-<img alt="Use in Familiar Programming Languages" src="_images/1569434541001.png" />
-</div>
-</div>
-<div class="section" id="use-in-familiar-programming-languages">
-<h2>Use in Familiar Programming Languages<a class="headerlink" href="#use-in-familiar-programming-languages" title="Permalink to this headline">¶</a></h2>
-<p>Use Vitis accelerated-libraries in commonly-used programming languages
-that you know like C, C++, and Python. Leverage Xilinx platforms as an
-enabler in your applications ? Work at an application level and focus
-your core competencies on solving challenging problems in your domain,
-accelerate time to insight, and innovate.</p>
-<p>Whether you want to accelerate portions of your existing x86 host
-application code or want to develop accelerators for deployment on
-Xilinx embedded platforms, calling a Vitis accelerated-library API or
-Kernel in your code offers the same level of abstraction as any software
-library.</p>
-<hr/><div class="figure align-left">
-<img alt="Scalable and Flexible" src="_images/1569434644122.png" />
-</div>
-</div>
-<div class="section" id="scalable-and-flexible">
-<h2>Scalable and Flexible<a class="headerlink" href="#scalable-and-flexible" title="Permalink to this headline">¶</a></h2>
-<p>Vitis accelerated-libraries are accessible to all developers through
-GitHub and scalable across all Xilinx platforms. Develop your
-applications using these optimized libraries and seamlessly deploy
-across Xilinx platforms at the edge, on-premise or in the cloud without
-having to reimplement your accelerated application.</p>
-<p>For rapid prototyping and quick evaluation of the benefits Xilinx can
-bring to your applications, you can use them as plug-and-play
-accelerators, called directly as an API in the user application for
-several workloads like Computer Vision and Image Processing,
-Quantitative Finance, Database, and Data Analytics among others.</p>
-<div class="figure align-right">
-<img alt="Scalable and Flexible" src="_images/1568760747007.png" />
-</div>
-<p>To design custom accelerators for your application, use Vitis library
-functions as optimized algorithmic building blocks, modify them to suit
-your specific needs, or use them as a reference to completely design
-your own. Choose the flexibility you need!</p>
-<p>Combine domain-specific Vitis libraries with pre-optimized deep learning
-models from the Vitis AI library or the Vitis AI development kit to
-accelerate your whole application and meet the overall system-level
-functionality and performance goals.</p>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
 </div>
 </div>
 
@@ -525,14 +467,7 @@ functionality and performance goals.</p>
 	  
 	  <!-- Sphinx Page Footer block -->
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="versions.html" class="btn btn-neutral float-right" title="Previous Versions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-    </div>
-  
-
+    
   <hr/>
 
   <div role="contentinfo" class="copyright">
