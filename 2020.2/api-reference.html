@@ -4551,10 +4551,10 @@ channel is supported (XF_8UC1)</p></td>
 <tr class="row-odd"><td><p>DST_T</p></td>
 <td><p>Output pixel type. Only XF_2UC1 is
 supported. The output in case of
-NPC=XF_NPPC1 is 8-bit and packing four 2-bit
-pixel values into 8-bit. The output in case
-of NPC=XF_NPPC8 is 16-bit, 8-bit, 2-bit
-pixel values are packing into 16-bit.</p></td>
+NPC=XF_NPPC1 is 8-bit, where four 2-bit pixel
+values are packed into 8-bit. The output in
+case of NPC=XF_NPPC8 is 16-bit, where 8 2-bit
+pixel values are packed into 16-bit.</p></td>
 </tr>
 <tr class="row-even"><td><p>ROWS</p></td>
 <td><p>Maximum height of input and output image</p></td>
@@ -4608,10 +4608,16 @@ parameters:</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>SRC_T</p></td>
-<td><p>Input pixel type</p></td>
+<td><p>Input pixel type. Only XF_2UC1 is
+supported. The input in case of NPC=XF_NPPC1
+is 8-bit, where four 2-bit pixel values
+are packed into 8-bit. The input in case of
+of NPC=XF_NPPC8 is 16-bit, where 8 2-bit
+pixel values are packed into 16-bit.</p></td>
 </tr>
 <tr class="row-odd"><td><p>DST_T</p></td>
-<td><p>Output pixel type</p></td>
+<td><p>Output pixel type. Only 8-bit, unsigned, 1
+channel is supported (XF_8UC1)</p></td>
 </tr>
 <tr class="row-even"><td><p>ROWS</p></td>
 <td><p>Maximum height of input and output image</p></td>
@@ -11064,9 +11070,54 @@ input image.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
+<table class="docutils align-default" id="id193">
+<caption><span class="caption-text">Table Crop Parameter Description</span><a class="headerlink" href="#id193" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 78%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SRC_T</p></td>
+<td><p>Input pixel type. Only 8-bit, unsigned, 1 and 3
+channels are supported (XF_8UC1 and XF_8UC3).</p></td>
+</tr>
+<tr class="row-odd"><td><p>ROWS</p></td>
+<td><p>Maximum height of input and output image.</p></td>
+</tr>
+<tr class="row-even"><td><p>COLS</p></td>
+<td><p>Maximum width of input and output image. Must be
+multiple of 8 for 8-pixel operation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ARCH_TYPE</p></td>
+<td><p>Architecture type. 0 resolves to stream
+implementation and 1 resolves to memory mapped
+implementation.</p></td>
+</tr>
+<tr class="row-even"><td><p>NPC</p></td>
+<td><p>Number of pixels to be processed per cycle. NPC
+should be power of 2.</p></td>
+</tr>
+<tr class="row-odd"><td><p>_src_mat</p></td>
+<td><p>Input image</p></td>
+</tr>
+<tr class="row-even"><td><p>_dst_mat</p></td>
+<td><p>Output ROI image</p></td>
+</tr>
+<tr class="row-odd"><td><p>roi</p></td>
+<td><p>ROI is a <code class="docutils literal notranslate"><span class="pre">xf::cv::Rect</span></code> object that consists of
+top left corner of the rectangle along with the
+height and width of the rectangle.</p></td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Resource Utilization</p>
 <p>The following table summarizes the resource utilization of crop function
-in normal mode (NPC=1) for 3 ROIs (480x640, 100x200, 300x300) as
+in normal mode (NPC=1) for 3 ROIs (480x640, 100x200, 300x300) in memory mapped mode as
 generated in the Vivado HLS 2019.1 tool for the Xilinx
 xczu9eg-ffvb1156-2-i-es2 FPGA.</p>
 <table class="docutils align-default">
@@ -11083,25 +11134,25 @@ xczu9eg-ffvb1156-2-i-es2 FPGA.</p>
 <th class="head"><p>8 pixel per clock operation</p></th>
 </tr>
 <tr class="row-odd"><th class="head"><p>300 MHz</p></th>
-<th class="head"><p>150 MHz</p></th>
+<th class="head"><p>300 MHz</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>BRAM_18K</p></td>
-<td><p>6</p></td>
-<td><p>8</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
 </tr>
 <tr class="row-odd"><td><p>DSP48E</p></td>
-<td><p>10</p></td>
-<td><p>10</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
 </tr>
 <tr class="row-even"><td><p>FF</p></td>
-<td><p>17482</p></td>
-<td><p>16995</p></td>
+<td><p>1163</p></td>
+<td><p>2358</p></td>
 </tr>
 <tr class="row-odd"><td><p>LUT</p></td>
-<td><p>16831</p></td>
-<td><p>15305</p></td>
+<td><p>909</p></td>
+<td><p>3140</p></td>
 </tr>
 </tbody>
 </table>
@@ -11167,8 +11218,8 @@ parameter is set to zero.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id193">
-<caption><span class="caption-text">Table filter2D Parameter Description</span><a class="headerlink" href="#id193" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id194">
+<caption><span class="caption-text">Table filter2D Parameter Description</span><a class="headerlink" href="#id194" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 26%" />
 <col style="width: 74%" />
@@ -11462,8 +11513,8 @@ single-CCD digital cameras.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id194">
-<caption><span class="caption-text">Table Demosaicing Parameter Description</span><a class="headerlink" href="#id194" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id195">
+<caption><span class="caption-text">Table Demosaicing Parameter Description</span><a class="headerlink" href="#id195" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 78%" />
@@ -11654,8 +11705,8 @@ pixel.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id195">
-<caption><span class="caption-text">Table dilate Parameter Description</span><a class="headerlink" href="#id195" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id196">
+<caption><span class="caption-text">Table dilate Parameter Description</span><a class="headerlink" href="#id196" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 78%" />
@@ -11848,8 +11899,8 @@ The cache memory must be of image dimensions and of type ap_uint&lt;32&gt;.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes template paramters and arguments of the function.</p>
-<table class="docutils align-default" id="id196">
-<caption><span class="caption-text">Table distance-transform Parameter Description</span><a class="headerlink" href="#id196" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id197">
+<caption><span class="caption-text">Table distance-transform Parameter Description</span><a class="headerlink" href="#id197" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 24%" />
 <col style="width: 76%" />
@@ -11901,8 +11952,8 @@ COLS.</p></td>
 </table>
 <p class="rubric">Resource Utilization</p>
 <p>The following table summarizes the resource utilization of the kernel in different configurations, generated using Vitis 2020.2 tool, to process a 4K image.</p>
-<table class="docutils align-default" id="id197">
-<caption><span class="caption-text">Table distance-transform Resource Utilization Summary</span><a class="headerlink" href="#id197" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id198">
+<caption><span class="caption-text">Table distance-transform Resource Utilization Summary</span><a class="headerlink" href="#id198" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 18%" />
 <col style="width: 23%" />
@@ -11938,8 +11989,8 @@ COLS.</p></td>
 </table>
 <p class="rubric">Performance Estimate</p>
 <p>The following table summarizes a performance estimate of the kernel in different configurations, as generated using Vitis 2020.2 tool, to process a 4K image.</p>
-<table class="docutils align-default" id="id198">
-<caption><span class="caption-text">Table distance-transform Function Performance Estimate Summary</span><a class="headerlink" href="#id198" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id199">
+<caption><span class="caption-text">Table distance-transform Function Performance Estimate Summary</span><a class="headerlink" href="#id199" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 28%" />
@@ -12030,8 +12081,8 @@ minimum value.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id199">
-<caption><span class="caption-text">Table erode Parameter Description</span><a class="headerlink" href="#id199" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id200">
+<caption><span class="caption-text">Table erode Parameter Description</span><a class="headerlink" href="#id200" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 23%" />
 <col style="width: 77%" />
@@ -12220,8 +12271,8 @@ location, that location is marked with 255, otherwise it is zero.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id200">
-<caption><span class="caption-text">Table fast Parameter Description</span><a class="headerlink" href="#id200" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id201">
+<caption><span class="caption-text">Table fast Parameter Description</span><a class="headerlink" href="#id201" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 17%" />
 <col style="width: 83%" />
@@ -12616,8 +12667,8 @@ zeroes and the values of <img alt="image68" class="image" src="_images/bix155499
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id201">
-<caption><span class="caption-text">Table . GaussianBlur Parameter Description</span><a class="headerlink" href="#id201" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id202">
+<caption><span class="caption-text">Table . GaussianBlur Parameter Description</span><a class="headerlink" href="#id202" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 23%" />
 <col style="width: 77%" />
@@ -12865,8 +12916,8 @@ added image of absolute of x-gradient and y-gradient, as shown below:.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id202">
-<caption><span class="caption-text">Table . magnitude Parameter Description</span><a class="headerlink" href="#id202" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id203">
+<caption><span class="caption-text">Table . magnitude Parameter Description</span><a class="headerlink" href="#id203" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 17%" />
 <col style="width: 83%" />
@@ -13000,8 +13051,8 @@ output image is of same type as the input image.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id203">
-<caption><span class="caption-text">Table . phase Parameter Description</span><a class="headerlink" href="#id203" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id204">
+<caption><span class="caption-text">Table . phase Parameter Description</span><a class="headerlink" href="#id204" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -13106,8 +13157,8 @@ image.</p>
 different configurations, as generated using Vivado HLS 2019.1 tool for
 the Xczu9eg-ffvb1156-1-i-es1, to process a grayscale HD (1080x1920)
 image.</p>
-<table class="docutils align-default" id="id204">
-<caption><span class="caption-text">Table . phase Function Performance Estimate Summary</span><a class="headerlink" href="#id204" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id205">
+<caption><span class="caption-text">Table . phase Function Performance Estimate Summary</span><a class="headerlink" href="#id205" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 24%" />
 <col style="width: 41%" />
@@ -13236,8 +13287,8 @@ location, that location is marked with 255, otherwise it is zero.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id205">
-<caption><span class="caption-text">Table . cornerHarris Parameter Description</span><a class="headerlink" href="#id205" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id206">
+<caption><span class="caption-text">Table . cornerHarris Parameter Description</span><a class="headerlink" href="#id206" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -15101,8 +15152,8 @@ grayscale HD (1080x1920) image.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id206">
-<caption><span class="caption-text">Table . calcHist Parameter Description</span><a class="headerlink" href="#id206" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id207">
+<caption><span class="caption-text">Table . calcHist Parameter Description</span><a class="headerlink" href="#id207" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 16%" />
 <col style="width: 84%" />
@@ -15261,8 +15312,8 @@ values), so the intensities are spread over the whole range.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id207">
-<caption><span class="caption-text">Table . equalizeHist Parameter Description</span><a class="headerlink" href="#id207" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id208">
+<caption><span class="caption-text">Table . equalizeHist Parameter Description</span><a class="headerlink" href="#id208" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 17%" />
 <col style="width: 83%" />
@@ -15396,8 +15447,8 @@ window dimensions are 64x128, block dimensions are 16x16.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template parameters.</p>
-<table class="docutils align-default" id="id208">
-<caption><span class="caption-text">Table . HOGDescriptor Template .. rubric:: Parameter Descriptions</span><a class="headerlink" href="#id208" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id209">
+<caption><span class="caption-text">Table . HOGDescriptor Template .. rubric:: Parameter Descriptions</span><a class="headerlink" href="#id209" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -15727,8 +15778,8 @@ image.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id209">
-<caption><span class="caption-text">Table . HoughLines Parameter Description</span><a class="headerlink" href="#id209" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id210">
+<caption><span class="caption-text">Table . HoughLines Parameter Description</span><a class="headerlink" href="#id210" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 16%" />
 <col style="width: 84%" />
@@ -16061,8 +16112,8 @@ padding, each output pixel is multiplied by 4.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id210">
-<caption><span class="caption-text">Table . pyrUp Parameter Description</span><a class="headerlink" href="#id210" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id211">
+<caption><span class="caption-text">Table . pyrUp Parameter Description</span><a class="headerlink" href="#id211" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -16218,8 +16269,8 @@ even columns. The resulting image size is <img alt="image90" class="image" src="
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id211">
-<caption><span class="caption-text">Table . pyrDown Parameter Description</span><a class="headerlink" href="#id211" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id212">
+<caption><span class="caption-text">Table . pyrDown Parameter Description</span><a class="headerlink" href="#id212" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -16499,8 +16550,8 @@ specified thresholds and otherwise 0.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id212">
-<caption><span class="caption-text">Table . InRange Parameter Description</span><a class="headerlink" href="#id212" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id213">
+<caption><span class="caption-text">Table . InRange Parameter Description</span><a class="headerlink" href="#id213" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 78%" />
@@ -16628,8 +16679,8 @@ itself.</div>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id213">
-<caption><span class="caption-text">Table . integral Parameter Description</span><a class="headerlink" href="#id213" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id214">
+<caption><span class="caption-text">Table . integral Parameter Description</span><a class="headerlink" href="#id214" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -17519,8 +17570,8 @@ P to address the numerical accuracy/stability problems.</p>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default" id="id214">
-<caption><span class="caption-text">Table . Control Flag Registers</span><a class="headerlink" href="#id214" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id215">
+<caption><span class="caption-text">Table . Control Flag Registers</span><a class="headerlink" href="#id215" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -17614,8 +17665,8 @@ Xczu9eg-ffvb1156-1 FPGA.</p>
 <p>The following table shows the resource utilization of the kernel for a
 configuration with USE_URAM enable, generated using Vivado HLS 2019.1 for the
 Xilinx xczu7ev-ffvc1156-2-e FPGA.</p>
-<table class="docutils align-default" id="id215">
-<caption><span class="caption-text">Table . Resource Utilization with UltraRAM Enabled</span><a class="headerlink" href="#id215" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id216">
+<caption><span class="caption-text">Table . Resource Utilization with UltraRAM Enabled</span><a class="headerlink" href="#id216" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -17683,8 +17734,8 @@ taking average latency of 100 iteration.</p>
 with UltraRAM enable, as generated using Vivado HLS 2019.1 tool for the Xilinx
 xczu7ev-ffvc1156-2-e, for one iteration. Latency estimate is calculated
 by taking average latency of 100 iteration.</p>
-<table class="docutils align-default" id="id216">
-<caption><span class="caption-text">Table . Performance Estimate with UltraRAM</span><a class="headerlink" href="#id216" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id217">
+<caption><span class="caption-text">Table . Performance Estimate with UltraRAM</span><a class="headerlink" href="#id217" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -17843,8 +17894,8 @@ The filter coefficients are calculated using cv::getDerivKernels OpenCV function
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id217">
-<caption><span class="caption-text">Table filter2D Parameter Description</span><a class="headerlink" href="#id217" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id218">
+<caption><span class="caption-text">Table filter2D Parameter Description</span><a class="headerlink" href="#id218" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 26%" />
 <col style="width: 74%" />
@@ -18075,8 +18126,8 @@ In this algorithm, vignette is corrected by considering the distance between the
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes template parameters and arguments to the function.</p>
-<table class="docutils align-default" id="id218">
-<caption><span class="caption-text">Table Lensshading correction Parameter Description</span><a class="headerlink" href="#id218" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id219">
+<caption><span class="caption-text">Table Lensshading correction Parameter Description</span><a class="headerlink" href="#id219" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 78%" />
@@ -18116,8 +18167,8 @@ options are XF_NPPC1, XF_NPPC2 AND so on</p></td>
 </table>
 <p class="rubric">Resource Utilization</p>
 <p>The following table summarizes the resource utilization  of the kernel in different configurations, generated using Vitis HLS 2020.2 tool, to process a FULL HD image.</p>
-<table class="docutils align-default" id="id219">
-<caption><span class="caption-text">Table Lensshading correction Resource Utilization Summary</span><a class="headerlink" href="#id219" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id220">
+<caption><span class="caption-text">Table Lensshading correction Resource Utilization Summary</span><a class="headerlink" href="#id220" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 18%" />
 <col style="width: 23%" />
@@ -18161,8 +18212,8 @@ options are XF_NPPC1, XF_NPPC2 AND so on</p></td>
 </table>
 <p class="rubric">Performance Estimate</p>
 <p>The following table summarizes a performance estimate of the kernel in different configurations, as generated using Vitis HLS 2020.2 tool, to process a FULL HD image.</p>
-<table class="docutils align-default" id="id220">
-<caption><span class="caption-text">Table Lensshading correction Function Performance Estimate Summary</span><a class="headerlink" href="#id220" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id221">
+<caption><span class="caption-text">Table Lensshading correction Function Performance Estimate Summary</span><a class="headerlink" href="#id221" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 28%" />
@@ -18389,8 +18440,8 @@ position</p></li>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id221">
-<caption><span class="caption-text">Table . LUT Parameter Description</span><a class="headerlink" href="#id221" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id222">
+<caption><span class="caption-text">Table . LUT Parameter Description</span><a class="headerlink" href="#id222" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 16%" />
 <col style="width: 84%" />
@@ -18555,8 +18606,8 @@ deviation are calculated as follows:</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id222">
-<caption><span class="caption-text">Table . meanStdDev Parameter Description</span><a class="headerlink" href="#id222" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id223">
+<caption><span class="caption-text">Table . meanStdDev Parameter Description</span><a class="headerlink" href="#id223" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 17%" />
 <col style="width: 83%" />
@@ -18716,8 +18767,8 @@ images src1, src2 and stores the result in dst.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id223">
-<caption><span class="caption-text">Table . Max Parameter Description</span><a class="headerlink" href="#id223" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id224">
+<caption><span class="caption-text">Table . Max Parameter Description</span><a class="headerlink" href="#id224" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 78%" />
@@ -18840,8 +18891,8 @@ scalar value scl and stores the result in dst.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id224">
-<caption><span class="caption-text">Table . MaxS Parameter Description</span><a class="headerlink" href="#id224" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id225">
+<caption><span class="caption-text">Table . MaxS Parameter Description</span><a class="headerlink" href="#id225" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 78%" />
@@ -18966,8 +19017,8 @@ value of the NxN neighborhood pixel values, for each pixel.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id225">
-<caption><span class="caption-text">Table . medianBlur Parameter Description</span><a class="headerlink" href="#id225" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id226">
+<caption><span class="caption-text">Table . medianBlur Parameter Description</span><a class="headerlink" href="#id226" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -19173,8 +19224,8 @@ images src1, src2 and stores the result in dst.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id226">
-<caption><span class="caption-text">Table . Min Parameter Description</span><a class="headerlink" href="#id226" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id227">
+<caption><span class="caption-text">Table . Min Parameter Description</span><a class="headerlink" href="#id227" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 78%" />
@@ -19297,8 +19348,8 @@ scalar value scl and stores the result in dst.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id227">
-<caption><span class="caption-text">Table . MinS Parameter Description</span><a class="headerlink" href="#id227" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id228">
+<caption><span class="caption-text">Table . MinS Parameter Description</span><a class="headerlink" href="#id228" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 78%" />
@@ -19426,8 +19477,8 @@ image and location of those values.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id228">
-<caption><span class="caption-text">Table . minMaxLoc Parameter Description</span><a class="headerlink" href="#id228" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id229">
+<caption><span class="caption-text">Table . minMaxLoc Parameter Description</span><a class="headerlink" href="#id229" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 19%" />
 <col style="width: 81%" />
@@ -19579,8 +19630,8 @@ recursive mean shift approach.</p>
 <p>The following table describes the template parameters.</p>
 <p class="rubric">Function Parameter Description</p>
 <p>The following table describes the function parameters.</p>
-<table class="docutils align-default" id="id229">
-<caption><span class="caption-text">Table . MeanShift Function Parameters</span><a class="headerlink" href="#id229" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id230">
+<caption><span class="caption-text">Table . MeanShift Function Parameters</span><a class="headerlink" href="#id230" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -19681,8 +19732,8 @@ of 250x250 and 4 iterations.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id230">
-<caption><span class="caption-text">Table Mode filter Parameter Description</span><a class="headerlink" href="#id230" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id231">
+<caption><span class="caption-text">Table Mode filter Parameter Description</span><a class="headerlink" href="#id231" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -19731,8 +19782,8 @@ XF_NPPC8 (for 8 pixel processing per clock</p></td>
 <p>The following table summarizes the resource utilization of the
 Mode filter function for XF_NPPC1 configurations, generated
 using Vitis HLS 2020.2 version tool.</p>
-<table class="docutils align-default" id="id231">
-<caption><span class="caption-text">Table Mode filter Function Resource Utilization Summary</span><a class="headerlink" href="#id231" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id232">
+<caption><span class="caption-text">Table Mode filter Function Resource Utilization Summary</span><a class="headerlink" href="#id232" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 17%" />
 <col style="width: 14%" />
@@ -19785,8 +19836,8 @@ using Vitis HLS 2020.2 version tool.</p>
 <p class="rubric">Performance Estimate</p>
 <p>The following table summarizes performance estimates of Mode filter
 function on Vitis HLS 2020.2 version tool.</p>
-<table class="docutils align-default" id="id232">
-<caption><span class="caption-text">Table Mode filter Function Performance Estimate Summary</span><a class="headerlink" href="#id232" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id233">
+<caption><span class="caption-text">Table Mode filter Function Performance Estimate Summary</span><a class="headerlink" href="#id233" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 19%" />
 <col style="width: 15%" />
@@ -19850,8 +19901,8 @@ maximizing inter-class variance</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id233">
-<caption><span class="caption-text">Table . OtsuThreshold Parameter Description</span><a class="headerlink" href="#id233" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id234">
+<caption><span class="caption-text">Table . OtsuThreshold Parameter Description</span><a class="headerlink" href="#id234" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 14%" />
 <col style="width: 86%" />
@@ -19972,8 +20023,8 @@ input image.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id234">
-<caption><span class="caption-text">Table . Paintmask Parameter Description</span><a class="headerlink" href="#id234" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id235">
+<caption><span class="caption-text">Table . Paintmask Parameter Description</span><a class="headerlink" href="#id235" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 78%" />
@@ -20123,8 +20174,8 @@ the output operand.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id235">
-<caption><span class="caption-text">Table . add Parameter Description</span><a class="headerlink" href="#id235" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id236">
+<caption><span class="caption-text">Table . add Parameter Description</span><a class="headerlink" href="#id236" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 16%" />
 <col style="width: 84%" />
@@ -20312,8 +20363,8 @@ the output operand.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id236">
-<caption><span class="caption-text">Table . multiply Parameter Description</span><a class="headerlink" href="#id236" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id237">
+<caption><span class="caption-text">Table . multiply Parameter Description</span><a class="headerlink" href="#id237" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 16%" />
 <col style="width: 84%" />
@@ -20501,8 +20552,8 @@ the output operand.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id237">
-<caption><span class="caption-text">Table . subtract Parameter Description</span><a class="headerlink" href="#id237" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id238">
+<caption><span class="caption-text">Table . subtract Parameter Description</span><a class="headerlink" href="#id238" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 19%" />
 <col style="width: 81%" />
@@ -20668,8 +20719,8 @@ Xczu9eg-ffvb1156-1-i-es1, to process a grayscale HD (1080x1920) image.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id238">
-<caption><span class="caption-text">Table Quantization &amp; Dithering Parameter Description</span><a class="headerlink" href="#id238" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id239">
+<caption><span class="caption-text">Table Quantization &amp; Dithering Parameter Description</span><a class="headerlink" href="#id239" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 30%" />
 <col style="width: 70%" />
@@ -20720,8 +20771,8 @@ options is XF_NPPC1 or XF_NPPC2</p></td>
 </table>
 <p class="rubric">Resource Utilization</p>
 <p>The following table summarizes the resource utilization  of the kernel in different configurations, generated using Vitis HLS 2020.2 tool for the Xilinx xcu200-fsgd2104-2-e FPGA, to process a RGB image with a resolution of 1024x676 &amp; pixel width 16 bit and quantized it to 8 bit pixel width.</p>
-<table class="docutils align-default" id="id239">
-<caption><span class="caption-text">Table Quantization &amp; Dithering Resource Utilization Summary</span><a class="headerlink" href="#id239" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id240">
+<caption><span class="caption-text">Table Quantization &amp; Dithering Resource Utilization Summary</span><a class="headerlink" href="#id240" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 18%" />
 <col style="width: 23%" />
@@ -20765,8 +20816,8 @@ options is XF_NPPC1 or XF_NPPC2</p></td>
 </table>
 <p class="rubric">Performance Estimate</p>
 <p>The following table summarizes a performance estimate of the kernel in different configurations, as generated using Vitis HLS 2020.2 tool for the Xilinx xcu200-fsgd2104-2-e FPGA,  to process a RGB image with a resolution of 1024x676 &amp; pixel width 16 bit and quantized it to 8 bit pixel width.</p>
-<table class="docutils align-default" id="id240">
-<caption><span class="caption-text">Table Quantization &amp; Dithering Function Performance Estimate Summary</span><a class="headerlink" href="#id240" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id241">
+<caption><span class="caption-text">Table Quantization &amp; Dithering Function Performance Estimate Summary</span><a class="headerlink" href="#id241" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 29%" />
 <col style="width: 38%" />
@@ -20816,8 +20867,8 @@ the matrix’s rows/columns.</p></li>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id241">
-<caption><span class="caption-text">Table . Reduce Parameter Description</span><a class="headerlink" href="#id241" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id242">
+<caption><span class="caption-text">Table . Reduce Parameter Description</span><a class="headerlink" href="#id242" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 78%" />
@@ -20950,8 +21001,8 @@ to destination image.</div>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template parameters.</p>
-<table class="docutils align-default" id="id242">
-<caption><span class="caption-text">Table . remap template .. rubric:: Parameter Descriptions</span><a class="headerlink" href="#id242" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id243">
+<caption><span class="caption-text">Table . remap template .. rubric:: Parameter Descriptions</span><a class="headerlink" href="#id243" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -21002,8 +21053,8 @@ BRAM.</p></td>
 </tbody>
 </table>
 <p>The following table describes the function parameters.</p>
-<table class="docutils align-default" id="id243">
-<caption><span class="caption-text">Table . remap Parameter Description</span><a class="headerlink" href="#id243" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id244">
+<caption><span class="caption-text">Table . remap Parameter Description</span><a class="headerlink" href="#id244" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -21034,8 +21085,8 @@ at</p></td>
 (1080x1920) images generated in the Vivado HLS 2019.1 version tool for
 the Xilinx xczu9eg-ffvb1156-i-es1 FPGA at 300 MHz, with WIN_ROWS as 64
 for the XF_INTERPOLATION_BILINEAR mode.</p>
-<table class="docutils align-default" id="id244">
-<caption><span class="caption-text">Table . remap Function Resource Utilization Summary</span><a class="headerlink" href="#id244" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id245">
+<caption><span class="caption-text">Table . remap Function Resource Utilization Summary</span><a class="headerlink" href="#id245" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 31%" />
 <col style="width: 69%" />
@@ -21103,8 +21154,8 @@ XF_INTERPOLATION_BILINEAR mode using UltraRAM .</p>
 (1080x1920) images generated in the Vivado HLS 2019.1 version tool for
 the Xilinx xczu9eg-ffvb1156-i-es1 FPGA at 300 MHz, with WIN_ROWS as 64
 for XF_INTERPOLATION_BILINEAR mode.</p>
-<table class="docutils align-default" id="id245">
-<caption><span class="caption-text">Table . remap Function Performance Estimate Summary</span><a class="headerlink" href="#id245" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id246">
+<caption><span class="caption-text">Table . remap Function Performance Estimate Summary</span><a class="headerlink" href="#id246" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 29%" />
 <col style="width: 38%" />
@@ -21151,8 +21202,8 @@ up-scaling.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id246">
-<caption><span class="caption-text">Table . resize Parameter Description</span><a class="headerlink" href="#id246" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id247">
+<caption><span class="caption-text">Table . resize Parameter Description</span><a class="headerlink" href="#id247" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -21525,8 +21576,8 @@ processed.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id247">
-<caption><span class="caption-text">Table . Scharr Parameter Description</span><a class="headerlink" href="#id247" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id248">
+<caption><span class="caption-text">Table . Scharr Parameter Description</span><a class="headerlink" href="#id248" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -21654,8 +21705,8 @@ Xilinx Xczu9eg-ffvb1156-1-i-es1 FPGA, to process a 4K 3 channel image.</p>
 different configurations, as generated using Vivado HLS 2019.1 tool for
 the Xilinx Xczu9eg-ffvb1156-1-i-es1, to process a grayscale HD
 (1080x1920) image.</p>
-<table class="docutils align-default" id="id248">
-<caption><span class="caption-text">Table . Scharr Function Performance Estimate Summary</span><a class="headerlink" href="#id248" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id249">
+<caption><span class="caption-text">Table . Scharr Function Performance Estimate Summary</span><a class="headerlink" href="#id249" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 35%" />
 <col style="width: 46%" />
@@ -21694,8 +21745,8 @@ value and stores the result in dst.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id249">
-<caption><span class="caption-text">Table . Set Parameter Description</span><a class="headerlink" href="#id249" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id250">
+<caption><span class="caption-text">Table . Set Parameter Description</span><a class="headerlink" href="#id250" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 78%" />
@@ -22177,8 +22228,8 @@ compile-time input.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id250">
-<caption><span class="caption-text">Table . SemiGlobalBM Parameter Description</span><a class="headerlink" href="#id250" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id251">
+<caption><span class="caption-text">Table . SemiGlobalBM Parameter Description</span><a class="headerlink" href="#id251" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -22282,8 +22333,8 @@ is 100.</p></td>
 <p class="rubric">Performance Estimate</p>
 <p>The following table summarizes a performance estimate for a 1920x1080
 image.</p>
-<table class="docutils align-default" id="id251">
-<caption><span class="caption-text">Table . SemiGlobalBM Function Performance Estimate Summary</span><a class="headerlink" href="#id251" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id252">
+<caption><span class="caption-text">Table . SemiGlobalBM Function Performance Estimate Summary</span><a class="headerlink" href="#id252" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 20%" />
@@ -22342,8 +22393,8 @@ the disparity value of zero.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id252">
-<caption><span class="caption-text">Table . StereoBM Parameter Description</span><a class="headerlink" href="#id252" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id253">
+<caption><span class="caption-text">Table . StereoBM Parameter Description</span><a class="headerlink" href="#id253" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -22620,8 +22671,8 @@ scalar image and stores it in the destination image.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id253">
-<caption><span class="caption-text">Table . SubRS Parameter Description</span><a class="headerlink" href="#id253" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id254">
+<caption><span class="caption-text">Table . SubRS Parameter Description</span><a class="headerlink" href="#id254" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 78%" />
@@ -22744,8 +22795,8 @@ image and stores it in the destination image.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id254">
-<caption><span class="caption-text">Table . SubS Parameter Description</span><a class="headerlink" href="#id254" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id255">
+<caption><span class="caption-text">Table . SubS Parameter Description</span><a class="headerlink" href="#id255" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 78%" />
@@ -22866,8 +22917,8 @@ image.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id255">
-<caption><span class="caption-text">Table . Sum Parameter Description</span><a class="headerlink" href="#id255" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id256">
+<caption><span class="caption-text">Table . Sum Parameter Description</span><a class="headerlink" href="#id256" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 78%" />
@@ -22984,8 +23035,8 @@ product value with its fixed point type.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id256">
-<caption><span class="caption-text">Table . SVM Parameter Description</span><a class="headerlink" href="#id256" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id257">
+<caption><span class="caption-text">Table . SVM Parameter Description</span><a class="headerlink" href="#id257" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 17%" />
 <col style="width: 83%" />
@@ -23144,8 +23195,8 @@ function.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id257">
-<caption><span class="caption-text">Table . Threshold Parameter Description</span><a class="headerlink" href="#id257" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id258">
+<caption><span class="caption-text">Table . Threshold Parameter Description</span><a class="headerlink" href="#id258" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -23239,8 +23290,8 @@ process a grayscale HD (1080x1920) image.</p>
 different configurations, as generated using Vivado HLS 2019.1 tool for
 the Xilinx Xczu9eg-ffvb1156-1, to process a grayscale HD (1080x1920)
 image.</p>
-<table class="docutils align-default" id="id258">
-<caption><span class="caption-text">Table . Threshold Function Performance Estimate Summary</span><a class="headerlink" href="#id258" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id259">
+<caption><span class="caption-text">Table . Threshold Function Performance Estimate Summary</span><a class="headerlink" href="#id259" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 29%" />
 <col style="width: 38%" />
@@ -23287,8 +23338,8 @@ function returns 0 when both xs and ys are zeroes.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id259">
-<caption><span class="caption-text">Table . Atan2LookupFP Parameter Description</span><a class="headerlink" href="#id259" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id260">
+<caption><span class="caption-text">Table . Atan2LookupFP Parameter Description</span><a class="headerlink" href="#id260" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -23403,8 +23454,8 @@ needed to represent this value in fixed point format.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id260">
-<caption><span class="caption-text">Table . Inverse Parameter Description</span><a class="headerlink" href="#id260" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id261">
+<caption><span class="caption-text">Table . Inverse Parameter Description</span><a class="headerlink" href="#id261" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -23523,8 +23574,8 @@ point, that is, N=1:</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id261">
-<caption><span class="caption-text">Table . Sqrt Parameter Description</span><a class="headerlink" href="#id261" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id262">
+<caption><span class="caption-text">Table . Sqrt Parameter Description</span><a class="headerlink" href="#id262" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -23643,8 +23694,8 @@ dimensions of the dst1 by the third dimension</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id262">
-<caption><span class="caption-text">Table . warpTransform Parameter Description</span><a class="headerlink" href="#id262" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id263">
+<caption><span class="caption-text">Table . warpTransform Parameter Description</span><a class="headerlink" href="#id263" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -24013,8 +24064,8 @@ the result in dst.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id263">
-<caption><span class="caption-text">Table . Zero Parameter Description</span><a class="headerlink" href="#id263" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id264">
+<caption><span class="caption-text">Table . Zero Parameter Description</span><a class="headerlink" href="#id264" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 78%" />
@@ -24154,7 +24205,7 @@ Pattern Recognition, 2005.</p>
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on December 01, 2020.
+        Last updated on February 03, 2021.
       </span>
 
     </p>
