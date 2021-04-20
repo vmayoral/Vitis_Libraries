@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup2/kalib/xf_compression/L1/include/hw/mm2s.hpp File Reference</title>
+<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/meghanat/xf_compression/L1/include/hw/mm2s.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -95,7 +95,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>Header for modules used for memory mapped to streaming interface conversion.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;hls_stream.h&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="compress__utils_8hpp_source.html">compress_utils.hpp</a>&quot;</code><br/>
+<code>#include &quot;hls_stream.h&quot;</code><br/>
 <code>#include &lt;ap_int.h&gt;</code><br/>
 <code>#include &lt;assert.h&gt;</code><br/>
 <code>#include &lt;stdint.h&gt;</code><br/>
@@ -122,24 +123,9 @@ typedef ap_uint&lt; kGMemDWidth &gt;&#160;</td><td class="memItemRight" valign="
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af84cf7c562c7d70f49c7ce56685b7301"><td class="memTemplParams" colspan="2"><a class="anchor" id="af84cf7c562c7d70f49c7ce56685b7301"></a>
-template&lt;int NUM_BLOCKS, int BLOCK_SIZE, int DATAWIDTH, int BURST_SIZE&gt; </td></tr>
-<tr class="memitem:af84cf7c562c7d70f49c7ce56685b7301"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::mm2multStreamMM1</b> (const ap_uint&lt; DATAWIDTH &gt; *in, hls::stream&lt; ap_uint&lt; DATAWIDTH &gt; &gt; outStream[NUM_BLOCKS], hls::stream&lt; uint16_t &gt; outSizeStream[NUM_BLOCKS], hls::stream&lt; uint32_t &gt; outLz77SizeStream[NUM_BLOCKS], const uint32_t input_idx[NUM_BLOCKS], const uint32_t _input_size[NUM_BLOCKS])</td></tr>
-<tr class="separator:af84cf7c562c7d70f49c7ce56685b7301"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39cc8d2d24db2e98ebe3eae9c46005ef"><td class="memTemplParams" colspan="2"><a class="anchor" id="a39cc8d2d24db2e98ebe3eae9c46005ef"></a>
-template&lt;int OUT_DATAWIDTH = 8, int NUM_BLOCKS = 8, int BLOCK_SIZE = 32768, int IN_DATAWIDTH = 512, int BURST_SIZE = 16&gt; </td></tr>
-<tr class="memitem:a39cc8d2d24db2e98ebe3eae9c46005ef"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::mm2multStream1</b> (const ap_uint&lt; IN_DATAWIDTH &gt; *in, const uint32_t input_idx[NUM_BLOCKS], hls::stream&lt; ap_uint&lt; OUT_DATAWIDTH &gt; &gt; outStream[NUM_BLOCKS], hls::stream&lt; uint32_t &gt; outSizeStream[NUM_BLOCKS], const uint32_t _input_size[NUM_BLOCKS])</td></tr>
-<tr class="separator:a39cc8d2d24db2e98ebe3eae9c46005ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6507e33da30673a39e9989a1a1e691f"><td class="memTemplParams" colspan="2"><a class="anchor" id="aa6507e33da30673a39e9989a1a1e691f"></a>
-template&lt;int OUT_DATAWIDTH = 8, int NUM_BLOCKS = 4, int BLOCK_SIZE = 32768, int IN_DATAWIDTH = 512, int BURST_SIZE = 16&gt; </td></tr>
-<tr class="memitem:aa6507e33da30673a39e9989a1a1e691f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::mm2multStreamBlockGenerator</b> (const ap_uint&lt; IN_DATAWIDTH &gt; *in, hls::stream&lt; ap_uint&lt; OUT_DATAWIDTH &gt; &gt; outStream[NUM_BLOCKS], hls::stream&lt; uint32_t &gt; outSizeStream[NUM_BLOCKS], hls::stream&lt; uint32_t &gt; outBaseIdx[NUM_BLOCKS], uint32_t input_size)</td></tr>
-<tr class="separator:aa6507e33da30673a39e9989a1a1e691f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28f14085fa5ebe71802d6aeeeb6c207e"><td class="memTemplParams" colspan="2">template&lt;int DATAWIDTH, int BURST_SIZE, int NUM_BLOCKS&gt; </td></tr>
 <tr class="memitem:a28f14085fa5ebe71802d6aeeeb6c207e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::mm2sNb</b> (const ap_uint&lt; DATAWIDTH &gt; *in, const uint32_t _input_idx[NUM_BLOCKS], hls::stream&lt; ap_uint&lt; DATAWIDTH &gt; &gt; outStream[NUM_BLOCKS], const uint32_t _input_size[NUM_BLOCKS])</td></tr>
 <tr class="separator:a28f14085fa5ebe71802d6aeeeb6c207e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea6795a25abc8a742d49f7ba8f9f30b1"><td class="memTemplParams" colspan="2">template&lt;int NUM_BLOCKS, int IN_DATAWIDTH, int OUT_DATAWIDTH, int BURST_SIZE&gt; </td></tr>
-<tr class="memitem:aea6795a25abc8a742d49f7ba8f9f30b1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::mm2multStream</b> (const ap_uint&lt; IN_DATAWIDTH &gt; *in, const uint32_t input_idx[NUM_BLOCKS], hls::stream&lt; ap_uint&lt; OUT_DATAWIDTH &gt; &gt; outStream[NUM_BLOCKS], const uint32_t _input_size[NUM_BLOCKS])</td></tr>
-<tr class="separator:aea6795a25abc8a742d49f7ba8f9f30b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad80d567d4d31ae62adcff3a421b3a12b"><td class="memTemplParams" colspan="2">template&lt;int NUM_BLOCKS, int DATAWIDTH, int BURST_SIZE&gt; </td></tr>
 <tr class="memitem:ad80d567d4d31ae62adcff3a421b3a12b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::mm2multStreamSimple</b> (const ap_uint&lt; DATAWIDTH &gt; *in, hls::stream&lt; ap_uint&lt; DATAWIDTH &gt; &gt; outStream[NUM_BLOCKS], hls::stream&lt; uint16_t &gt; outSizeStream[NUM_BLOCKS], const uint32_t input_idx[NUM_BLOCKS], const uint32_t _input_size[NUM_BLOCKS])</td></tr>
 <tr class="separator:ad80d567d4d31ae62adcff3a421b3a12b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,13 +150,15 @@ template&lt;int OUT_DATAWIDTH = 8, int NUM_BLOCKS = 4, int BLOCK_SIZE = 32768, i
 <tr class="memitem:af8fa8c309ccbdea028890d612cef1c48"><td class="memTemplParams" colspan="2">template&lt;int DATAWIDTH&gt; </td></tr>
 <tr class="memitem:af8fa8c309ccbdea028890d612cef1c48"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::mm2sSimple</b> (const ap_uint&lt; DATAWIDTH &gt; *in, hls::stream&lt; ap_uint&lt; DATAWIDTH &gt; &gt; &amp;outstream, uint32_t inputSize)</td></tr>
 <tr class="separator:af8fa8c309ccbdea028890d612cef1c48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaef47061659ae4ab7c927c137c19f132"><td class="memTemplParams" colspan="2">template&lt;int DATAWIDTH, int BURST_SIZE&gt; </td></tr>
+<tr class="memitem:aaef47061659ae4ab7c927c137c19f132"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::mm2sSimple</b> (const ap_uint&lt; DATAWIDTH &gt; *in, hls::stream&lt; ap_uint&lt; DATAWIDTH &gt; &gt; &amp;outstream, uint32_t inputSize, uint32_t numItr)</td></tr>
+<tr class="separator:aaef47061659ae4ab7c927c137c19f132"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebab5165184b9a7feca2a7359d83982f"><td class="memTemplParams" colspan="2">template&lt;int DATAWIDTH, int BURST_SIZE&gt; </td></tr>
 <tr class="memitem:aebab5165184b9a7feca2a7359d83982f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::mm2sSimple</b> (const ap_uint&lt; DATAWIDTH &gt; *in, hls::stream&lt; ap_uint&lt; DATAWIDTH &gt; &gt; &amp;outstream, uint32_t inputSize)</td></tr>
 <tr class="separator:aebab5165184b9a7feca2a7359d83982f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b0202f258df8649bc8fdac943b165d0"><td class="memTemplParams" colspan="2"><a class="anchor" id="a3b0202f258df8649bc8fdac943b165d0"></a>
-template&lt;int DATAWIDTH, int BURST_SIZE&gt; </td></tr>
-<tr class="memitem:a3b0202f258df8649bc8fdac943b165d0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::mm2s</b> (const uintMemWidth_t *in, uintMemWidth_t *head_prev_blk, uintMemWidth_t *orig_input_data, hls::stream&lt; ap_uint&lt; DATAWIDTH &gt; &gt; &amp;outStream, hls::stream&lt; uint32_t &gt; &amp;outStreamSize, uint32_t *compressd_size, uint32_t *in_block_size, uint32_t no_blocks, uint32_t block_size_in_kb, uint32_t head_res_size, uint32_t offset)</td></tr>
-<tr class="separator:a3b0202f258df8649bc8fdac943b165d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bceffd7809a8c5c3acd0af000007bcf"><td class="memTemplParams" colspan="2">template&lt;int DATAWIDTH, int BURST_SIZE&gt; </td></tr>
+<tr class="memitem:a1bceffd7809a8c5c3acd0af000007bcf"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::mm2Stream</b> (const ap_uint&lt; DATAWIDTH &gt; *in, hls::stream&lt; ap_uint&lt; DATAWIDTH &gt; &gt; &amp;outstream, hls::stream&lt; ap_uint&lt; 32 &gt; &gt; &amp;checksumStream, uint32_t *checksumData, uint32_t inputSize, hls::stream&lt; uint32_t &gt; &amp;outSizeStream, bool checksumType, hls::stream&lt; ap_uint&lt; 2 &gt; &gt; &amp;checksumTypeStream)</td></tr>
+<tr class="separator:a1bceffd7809a8c5c3acd0af000007bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup2/kalib/xf_compression/L3/include/lz4_p2p_dec.hpp Source File</title>
+<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/meghanat/xf_compression/L3/include/lz4_p2p_dec.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright 2019 Xilinx, Inc.</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright 2019-2021 Xilinx, Inc.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * you may not use this file except in compliance with the License.</span></div>
@@ -136,28 +136,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                                           std::vector&lt;int&gt;&amp; fd_p2p_vec,</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                                           std::vector&lt;char*&gt;&amp; outVec,</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                                           std::vector&lt;uint64_t&gt;&amp; orgSizeVec,</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                           std::vector&lt;uint64_t&gt;&amp; inSizeVec4k,</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                                           <span class="keywordtype">bool</span> enable_p2p);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    ~<a class="code" href="classxfLz4.html">xfLz4</a>();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">static</span> uint64_t get_file_size(std::ifstream&amp; file) {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        file.seekg(0, file.end);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        uint64_t file_size = file.tellg();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        file.seekg(0, file.beg);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> file_size;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;   <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    cl_program m_program;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    cl_context m_context;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    cl_device_id m_device;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    cl_command_queue ooo_q;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    std::vector&lt;std::string&gt; unpacker_kernel_names = {<span class="stringliteral">&quot;xilLz4Unpacker&quot;</span>};</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    std::vector&lt;std::string&gt; decompress_kernel_names = {<span class="stringliteral">&quot;xilLz4P2PDecompress&quot;</span>};</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif // _XFCOMPRESSION_LZ4_P2P_DEC_HPP_</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                           std::vector&lt;uint32_t&gt;&amp; inSizeVec4k,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                                           <span class="keywordtype">bool</span> enable_p2p,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                                           uint8_t maxCR);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    ~<a class="code" href="classxfLz4.html">xfLz4</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">static</span> uint64_t get_file_size(std::ifstream&amp; file) {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        file.seekg(0, file.end);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        uint64_t file_size = file.tellg();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        file.seekg(0, file.beg);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> file_size;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    cl_program m_program;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    cl_context m_context;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    cl_device_id m_device;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    cl_command_queue ooo_q;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    std::vector&lt;std::string&gt; datamover_kernel_names = {<span class="stringliteral">&quot;xilDecompDatamover&quot;</span>};</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    std::vector&lt;std::string&gt; decompress_kernel_names = {<span class="stringliteral">&quot;xilLz4DecompressStream&quot;</span>};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif // _XFCOMPRESSION_LZ4_P2P_DEC_HPP_</span></div>
 <div class="ttc" id="classxfLz4_html"><div class="ttname"><a href="classxfLz4.html">xfLz4</a></div><div class="ttdef"><b>Definition:</b> lz4_p2p_dec.hpp:43</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

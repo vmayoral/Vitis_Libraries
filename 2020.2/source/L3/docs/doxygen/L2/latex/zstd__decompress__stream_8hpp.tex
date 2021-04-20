@@ -1,5 +1,5 @@
-\hypertarget{zstd__decompress__stream_8hpp}{\section{/wrk/xhdhdnobkup2/kalib/xf\-\_\-compression/\-L2/include/zstd\-\_\-decompress\-\_\-stream.hpp File Reference}
-\label{zstd__decompress__stream_8hpp}\index{/wrk/xhdhdnobkup2/kalib/xf\-\_\-compression/\-L2/include/zstd\-\_\-decompress\-\_\-stream.\-hpp@{/wrk/xhdhdnobkup2/kalib/xf\-\_\-compression/\-L2/include/zstd\-\_\-decompress\-\_\-stream.\-hpp}}
+\hypertarget{zstd__decompress__stream_8hpp}{\section{/wrk/xhdhdnobkup3/meghanat/xf\-\_\-compression/\-L2/include/zstd\-\_\-decompress\-\_\-stream.hpp File Reference}
+\label{zstd__decompress__stream_8hpp}\index{/wrk/xhdhdnobkup3/meghanat/xf\-\_\-compression/\-L2/include/zstd\-\_\-decompress\-\_\-stream.\-hpp@{/wrk/xhdhdnobkup3/meghanat/xf\-\_\-compression/\-L2/include/zstd\-\_\-decompress\-\_\-stream.\-hpp}}
 }
 
 
@@ -25,7 +25,7 @@ Header for zstd decompression streaming kernel.
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{zstd__decompress__stream_8hpp_af488c56d4c28fad772cef1c7e6437641}{xil\-Zstd\-Decompress\-Stream} (uint64\-\_\-t input\-\_\-size, hls\-::stream$<$ ap\-\_\-axiu$<$ c\-\_\-stream\-D\-Width, 0, 0, 0 $>$ $>$ \&inaxistreamd, hls\-::stream$<$ ap\-\_\-axiu$<$ c\-\_\-stream\-D\-Width, 0, 0, 0 $>$ $>$ \&outaxistreamd, hls\-::stream$<$ ap\-\_\-axiu$<$ 64, 0, 0, 0 $>$ $>$ \&sizestreamd)
+void \hyperlink{zstd__decompress__stream_8hpp_aeea49d48062b7c49a017d53c2306c500}{xil\-Zstd\-Decompress\-Stream} (hls\-::stream$<$ ap\-\_\-axiu$<$ c\-\_\-stream\-D\-Width, 0, 0, 0 $>$ $>$ \&inaxistreamd, hls\-::stream$<$ ap\-\_\-axiu$<$ c\-\_\-stream\-D\-Width, 0, 0, 0 $>$ $>$ \&outaxistreamd)
 \begin{DoxyCompactList}\small\item\em This is full Z\-Standard decompression streaming kernel function. It supports all block sizes and supports window size upto 128\-K\-B. It takes entire Z\-Std compressed file as input and produces decompressed file at the kernel output stream. This kernel does not use D\-D\-R memory, it uses streams instead. Intermediate data is stored in internal B\-R\-A\-Ms and stream F\-I\-F\-Os, which helps to attain better decompression throughput. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -42,16 +42,14 @@ void \hyperlink{zstd__decompress__stream_8hpp_af488c56d4c28fad772cef1c7e6437641}
 Header for zstd decompression streaming kernel. This file is part of Vitis Data Compression Library. 
 
 \subsection{Function Documentation}
-\hypertarget{zstd__decompress__stream_8hpp_af488c56d4c28fad772cef1c7e6437641}{\index{zstd\-\_\-decompress\-\_\-stream.\-hpp@{zstd\-\_\-decompress\-\_\-stream.\-hpp}!xil\-Zstd\-Decompress\-Stream@{xil\-Zstd\-Decompress\-Stream}}
+\hypertarget{zstd__decompress__stream_8hpp_aeea49d48062b7c49a017d53c2306c500}{\index{zstd\-\_\-decompress\-\_\-stream.\-hpp@{zstd\-\_\-decompress\-\_\-stream.\-hpp}!xil\-Zstd\-Decompress\-Stream@{xil\-Zstd\-Decompress\-Stream}}
 \index{xil\-Zstd\-Decompress\-Stream@{xil\-Zstd\-Decompress\-Stream}!zstd_decompress_stream.hpp@{zstd\-\_\-decompress\-\_\-stream.\-hpp}}
 \subsubsection[{xil\-Zstd\-Decompress\-Stream}]{\setlength{\rightskip}{0pt plus 5cm}void xil\-Zstd\-Decompress\-Stream (
 \begin{DoxyParamCaption}
-\item[{uint64\-\_\-t}]{input\-\_\-size, }
 \item[{hls\-::stream$<$ ap\-\_\-axiu$<$ c\-\_\-stream\-D\-Width, 0, 0, 0 $>$ $>$ \&}]{inaxistreamd, }
-\item[{hls\-::stream$<$ ap\-\_\-axiu$<$ c\-\_\-stream\-D\-Width, 0, 0, 0 $>$ $>$ \&}]{outaxistreamd, }
-\item[{hls\-::stream$<$ ap\-\_\-axiu$<$ 64, 0, 0, 0 $>$ $>$ \&}]{sizestreamd}
+\item[{hls\-::stream$<$ ap\-\_\-axiu$<$ c\-\_\-stream\-D\-Width, 0, 0, 0 $>$ $>$ \&}]{outaxistreamd}
 \end{DoxyParamCaption}
-)}}\label{zstd__decompress__stream_8hpp_af488c56d4c28fad772cef1c7e6437641}
+)}}\label{zstd__decompress__stream_8hpp_aeea49d48062b7c49a017d53c2306c500}
 
 
 This is full Z\-Standard decompression streaming kernel function. It supports all block sizes and supports window size upto 128\-K\-B. It takes entire Z\-Std compressed file as input and produces decompressed file at the kernel output stream. This kernel does not use D\-D\-R memory, it uses streams instead. Intermediate data is stored in internal B\-R\-A\-Ms and stream F\-I\-F\-Os, which helps to attain better decompression throughput. 

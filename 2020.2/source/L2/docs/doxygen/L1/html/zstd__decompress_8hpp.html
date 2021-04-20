@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup2/kalib/xf_compression/L1/include/hw/zstd_decompress.hpp File Reference</title>
+<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/meghanat/xf_compression/L1/include/hw/zstd_decompress.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -90,7 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Header for modules used in ZSTD decompress kernel.  
+<p>Header for modules used in ZSTD compression kernel.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;hls_stream.h&quot;</code><br/>
 <code>#include &quot;ap_axi_sdata.h&quot;</code><br/>
@@ -128,25 +128,26 @@ template&lt;int PARALLEL_BYTE&gt; </td></tr>
 template&lt;int PARALLEL_BYTE, int BLOCK_SIZE_KB, int LMO_WIDTH&gt; </td></tr>
 <tr class="memitem:afa11f878052c7c9a51056c32ccb0eb83"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::decompressMultiFrames</b> (hls::stream&lt; ap_uint&lt; 8 *PARALLEL_BYTE &gt; &gt; &amp;inStream, hls::stream&lt; ap_uint&lt; 4 &gt; &gt; &amp;inStrobe, hls::stream&lt; ap_uint&lt; 8 *PARALLEL_BYTE &gt; &gt; &amp;literalStream, hls::stream&lt; ap_uint&lt; LMO_WIDTH &gt; &gt; &amp;litLenStream, hls::stream&lt; ap_uint&lt; LMO_WIDTH &gt; &gt; &amp;offsetStream, hls::stream&lt; ap_uint&lt; LMO_WIDTH &gt; &gt; &amp;matLenStream, hls::stream&lt; bool &gt; &amp;litlenValidStream, hls::stream&lt; bool &gt; &amp;newBlockFlagStream)</td></tr>
 <tr class="separator:afa11f878052c7c9a51056c32ccb0eb83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07e4f3c4a76a41b3ff1c8953302f9722"><td class="memTemplParams" colspan="2"><a class="anchor" id="a07e4f3c4a76a41b3ff1c8953302f9722"></a>
+<tr class="memitem:a785daf028b8b105af008e3a7afeb03fd"><td class="memTemplParams" colspan="2"><a class="anchor" id="a785daf028b8b105af008e3a7afeb03fd"></a>
 template&lt;int PARALLEL_BYTE&gt; </td></tr>
-<tr class="memitem:a07e4f3c4a76a41b3ff1c8953302f9722"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::kStreamReadZstdDecomp</b> (hls::stream&lt; ap_axiu&lt; 8 *PARALLEL_BYTE, 0, 0, 0 &gt; &gt; &amp;inKStream, hls::stream&lt; ap_uint&lt; 8 *PARALLEL_BYTE &gt; &gt; &amp;zstdCoreInStream, hls::stream&lt; ap_uint&lt; 4 &gt; &gt; &amp;inStrobe, uint64_t inputSize)</td></tr>
-<tr class="separator:a07e4f3c4a76a41b3ff1c8953302f9722"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29e8a4524d4855cf9e46a27c6570c7d9"><td class="memTemplParams" colspan="2"><a class="anchor" id="a29e8a4524d4855cf9e46a27c6570c7d9"></a>
+<tr class="memitem:a785daf028b8b105af008e3a7afeb03fd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::kStreamReadZstdDecomp</b> (hls::stream&lt; ap_axiu&lt; 8 *PARALLEL_BYTE, 0, 0, 0 &gt; &gt; &amp;inKStream, hls::stream&lt; ap_uint&lt; 8 *PARALLEL_BYTE &gt; &gt; &amp;zstdCoreInStream, hls::stream&lt; ap_uint&lt; 4 &gt; &gt; &amp;inStrobe)</td></tr>
+<tr class="separator:a785daf028b8b105af008e3a7afeb03fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaec7d8f8425fe78347d90059d6eda3af"><td class="memTemplParams" colspan="2"><a class="anchor" id="aaec7d8f8425fe78347d90059d6eda3af"></a>
 template&lt;int STREAM_WIDTH&gt; </td></tr>
-<tr class="memitem:a29e8a4524d4855cf9e46a27c6570c7d9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::kStreamWriteZstdDecomp</b> (hls::stream&lt; ap_axiu&lt; STREAM_WIDTH, 0, 0, 0 &gt; &gt; &amp;outKStream, hls::stream&lt; ap_axiu&lt; 64, 0, 0, 0 &gt; &gt; &amp;outSizeStream, hls::stream&lt; ap_uint&lt; STREAM_WIDTH &gt; &gt; &amp;outDataStream, hls::stream&lt; bool &gt; &amp;byteEos, hls::stream&lt; uint64_t &gt; &amp;dataSize)</td></tr>
-<tr class="separator:a29e8a4524d4855cf9e46a27c6570c7d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03096000fda00fee5072ab74e991a5ab"><td class="memTemplParams" colspan="2">template&lt;int PARALLEL_BYTE, int BLOCK_SIZE_KB, int LZ_MAX_OFFSET, int LMO_WIDTH&gt; </td></tr>
-<tr class="memitem:a03096000fda00fee5072ab74e991a5ab"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::zstdDecompressStream</b> (hls::stream&lt; ap_uint&lt; 8 *PARALLEL_BYTE &gt; &gt; &amp;inStream, hls::stream&lt; ap_uint&lt; 4 &gt; &gt; &amp;inStrobe, hls::stream&lt; ap_uint&lt; 8 *PARALLEL_BYTE &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;endOfStream, hls::stream&lt; uint64_t &gt; &amp;sizeOutStream)</td></tr>
-<tr class="memdesc:a03096000fda00fee5072ab74e991a5ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">This module decompresses the ZStd compressed file read from input stream. It reads the input stream till valid strobe input is provided. It produces the decompressed data at the output stream.  <a href="#a03096000fda00fee5072ab74e991a5ab">More...</a><br/></td></tr>
-<tr class="separator:a03096000fda00fee5072ab74e991a5ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd08f52cc74d322be28d23fbbcf20c78"><td class="memTemplParams" colspan="2">template&lt;int PARALLEL_BYTE, int BLOCK_SIZE_KB, int LZ_MAX_OFFSET, int LMO_WIDTH = 15&gt; </td></tr>
-<tr class="memitem:afd08f52cc74d322be28d23fbbcf20c78"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::zstdDecompressCore</b> (hls::stream&lt; ap_axiu&lt; 8 *PARALLEL_BYTE, 0, 0, 0 &gt; &gt; &amp;inStream, hls::stream&lt; ap_axiu&lt; 8 *PARALLEL_BYTE, 0, 0, 0 &gt; &gt; &amp;outStream, hls::stream&lt; ap_axiu&lt; 64, 0, 0, 0 &gt; &gt; &amp;outSizeStream, uint64_t inputSize)</td></tr>
-<tr class="memdesc:afd08f52cc74d322be28d23fbbcf20c78"><td class="mdescLeft">&#160;</td><td class="mdescRight">This module decompresses the ZStd compressed file read from input stream. It reads the input stream till the given input size. It produces the decompressed data at the output stream.  <a href="#afd08f52cc74d322be28d23fbbcf20c78">More...</a><br/></td></tr>
-<tr class="separator:afd08f52cc74d322be28d23fbbcf20c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaec7d8f8425fe78347d90059d6eda3af"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::kStreamWriteZstdDecomp</b> (hls::stream&lt; ap_axiu&lt; STREAM_WIDTH, 0, 0, 0 &gt; &gt; &amp;outKStream, hls::stream&lt; ap_uint&lt; STREAM_WIDTH+(STREAM_WIDTH/8)&gt; &gt; &amp;outDataStream)</td></tr>
+<tr class="separator:aaec7d8f8425fe78347d90059d6eda3af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae807d77fbff4631bbd1e9b2f806fd2f9"><td class="memTemplParams" colspan="2">template&lt;int PARALLEL_BYTE, int BLOCK_SIZE_KB, int LZ_MAX_OFFSET, int LMO_WIDTH&gt; </td></tr>
+<tr class="memitem:ae807d77fbff4631bbd1e9b2f806fd2f9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::zstdDecompressStream</b> (hls::stream&lt; ap_uint&lt; 8 *PARALLEL_BYTE &gt; &gt; &amp;inStream, hls::stream&lt; ap_uint&lt; 4 &gt; &gt; &amp;inStrobe, hls::stream&lt; ap_uint&lt;(8 *PARALLEL_BYTE)+PARALLEL_BYTE &gt; &gt; &amp;outStream)</td></tr>
+<tr class="memdesc:ae807d77fbff4631bbd1e9b2f806fd2f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This module decompresses the ZStd compressed file read from input stream. It reads the input stream till valid strobe input is provided. It produces the decompressed data at the output stream.  <a href="#ae807d77fbff4631bbd1e9b2f806fd2f9">More...</a><br/></td></tr>
+<tr class="separator:ae807d77fbff4631bbd1e9b2f806fd2f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca9e62af04d9c21ac03706dcf928f855"><td class="memTemplParams" colspan="2">template&lt;int PARALLEL_BYTE, int BLOCK_SIZE_KB, int LZ_MAX_OFFSET, int LMO_WIDTH = 15&gt; </td></tr>
+<tr class="memitem:aca9e62af04d9c21ac03706dcf928f855"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::zstdDecompressCore</b> (hls::stream&lt; ap_axiu&lt; 8 *PARALLEL_BYTE, 0, 0, 0 &gt; &gt; &amp;inStream, hls::stream&lt; ap_axiu&lt; 8 *PARALLEL_BYTE, 0, 0, 0 &gt; &gt; &amp;outStream)</td></tr>
+<tr class="memdesc:aca9e62af04d9c21ac03706dcf928f855"><td class="mdescLeft">&#160;</td><td class="mdescRight">This module decompresses the ZStd compressed file read from input stream. It reads the input stream till the given input size. It produces the decompressed data at the output stream.  <a href="#aca9e62af04d9c21ac03706dcf928f855">More...</a><br/></td></tr>
+<tr class="separator:aca9e62af04d9c21ac03706dcf928f855"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for modules used in ZSTD decompress kernel. </p>
+<div class="textblock"><p>Header for modules used in ZSTD compression kernel. </p>
+<p>Header for modules used in ZSTD decompress kernel.</p>
 <p>This file is part of Vitis Data Compression Library. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->

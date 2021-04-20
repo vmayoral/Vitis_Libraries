@@ -13,7 +13,7 @@
 \hypertarget{classzlibDriver_a23c281eeb6d90000f2ffc3ff2d91053c}{uint64\-\_\-t {\bfseries xilinx\-Hw\-Uncompress} (z\-\_\-streamp s, int cu)}\label{classzlibDriver_a23c281eeb6d90000f2ffc3ff2d91053c}
 
 \item 
-\hypertarget{classzlibDriver_a56d32faa858eb10a47fbf0dce27467ed}{{\bfseries zlib\-Driver} (z\-\_\-streamp s, const std\-::string \&instance\-\_\-name, const cl\-::\-Device \&device\-\_\-id, const cl\-\_\-context\-\_\-properties \&platform\-\_\-id, const std\-::string \&m\-\_\-u50\-\_\-xclbin, int flow)}\label{classzlibDriver_a56d32faa858eb10a47fbf0dce27467ed}
+\hypertarget{classzlibDriver_a0a2b440d8023eb944d8d5f788089f126}{{\bfseries zlib\-Driver} (z\-\_\-streamp s, const cl\-\_\-context\-\_\-properties \&platform\-\_\-id, const std\-::string \&m\-\_\-u50\-\_\-xclbin, int flow, std\-::vector$<$ cl\-::\-Device $>$ \&ndevices, std\-::vector$<$ cl\-::\-Context $\ast$ $>$ \&device\-Context, std\-::vector$<$ cl\-::\-Program $\ast$ $>$ \&device\-Program, bool init=true)}\label{classzlibDriver_a0a2b440d8023eb944d8d5f788089f126}
 
 \item 
 \hypertarget{classzlibDriver_a5f64f2eee66d23270b084470e7d972d9}{bool {\bfseries get\-Status} ()}\label{classzlibDriver_a5f64f2eee66d23270b084470e7d972d9}
@@ -22,17 +22,35 @@
 \hypertarget{classzlibDriver_ae94889732c3e2e128f3fa7ab1578a995}{void {\bfseries struct\-\_\-update} (z\-\_\-streamp s, int flow)}\label{classzlibDriver_ae94889732c3e2e128f3fa7ab1578a995}
 
 \item 
-\hypertarget{classzlibDriver_aeb79205ed7c535619f8d8efe66e3b624}{bool {\bfseries get\-Zlib\-Instance} (const std\-::string \&kinstance, const cl\-::\-Device \&device\-\_\-id, const cl\-\_\-context\-\_\-properties \&platform\-\_\-id)}\label{classzlibDriver_aeb79205ed7c535619f8d8efe66e3b624}
+\hypertarget{classzlibDriver_a03573fbdc2208c50695b09d42493d19f}{bool {\bfseries get\-Zlib\-Instance} (void)}\label{classzlibDriver_a03573fbdc2208c50695b09d42493d19f}
 
 \item 
-\hypertarget{classzlibDriver_a1830cd5bee7db028ab47ec1fe5ccadbd}{void {\bfseries release\-Zlib\-Obj} (z\-\_\-streamp strm)}\label{classzlibDriver_a1830cd5bee7db028ab47ec1fe5ccadbd}
+\hypertarget{classzlibDriver_ab92f52f879fce464cf131f21540c82f6}{bool {\bfseries allocate\-C\-U} (z\-\_\-streamp strm)}\label{classzlibDriver_ab92f52f879fce464cf131f21540c82f6}
 
 \item 
 \hypertarget{classzlibDriver_ab291d3ab12bd571c59d2e46171230933}{bool {\bfseries get\-Err\-Status} (void)}\label{classzlibDriver_ab291d3ab12bd571c59d2e46171230933}
+
+\item 
+\hypertarget{classzlibDriver_ad141f629c1225a8254848407dc4ecf96}{\hyperlink{classxf_1_1compression_1_1xfZlib}{xf\-Zlib} $\ast$ {\bfseries get\-Zlib\-Ptr} (void)}\label{classzlibDriver_ad141f629c1225a8254848407dc4ecf96}
+
+\item 
+\hypertarget{classzlibDriver_a7ab5372e9a3ed91d0496365d7575c5b4}{void {\bfseries release\-Zlib\-C\-U} (z\-\_\-streamp strm)}\label{classzlibDriver_a7ab5372e9a3ed91d0496365d7575c5b4}
+
+\item 
+\hypertarget{classzlibDriver_a95aa0cb5cbfb47555669a1d80d01e41d}{bool {\bfseries is\-Decompress\-Eligible} ()}\label{classzlibDriver_a95aa0cb5cbfb47555669a1d80d01e41d}
+
+\item 
+\hypertarget{classzlibDriver_a7c213382833f41d525be9075e3a95785}{void {\bfseries set\-Decompress\-Eligibility} (bool val)}\label{classzlibDriver_a7c213382833f41d525be9075e3a95785}
+
+\item 
+\hypertarget{classzlibDriver_a857c13e4ee000ab2d8019480642113ba}{bool {\bfseries xilinx\-Hw\-Inflate} (z\-\_\-streamp s, int flush)}\label{classzlibDriver_a857c13e4ee000ab2d8019480642113ba}
+
+\item 
+\hypertarget{classzlibDriver_a86000ba72a29785a371f7f8da08a7a8f}{void {\bfseries copy\-Data} (z\-\_\-streamp strm)}\label{classzlibDriver_a86000ba72a29785a371f7f8da08a7a8f}
 
 \end{DoxyCompactItemize}
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-/wrk/xhdhdnobkup2/kalib/xf\-\_\-compression/\-L3/include/zlib\-Driver.\-hpp\end{DoxyCompactItemize}
+/wrk/xhdhdnobkup3/meghanat/xf\-\_\-compression/\-L3/include/zlib\-Driver.\-hpp\end{DoxyCompactItemize}

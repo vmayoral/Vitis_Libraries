@@ -57,7 +57,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Demos" href="../../../source/L3/demo.html" />
-    <link rel="prev" title="class xf::compression::xfLz4" href="class_xf_compression_xfLz4.html" /> 
+    <link rel="prev" title="Overlay API Reference" href="../../../source/L3/api_reference.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -337,25 +337,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../source/overview.html#trademark-notice">Trademark Notice</a></li>
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/usecase.html">Typical Use Cases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/L2/L2.html">L2 Kernel User Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../../source/L3/L3.html">L3 Overlay User Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../../source/L3/overview.html">L3 Overlay APIs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/L3/design.html">Kernel Design</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../../source/L3/api_reference.html">Overlay API Reference</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="class_xf_compression_xfLz4.html">class xf::compression::xfLz4</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">class xf::compression::xfZlib</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/L3/demo.html">Demos</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/L3/L3.html">L3 Overlay User Guide</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Results</span></p>
 <ul>
@@ -446,7 +432,7 @@
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="#doxid-classxf-1-1compression-1-1xfzlib"><span class="std std-ref">xfZlib</span></a> class.</p>
 <pre class="highlight overview-code-block literal-block" id="cid-xf-compression-xfzlib-get-event-duration-ns">
-<span id="doxid-classxf-1-1compression-1-1xfzlib-1aa2477f22a23fc8ce1ffa8c968c588f29"></span><span id="cid-xf-compression-xfzlib-deflate-buffer"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1a055669f3d7d7dfe98761b48b0b3ae307"></span>
+<span id="doxid-classxf-1-1compression-1-1xfzlib-1aa2477f22a23fc8ce1ffa8c968c588f29"></span><span id="cid-xf-compression-xfzlib-decompress-buffer"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1a25be136469b32af77df2e6b382cf72a9"></span>
 </pre>
 </div>
 <div class="section" id="methods">
@@ -489,7 +475,7 @@
 </table>
 </div>
 <div class="section" id="deflate-buffer">
-<span id="cid-xf-compression-xfzlib-deflate-buffer-2"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1aa6fc980499fbe77fb8c760362140cc97"></span><h3>deflate_buffer<a class="headerlink" href="#deflate-buffer" title="Permalink to this headline">¶</a></h3>
+<span id="cid-xf-compression-xfzlib-deflate-buffer"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1aa6fc980499fbe77fb8c760362140cc97"></span><h3>deflate_buffer<a class="headerlink" href="#deflate-buffer" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">size_t</span> <span class="n">deflate_buffer</span> <span class="p">(</span>
     <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
@@ -498,6 +484,48 @@
     <span class="kt">bool</span><span class="o">&amp;</span> <span class="n">last_data</span><span class="p">,</span>
     <span class="kt">bool</span> <span class="n">last_buffer</span><span class="p">,</span>
     <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">cu</span>
+    <span class="p">)</span>
+</pre>
+<p>This method does the overlapped execution of compression where data transfers and kernel computation are overlapped.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>in</td>
+<td>input byte sequence</td>
+</tr>
+<tr class="row-even"><td>out</td>
+<td>output byte sequence</td>
+</tr>
+<tr class="row-odd"><td>input_size</td>
+<td>input size</td>
+</tr>
+<tr class="row-even"><td>last_data</td>
+<td>last compressed output buffer</td>
+</tr>
+<tr class="row-odd"><td>last_buffer</td>
+<td>last input buffer</td>
+</tr>
+<tr class="row-even"><td>cu</td>
+<td>comput unit name</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="inflate-buffer">
+<span id="cid-xf-compression-xfzlib-inflate-buffer"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1a42d55d344807bb9cce3df23de903efdc"></span><h3>inflate_buffer<a class="headerlink" href="#inflate-buffer" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">size_t</span> <span class="n">inflate_buffer</span> <span class="p">(</span>
+    <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
+    <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
+    <span class="kt">size_t</span><span class="o">&amp;</span> <span class="n">input_size</span><span class="p">,</span>
+    <span class="kt">size_t</span><span class="o">&amp;</span> <span class="n">output_size</span><span class="p">,</span>
+    <span class="kt">bool</span><span class="o">&amp;</span> <span class="n">last_data</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">last_buffer</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">cu_id</span>
     <span class="p">)</span>
 </pre>
 <p>This method does the overlapped execution of decompression where data transfers and kernel computation are overlapped.</p>
@@ -660,43 +688,48 @@
 </table>
 </div>
 <div class="section" id="xfzlib">
-<span id="cid-xf-compression-xfzlib-xfzlib"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1a6bfce462da5c36380222b69972dfbfd4"></span><h3>xfZlib<a class="headerlink" href="#xfzlib" title="Permalink to this headline">¶</a></h3>
+<span id="cid-xf-compression-xfzlib-xfzlib"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1abed5b0a998fd1b3f7a8236927bd099a4"></span><h3>xfZlib<a class="headerlink" href="#xfzlib" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="xfzlib-overload-1">
 <h4>xfZlib overload (1)<a class="headerlink" href="#xfzlib-overload-1" title="Permalink to this headline">¶</a></h4>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="n">xfZlib</span> <span class="p">(</span>
     <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">binaryFile</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">sb_opt</span><span class="p">,</span>
     <span class="kt">uint8_t</span> <span class="n">cd_flow</span><span class="p">,</span>
+    <span class="n">cl</span><span class="o">::</span><span class="n">Context</span><span class="o">*</span> <span class="n">context</span><span class="p">,</span>
+    <span class="n">cl</span><span class="o">::</span><span class="n">Program</span><span class="o">*</span> <span class="n">program</span><span class="p">,</span>
     <span class="k">const</span> <span class="n">cl</span><span class="o">::</span><span class="n">Device</span><span class="o">&amp;</span> <span class="n">device</span><span class="p">,</span>
-    <span class="k">const</span> <span class="n">cl_context_properties</span><span class="o">&amp;</span> <span class="n">platform</span><span class="p">,</span>
-    <span class="k">enum</span> <span class="n">design_flow</span> <span class="n">dflow</span> <span class="o">=</span> <span class="n">XILINX_GZIP</span>
+    <span class="k">enum</span> <span class="n">design_flow</span> <span class="n">dflow</span> <span class="o">=</span> <span class="n">XILINX_GZIP</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">bank_id</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="p">)</span>
 </pre>
-<p>Constructor responsible for creating various host/device buffers. This skips the creation of platform and device steps.</p>
+<p>Constructor responsible for creating various host/device buffers. This gets context created already with it so skips ocl platform, device and context creation as part of it.</p>
 </div>
 <div class="section" id="xfzlib-overload-2">
-<span id="cid-xf-compression-xfzlib-xfzlib-2"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1a7712b200970e31a07526a43b40661dfe"></span><h4>xfZlib overload (2)<a class="headerlink" href="#xfzlib-overload-2" title="Permalink to this headline">¶</a></h4>
+<span id="cid-xf-compression-xfzlib-xfzlib-2"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1a329922295001165915c6bce0ba7cbdbd"></span><h4>xfZlib overload (2)<a class="headerlink" href="#xfzlib-overload-2" title="Permalink to this headline">¶</a></h4>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="n">xfZlib</span> <span class="p">(</span>
     <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">binaryFile</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">sb_opt</span> <span class="o">=</span> <span class="nb">false</span><span class="p">,</span>
     <span class="kt">uint8_t</span> <span class="n">c_max_cr</span> <span class="o">=</span> <span class="n">MAX_CR</span><span class="p">,</span>
     <span class="kt">uint8_t</span> <span class="n">cd_flow</span> <span class="o">=</span> <span class="n">BOTH</span><span class="p">,</span>
     <span class="kt">uint8_t</span> <span class="n">device_id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
     <span class="kt">uint8_t</span> <span class="n">profile</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
     <span class="kt">uint8_t</span> <span class="n">d_type</span> <span class="o">=</span> <span class="n">DYNAMIC</span><span class="p">,</span>
-    <span class="k">enum</span> <span class="n">design_flow</span> <span class="n">dflow</span> <span class="o">=</span> <span class="n">XILINX_GZIP</span>
+    <span class="k">enum</span> <span class="n">design_flow</span> <span class="n">dflow</span> <span class="o">=</span> <span class="n">XILINX_GZIP</span><span class="p">,</span>
+    <span class="kt">uint8_t</span> <span class="n">ccu</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="kt">uint8_t</span> <span class="n">dcu</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="p">)</span>
 </pre>
 <p>Constructor responsible for creating various host/device buffers.</p>
 </div>
 </div>
 <div class="section" id="init">
-<span id="cid-xf-compression-xfzlib-init"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1a50efe5b6226616a043af9044323a982a"></span><h3>init<a class="headerlink" href="#init" title="Permalink to this headline">¶</a></h3>
+<span id="cid-xf-compression-xfzlib-init"></span><span id="doxid-classxf-1-1compression-1-1xfzlib-1a87f13a66b1928934295c46677666fabe"></span><h3>init<a class="headerlink" href="#init" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">int</span> <span class="n">init</span> <span class="p">(</span>
     <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">binaryFile</span><span class="p">,</span>
-    <span class="kt">uint8_t</span> <span class="n">dtype</span><span class="p">,</span>
-    <span class="kt">bool</span> <span class="n">skipPlatformCheck</span> <span class="o">=</span> <span class="nb">false</span>
+    <span class="kt">uint8_t</span> <span class="n">dtype</span>
     <span class="p">)</span>
 </pre>
 <p>OpenCL setup initialization.</p>
@@ -762,66 +795,6 @@
 </pre>
 <p>get decompress kernel name</p>
 </div>
-<div class="section" id="cid-xf-compression-xfzlib-compress-buffer-2">
-<span id="doxid-classxf-1-1compression-1-1xfzlib-1ab52ee4c6869563448f489cd3c81dd2da"></span><span id="id3"></span><h3>compress_buffer<a class="headerlink" href="#cid-xf-compression-xfzlib-compress-buffer-2" title="Permalink to this headline">¶</a></h3>
-<pre class="highlight title-code-block literal-block">
-<span></span><span class="kt">size_t</span> <span class="n">compress_buffer</span> <span class="p">(</span>
-    <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">in</span><span class="p">,</span>
-    <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">out</span><span class="p">,</span>
-    <span class="kt">size_t</span> <span class="n">actual_size</span><span class="p">,</span>
-    <span class="kt">bool</span> <span class="n">last_buffer</span> <span class="o">=</span> <span class="nb">true</span><span class="p">,</span>
-    <span class="kt">uint32_t</span> <span class="n">host_buffer_size</span> <span class="o">=</span> <span class="n">HOST_BUFFER_SIZE</span><span class="p">,</span>
-    <span class="kt">int</span> <span class="n">cu</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="p">)</span>
-</pre>
-<p>This method does the overlapped execution of compression where data transfers and kernel computation are overlapped.</p>
-<p class="rubric">Parameters:</p>
-<table border="1" class="colwidths-given docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>in</td>
-<td>input byte sequence</td>
-</tr>
-<tr class="row-even"><td>out</td>
-<td>output byte sequence</td>
-</tr>
-<tr class="row-odd"><td>actual_size</td>
-<td>input size</td>
-</tr>
-<tr class="row-even"><td>last_buffer</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>host_buffer_size</td>
-<td>host buffer size</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="cid-xf-compression-xfzlib-init-2">
-<span id="doxid-classxf-1-1compression-1-1xfzlib-1a87f13a66b1928934295c46677666fabe"></span><span id="id4"></span><h3>init<a class="headerlink" href="#cid-xf-compression-xfzlib-init-2" title="Permalink to this headline">¶</a></h3>
-<pre class="highlight title-code-block literal-block">
-<span></span><span class="kt">int</span> <span class="n">init</span> <span class="p">(</span>
-    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">binaryFile</span><span class="p">,</span>
-    <span class="kt">uint8_t</span> <span class="n">dtype</span>
-    <span class="p">)</span>
-</pre>
-<p>OpenCL setup initialization.</p>
-<p class="rubric">Parameters:</p>
-<table border="1" class="colwidths-given docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>binaryFile</td>
-<td>&#160;</td>
-</tr>
-</tbody>
-</table>
-</div>
 </div>
 </div>
 
@@ -844,7 +817,7 @@
         <a href="../../../source/L3/demo.html" class="btn btn-neutral float-right" title="Demos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="class_xf_compression_xfLz4.html" class="btn btn-neutral float-left" title="class xf::compression::xfLz4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../../source/L3/api_reference.html" class="btn btn-neutral float-left" title="Overlay API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

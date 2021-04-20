@@ -56,7 +56,7 @@
   <link rel="stylesheet" href="../../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Xilinx ZLIB Compression and Decompression" href="zlib.html" />
+    <link rel="next" title="Xilinx ZSTD Decompression" href="zstd_decompress.html" />
     <link rel="prev" title="Xilinx Snappy Compression and Decompression" href="snappy.html" /> 
 	</head>
 	<body>
@@ -342,7 +342,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="L2.html">L2 Kernel User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="overview.html">L2 Kernel Demos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design.html">Kernel Design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_reference.html">Kernel APIs Reference</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="demo.html">Demos</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="gzip.html">Xilinx GZip Compression and Decompression</a></li>
@@ -351,14 +350,13 @@
 <li class="toctree-l3"><a class="reference internal" href="snappy.html">Xilinx Snappy Compression and Decompression</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Xilinx Snappy-Streaming Compression and Decompression</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#results">Results</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#usage">Usage</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="zlib.html">Xilinx ZLIB Compression and Decompression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zstd_decompress.html">Xilinx ZSTD Decompression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="demo.html#build-instructions">Build Instructions</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="test.html">Tests</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L3/L3.html">L3 Overlay User Guide</a></li>
@@ -490,7 +488,7 @@ compress/decompress kernels (excluding data movers). It achieves Fmax of 300MHz<
 </div>
 <div class="section" id="performance-data">
 <h3>Performance Data<a class="headerlink" href="#performance-data" title="Permalink to this headline">¶</a></h3>
-<p>Table below presents best kernel throughput achieved for a single compute
+<p>Table below presents kernel throughput achieved for a single compute
 unit (Single Engine).</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -503,10 +501,10 @@ unit (Single Engine).</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Best Compression Throughput</td>
+<tr class="row-even"><td>Compression Throughput</td>
 <td>260 MB/s</td>
 </tr>
-<tr class="row-odd"><td>Best Decompression Throughput</td>
+<tr class="row-odd"><td>Decompression Throughput</td>
 <td>290 MB/s</td>
 </tr>
 <tr class="row-even"><td>Average Compression Ratio</td>
@@ -516,17 +514,20 @@ unit (Single Engine).</p>
 </table>
 <p>Note: Overall throughput can still be increased with multiple compute units.</p>
 </div>
-</div>
-<div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="execution-steps">
-<h3>Execution Steps<a class="headerlink" href="#execution-steps" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="executable-usage">
+<h3>Executable Usage<a class="headerlink" href="#executable-usage" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
-<li><p class="first">To execute single file for compression       : <code class="docutils literal notranslate"><span class="pre">./build/xil_snappy_streaming</span> <span class="pre">-cx</span> <span class="pre">&lt;compress</span> <span class="pre">xclbin&gt;</span> <span class="pre">-c</span> <span class="pre">&lt;file_name&gt;</span></code></p>
+<li><p class="first">To execute single file for compression   : <code class="docutils literal notranslate"><span class="pre">./build/xil_snappy_streaming</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/&lt;compress_decompress_streaming.xclbin&gt;</span> <span class="pre">-c</span> <span class="pre">&lt;file_name&gt;</span></code></p>
 </li>
-<li><p class="first">To execute single file for decompression     : <code class="docutils literal notranslate"><span class="pre">./build/xil_snappy_streaming</span> <span class="pre">-dx</span> <span class="pre">&lt;decompress</span> <span class="pre">xclbin&gt;</span> <span class="pre">-d</span> <span class="pre">&lt;file_name.snappy&gt;</span></code></p>
+<li><p class="first">To execute single file for decompression : <code class="docutils literal notranslate"><span class="pre">./build/xil_snappy_streaming</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/&lt;compress_decompress_streaming.xclbin&gt;</span> <span class="pre">-d</span> <span class="pre">&lt;file_name.snappy&gt;</span></code></p>
 </li>
-<li><p class="first">To validate various files together           : <code class="docutils literal notranslate"><span class="pre">./build/xil_snappy_streaming</span> <span class="pre">-cx</span> <span class="pre">&lt;compress</span> <span class="pre">xclbin&gt;</span> <span class="pre">-dx</span> <span class="pre">&lt;decompress</span> <span class="pre">xclbin&gt;</span> <span class="pre">-l</span> <span class="pre">&lt;files.list&gt;</span></code></p>
+<li><p class="first">To validate single file (compress &amp; decompress) : <code class="docutils literal notranslate"><span class="pre">./build/xil_snappy_streaming</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/&lt;compress_decompress_streaming.xclbin&gt;</span> <span class="pre">-t</span> <span class="pre">&lt;files_name&gt;</span></code></p>
+</li>
+<li><p class="first">To execute multiple files for compression           : <code class="docutils literal notranslate"><span class="pre">./build/xil_snappy_streaming</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/&lt;compress_decompress_streaming.xclbin</span> <span class="pre">-cfl</span> <span class="pre">&lt;files.list&gt;</span></code></p>
+</li>
+<li><p class="first">To execute multiple files for decompression          : <code class="docutils literal notranslate"><span class="pre">./build/xil_snappy_streaming</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/&lt;compress_decompress_streaming.xclbin</span> <span class="pre">-dfl</span> <span class="pre">&lt;compressed</span> <span class="pre">files.list&gt;</span></code></p>
+</li>
+<li><p class="first">To validate multiple files (compress &amp; decompress)      : <code class="docutils literal notranslate"><span class="pre">./build/xil_snappy_streaming</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/&lt;compress_decompress_streaming.xclbin</span> <span class="pre">-l</span> <span class="pre">&lt;files.list&gt;</span></code></p>
 <blockquote>
 <div><ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">&lt;files.list&gt;</span></code>: Contains various file names with current path</li>
@@ -536,15 +537,18 @@ unit (Single Engine).</p>
 </ol>
 <p>The usage of the generated executable is as follows:</p>
 <pre class="highlight literal-block">
-<span></span>Usage: application.exe -<span class="o">[</span>-h-c-l-d-B-x<span class="o">]</span>
-     --help,             -h      Print Help Options   Default: <span class="o">[</span>false<span class="o">]</span>
-     --compress,         -c      Compress
-     --compress_xclbin   -cx     Compress binary
-     --file_list,        -l      List of Input Files
-     --decompress_xclbin -dx     Decompress binary
-     --decompress,       -d      Decompress
-     --block_size,       -B      Compress Block Size <span class="o">[</span><span class="m">0</span>-64: <span class="m">1</span>-256: <span class="m">2</span>-1024: <span class="m">3</span>-4096<span class="o">]</span> Default: <span class="o">[</span><span class="m">0</span><span class="o">]</span>
-     --flow,             -x      Validation <span class="o">[</span><span class="m">0</span>-All: <span class="m">1</span>-XcXd: <span class="m">2</span>-XcSd: <span class="m">3</span>-ScXd<span class="o">]</span> Default: <span class="o">[</span><span class="m">1</span><span class="o">]</span>
+<span></span>Usage: application.exe -<span class="o">[</span>-h-c-d-t-cfl-dfl-l-B-id<span class="o">]</span>
+       --help,                -h        Print Help Options
+       --compress,            -c        Compress
+       --decompress,          -d        Decompress
+       --test,                -t        Xilinx compress <span class="p">&amp;</span> Decompress
+       --compress_list,       -cfl      Compress List of Input Files
+       --decompress_list,     -dfl      Decompress List of compressed Input Files
+       --test_list,           -l        Xilinx Compress <span class="p">&amp;</span> Decompress on Input Files
+       --max_cr,              -mcr      Maximum CR                                            Default: <span class="o">[</span><span class="m">10</span><span class="o">]</span>
+       --xclbin,              -xbin     XCLBIN
+       --device_id,           -id       Device ID                                             Default: <span class="o">[</span><span class="m">0</span><span class="o">]</span>
+       --block_size,          -B        Compress Block Size <span class="o">[</span><span class="m">0</span>-64: <span class="m">1</span>-256: <span class="m">2</span>-1024: <span class="m">3</span>-4096<span class="o">]</span>     Default: <span class="o">[</span><span class="m">0</span><span class="o">]</span>
 </pre>
 </div>
 </div>
@@ -566,7 +570,7 @@ unit (Single Engine).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="zlib.html" class="btn btn-neutral float-right" title="Xilinx ZLIB Compression and Decompression" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="zstd_decompress.html" class="btn btn-neutral float-right" title="Xilinx ZSTD Decompression" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="snappy.html" class="btn btn-neutral float-left" title="Xilinx Snappy Compression and Decompression" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup2/kalib/xf_compression/L2/include/zstd_decompress_stream.hpp File Reference</title>
+<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/meghanat/xf_compression/L2/include/zstd_decompress_stream.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -116,9 +116,9 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af488c56d4c28fad772cef1c7e6437641"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zstd__decompress__stream_8hpp.html#af488c56d4c28fad772cef1c7e6437641">xilZstdDecompressStream</a> (uint64_t input_size, hls::stream&lt; ap_axiu&lt; c_streamDWidth, 0, 0, 0 &gt; &gt; &amp;inaxistreamd, hls::stream&lt; ap_axiu&lt; c_streamDWidth, 0, 0, 0 &gt; &gt; &amp;outaxistreamd, hls::stream&lt; ap_axiu&lt; 64, 0, 0, 0 &gt; &gt; &amp;sizestreamd)</td></tr>
-<tr class="memdesc:af488c56d4c28fad772cef1c7e6437641"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is full ZStandard decompression streaming kernel function. It supports all block sizes and supports window size upto 128KB. It takes entire ZStd compressed file as input and produces decompressed file at the kernel output stream. This kernel does not use DDR memory, it uses streams instead. Intermediate data is stored in internal BRAMs and stream FIFOs, which helps to attain better decompression throughput.  <a href="#af488c56d4c28fad772cef1c7e6437641">More...</a><br/></td></tr>
-<tr class="separator:af488c56d4c28fad772cef1c7e6437641"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeea49d48062b7c49a017d53c2306c500"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zstd__decompress__stream_8hpp.html#aeea49d48062b7c49a017d53c2306c500">xilZstdDecompressStream</a> (hls::stream&lt; ap_axiu&lt; c_streamDWidth, 0, 0, 0 &gt; &gt; &amp;inaxistreamd, hls::stream&lt; ap_axiu&lt; c_streamDWidth, 0, 0, 0 &gt; &gt; &amp;outaxistreamd)</td></tr>
+<tr class="memdesc:aeea49d48062b7c49a017d53c2306c500"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is full ZStandard decompression streaming kernel function. It supports all block sizes and supports window size upto 128KB. It takes entire ZStd compressed file as input and produces decompressed file at the kernel output stream. This kernel does not use DDR memory, it uses streams instead. Intermediate data is stored in internal BRAMs and stream FIFOs, which helps to attain better decompression throughput.  <a href="#aeea49d48062b7c49a017d53c2306c500">More...</a><br/></td></tr>
+<tr class="separator:aeea49d48062b7c49a017d53c2306c500"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -133,19 +133,13 @@ const int&#160;</td><td class="memItemRight" valign="bottom"><b>c_windowSize</b>
 <div class="textblock"><p>Header for zstd decompression streaming kernel. </p>
 <p>This file is part of Vitis Data Compression Library. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="af488c56d4c28fad772cef1c7e6437641"></a>
+<a class="anchor" id="aeea49d48062b7c49a017d53c2306c500"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void xilZstdDecompressStream </td>
           <td>(</td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>input_size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">hls::stream&lt; ap_axiu&lt; c_streamDWidth, 0, 0, 0 &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>inaxistreamd</em>, </td>
         </tr>
@@ -153,13 +147,7 @@ const int&#160;</td><td class="memItemRight" valign="bottom"><b>c_windowSize</b>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">hls::stream&lt; ap_axiu&lt; c_streamDWidth, 0, 0, 0 &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>outaxistreamd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">hls::stream&lt; ap_axiu&lt; 64, 0, 0, 0 &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>sizestreamd</em>&#160;</td>
+          <td class="paramname"><em>outaxistreamd</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
