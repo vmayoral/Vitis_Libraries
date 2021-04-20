@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup2/kalib/xf_compression/L2/include/zlib_compress_multi_engine_mm.hpp Source File</title>
+<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/meghanat/xf_compression/L2/include/zlib_compress_multi_engine_mm.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,7 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="zlib__compress__multi__engine__mm_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * (c) Copyright 2020 Xilinx, Inc. All rights reserved.</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * (c) Copyright 2019-2021 Xilinx, Inc. All rights reserved.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * you may not use this file except in compliance with the License.</span></div>
@@ -135,13 +135,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">// Kernel top functions</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">void</span> <a class="code" href="zlib__compress__mm_8hpp.html#af4f5215f418363730bd1e2f9a8a75f2a">xilZlibCompressFull</a>(<span class="keyword">const</span> ap_uint&lt;GMEM_DWIDTH&gt;* in,</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">void</span> <a class="code" href="zlib__compress__multi__engine__mm_8hpp.html#a7c7902437a9df5335d3490e6d4fe52f9">xilZlibCompressFull</a>(<span class="keyword">const</span> ap_uint&lt;GMEM_DWIDTH&gt;* in,</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                         ap_uint&lt;GMEM_DWIDTH&gt;* out,</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                         uint32_t* compressd_size,</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                         uint32_t input_size);</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif // _XFCOMPRESSION_ZLIB_COMPRESS_MM_HPP_</span></div>
-<div class="ttc" id="zlib__compress__mm_8hpp_html_af4f5215f418363730bd1e2f9a8a75f2a"><div class="ttname"><a href="zlib__compress__mm_8hpp.html#af4f5215f418363730bd1e2f9a8a75f2a">xilZlibCompressFull</a></div><div class="ttdeci">void xilZlibCompressFull(const xf::compression::uintMemWidth_t *in, xf::compression::uintMemWidth_t *out, uint32_t *compressd_size, uint32_t input_size)</div><div class="ttdoc">ZLIB compression kernel takes the raw data as input and compresses the data in block based fashion an...</div></div>
+<div class="ttc" id="zlib__compress__multi__engine__mm_8hpp_html_a7c7902437a9df5335d3490e6d4fe52f9"><div class="ttname"><a href="zlib__compress__multi__engine__mm_8hpp.html#a7c7902437a9df5335d3490e6d4fe52f9">xilZlibCompressFull</a></div><div class="ttdeci">void xilZlibCompressFull(const ap_uint&lt; GMEM_DWIDTH &gt; *in, ap_uint&lt; GMEM_DWIDTH &gt; *out, uint32_t *compressd_size, uint32_t input_size)</div><div class="ttdoc">ZLIB compression kernel takes the raw data as input and compresses the data in parallel block based f...</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

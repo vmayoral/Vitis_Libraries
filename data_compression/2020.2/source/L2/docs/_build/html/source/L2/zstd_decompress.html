@@ -56,8 +56,8 @@
   <link rel="stylesheet" href="../../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="L3 Overlay User Guide" href="../L3/L3.html" />
-    <link rel="prev" title="Xilinx ZLIB Compression and Decompression" href="zlib.html" /> 
+    <link rel="next" title="Tests" href="test.html" />
+    <link rel="prev" title="Xilinx Snappy-Streaming Compression and Decompression" href="snappy_streaming.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -342,7 +342,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="L2.html">L2 Kernel User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="overview.html">L2 Kernel Demos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design.html">Kernel Design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_reference.html">Kernel APIs Reference</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="demo.html">Demos</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="gzip.html">Xilinx GZip Compression and Decompression</a></li>
@@ -350,7 +349,6 @@
 <li class="toctree-l3"><a class="reference internal" href="lz4_streaming.html">Xilinx LZ4-Streaming Compression and Decompression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="snappy.html">Xilinx Snappy Compression and Decompression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="snappy_streaming.html">Xilinx Snappy-Streaming Compression and Decompression</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zlib.html">Xilinx ZLIB Compression and Decompression</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Xilinx ZSTD Decompression</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#results">Results</a></li>
 </ul>
@@ -358,6 +356,7 @@
 <li class="toctree-l3"><a class="reference internal" href="demo.html#build-instructions">Build Instructions</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="test.html">Tests</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L3/L3.html">L3 Overlay User Guide</a></li>
@@ -449,7 +448,7 @@
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="overall-resource-utilization">
 <h3>Overall Resource Utilization<a class="headerlink" href="#overall-resource-utilization" title="Permalink to this headline">¶</a></h3>
-<p>Table below presents resource utilization of Xilinx Zstd decompress kernel (excluding data movers) supporting Window Size of 32KB. The final Fmax achieved is 232MHz.</p>
+<p>Table below presents resource utilization of Xilinx Zstd decompress kernel supporting Window Size of 32KB. The final Fmax achieved is 232MHz.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="28%" />
@@ -470,51 +469,20 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>DeCompress</td>
-<td>18.8K</td>
-<td>153</td>
-<td>17.2K</td>
-<td>52</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="decompress-kernel-resource-utilization">
-<h3>Decompress Kernel Resource Utilization<a class="headerlink" href="#decompress-kernel-resource-utilization" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="docutils">
-<colgroup>
-<col width="29%" />
-<col width="13%" />
-<col width="18%" />
-<col width="13%" />
-<col width="13%" />
-<col width="13%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Kernel</th>
-<th class="head">LUT</th>
-<th class="head">LUTMem</th>
-<th class="head">REG</th>
-<th class="head">BRAM</th>
-<th class="head">URAM</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Decompress</td>
 <td>22.3K</td>
 <td>153</td>
 <td>8.1K</td>
 <td>52</td>
 <td>4</td>
 </tr>
-<tr class="row-odd"><td>DmReader</td>
+<tr class="row-odd"><td>DM Reader</td>
 <td>3.2K</td>
 <td>717</td>
 <td>3.8K</td>
 <td>10</td>
 <td>0</td>
 </tr>
-<tr class="row-even"><td>DmWriter</td>
+<tr class="row-even"><td>DM Writer</td>
 <td>2.6K</td>
 <td>281</td>
 <td>1.8K</td>
@@ -533,15 +501,12 @@
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Topic</th>
-<th class="head">Best Kernel Throughput</th>
+<th class="head">Kernel Throughput</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Decompression</td>
-<td>783 MB/s</td>
-</tr>
-<tr class="row-odd"><td>Average Compression Ratio</td>
-<td>2.78 (Silesia Corpus)</td>
+<td>463 MB/s</td>
 </tr>
 </tbody>
 </table>
@@ -591,10 +556,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../L3/L3.html" class="btn btn-neutral float-right" title="L3 Overlay User Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="test.html" class="btn btn-neutral float-right" title="Tests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="zlib.html" class="btn btn-neutral float-left" title="Xilinx ZLIB Compression and Decompression" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="snappy_streaming.html" class="btn btn-neutral float-left" title="Xilinx Snappy-Streaming Compression and Decompression" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -17,6 +17,9 @@ io_updator() {
         if [[ ($f == L2/demos/*/README.rst) ]]; then
             cp -rf $f docs/source/L2/$b_name.rst
             echo "cp -rf $f docs/source/L2/$b_name.rst"
+       elif [[ ($f == L2/tests/*/README.rst) ]]; then
+            cp -rf $f docs/source/L2/$b_name.rst
+            echo "cp -rf $f docs/source/L2/$b_name.rst" 
         elif [[ ($f == L3/demos/*/README.rst) ]]; then
             cp -rf $f docs/source/L3/$b_name.rst
             echo "cp -rf $f docs/source/L2/$b_name.rst"

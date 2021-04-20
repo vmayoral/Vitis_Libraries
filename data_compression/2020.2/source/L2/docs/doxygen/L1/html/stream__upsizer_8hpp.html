@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup2/kalib/xf_compression/L1/include/hw/stream_upsizer.hpp File Reference</title>
+<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/meghanat/xf_compression/L1/include/hw/stream_upsizer.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,7 +92,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>Header for stream upsizer module.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;hls_stream.h&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="compress__utils_8hpp_source.html">compress_utils.hpp</a>&quot;</code><br/>
+<code>#include &quot;hls_stream.h&quot;</code><br/>
 <code>#include &lt;ap_int.h&gt;</code><br/>
 <code>#include &lt;assert.h&gt;</code><br/>
 <code>#include &lt;stdint.h&gt;</code><br/>
@@ -106,10 +107,22 @@ Functions</h2></td></tr>
 template&lt;int IN_WIDTH, int OUT_WIDTH&gt; </td></tr>
 <tr class="memitem:a4424d60afedb3bc1361b731c6b6dd608"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::passUpsizer</b> (hls::stream&lt; ap_uint&lt; IN_WIDTH &gt; &gt; &amp;inStream, hls::stream&lt; bool &gt; &amp;inStreamEos, hls::stream&lt; ap_uint&lt; OUT_WIDTH &gt; &gt; &amp;outStream, hls::stream&lt; uint32_t &gt; &amp;outSizeStream, hls::stream&lt; bool &gt; &amp;inFileEos, hls::stream&lt; bool &gt; &amp;outFileEos)</td></tr>
 <tr class="separator:a4424d60afedb3bc1361b731c6b6dd608"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27b94deda8fa390cfa69036f69d9bf20"><td class="memTemplParams" colspan="2"><a class="anchor" id="a27b94deda8fa390cfa69036f69d9bf20"></a>
+template&lt;int IN_WIDTH, int OUT_WIDTH&gt; </td></tr>
+<tr class="memitem:a27b94deda8fa390cfa69036f69d9bf20"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::bufferUpsizer</b> (hls::stream&lt; IntVectorStream_dt&lt; IN_WIDTH, 1 &gt; &gt; &amp;inStream, hls::stream&lt; ap_uint&lt; OUT_WIDTH &gt; &gt; &amp;outStream, hls::stream&lt; ap_uint&lt; 17 &gt; &gt; &amp;outSize)</td></tr>
+<tr class="separator:a27b94deda8fa390cfa69036f69d9bf20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a132295e1ff7e2e02780231674ced81a8"><td class="memTemplParams" colspan="2"><a class="anchor" id="a132295e1ff7e2e02780231674ced81a8"></a>
 template&lt;int IN_WIDTH, int OUT_WIDTH, int BURST_SIZE&gt; </td></tr>
 <tr class="memitem:a132295e1ff7e2e02780231674ced81a8"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::simpleUpsizer</b> (hls::stream&lt; ap_uint&lt; IN_WIDTH &gt; &gt; &amp;inStream, hls::stream&lt; bool &gt; &amp;inStreamEos, hls::stream&lt; bool &gt; &amp;inFileEos, hls::stream&lt; ap_uint&lt; OUT_WIDTH &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;outStreamEos, hls::stream&lt; uint32_t &gt; &amp;outSizeStream)</td></tr>
 <tr class="separator:a132295e1ff7e2e02780231674ced81a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6792373d2bb3b354a500c38a6aa5fb13"><td class="memTemplParams" colspan="2"><a class="anchor" id="a6792373d2bb3b354a500c38a6aa5fb13"></a>
+template&lt;int IN_WIDTH, int OUT_WIDTH&gt; </td></tr>
+<tr class="memitem:a6792373d2bb3b354a500c38a6aa5fb13"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::simpleStreamUpsizer</b> (hls::stream&lt; ap_uint&lt; IN_WIDTH &gt; &gt; &amp;inStream, hls::stream&lt; bool &gt; &amp;inStreamEos, hls::stream&lt; uint32_t &gt; &amp;inSizeStream, hls::stream&lt; bool &gt; &amp;inFileEos, hls::stream&lt; ap_uint&lt; OUT_WIDTH &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;outStreamEos, hls::stream&lt; ap_uint&lt; 4 &gt; &gt; &amp;outSizeStream)</td></tr>
+<tr class="separator:a6792373d2bb3b354a500c38a6aa5fb13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3bb0a5af58540737d9634da599db3a9"><td class="memTemplParams" colspan="2"><a class="anchor" id="ac3bb0a5af58540737d9634da599db3a9"></a>
+template&lt;int IN_WIDTH, int OUT_WIDTH, int SIZE_DWIDTH = 4&gt; </td></tr>
+<tr class="memitem:ac3bb0a5af58540737d9634da599db3a9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::simpleStreamUpsizer</b> (hls::stream&lt; IntVectorStream_dt&lt; 8, IN_WIDTH/8 &gt; &gt; &amp;inStream, hls::stream&lt; ap_uint&lt; OUT_WIDTH+SIZE_DWIDTH &gt; &gt; &amp;outStream)</td></tr>
+<tr class="separator:ac3bb0a5af58540737d9634da599db3a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a096a0abed265b66635d13081be2d4f5c"><td class="memTemplParams" colspan="2">template&lt;class SIZE_DT , int IN_WIDTH, int OUT_WIDTH&gt; </td></tr>
 <tr class="memitem:a096a0abed265b66635d13081be2d4f5c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::streamUpsizer</b> (hls::stream&lt; ap_uint&lt; IN_WIDTH &gt; &gt; &amp;inStream, hls::stream&lt; ap_uint&lt; OUT_WIDTH &gt; &gt; &amp;outStream, SIZE_DT original_size)</td></tr>
 <tr class="separator:a096a0abed265b66635d13081be2d4f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>

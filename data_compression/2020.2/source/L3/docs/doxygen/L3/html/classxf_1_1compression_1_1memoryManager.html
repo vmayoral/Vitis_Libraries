@@ -95,27 +95,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a06244d0aae5734e40b545f9f1ce5b8ca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06244d0aae5734e40b545f9f1ce5b8ca"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>memoryManager</b> (uint8_t max_buffers, cl::Context *context)</td></tr>
-<tr class="separator:a06244d0aae5734e40b545f9f1ce5b8ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41ec4b8844024a9681b5b2169d409498"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a41ec4b8844024a9681b5b2169d409498"></a>
-<a class="el" href="structxf_1_1compression_1_1buffers.html">buffers</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>createBuffer</b> (size_t size)</td></tr>
-<tr class="separator:a41ec4b8844024a9681b5b2169d409498"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa556e1b841b4c2caf857dcca3cf61e2b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa556e1b841b4c2caf857dcca3cf61e2b"></a>
-<a class="el" href="structxf_1_1compression_1_1buffers.html">buffers</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getBuffer</b> ()</td></tr>
-<tr class="separator:aa556e1b841b4c2caf857dcca3cf61e2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6c764d30b210653e405ec3e1922ccdc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6c764d30b210653e405ec3e1922ccdc"></a>
-<a class="el" href="structxf_1_1compression_1_1buffers.html">buffers</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>peekBuffer</b> ()</td></tr>
-<tr class="separator:ad6c764d30b210653e405ec3e1922ccdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f063f42fc29f958f793b68e197afe59"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f063f42fc29f958f793b68e197afe59"></a>
-<a class="el" href="structxf_1_1compression_1_1buffers.html">buffers</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getLastBuffer</b> ()</td></tr>
-<tr class="separator:a4f063f42fc29f958f793b68e197afe59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5dc666affd08f2316ebb6bf5033c647d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5dc666affd08f2316ebb6bf5033c647d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isPending</b> ()</td></tr>
-<tr class="separator:a5dc666affd08f2316ebb6bf5033c647d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06244d0aae5734e40b545f9f1ce5b8ca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06244d0aae5734e40b545f9f1ce5b8ca"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>memoryManager</b> (uint8_t max_buffers, cl::Context *context)</td></tr>
-<tr class="separator:a06244d0aae5734e40b545f9f1ce5b8ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dbe2116b13a6585e857333d3236dbaa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7dbe2116b13a6585e857333d3236dbaa"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>memoryManager</b> (uint8_t max_buffers, cl::Context *context, bool sb_opt=false, cl::CommandQueue *cqueue=nullptr, int bank=0)</td></tr>
+<tr class="separator:a7dbe2116b13a6585e857333d3236dbaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b4e6c8d1559bad53004de3aa1374f97"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7b4e6c8d1559bad53004de3aa1374f97"></a>
+uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><b>create_host_buffer</b> (cl_mem_flags flag, size_t size, cl::Buffer **oclBuffer)</td></tr>
+<tr class="separator:a7b4e6c8d1559bad53004de3aa1374f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41ec4b8844024a9681b5b2169d409498"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a41ec4b8844024a9681b5b2169d409498"></a>
 <a class="el" href="structxf_1_1compression_1_1buffers.html">buffers</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>createBuffer</b> (size_t size)</td></tr>
 <tr class="separator:a41ec4b8844024a9681b5b2169d409498"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,9 +117,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isPending</b> ()</td>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isPending</b> ()</td></tr>
 <tr class="separator:a5dc666affd08f2316ebb6bf5033c647d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>/wrk/xhdhdnobkup2/kalib/xf_compression/L3/include/<a class="el" href="zlib_8hpp_source.html">zlib.hpp</a></li>
-<li>/wrk/xhdhdnobkup2/kalib/xf_compression/L3/include/<a class="el" href="zlib__old_8hpp_source.html">zlib_old.hpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>/wrk/xhdhdnobkup3/meghanat/xf_compression/L3/include/<a class="el" href="zlib_8hpp_source.html">zlib.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

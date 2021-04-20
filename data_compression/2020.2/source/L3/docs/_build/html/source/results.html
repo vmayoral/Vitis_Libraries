@@ -58,7 +58,7 @@
   <link rel="stylesheet" href="../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Zlib Application" href="L3/zlib_app.html" /> 
+    <link rel="prev" title="LZ4 Application" href="L3/lz4_app.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -431,9 +431,9 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 <p>Reported compression ratio is measured on Silesia Corpus compression benchmark.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="47%" />
-<col width="16%" />
-<col width="14%" />
+<col width="49%" />
+<col width="15%" />
+<col width="13%" />
 <col width="7%" />
 <col width="6%" />
 <col width="5%" />
@@ -442,7 +442,7 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Architecture</th>
 <th class="head">Compression Ratio</th>
-<th class="head">Best Throughput</th>
+<th class="head">Throughput</th>
 <th class="head">FMax</th>
 <th class="head">LUT</th>
 <th class="head">BRAM</th>
@@ -482,21 +482,29 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 <td>48</td>
 <td>48</td>
 </tr>
-<tr class="row-even"><td>Zlib Memory Mapped (Dynamic Huffman, 8 Engines with Data Movers)</td>
-<td>2.74</td>
+<tr class="row-even"><td>GZip/Zlib Memory Mapped (Dynamic Huffman, 8 Engines with Data Movers)</td>
+<td>2.67</td>
 <td>2 GB/s</td>
-<td>284MHz</td>
-<td>82.7K</td>
-<td>105</td>
-<td>48</td>
+<td>285MHz</td>
+<td>53.8K</td>
+<td>75</td>
+<td>72</td>
 </tr>
-<tr class="row-odd"><td>GZip Memory Mapped (Dynamic Huffman, 8 Engines with Data Movers)</td>
-<td>2.74</td>
+<tr class="row-odd"><td>GZip/Zlib Compress Stream (Dynamic Huffman, 8 Engines with Data Movers)</td>
+<td>2.67</td>
 <td>2 GB/s</td>
-<td>284MHz</td>
-<td>82.7K</td>
-<td>105</td>
+<td>285MHz</td>
+<td>49.7K</td>
+<td>67</td>
+<td>72</td>
+</tr>
+<tr class="row-even"><td>GZip/Zlib Fixed Huffman File Compress Stream</td>
+<td>2.25</td>
+<td>2 GB/s</td>
+<td>285MHz</td>
+<td>34.6K</td>
 <td>48</td>
+<td>64</td>
 </tr>
 </tbody>
 </table>
@@ -522,7 +530,7 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Architecture</th>
-<th class="head">Best Throughput</th>
+<th class="head">Throughput</th>
 <th class="head">FMax</th>
 <th class="head">LUT</th>
 <th class="head">BRAM</th>
@@ -544,43 +552,22 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 <td>0</td>
 <td>4</td>
 </tr>
-<tr class="row-even"><td>Zlib Streaming (High Throughput, Datawidth: 64bit)</td>
-<td>1.18 GB/s</td>
-<td>227MHz</td>
-<td>11.6K</td>
+<tr class="row-even"><td>GZip/Zlib Streaming (High Throughput, Datawidth: 64bit)</td>
+<td>450  MB/s</td>
+<td>252MHz</td>
+<td>11.3K</td>
+<td>6</td>
 <td>3</td>
-<td>2</td>
 </tr>
-<tr class="row-odd"><td>GZip Streaming (High Throughput, Datawidth: 64bit)</td>
-<td>1.18 GB/s</td>
-<td>227MHz</td>
-<td>13.9K</td>
-<td>4</td>
-<td>2</td>
-</tr>
-<tr class="row-even"><td>LZ4 Memory Mapped (8 Engines with Data Movers)</td>
-<td>1.8  GB/s</td>
-<td>300MHz</td>
-<td>30.6K</td>
-<td>146</td>
-<td>0</td>
-</tr>
-<tr class="row-odd"><td>Snappy Memory Mapped (8 Engines with Data Movers)</td>
-<td>1.8  GB/s</td>
-<td>300MHz</td>
-<td>31.1K</td>
-<td>146</td>
-<td>0</td>
-</tr>
-<tr class="row-even"><td>ZStd Streaming (Single Engine and Datawidth: 32bit)</td>
-<td>783  MB/s</td>
+<tr class="row-odd"><td>ZStd Streaming (Single Engine and Datawidth: 32bit)</td>
+<td>463  MB/s</td>
 <td>232MHz</td>
 <td>18K</td>
 <td>52</td>
 <td>4</td>
 </tr>
-<tr class="row-odd"><td>ZStd Full File Streaming (Single Engine with Datawidth: 32bit)</td>
-<td>783  MB/s</td>
+<tr class="row-even"><td>ZStd Full File Streaming (Single Engine with Datawidth: 32bit)</td>
+<td>463  MB/s</td>
 <td>232MHz</td>
 <td>22K</td>
 <td>52</td>
@@ -597,19 +584,13 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 <table class="docutils footnote" frame="void" id="id3" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[‡]</td><td>Zlib Streaming: Dynamic Huffman and Single Engine performance is provided.</td></tr>
+<tr><td class="label">[‡]</td><td>GZip/Zlib Streaming: Full standard support (Dynamic Huffman, Fixed Huffman and Stored Blocks supported).</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id4" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[§]</td><td>GZip Streaming: Full standard support (Dynamic Huffman, Fixed Huffman and Stored Blocks supported).</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id5" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[¶]</td><td>ZStd Streaming: Full Standard support with limited Window Size upto 128KB.</td></tr>
+<tr><td class="label">[§]</td><td>ZStd Streaming: Full Standard support with limited Window Size upto 128KB.</td></tr>
 </tbody>
 </table>
 </div>
@@ -632,7 +613,7 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="L3/zlib_app.html" class="btn btn-neutral float-left" title="Zlib Application" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="L3/lz4_app.html" class="btn btn-neutral float-left" title="LZ4 Application" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

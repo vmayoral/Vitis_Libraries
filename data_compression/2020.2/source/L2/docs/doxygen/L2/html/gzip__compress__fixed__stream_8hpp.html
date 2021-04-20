@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup2/kalib/xf_compression/L2/include/gzip_compress_fixed_stream.hpp File Reference</title>
+<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/meghanat/xf_compression/L2/include/gzip_compress_fixed_stream.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -117,15 +117,15 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a39ccf25386e5c4d39111d7f1a976eb54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gzip__compress__fixed__stream_8hpp.html#a39ccf25386e5c4d39111d7f1a976eb54">xilGzipCompressFixedStreaming</a> (hls::stream&lt; ap_axiu&lt; GMEM_IN_DWIDTH, 0, 0, 0 &gt; &gt; &amp;inStream, hls::stream&lt; ap_axiu&lt; GMEM_OUT_DWIDTH, 0, 0, 0 &gt; &gt; &amp;outStream, hls::stream&lt; ap_axiu&lt; 32, 0, 0, 0 &gt; &gt; &amp;inSizeStream, hls::stream&lt; ap_axiu&lt; 32, 0, 0, 0 &gt; &gt; &amp;outSizeStream)</td></tr>
-<tr class="memdesc:a39ccf25386e5c4d39111d7f1a976eb54"><td class="mdescLeft">&#160;</td><td class="mdescRight">GZIP compression kernel takes the raw data as input and compresses the data in block based fashion and writes the output to global memory. This kernel uses fixed huffman encoding for compression.  <a href="#a39ccf25386e5c4d39111d7f1a976eb54">More...</a><br/></td></tr>
-<tr class="separator:a39ccf25386e5c4d39111d7f1a976eb54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64bd01abf6f7d367801432bf96d95e28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gzip__compress__fixed__stream_8hpp.html#a64bd01abf6f7d367801432bf96d95e28">xilGzipCompressFixedStreaming</a> (hls::stream&lt; ap_axiu&lt; GMEM_IN_DWIDTH, 0, 0, 0 &gt; &gt; &amp;inStream, hls::stream&lt; ap_axiu&lt; GMEM_OUT_DWIDTH, 0, 0, 0 &gt; &gt; &amp;outStream, hls::stream&lt; ap_axiu&lt; 32, 0, 0, 0 &gt; &gt; &amp;inSizeStream)</td></tr>
+<tr class="memdesc:a64bd01abf6f7d367801432bf96d95e28"><td class="mdescLeft">&#160;</td><td class="mdescRight">GZIP compression kernel takes the raw data as input and compresses the data in block based fashion and writes the output to global memory. This kernel uses fixed huffman encoding for compression.  <a href="#a64bd01abf6f7d367801432bf96d95e28">More...</a><br/></td></tr>
+<tr class="separator:a64bd01abf6f7d367801432bf96d95e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header for Gzip compression kernel. </p>
 <p>This file is part of Vitis Data Compression Library. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a39ccf25386e5c4d39111d7f1a976eb54"></a>
+<a class="anchor" id="a64bd01abf6f7d367801432bf96d95e28"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -145,13 +145,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">hls::stream&lt; ap_axiu&lt; 32, 0, 0, 0 &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>inSizeStream</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">hls::stream&lt; ap_axiu&lt; 32, 0, 0, 0 &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>outSizeStream</em>&#160;</td>
+          <td class="paramname"><em>inSizeStream</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -165,9 +159,8 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inStream</td><td>input raw data </td></tr>
-    <tr><td class="paramname">inSizeStream</td><td>input data size </td></tr>
     <tr><td class="paramname">outStream</td><td>output compressed data </td></tr>
-    <tr><td class="paramname">outSizeStream</td><td>compressed output data size </td></tr>
+    <tr><td class="paramname">inSizeStream</td><td>input data size </td></tr>
   </table>
   </dd>
 </dl>

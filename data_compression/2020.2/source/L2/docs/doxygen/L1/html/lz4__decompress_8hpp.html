@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup2/kalib/xf_compression/L1/include/hw/lz4_decompress.hpp File Reference</title>
+<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/meghanat/xf_compression/L1/include/hw/lz4_decompress.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,14 +136,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>xf::compression::lz4D
 template&lt;int PARALLEL_BYTES, class SIZE_DT  = uint32_t&gt; </td></tr>
 <tr class="memitem:af40eaeb7fb0cb1d4ffeb3e2158a0f2ff"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::lz4MultiByteDecompress</b> (hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;inStream, hls::stream&lt; SIZE_DT &gt; &amp;litlenStream, hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;litStream, hls::stream&lt; ap_uint&lt; 16 &gt; &gt; &amp;offsetStream, hls::stream&lt; SIZE_DT &gt; &amp;matchlenStream, hls::stream&lt; dt_lz4BlockInfo &gt; &amp;blockInfoStream)</td></tr>
 <tr class="separator:af40eaeb7fb0cb1d4ffeb3e2158a0f2ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c9512d50b1338eed41902b82a4d6bde"><td class="memTemplParams" colspan="2"><a class="anchor" id="a2c9512d50b1338eed41902b82a4d6bde"></a>
+<tr class="memitem:a6334dbe904c33e3e39dc4b956020bb4b"><td class="memTemplParams" colspan="2"><a class="anchor" id="a6334dbe904c33e3e39dc4b956020bb4b"></a>
 template&lt;int PARALLEL_BYTES, int HISTORY_SIZE&gt; </td></tr>
-<tr class="memitem:a2c9512d50b1338eed41902b82a4d6bde"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::lz4CoreDecompressEngine</b> (hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;inStream, hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;outStreamEoS, hls::stream&lt; uint32_t &gt; &amp;outSizeStream, hls::stream&lt; uint32_t &gt; &amp;blockSizeStream)</td></tr>
-<tr class="separator:a2c9512d50b1338eed41902b82a4d6bde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35649dfabbaaf9eeb28519c691885f87"><td class="memTemplParams" colspan="2"><a class="anchor" id="a35649dfabbaaf9eeb28519c691885f87"></a>
+<tr class="memitem:a6334dbe904c33e3e39dc4b956020bb4b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::lz4CoreDecompressEngine</b> (hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;inStream, hls::stream&lt; ap_uint&lt;(PARALLEL_BYTES *8)+8 &gt; &gt; &amp;outStream, hls::stream&lt; uint32_t &gt; &amp;outSizeStream, hls::stream&lt; uint32_t &gt; &amp;blockSizeStream)</td></tr>
+<tr class="separator:a6334dbe904c33e3e39dc4b956020bb4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6e022044ea5dd92d988a69dd790a71b"><td class="memTemplParams" colspan="2"><a class="anchor" id="aa6e022044ea5dd92d988a69dd790a71b"></a>
 template&lt;int PARALLEL_BYTES, int HISTORY_SIZE&gt; </td></tr>
-<tr class="memitem:a35649dfabbaaf9eeb28519c691885f87"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::lz4DecompressEngine</b> (hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;inStream, hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;outStreamEoS, hls::stream&lt; uint32_t &gt; &amp;outSizeStream, const uint32_t _input_size)</td></tr>
-<tr class="separator:a35649dfabbaaf9eeb28519c691885f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6e022044ea5dd92d988a69dd790a71b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::lz4DecompressEngine</b> (hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;inStream, hls::stream&lt; ap_uint&lt;(PARALLEL_BYTES *8)+8 &gt; &gt; &amp;outStream, hls::stream&lt; uint32_t &gt; &amp;outSizeStream, const uint32_t _input_size)</td></tr>
+<tr class="separator:aa6e022044ea5dd92d988a69dd790a71b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header for modules used in LZ4 decompression kernel. </p>

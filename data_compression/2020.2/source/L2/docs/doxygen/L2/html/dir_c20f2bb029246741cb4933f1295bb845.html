@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup2/kalib/xf_compression/L2/include Directory Reference</title>
+<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/meghanat/xf_compression/L2/include Directory Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -97,6 +97,12 @@ Files</h2></td></tr>
 <tr class="memitem:gzip__compress__fixed__stream_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gzip__compress__fixed__stream_8hpp.html">gzip_compress_fixed_stream.hpp</a> <a href="gzip__compress__fixed__stream_8hpp_source.html">[code]</a></td></tr>
 <tr class="memdesc:gzip__compress__fixed__stream_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header for Gzip compression kernel. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gzip__compress__multicore__mm_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gzip__compress__multicore__mm_8hpp.html">gzip_compress_multicore_mm.hpp</a> <a href="gzip__compress__multicore__mm_8hpp_source.html">[code]</a></td></tr>
+<tr class="memdesc:gzip__compress__multicore__mm_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header for Gzip compression multicore kernel. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gzip__compress__multicore__stream_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gzip__compress__multicore__stream_8hpp.html">gzip_compress_multicore_stream.hpp</a> <a href="gzip__compress__multicore__stream_8hpp_source.html">[code]</a></td></tr>
+<tr class="memdesc:gzip__compress__multicore__stream_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header for Gzip multicore streaming compression kernel. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gzip__compress__stream_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gzip__compress__stream_8hpp.html">gzip_compress_stream.hpp</a> <a href="gzip__compress__stream_8hpp_source.html">[code]</a></td></tr>
 <tr class="memdesc:gzip__compress__stream_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header for Gzip compression kernel. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -105,12 +111,6 @@ Files</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:lz4__compress__stream_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lz4__compress__stream_8hpp.html">lz4_compress_stream.hpp</a> <a href="lz4__compress__stream_8hpp_source.html">[code]</a></td></tr>
 <tr class="memdesc:lz4__compress__stream_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header for LZ4 compression stream based kernel. <br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:lz4__decompress__mm_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lz4__decompress__mm_8hpp.html">lz4_decompress_mm.hpp</a> <a href="lz4__decompress__mm_8hpp_source.html">[code]</a></td></tr>
-<tr class="memdesc:lz4__decompress__mm_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header for LZ4 decompression kernel. <br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:lz4__decompress__stream_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lz4__decompress__stream_8hpp.html">lz4_decompress_stream.hpp</a> <a href="lz4__decompress__stream_8hpp_source.html">[code]</a></td></tr>
-<tr class="memdesc:lz4__decompress__stream_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header for LZ4 decompression streaming kernel. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:lz4__multibyte__decompress__mm_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lz4__multibyte__decompress__mm_8hpp.html">lz4_multibyte_decompress_mm.hpp</a> <a href="lz4__multibyte__decompress__mm_8hpp_source.html">[code]</a></td></tr>
 <tr class="memdesc:lz4__multibyte__decompress__mm_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header for LZ4 decompression kernel. <br/></td></tr>
@@ -147,26 +147,20 @@ Files</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:snappy__multicore__decompress__stream_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>snappy_multicore_decompress_stream.hpp</b> <a href="snappy__multicore__decompress__stream_8hpp_source.html">[code]</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:zlib__compress__mm_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zlib__compress__mm_8hpp.html">zlib_compress_mm.hpp</a> <a href="zlib__compress__mm_8hpp_source.html">[code]</a></td></tr>
-<tr class="memdesc:zlib__compress__mm_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header for Zlib compression kernel. <br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:zlib__compress__multi__engine__mm_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zlib__compress__multi__engine__mm_8hpp.html">zlib_compress_multi_engine_mm.hpp</a> <a href="zlib__compress__multi__engine__mm_8hpp_source.html">[code]</a></td></tr>
 <tr class="memdesc:zlib__compress__multi__engine__mm_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header for Zlib compression kernel. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:zlib__decompress__stream_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zlib__decompress__stream_8hpp.html">zlib_decompress_stream.hpp</a> <a href="zlib__decompress__stream_8hpp_source.html">[code]</a></td></tr>
-<tr class="memdesc:zlib__decompress__stream_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header for zlib decompression streaming kernel. <br/></td></tr>
+<tr class="memitem:zlib__decompress_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>zlib_decompress.hpp</b> <a href="zlib__decompress_8hpp_source.html">[code]</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:zlib__decompress__dynamic_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>zlib_decompress_dynamic.hpp</b> <a href="zlib__decompress__dynamic_8hpp_source.html">[code]</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:zlib__decompress__fixed_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>zlib_decompress_fixed.hpp</b> <a href="zlib__decompress__fixed_8hpp_source.html">[code]</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:zlib__huffman__enc__mm_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zlib__huffman__enc__mm_8hpp.html">zlib_huffman_enc_mm.hpp</a> <a href="zlib__huffman__enc__mm_8hpp_source.html">[code]</a></td></tr>
 <tr class="memdesc:zlib__huffman__enc__mm_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header for huffman kernel used in zlib compression. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:zlib__lz77__compress__mm_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zlib__lz77__compress__mm_8hpp.html">zlib_lz77_compress_mm.hpp</a> <a href="zlib__lz77__compress__mm_8hpp_source.html">[code]</a></td></tr>
 <tr class="memdesc:zlib__lz77__compress__mm_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header for lz77 compression kernel used in zlib compression. <br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:zlib__parallelbyte__decompress__fixed_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>zlib_parallelbyte_decompress_fixed.hpp</b> <a href="zlib__parallelbyte__decompress__fixed_8hpp_source.html">[code]</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:zlib__parallelbyte__decompress__full_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>zlib_parallelbyte_decompress_full.hpp</b> <a href="zlib__parallelbyte__decompress__full_8hpp_source.html">[code]</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:zlib__parallelbyte__decompress__stream_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>zlib_parallelbyte_decompress_stream.hpp</b> <a href="zlib__parallelbyte__decompress__stream_8hpp_source.html">[code]</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:zlib__treegen__mm_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zlib__treegen__mm_8hpp.html">zlib_treegen_mm.hpp</a> <a href="zlib__treegen__mm_8hpp_source.html">[code]</a></td></tr>
 <tr class="memdesc:zlib__treegen__mm_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header for tree generator kernel used in zlib compression. <br/></td></tr>

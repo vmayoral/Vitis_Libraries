@@ -396,7 +396,7 @@
     
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>struct xf::compression::Symbol</li>
+      <li>template struct xf::compression::Symbol</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -415,15 +415,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="struct-xf-compression-symbol">
-<span id="cid-xf-compression-symbol"></span><span id="doxid-structxf-1-1compression-1-1symbol"></span><span id="index-0"></span><h1>struct xf::compression::Symbol<a class="headerlink" href="#struct-xf-compression-symbol" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="template-struct-xf-compression-symbol">
+<span id="cid-xf-compression-symbol"></span><span id="doxid-structxf-1-1compression-1-1symbol"></span><span id="index-0"></span><h1>template struct xf::compression::Symbol<a class="headerlink" href="#template-struct-xf-compression-symbol" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight overview-code-block literal-block" id="cid-xf-compression-symbol-frequency">
-<span id="doxid-structxf-1-1compression-1-1symbol-1aae386e791b6d55a0731e52bc6328806d"></span><span id="cid-xf-compression-symbol-value"></span><span id="doxid-structxf-1-1compression-1-1symbol-1abfb2379c9cebaad8fed374f5d95c99e0"></span><span></span><span class="c1">// fields</span>
+<span id="doxid-structxf-1-1compression-1-1symbol-1aeb018d1da0c8310cfb123aacccc4953d"></span><span id="cid-xf-compression-symbol-value"></span><span id="doxid-structxf-1-1compression-1-1symbol-1a41bc0c88e89fbfcd4099e8b920507fa5"></span><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">MAX_FREQ_DWIDTH</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">Symbol</span>
+
+<span class="c1">// fields</span>
 
 <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">c_tgnSymbolBits</span><span class="o">&gt;</span> <span class="n">value</span>
-<span class="n">Frequency</span> <span class="n">frequency</span>
+<span class="n">Frequency</span> <span class="o">&lt;</span><span class="n">MAX_FREQ_DWIDTH</span><span class="o">&gt;</span> <span class="n">frequency</span>
 </pre>
 </div>
 

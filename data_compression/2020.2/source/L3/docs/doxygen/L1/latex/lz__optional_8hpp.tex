@@ -1,11 +1,12 @@
-\hypertarget{lz__optional_8hpp}{\section{/wrk/xhdhdnobkup2/kalib/xf\-\_\-compression/\-L1/include/hw/lz\-\_\-optional.hpp File Reference}
-\label{lz__optional_8hpp}\index{/wrk/xhdhdnobkup2/kalib/xf\-\_\-compression/\-L1/include/hw/lz\-\_\-optional.\-hpp@{/wrk/xhdhdnobkup2/kalib/xf\-\_\-compression/\-L1/include/hw/lz\-\_\-optional.\-hpp}}
+\hypertarget{lz__optional_8hpp}{\section{/wrk/xhdhdnobkup3/meghanat/xf\-\_\-compression/\-L1/include/hw/lz\-\_\-optional.hpp File Reference}
+\label{lz__optional_8hpp}\index{/wrk/xhdhdnobkup3/meghanat/xf\-\_\-compression/\-L1/include/hw/lz\-\_\-optional.\-hpp@{/wrk/xhdhdnobkup3/meghanat/xf\-\_\-compression/\-L1/include/hw/lz\-\_\-optional.\-hpp}}
 }
 
 
 Header for modules used in L\-Z4 and snappy compression kernels.  
 
 
+{\ttfamily \#include \char`\"{}compress\-\_\-utils.\-hpp\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}hls\-\_\-stream.\-h\char`\"{}}\\*
 {\ttfamily \#include $<$ap\-\_\-int.\-h$>$}\\*
 {\ttfamily \#include $<$assert.\-h$>$}\\*
@@ -30,6 +31,8 @@ Header for modules used in L\-Z4 and snappy compression kernels.
 {\footnotesize template$<$int M\-A\-T\-C\-H\-\_\-\-L\-E\-N, int O\-F\-F\-S\-E\-T\-\_\-\-W\-I\-N\-D\-O\-W$>$ }\\void {\bfseries xf\-::compression\-::lz\-Best\-Match\-Filter} (hls\-::stream$<$ compressd\-\_\-dt $>$ \&in\-Stream, hls\-::stream$<$ compressd\-\_\-dt $>$ \&out\-Stream, uint32\-\_\-t input\-\_\-size)
 \begin{DoxyCompactList}\small\item\em Objective of this module is to pick character with higher match length in the offset window range. \end{DoxyCompactList}\item 
 {\footnotesize template$<$int M\-A\-X\-\_\-\-M\-A\-T\-C\-H\-\_\-\-L\-E\-N, int B\-O\-O\-S\-T\-E\-R\-\_\-\-O\-F\-F\-S\-E\-T\-\_\-\-W\-I\-N\-D\-O\-W = 16 $\ast$ 1024, int L\-E\-F\-T\-\_\-\-B\-Y\-T\-E\-S = 64$>$ }\\void {\bfseries xf\-::compression\-::lz\-Booster} (hls\-::stream$<$ compressd\-\_\-dt $>$ \&in\-Stream, hls\-::stream$<$ compressd\-\_\-dt $>$ \&out\-Stream, hls\-::stream$<$ uint32\-\_\-t $>$ \&in\-Size)
+\begin{DoxyCompactList}\small\item\em This module helps in improving the compression ratio. Finds a better match length by performing more character matches with supported max match, while maintaining an offset window. Booster offset Window template argument (default value is 16\-K) internally consume B\-R\-A\-M memory to implement history window. Higher the booster value can give better compression ratio but will consume more B\-R\-A\-M resources. \end{DoxyCompactList}\item 
+{\footnotesize template$<$int M\-A\-X\-\_\-\-M\-A\-T\-C\-H\-\_\-\-L\-E\-N, int B\-O\-O\-S\-T\-E\-R\-\_\-\-O\-F\-F\-S\-E\-T\-\_\-\-W\-I\-N\-D\-O\-W = 16 $\ast$ 1024, int L\-E\-F\-T\-\_\-\-B\-Y\-T\-E\-S = 64$>$ }\\void {\bfseries xf\-::compression\-::lz\-Booster} (hls\-::stream$<$ Int\-Vector\-Stream\-\_\-dt$<$ 32, 1 $>$ $>$ \&in\-Stream, hls\-::stream$<$ Int\-Vector\-Stream\-\_\-dt$<$ 32, 1 $>$ $>$ \&out\-Stream)
 \begin{DoxyCompactList}\small\item\em This module helps in improving the compression ratio. Finds a better match length by performing more character matches with supported max match, while maintaining an offset window. Booster offset Window template argument (default value is 16\-K) internally consume B\-R\-A\-M memory to implement history window. Higher the booster value can give better compression ratio but will consume more B\-R\-A\-M resources. \end{DoxyCompactList}\item 
 {\footnotesize template$<$int M\-A\-X\-\_\-\-M\-A\-T\-C\-H\-\_\-\-L\-E\-N, int B\-O\-O\-S\-T\-E\-R\-\_\-\-O\-F\-F\-S\-E\-T\-\_\-\-W\-I\-N\-D\-O\-W = 16 $\ast$ 1024, int L\-E\-F\-T\-\_\-\-B\-Y\-T\-E\-S = 64$>$ }\\void {\bfseries xf\-::compression\-::lz\-Booster} (hls\-::stream$<$ compressd\-\_\-dt $>$ \&in\-Stream, hls\-::stream$<$ compressd\-\_\-dt $>$ \&out\-Stream, uint32\-\_\-t input\-\_\-size)
 \begin{DoxyCompactList}\small\item\em This module helps in improving the compression ratio. Finds a better match length by performing more character matches with supported max match, while maintaining an offset window. Booster offset Window template argument (default value is 16\-K) internally consume B\-R\-A\-M memory to implement history window. Higher the booster value can give better compression ratio but will consume more B\-R\-A\-M resources. \end{DoxyCompactList}\end{DoxyCompactItemize}

@@ -19,21 +19,23 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 
 Reported compression ratio is measured on Silesia Corpus compression benchmark.
 
-+-----------------------------------------------------------------+----------------------+-------------------+----------+---------+-------+-------+
-| Architecture                                                    |  Compression Ratio   |  Best Throughput  |  FMax    |  LUT    |  BRAM |  URAM |
-+=================================================================+======================+===================+==========+=========+=======+=======+
-| LZ4 Streaming (Single Engine and Datawidth: 8bit)               |        2.13          |      290 MB/s     |  300MHz  |  3.2K   |  5    |  6    |
-+-----------------------------------------------------------------+----------------------+-------------------+----------+---------+-------+-------+
-| Snappy Streaming (Single Engine and Datawidth: 8bit)            |        2.13          |      290 MB/s     |  300MHz  |  3.1K   |  4    |  6    |
-+-----------------------------------------------------------------+----------------------+-------------------+----------+---------+-------+-------+
-| LZ4 Memory Mapped (8 Engines with Data Movers)                  |        2.13          |      2.2 GB/s     |  295MHz  |  47K    |  56   |  48   |
-+-----------------------------------------------------------------+----------------------+-------------------+----------+---------+-------+-------+
-| Snappy Memory Mapped (8 Engines with Data Movers)               |        2.13          |      2.2 GB/s     |  300MHz  |  47K    |  48   |  48   |
-+-----------------------------------------------------------------+----------------------+-------------------+----------+---------+-------+-------+
-| Zlib Memory Mapped (Dynamic Huffman, 8 Engines with Data Movers)|        2.74          |      2 GB/s       |  284MHz  |  82.7K  |  105  |  48   |
-+-----------------------------------------------------------------+----------------------+-------------------+----------+---------+-------+-------+
-| GZip Memory Mapped (Dynamic Huffman, 8 Engines with Data Movers)|        2.74          |      2 GB/s       |  284MHz  |  82.7K  |  105  |  48   |
-+-----------------------------------------------------------------+----------------------+-------------------+----------+---------+-------+-------+
++------------------------------------------------------------------------+----------------------+-------------------+----------+---------+-------+-------+
+| Architecture                                                           |  Compression Ratio   |     Throughput    |  FMax    |  LUT    |  BRAM |  URAM |
++========================================================================+======================+===================+==========+=========+=======+=======+
+| LZ4 Streaming (Single Engine and Datawidth: 8bit)                      |        2.13          |      290 MB/s     |  300MHz  |  3.2K   |  5    |  6    |
++------------------------------------------------------------------------+----------------------+-------------------+----------+---------+-------+-------+
+| Snappy Streaming (Single Engine and Datawidth: 8bit)                   |        2.13          |      290 MB/s     |  300MHz  |  3.1K   |  4    |  6    |
++------------------------------------------------------------------------+----------------------+-------------------+----------+---------+-------+-------+
+| LZ4 Memory Mapped (8 Engines with Data Movers)                         |        2.13          |      2.2 GB/s     |  295MHz  |  47K    |  56   |  48   |
++------------------------------------------------------------------------+----------------------+-------------------+----------+---------+-------+-------+
+| Snappy Memory Mapped (8 Engines with Data Movers)                      |        2.13          |      2.2 GB/s     |  300MHz  |  47K    |  48   |  48   |
++------------------------------------------------------------------------+----------------------+-------------------+----------+---------+-------+-------+
+| GZip/Zlib Memory Mapped (Dynamic Huffman, 8 Engines with Data Movers)  |        2.67          |      2 GB/s       |  285MHz  |  53.8K  |  75   |  72   |
++------------------------------------------------------------------------+----------------------+-------------------+----------+---------+-------+-------+
+| GZip/Zlib Compress Stream (Dynamic Huffman, 8 Engines with Data Movers)|        2.67          |      2 GB/s       |  285MHz  |  49.7K  |  67   |  72   |
++------------------------------------------------------------------------+----------------------+-------------------+----------+---------+-------+-------+
+| GZip/Zlib Fixed Huffman File Compress Stream                           |        2.25          |      2 GB/s       |  285MHz  |  34.6K  |  48   |  64   |
++------------------------------------------------------------------------+----------------------+-------------------+----------+---------+-------+-------+
 
 
 .. [*] The amount of resources used indicate that we still have room on Alveo U200 to go for more compute units which can further improve the throughput.
@@ -46,26 +48,19 @@ The following table presents decompression kernel throughput achieved with singl
 kernel clock frequency met and resource utilization when executed on Alveo U200.
 
 +----------------------------------------------------------------------+-------------------+----------+---------+-------+------+
-| Architecture                                                         |  Best Throughput  |  FMax    |  LUT    |  BRAM | URAM |           
+| Architecture                                                         |    Throughput     |  FMax    |  LUT    |  BRAM | URAM |           
 +======================================================================+===================+==========+=========+=======+======+
 | LZ4 Streaming (Single Engine and Datawidth: 64bit)                   |     1.8  GB/s     |  300MHz  |  7.2K   |  0    |  4   |
 +----------------------------------------------------------------------+-------------------+----------+---------+-------+------+
 | Snappy Streaming (Single Engine and Datawidth: 64bit)                |     1.97 GB/s     |  300MHz  |  8.8K   |  0    |  4   |
 +----------------------------------------------------------------------+-------------------+----------+---------+-------+------+
-| Zlib Streaming (High Throughput, Datawidth: 64bit)                   |     1.18 GB/s     |  227MHz  |  11.6K  |  3    |  2   |
+| GZip/Zlib Streaming (High Throughput, Datawidth: 64bit)              |     450  MB/s     |  252MHz  |  11.3K  |  6    |  3   |
 +----------------------------------------------------------------------+-------------------+----------+---------+-------+------+
-| GZip Streaming (High Throughput, Datawidth: 64bit)                   |     1.18 GB/s     |  227MHz  |  13.9K  |  4    |  2   |
+| ZStd Streaming (Single Engine and Datawidth: 32bit)                  |     463  MB/s     |  232MHz  |  18K    |  52   |  4   |
 +----------------------------------------------------------------------+-------------------+----------+---------+-------+------+
-| LZ4 Memory Mapped (8 Engines with Data Movers)                       |     1.8  GB/s     |  300MHz  |  30.6K  |  146  |  0   |
-+----------------------------------------------------------------------+-------------------+----------+---------+-------+------+
-| Snappy Memory Mapped (8 Engines with Data Movers)                    |     1.8  GB/s     |  300MHz  |  31.1K  |  146  |  0   |
-+----------------------------------------------------------------------+-------------------+----------+---------+-------+------+
-| ZStd Streaming (Single Engine and Datawidth: 32bit)                  |     783  MB/s     |  232MHz  |  18K    |  52   |  4   |
-+----------------------------------------------------------------------+-------------------+----------+---------+-------+------+
-| ZStd Full File Streaming (Single Engine with Datawidth: 32bit)       |     783  MB/s     |  232MHz  |  22K    |  52   |  4   |
+| ZStd Full File Streaming (Single Engine with Datawidth: 32bit)       |     463  MB/s     |  232MHz  |  22K    |  52   |  4   |
 +----------------------------------------------------------------------+-------------------+----------+---------+-------+------+
 
 .. [*] The amount of resources used indicate that we still have room on Alveo U200 to go for more compute units which can further improve the throughput.
-.. [*] Zlib Streaming: Dynamic Huffman and Single Engine performance is provided.
-.. [*] GZip Streaming: Full standard support (Dynamic Huffman, Fixed Huffman and Stored Blocks supported).
+.. [*] GZip/Zlib Streaming: Full standard support (Dynamic Huffman, Fixed Huffman and Stored Blocks supported).
 .. [*] ZStd Streaming: Full Standard support with limited Window Size upto 128KB.
