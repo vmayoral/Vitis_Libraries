@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup2/kalib/xf_compression/L1/include/hw/snappy_decompress_details.hpp File Reference</title>
+<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/meghanat/xf_compression/L1/include/hw/snappy_decompress_details.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -104,26 +104,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5950cb8c27c23ca36e1cc0d33de4db6e"><td class="memTemplParams" colspan="2"><a class="anchor" id="a5950cb8c27c23ca36e1cc0d33de4db6e"></a>
+<tr class="memitem:a723f9557bbe5b04876b1d46a966c1cfa"><td class="memTemplParams" colspan="2"><a class="anchor" id="a723f9557bbe5b04876b1d46a966c1cfa"></a>
 template&lt;int NUM_BLOCKS, int PARALLEL_BYTES, int BLOCK_SIZE = 64, class SIZE_DT  = ap_uint&lt;17&gt;&gt; </td></tr>
-<tr class="memitem:a5950cb8c27c23ca36e1cc0d33de4db6e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::lzMultiBlockPacker</b> (hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; lzDataStream[NUM_BLOCKS], hls::stream&lt; bool &gt; lzStreamEos[NUM_BLOCKS], hls::stream&lt; uint32_t &gt; lzSizeStream[NUM_BLOCKS], hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;outStreamEos, hls::stream&lt; uint32_t &gt; &amp;outSizeStream)</td></tr>
-<tr class="separator:a5950cb8c27c23ca36e1cc0d33de4db6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab72d81b4948f8749c9c6b8873cc2eca5"><td class="memTemplParams" colspan="2"><a class="anchor" id="ab72d81b4948f8749c9c6b8873cc2eca5"></a>
+<tr class="memitem:a723f9557bbe5b04876b1d46a966c1cfa"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::lzMultiBlockPacker</b> (hls::stream&lt; ap_uint&lt;(PARALLEL_BYTES *8)+8 &gt; &gt; lzDataStream[NUM_BLOCKS], hls::stream&lt; uint32_t &gt; lzSizeStream[NUM_BLOCKS], hls::stream&lt; ap_uint&lt;(PARALLEL_BYTES *8)+8 &gt; &gt; &amp;outStream, hls::stream&lt; uint32_t &gt; &amp;outSizeStream)</td></tr>
+<tr class="separator:a723f9557bbe5b04876b1d46a966c1cfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4026092fed850ceaa768ed021cbf2eda"><td class="memTemplParams" colspan="2"><a class="anchor" id="a4026092fed850ceaa768ed021cbf2eda"></a>
 template&lt;int NUM_BLOCKS, int PARALLEL_BYTES, int HISTORY_SIZE, int BLOCK_SIZE = 64, class SIZE_DT  = ap_uint&lt;17&gt;&gt; </td></tr>
-<tr class="memitem:ab72d81b4948f8749c9c6b8873cc2eca5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::snappyBlockDecoder</b> (hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;blockDataStream, hls::stream&lt; dt_blockInfo &gt; &amp;blockInfoStream, hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;lzDataStream, hls::stream&lt; bool &gt; &amp;lzStreamEos, hls::stream&lt; uint32_t &gt; &amp;lzSizeStream)</td></tr>
-<tr class="separator:ab72d81b4948f8749c9c6b8873cc2eca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabd3e4c8a43db65490824f975e92ea27"><td class="memTemplParams" colspan="2"><a class="anchor" id="aabd3e4c8a43db65490824f975e92ea27"></a>
+<tr class="memitem:a4026092fed850ceaa768ed021cbf2eda"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::snappyBlockDecoder</b> (hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;blockDataStream, hls::stream&lt; dt_blockInfo &gt; &amp;blockInfoStream, hls::stream&lt; ap_uint&lt;(PARALLEL_BYTES *8)+8 &gt; &gt; &amp;lzDataStream, hls::stream&lt; uint32_t &gt; &amp;lzSizeStream)</td></tr>
+<tr class="separator:a4026092fed850ceaa768ed021cbf2eda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4b6e69a47efad41d5c7b9b96879bb40"><td class="memTemplParams" colspan="2"><a class="anchor" id="af4b6e69a47efad41d5c7b9b96879bb40"></a>
 template&lt;int NUM_BLOCKS, int PARALLEL_BYTES, int HISTORY_SIZE, int BLOCK_SIZE = 64, class SIZE_DT  = ap_uint&lt;17&gt;&gt; </td></tr>
-<tr class="memitem:aabd3e4c8a43db65490824f975e92ea27"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::snappyMultiCoreDecompress</b> (hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;inStream, hls::stream&lt; uint32_t &gt; &amp;inSizeStream, hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;outStreamEos, hls::stream&lt; uint32_t &gt; &amp;outSizeStream)</td></tr>
-<tr class="separator:aabd3e4c8a43db65490824f975e92ea27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f0585a5a401d0e5ef37f51a0ff8b103"><td class="memTemplParams" colspan="2"><a class="anchor" id="a3f0585a5a401d0e5ef37f51a0ff8b103"></a>
+<tr class="memitem:af4b6e69a47efad41d5c7b9b96879bb40"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::snappyMultiCoreDecompress</b> (hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;inStream, hls::stream&lt; uint32_t &gt; &amp;inSizeStream, hls::stream&lt; ap_uint&lt;(PARALLEL_BYTES *8)+8 &gt; &gt; &amp;outStream, hls::stream&lt; uint32_t &gt; &amp;outSizeStream)</td></tr>
+<tr class="separator:af4b6e69a47efad41d5c7b9b96879bb40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b71abd353a89330626045c38c091550"><td class="memTemplParams" colspan="2"><a class="anchor" id="a1b71abd353a89330626045c38c091550"></a>
 template&lt;int PARALLEL_BYTES, int HISTORY_SIZE, class SIZE_DT  = ap_uint&lt;17&gt;&gt; </td></tr>
-<tr class="memitem:a3f0585a5a401d0e5ef37f51a0ff8b103"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::snappyDecompressEngine</b> (hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;inStream, hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;outStreamEoS, hls::stream&lt; uint32_t &gt; &amp;outSizeStream, const uint32_t _input_size)</td></tr>
-<tr class="separator:a3f0585a5a401d0e5ef37f51a0ff8b103"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b66eb2ae79da7623edf83492ef1318c"><td class="memTemplParams" colspan="2"><a class="anchor" id="a6b66eb2ae79da7623edf83492ef1318c"></a>
+<tr class="memitem:a1b71abd353a89330626045c38c091550"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::snappyDecompressEngine</b> (hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;inStream, hls::stream&lt; ap_uint&lt;(PARALLEL_BYTES *8)+8 &gt; &gt; &amp;outStream, hls::stream&lt; uint32_t &gt; &amp;outSizeStream, const uint32_t _input_size)</td></tr>
+<tr class="separator:a1b71abd353a89330626045c38c091550"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1eed3f9519d17ce474d89224f7a868f"><td class="memTemplParams" colspan="2"><a class="anchor" id="ad1eed3f9519d17ce474d89224f7a868f"></a>
 template&lt;int PARALLEL_BYTES, int HISTORY_SIZE, class SIZE_DT  = ap_uint&lt;17&gt;&gt; </td></tr>
-<tr class="memitem:a6b66eb2ae79da7623edf83492ef1318c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::snappyDecompressCoreEngine</b> (hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;inStream, hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;outStreamEoS, hls::stream&lt; uint32_t &gt; &amp;outSizeStream, hls::stream&lt; uint32_t &gt; &amp;blockSizeStream)</td></tr>
-<tr class="separator:a6b66eb2ae79da7623edf83492ef1318c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1eed3f9519d17ce474d89224f7a868f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::snappyDecompressCoreEngine</b> (hls::stream&lt; ap_uint&lt; PARALLEL_BYTES *8 &gt; &gt; &amp;inStream, hls::stream&lt; ap_uint&lt;(PARALLEL_BYTES *8)+8 &gt; &gt; &amp;outStream, hls::stream&lt; uint32_t &gt; &amp;outSizeStream, hls::stream&lt; uint32_t &gt; &amp;blockSizeStream)</td></tr>
+<tr class="separator:ad1eed3f9519d17ce474d89224f7a868f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Internal modules used for snappy decompression. </p>

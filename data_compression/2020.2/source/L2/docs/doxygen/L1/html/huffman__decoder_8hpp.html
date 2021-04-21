@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup2/kalib/xf_compression/L1/include/hw/huffman_decoder.hpp File Reference</title>
+<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/meghanat/xf_compression/L1/include/hw/huffman_decoder.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -114,28 +114,28 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ae303b78b0bfb9a4b7060e366acf20797"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae303b78b0bfb9a4b7060e366acf20797"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>xf::compression::details::loadBitStream</b> (bitBufferType &amp;bitbuffer, ap_uint&lt; 6 &gt; &amp;bits_cntr, hls::stream&lt; ap_uint&lt; 16 &gt; &gt; &amp;inStream, hls::stream&lt; bool &gt; &amp;inEos, bool &amp;done)</td></tr>
+<tr class="separator:ae303b78b0bfb9a4b7060e366acf20797"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5726bcf19fa57c52860b27e024fb0360"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5726bcf19fa57c52860b27e024fb0360"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>xf::compression::details::discardBitStream</b> (bitBufferType &amp;bitbuffer, ap_uint&lt; 6 &gt; &amp;bits_cntr, ap_uint&lt; 6 &gt; n_bits)</td></tr>
+<tr class="separator:a5726bcf19fa57c52860b27e024fb0360"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa70d91815e25d8f2ccde2744295b4e6"><td class="memTemplParams" colspan="2"><a class="anchor" id="afa70d91815e25d8f2ccde2744295b4e6"></a>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:afa70d91815e25d8f2ccde2744295b4e6"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::reg</b> (T d)</td></tr>
 <tr class="separator:afa70d91815e25d8f2ccde2744295b4e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a349eb095bed974490bec29563ef23d07"><td class="memTemplParams" colspan="2"><a class="anchor" id="a349eb095bed974490bec29563ef23d07"></a>
-template&lt;int ByteGenLoopII = 1&gt; </td></tr>
-<tr class="memitem:a349eb095bed974490bec29563ef23d07"><td class="memTemplItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::huffmanBytegenStatic</b> (bitBufferType &amp;_bitbuffer, ap_uint&lt; 6 &gt; &amp;bits_cntr, hls::stream&lt; ap_uint&lt; 32 &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;endOfStream, int32_t &amp;curInSize, hls::stream&lt; ap_uint&lt; 16 &gt; &gt; &amp;inStream, const uint8_t *array_codes_op, const uint8_t *array_codes_bits, const uint16_t *array_codes_val)</td></tr>
-<tr class="separator:a349eb095bed974490bec29563ef23d07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a567b1896412fc5496a5a96a278b31c8a"><td class="memTemplParams" colspan="2"><a class="anchor" id="a567b1896412fc5496a5a96a278b31c8a"></a>
-template&lt;int ByteGenLoopII = 1&gt; </td></tr>
-<tr class="memitem:a567b1896412fc5496a5a96a278b31c8a"><td class="memTemplItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::huffmanBytegen</b> (bitBufferType &amp;_bitbuffer, ap_uint&lt; 6 &gt; &amp;bits_cntr, hls::stream&lt; ap_uint&lt; 32 &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;endOfStream, int32_t &amp;curInSize, hls::stream&lt; ap_uint&lt; 16 &gt; &gt; &amp;inStream, const uint32_t *array_codes, const uint32_t *array_codes_extra, const uint32_t *array_codes_dist, const uint32_t *array_codes_dist_extra)</td></tr>
-<tr class="separator:a567b1896412fc5496a5a96a278b31c8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b37f18706eb58812505ab875a5f79aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b37f18706eb58812505ab875a5f79aa"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>xf::compression::details::huffmanBytegenStatic</b> (bitBufferType &amp;_bitbuffer, ap_uint&lt; 6 &gt; &amp;bits_cntr, hls::stream&lt; ap_uint&lt; 17 &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;inEos, hls::stream&lt; ap_uint&lt; 16 &gt; &gt; &amp;inStream, const uint8_t *array_codes_op, const uint8_t *array_codes_bits, const uint16_t *array_codes_val)</td></tr>
+<tr class="separator:a0b37f18706eb58812505ab875a5f79aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5148c86ba908fd9ab45974a42621ed9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa5148c86ba908fd9ab45974a42621ed9"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>xf::compression::details::huffmanBytegen</b> (bitBufferType &amp;_bitbuffer, ap_uint&lt; 6 &gt; &amp;bits_cntr, hls::stream&lt; ap_uint&lt; 17 &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;inEos, hls::stream&lt; ap_uint&lt; 16 &gt; &gt; &amp;inStream, const uint32_t *array_codes, const uint32_t *array_codes_extra, const uint32_t *array_codes_dist, const uint32_t *array_codes_dist_extra)</td></tr>
+<tr class="separator:aa5148c86ba908fd9ab45974a42621ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f744e2fa081d991db0e4c411b575edf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>xf::compression::details::code_generator_array_dyn</b> (uint8_t curr_table, uint16_t *lens, ap_uint&lt; 9 &gt; codes, uint32_t *table, uint32_t *table_extra, uint32_t bits)</td></tr>
 <tr class="separator:a3f744e2fa081d991db0e4c411b575edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe41b78de4b030b07f89d38fa5cc56e0"><td class="memTemplParams" colspan="2">template&lt;eHuffmanType DECODER = FULL, int ByteGenLoopII = 1&gt; </td></tr>
-<tr class="memitem:abe41b78de4b030b07f89d38fa5cc56e0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::huffmanDecoder</b> (hls::stream&lt; ap_uint&lt; 16 &gt; &gt; &amp;inStream, hls::stream&lt; ap_uint&lt; 32 &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;endOfStream, uint32_t input_size)</td></tr>
-<tr class="memdesc:abe41b78de4b030b07f89d38fa5cc56e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This module is ZLIB/GZIP Fixed, Dynamic and Stored block supported decoder. It takes ZLIB/GZIP Huffman encoded data as input and generates decoded data in LZ77 format (Literal, Length, Offset).  <a href="#abe41b78de4b030b07f89d38fa5cc56e0">More...</a><br/></td></tr>
-<tr class="separator:abe41b78de4b030b07f89d38fa5cc56e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a044b8de258f5f3685c980094b2127d93"><td class="memTemplParams" colspan="2"><a class="anchor" id="a044b8de258f5f3685c980094b2127d93"></a>
-template&lt;eHuffmanType DECODER = FULL, int ByteGenLoopII = 2&gt; </td></tr>
-<tr class="memitem:a044b8de258f5f3685c980094b2127d93"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::huffmanDecoderStream</b> (hls::stream&lt; ap_uint&lt; 16 &gt; &gt; &amp;inStream, hls::stream&lt; ap_uint&lt; 32 &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;endOfStream, hls::stream&lt; uint32_t &gt; &amp;inSize, hls::stream&lt; uint32_t &gt; &amp;outSize)</td></tr>
-<tr class="separator:a044b8de258f5f3685c980094b2127d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ed9116cccc423063db24e623d3e73f2"><td class="memTemplParams" colspan="2">template&lt;eHuffmanType DECODER = FULL&gt; </td></tr>
+<tr class="memitem:a8ed9116cccc423063db24e623d3e73f2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::huffmanDecoder</b> (hls::stream&lt; ap_uint&lt; 16 &gt; &gt; &amp;inStream, hls::stream&lt; bool &gt; &amp;inEos, hls::stream&lt; ap_uint&lt; 17 &gt; &gt; &amp;outStream)</td></tr>
+<tr class="memdesc:a8ed9116cccc423063db24e623d3e73f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This module is ZLIB/GZIP Fixed, Dynamic and Stored block supported decoder. It takes ZLIB/GZIP Huffman encoded data as input and generates decoded data in LZ77 format (Literal, Length, Offset).  <a href="#a8ed9116cccc423063db24e623d3e73f2">More...</a><br/></td></tr>
+<tr class="separator:a8ed9116cccc423063db24e623d3e73f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header for module used in ZLIB decompress kernel. </p>

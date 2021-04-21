@@ -342,12 +342,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="L2.html">L2 Kernel User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="overview.html">L2 Kernel Demos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design.html">Kernel Design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_reference.html">Kernel APIs Reference</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="demo.html">Demos</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Xilinx GZip Compression and Decompression</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#results">Results</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#executable-usage">Executable Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#results">Results</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#standard-gzip-support">Standard GZip Support</a></li>
 </ul>
 </li>
@@ -355,11 +354,11 @@
 <li class="toctree-l3"><a class="reference internal" href="lz4_streaming.html">Xilinx LZ4-Streaming Compression and Decompression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="snappy.html">Xilinx Snappy Compression and Decompression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="snappy_streaming.html">Xilinx Snappy-Streaming Compression and Decompression</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zlib.html">Xilinx ZLIB Compression and Decompression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zstd_decompress.html">Xilinx ZSTD Decompression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="demo.html#build-instructions">Build Instructions</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="test.html">Tests</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L3/L3.html">L3 Overlay User Guide</a></li>
@@ -447,11 +446,52 @@
 <p>GZip example resides in <code class="docutils literal notranslate"><span class="pre">L2/demos/gzip</span></code> directory.</p>
 <p>Follow build instructions to generate host executable and binary.</p>
 <p>The binary host file generated is named as “<strong>xil_gzip</strong>” and it is present in <code class="docutils literal notranslate"><span class="pre">./build</span></code> directory.</p>
+<div class="section" id="executable-usage">
+<h2>Executable Usage<a class="headerlink" href="#executable-usage" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">To execute single file for compression                 : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-c</span> <span class="pre">&lt;input</span> <span class="pre">file_name&gt;</span></code></p>
+</li>
+<li><p class="first">To execute single file for decompression           : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-d</span> <span class="pre">&lt;compressed</span> <span class="pre">file_name&gt;</span></code></p>
+</li>
+<li><p class="first">To validate single file (compress &amp; decompress)    : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-t</span> <span class="pre">&lt;input</span> <span class="pre">file_name&gt;</span></code></p>
+</li>
+<li><p class="first">To execute multiple files for compression    : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-cfl</span> <span class="pre">&lt;files.list&gt;</span></code></p>
+</li>
+<li><p class="first">To execute multiple files for decompression    : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-dfl</span> <span class="pre">&lt;compressed</span> <span class="pre">files.list&gt;</span></code></p>
+</li>
+<li><p class="first">To validate multiple files (compress &amp; decompress) : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-l</span> <span class="pre">&lt;files.list&gt;</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">&lt;files.list&gt;</span></code>: Contains various file names with current path</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<p>The usage of the generated executable is as follows:</p>
+<pre class="highlight literal-block">
+<span></span>Usage: application.exe -<span class="o">[</span>-h-c-d-t-cfl-dfl-l-xbin-id<span class="o">]</span>
+       --help,                -h        Print Help Options
+       --compress,            -c        Compress
+       --decompress,          -d        Decompress
+       --test,                -t        Xilinx compress <span class="p">&amp;</span> Decompress
+       --compress_list,       -cfl      Compress List of Input Files
+       --decompress_list,     -dfl      Decompress List of compressed Input Files
+       --test_list,           -l        Xilinx Compress <span class="p">&amp;</span> Decompress on Input Files
+       --max_cr,              -mcr      Maximum CR                                      Default: <span class="o">[</span><span class="m">10</span><span class="o">]</span>
+       --xclbin,              -xbin     XCLBIN
+       --device_id,           -id       Device ID                                       Default: <span class="o">[</span><span class="m">0</span><span class="o">]</span>
+       --zlib,                -zlib     <span class="o">[</span><span class="m">0</span>:GZip, <span class="m">1</span>:Zlib<span class="o">]</span>                                Default: <span class="o">[</span><span class="m">0</span><span class="o">]</span>
+</pre>
+</div>
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="overall-resource-utilization">
-<h3>Overall Resource Utilization<a class="headerlink" href="#overall-resource-utilization" title="Permalink to this headline">¶</a></h3>
-<p>Table below presents resource utilization of Xilinx Zlib compress/decompress kernels. The final Fmax achieved is 289MHz</p>
+<div class="section" id="resource-utilization">
+<h3>Resource Utilization<a class="headerlink" href="#resource-utilization" title="Permalink to this headline">¶</a></h3>
+<p>Table below presents resource utilization of Xilinx GZip Compress/Decompress
+kernels. The final Fmax achieved is 236MHz</p>
+</div>
+<div class="section" id="compression">
+<h3>Compression<a class="headerlink" href="#compression" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="28%" />
@@ -472,100 +512,55 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Compress</td>
-<td>82.7K</td>
-<td>26K</td>
-<td>84.7K</td>
-<td>105</td>
-<td>48</td>
-</tr>
-<tr class="row-odd"><td>DeCompress</td>
-<td>13.9K</td>
-<td>506</td>
-<td>13.9K</td>
-<td>8</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="compress-kernel-resource-utilization">
-<h3>Compress Kernel Resource Utilization<a class="headerlink" href="#compress-kernel-resource-utilization" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="docutils">
-<colgroup>
-<col width="23%" />
-<col width="14%" />
-<col width="20%" />
-<col width="14%" />
-<col width="14%" />
-<col width="14%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Kernel</th>
-<th class="head">LUT</th>
-<th class="head">LUTMem</th>
-<th class="head">REG</th>
-<th class="head">BRAM</th>
-<th class="head">URAM</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>LZ77</td>
-<td>43.9K</td>
-<td>10.4K</td>
-<td>46.9K</td>
-<td>69</td>
-<td>48</td>
-</tr>
-<tr class="row-odd"><td>Huffman</td>
-<td>38.8K</td>
-<td>10.2K</td>
-<td>37.8K</td>
-<td>36</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="decompress-kernel-resource-utilization">
-<h3>Decompress Kernel Resource Utilization<a class="headerlink" href="#decompress-kernel-resource-utilization" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="docutils">
-<colgroup>
-<col width="29%" />
-<col width="13%" />
-<col width="18%" />
-<col width="13%" />
-<col width="13%" />
-<col width="13%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Kernel</th>
-<th class="head">LUT</th>
-<th class="head">LUTMem</th>
-<th class="head">REG</th>
-<th class="head">BRAM</th>
-<th class="head">URAM</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Decompress</td>
-<td>10.6K</td>
-<td>162</td>
-<td>8.1K</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr class="row-odd"><td>DmReader</td>
-<td>2.1K</td>
-<td>294</td>
+<td>53.8K</td>
 <td>3.8K</td>
+<td>55.4K</td>
+<td>75</td>
+<td>72</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="decompression">
+<h3>Decompression<a class="headerlink" href="#decompression" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="14%" />
+<col width="17%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Flow</th>
+<th class="head">LUT</th>
+<th class="head">LUTMem</th>
+<th class="head">REG</th>
+<th class="head">BRAM</th>
+<th class="head">URAM</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>DeCompress</td>
+<td>11.3K</td>
+<td>113</td>
+<td>7K</td>
+<td>6</td>
 <td>3</td>
+</tr>
+<tr class="row-odd"><td>DM Reader</td>
+<td>1.5K</td>
+<td>282</td>
+<td>2.1K</td>
+<td>2</td>
 <td>0</td>
 </tr>
-<tr class="row-even"><td>DmWriter</td>
-<td>1K</td>
-<td>50</td>
-<td>1.8K</td>
-<td>1</td>
+<tr class="row-even"><td>DM Writer</td>
+<td>2.7K</td>
+<td>624</td>
+<td>4K</td>
+<td>2</td>
 <td>0</td>
 </tr>
 </tbody>
@@ -573,6 +568,8 @@
 </div>
 <div class="section" id="performance-data">
 <h3>Performance Data<a class="headerlink" href="#performance-data" title="Permalink to this headline">¶</a></h3>
+<p>Table below presents kernel throughput achieved for a single compute
+unit.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="54%" />
@@ -580,71 +577,27 @@
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Topic</th>
-<th class="head">Best Kernel Throughput</th>
+<th class="head">Results</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Compression</td>
-<td>2 GB/s</td>
+<tr class="row-even"><td>Compression Throughput</td>
+<td>1.5 GB/s</td>
 </tr>
-<tr class="row-odd"><td>Decompression</td>
-<td>736 MB/s</td>
+<tr class="row-odd"><td>Decompression Throughput</td>
+<td>423 MB/s</td>
 </tr>
 <tr class="row-even"><td>Average Compression Ratio</td>
-<td>2.74 (Silesia Corpus)</td>
+<td>2.67x (Silesia Benchmark)</td>
 </tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id1" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[*]</td><td>Decompression uses high fmax options (Bitwidth: 32bit, ByteGen Loop: 2)</td></tr>
-</tbody>
-</table>
+<p>Note: Overall throughput can still be increased with multiple compute</p>
 </div>
-</div>
-<div class="section" id="executable-usage">
-<h2>Executable Usage<a class="headerlink" href="#executable-usage" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic">
-<li><p class="first">To execute single file for compression                 : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-c</span> <span class="pre">&lt;input</span> <span class="pre">file_name&gt;</span></code></p>
-</li>
-<li><p class="first">To execute single file for decompression           : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-d</span> <span class="pre">&lt;compressed</span> <span class="pre">file_name&gt;</span></code></p>
-</li>
-<li><p class="first">To validate single file (compress &amp; decompress)    : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-v</span> <span class="pre">&lt;input</span> <span class="pre">file_name&gt;</span></code></p>
-</li>
-<li><p class="first">To validate multiple files (compress &amp; decompress) : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-l</span> <span class="pre">&lt;files.list&gt;</span></code></p>
-<blockquote>
-<div><ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">&lt;files.list&gt;</span></code>: Contains various file names with current path</li>
-</ul>
-</div></blockquote>
-</li>
-</ol>
-<p>The usage of the generated executable is as follows:</p>
-<pre class="highlight literal-block">
-<span></span>Usage: application.exe -<span class="o">[</span>-h-c-d-sx-v-l-k<span class="o">]</span>
-     --help,                 -h      Print Help Options   Default: <span class="o">[</span>false<span class="o">]</span>
-     --compress,             -c      Compress
-     --decompress,           -d      Decompress
-     --single_xclbin,        -sx     Single XCLBIN        Default: <span class="o">[</span>single<span class="o">]</span>
-     --file_list,            -l      List of Input Files
-     --compress_decompress,  -v      Compress Decompress
-     --cu,                   -k      CU                   Default: <span class="o">[</span><span class="m">0</span><span class="o">]</span>
-</pre>
 </div>
 <div class="section" id="standard-gzip-support">
 <h2>Standard GZip Support<a class="headerlink" href="#standard-gzip-support" title="Permalink to this headline">¶</a></h2>
-<p>This application is compatible with standard Gzip application (compress/decompres).
-Compatibility is validated on Linux environment.</p>
-<p>Following is the command to use standard “<strong>gzip</strong>” to decompress files
-compressed using Xilinx GZip application.</p>
-<pre class="highlight literal-block">
-<span></span>gzip -dc &lt;compressed_file.gz&gt;  &gt; out
-</pre>
-<p>At present we dont support CRC32 check for GZip, due this following error
-message is expected while running the above command.</p>
-<p>Expected Error Message:</p>
-<p><code class="docutils literal notranslate"><span class="pre">invalid</span> <span class="pre">compressed</span> <span class="pre">data--crc</span> <span class="pre">error</span></code></p>
+<p>This application is compatible with standard Gzip/Zlib application (compress/decompres).</p>
 </div>
 </div>
 

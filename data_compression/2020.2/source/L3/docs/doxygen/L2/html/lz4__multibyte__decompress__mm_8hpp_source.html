@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup2/kalib/xf_compression/L2/include/lz4_multibyte_decompress_mm.hpp Source File</title>
+<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/meghanat/xf_compression/L2/include/lz4_multibyte_decompress_mm.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,7 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="lz4__multibyte__decompress__mm_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * (c) Copyright 2019 Xilinx, Inc. All rights reserved.</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * (c) Copyright 2019-2021 Xilinx, Inc. All rights reserved.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * you may not use this file except in compliance with the License.</span></div>
@@ -132,7 +132,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">// Kernel top functions</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">void</span> <a class="code" href="lz4__decompress__mm_8hpp.html#acf6728ba62074fd173cb146ecb59433e">xilLz4Decompress</a>(<span class="keyword">const</span> ap_uint&lt;PARALLEL_BYTE * 8&gt;* in,</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">void</span> <a class="code" href="lz4__multibyte__decompress__mm_8hpp.html#a125e46ad8f1530bf082e0a0956597a97">xilLz4Decompress</a>(<span class="keyword">const</span> ap_uint&lt;PARALLEL_BYTE * 8&gt;* in,</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                      ap_uint&lt;PARALLEL_BYTE * 8&gt;* out,</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                      uint32_t* in_block_size,</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                      uint32_t* in_compress_size,</div>
@@ -141,7 +141,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif // _XFCOMPRESSION_LZ4_DECOMPRESS_MM_HPP_</span></div>
-<div class="ttc" id="lz4__decompress__mm_8hpp_html_acf6728ba62074fd173cb146ecb59433e"><div class="ttname"><a href="lz4__decompress__mm_8hpp.html#acf6728ba62074fd173cb146ecb59433e">xilLz4Decompress</a></div><div class="ttdeci">void xilLz4Decompress(const xf::compression::uintMemWidth_t *in, xf::compression::uintMemWidth_t *out, uint32_t *in_block_size, uint32_t *in_compress_size, uint32_t block_size_in_kb, uint32_t no_blocks)</div><div class="ttdoc">LZ4 decompression kernel takes compressed data as input and process in block based fashion and writes...</div></div>
+<div class="ttc" id="lz4__multibyte__decompress__mm_8hpp_html_a125e46ad8f1530bf082e0a0956597a97"><div class="ttname"><a href="lz4__multibyte__decompress__mm_8hpp.html#a125e46ad8f1530bf082e0a0956597a97">xilLz4Decompress</a></div><div class="ttdeci">void xilLz4Decompress(const ap_uint&lt; PARALLEL_BYTE *8 &gt; *in, ap_uint&lt; PARALLEL_BYTE *8 &gt; *out, uint32_t *in_block_size, uint32_t *in_compress_size, uint32_t block_size_in_kb, uint32_t no_blocks)</div><div class="ttdoc">LZ4 decompression kernel takes compressed data as input and process in block based fashion and writes...</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

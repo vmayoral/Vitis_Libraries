@@ -100,27 +100,45 @@ uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>xilinxHwCompress<
 <tr class="memitem:a23c281eeb6d90000f2ffc3ff2d91053c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a23c281eeb6d90000f2ffc3ff2d91053c"></a>
 uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>xilinxHwUncompress</b> (z_streamp s, int cu)</td></tr>
 <tr class="separator:a23c281eeb6d90000f2ffc3ff2d91053c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56d32faa858eb10a47fbf0dce27467ed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a56d32faa858eb10a47fbf0dce27467ed"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>zlibDriver</b> (z_streamp s, const std::string &amp;instance_name, const cl::Device &amp;device_id, const cl_context_properties &amp;platform_id, const std::string &amp;m_u50_xclbin, int flow)</td></tr>
-<tr class="separator:a56d32faa858eb10a47fbf0dce27467ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a2b440d8023eb944d8d5f788089f126"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a2b440d8023eb944d8d5f788089f126"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>zlibDriver</b> (z_streamp s, const cl_context_properties &amp;platform_id, const std::string &amp;m_u50_xclbin, int flow, std::vector&lt; cl::Device &gt; &amp;ndevices, std::vector&lt; cl::Context * &gt; &amp;deviceContext, std::vector&lt; cl::Program * &gt; &amp;deviceProgram, bool init=true)</td></tr>
+<tr class="separator:a0a2b440d8023eb944d8d5f788089f126"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f64f2eee66d23270b084470e7d972d9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f64f2eee66d23270b084470e7d972d9"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>getStatus</b> ()</td></tr>
 <tr class="separator:a5f64f2eee66d23270b084470e7d972d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae94889732c3e2e128f3fa7ab1578a995"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae94889732c3e2e128f3fa7ab1578a995"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>struct_update</b> (z_streamp s, int flow)</td></tr>
 <tr class="separator:ae94889732c3e2e128f3fa7ab1578a995"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb79205ed7c535619f8d8efe66e3b624"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb79205ed7c535619f8d8efe66e3b624"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getZlibInstance</b> (const std::string &amp;kinstance, const cl::Device &amp;device_id, const cl_context_properties &amp;platform_id)</td></tr>
-<tr class="separator:aeb79205ed7c535619f8d8efe66e3b624"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1830cd5bee7db028ab47ec1fe5ccadbd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1830cd5bee7db028ab47ec1fe5ccadbd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>releaseZlibObj</b> (z_streamp strm)</td></tr>
-<tr class="separator:a1830cd5bee7db028ab47ec1fe5ccadbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03573fbdc2208c50695b09d42493d19f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a03573fbdc2208c50695b09d42493d19f"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>getZlibInstance</b> (void)</td></tr>
+<tr class="separator:a03573fbdc2208c50695b09d42493d19f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab92f52f879fce464cf131f21540c82f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab92f52f879fce464cf131f21540c82f6"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>allocateCU</b> (z_streamp strm)</td></tr>
+<tr class="separator:ab92f52f879fce464cf131f21540c82f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab291d3ab12bd571c59d2e46171230933"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab291d3ab12bd571c59d2e46171230933"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>getErrStatus</b> (void)</td></tr>
 <tr class="separator:ab291d3ab12bd571c59d2e46171230933"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad141f629c1225a8254848407dc4ecf96"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad141f629c1225a8254848407dc4ecf96"></a>
+<a class="el" href="classxf_1_1compression_1_1xfZlib.html">xfZlib</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getZlibPtr</b> (void)</td></tr>
+<tr class="separator:ad141f629c1225a8254848407dc4ecf96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ab5372e9a3ed91d0496365d7575c5b4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7ab5372e9a3ed91d0496365d7575c5b4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>releaseZlibCU</b> (z_streamp strm)</td></tr>
+<tr class="separator:a7ab5372e9a3ed91d0496365d7575c5b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95aa0cb5cbfb47555669a1d80d01e41d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a95aa0cb5cbfb47555669a1d80d01e41d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isDecompressEligible</b> ()</td></tr>
+<tr class="separator:a95aa0cb5cbfb47555669a1d80d01e41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c213382833f41d525be9075e3a95785"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c213382833f41d525be9075e3a95785"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setDecompressEligibility</b> (bool val)</td></tr>
+<tr class="separator:a7c213382833f41d525be9075e3a95785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a857c13e4ee000ab2d8019480642113ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a857c13e4ee000ab2d8019480642113ba"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>xilinxHwInflate</b> (z_streamp s, int flush)</td></tr>
+<tr class="separator:a857c13e4ee000ab2d8019480642113ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86000ba72a29785a371f7f8da08a7a8f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a86000ba72a29785a371f7f8da08a7a8f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>copyData</b> (z_streamp strm)</td></tr>
+<tr class="separator:a86000ba72a29785a371f7f8da08a7a8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/wrk/xhdhdnobkup2/kalib/xf_compression/L3/include/<a class="el" href="zlibDriver_8hpp_source.html">zlibDriver.hpp</a></li>
+<li>/wrk/xhdhdnobkup3/meghanat/xf_compression/L3/include/<a class="el" href="zlibDriver_8hpp_source.html">zlibDriver.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

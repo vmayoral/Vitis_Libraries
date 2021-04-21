@@ -2,8 +2,8 @@
 .. _doxid-structxf_1_1compression_1_1Symbol:
 .. _cid-xf::compression::symbol:
 
-struct xf::compression::Symbol
-==============================
+template struct xf::compression::Symbol
+=======================================
 
 .. toctree::
 	:hidden:
@@ -12,15 +12,18 @@ struct xf::compression::Symbol
 
 
 
-.. _doxid-structxf_1_1compression_1_1Symbol_1abfb2379c9cebaad8fed374f5d95c99e0:
+.. _doxid-structxf_1_1compression_1_1Symbol_1a41bc0c88e89fbfcd4099e8b920507fa5:
 .. _cid-xf::compression::symbol::value:
-.. _doxid-structxf_1_1compression_1_1Symbol_1aae386e791b6d55a0731e52bc6328806d:
+.. _doxid-structxf_1_1compression_1_1Symbol_1aeb018d1da0c8310cfb123aacccc4953d:
 .. _cid-xf::compression::symbol::frequency:
 .. ref-code-block:: cpp
 	:class: overview-code-block
 
+	template <int MAX_FREQ_DWIDTH>
+	struct Symbol
+
 	// fields
 
 	ap_uint <c_tgnSymbolBits> value
-	Frequency frequency
+	Frequency <MAX_FREQ_DWIDTH> frequency
 

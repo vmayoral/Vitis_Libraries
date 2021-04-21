@@ -446,13 +446,17 @@ Tested XSA:  xilinx_u250_xdma_201830_2
 <p>The host executable generated is named as “<strong>xil_gzip</strong>” and it is generated in <code class="docutils literal notranslate"><span class="pre">./build</span></code> directory.</p>
 <p>Following is the usage of the executable:</p>
 <ol class="arabic">
-<li><p class="first">To execute single file for compression                 : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-c</span> <span class="pre">&lt;input</span> <span class="pre">file_name&gt;</span></code></p>
+<li><p class="first">To execute single file for compression                 : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-c</span> <span class="pre">&lt;input</span> <span class="pre">file_name&gt;</span></code></p>
 </li>
-<li><p class="first">To execute single file for decompression           : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-d</span> <span class="pre">&lt;compressed</span> <span class="pre">file_name&gt;</span></code></p>
+<li><p class="first">To execute single file for decompression           : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-d</span> <span class="pre">&lt;compressed</span> <span class="pre">file_name&gt;</span></code></p>
 </li>
-<li><p class="first">To validate single file (compress &amp; decompress)    : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-v</span> <span class="pre">&lt;input</span> <span class="pre">file_name&gt;</span></code></p>
+<li><p class="first">To validate single file (compress &amp; decompress)    : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-t</span> <span class="pre">&lt;input</span> <span class="pre">file_name&gt;</span></code></p>
 </li>
-<li><p class="first">To validate multiple files (compress &amp; decompress) : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-l</span> <span class="pre">&lt;files.list&gt;</span></code></p>
+<li><p class="first">To execute multiple files for compression          : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-cfl</span> <span class="pre">&lt;files.list&gt;</span></code></p>
+</li>
+<li><p class="first">To execute multiple files for decompression        : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-dfl</span> <span class="pre">&lt;compressed</span> <span class="pre">files.list&gt;</span></code></p>
+</li>
+<li><p class="first">To validate multiple files (compress &amp; decompress) : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-l</span> <span class="pre">&lt;files.list&gt;</span></code></p>
 <blockquote>
 <div><ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">&lt;files.list&gt;</span></code>: Contains various file names with current path</li>
@@ -461,22 +465,22 @@ Tested XSA:  xilinx_u250_xdma_201830_2
 </li>
 </ol>
 <p>The default design flow is GZIP design to run the ZLIB, enable the switch <code class="docutils literal notranslate"><span class="pre">-zlib</span></code> in the command line, as mentioned below:
-<code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-sx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-c</span> <span class="pre">&lt;input</span> <span class="pre">file_name&gt;</span> <span class="pre">-zlib</span> <span class="pre">1</span></code></p>
-<p>The -sx option mentioned above is optional, you can provide path to your binary file using -sx option otherwise it will by default map to <code class="docutils literal notranslate"><span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span> <span class="pre">-c</span> <span class="pre">&lt;input</span> <span class="pre">file_name&gt;</span> <span class="pre">-zlib</span> <span class="pre">1</span></code></p>
+<p>The -xbin option mentioned above is optional, you can provide path to your binary file using -xbin option otherwise it will by default map to <code class="docutils literal notranslate"><span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress_decompress.xclbin</span></code></p>
 <p>The usage of the generated executable is as follows:</p>
 <pre class="highlight literal-block">
-<span></span>Usage: application.exe -<span class="o">[</span>-h-c-d-sx-v-l-k-id-mcr<span class="o">]</span>
-
-       --help,                    -h        Print Help Options
-       --compress,                -c        Compress
-       --decompress,              -d        DeCompress
-       --single_xclbin,           -sx       Single XCLBIN           Default: <span class="o">[</span>single<span class="o">]</span>
-       --compress_decompress,     -v        Compress Decompress
-       --zlib,                    -zlib     <span class="o">[</span><span class="m">0</span>:GZIP, <span class="m">1</span>:ZLIB<span class="o">]</span>        Default: <span class="o">[</span><span class="m">0</span><span class="o">]</span>
-       --file_list,               -l        List of Input Files
-       --cu,                      -k        CU                      Default: <span class="o">[</span><span class="m">0</span><span class="o">]</span>
-       --id,                      -id       Device ID               Default: <span class="o">[</span><span class="m">0</span><span class="o">]</span>
-       --max_cr,                  -mcr      Maximum CR              Default: <span class="o">[</span><span class="m">10</span><span class="o">]</span>
+<span></span>Usage: application.exe -<span class="o">[</span>-h-c-d-xbin-t-l-id-mcr<span class="o">]</span>
+       --help,                -h        Print Help Options
+       --compress,            -c        Compress
+       --decompress,          -d        Decompress
+       --test,                -t        Xilinx compress <span class="p">&amp;</span> Decompress
+       --compress_list,       -cfl      Compress List of Input Files
+       --decompress_list,     -dfl      Decompress List of compressed Input Files
+       --test_list,           -l        Xilinx Compress <span class="p">&amp;</span> Decompress on Input Files
+       --max_cr,              -mcr      Maximum CR                                      Default: <span class="o">[</span><span class="m">10</span><span class="o">]</span>
+       --xclbin,              -xbin     XCLBIN
+       --device_id,           -id       Device ID                                       Default: <span class="o">[</span><span class="m">0</span><span class="o">]</span>
+       --zlib,                -zlib     <span class="o">[</span><span class="m">0</span>:GZip, <span class="m">1</span>:Zlib<span class="o">]</span>                                Default: <span class="o">[</span><span class="m">0</span><span class="o">]</span>
 </pre>
 <hr class="docutils" />
 </div>

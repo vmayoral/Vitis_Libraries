@@ -18,10 +18,12 @@ class zlibFactory
 .. _cid-zlibfactory::xilinxprechecks:
 .. _doxid-classzlibFactory_1add43e901446c41759c6fbd4a9f94273b:
 .. _cid-zlibfactory::getxmode:
-.. _doxid-classzlibFactory_1a1761aaa2a2d6cf84fe4ec24f4771e54a:
+.. _doxid-classzlibFactory_1aa887e4bcb381d3378f251de6471da566:
 .. _cid-zlibfactory::getdriverinstance:
 .. _doxid-classzlibFactory_1a140fe8ff09a3189de57e8f561ffe33c3:
 .. _cid-zlibfactory::releasedriverobj:
+.. _doxid-classzlibFactory_1a4b2736e8d0fc20404478b270c0740f29:
+.. _cid-zlibfactory::releasezlibobj:
 .. ref-code-block:: cpp
 	:class: overview-code-block
 

@@ -348,7 +348,11 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Primitive APIs in <code class="docutils literal notranslate"><span class="pre">xf::compression</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#blockpacker">blockPacker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#huffmandecoder">huffmanDecoder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#huffmanencoderstream">huffmanEncoderStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#huffmanencoderstream">huffmanEncoderStream</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#huffmanencoderstream-overload-1">huffmanEncoderStream overload (1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#huffmanencoderstream-overload-2">huffmanEncoderStream overload (2)</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#huffmanencoder">huffmanEncoder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lz4compress">lz4Compress</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lz4decompress">lz4Decompress</a></li>
@@ -358,11 +362,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#lzbooster">lzBooster</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#lzbooster-overload-1">lzBooster overload (1)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lzbooster-overload-2">lzBooster overload (2)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lzbooster-overload-3">lzBooster overload (3)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#lzfilter">lzFilter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#snappycompress">snappyCompress</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#snappydecompress">snappyDecompress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zstdcompresscore">zstdCompressCore</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#zstddecompressstream">zstdDecompressStream</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#zstddecompresscore">zstdDecompressCore</a></li>
 </ul>
@@ -497,20 +503,16 @@
 </table>
 </div>
 <div class="section" id="huffmandecoder">
-<span id="cid-xf-compression-huffmandecoder"></span><span id="doxid-namespacexf-1-1compression-1abe41b78de4b030b07f89d38fa5cc56e0"></span><h2>huffmanDecoder<a class="headerlink" href="#huffmandecoder" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-compression-huffmandecoder"></span><span id="doxid-namespacexf-1-1compression-1a8ed9116cccc423063db24e623d3e73f2"></span><h2>huffmanDecoder<a class="headerlink" href="#huffmandecoder" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;huffman_decoder.hpp&quot;</span>
 </pre>
 <pre class="highlight title-code-block literal-block">
-<span></span><span class="k">template</span> <span class="o">&lt;</span>
-    <span class="n">eHuffmanType</span> <span class="n">DECODER</span> <span class="o">=</span> <span class="n">FULL</span><span class="p">,</span>
-    <span class="kt">int</span> <span class="n">ByteGenLoopII</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="o">&gt;</span>
+<span></span><span class="k">template</span> <span class="o">&lt;</span><span class="n">eHuffmanType</span> <span class="n">DECODER</span> <span class="o">=</span> <span class="n">FULL</span><span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">huffmanDecoder</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">16</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endOfStream</span><span class="p">,</span>
-    <span class="kt">uint32_t</span> <span class="n">input_size</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">inEos</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">17</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span>
     <span class="p">)</span>
 </pre>
 <p>This module is ZLIB/GZIP Fixed, Dynamic and Stored block supported decoder. It takes ZLIB/GZIP Huffman encoded data as input and generates decoded data in LZ77 format (Literal, Length, Offset).</p>
@@ -536,10 +538,7 @@
 <tr class="row-odd"><td>outStream</td>
 <td>output lz77 compressed output in the form of 32bit packets (Literals, Match Length, Distances)</td>
 </tr>
-<tr class="row-even"><td>endOfStream</td>
-<td>output completion of execution</td>
-</tr>
-<tr class="row-odd"><td>input_size</td>
+<tr class="row-even"><td>input_size</td>
 <td>input data size</td>
 </tr>
 </tbody>
@@ -547,6 +546,8 @@
 </div>
 <div class="section" id="huffmanencoderstream">
 <span id="cid-xf-compression-huffmanencoderstream"></span><span id="doxid-namespacexf-1-1compression-1a43f8affa431ebf98f098eae44255e335"></span><h2>huffmanEncoderStream<a class="headerlink" href="#huffmanencoderstream" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="huffmanencoderstream-overload-1">
+<h3>huffmanEncoderStream overload (1)<a class="headerlink" href="#huffmanencoderstream-overload-1" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;huffman_encoder.hpp&quot;</span>
 </pre>
@@ -588,6 +589,42 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="huffmanencoderstream-overload-2">
+<span id="cid-xf-compression-huffmanencoderstream-2"></span><span id="doxid-namespacexf-1-1compression-1a40dc49ed9f01b70919ba3a37c37eb73a"></span><h3>huffmanEncoderStream overload (2)<a class="headerlink" href="#huffmanencoderstream-overload-2" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;huffman_encoder.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">huffmanEncoderStream</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">IntVectorStream_dt</span> <span class="o">&lt;</span><span class="mi">32</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">DSVectorStream_dt</span> <span class="o">&lt;</span><span class="n">HuffmanCode_dt</span> <span class="o">&lt;</span><span class="n">c_maxBits</span><span class="o">&gt;</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;&amp;</span> <span class="n">hufCodeInStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">DSVectorStream_dt</span> <span class="o">&lt;</span><span class="n">HuffmanCode_dt</span> <span class="o">&lt;</span><span class="n">c_maxBits</span><span class="o">&gt;</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;&amp;</span> <span class="n">hufCodeOutStream</span>
+    <span class="p">)</span>
+</pre>
+<p>This module does zlib/gzip dynamic huffman encoding.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>inStream</td>
+<td>input packet of 32bit size which contains either literal or match length and distance information. Example: [Literal (1 Byte) | ML (1 Byte) | DIST (2 Bytes)]</td>
+</tr>
+<tr class="row-even"><td>outStream</td>
+<td>output bit encoded LZ77 compressed data</td>
+</tr>
+<tr class="row-odd"><td>hufCodeInStream</td>
+<td>Huffman Codes input</td>
+</tr>
+<tr class="row-even"><td>hufCodeOutStream</td>
+<td>HuffmanCodes output</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div class="section" id="huffmanencoder">
 <span id="cid-xf-compression-huffmanencoder"></span><span id="doxid-namespacexf-1-1compression-1a79b35394b869fecba9d90b9e0cd1703b"></span><h2>huffmanEncoder<a class="headerlink" href="#huffmanencoder" title="Permalink to this headline">¶</a></h2>
@@ -757,7 +794,7 @@
 </table>
 </div>
 <div class="section" id="lzmultibytedecompress">
-<span id="cid-xf-compression-lzmultibytedecompress"></span><span id="doxid-namespacexf-1-1compression-1aa3f7aaae78c4e1b12764b6d8e033188d"></span><h2>lzMultiByteDecompress<a class="headerlink" href="#lzmultibytedecompress" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-compression-lzmultibytedecompress"></span><span id="doxid-namespacexf-1-1compression-1aa1943ea2b4cdc58ee2def004fd3eea3b"></span><h2>lzMultiByteDecompress<a class="headerlink" href="#lzmultibytedecompress" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;lz_decompress.hpp&quot;</span>
 </pre>
@@ -773,9 +810,7 @@
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">PARALLEL_BYTES</span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;&gt;&amp;</span> <span class="n">litStream</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">SIZE_OFFSET</span><span class="o">&gt;&amp;</span> <span class="n">offsetStream</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">SIZE_DT</span><span class="o">&gt;&amp;</span> <span class="n">matchlenStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">PARALLEL_BYTES</span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endOfStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint64_t</span><span class="o">&gt;&amp;</span> <span class="n">sizeOutStream</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">PARALLEL_BYTES</span><span class="o">*</span><span class="mi">8</span><span class="p">)</span><span class="o">+</span><span class="n">PARALLEL_BYTES</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span>
     <span class="p">)</span>
 </pre>
 <p>This module writes the literals to the output stream as it is and when match length and offset are read, the literals will be read from the local dictionary based on offset until match length. This module can process data in parallel defined by PARALLEL_BYTES template argument.</p>
@@ -910,7 +945,49 @@
 </table>
 </div>
 <div class="section" id="lzbooster-overload-2">
-<span id="cid-xf-compression-lzbooster-2"></span><span id="doxid-namespacexf-1-1compression-1a6581bf0d1520d5c2f6787f1f4e14b6df"></span><h3>lzBooster overload (2)<a class="headerlink" href="#lzbooster-overload-2" title="Permalink to this headline">¶</a></h3>
+<span id="cid-xf-compression-lzbooster-2"></span><span id="doxid-namespacexf-1-1compression-1af0d66ab1016e8842a12441bd2c1ea823"></span><h3>lzBooster overload (2)<a class="headerlink" href="#lzbooster-overload-2" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;lz_optional.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">MAX_MATCH_LEN</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">BOOSTER_OFFSET_WINDOW</span> <span class="o">=</span> <span class="mi">16</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">LEFT_BYTES</span> <span class="o">=</span> <span class="mi">64</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">lzBooster</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">IntVectorStream_dt</span> <span class="o">&lt;</span><span class="mi">32</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">IntVectorStream_dt</span> <span class="o">&lt;</span><span class="mi">32</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span>
+    <span class="p">)</span>
+</pre>
+<p>This module helps in improving the compression ratio. Finds a better match length by performing more character matches with supported max match, while maintaining an offset window. Booster offset Window template argument (default value is 16K) internally consume BRAM memory to implement history window. Higher the booster value can give better compression ratio but will consume more BRAM resources.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>MAX_MATCH_LEN</td>
+<td>maximum length allowed for character match</td>
+</tr>
+<tr class="row-even"><td>BOOSTER_OFFSET_WINDOW</td>
+<td>offset window to store/match the character</td>
+</tr>
+<tr class="row-odd"><td>LEFT_BYTES</td>
+<td>last 64 left over bytes</td>
+</tr>
+<tr class="row-even"><td>inStream</td>
+<td>input stream 32bit per read</td>
+</tr>
+<tr class="row-odd"><td>outStream</td>
+<td>output stream 32bit per write</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="lzbooster-overload-3">
+<span id="cid-xf-compression-lzbooster-3"></span><span id="doxid-namespacexf-1-1compression-1a6581bf0d1520d5c2f6787f1f4e14b6df"></span><h3>lzBooster overload (3)<a class="headerlink" href="#lzbooster-overload-3" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;lz_optional.hpp&quot;</span>
 </pre>
@@ -1080,8 +1157,52 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="zstdcompresscore">
+<span id="cid-xf-compression-zstdcompresscore"></span><span id="doxid-namespacexf-1-1compression-1a221d33236259c43aee118a3f04763d2c"></span><h2>zstdCompressCore<a class="headerlink" href="#zstdcompresscore" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;zstd_compress.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">BLOCK_SIZE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">LZWINDOW_SIZE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">PARALLEL_HUFFMAN</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">PARALLEL_LIT_STREAMS</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">MIN_MATCH</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">zstdCompressCore</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">IntVectorStream_dt</span> <span class="o">&lt;</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">IntVectorStream_dt</span> <span class="o">&lt;</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span>
+    <span class="p">)</span>
+</pre>
+<p>This module compresses the input file read from input stream. It produces the ZSTD compressed data at the output stream.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>BLOCK_SIZE</td>
+<td>ZStd block size</td>
+</tr>
+<tr class="row-even"><td>WINDOW_SIZE</td>
+<td>LZ77 history size or Window size</td>
+</tr>
+<tr class="row-odd"><td>PARALLEL_HUFFMAN</td>
+<td>Number of Huffman encoding units used</td>
+</tr>
+<tr class="row-even"><td>inStream</td>
+<td>input stream</td>
+</tr>
+<tr class="row-odd"><td>outStream</td>
+<td>output stream</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="zstddecompressstream">
-<span id="cid-xf-compression-zstddecompressstream"></span><span id="doxid-namespacexf-1-1compression-1a03096000fda00fee5072ab74e991a5ab"></span><h2>zstdDecompressStream<a class="headerlink" href="#zstddecompressstream" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-compression-zstddecompressstream"></span><span id="doxid-namespacexf-1-1compression-1ae807d77fbff4631bbd1e9b2f806fd2f9"></span><h2>zstdDecompressStream<a class="headerlink" href="#zstddecompressstream" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;zstd_decompress.hpp&quot;</span>
 </pre>
@@ -1095,9 +1216,7 @@
 <span class="kt">void</span> <span class="n">zstdDecompressStream</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="n">PARALLEL_BYTE</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">4</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStrobe</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="n">PARALLEL_BYTE</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">endOfStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">uint64_t</span><span class="o">&gt;&amp;</span> <span class="n">sizeOutStream</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">PARALLEL_BYTE</span><span class="p">)</span><span class="o">+</span><span class="n">PARALLEL_BYTE</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span>
     <span class="p">)</span>
 </pre>
 <p>This module decompresses the ZStd compressed file read from input stream. It reads the input stream till valid strobe input is provided. It produces the decompressed data at the output stream.</p>
@@ -1129,17 +1248,11 @@
 <tr class="row-odd"><td>outStream</td>
 <td>output stream</td>
 </tr>
-<tr class="row-even"><td>endOfStream</td>
-<td>end of output stream flag stream</td>
-</tr>
-<tr class="row-odd"><td>sizeOutStream</td>
-<td>output data size</td>
-</tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="zstddecompresscore">
-<span id="cid-xf-compression-zstddecompresscore"></span><span id="doxid-namespacexf-1-1compression-1afd08f52cc74d322be28d23fbbcf20c78"></span><h2>zstdDecompressCore<a class="headerlink" href="#zstddecompresscore" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-compression-zstddecompresscore"></span><span id="doxid-namespacexf-1-1compression-1aca9e62af04d9c21ac03706dcf928f855"></span><h2>zstdDecompressCore<a class="headerlink" href="#zstddecompresscore" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;zstd_decompress.hpp&quot;</span>
 </pre>
@@ -1152,9 +1265,7 @@
     <span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">zstdDecompressCore</span> <span class="p">(</span>
     <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="n">PARALLEL_BYTE</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="n">PARALLEL_BYTE</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span><span class="p">,</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="mi">64</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outSizeStream</span><span class="p">,</span>
-    <span class="kt">uint64_t</span> <span class="n">inputSize</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><span class="n">PARALLEL_BYTE</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span>
     <span class="p">)</span>
 </pre>
 <p>This module decompresses the ZStd compressed file read from input stream. It reads the input stream till the given input size. It produces the decompressed data at the output stream.</p>

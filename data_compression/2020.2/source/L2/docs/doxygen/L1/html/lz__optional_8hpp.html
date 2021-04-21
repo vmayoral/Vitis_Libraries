@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup2/kalib/xf_compression/L1/include/hw/lz_optional.hpp File Reference</title>
+<title>Vitis Data Compression Library Skeleton: /wrk/xhdhdnobkup3/meghanat/xf_compression/L1/include/hw/lz_optional.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -94,7 +94,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>Header for modules used in LZ4 and snappy compression kernels.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;hls_stream.h&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="compress__utils_8hpp_source.html">compress_utils.hpp</a>&quot;</code><br/>
+<code>#include &quot;hls_stream.h&quot;</code><br/>
 <code>#include &lt;ap_int.h&gt;</code><br/>
 <code>#include &lt;assert.h&gt;</code><br/>
 <code>#include &lt;stdint.h&gt;</code><br/>
@@ -125,6 +126,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a8d22f4f8b15cb77ec990d434162445b8"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::lzBooster</b> (hls::stream&lt; compressd_dt &gt; &amp;inStream, hls::stream&lt; compressd_dt &gt; &amp;outStream, hls::stream&lt; uint32_t &gt; &amp;inSize)</td></tr>
 <tr class="memdesc:a8d22f4f8b15cb77ec990d434162445b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">This module helps in improving the compression ratio. Finds a better match length by performing more character matches with supported max match, while maintaining an offset window. Booster offset Window template argument (default value is 16K) internally consume BRAM memory to implement history window. Higher the booster value can give better compression ratio but will consume more BRAM resources.  <a href="#a8d22f4f8b15cb77ec990d434162445b8">More...</a><br/></td></tr>
 <tr class="separator:a8d22f4f8b15cb77ec990d434162445b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0d66ab1016e8842a12441bd2c1ea823"><td class="memTemplParams" colspan="2">template&lt;int MAX_MATCH_LEN, int BOOSTER_OFFSET_WINDOW = 16 * 1024, int LEFT_BYTES = 64&gt; </td></tr>
+<tr class="memitem:af0d66ab1016e8842a12441bd2c1ea823"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::lzBooster</b> (hls::stream&lt; IntVectorStream_dt&lt; 32, 1 &gt; &gt; &amp;inStream, hls::stream&lt; IntVectorStream_dt&lt; 32, 1 &gt; &gt; &amp;outStream)</td></tr>
+<tr class="memdesc:af0d66ab1016e8842a12441bd2c1ea823"><td class="mdescLeft">&#160;</td><td class="mdescRight">This module helps in improving the compression ratio. Finds a better match length by performing more character matches with supported max match, while maintaining an offset window. Booster offset Window template argument (default value is 16K) internally consume BRAM memory to implement history window. Higher the booster value can give better compression ratio but will consume more BRAM resources.  <a href="#af0d66ab1016e8842a12441bd2c1ea823">More...</a><br/></td></tr>
+<tr class="separator:af0d66ab1016e8842a12441bd2c1ea823"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6581bf0d1520d5c2f6787f1f4e14b6df"><td class="memTemplParams" colspan="2">template&lt;int MAX_MATCH_LEN, int BOOSTER_OFFSET_WINDOW = 16 * 1024, int LEFT_BYTES = 64&gt; </td></tr>
 <tr class="memitem:a6581bf0d1520d5c2f6787f1f4e14b6df"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::lzBooster</b> (hls::stream&lt; compressd_dt &gt; &amp;inStream, hls::stream&lt; compressd_dt &gt; &amp;outStream, uint32_t input_size)</td></tr>
 <tr class="memdesc:a6581bf0d1520d5c2f6787f1f4e14b6df"><td class="mdescLeft">&#160;</td><td class="mdescRight">This module helps in improving the compression ratio. Finds a better match length by performing more character matches with supported max match, while maintaining an offset window. Booster offset Window template argument (default value is 16K) internally consume BRAM memory to implement history window. Higher the booster value can give better compression ratio but will consume more BRAM resources.  <a href="#a6581bf0d1520d5c2f6787f1f4e14b6df">More...</a><br/></td></tr>
