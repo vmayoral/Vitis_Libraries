@@ -369,6 +369,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#snappycompress">snappyCompress</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#snappydecompress">snappyDecompress</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#zstdcompresscore">zstdCompressCore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zstdcompressstreaming">zstdCompressStreaming</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#zstddecompressstream">zstdDecompressStream</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#zstddecompresscore">zstdDecompressCore</a></li>
 </ul>
@@ -1194,6 +1195,56 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="zstdcompressstreaming">
+<span id="cid-xf-compression-zstdcompressstreaming"></span><span id="doxid-namespacexf-1-1compression-1abfaa602aa44fe631cbf372de71a275fd"></span><h2>zstdCompressStreaming<a class="headerlink" href="#zstdcompressstreaming" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;zstd_compress.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">IN_DWIDTH</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">OUT_DWIDTH</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">BLOCK_SIZE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">LZWINDOW_SIZE</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">MIN_BLCK_SIZE</span> <span class="o">=</span> <span class="mi">1024</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">zstdCompressStreaming</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="n">IN_DWIDTH</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">inStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="n">OUT_DWIDTH</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">outStream</span>
+    <span class="p">)</span>
+</pre>
+<p>This module is top level wrapper for zstd compression core module It compresses the input file read from input axi stream. It produces the ZSTD compressed data at the output axi stream.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>IN_DWIDTH</td>
+<td>Input stream data bit-width</td>
+</tr>
+<tr class="row-even"><td>OUT_DWIDTH</td>
+<td>Output stream data bit-width</td>
+</tr>
+<tr class="row-odd"><td>BLOCK_SIZE</td>
+<td>ZStd block size</td>
+</tr>
+<tr class="row-even"><td>LZWINDOW_SIZE</td>
+<td>LZ77 history size or Window size</td>
+</tr>
+<tr class="row-odd"><td>MIN_BLCK_SIZE</td>
+<td>Minimum block size, less than that will be considered stored block</td>
+</tr>
+<tr class="row-even"><td>inStream</td>
+<td>input stream</td>
+</tr>
+<tr class="row-odd"><td>outStream</td>
+<td>output stream</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="zstddecompressstream">
 <span id="cid-xf-compression-zstddecompressstream"></span><span id="doxid-namespacexf-1-1compression-1ae807d77fbff4631bbd1e9b2f806fd2f9"></span><h2>zstdDecompressStream<a class="headerlink" href="#zstddecompressstream" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
@@ -1327,7 +1378,7 @@
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on April 01, 2021.
+        Last updated on April 21, 2021.
       </span>
 
     </p>

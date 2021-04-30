@@ -111,6 +111,10 @@ Enumerations</h2></td></tr>
 <b>FULL</b>
  }</td></tr>
 <tr class="separator:aa1aa80766d59d3c350c68fd7bab47d49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c42410de2377dfd27b82c580cd14f1c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>blockStatus</b> { <b>PENDING</b> = 0, 
+<b>FINISH</b> = 1
+ }</td></tr>
+<tr class="separator:a6c42410de2377dfd27b82c580cd14f1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -124,12 +128,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>xf::compression::deta
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:afa70d91815e25d8f2ccde2744295b4e6"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::reg</b> (T d)</td></tr>
 <tr class="separator:afa70d91815e25d8f2ccde2744295b4e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b37f18706eb58812505ab875a5f79aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b37f18706eb58812505ab875a5f79aa"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>xf::compression::details::huffmanBytegenStatic</b> (bitBufferType &amp;_bitbuffer, ap_uint&lt; 6 &gt; &amp;bits_cntr, hls::stream&lt; ap_uint&lt; 17 &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;inEos, hls::stream&lt; ap_uint&lt; 16 &gt; &gt; &amp;inStream, const uint8_t *array_codes_op, const uint8_t *array_codes_bits, const uint16_t *array_codes_val)</td></tr>
-<tr class="separator:a0b37f18706eb58812505ab875a5f79aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5148c86ba908fd9ab45974a42621ed9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa5148c86ba908fd9ab45974a42621ed9"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>xf::compression::details::huffmanBytegen</b> (bitBufferType &amp;_bitbuffer, ap_uint&lt; 6 &gt; &amp;bits_cntr, hls::stream&lt; ap_uint&lt; 17 &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;inEos, hls::stream&lt; ap_uint&lt; 16 &gt; &gt; &amp;inStream, const uint32_t *array_codes, const uint32_t *array_codes_extra, const uint32_t *array_codes_dist, const uint32_t *array_codes_dist_extra)</td></tr>
-<tr class="separator:aa5148c86ba908fd9ab45974a42621ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca7f6fd2fd1ac005ff16c0237cb1aa5a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca7f6fd2fd1ac005ff16c0237cb1aa5a"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>xf::compression::details::huffmanBytegenStatic</b> (bitBufferType &amp;_bitbuffer, ap_uint&lt; 6 &gt; &amp;bits_cntr, hls::stream&lt; ap_uint&lt; 17 &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;inEos, hls::stream&lt; ap_uint&lt; 16 &gt; &gt; &amp;inStream, const uint8_t *array_codes_op, const uint8_t *array_codes_bits, const uint16_t *array_codes_val, bool &amp;done)</td></tr>
+<tr class="separator:aca7f6fd2fd1ac005ff16c0237cb1aa5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a087b179ad0553bd2acd66a02ad29b3b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a087b179ad0553bd2acd66a02ad29b3b5"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>xf::compression::details::huffmanBytegen</b> (bitBufferType &amp;_bitbuffer, ap_uint&lt; 6 &gt; &amp;bits_cntr, hls::stream&lt; ap_uint&lt; 17 &gt; &gt; &amp;outStream, hls::stream&lt; bool &gt; &amp;inEos, hls::stream&lt; ap_uint&lt; 16 &gt; &gt; &amp;inStream, const uint32_t *array_codes, const uint32_t *array_codes_extra, const uint32_t *array_codes_dist, const uint32_t *array_codes_dist_extra, bool &amp;done)</td></tr>
+<tr class="separator:a087b179ad0553bd2acd66a02ad29b3b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f744e2fa081d991db0e4c411b575edf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>xf::compression::details::code_generator_array_dyn</b> (uint8_t curr_table, uint16_t *lens, ap_uint&lt; 9 &gt; codes, uint32_t *table, uint32_t *table_extra, uint32_t bits)</td></tr>
 <tr class="separator:a3f744e2fa081d991db0e4c411b575edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ed9116cccc423063db24e623d3e73f2"><td class="memTemplParams" colspan="2">template&lt;eHuffmanType DECODER = FULL&gt; </td></tr>

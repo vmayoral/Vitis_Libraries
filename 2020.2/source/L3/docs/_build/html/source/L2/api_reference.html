@@ -370,6 +370,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#xilhuffmankernel">xilHuffmanKernel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xillz77compress">xilLz77Compress</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xiltreegenkernel">xilTreegenKernel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xilzstdcompress">xilZstdCompress</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xilzstddecompressstream">xilZstdDecompressStream</a></li>
 </ul>
 </li>
@@ -1486,6 +1487,34 @@
 </tr>
 <tr class="row-even"><td>codeStream</td>
 <td>20-bit output stream sending huffman codes and bit-lengths data</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xilzstdcompress">
+<span id="cid-xilzstdcompress"></span><span id="doxid-zstd-compress-stream-8hpp-1a547c2894fa791ee0204896e664d02bb3"></span><h3>xilZstdCompress<a class="headerlink" href="#xilzstdcompress" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;zstd_compress_stream.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">xilZstdCompress</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="n">STREAM_IN_DWIDTH</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">axiInStream</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_axiu</span> <span class="o">&lt;</span><span class="n">STREAM_OUT_DWIDTH</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;&gt;&amp;</span> <span class="n">axiOutStream</span>
+    <span class="p">)</span>
+</pre>
+<p>ZSTD compression kernel takes input data from axi stream and compresses it into multiple frames having 1 block each and writes the compressed data to output axi stream.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>inStream</td>
+<td>input raw data</td>
+</tr>
+<tr class="row-even"><td>outStream</td>
+<td>output compressed data</td>
 </tr>
 </tbody>
 </table>
