@@ -347,6 +347,7 @@
 <p class="caption"><span class="caption-text">Benchmark Results</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Benchmark Results</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#datasets">Datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#compression-performance">Compression Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#de-compression-performance">De-Compression Performance</a></li>
 </ul>
@@ -417,6 +418,10 @@
             
   <div class="section" id="benchmark-results">
 <h1>Benchmark Results<a class="headerlink" href="#benchmark-results" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="datasets">
+<h2>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h2>
+<p>Benchmark evaluation of compression performance is of reference <a class="reference external" href="http://sun.aei.polsl.pl/~sdeor/index.php?page=silesia">Silesia Corpus.</a></p>
+</div>
 <div class="section" id="compression-performance">
 <h2>Compression Performance<a class="headerlink" href="#compression-performance" title="Permalink to this headline">¶</a></h2>
 <p>The following table presents compression ratio (CR), compression kernel throughput achieved with single and 8 engines,
@@ -424,13 +429,13 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 <p>Reported compression ratio is measured on Silesia Corpus compression benchmark.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="49%" />
-<col width="15%" />
-<col width="13%" />
-<col width="7%" />
-<col width="6%" />
+<col width="60%" />
+<col width="12%" />
+<col width="10%" />
 <col width="5%" />
 <col width="5%" />
+<col width="4%" />
+<col width="4%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Architecture</th>
@@ -443,7 +448,7 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>LZ4 Streaming (Single Engine and Datawidth: 8bit)</td>
+<tr class="row-even"><td><a class="reference external" href="L2/lz4_compress_streaming.html">LZ4 Streaming</a> (Single Engine and Datawidth: 8bit)</td>
 <td>2.13</td>
 <td>290 MB/s</td>
 <td>300MHz</td>
@@ -451,7 +456,7 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 <td>5</td>
 <td>6</td>
 </tr>
-<tr class="row-odd"><td>Snappy Streaming (Single Engine and Datawidth: 8bit)</td>
+<tr class="row-odd"><td><a class="reference external" href="L2/snappy_streaming.html">Snappy Streaming</a> (Single Engine and Datawidth: 8bit)</td>
 <td>2.13</td>
 <td>290 MB/s</td>
 <td>300MHz</td>
@@ -459,7 +464,7 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 <td>4</td>
 <td>6</td>
 </tr>
-<tr class="row-even"><td>LZ4 Memory Mapped (8 Engines with Data Movers)</td>
+<tr class="row-even"><td><a class="reference external" href="L2/lz4_compress.html">LZ4 Memory Mapped</a> (8 Engines with Data Movers)</td>
 <td>2.13</td>
 <td>2.2 GB/s</td>
 <td>295MHz</td>
@@ -467,7 +472,7 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 <td>56</td>
 <td>48</td>
 </tr>
-<tr class="row-odd"><td>Snappy Memory Mapped (8 Engines with Data Movers)</td>
+<tr class="row-odd"><td><a class="reference external" href="L2/snappy_compress.html">Snappy Memory Mapped</a> (8 Engines with Data Movers)</td>
 <td>2.13</td>
 <td>2.2 GB/s</td>
 <td>300MHz</td>
@@ -475,7 +480,7 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 <td>48</td>
 <td>48</td>
 </tr>
-<tr class="row-even"><td>GZip/Zlib Memory Mapped (Dynamic Huffman, 8 Engines with Data Movers)</td>
+<tr class="row-even"><td><a class="reference external" href="L2/gzipc_block_mm.html">GZip/Zlib Memory Mapped</a> (Dynamic Huffman, 8 Engines with Data Movers)</td>
 <td>2.67</td>
 <td>2 GB/s</td>
 <td>285MHz</td>
@@ -483,7 +488,7 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 <td>75</td>
 <td>72</td>
 </tr>
-<tr class="row-odd"><td>GZip/Zlib Compress Stream (Dynamic Huffman, 8 Engines with Data Movers)</td>
+<tr class="row-odd"><td><a class="reference external" href="L2/gzipc.html">GZip/Zlib Compress Stream</a> (Dynamic Huffman, 8 Engines with Data Movers)</td>
 <td>2.67</td>
 <td>2 GB/s</td>
 <td>285MHz</td>
@@ -491,7 +496,7 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 <td>67</td>
 <td>72</td>
 </tr>
-<tr class="row-even"><td>GZip/Zlib Fixed Huffman File Compress Stream</td>
+<tr class="row-even"><td><a class="reference external" href="L2/gzipc_static.html">GZip/Zlib Fixed Huffman File Compress Stream</a></td>
 <td>2.25</td>
 <td>2 GB/s</td>
 <td>285MHz</td>
@@ -514,12 +519,12 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 kernel clock frequency met and resource utilization when executed on Alveo U200.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="58%" />
-<col width="16%" />
-<col width="8%" />
-<col width="7%" />
+<col width="70%" />
+<col width="11%" />
 <col width="6%" />
 <col width="5%" />
+<col width="4%" />
+<col width="3%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Architecture</th>
@@ -531,35 +536,35 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>LZ4 Streaming (Single Engine and Datawidth: 64bit)</td>
+<tr class="row-even"><td><a class="reference external" href="L2/lz4_dec_streaming_parallelByte8.html">LZ4 Streaming</a> (Single Engine and Datawidth: 64bit)</td>
 <td>1.8  GB/s</td>
 <td>300MHz</td>
 <td>7.2K</td>
 <td>0</td>
 <td>4</td>
 </tr>
-<tr class="row-odd"><td>Snappy Streaming (Single Engine and Datawidth: 64bit)</td>
+<tr class="row-odd"><td><a class="reference external" href="L2/snappy_dec_streaming_parallelByte8.html">Snappy Streaming</a> (Single Engine and Datawidth: 64bit)</td>
 <td>1.97 GB/s</td>
 <td>300MHz</td>
 <td>8.8K</td>
 <td>0</td>
 <td>4</td>
 </tr>
-<tr class="row-even"><td>GZip/Zlib Streaming (High Throughput, Datawidth: 64bit)</td>
+<tr class="row-even"><td><a class="reference external" href="L2/gzip_decompress.html">GZip/Zlib Streaming</a> (High Throughput, Datawidth: 64bit)</td>
 <td>450  MB/s</td>
 <td>252MHz</td>
 <td>11.3K</td>
 <td>6</td>
 <td>3</td>
 </tr>
-<tr class="row-odd"><td>ZStd Streaming (Single Engine and Datawidth: 32bit)</td>
+<tr class="row-odd"><td><a class="reference external" href="L2/zstd_decompress.html">ZStd Streaming</a> (Single Engine and Datawidth: 32bit)</td>
 <td>463  MB/s</td>
 <td>232MHz</td>
 <td>18K</td>
 <td>52</td>
 <td>4</td>
 </tr>
-<tr class="row-even"><td>ZStd Full File Streaming (Single Engine with Datawidth: 32bit)</td>
+<tr class="row-even"><td><a class="reference external" href="L2/zstd_decompress.html">ZStd Full File Streaming</a> (Single Engine with Datawidth: 32bit)</td>
 <td>463  MB/s</td>
 <td>232MHz</td>
 <td>22K</td>
@@ -616,7 +621,7 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on April 01, 2021.
+        Last updated on April 21, 2021.
       </span>
 
     </p>

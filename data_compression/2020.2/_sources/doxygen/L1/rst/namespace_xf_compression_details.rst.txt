@@ -8,6 +8,7 @@ namespace details
 .. toctree::
 	:hidden:
 
+	enum_xf_compression_details_blockStatus.rst
 	enum_xf_compression_details_xfBlockType_t.rst
 	enum_xf_compression_details_xfLitBlockType_t.rst
 	enum_xf_compression_details_xfSymbolCompMode_t.rst
@@ -142,6 +143,8 @@ namespace details
 .. _cid-xf::compression::details::streamk2dm-3:
 .. _doxid-namespacexf_1_1compression_1_1details_1a31f038f66f52a2c5ca37e45e0681dcd5:
 .. _cid-xf::compression::details::streamdatak2dmmultibyte:
+.. _doxid-namespacexf_1_1compression_1_1details_1ae3f5e5bc33a84918385046ef2d84aee0:
+.. _cid-xf::compression::details::streamdatak2dmmultibytestrobe:
 .. _doxid-namespacexf_1_1compression_1_1details_1a540e772583334e7e55f459963f84a284:
 .. _cid-xf::compression::details::mm2s32:
 .. _doxid-namespacexf_1_1compression_1_1details_1a9f7fc7dc6f5d23afbe445ed247252b83:
@@ -154,9 +157,9 @@ namespace details
 .. _cid-xf::compression::details::discardbitstream:
 .. _doxid-namespacexf_1_1compression_1_1details_1afa70d91815e25d8f2ccde2744295b4e6:
 .. _cid-xf::compression::details::reg:
-.. _doxid-namespacexf_1_1compression_1_1details_1a0b37f18706eb58812505ab875a5f79aa:
+.. _doxid-namespacexf_1_1compression_1_1details_1aca7f6fd2fd1ac005ff16c0237cb1aa5a:
 .. _cid-xf::compression::details::huffmanbytegenstatic:
-.. _doxid-namespacexf_1_1compression_1_1details_1aa5148c86ba908fd9ab45974a42621ed9:
+.. _doxid-namespacexf_1_1compression_1_1details_1a087b179ad0553bd2acd66a02ad29b3b5:
 .. _cid-xf::compression::details::huffmanbytegen:
 .. _doxid-namespacexf_1_1compression_1_1details_1a3f744e2fa081d991db0e4c411b575edf:
 .. _cid-xf::compression::details::code_generator_array_dyn:
@@ -374,14 +377,6 @@ namespace details
 .. _cid-xf::compression::details::streameosdistributor:
 .. _doxid-namespacexf_1_1compression_1_1details_1a3c70ca8409941ab17aa59075f7a6449b:
 .. _cid-xf::compression::details::streamsizedistributor:
-.. _doxid-namespacexf_1_1compression_1_1details_1a369c67047d168a9e1f31911f78df24e0:
-.. _cid-xf::compression::details::streamduplicator:
-.. _doxid-namespacexf_1_1compression_1_1details_1add280b7cf2c9a58fcdcfa7e11afe0ef5:
-.. _cid-xf::compression::details::checksumwrapper:
-.. _doxid-namespacexf_1_1compression_1_1details_1a9e5dac06ed28416adf0fe7b026e3107f:
-.. _cid-xf::compression::details::streamblockmaker:
-.. _doxid-namespacexf_1_1compression_1_1details_1a97671fb6dd7911b35808da135311a141:
-.. _cid-xf::compression::details::zlibcompressstreamingpacker:
 .. _doxid-namespacexf_1_1compression_1_1details_1a68e8a61bcdbe4fa24f63eaded673b29b:
 .. _cid-xf::compression::details::dataduplicator:
 .. _doxid-namespacexf_1_1compression_1_1details_1a19dc3d1312042fc7dcbcbfeb714ffb95:
@@ -403,13 +398,17 @@ namespace details
 .. _doxid-namespacexf_1_1compression_1_1details_1ab8c0dcc9ea534edd2057d0421969e53a:
 .. _cid-xf::compression::details::zlibtreegenstreamwrapper:
 .. _doxid-namespacexf_1_1compression_1_1details_1a8363331793f4cc7a69722805bac6acd9:
-.. _cid-xf::compression::details::streamduplicator-2:
+.. _cid-xf::compression::details::streamduplicator:
 .. _doxid-namespacexf_1_1compression_1_1details_1a38473224915bee205faddde3b64c01f4:
 .. _cid-xf::compression::details::inputdistributer:
 .. _doxid-namespacexf_1_1compression_1_1details_1ae90a6cf30d27440ea3ad8970370bb06b:
 .. _cid-xf::compression::details::bitstreamcollector:
 .. _doxid-namespacexf_1_1compression_1_1details_1a1254dd53d84c8a6ee98df2822c55c794:
 .. _cid-xf::compression::details::packcompressedframe:
+.. _doxid-namespacexf_1_1compression_1_1details_1aaf1a6836f8ea80c86ce8273d45c0a50c:
+.. _cid-xf::compression::details::zstdaxiu2hlsstream:
+.. _doxid-namespacexf_1_1compression_1_1details_1aa65a7dba233160dff29ff075e975bb7e:
+.. _cid-xf::compression::details::zstdhlsvectorstream2axiu:
 .. _doxid-namespacexf_1_1compression_1_1details_1adcdf68ad924efa2e106f07b2268b6d2f:
 .. _cid-xf::compression::details::getllcode:
 .. _doxid-namespacexf_1_1compression_1_1details_1a9367db6cd713a1dacf6d8671f300202d:
@@ -507,6 +506,7 @@ namespace details
 
 	// enums
 
+	enum :ref:`blockStatus<doxid-namespacexf_1_1compression_1_1details_1a6c42410de2377dfd27b82c580cd14f1c>`
 	enum :ref:`xfBlockType_t<doxid-namespacexf_1_1compression_1_1details_1a88050bf85d276c17c47c4170fcce3ad5>`
 	enum :ref:`xfLitBlockType_t<doxid-namespacexf_1_1compression_1_1details_1a5f393753e82cfe81dc03142113dd8819>`
 	enum :ref:`xfSymbolCompMode_t<doxid-namespacexf_1_1compression_1_1details_1afd3849f7542231d41330a5d235ac5bb7>`
