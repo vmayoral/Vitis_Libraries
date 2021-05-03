@@ -21,5 +21,6 @@ var searchData=
   ['xilsnappydecompressstream',['xilSnappyDecompressStream',['../snappy__decompress__stream_8hpp.html#aa787a86f1a30dca6c949102e74d9b802',1,'snappy_decompress_stream.hpp']]],
   ['xiltreegenkernel',['xilTreegenKernel',['../zlib__treegen__mm_8hpp.html#a1e8e726c83065c6452fefa9796a7f311',1,'zlib_treegen_mm.hpp']]],
   ['xilzlibcompressfull',['xilZlibCompressFull',['../zlib__compress__multi__engine__mm_8hpp.html#a7c7902437a9df5335d3490e6d4fe52f9',1,'zlib_compress_multi_engine_mm.hpp']]],
+  ['xilzstdcompress',['xilZstdCompress',['../zstd__compress__stream_8hpp.html#a547c2894fa791ee0204896e664d02bb3',1,'zstd_compress_stream.hpp']]],
   ['xilzstddecompressstream',['xilZstdDecompressStream',['../zstd__decompress__stream_8hpp.html#aeea49d48062b7c49a017d53c2306c500',1,'zstd_decompress_stream.hpp']]]
 ];

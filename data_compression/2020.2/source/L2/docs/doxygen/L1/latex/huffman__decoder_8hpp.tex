@@ -20,6 +20,10 @@ enum {\bfseries e\-Huffman\-Type} \{ {\bfseries F\-I\-X\-E\-D} = 0,
 {\bfseries D\-Y\-N\-A\-M\-I\-C}, 
 {\bfseries F\-U\-L\-L}
  \}
+\item 
+enum {\bfseries block\-Status} \{ {\bfseries P\-E\-N\-D\-I\-N\-G} = 0, 
+{\bfseries F\-I\-N\-I\-S\-H} = 1
+ \}
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -33,10 +37,10 @@ enum {\bfseries e\-Huffman\-Type} \{ {\bfseries F\-I\-X\-E\-D} = 0,
 \hypertarget{namespacexf_1_1compression_1_1details_afa70d91815e25d8f2ccde2744295b4e6}{{\footnotesize template$<$typename T $>$ }\\T {\bfseries xf\-::compression\-::details\-::reg} (T d)}\label{namespacexf_1_1compression_1_1details_afa70d91815e25d8f2ccde2744295b4e6}
 
 \item 
-\hypertarget{namespacexf_1_1compression_1_1details_a0b37f18706eb58812505ab875a5f79aa}{uint8\-\_\-t {\bfseries xf\-::compression\-::details\-::huffman\-Bytegen\-Static} (bit\-Buffer\-Type \&\-\_\-bitbuffer, ap\-\_\-uint$<$ 6 $>$ \&bits\-\_\-cntr, hls\-::stream$<$ ap\-\_\-uint$<$ 17 $>$ $>$ \&out\-Stream, hls\-::stream$<$ bool $>$ \&in\-Eos, hls\-::stream$<$ ap\-\_\-uint$<$ 16 $>$ $>$ \&in\-Stream, const uint8\-\_\-t $\ast$array\-\_\-codes\-\_\-op, const uint8\-\_\-t $\ast$array\-\_\-codes\-\_\-bits, const uint16\-\_\-t $\ast$array\-\_\-codes\-\_\-val)}\label{namespacexf_1_1compression_1_1details_a0b37f18706eb58812505ab875a5f79aa}
+\hypertarget{namespacexf_1_1compression_1_1details_aca7f6fd2fd1ac005ff16c0237cb1aa5a}{uint8\-\_\-t {\bfseries xf\-::compression\-::details\-::huffman\-Bytegen\-Static} (bit\-Buffer\-Type \&\-\_\-bitbuffer, ap\-\_\-uint$<$ 6 $>$ \&bits\-\_\-cntr, hls\-::stream$<$ ap\-\_\-uint$<$ 17 $>$ $>$ \&out\-Stream, hls\-::stream$<$ bool $>$ \&in\-Eos, hls\-::stream$<$ ap\-\_\-uint$<$ 16 $>$ $>$ \&in\-Stream, const uint8\-\_\-t $\ast$array\-\_\-codes\-\_\-op, const uint8\-\_\-t $\ast$array\-\_\-codes\-\_\-bits, const uint16\-\_\-t $\ast$array\-\_\-codes\-\_\-val, bool \&done)}\label{namespacexf_1_1compression_1_1details_aca7f6fd2fd1ac005ff16c0237cb1aa5a}
 
 \item 
-\hypertarget{namespacexf_1_1compression_1_1details_aa5148c86ba908fd9ab45974a42621ed9}{uint8\-\_\-t {\bfseries xf\-::compression\-::details\-::huffman\-Bytegen} (bit\-Buffer\-Type \&\-\_\-bitbuffer, ap\-\_\-uint$<$ 6 $>$ \&bits\-\_\-cntr, hls\-::stream$<$ ap\-\_\-uint$<$ 17 $>$ $>$ \&out\-Stream, hls\-::stream$<$ bool $>$ \&in\-Eos, hls\-::stream$<$ ap\-\_\-uint$<$ 16 $>$ $>$ \&in\-Stream, const uint32\-\_\-t $\ast$array\-\_\-codes, const uint32\-\_\-t $\ast$array\-\_\-codes\-\_\-extra, const uint32\-\_\-t $\ast$array\-\_\-codes\-\_\-dist, const uint32\-\_\-t $\ast$array\-\_\-codes\-\_\-dist\-\_\-extra)}\label{namespacexf_1_1compression_1_1details_aa5148c86ba908fd9ab45974a42621ed9}
+\hypertarget{namespacexf_1_1compression_1_1details_a087b179ad0553bd2acd66a02ad29b3b5}{uint8\-\_\-t {\bfseries xf\-::compression\-::details\-::huffman\-Bytegen} (bit\-Buffer\-Type \&\-\_\-bitbuffer, ap\-\_\-uint$<$ 6 $>$ \&bits\-\_\-cntr, hls\-::stream$<$ ap\-\_\-uint$<$ 17 $>$ $>$ \&out\-Stream, hls\-::stream$<$ bool $>$ \&in\-Eos, hls\-::stream$<$ ap\-\_\-uint$<$ 16 $>$ $>$ \&in\-Stream, const uint32\-\_\-t $\ast$array\-\_\-codes, const uint32\-\_\-t $\ast$array\-\_\-codes\-\_\-extra, const uint32\-\_\-t $\ast$array\-\_\-codes\-\_\-dist, const uint32\-\_\-t $\ast$array\-\_\-codes\-\_\-dist\-\_\-extra, bool \&done)}\label{namespacexf_1_1compression_1_1details_a087b179ad0553bd2acd66a02ad29b3b5}
 
 \item 
 void {\bfseries xf\-::compression\-::details\-::code\-\_\-generator\-\_\-array\-\_\-dyn} (uint8\-\_\-t curr\-\_\-table, uint16\-\_\-t $\ast$lens, ap\-\_\-uint$<$ 9 $>$ codes, uint32\-\_\-t $\ast$table, uint32\-\_\-t $\ast$table\-\_\-extra, uint32\-\_\-t bits)

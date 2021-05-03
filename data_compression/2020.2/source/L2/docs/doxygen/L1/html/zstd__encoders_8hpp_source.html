@@ -275,7 +275,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="preprocessor"></span>    <span class="comment">// core module to generate normalized table</span></div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    uint64_t rtbXvStepTable[8];</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    uint8_t scale = 62 - tableLog;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    uint64_t step = ((uint64_t)1 &lt;&lt; 62) / symbolSize; <span class="comment">/* &lt;-- one division here ! */</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    ap_uint&lt;64&gt; step = ((ap_uint&lt;64&gt;)1 &lt;&lt; 62) / symbolSize; <span class="comment">/* &lt;-- one division here ! */</span></div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    uint64_t vStep = (uint64_t)1 &lt;&lt; (scale - 20);</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordtype">int</span> stillToDistribute = 1 &lt;&lt; tableLog;</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    uint32_t largest = 0;</div>

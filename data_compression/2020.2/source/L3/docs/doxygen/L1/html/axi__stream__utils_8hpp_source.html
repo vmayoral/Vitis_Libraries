@@ -696,11 +696,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;    decompressSize &lt;&lt; outSize;</div>
 <div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;}</div>
 <div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;</div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;} <span class="comment">// end details</span></div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;} <span class="comment">// end compression</span></div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;} <span class="comment">// end xf</span></div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;</div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;<span class="preprocessor">#endif // _XFCOMPRESSION_AXI_STREAM_UTILS_HPP_</span></div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> PARALLEL_BYTES&gt;</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;<span class="keywordtype">void</span> streamDataK2dmMultiByteStrobe(hls::stream&lt;ap_uint&lt;PARALLEL_BYTES * 8&gt; &gt;&amp; out,</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;                                   hls::stream&lt;bool&gt;&amp; outEoS,</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;                                   hls::stream&lt;uint32_t&gt;&amp; decompressSize,</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;                                   hls::stream&lt;ap_axiu&lt;PARALLEL_BYTES * 8, 0, 0, 0&gt; &gt;&amp; dmInStream) {</div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;    <span class="comment">// read data from decompression kernel output to global memory output</span></div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;    ap_axiu&lt;PARALLEL_BYTES * 8, 0, 0, 0&gt; inValue;</div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;    constexpr uint8_t c_keepDWidth = PARALLEL_BYTES;</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;    inValue = dmInStream.read();</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;    uint32_t outSize = countSetBits&lt;c_keepDWidth&gt;((int)(inValue.keep)); <span class="comment">// 0</span></div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;</div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;    <span class="keywordflow">while</span> (inValue.last == <span class="keyword">false</span>) {</div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;<span class="preprocessor">#pragma HLS PIPELINE II = 1</span></div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;<span class="preprocessor"></span>        outEoS &lt;&lt; 0;</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;        out &lt;&lt; inValue.data;</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;</div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;        <span class="comment">// read nextValue</span></div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;        inValue = dmInStream.read();</div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;        outSize += countSetBits&lt;c_keepDWidth&gt;((int)(inValue.keep)); <span class="comment">// PARALLEL_BYTES;</span></div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;    }</div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;    outEoS &lt;&lt; 1;</div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;    out &lt;&lt; inValue.data;</div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;</div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;    decompressSize &lt;&lt; outSize;</div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;}</div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;</div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;} <span class="comment">// end details</span></div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;} <span class="comment">// end compression</span></div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;} <span class="comment">// end xf</span></div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;</div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;<span class="preprocessor">#endif // _XFCOMPRESSION_AXI_STREAM_UTILS_HPP_</span></div>
 <div class="ttc" id="compress__utils_8hpp_html"><div class="ttname"><a href="compress__utils_8hpp.html">compress_utils.hpp</a></div><div class="ttdoc">Header for common data types and functions used in internal modules in library. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
