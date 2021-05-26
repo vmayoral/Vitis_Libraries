@@ -60,8 +60,8 @@
   <link rel="stylesheet" href="../../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="L3 Overlay User Guide" href="../L3/L3.html" />
-    <link rel="prev" title="Demos" href="demo.html" /> 
+    <link rel="next" title="Xlinx LZ4 Streaming Compression" href="lz4_compress_streaming.html" />
+    <link rel="prev" title="Xilinx ZSTD Decompression" href="zstd_decompress.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -349,6 +349,15 @@
 <li class="toctree-l2"><a class="reference internal" href="api_reference.html">Kernel APIs Reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="demo.html">Demos</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lz4_compress_streaming.html">Xlinx LZ4 Streaming Compression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lz4_compress.html">Xlinx LZ4 Compression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="snappy_compress.html">Xlinx Snappy Compression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gzipc_block_mm.html">Xilinx GZip Compression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gzipc.html">Xilinx GZip Streaming Compression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gzipc_static.html">Xilinx GZip Static Streaming Compression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lz4_dec_streaming_parallelByte8.html">Xlinx LZ4 Streaming Decompression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="snappy_dec_streaming_parallelByte8.html">Xlinx Snappy Streaming Decompression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gzip_decompress.html">Xilinx GZip Streaming Decompression</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#build-instructions">Build Instructions</a></li>
 </ul>
 </li>
@@ -429,10 +438,25 @@
 <h1>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h1>
 <p>Tests examples for <strong>lz4</strong>, <strong>snappy</strong>, <strong>lz4_streaming</strong>, <strong>snappy_streaming</strong>, <strong>zlib</strong>, <strong>gzip</strong> and <strong>zstd</strong> kernels are available in the <code class="docutils literal notranslate"><span class="pre">L2/tests/</span></code> directory.</p>
 <div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">List of Tests</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lz4_compress_streaming.html">Xlinx LZ4 Streaming Compression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lz4_compress.html">Xlinx LZ4 Compression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snappy_compress.html">Xlinx Snappy Compression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gzipc_block_mm.html">Xilinx GZip Compression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gzipc.html">Xilinx GZip Streaming Compression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gzipc_static.html">Xilinx GZip Static Streaming Compression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lz4_dec_streaming_parallelByte8.html">Xlinx LZ4 Streaming Decompression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snappy_dec_streaming_parallelByte8.html">Xlinx Snappy Streaming Decompression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gzip_decompress.html">Xilinx GZip Streaming Decompression</a></li>
+</ul>
 </div>
-<p>Execute the following commands before building any of the examples:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Execute the following commands before building any of the examples:</p>
+</div>
 <pre class="highlight literal-block">
-<span></span>$ <span class="nb">source</span> &lt;Vitis_Installed_Path&gt;/installs/lin64/Vitis/2020.2/settings64.sh
+<span></span>$ <span class="nb">source</span> &lt;Vitis_Installed_Path&gt;/installs/lin64/Vitis/2021.1/settings64.sh
 $ <span class="nb">source</span> &lt;Vitis_Installed_Path&gt;/xbb/xrt/packages/setup.sh
 </pre>
 <div class="section" id="build-instructions">
@@ -444,9 +468,9 @@ $ <span class="nb">source</span> &lt;Vitis_Installed_Path&gt;/xbb/xrt/packages/s
 <p>Variable <code class="docutils literal notranslate"><span class="pre">TARGET</span></code> can take the following values:</p>
 <blockquote>
 <div><ul class="simple">
-<li><strong>sw_emu</strong>    : software emulation</li>
-<li><strong>hw_emu</strong>    : hardware emulation</li>
-<li><strong>hw</strong>        : run on actual hardware</li>
+<li><strong>sw_emu</strong>  : software emulation</li>
+<li><strong>hw_emu</strong>  : hardware emulation</li>
+<li><strong>hw</strong>  : run on actual hardware</li>
 </ul>
 </div></blockquote>
 <p>By default, the target device is set as Alveo U200. In order to target a different
@@ -454,8 +478,11 @@ device, use the  <code class="docutils literal notranslate"><span class="pre">DE
 <pre class="highlight literal-block">
 <span></span>make run <span class="nv">TARGET</span><span class="o">=</span>sw_emu <span class="nv">DEVICE</span><span class="o">=</span>&lt;new_device.xpfm&gt;
 </pre>
-<p>Build instructions explained in this section are common for all the
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Build instructions explained in this section are common for all the
 applications. The generated executable names may differ.</p>
+</div>
 </div>
 </div>
 
@@ -475,10 +502,10 @@ applications. The generated executable names may differ.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../L3/L3.html" class="btn btn-neutral float-right" title="L3 Overlay User Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="lz4_compress_streaming.html" class="btn btn-neutral float-right" title="Xlinx LZ4 Streaming Compression" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="demo.html" class="btn btn-neutral float-left" title="Demos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="zstd_decompress.html" class="btn btn-neutral float-left" title="Xilinx ZSTD Decompression" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -488,7 +515,7 @@ applications. The generated executable names may differ.</p>
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on April 21, 2021.
+        Last updated on May 17, 2021.
       </span>
 
     </p>

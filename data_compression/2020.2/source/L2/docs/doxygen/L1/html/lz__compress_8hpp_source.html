@@ -473,7 +473,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;</div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;            <span class="comment">// Calculate Hash Value</span></div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;            uint32_t hash =</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;                (present_window[0] &lt;&lt; 4) ^ (present_window[1] &lt;&lt; 3) ^ (present_window[2] &lt;&lt; 3) ^ (present_window[3]);</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;                (present_window[0] &lt;&lt; 4) ^ (present_window[1] &lt;&lt; 3) ^ (present_window[2] &lt;&lt; 2) ^ (present_window[3]);</div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;</div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;            <span class="comment">// Dictionary Lookup</span></div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;            uintDictV_t dictReadValue = dict[hash];</div>

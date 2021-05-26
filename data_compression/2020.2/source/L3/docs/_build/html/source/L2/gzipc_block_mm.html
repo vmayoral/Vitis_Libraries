@@ -452,9 +452,9 @@
 <div class="section" id="executable-usage">
 <h2>Executable Usage<a class="headerlink" href="#executable-usage" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">To execute single file for compression                 : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-cx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress.xclbin</span> <span class="pre">-c</span> <span class="pre">&lt;file_name&gt;</span></code></p>
+<li><p class="first">To execute single file for compression                 : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress.xclbin</span> <span class="pre">-c</span> <span class="pre">&lt;file_name&gt;</span></code></p>
 </li>
-<li><p class="first">To execute multiple files for compression    : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-cx</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress.xclbin</span> <span class="pre">-l</span> <span class="pre">&lt;files.list&gt;</span></code></p>
+<li><p class="first">To execute multiple files for compression    : <code class="docutils literal notranslate"><span class="pre">./build/xil_gzip</span> <span class="pre">-xbin</span> <span class="pre">./build/xclbin_&lt;xsa_name&gt;_&lt;TARGET</span> <span class="pre">mode&gt;/compress.xclbin</span> <span class="pre">-cfl</span> <span class="pre">&lt;files.list&gt;</span></code></p>
 <blockquote>
 <div><ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">&lt;files.list&gt;</span></code>: Contains various file names with current path</li>
@@ -464,12 +464,14 @@
 </ol>
 <p>The usage of the generated executable is as follows:</p>
 <pre class="highlight literal-block">
-<span></span>Usage: application.exe -<span class="o">[</span>-h-c-l-cx-B<span class="o">]</span>
+<span></span>Usage: application.exe -<span class="o">[</span>-h-c-cfl-xbin-B<span class="o">]</span>
        --help,           -h      Print Help Options
-       --xclbin,         -cx     XCLBIN                                               Default: <span class="o">[</span>compress<span class="o">]</span>
+       --xclbin,         -xbin   XCLBIN                                          Default: <span class="o">[</span>compress<span class="o">]</span>
        --compress,       -c      Compress
-       --file_list,      -l      List of Input Files
-       --block_size,     -B      Compress Block Size <span class="o">[</span><span class="m">0</span>-32: <span class="m">1</span>-64: <span class="m">2</span>-1024: <span class="m">3</span>-4096<span class="o">]</span>     Default: <span class="o">[</span><span class="m">0</span><span class="o">]</span>
+       --file_list,      -cfl    Compress List of Input Files
+       --max_cr,         -mcr    Maximum CR                                      Default: <span class="o">[</span><span class="m">10</span><span class="o">]</span>
+       --device_id,      -id     Device ID                                       Default: <span class="o">[</span><span class="m">0</span><span class="o">]</span>
+       --zlib,           -zlib   <span class="o">[</span><span class="m">0</span>:GZip, <span class="m">1</span>:Zlib<span class="o">]</span>                                Default: <span class="o">[</span><span class="m">0</span><span class="o">]</span>
 </pre>
 </div>
 <div class="section" id="results">
