@@ -107,6 +107,10 @@ Functions</h2></td></tr>
 template&lt;int IN_DATAWIDTH, int OUT_DATAWIDTH&gt; </td></tr>
 <tr class="memitem:ae84233ea81ccc7a071fc0761d1d06694"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::passDownsizer</b> (hls::stream&lt; ap_uint&lt; IN_DATAWIDTH &gt; &gt; &amp;inStream, hls::stream&lt; uint32_t &gt; &amp;inSizeStream, hls::stream&lt; ap_uint&lt; OUT_DATAWIDTH &gt; &gt; &amp;outStream)</td></tr>
 <tr class="separator:ae84233ea81ccc7a071fc0761d1d06694"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a623b515f9688ebf3b6acafecb9ca2a43"><td class="memTemplParams" colspan="2"><a class="anchor" id="a623b515f9688ebf3b6acafecb9ca2a43"></a>
+template&lt;int IN_DATAWIDTH&gt; </td></tr>
+<tr class="memitem:a623b515f9688ebf3b6acafecb9ca2a43"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::receiveBuffer</b> (hls::stream&lt; ap_uint&lt; IN_DATAWIDTH &gt; &gt; &amp;inStream, hls::stream&lt; IntVectorStream_dt&lt; IN_DATAWIDTH, 1 &gt; &gt; &amp;outStream, hls::stream&lt; ap_uint&lt; 17 &gt; &gt; &amp;inputSize)</td></tr>
+<tr class="separator:a623b515f9688ebf3b6acafecb9ca2a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a4469461bdcf7e2dec2b5f7be5fd179"><td class="memTemplParams" colspan="2"><a class="anchor" id="a3a4469461bdcf7e2dec2b5f7be5fd179"></a>
 template&lt;int IN_DATAWIDTH, int OUT_DATAWIDTH&gt; </td></tr>
 <tr class="memitem:a3a4469461bdcf7e2dec2b5f7be5fd179"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::bufferDownsizer</b> (hls::stream&lt; ap_uint&lt; IN_DATAWIDTH &gt; &gt; &amp;inStream, hls::stream&lt; IntVectorStream_dt&lt; OUT_DATAWIDTH, 1 &gt; &gt; &amp;outStream, hls::stream&lt; ap_uint&lt; 17 &gt; &gt; &amp;inputSize)</td></tr>

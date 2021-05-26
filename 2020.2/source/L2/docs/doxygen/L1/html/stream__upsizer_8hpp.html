@@ -107,6 +107,10 @@ Functions</h2></td></tr>
 template&lt;int IN_WIDTH, int OUT_WIDTH&gt; </td></tr>
 <tr class="memitem:a4424d60afedb3bc1361b731c6b6dd608"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::passUpsizer</b> (hls::stream&lt; ap_uint&lt; IN_WIDTH &gt; &gt; &amp;inStream, hls::stream&lt; bool &gt; &amp;inStreamEos, hls::stream&lt; ap_uint&lt; OUT_WIDTH &gt; &gt; &amp;outStream, hls::stream&lt; uint32_t &gt; &amp;outSizeStream, hls::stream&lt; bool &gt; &amp;inFileEos, hls::stream&lt; bool &gt; &amp;outFileEos)</td></tr>
 <tr class="separator:a4424d60afedb3bc1361b731c6b6dd608"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff51e00d33770e59f7d15014dcdd105c"><td class="memTemplParams" colspan="2"><a class="anchor" id="aff51e00d33770e59f7d15014dcdd105c"></a>
+template&lt;int D_WIDTH&gt; </td></tr>
+<tr class="memitem:aff51e00d33770e59f7d15014dcdd105c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::sendBuffer</b> (hls::stream&lt; IntVectorStream_dt&lt; D_WIDTH, 1 &gt; &gt; &amp;inStream, hls::stream&lt; ap_uint&lt; D_WIDTH &gt; &gt; &amp;outStream, hls::stream&lt; ap_uint&lt; 17 &gt; &gt; &amp;outSize)</td></tr>
+<tr class="separator:aff51e00d33770e59f7d15014dcdd105c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27b94deda8fa390cfa69036f69d9bf20"><td class="memTemplParams" colspan="2"><a class="anchor" id="a27b94deda8fa390cfa69036f69d9bf20"></a>
 template&lt;int IN_WIDTH, int OUT_WIDTH&gt; </td></tr>
 <tr class="memitem:a27b94deda8fa390cfa69036f69d9bf20"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>xf::compression::details::bufferUpsizer</b> (hls::stream&lt; IntVectorStream_dt&lt; IN_WIDTH, 1 &gt; &gt; &amp;inStream, hls::stream&lt; ap_uint&lt; OUT_WIDTH &gt; &gt; &amp;outStream, hls::stream&lt; ap_uint&lt; 17 &gt; &gt; &amp;outSize)</td></tr>

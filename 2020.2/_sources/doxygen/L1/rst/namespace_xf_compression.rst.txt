@@ -167,13 +167,13 @@ namespace compression
 .. _cid-xf::compression::zlibhuffmanencoder:
 .. _doxid-namespacexf_1_1compression_1a7266c0abcf8aeb60ad81372909bcd715:
 .. _cid-xf::compression::zlibhuffmanencoderstatic:
-.. _doxid-namespacexf_1_1compression_1a4830afc16a76a0299573740771938860:
+.. _doxid-namespacexf_1_1compression_1a6492fd139fc8ade7b41ad922619d85a4:
 .. _cid-xf::compression::gzipmulticorecompression:
 .. _doxid-namespacexf_1_1compression_1ab277d6b1fb48adc1040ebfa3c864ef8a:
 .. _cid-xf::compression::gzipmulticorestaticcompressstream:
-.. _doxid-namespacexf_1_1compression_1a92148400afad50dee344675eecbe6dc5:
+.. _doxid-namespacexf_1_1compression_1a1997843d8ec3836c76a6414c8bcae450:
 .. _cid-xf::compression::gzipmulticorecompressstream:
-.. _doxid-namespacexf_1_1compression_1a2c1eab438c27be88a1ee22f3351d204d:
+.. _doxid-namespacexf_1_1compression_1a98436e9a21c5bcc042aaeca7d7df11bd:
 .. _cid-xf::compression::gzipmulticorecompressaxistream:
 .. ref-code-block:: cpp
 	:class: overview-code-block

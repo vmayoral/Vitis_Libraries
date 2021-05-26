@@ -58,7 +58,7 @@
   <link rel="stylesheet" href="../../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Benchmark Results" href="../results.html" />
+    <link rel="next" title="LZ4 Application" href="lz4_app.html" />
     <link rel="prev" title="class xf::compression::xfZlib" href="../../doxygen/L3/rst/class_xf_compression_xfZlib.html" /> 
 	</head>
 	<body>
@@ -348,6 +348,8 @@
 <li class="toctree-l2"><a class="reference internal" href="design.html">Kernel Design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_reference.html">Overlay API Reference</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Demos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lz4_app.html">LZ4 Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gzip_app.html">GZip Application</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#environment-setup">Environment Setup</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#build-instructions">Build Instructions</a></li>
 </ul>
@@ -432,15 +434,20 @@
 combination with software APIs to derive end application that can be directly
 deployed or creation of shared library that can be integrated with external
 applications.</p>
-<p>Demo examples for <strong>Zlib</strong> and <strong>Lz4</strong> applications are available in the <code class="docutils literal notranslate"><span class="pre">L3/demos/</span></code> directory.</p>
+<p>Demo examples for <strong>Gzip</strong> and <strong>Lz4</strong> applications are available in the <code class="docutils literal notranslate"><span class="pre">L3/demos/</span></code> directory.</p>
 <div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">List of Demos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lz4_app.html">LZ4 Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gzip_app.html">GZip Application</a></li>
+</ul>
 </div>
 <div class="section" id="environment-setup">
 <h2>Environment Setup<a class="headerlink" href="#environment-setup" title="Permalink to this headline">¶</a></h2>
 <p>Execute the following commands to setup the Vitis environment for building the application. These
 instructions are applicable for all the demos under this category.</p>
 <pre class="highlight literal-block">
-<span></span><span class="nv">$source</span> &lt;Vitis_Installation_Path&gt;/installs/lin64/Vitis/2020.2/settings64.csh
+<span></span><span class="nv">$source</span> &lt;Vitis_Installation_Path&gt;/installs/lin64/Vitis/2021.1/settings64.csh
 <span class="nv">$source</span> &lt;Vitis_Installation_Path&gt;/xbb/xrt/packages/setup.sh
 </pre>
 <div class="section" id="build-instructions">
@@ -479,7 +486,7 @@ may differ.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../results.html" class="btn btn-neutral float-right" title="Benchmark Results" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="lz4_app.html" class="btn btn-neutral float-right" title="LZ4 Application" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../../doxygen/L3/rst/class_xf_compression_xfZlib.html" class="btn btn-neutral float-left" title="class xf::compression::xfZlib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -492,7 +499,7 @@ may differ.</p>
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on April 21, 2021.
+        Last updated on May 17, 2021.
       </span>
 
     </p>

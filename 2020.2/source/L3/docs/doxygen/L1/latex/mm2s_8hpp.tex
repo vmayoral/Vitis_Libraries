@@ -50,9 +50,9 @@ Header for modules used for memory mapped to streaming interface conversion.
 \item 
 {\footnotesize template$<$int D\-A\-T\-A\-W\-I\-D\-T\-H$>$ }\\void {\bfseries xf\-::compression\-::details\-::mm2s\-Simple} (const ap\-\_\-uint$<$ D\-A\-T\-A\-W\-I\-D\-T\-H $>$ $\ast$in, hls\-::stream$<$ ap\-\_\-uint$<$ D\-A\-T\-A\-W\-I\-D\-T\-H $>$ $>$ \&outstream, uint32\-\_\-t input\-Size)
 \item 
-{\footnotesize template$<$int D\-A\-T\-A\-W\-I\-D\-T\-H, int B\-U\-R\-S\-T\-\_\-\-S\-I\-Z\-E$>$ }\\void {\bfseries xf\-::compression\-::details\-::mm2s\-Simple} (const ap\-\_\-uint$<$ D\-A\-T\-A\-W\-I\-D\-T\-H $>$ $\ast$in, hls\-::stream$<$ ap\-\_\-uint$<$ D\-A\-T\-A\-W\-I\-D\-T\-H $>$ $>$ \&outstream, uint32\-\_\-t input\-Size, uint32\-\_\-t num\-Itr)
-\item 
 {\footnotesize template$<$int D\-A\-T\-A\-W\-I\-D\-T\-H, int B\-U\-R\-S\-T\-\_\-\-S\-I\-Z\-E$>$ }\\void {\bfseries xf\-::compression\-::details\-::mm2s\-Simple} (const ap\-\_\-uint$<$ D\-A\-T\-A\-W\-I\-D\-T\-H $>$ $\ast$in, hls\-::stream$<$ ap\-\_\-uint$<$ D\-A\-T\-A\-W\-I\-D\-T\-H $>$ $>$ \&outstream, uint32\-\_\-t input\-Size)
+\item 
+{\footnotesize template$<$int D\-A\-T\-A\-W\-I\-D\-T\-H, int B\-U\-R\-S\-T\-\_\-\-S\-I\-Z\-E$>$ }\\void {\bfseries xf\-::compression\-::details\-::mm2s\-Simple} (const ap\-\_\-uint$<$ D\-A\-T\-A\-W\-I\-D\-T\-H $>$ $\ast$in, hls\-::stream$<$ ap\-\_\-uint$<$ D\-A\-T\-A\-W\-I\-D\-T\-H $>$ $>$ \&outstream, hls\-::stream$<$ uint32\-\_\-t $>$ \&size\-Stream, hls\-::stream$<$ uint32\-\_\-t $>$ \&in\-Size)
 \item 
 {\footnotesize template$<$int D\-A\-T\-A\-W\-I\-D\-T\-H, int B\-U\-R\-S\-T\-\_\-\-S\-I\-Z\-E$>$ }\\void {\bfseries xf\-::compression\-::details\-::mm2\-Stream} (const ap\-\_\-uint$<$ D\-A\-T\-A\-W\-I\-D\-T\-H $>$ $\ast$in, hls\-::stream$<$ ap\-\_\-uint$<$ D\-A\-T\-A\-W\-I\-D\-T\-H $>$ $>$ \&outstream, hls\-::stream$<$ ap\-\_\-uint$<$ 32 $>$ $>$ \&checksum\-Stream, uint32\-\_\-t $\ast$checksum\-Data, uint32\-\_\-t input\-Size, hls\-::stream$<$ uint32\-\_\-t $>$ \&out\-Size\-Stream, bool checksum\-Type, hls\-::stream$<$ ap\-\_\-uint$<$ 2 $>$ $>$ \&checksum\-Type\-Stream)
 \end{DoxyCompactItemize}
