@@ -58,7 +58,7 @@
   <link rel="stylesheet" href="../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Demos" href="L3/demo.html" /> 
+    <link rel="prev" title="GZip Application" href="L3/gzip_app.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -350,6 +350,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#datasets">Datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#compression-performance">Compression Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#de-compression-performance">De-Compression Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test-overview">Test Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vitis-data-compression-library">Vitis Data Compression Library</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -576,21 +580,60 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 <table class="docutils footnote" frame="void" id="id2" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[†]</td><td>The amount of resources used indicate that we still have room on Alveo U200 to go for more compute units which can further improve the throughput.</td></tr>
+<tr><td class="label">[†]</td><td><ol class="first last arabic simple">
+<li>The amount of resources used indicate that we still have room on Alveo U200 to go for more compute units which can further improve the throughput.</li>
+<li>GZip/Zlib Streaming: Full standard support (Dynamic Huffman, Fixed Huffman and Stored Blocks supported).</li>
+<li>ZStd Streaming: Full Standard support with limited Window Size upto 128KB.</li>
+</ol>
+</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id3" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[‡]</td><td>GZip/Zlib Streaming: Full standard support (Dynamic Huffman, Fixed Huffman and Stored Blocks supported).</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id4" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[§]</td><td>ZStd Streaming: Full Standard support with limited Window Size upto 128KB.</td></tr>
-</tbody>
-</table>
+</div>
+<div class="section" id="test-overview">
+<h2>Test Overview<a class="headerlink" href="#test-overview" title="Permalink to this headline">¶</a></h2>
+<p>Here are benchmarks of the Vitis Data Compression Library using the Vitis environment.</p>
+<div class="section" id="vitis-data-compression-library">
+<h3>Vitis Data Compression Library<a class="headerlink" href="#vitis-data-compression-library" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Download code</strong></li>
+</ul>
+<p>These data_compression benchmarks can be downloaded from <a class="reference external" href="https://github.com/Xilinx/Vitis_Libraries.git">vitis libraries</a> <code class="docutils literal notranslate"><span class="pre">master</span></code> branch.</p>
+<pre class="highlight literal-block">
+<span></span>git clone https://github.com/Xilinx/Vitis_Libraries.git
+<span class="nb">cd</span> Vitis_Libraries
+git checkout master
+<span class="nb">cd</span> data_compression
+</pre>
+<ul class="simple">
+<li><strong>Setup environment</strong></li>
+</ul>
+<p>Specifying the corresponding Vitis, XRT, and path to the platform repository by running following commands.</p>
+<pre class="highlight literal-block">
+<span></span><span class="nb">source</span> &lt;Vitis_Intstalled_Path&gt;/installs/lin64/Vitis/2021.1/settings64.sh
+<span class="nb">source</span> &lt;Vitis_Installed_Path&gt;/xbb/xrt/packages/setup.sh
+<span class="nb">export</span> <span class="nv">PLATFORM_REPO_PATHS</span><span class="o">=</span>/opt/xilinx/platforms
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$XILINX_VITIS</span>/lib/lnx64.o/Default/:<span class="nv">$LD_LIBRARY_PATH</span>
+</pre>
+<ul class="simple">
+<li><strong>Build Instructions</strong></li>
+</ul>
+<p>Execute the following commands to compile and test run the applications.</p>
+<pre class="highlight literal-block">
+<span></span>$ make run <span class="nv">TARGET</span><span class="o">=</span>hw
+
+hw: run on actual hardware
+</pre>
+<p>By default, the target device is set as Alveo U200. In order to target a different
+device, use the  <code class="docutils literal notranslate"><span class="pre">DEVICE</span></code> argument. For example:</p>
+<pre class="highlight literal-block">
+<span></span>make run <span class="nv">TARGET</span><span class="o">=</span>hw <span class="nv">DEVICE</span><span class="o">=</span>&lt;new_device.xpfm&gt;
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Build instructions explained in this section are common for all the
+applications to run on actual hardware. The generated executable names may differ.</p>
+</div>
+</div>
 </div>
 </div>
 
@@ -611,7 +654,7 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="L3/demo.html" class="btn btn-neutral float-left" title="Demos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="L3/gzip_app.html" class="btn btn-neutral float-left" title="GZip Application" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -621,7 +664,7 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on April 21, 2021.
+        Last updated on May 17, 2021.
       </span>
 
     </p>

@@ -55,7 +55,9 @@
   <link rel="stylesheet" href="../../_static/css/header-footer.min.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Benchmark Results" href="../results.html" />
+    <link rel="prev" title="LZ4 Application" href="lz4_app.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -335,11 +337,26 @@
 <li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../usecase.html">Typical Use Cases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../L1/L1.html">L1 Module User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../L2/L2.html">L2 Kernel User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="L3.html">L3 Overlay User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="L3.html">L3 Overlay User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">L3 Overlay APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html">Kernel Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html">Overlay API Reference</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="demo.html">Demos</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lz4_app.html">LZ4 Application</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">GZip Application</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#executable-usage">Executable Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="demo.html#environment-setup">Environment Setup</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Results</span></p>
 <ul>
@@ -396,6 +413,10 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
+          <li><a href="L3.html">L3 Overlay User Guide</a> &raquo;</li>
+        
+          <li><a href="demo.html">Demos</a> &raquo;</li>
+        
       <li>GZip Application</li>
     
     
@@ -437,7 +458,7 @@ compression and decompression, it also supports Zlib with a host argument switch
 <pre class="highlight literal-block">
 <span></span>Tested Tool: <span class="m">2020</span>.2
 Tested XRT:  <span class="m">2020</span>.2
-Tested XSA:  xilinx_u250_xdma_201830_2
+Tested XSA:  xilinx_u250_gen3x16_xdma_3_1_202020_1
 </pre>
 </div>
 <div class="section" id="executable-usage">
@@ -499,6 +520,15 @@ Tested XSA:  xilinx_u250_xdma_201830_2
 
 
 	  <!-- Sphinx Page Footer block -->
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../results.html" class="btn btn-neutral float-right" title="Benchmark Results" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lz4_app.html" class="btn btn-neutral float-left" title="LZ4 Application" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

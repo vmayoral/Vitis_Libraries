@@ -125,20 +125,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define GMEM_BURST_SIZE 128</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#ifndef NUM_CORES</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define NUM_CORES 8 // Octacore by default</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#ifndef URAM_BUFFER</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define URAM_BUFFER 0 // 0: BRAM; 1: URAM</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">// Kernel top functions</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">void</span> <a class="code" href="gzip__compress__multicore__mm_8hpp.html#a30b04906fa48674e9e86259166a5a147">xilGzipCompBlock</a>(<span class="keyword">const</span> ap_uint&lt;GMEM_DWIDTH&gt;* in,</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                      ap_uint&lt;GMEM_DWIDTH&gt;* out,</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                      uint32_t* compressd_size,</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                      uint32_t* checksumData,</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                      uint32_t input_size,</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                      <span class="keywordtype">bool</span> checksumType);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif // _XFCOMPRESSION_GZIP_COMPRESS_MULTICORE_MM_HPP_</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#ifndef NUM_CORES</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define NUM_CORES 8 // Octacore by default</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">// Kernel top functions</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">void</span> <a class="code" href="gzip__compress__multicore__mm_8hpp.html#a30b04906fa48674e9e86259166a5a147">xilGzipCompBlock</a>(<span class="keyword">const</span> ap_uint&lt;GMEM_DWIDTH&gt;* in,</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                      ap_uint&lt;GMEM_DWIDTH&gt;* out,</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                      uint32_t* compressd_size,</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                      uint32_t* checksumData,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                      uint32_t input_size,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                      <span class="keywordtype">bool</span> checksumType);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif // _XFCOMPRESSION_GZIP_COMPRESS_MULTICORE_MM_HPP_</span></div>
 <div class="ttc" id="gzip__compress__multicore__mm_8hpp_html_a30b04906fa48674e9e86259166a5a147"><div class="ttname"><a href="gzip__compress__multicore__mm_8hpp.html#a30b04906fa48674e9e86259166a5a147">xilGzipCompBlock</a></div><div class="ttdeci">void xilGzipCompBlock(const ap_uint&lt; GMEM_DWIDTH &gt; *in, ap_uint&lt; GMEM_DWIDTH &gt; *out, uint32_t *compressd_size, uint32_t *checksumData, uint32_t input_size, bool checksumType)</div><div class="ttdoc">GZIP compression kernel takes the raw data as input from DDR and compresses the data using num cores ...</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

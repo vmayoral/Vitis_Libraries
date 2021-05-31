@@ -374,7 +374,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="preprocessor"></span>    hls::stream&lt;IntVectorStream_dt&lt;32, 1&gt; &gt; compressedStream(<span class="stringliteral">&quot;compressedStream&quot;</span>);</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    hls::stream&lt;IntVectorStream_dt&lt;32, 1&gt; &gt; boosterStream(<span class="stringliteral">&quot;boosterStream&quot;</span>);</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    hls::stream&lt;ap_uint&lt;MAX_FREQ_DWIDTH&gt; &gt; metaStream(<span class="stringliteral">&quot;metaStream&quot;</span>);</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="preprocessor">#pragma HLS STREAM variable = compressdStream depth = 16</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="preprocessor">#pragma HLS STREAM variable = compressedStream depth = 16</span></div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma HLS STREAM variable = boosterStream depth = 16</span></div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma HLS STREAM variable = metaStream depth = 8</span></div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="preprocessor"></span></div>
