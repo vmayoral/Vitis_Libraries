@@ -6,7 +6,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
-		
+		<meta content="HPC, Library, MLP, RTM, Solver" name="keywords" />
+<meta content="Vitis HPC library release notes." name="description" />
+<meta content="Document" name="xlnxdocumentclass" />
+<meta content="Tutorials" name="xlnxdocumenttype" />
+
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 		<link rel="stylesheet" href="https://static.cloud.coveo.com/searchui/v2.4382/css/CoveoFullSearch.css"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -306,7 +310,7 @@
             
             
               <div class="version">
-                2020.2
+                2021.1
               </div>
             
           
@@ -338,6 +342,7 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html#trademark-notice">Trademark Notice</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Note</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">2.0</a></li>
 </ul>
 </li>
 </ul>
@@ -428,7 +433,21 @@
 </div>
 <div class="section" id="id2">
 <h2>1.0<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>The 1.0 release introduces HLS primitives, prebuild kernles and software APIs for RTM (Reverse Time Migration) FDTD (Finite Difference Time Domain) solution. It also includes the activation primitives and fully connected network kernels for MLP.</p>
+<p>Vitis HPC Libraray 1.0 release introduces HLS primitives, prebuild kernles and software APIs for HPC applications on FPGAs. These applications are:</p>
+<ul class="simple">
+<li>2D Acoustic RTM (Reverse Time Migration) FDTD (Finite Difference Time Domain) algorithm</li>
+<li>MLP (Mult-Layer Perceptron) components: activation functions and fully connected network kernels</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>2.0<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Vitis HPC Libraray 2.0 release introduces HLS primitives, prebuild kernles and software APIs for HPC applications on FPGAs. These applications are:</p>
+<ul class="simple">
+<li>2D Acoustic RTM (Reverse Time Migration) FDTD (Finite Difference Time Domain) algorithm, including forward kernel and backward kernel</li>
+<li>3D Acoustic RTM (Reverse Time Migration) FDTD (Finite Difference Time Domain) algorithm, including forward kernel</li>
+<li>MLP (Mult-Layer Perceptron) components: activation functions and fully connected network kernels</li>
+<li>PCG (Preconditioned Conjugate Gradient) Solvers for both dense matrix and sparse matrix</li>
+</ul>
 </div>
 </div>
 
