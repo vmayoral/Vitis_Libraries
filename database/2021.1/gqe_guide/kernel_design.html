@@ -81,7 +81,7 @@
 															<div class="logo-column">
 																<div class="logo">
 																	<a href="https://www.xilinx.com/">
-																	<img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc"/>
+																	<img src="https://github.com/Xilinx/Image-Collateral/blob/main/xilinx-header-logo.svg?raw=true" title="Xilinx Inc"/>
 																	</a>
 																</div>
 															</div>
@@ -347,6 +347,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="L2.html">L2 GQE Kernel User Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">GQE Kernel Design</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#join-kernel">Join Kernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bloom-filter-kernel">Bloom-Filter Kernel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#aggregate-kernel">Aggregate Kernel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#partition-kernel">Partition Kernel</a></li>
 </ul>
@@ -359,7 +360,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark.html">Benchmark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/tpc_h.html">TPC-H Queries with GQE</a></li>
 </ul>
 
@@ -445,187 +446,178 @@
 </div>
 <div class="section" id="join-kernel">
 <h2>Join Kernel<a class="headerlink" href="#join-kernel" title="Permalink to this headline">¶</a></h2>
-<p>The GQE join kernel is a compound of multiple post-bitstream programmable primitives,
+<p id="gqe-join-kernel">The GQE join kernel is a compound of multiple post-bitstream programmable primitives,
 and can execute not only hash-join but also a number of primitives often found as
 prologue or epilogue of join operations. With its bypass design in data path,
 it can even perform execution without a join.</p>
-<a class="reference internal image-reference" href="../_images/hashjoin_bp_structure.png"><img alt="GQE Join Kernel" class="align-center" src="../_images/hashjoin_bp_structure.png" style="width: 816.1999999999999px; height: 429.09999999999997px;" /></a>
+<a class="reference internal image-reference" href="../_images/hashjoin_bp_structure.png"><img alt="GQE Join Kernel" class="align-center" src="../_images/hashjoin_bp_structure.png" style="width: 800.0px; height: 287.2px;" /></a>
 <p>The internal of this kernel is illustrated in the figure above. Internal multi-join supports
 three reconfigurable modes, namely inner join, anti-join and semi-join. To join efficiently at different data scale, the join process is divided into two phases: build and probe. Build phase takes Table A as input to build the hash table, while Probe phase takes Table B as input and probes the conflicting rows from built hash table. By calling Table B multiple iterations, any sized Table B can be joined. On the other hand, By spliting Table A into multiple slice and running mutli-(build + Nx probe), Table A with any size can be employed as the left table.</p>
-<p>This kernel works with three types of input buffers, 1x kernel configuration buffer, 1x meta info buffer and 8x column data buffers. The result buffers are 1x result data meta and 8x output column data.</p>
-<p>The 8x input / output data columns saves all raw column data. The statistic information, e.g., row number, column number, is recorded in meta input / output buffer. The internal structure of meta info is shown in the figure below. The first 8 rows are valid for Join kernel. Each row represents the info of one data column.</p>
-<a class="reference internal image-reference" href="../_images/meta_layout.png"><img alt="meta info layout" class="align-center" src="../_images/meta_layout.png" style="width: 845.5999999999999px; height: 431.2px;" /></a>
+<p>This kernel works with three types of input buffers, 1x kernel configuration buffer, 1x meta info buffer and 3x column data buffers. The result buffers are 1x result data meta and 4x output column data.</p>
+<p>The input / output data columns save all raw column data. The statistic information, e.g., row number, column number, is recorded in meta input / output buffer. The internal structure of meta info is shown in the figure below. The first 4 rows are valid for Join kernel. Each row represents the info of one data column.</p>
+<a class="reference internal image-reference" href="../_images/meta_layout.png"><img alt="meta info layout" class="align-center" src="../_images/meta_layout.png" style="width: 1322.0px; height: 588.0px;" /></a>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>gqePart kernel supports maximum 256 partitions, each partition nrow is 32-bit, starting from meta[8], 256 / 16 = 16 lines are used for partitioning nrow output.</li>
+<li>When the partition num is less than 256, using the first N parts, starting from meta[8][31-0]</li>
+</ul>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
 <p class="last">In the current release, all columns are expected to have the same number of elements of same type.</p>
 </div>
 <p>The configuration buffer basically programs the kernel at runtime. It toggles execution step
 primitives on or off, and defines the filter and/or evaluation expressions.
-The details are documented in the following table:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="9%" />
-<col width="15%" />
-<col width="14%" />
-<col width="14%" />
-<col width="8%" />
-<col width="10%" />
-<col width="10%" />
-<col width="9%" />
-<col width="9%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">192-511</th>
-<th class="head">191-184</th>
-<th class="head">120-183</th>
-<th class="head">56-119</th>
-<th class="head">6</th>
-<th class="head">3-5</th>
-<th class="head">2</th>
-<th class="head">1</th>
-<th class="head">0</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Shuffle</td>
-<td>Tab C col sel</td>
-<td>Tab B col-id</td>
-<td>Tab A col-id</td>
-<td>append</td>
-<td>join sel</td>
-<td>dual key</td>
-<td>aggr on</td>
-<td>join on</td>
-</tr>
-<tr class="row-odd"><td colspan="9">(padding at MSB) eval-0 config</td>
-</tr>
-<tr class="row-even"><td colspan="9">(padding at MSB) eval-1 config</td>
-</tr>
-<tr class="row-odd"><td colspan="9">filter Tab A config</td>
-</tr>
-<tr class="row-even"><td colspan="9">filter Tab A config (cont’)</td>
-</tr>
-<tr class="row-odd"><td colspan="9">(padding at MSB) filter Tab A config (cont’)</td>
-</tr>
-<tr class="row-even"><td colspan="9">filter Tab B config</td>
-</tr>
-<tr class="row-odd"><td colspan="9">filter Tab B config (cont’)</td>
-</tr>
-<tr class="row-even"><td colspan="9">(padding at MSB) filter Tab B config (cont’)</td>
-</tr>
-</tbody>
-</table>
-<p>Both input table A and B can support up to 8 columns, which may consist of 1-2 key columns and 6-7 payload columns.
-The selection and order of columns in pipeline is appointed via the column index.
-Within each buffer, the columns are indexed starting from 0.
-<code class="docutils literal notranslate"><span class="pre">-1</span></code> is used as a special value to instruct the table scanner to feed zero for that column.</p>
-<p>The filter config is aligned to lower bits, and each filter’s config fully covers the first two
-512-bit slots, and partially use the third one.</p>
-<p>Here the <code class="docutils literal notranslate"><span class="pre">join_on</span></code> option toggles whether hash-join is enabled or by-passed in the pipeline.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">dual_key</span></code> option instructs the kernel to use
-both first and second column as join key in hash-join, and when it is asserted, the third column
+The details are documented in the following figure:</p>
+<a class="reference internal image-reference" href="../_images/kernelcmd.png"><img alt="kernel command info layout" class="align-center" src="../_images/kernelcmd.png" style="width: 1500.0px; height: 910.0px;" /></a>
+<p>14 lines of 512-bit configure data are used in kernel command. Address 0x00 is join only config, 0x01 for partition kernel, 0x02 for bloomfilter kernel, and 0x03-0x05 is reserved for gqeAggr kernel. Since the filtering module is the same in all kernels, same configuration lines 0x06 - 0x13 are used.</p>
+<p>Both input table A and B can support up to 3 columns, which may consist of 1-2 key columns and 1 payload columns. The col enable flags are set in bit 6-11. The output column enable flags are 12-15 bits.</p>
+<p>Payload column data, which is normally used as rowID column, can be read from user input or auto-generating in kernel. The rowID generation config is controled by bit16/18. If generating rowID inside the kernel, the validation enable flag also must be configured to determin whether to use the validation buffer.</p>
+<p>The columns are indexed starting from 0.  <code class="docutils literal notranslate"><span class="pre">-1</span></code> is used as a special value to instruct the table scanner to feed zero for that column.</p>
+<p>Current kernel join kernel can be configured to join mode or bloomfilter mode, which is controlled by bit 1.</p>
+<p>The filter config is aligned to lower bits. Build/probe table’s filter config are located in addr 0x06-0x09 / 0x10-0x13.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">join_on</span></code> option toggles whether hash-join is enabled or by-passed in the pipeline.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">dual_key</span></code> option instructs the kernel to use both first and second column as join key in hash-join, and when it is asserted, the third column
 becomes the first part of the payload input.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">join</span> <span class="pre">sel</span></code> option indicates the work mode of multi-join, 0 for normal hash join, 1 for semi-join and
-2 for anti-join.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">append</span></code> option toggles whether the append mode is enabled during writing out consecutive joined table.
-This option would be usually used when it joins two sub-tables after hash partition.</p>
-<p>The write option is basically a bit mask for 8 slots in data path.
-Only when the corresponding one-hot bit is asserted, the column is written to the output buffer.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">join</span> <span class="pre">sel</span></code> option indicates the work mode of multi-join, 0 for normal hash join, 1 for semi-join and 2 for anti-join.</p>
 <div class="admonition caution">
 <p class="first admonition-title">Caution</p>
-<p class="last">The 8-columns input data are scanned in via 4x 256-bit AXI ports by default, each AXI responds for 2 columns data scanning, e.g., AXI0 for col0 and col4, AXI1 for col1 and col5. Thus, when the input column number is more than 4, scan performance drop will appear. Moreover, when input column number is less than 4, it is not recommend to use same AXI served columns. e.g, 3cols input, using 0,1,2 is more efficient than 0,1,4.</p>
+<p class="last">The 3-columns input data are scanned in via 3x 256-bit AXI ports. However, only 1x 512-bit AXI port is employed to output (up <a href="#id2"><span class="problematic" id="id3">to_</span></a> 4 cols data. When the resulting data are huge, the write out module performance would decrease the kernel performance.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Directly bypass is supported by configuring the join kernel to probe mode. Then the kernel works as a filtering kernel. All data will go through the “channel merge” path in the kernel structure figure shown on the top.</p>
 </div>
-<p>The hardware resource utilization of join kernel is shown in the table below (work as 180MHz).</p>
+<p>The hardware resource utilization of join kernel is shown in the table below (work at 180MHz).</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="20%" />
-<col width="9%" />
-<col width="19%" />
-<col width="17%" />
-<col width="12%" />
+<col width="25%" />
 <col width="10%" />
+<col width="22%" />
+<col width="15%" />
+<col width="12%" />
+<col width="9%" />
 <col width="7%" />
-<col width="6%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>Primitive</td>
+<tr class="row-odd"><td>Module</td>
 <td>LUT</td>
 <td>LUT as memory</td>
-<td>LUT as logic</td>
 <td>Register</td>
 <td>BRAM36</td>
 <td>URAM</td>
 <td>DSP</td>
 </tr>
-<tr class="row-even"><td>Scan</td>
-<td>12814</td>
-<td>4758</td>
-<td>8056</td>
-<td>18968</td>
+<tr class="row-even"><td>AXI adapters</td>
+<td>53546</td>
+<td>23316</td>
+<td>79997</td>
+<td>156.5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>Scan</td>
+<td>8402</td>
+<td>931</td>
+<td>10032</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>Filter</td>
+<td>20496</td>
+<td>3936</td>
+<td>12629</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 </tr>
-<tr class="row-odd"><td>Filter</td>
-<td>2155</td>
-<td>13</td>
-<td>2142</td>
-<td>1776</td>
-<td>0.5</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="row-even"><td>Hash join</td>
-<td>118625</td>
-<td>36990</td>
-<td>900005</td>
-<td>141015</td>
-<td>276</td>
-<td>192</td>
-<td>96</td>
-</tr>
-<tr class="row-odd"><td>Write</td>
-<td>20604</td>
-<td>5693</td>
-<td>14911</td>
-<td>30275</td>
+<tr class="row-odd"><td>crossbar 4-to-8</td>
+<td>7166</td>
+<td>729</td>
+<td>11653</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 </tr>
-<tr class="row-even"><td>AXI DDR</td>
-<td>6803</td>
-<td>1370</td>
-<td>5433</td>
-<td>15045</td>
-<td>60</td>
+<tr class="row-even"><td>join (BF)</td>
+<td>12375</td>
+<td>2659</td>
+<td>15272</td>
+<td>9.5</td>
+<td>24</td>
+<td>12</td>
+</tr>
+<tr class="row-odd"><td>collect 8-to-1</td>
+<td>608</td>
+<td>0</td>
+<td>2110</td>
+<td>0</td>
 <td>0</td>
 <td>0</td>
 </tr>
-<tr class="row-odd"><td>AXI HBM</td>
-<td>25734</td>
-<td>3321</td>
-<td>22413</td>
-<td>31290</td>
-<td>32</td>
+<tr class="row-even"><td>Write</td>
+<td>7687</td>
+<td>8</td>
+<td>6738</td>
+<td>30</td>
 <td>0</td>
 <td>0</td>
 </tr>
-<tr class="row-even"><td>Total</td>
-<td>235621</td>
-<td>66324</td>
-<td>169279</td>
-<td>284784</td>
-<td>472</td>
-<td>192</td>
-<td>96</td>
+<tr class="row-odd"><td>Total</td>
+<td>110280</td>
+<td>31579</td>
+<td>138431</td>
+<td>197</td>
+<td>24</td>
+<td>12</td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="bloom-filter-kernel">
+<h2>Bloom-Filter Kernel<a class="headerlink" href="#bloom-filter-kernel" title="Permalink to this headline">¶</a></h2>
+<p>The bloom-filter is a space-efficient probabilistic data structure that is used to test whether an element is a member of a set. False positive matches are possible, but false negatives are not - in other words, a query returns either “possibly in set” or “definitely not in set”. (from Wikipedia)</p>
+<p>The GQE Bloom-Filter kernel is an HLS kernel implementation that fully utilizes the high bandwidth feature of HBM to accelerate the query (probe-only) ability and expands the capacity as large as possible at the same time.</p>
+<p>The GQE Bloom-Filter kernel also shares the same framework as GQE Join. Thus, the input key and payload should be 64-bit width, and 1 or 2 key column(s) plus 1 playoad column is allowed to be applied to the kernel. In addition, the bloom-filter and join functionality selection is controlled by kernel command bit <code class="docutils literal notranslate"><span class="pre">config[0][1]</span></code>, where bloom-filter is enabled by setting the corresponding bit to <strong>1</strong>.</p>
+<p>The structure of the gqeJoin (bloom-filter) can be shown as the following figure:</p>
+<a class="reference internal image-reference" href="../_images/join_bloomfilter_structure.png"><img alt="GQE Join (BF) Kernel" class="align-center" src="../_images/join_bloomfilter_structure.png" style="width: 921.6px; height: 518.4px;" /></a>
+<p>As the main usage of the GQE kernel is already covered in <a class="reference internal" href="#gqe-join-kernel"><span class="std std-ref">GQE Join kernel design</span></a>. We’ll only introduce the specifications for input and output columns of GQE for using bloom-filter flow here.</p>
+<p>The columns for using the bloom-filter flow can be explained as:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="14%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td rowspan="3">Input</td>
+<td>Column 0</td>
+<td>key 0</td>
+</tr>
+<tr class="row-even"><td>Column 1</td>
+<td>key 1 (if dual-key is enabled)</td>
+</tr>
+<tr class="row-odd"><td>Column 2</td>
+<td>payload</td>
+</tr>
+<tr class="row-even"><td rowspan="4">Output</td>
+<td>Column 0</td>
+<td>payload</td>
+</tr>
+<tr class="row-odd"><td>Column 1</td>
+<td>unused (no additional payload in bloom-filter flow)</td>
+</tr>
+<tr class="row-even"><td>Column 2</td>
+<td>key 0</td>
+</tr>
+<tr class="row-odd"><td>Column 3</td>
+<td>key 1 (if dual-key is enabled)</td>
+</tr>
+</tbody>
+</table>
+<p>Software developer who wants to benefit from the hardware acceleration for bloom-filtering, please kindly refer to the <a class="reference internal" href="gqe_l3_design.html#bloomfilter-l3-usage"><span class="std std-ref">Example Usage</span></a> in L3 documentation.</p>
 </div>
 <div class="section" id="aggregate-kernel">
 <h2>Aggregate Kernel<a class="headerlink" href="#aggregate-kernel" title="Permalink to this headline">¶</a></h2>
@@ -950,7 +942,7 @@ Besides, The partition size should be provided for gqePart input meta.</p>
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on March 23, 2021.
+        Last updated on June 09, 2021.
       </span>
 
     </p>

@@ -81,7 +81,7 @@
 															<div class="logo-column">
 																<div class="logo">
 																	<a href="https://www.xilinx.com/">
-																	<img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc"/>
+																	<img src="https://github.com/Xilinx/Image-Collateral/blob/main/xilinx-header-logo.svg?raw=true" title="Xilinx Inc"/>
 																	</a>
 																</div>
 															</div>
@@ -348,9 +348,14 @@
 <li class="toctree-l2"><a class="reference internal" href="kernel_design.html">GQE Kernel Design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kernel_api.html">GQE Kernel APIs</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">GQE Kernel Configuration APIs</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#class-xf-database-gqe-aggrcommand">class xf::database::gqe::AggrCommand</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#class-xf-database-gqe-kernelcommand">class xf::database::gqe::KernelCommand</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#class-xf-database-gqe-aggrcommand">class xf::database::gqe::AggrCommand</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Methods</a></li>
 </ul>
 </li>
 </ul>
@@ -361,7 +366,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark.html">Benchmark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/tpc_h.html">TPC-H Queries with GQE</a></li>
 </ul>
 
@@ -442,28 +447,260 @@
 <p>These APIs are software APIs that can be used to genreate configuration bits for hardware kernels listed above.</p>
 <div class="toctree-wrapper compound">
 </div>
+<div class="section" id="class-xf-database-gqe-kernelcommand">
+<span id="cid-xf-database-gqe-kernelcommand"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-kernel-command"></span><span id="index-0"></span><h2>class xf::database::gqe::KernelCommand<a class="headerlink" href="#class-xf-database-gqe-kernelcommand" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_database/kernel_command.hpp&quot;</span>
+</pre>
+<div class="section" id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<p>Class for generating configuration bits of <code class="docutils literal notranslate"><span class="pre">gqePart</span></code> , <code class="docutils literal notranslate"><span class="pre">gqeJoin</span></code> and <code class="docutils literal notranslate"><span class="pre">gqeFilter</span></code> kernels.</p>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-database-gqe-kernelcommand-kernelcommand">
+<span id="doxid-classxf-1-1database-1-1gqe-1-1-kernel-command-1afe90d3967f4c0bca9867bcd1e600b578"></span>
+</pre>
+</div>
+<div class="section" id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="kernelcommand">
+<span id="id1"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-kernel-command-1a259ec0c12ce818c3f5c8179c594c4e51"></span><h4>KernelCommand<a class="headerlink" href="#kernelcommand" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="n">KernelCommand</span> <span class="p">()</span>
+</pre>
+<p>constructor of <a class="reference internal" href="../rst_2/class_xf_database_gqe_KernelCommand.html#doxid-classxf-1-1database-1-1gqe-1-1-kernel-command"><span class="std std-ref">KernelCommand</span></a> class. The kernel command used buffer is allocated on host. Some default settings are provided.</p>
+</div>
+<div class="section" id="setscancolenable">
+<span id="cid-xf-database-gqe-kernelcommand-setscancolenable"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-kernel-command-1a715980ed01cb0e2716ad5a4531e76b17"></span><h4>setScanColEnable<a class="headerlink" href="#setscancolenable" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">setScanColEnable</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">krn_id</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">table_id</span><span class="p">,</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="o">&lt;</span><span class="kt">int8_t</span><span class="o">&gt;</span> <span class="n">index</span>
+    <span class="p">)</span>
+</pre>
+<p>scan valid cols.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>krn_id</td>
+<td>0 for gqeJoin, 1 for gqePart, 2 for gqeFilter.</td>
+</tr>
+<tr class="row-even"><td>table_id</td>
+<td>0 for left table, 1 for right table.</td>
+</tr>
+<tr class="row-odd"><td>index</td>
+<td>valid input column ids.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="setrowidvalidenable">
+<span id="cid-xf-database-gqe-kernelcommand-setrowidvalidenable"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-kernel-command-1a4944ad62618019ad6c6c4ec4b844abc1"></span><h4>setRowIDValidEnable<a class="headerlink" href="#setrowidvalidenable" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">setRowIDValidEnable</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">krn_id</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">table_id</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">gen_rowID_en</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">valid_en</span>
+    <span class="p">)</span>
+</pre>
+<p>set gen_rowIDEnable and validEnable flag.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>krn_id</td>
+<td>0 for gqeJoin, 1 for gqePart, 2 for gqeFilter.</td>
+</tr>
+<tr class="row-even"><td>table_id</td>
+<td>0 for left table, 1 for right table.</td>
+</tr>
+<tr class="row-odd"><td>gen_rowID_en</td>
+<td>enable flag for using GQE to generate row IDs internally. 1 for enable, 0 for disable.</td>
+</tr>
+<tr class="row-even"><td>valid_en</td>
+<td>enable flag for getting valid bits from off-chip memory or enabing every row internally. 1 for valid bits from off-chip memory, 0 for enabling every row.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="setbypasson">
+<span id="cid-xf-database-gqe-kernelcommand-setbypasson"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-kernel-command-1a20b462e58f9cd0bcb89a0cf9a137bcd8"></span><h4>setBypassOn<a class="headerlink" href="#setbypasson" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">setBypassOn</span> <span class="p">()</span>
+</pre>
+<p>set bypass on.</p>
+</div>
+<div class="section" id="setbloomfilteron">
+<span id="cid-xf-database-gqe-kernelcommand-setbloomfilteron"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-kernel-command-1a374ef5baffa29041f5ef748a4ca2595e"></span><h4>setBloomfilterOn<a class="headerlink" href="#setbloomfilteron" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">setBloomfilterOn</span> <span class="p">(</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">35</span><span class="o">&gt;</span> <span class="n">bf_size</span><span class="p">)</span>
+</pre>
+<p>set bloom-filter on.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>bf_size</td>
+<td>size of bloom-filter in bits, we need 35 bits to represent a range between 1 to 16 Gbits.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="setdualkeyon">
+<span id="cid-xf-database-gqe-kernelcommand-setdualkeyon"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-kernel-command-1a86fc359d28fd5ef1fdbc802bc556972c"></span><h4>setDualKeyOn<a class="headerlink" href="#setdualkeyon" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">setDualKeyOn</span> <span class="p">()</span>
+</pre>
+<p>set dual key on.</p>
+</div>
+<div class="section" id="setjointype">
+<span id="cid-xf-database-gqe-kernelcommand-setjointype"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-kernel-command-1ab3658ca90a60f980ae2913320bbee35b"></span><h4>setJoinType<a class="headerlink" href="#setjointype" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">setJoinType</span> <span class="p">(</span><span class="kt">int</span> <span class="n">jointype</span><span class="p">)</span>
+</pre>
+<p>set join type.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>jointype</td>
+<td>Join type, default is INNER_JOIN.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="setjoinwritecolenable">
+<span id="cid-xf-database-gqe-kernelcommand-setjoinwritecolenable"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-kernel-command-1a511311f07df4802e46928e226c9f4a75"></span><h4>setJoinWriteColEnable<a class="headerlink" href="#setjoinwritecolenable" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">setJoinWriteColEnable</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">krn_id</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">table_id</span><span class="p">,</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="o">&lt;</span><span class="kt">int8_t</span><span class="o">&gt;</span> <span class="n">index</span>
+    <span class="p">)</span>
+</pre>
+<p>enables output columns for gqeJoin/Filter.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>krn_id</td>
+<td>0 for gqeJoin, 1 for gqePart, 2 for gqeFilter.</td>
+</tr>
+<tr class="row-even"><td>table_id</td>
+<td>0 for left table, 1 for right table.</td>
+</tr>
+<tr class="row-odd"><td>index</td>
+<td>output column ids.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="setpartwritecolenable">
+<span id="cid-xf-database-gqe-kernelcommand-setpartwritecolenable"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-kernel-command-1aa0c08f23ea05da0325034cad67bdd310"></span><h4>setPartWriteColEnable<a class="headerlink" href="#setpartwritecolenable" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">setPartWriteColEnable</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">krn_id</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">table_id</span><span class="p">,</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="o">&lt;</span><span class="kt">int8_t</span><span class="o">&gt;</span> <span class="n">index</span>
+    <span class="p">)</span>
+</pre>
+<p>enables output columns for gqePart.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>krn_id</td>
+<td>0 for gqeJoin, 1 for gqePart, 2 for gqeFilter</td>
+</tr>
+<tr class="row-even"><td>table_id</td>
+<td>0 for left table, 1 for right table</td>
+</tr>
+<tr class="row-odd"><td>index</td>
+<td>output column ids</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="setfilter">
+<span id="cid-xf-database-gqe-kernelcommand-setfilter"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-kernel-command-1afee28b0f033b08cbafb81c0d9d2e6529"></span><h4>setFilter<a class="headerlink" href="#setfilter" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">setFilter</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">table_id</span><span class="p">,</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filter_string</span>
+    <span class="p">)</span>
+</pre>
+<p>set Filter string.</p>
+<p>The string uses <code class="docutils literal notranslate"><span class="pre">a</span></code> , <code class="docutils literal notranslate"><span class="pre">b</span></code> , <code class="docutils literal notranslate"><span class="pre">c</span></code> , <code class="docutils literal notranslate"><span class="pre">d</span></code> to refer to first to the fourth column, and supports comparison and logical operator like C++. Parentheses can be used to group logic, but notice that the underlying hardware module does not support comparing one column with multiple constant boundaries in OR relationship. Integral constants will be extracted from expression.</p>
+<p>For example, an expression could be <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">&lt;</span> <span class="pre">10</span> <span class="pre">&amp;&amp;</span> <span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">20)</span> <span class="pre">||</span> <span class="pre">(c</span> <span class="pre">&gt;=</span> <span class="pre">d)</span></code> .</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>table_id</td>
+<td>0 for left table, 1 for right table</td>
+</tr>
+<tr class="row-even"><td>filter_string</td>
+<td>filter expression string</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="getconfigbits">
+<span id="cid-xf-database-gqe-kernelcommand-getconfigbits"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-kernel-command-1abbffdecca0f1bd6161fa2a782152b0b1"></span><h4>getConfigBits<a class="headerlink" href="#getconfigbits" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;*</span> <span class="n">getConfigBits</span> <span class="p">()</span> <span class="k">const</span>
+</pre>
+<p>return config bit array.</p>
+</div>
+</div>
+</div>
 <div class="section" id="class-xf-database-gqe-aggrcommand">
-<span id="cid-xf-database-gqe-aggrcommand"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-aggr-command"></span><span id="index-0"></span><h2>class xf::database::gqe::AggrCommand<a class="headerlink" href="#class-xf-database-gqe-aggrcommand" title="Permalink to this headline">¶</a></h2>
+<span id="cid-xf-database-gqe-aggrcommand"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-aggr-command"></span><span id="index-1"></span><h2>class xf::database::gqe::AggrCommand<a class="headerlink" href="#class-xf-database-gqe-aggrcommand" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight overview-code-block literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_database/aggr_command.hpp&quot;</span>
 </pre>
-<div class="section" id="overview">
-<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>Overview<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>Class for generating configuration bits of <code class="docutils literal notranslate"><span class="pre">gqeAggr</span></code> kernel.</p>
 <pre class="highlight overview-code-block literal-block" id="cid-xf-database-gqe-aggrcommand-setfilter">
 <span id="doxid-classxf-1-1database-1-1gqe-1-1-aggr-command-1aa0036c48a5ba1e4c1446d886348e61ef"></span>
 </pre>
 </div>
-<div class="section" id="methods">
-<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>Methods<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="aggrcommand">
 <span id="cid-xf-database-gqe-aggrcommand-aggrcommand"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-aggr-command-1af9988a6525c0d91f98fbe70e7514e822"></span><h4>AggrCommand<a class="headerlink" href="#aggrcommand" title="Permalink to this headline">¶</a></h4>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="n">AggrCommand</span> <span class="p">()</span>
 </pre>
 <p>construct of <a class="reference internal" href="../rst_2/class_xf_database_gqe_AggrCommand.html#doxid-classxf-1-1database-1-1gqe-1-1-aggr-command"><span class="std std-ref">AggrCommand</span></a> .</p>
+<p>The aggregate command used buffer is allocated on host. Some default settings are provided.</p>
 </div>
 <div class="section" id="scan">
 <span id="cid-xf-database-gqe-aggrcommand-scan"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-aggr-command-1aa3652569ed2a682c6cc2aba73c7ab92e"></span><h4>Scan<a class="headerlink" href="#scan" title="Permalink to this headline">¶</a></h4>
@@ -479,10 +716,7 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>index</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>input</td>
-<td>valid column ids</td>
+<td>input valid column ids</td>
 </tr>
 </tbody>
 </table>
@@ -508,28 +742,16 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>eval_id</td>
-<td>&#160;</td>
+<td>most support two evaluations</td>
 </tr>
-<tr class="row-even"><td>most</td>
-<td>support two evaluations</td>
-</tr>
-<tr class="row-odd"><td>s0</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>evaluation</td>
-<td>string for special strm format (not support ‘/’)</td>
+<tr class="row-even"><td>s0</td>
+<td>evaluation string for special strm format (not support ‘/’)</td>
 </tr>
 <tr class="row-odd"><td>index</td>
-<td>&#160;</td>
+<td>evaluation constants for each strm, default 0</td>
 </tr>
-<tr class="row-even"><td>evaluation</td>
-<td>constants for each strm, default 0</td>
-</tr>
-<tr class="row-odd"><td>post_div</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>post</td>
-<td>division alu operation, nosf for no division, sf10 for “a/10”, sf100 for “a/100”, sf1k for “a/1000”, sf10k for “a/10000” (a is result of evaluation expression)</td>
+<tr class="row-even"><td>post_div</td>
+<td>post division alu operation, nosf for no division, sf10 for “a/10”, sf100 for “a/100”, sf1k for “a/1000”, sf10k for “a/10000” (a is result of evaluation expression)</td>
 </tr>
 </tbody>
 </table>
@@ -551,23 +773,17 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>eval_id</td>
-<td>&#160;</td>
+<td>most two evaluations</td>
 </tr>
-<tr class="row-even"><td>most</td>
-<td>two evaluations</td>
-</tr>
-<tr class="row-odd"><td>eval_str</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>evaluation</td>
-<td>expression string</td>
+<tr class="row-even"><td>eval_str</td>
+<td>evaluation expression string</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="section" id="setfilter">
-<span id="cid-xf-database-gqe-aggrcommand-setfilter-2"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-aggr-command-1a152401419342f335102378c604004ee7"></span><h4>setFilter<a class="headerlink" href="#setfilter" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="cid-xf-database-gqe-aggrcommand-setfilter-2">
+<span id="doxid-classxf-1-1database-1-1gqe-1-1-aggr-command-1a152401419342f335102378c604004ee7"></span><span id="id4"></span><h4>setFilter<a class="headerlink" href="#cid-xf-database-gqe-aggrcommand-setfilter-2" title="Permalink to this headline">¶</a></h4>
 <div class="section" id="setfilter-overload-1">
 <h5>setFilter overload (1)<a class="headerlink" href="#setfilter-overload-1" title="Permalink to this headline">¶</a></h5>
 <pre class="highlight title-code-block literal-block">
@@ -794,8 +1010,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="getconfigbits">
-<span id="cid-xf-database-gqe-aggrcommand-getconfigbits"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-aggr-command-1ae4995c00e1eb86bcb5050172f127f8e3"></span><h4>getConfigBits<a class="headerlink" href="#getconfigbits" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="cid-xf-database-gqe-aggrcommand-getconfigbits">
+<span id="doxid-classxf-1-1database-1-1gqe-1-1-aggr-command-1ae4995c00e1eb86bcb5050172f127f8e3"></span><span id="id5"></span><h4>getConfigBits<a class="headerlink" href="#cid-xf-database-gqe-aggrcommand-getconfigbits" title="Permalink to this headline">¶</a></h4>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">W</span><span class="o">&gt;*</span> <span class="n">getConfigBits</span> <span class="p">()</span> <span class="k">const</span>
 </pre>
@@ -841,7 +1057,7 @@
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on March 23, 2021.
+        Last updated on June 09, 2021.
       </span>
 
     </p>

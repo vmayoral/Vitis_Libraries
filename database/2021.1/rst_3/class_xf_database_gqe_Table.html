@@ -75,7 +75,7 @@
 															<div class="logo-column">
 																<div class="logo">
 																	<a href="https://www.xilinx.com/">
-																	<img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc"/>
+																	<img src="https://github.com/Xilinx/Image-Collateral/blob/main/xilinx-header-logo.svg?raw=true" title="Xilinx Inc"/>
 																	</a>
 																</div>
 															</div>
@@ -343,7 +343,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark.html">Benchmark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/tpc_h.html">TPC-H Queries with GQE</a></li>
 </ul>
 
@@ -426,9 +426,9 @@
 </pre>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>column wrapper, column name and data pointer</p>
-<pre class="highlight overview-code-block literal-block" id="cid-xf-database-gqe-table-getvalidenableflag">
-<span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1a08da60d1eb594df2793402dbe0a77aa9"></span><span id="cid-xf-database-gqe-table-getrowidenableflag"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1ae492806de81934fc180a119b887e0978"></span><span id="cid-xf-database-gqe-table-getvalidcolname"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1a57cbf6ccdace23e60f3f860ea09e5a03"></span><span id="cid-xf-database-gqe-table-getrowidcolname"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1a6ad3edf9c50f65bbc989b98e85456202"></span><span id="cid-xf-database-gqe-table-getvalcolpointer"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1a1e33e138857d20a75f5007c9ec5068ea"></span><span id="cid-xf-database-gqe-table-genrowidwithvalidation-2"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1ab0b1e6d84f51e16875a56152ac37f6d5"></span><span id="cid-xf-database-gqe-table-genrowidwithvalidation"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1a1e50b3dde5446b8dd64b3540a7aded98"></span>
+<p>handling column-related works (name, section, pointer, etc.)</p>
+<pre class="highlight overview-code-block literal-block">
+
 </pre>
 </div>
 <div class="section" id="methods">
@@ -439,6 +439,18 @@
 <span></span><span class="n">Table</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">_name</span><span class="p">)</span>
 </pre>
 <p>construct of <a class="reference internal" href="#doxid-classxf-1-1database-1-1gqe-1-1-table"><span class="std std-ref">Table</span></a> .</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>_name</td>
+<td>name of the table.</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="addcol">
 <span id="cid-xf-database-gqe-table-addcol"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1aecb11abfadae78c7f64783bbbb8290a2"></span><h3>addCol<a class="headerlink" href="#addcol" title="Permalink to this headline">¶</a></h3>
@@ -452,7 +464,7 @@
     <span class="kt">int</span> <span class="n">row_num</span>
     <span class="p">)</span>
 </pre>
-<p>provide pointer by user add it as one column into <a class="reference internal" href="#doxid-classxf-1-1database-1-1gqe-1-1-table"><span class="std std-ref">Table</span></a> .</p>
+<p>add one column into the <a class="reference internal" href="#doxid-classxf-1-1database-1-1gqe-1-1-table"><span class="std std-ref">Table</span></a> with user-provided buffer pointer.</p>
 <p>usage: tab.addCol(“o_orderkey”, <a class="reference internal" href="enum_xf_database_gqe_TypeEnum.html#doxid-namespacexf-1-1database-1-1gqe-1a5365f96f233b0c2f45c92dbd750345d2a5aa45c269a62299c4dd75c9a494bb731"><span class="std std-ref">TypeEnum::TypeInt32</span></a> , tab_o_col0, 10000);</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -465,13 +477,13 @@
 <td>column name</td>
 </tr>
 <tr class="row-even"><td>type_size</td>
-<td>column element type size</td>
+<td>size of the column element data type in bytes</td>
 </tr>
 <tr class="row-odd"><td>_ptr</td>
-<td>column buffer pointer</td>
+<td>user-provided column buffer pointer</td>
 </tr>
 <tr class="row-even"><td>row_num</td>
-<td>row number</td>
+<td>number of rows</td>
 </tr>
 </tbody>
 </table>
@@ -485,7 +497,7 @@
     <span class="kt">int</span> <span class="n">row_num</span>
     <span class="p">)</span>
 </pre>
-<p>create pointer for one column and add it into <a class="reference internal" href="#doxid-classxf-1-1database-1-1gqe-1-1-table"><span class="std std-ref">Table</span></a> .</p>
+<p>allocate buffer for one column and add it into the <a class="reference internal" href="#doxid-classxf-1-1database-1-1gqe-1-1-table"><span class="std std-ref">Table</span></a> .</p>
 <p>usage: tab.addCol(“o_orderkey”, <a class="reference internal" href="enum_xf_database_gqe_TypeEnum.html#doxid-namespacexf-1-1database-1-1gqe-1a5365f96f233b0c2f45c92dbd750345d2a5aa45c269a62299c4dd75c9a494bb731"><span class="std std-ref">TypeEnum::TypeInt32</span></a> , 10000);</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -498,10 +510,10 @@
 <td>column name</td>
 </tr>
 <tr class="row-even"><td>type_size</td>
-<td>column element type size</td>
+<td>size of the column element data type in bytes</td>
 </tr>
 <tr class="row-odd"><td>row_num</td>
-<td>row number</td>
+<td>number of rows</td>
 </tr>
 </tbody>
 </table>
@@ -515,7 +527,7 @@
     <span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">dat_list</span>
     <span class="p">)</span>
 </pre>
-<p>create one column with several sections by loading from data file.</p>
+<p>create one column with several sections by loading rows from data file.</p>
 <p>usage: tab.addCol(“o_orderkey”, <a class="reference internal" href="enum_xf_database_gqe_TypeEnum.html#doxid-namespacexf-1-1database-1-1gqe-1a5365f96f233b0c2f45c92dbd750345d2a5aa45c269a62299c4dd75c9a494bb731"><span class="std std-ref">TypeEnum::TypeInt32</span></a> , {file1.dat,file2.dat});</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -528,7 +540,7 @@
 <td>column name</td>
 </tr>
 <tr class="row-even"><td>type_size</td>
-<td>column element type size</td>
+<td>size of the column element data type in bytes</td>
 </tr>
 <tr class="row-odd"><td>dat_list</td>
 <td>data file list</td>
@@ -545,7 +557,7 @@
     <span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="o">&lt;</span><span class="k">struct</span> <a class="reference internal" href="struct_xf_database_gqe_ColPtr.html#doxid-structxf-1-1database-1-1gqe-1-1-col-ptr"><span class="std std-ref">ColPtr</span></a><span></span><span class="o">&gt;</span> <span class="n">ptr_pairs</span>
     <span class="p">)</span>
 </pre>
-<p>create one column with several sections by user’s provided pointers</p>
+<p>create one column with several sections by user-provided pointer list</p>
 <p>usage: tab.addCol(“o_orderkey”, <a class="reference internal" href="enum_xf_database_gqe_TypeEnum.html#doxid-namespacexf-1-1database-1-1gqe-1a5365f96f233b0c2f45c92dbd750345d2a5aa45c269a62299c4dd75c9a494bb731"><span class="std std-ref">TypeEnum::TypeInt32</span></a> , {{ptr1,10000},{ptr2,20000}});</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
@@ -558,10 +570,131 @@
 <td>column name</td>
 </tr>
 <tr class="row-even"><td>type_size</td>
-<td>column element type size</td>
+<td>size of the column element data type in bytes</td>
 </tr>
 <tr class="row-odd"><td>ptr_pairs</td>
 <td>vector of (ptr,row_num) pairs</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="genrowidwithvalidation">
+<span id="cid-xf-database-gqe-table-genrowidwithvalidation"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1a6f499a32564587cdaae4713a59a8ad8c"></span><h3>genRowIDWithValidation<a class="headerlink" href="#genrowidwithvalidation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="genrowidwithvalidation-overload-1">
+<h4>genRowIDWithValidation overload (1)<a class="headerlink" href="#genrowidwithvalidation-overload-1" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">genRowIDWithValidation</span> <span class="p">(</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">_rowid_name</span><span class="p">,</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">_valid_name</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">_rowid_en</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">_valid_en</span><span class="p">,</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="o">&lt;</span><span class="kt">char</span><span class="o">*&gt;</span> <span class="n">validationPtrVector</span>
+    <span class="p">)</span>
+</pre>
+<p>add validation column with user-provided validation pointer list</p>
+<p><strong>Caution</strong> This is an experimental-only API, will be deprecated in the next release.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>_rowid_name</td>
+<td>name of row-id column</td>
+</tr>
+<tr class="row-even"><td>_valid_name</td>
+<td>name of validation bits column</td>
+</tr>
+<tr class="row-odd"><td>_rowid_en</td>
+<td>enable flag of row-id</td>
+</tr>
+<tr class="row-even"><td>_valid_en</td>
+<td>enable flag of validation bits</td>
+</tr>
+<tr class="row-odd"><td>validationPtrVector</td>
+<td>validation bits pointer list</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="genrowidwithvalidation-overload-2">
+<span id="cid-xf-database-gqe-table-genrowidwithvalidation-2"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1a1e50b3dde5446b8dd64b3540a7aded98"></span><h4>genRowIDWithValidation overload (2)<a class="headerlink" href="#genrowidwithvalidation-overload-2" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">genRowIDWithValidation</span> <span class="p">(</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">_rowid_name</span><span class="p">,</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">_valid_name</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">_rowid_en</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">_valid_en</span><span class="p">,</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">row_num</span>
+    <span class="p">)</span>
+</pre>
+<p>add validation column with user-provided pointer</p>
+<p><strong>Caution</strong> This is an experimental-only API, will be deprecated in the next release.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>_rowid_name</td>
+<td>name of row-id column</td>
+</tr>
+<tr class="row-even"><td>_valid_name</td>
+<td>name of validation bits column</td>
+</tr>
+<tr class="row-odd"><td>_rowid_en</td>
+<td>enable flag of row-id</td>
+</tr>
+<tr class="row-even"><td>_valid_en</td>
+<td>enable flag of validation bits</td>
+</tr>
+<tr class="row-odd"><td>ptr</td>
+<td>validation bits column pointer</td>
+</tr>
+<tr class="row-even"><td>row_num</td>
+<td>number of rows</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="genrowidwithvalidation-overload-3">
+<span id="cid-xf-database-gqe-table-genrowidwithvalidation-3"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1ab0b1e6d84f51e16875a56152ac37f6d5"></span><h4>genRowIDWithValidation overload (3)<a class="headerlink" href="#genrowidwithvalidation-overload-3" title="Permalink to this headline">¶</a></h4>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">genRowIDWithValidation</span> <span class="p">(</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">_rowid_name</span><span class="p">,</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">_valid_name</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">_rowid_en</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">_valid_en</span><span class="p">,</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">dat_list</span>
+    <span class="p">)</span>
+</pre>
+<p>add validation column with user-provided data file list</p>
+<p><strong>Caution</strong> This is an experimental-only API, will be deprecated in the next release.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>_rowid_name</td>
+<td>name of row-id column</td>
+</tr>
+<tr class="row-even"><td>_valid_name</td>
+<td>name of validation bits column</td>
+</tr>
+<tr class="row-odd"><td>_rowid_en</td>
+<td>enable flag of row-id</td>
+</tr>
+<tr class="row-even"><td>_valid_en</td>
+<td>enable flag of validation bits</td>
+</tr>
+<tr class="row-odd"><td>dat_list</td>
+<td>data file list</td>
 </tr>
 </tbody>
 </table>
@@ -572,7 +705,7 @@
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">void</span> <span class="n">setRowNum</span> <span class="p">(</span><span class="kt">int</span> <span class="n">_num</span><span class="p">)</span>
 </pre>
-<p>set row number.</p>
+<p>set number of rows for the entire table.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -581,26 +714,7 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>_num</td>
-<td>row number</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="setsecrownum">
-<span id="cid-xf-database-gqe-table-setsecrownum"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1ad6c67108583063fdbf7dac3cbaf3d8d5"></span><h3>setSecRowNum<a class="headerlink" href="#setsecrownum" title="Permalink to this headline">¶</a></h3>
-<pre class="highlight title-code-block literal-block">
-<span></span><span class="kt">void</span> <span class="n">setSecRowNum</span> <span class="p">(</span><span class="kt">int</span> <span class="n">_num</span><span class="p">)</span>
-</pre>
-<p>set section row number for one column.</p>
-<p class="rubric">Parameters:</p>
-<table border="1" class="colwidths-given docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>_num</td>
-<td>section row number</td>
+<td>number of rows of the entire table</td>
 </tr>
 </tbody>
 </table>
@@ -610,36 +724,48 @@
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">size_t</span> <span class="n">getRowNum</span> <span class="p">()</span> <span class="k">const</span>
 </pre>
-<p>get row number.</p>
+<p>get number of rows of the entire table.</p>
 <p class="rubric">Returns:</p>
-<p>row number</p>
+<p>number of rows of the entire table</p>
 </div>
 <div class="section" id="getsecrownum">
 <span id="cid-xf-database-gqe-table-getsecrownum"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1a4d4a0a361ea159232842e98999259211"></span><h3>getSecRowNum<a class="headerlink" href="#getsecrownum" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">size_t</span> <span class="n">getSecRowNum</span> <span class="p">(</span><span class="kt">int</span> <span class="n">sid</span><span class="p">)</span> <span class="k">const</span>
 </pre>
-<p>get section row number.</p>
+<p>get number of rows for the specified section.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>sid</td>
+<td>section ID</td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Returns:</p>
-<p>section row number of input setction id</p>
+<p>number of rows of the specified section</p>
 </div>
 <div class="section" id="getcolnum">
 <span id="cid-xf-database-gqe-table-getcolnum"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1a79fc3e057ecac0dbea0209d69624d55f"></span><h3>getColNum<a class="headerlink" href="#getcolnum" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">size_t</span> <span class="n">getColNum</span> <span class="p">()</span> <span class="k">const</span>
 </pre>
-<p>get column num.</p>
+<p>get number of columns.</p>
 <p class="rubric">Returns:</p>
-<p>column num.</p>
+<p>number of columns of the table.</p>
 </div>
 <div class="section" id="getsecnum">
 <span id="cid-xf-database-gqe-table-getsecnum"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1a6533bf39db7d2af4c290e1014e66b9f9"></span><h3>getSecNum<a class="headerlink" href="#getsecnum" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">size_t</span> <span class="n">getSecNum</span> <span class="p">()</span> <span class="k">const</span>
 </pre>
-<p>get section num.</p>
+<p>get number of sections.</p>
 <p class="rubric">Returns:</p>
-<p>section num.</p>
+<p>number of sections of the table.</p>
 </div>
 <div class="section" id="checksecnum">
 <span id="cid-xf-database-gqe-table-checksecnum"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1a4901fb461c1bd875f142f5d56327515d"></span><h3>checkSecNum<a class="headerlink" href="#checksecnum" title="Permalink to this headline">¶</a></h3>
@@ -654,8 +780,8 @@
 <col width="80%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>number</td>
-<td>of sections, if 0, do nothing since everything is done by addCol with json input.</td>
+<tr class="row-odd"><td>sec_l</td>
+<td>number of sections, if 0, do nothing since everything is done by addCol with json input.</td>
 </tr>
 </tbody>
 </table>
@@ -666,6 +792,18 @@
 <span></span><span class="kt">size_t</span> <span class="n">getColTypeSize</span> <span class="p">(</span><span class="kt">int</span> <span class="n">cid</span><span class="p">)</span> <span class="k">const</span>
 </pre>
 <p>get column data type size.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>cid</td>
+<td>column ID</td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Returns:</p>
 <p>date type size of input column id.</p>
 </div>
@@ -679,7 +817,7 @@
     <span class="p">)</span> <span class="k">const</span>
 </pre>
 <p>get buffer pointer.</p>
-<p>when getColPointer(2,4,1), it means column 2 was divied into 4 sections, return the second part pointer</p>
+<p>when getColPointer(2,4,1), it means the 2nd column was divied into 4 sections, return the pointer of the 2nd section</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -700,8 +838,36 @@
 </table>
 <p class="rubric">Returns:</p>
 <p>column buffer pointer</p>
-<div class="section" id="getcolpointer-overload-2">
-<span id="cid-xf-database-gqe-table-getcolpointer-2"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1a7b6bab1d0032edbb8074a1510d5702ec"></span><h4>getColPointer overload (2)<a class="headerlink" href="#getcolpointer-overload-2" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="getvalcolpointer">
+<span id="cid-xf-database-gqe-table-getvalcolpointer"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1a1e33e138857d20a75f5007c9ec5068ea"></span><h3>getValColPointer<a class="headerlink" href="#getvalcolpointer" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">char</span><span class="o">*</span> <span class="n">getValColPointer</span> <span class="p">(</span>
+    <span class="kt">int</span> <span class="n">_slice_num</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">j</span>
+    <span class="p">)</span> <span class="k">const</span>
+</pre>
+<p>get the validation buffer pointer</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>_slice_num</td>
+<td>number of sections of the validation column</td>
+</tr>
+<tr class="row-even"><td>j</td>
+<td>the index of the section</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Returns:</p>
+<p>the pointer of the specified section</p>
+</div>
+<div class="section" id="cid-xf-database-gqe-table-getcolpointer-2">
+<span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1a7b6bab1d0032edbb8074a1510d5702ec"></span><span id="id1"></span><h3>getColPointer<a class="headerlink" href="#cid-xf-database-gqe-table-getcolpointer-2" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">char</span><span class="o">*</span> <span class="n">getColPointer</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="k">const</span>
 </pre>
@@ -721,7 +887,6 @@
 <p class="rubric">Returns:</p>
 <p>column pointer</p>
 </div>
-</div>
 <div class="section" id="setcolnames">
 <span id="cid-xf-database-gqe-table-setcolnames"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1ad55e40d9135a66cced048a33bc4559e9"></span><h3>setColNames<a class="headerlink" href="#setcolnames" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
@@ -736,7 +901,7 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>col_name</td>
-<td>column name vector</td>
+<td>column name list</td>
 </tr>
 </tbody>
 </table>
@@ -748,21 +913,49 @@
 </pre>
 <p>get col_names</p>
 <p class="rubric">Returns:</p>
-<p>vector of column names</p>
+<p>list of column names</p>
 </div>
-<div class="section" id="id1">
-<span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1a28a340c8c4bc9d14d7f42d5086696095"></span><span id="id2"></span><h3>~Table<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="getrowidcolname">
+<span id="cid-xf-database-gqe-table-getrowidcolname"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1a6ad3edf9c50f65bbc989b98e85456202"></span><h3>getRowIDColName<a class="headerlink" href="#getrowidcolname" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">getRowIDColName</span> <span class="p">()</span>
+</pre>
+<p>get the name of the row-id column</p>
+</div>
+<div class="section" id="getvalidcolname">
+<span id="cid-xf-database-gqe-table-getvalidcolname"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1a57cbf6ccdace23e60f3f860ea09e5a03"></span><h3>getValidColName<a class="headerlink" href="#getvalidcolname" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">getValidColName</span> <span class="p">()</span>
+</pre>
+<p>get the name of the validation bits column</p>
+</div>
+<div class="section" id="getrowidenableflag">
+<span id="cid-xf-database-gqe-table-getrowidenableflag"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1ae492806de81934fc180a119b887e0978"></span><h3>getRowIDEnableFlag<a class="headerlink" href="#getrowidenableflag" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">bool</span> <span class="n">getRowIDEnableFlag</span> <span class="p">()</span>
+</pre>
+<p>get row-id enable flag</p>
+</div>
+<div class="section" id="getvalidenableflag">
+<span id="cid-xf-database-gqe-table-getvalidenableflag"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1a08da60d1eb594df2793402dbe0a77aa9"></span><h3>getValidEnableFlag<a class="headerlink" href="#getvalidenableflag" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">bool</span> <span class="n">getValidEnableFlag</span> <span class="p">()</span>
+</pre>
+<p>get validation bits enable flag</p>
+</div>
+<div class="section" id="id2">
+<span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1a28a340c8c4bc9d14d7f42d5086696095"></span><span id="id3"></span><h3>~Table<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="o">~</span><span class="n">Table</span> <span class="p">()</span>
 </pre>
-<p>deconstruct of <a class="reference internal" href="#doxid-classxf-1-1database-1-1gqe-1-1-table"><span class="std std-ref">Table</span></a> .</p>
+<p>deconstructor of <a class="reference internal" href="#doxid-classxf-1-1database-1-1gqe-1-1-table"><span class="std std-ref">Table</span></a> .</p>
 </div>
 <div class="section" id="info">
 <span id="cid-xf-database-gqe-table-info"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-table-1a23fb976531c02f4815ea368f39e1dd93"></span><h3>info<a class="headerlink" href="#info" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">void</span> <span class="n">info</span> <span class="p">()</span>
 </pre>
-<p>print info for tab</p>
+<p>print information of the table</p>
 </div>
 </div>
 </div>
@@ -787,7 +980,7 @@
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on March 23, 2021.
+        Last updated on June 09, 2021.
       </span>
 
     </p>

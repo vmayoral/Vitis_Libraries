@@ -81,7 +81,7 @@
 															<div class="logo-column">
 																<div class="logo">
 																	<a href="https://www.xilinx.com/">
-																	<img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc"/>
+																	<img src="https://github.com/Xilinx/Image-Collateral/blob/main/xilinx-header-logo.svg?raw=true" title="Xilinx Inc"/>
 																	</a>
 																</div>
 															</div>
@@ -338,9 +338,10 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Vitis Database Library</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Note</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">2020.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">2020.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">2019.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2021.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">2020.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">2020.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">2019.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#internal-release">Internal Release</a></li>
 </ul>
 </li>
@@ -355,7 +356,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="benchmark/benchmark.html">Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">Benchmark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="benchmark/tpc_h.html">TPC-H Queries with GQE</a></li>
 </ul>
 
@@ -434,7 +435,18 @@
 <div class="toctree-wrapper compound">
 </div>
 <div class="section" id="id2">
-<h2>2020.2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>2021.1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>In 2021.1 release, GQE receives early-access support the following features</p>
+<ul class="simple">
+<li>64-bit join support: now the gqeJoin kernel and its companion gqePart kernel has been extended to 64-bit
+key and payload, so that larger scale of data can be supported.</li>
+<li>Initial Bloom-filter support: the gqeJoin kernel now ships with a mode in which it executes Bloom-filter probing.
+This improves efficiency on certain multi-node flows where minimizing data size in early stage is important.</li>
+</ul>
+<p>Both features are offered now as L3 pure software APIs, please check corresponding L3 test cases.</p>
+</div>
+<div class="section" id="id3">
+<h2>2020.2<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>The 2020.2 release brings a major update to the GQE kernel design, and brand new L3 APIs for JOIN and GROUP-BY
 AGGREGATE.</p>
 <ul class="simple">
@@ -453,8 +465,8 @@ The strategy of execution is separated from execution, so database gurus can fin
 statistics, without messing with the OpenCL execution part.</li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h2>2020.1<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>2020.1<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>The 2020.1 release contains:</p>
 <ul class="simple">
 <li>Compound sort API (compoundSort): Previously three sort algorithm modules have been provided,
@@ -467,8 +479,8 @@ to avoid this problem.</li>
 <li>Various bug fixes: many small issues has been cleaned up, especially in host code of L2/demos.</li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h2>2019.2<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2>2019.2<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>The 2019.2 release introduces GQE (generic query engine) kernels,
 which are post-bitstream programmable
 and allow different SQL queries to be accelerated with one xclbin.
@@ -516,7 +528,7 @@ when possible.</p>
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on March 23, 2021.
+        Last updated on June 09, 2021.
       </span>
 
     </p>
