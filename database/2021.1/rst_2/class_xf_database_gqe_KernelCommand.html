@@ -75,7 +75,7 @@
 															<div class="logo-column">
 																<div class="logo">
 																	<a href="https://www.xilinx.com/">
-																	<img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc"/>
+																	<img src="https://github.com/Xilinx/Image-Collateral/blob/main/xilinx-header-logo.svg?raw=true" title="Xilinx Inc"/>
 																	</a>
 																</div>
 															</div>
@@ -343,7 +343,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark.html">Benchmark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/tpc_h.html">TPC-H Queries with GQE</a></li>
 </ul>
 
@@ -438,7 +438,7 @@
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="n">KernelCommand</span> <span class="p">()</span>
 </pre>
-<p>construct of <a class="reference internal" href="#doxid-classxf-1-1database-1-1gqe-1-1-kernel-command"><span class="std std-ref">KernelCommand</span></a> .</p>
+<p>constructor of <a class="reference internal" href="#doxid-classxf-1-1database-1-1gqe-1-1-kernel-command"><span class="std std-ref">KernelCommand</span></a> class. The kernel command used buffer is allocated on host. Some default settings are provided.</p>
 </div>
 <div class="section" id="setscancolenable">
 <span id="cid-xf-database-gqe-kernelcommand-setscancolenable"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-kernel-command-1a715980ed01cb0e2716ad5a4531e76b17"></span><h3>setScanColEnable<a class="headerlink" href="#setscancolenable" title="Permalink to this headline">¶</a></h3>
@@ -458,16 +458,13 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>krn_id</td>
-<td>0 for gqeJoin, 1 for gqePart, 2 for gqeFilter</td>
+<td>0 for gqeJoin, 1 for gqePart, 2 for gqeFilter.</td>
 </tr>
 <tr class="row-even"><td>table_id</td>
-<td>0 for left table, 1 for right table</td>
+<td>0 for left table, 1 for right table.</td>
 </tr>
 <tr class="row-odd"><td>index</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>valid</td>
-<td>input column ids</td>
+<td>valid input column ids.</td>
 </tr>
 </tbody>
 </table>
@@ -482,7 +479,28 @@
     <span class="kt">bool</span> <span class="n">valid_en</span>
     <span class="p">)</span>
 </pre>
-<p>set gen_rowIDEnable and validEnable flag</p>
+<p>set gen_rowIDEnable and validEnable flag.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>krn_id</td>
+<td>0 for gqeJoin, 1 for gqePart, 2 for gqeFilter.</td>
+</tr>
+<tr class="row-even"><td>table_id</td>
+<td>0 for left table, 1 for right table.</td>
+</tr>
+<tr class="row-odd"><td>gen_rowID_en</td>
+<td>enable flag for using GQE to generate row IDs internally. 1 for enable, 0 for disable.</td>
+</tr>
+<tr class="row-even"><td>valid_en</td>
+<td>enable flag for getting valid bits from off-chip memory or enabing every row internally. 1 for valid bits from off-chip memory, 0 for enabling every row.</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="setbypasson">
 <span id="cid-xf-database-gqe-kernelcommand-setbypasson"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-kernel-command-1a20b462e58f9cd0bcb89a0cf9a137bcd8"></span><h3>setBypassOn<a class="headerlink" href="#setbypasson" title="Permalink to this headline">¶</a></h3>
@@ -505,7 +523,7 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>bf_size</td>
-<td>size of bloom-filter, we need 35 bits to represent a range between 1 to 16 Gbits.</td>
+<td>size of bloom-filter in bits, we need 35 bits to represent a range between 1 to 16 Gbits.</td>
 </tr>
 </tbody>
 </table>
@@ -515,7 +533,7 @@
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">void</span> <span class="n">setDualKeyOn</span> <span class="p">()</span>
 </pre>
-<p>set dual key join on.</p>
+<p>set dual key on.</p>
 </div>
 <div class="section" id="setjointype">
 <span id="cid-xf-database-gqe-kernelcommand-setjointype"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-kernel-command-1ab3658ca90a60f980ae2913320bbee35b"></span><h3>setJoinType<a class="headerlink" href="#setjointype" title="Permalink to this headline">¶</a></h3>
@@ -531,7 +549,7 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>jointype</td>
-<td>Join type, default is INNER_JOIN</td>
+<td>Join type, default is INNER_JOIN.</td>
 </tr>
 </tbody>
 </table>
@@ -545,7 +563,7 @@
     <span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="o">&lt;</span><span class="kt">int8_t</span><span class="o">&gt;</span> <span class="n">index</span>
     <span class="p">)</span>
 </pre>
-<p>set output column ids.</p>
+<p>enables output columns for gqeJoin/Filter.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -554,13 +572,13 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>krn_id</td>
-<td>0 for gqeJoin, 1 for gqePart, 2 for gqeFilter</td>
+<td>0 for gqeJoin, 1 for gqePart, 2 for gqeFilter.</td>
 </tr>
 <tr class="row-even"><td>table_id</td>
-<td>0 for left table, 1 for right table</td>
+<td>0 for left table, 1 for right table.</td>
 </tr>
 <tr class="row-odd"><td>index</td>
-<td>output column ids</td>
+<td>output column ids.</td>
 </tr>
 </tbody>
 </table>
@@ -574,7 +592,7 @@
     <span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="o">&lt;</span><span class="kt">int8_t</span><span class="o">&gt;</span> <span class="n">index</span>
     <span class="p">)</span>
 </pre>
-<p>set output column ids.</p>
+<p>enables output columns for gqePart.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -613,12 +631,9 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>table_id</td>
-<td>&#160;</td>
+<td>0 for left table, 1 for right table</td>
 </tr>
-<tr class="row-even"><td>0</td>
-<td>for left table, 1 for right table</td>
-</tr>
-<tr class="row-odd"><td>filter_string</td>
+<tr class="row-even"><td>filter_string</td>
 <td>filter expression string</td>
 </tr>
 </tbody>
@@ -654,7 +669,7 @@
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on March 23, 2021.
+        Last updated on June 09, 2021.
       </span>
 
     </p>

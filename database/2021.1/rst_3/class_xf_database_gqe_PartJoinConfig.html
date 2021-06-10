@@ -75,7 +75,7 @@
 															<div class="logo-column">
 																<div class="logo">
 																	<a href="https://www.xilinx.com/">
-																	<img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc"/>
+																	<img src="https://github.com/Xilinx/Image-Collateral/blob/main/xilinx-header-logo.svg?raw=true" title="Xilinx Inc"/>
 																	</a>
 																</div>
 															</div>
@@ -343,7 +343,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark.html">Benchmark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/tpc_h.html">TPC-H Queries with GQE</a></li>
 </ul>
 
@@ -426,12 +426,22 @@
 </pre>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<pre class="highlight overview-code-block literal-block" id="cid-xf-database-gqe-partjoinconfig-shufflewritepart">
-<span id="doxid-classxf-1-1database-1-1gqe-1-1-part-join-config-1ad29fe545d6bec6278523104c2001b881"></span><span></span><span class="k">class</span> <span class="nl">PartJoinConfig</span><span class="p">:</span> <span class="k">protected</span> <a class="reference internal" href="class_xf_database_gqe_BaseConfig.html#doxid-classxf-1-1database-1-1gqe-1-1-base-config"><span class="std std-ref">xf::database::gqe::BaseConfig</span></a>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="k">class</span> <span class="nl">PartJoinConfig</span><span class="p">:</span> <span class="k">protected</span> <a class="reference internal" href="class_xf_database_gqe_BaseConfig.html#doxid-classxf-1-1database-1-1gqe-1-1-base-config"><span class="std std-ref">xf::database::gqe::BaseConfig</span></a>
 </pre>
 </div>
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="shufflewritepart">
+<span id="cid-xf-database-gqe-partjoinconfig-shufflewritepart"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-part-join-config-1ad29fe545d6bec6278523104c2001b881"></span><h3>ShuffleWritePart<a class="headerlink" href="#shufflewritepart" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="o">&lt;</span><span class="kt">int8_t</span><span class="o">&gt;</span> <span class="n">ShuffleWritePart</span> <span class="p">(</span>
+    <a class="reference internal" href="class_xf_database_gqe_Table.html#doxid-classxf-1-1database-1-1gqe-1-1-table"><span class="std std-ref">Table</span></a><span></span><span class="o">&amp;</span> <span class="n">tab_</span><span class="p">,</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="o">&lt;</span><span class="kt">int8_t</span><span class="o">&gt;</span> <span class="n">sw_shuffle_scan_part</span>
+    <span class="p">)</span>
+</pre>
+<p>setup the sw-shuffle for write out in partition kernel</p>
+</div>
 <div class="section" id="partjoinconfig">
 <span id="cid-xf-database-gqe-partjoinconfig-partjoinconfig"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-part-join-config-1ae173cc1cb812e250be4528086f026d83"></span><h3>PartJoinConfig<a class="headerlink" href="#partjoinconfig" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight title-code-block literal-block">
@@ -446,20 +456,8 @@
     <span class="kt">int</span> <span class="n">join_Type</span> <span class="o">=</span> <a class="reference internal" href="namespace_xf_database_gqe.html#doxid-namespacexf-1-1database-1-1gqe-1a48260a37f3c58f033217c43cdfe10380a0190ab4db681e407952c182bd745834d"><span class="std std-ref">INNER_JOIN</span></a><span></span>
     <span class="p">)</span>
 </pre>
-<p>construct of <a class="reference internal" href="#doxid-classxf-1-1database-1-1gqe-1-1-part-join-config"><span class="std std-ref">PartJoinConfig</span></a> .</p>
-<p>The class generate join configure bits by column names,</p>
-<p>Input filter_a/filter_b like “19940101&lt;=o_orderdate &amp;&amp; o_orderdate&lt;19950101”, o_orderdate and o_orderdate must be exsisted colunm names in table a/b when no filter conditions, input “”</p>
-<p>Input all evaluation expressions/evaluation constants in initializer_list, each expression most contains four columns and four constants (use c1,c2,c3,c4 as notations) column names and constants are positional, that is the column name must be left operands, so you can input “-l_extendedprice + c1”, but not “c1-l_extendedprice” complete evals and evals_const examples: “-l_extendedprice * (l_discount + 1)”: {“-l_extendedprice * (l_discount + c1)”} {{0,1}} “-l_extendedprice * (l_discount + 1) * l_tax”: {“-l_extendedprice * (l_discount + c1) * l_tax”} {{0,1,0}}</p>
-<p>Input join conditions like “left_join_key_0=right_join_key_0” when use dual key join, use comma as seperator, “left_join_key_0=right_join_key_0,left_join_key_1=right_join_key_1”</p>
-<p>Output strings are like “output_c0 = tab_a_col/tab_b_col”, when contains several columns, use comma as seperator</p>
-<p>Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PartJoinConfig</span>  <span class="n">jcfg</span><span class="p">(</span><span class="n">tab_a</span><span class="p">,</span> <span class="s2">&quot;19940101&lt;=o_orderdate &amp;&amp; o_orderdate&lt;19950101&quot;</span><span class="p">,</span>
-                 <span class="n">tab_b</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-                 <span class="s2">&quot;o_orderkey = l_orderkey&quot;</span><span class="p">,</span>
-                 <span class="p">{</span><span class="s2">&quot;-l_extendedprice * (l_discount + c1)&quot;</span><span class="p">},</span> <span class="p">{{</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">}},</span>
-                 <span class="n">tab_c</span><span class="p">,</span> <span class="s2">&quot;c1=l_orderkey, c2 = eval0&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
+<p>constructor of <a class="reference internal" href="#doxid-classxf-1-1database-1-1gqe-1-1-part-join-config"><span class="std std-ref">PartJoinConfig</span></a> .</p>
+<p>The class generates join configure bits by parsing the join .run() arguments,</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -580,7 +578,7 @@
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on March 23, 2021.
+        Last updated on June 09, 2021.
       </span>
 
     </p>

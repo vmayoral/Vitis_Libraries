@@ -75,7 +75,7 @@
 															<div class="logo-column">
 																<div class="logo">
 																	<a href="https://www.xilinx.com/">
-																	<img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc"/>
+																	<img src="https://github.com/Xilinx/Image-Collateral/blob/main/xilinx-header-logo.svg?raw=true" title="Xilinx Inc"/>
 																	</a>
 																</div>
 															</div>
@@ -343,7 +343,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark.html">Benchmark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/tpc_h.html">TPC-H Queries with GQE</a></li>
 </ul>
 
@@ -439,6 +439,7 @@
 <span></span><span class="n">AggrCommand</span> <span class="p">()</span>
 </pre>
 <p>construct of <a class="reference internal" href="#doxid-classxf-1-1database-1-1gqe-1-1-aggr-command"><span class="std std-ref">AggrCommand</span></a> .</p>
+<p>The aggregate command used buffer is allocated on host. Some default settings are provided.</p>
 </div>
 <div class="section" id="scan">
 <span id="cid-xf-database-gqe-aggrcommand-scan"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-aggr-command-1aa3652569ed2a682c6cc2aba73c7ab92e"></span><h3>Scan<a class="headerlink" href="#scan" title="Permalink to this headline">¶</a></h3>
@@ -454,10 +455,7 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>index</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>input</td>
-<td>valid column ids</td>
+<td>input valid column ids</td>
 </tr>
 </tbody>
 </table>
@@ -483,28 +481,16 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>eval_id</td>
-<td>&#160;</td>
+<td>most support two evaluations</td>
 </tr>
-<tr class="row-even"><td>most</td>
-<td>support two evaluations</td>
-</tr>
-<tr class="row-odd"><td>s0</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>evaluation</td>
-<td>string for special strm format (not support ‘/’)</td>
+<tr class="row-even"><td>s0</td>
+<td>evaluation string for special strm format (not support ‘/’)</td>
 </tr>
 <tr class="row-odd"><td>index</td>
-<td>&#160;</td>
+<td>evaluation constants for each strm, default 0</td>
 </tr>
-<tr class="row-even"><td>evaluation</td>
-<td>constants for each strm, default 0</td>
-</tr>
-<tr class="row-odd"><td>post_div</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>post</td>
-<td>division alu operation, nosf for no division, sf10 for “a/10”, sf100 for “a/100”, sf1k for “a/1000”, sf10k for “a/10000” (a is result of evaluation expression)</td>
+<tr class="row-even"><td>post_div</td>
+<td>post division alu operation, nosf for no division, sf10 for “a/10”, sf100 for “a/100”, sf1k for “a/1000”, sf10k for “a/10000” (a is result of evaluation expression)</td>
 </tr>
 </tbody>
 </table>
@@ -526,16 +512,10 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>eval_id</td>
-<td>&#160;</td>
+<td>most two evaluations</td>
 </tr>
-<tr class="row-even"><td>most</td>
-<td>two evaluations</td>
-</tr>
-<tr class="row-odd"><td>eval_str</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>evaluation</td>
-<td>expression string</td>
+<tr class="row-even"><td>eval_str</td>
+<td>evaluation expression string</td>
 </tr>
 </tbody>
 </table>
@@ -806,7 +786,7 @@
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on March 23, 2021.
+        Last updated on June 09, 2021.
       </span>
 
     </p>
