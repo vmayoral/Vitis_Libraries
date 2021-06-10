@@ -6,11 +6,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
-		<meta content="Vitis, Database, Vitis Database Library, Alveo" name="keywords" />
-<meta content="Vitis Database library licensing, software and hardware requirements." name="description" />
-<meta content="Document" name="xlnxdocumentclass" />
-<meta content="Tutorials" name="xlnxdocumenttype" />
-
+		
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 		<link rel="stylesheet" href="https://static.cloud.coveo.com/searchui/v2.4382/css/CoveoFullSearch.css"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -60,8 +56,8 @@
   <link rel="stylesheet" href="_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Design Flows" href="design_flows.html" />
-    <link rel="prev" title="Release Note" href="release.html" /> 
+    <link rel="next" title="Compound Sort" href="benchmark/compound_sort.html" />
+    <link rel="prev" title="GQE L3 APIs" href="gqe_guide/gqe_l3_api.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -335,16 +331,10 @@
             
             
               <p class="caption"><span class="caption-text">Library Overview</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Vitis Database Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release.html">Release Note</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Requirements</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#fpga-accelerator-card">FPGA Accelerator Card</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#software-platform">Software Platform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#development-tools">Development Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dependency">Dependency</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design_flows.html">Design Flows</a></li>
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
@@ -354,8 +344,26 @@
 <li class="toctree-l1"><a class="reference internal" href="gqe_guide/L3.html">L3 GQE Overlay User Guide</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="benchmark.html">Benchmark</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Benchmark</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#datasets">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#performance">Performance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="benchmark/compound_sort.html">Compound Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="benchmark/hash_anti_join.html">Hash Anti-join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="benchmark/hash_group_aggregate.html">Hash Group Aggregate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="benchmark/hash_join_v2.html">Hash Join V2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="benchmark/hash_join_v3.html">Hash Join V3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="benchmark/hash_join_v4.html">Hash Join V4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="benchmark/hash_multi_join.html">Hash Multi-Join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="benchmark/hash_semi_join.html">Hash Semi-Join</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#test-overview">Test Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vitis-database-library">Vitis Database Library</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="benchmark/tpc_h.html">TPC-H Queries with GQE</a></li>
 </ul>
 
@@ -412,7 +420,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Requirements</li>
+      <li>Benchmark</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -429,41 +437,159 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="toctree-wrapper compound" id="overview">
+  <div class="section" id="benchmark">
+<h1>Benchmark<a class="headerlink" href="#benchmark" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="datasets">
+<span id="id1"></span><h2>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h2>
+<p>There are two tables, named <code class="docutils literal notranslate"><span class="pre">Lineitem</span></code> and <code class="docutils literal notranslate"><span class="pre">Orders</span></code>, which are filled with random data.</p>
 </div>
-<div class="section" id="requirements">
-<h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="fpga-accelerator-card">
-<h2>FPGA Accelerator Card<a class="headerlink" href="#fpga-accelerator-card" title="Permalink to this headline">¶</a></h2>
-<p>All the modules and APIs works with Alveo U280 out of the box, many support U50, U200 and U250 as well.
-Most of the APIs can be scaled and tailored for any 16nm Alveo card.</p>
-<ul class="simple">
-<li><a class="reference external" href="https://www.xilinx.com/products/boards-and-kits/alveo/u280.html">Alveo U280</a></li>
-<li><a class="reference external" href="https://www.xilinx.com/products/boards-and-kits/alveo/u50.html">Alveo U50</a></li>
-<li><a class="reference external" href="https://www.xilinx.com/products/boards-and-kits/alveo/u200.html">Alveo U200</a></li>
-<li><a class="reference external" href="https://www.xilinx.com/products/boards-and-kits/alveo/u250.html">Alveo U250</a></li>
+<div class="section" id="performance">
+<h2>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h2>
+<p>For representing the resource utilization in each benchmark, we separate the overall utilization into 2 parts, where P stands for the resource usage in
+platform, that is those instantiated in static region of the FPGA card, as well as K represents those used in kernels (dynamic region). The target device is set to Alveo U280.</p>
+<table border="1" class="docutils align-center" id="id2">
+<caption><span class="caption-text">Table 1 Performance on FPGA</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="23%" />
+<col width="21%" />
+<col width="10%" />
+<col width="7%" />
+<col width="13%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Architecture</th>
+<th class="head">Dataset</th>
+<th class="head">Latency(ms)</th>
+<th class="head">Timing</th>
+<th class="head">LUT(P/K)</th>
+<th class="head">BRAM(P/K)</th>
+<th class="head">URAM(P/K)</th>
+<th class="head">DSP(P/K)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Compound Sort (U280)</td>
+<td>Orders 131072 rows</td>
+<td>1.130</td>
+<td>287MHz</td>
+<td>142.0K/62.7K</td>
+<td>285/18</td>
+<td>0/16</td>
+<td>7/0</td>
+</tr>
+<tr class="row-odd"><td>Hash Anti-Join (U280)</td>
+<td>Lineitem 6001215 rows
+Orders 227597 rows</td>
+<td>342.568</td>
+<td>250MHz</td>
+<td>130.4K/134.6K</td>
+<td>204/291</td>
+<td>0/192</td>
+<td>4/99</td>
+</tr>
+<tr class="row-even"><td>Hash Group Aggregate (U280)</td>
+<td>Lineitem 6000000 rows</td>
+<td>34.702</td>
+<td>200MHz</td>
+<td>203.0K/184.1K</td>
+<td>427/207</td>
+<td>0/256</td>
+<td>10/0</td>
+</tr>
+<tr class="row-odd"><td>Hash Join V2 (U280)</td>
+<td>Lineitem 6001215 rows
+Orders 227597 rows</td>
+<td>55.95</td>
+<td>282MHz</td>
+<td>122.1K/63.7K</td>
+<td>202/98</td>
+<td>0/64</td>
+<td>4/3</td>
+</tr>
+<tr class="row-even"><td>Hash Join V3 (U280)</td>
+<td>Lineitem 6001215 rows
+Orders 227597 rows</td>
+<td>65.26</td>
+<td>240MHz</td>
+<td>197.0K/128.2K</td>
+<td>359/239</td>
+<td>0/192</td>
+<td>10/99</td>
+</tr>
+<tr class="row-odd"><td>Hash Join V4 (U280)</td>
+<td>Lineitem 6001215 rows
+Orders 227597 rows</td>
+<td>1354.795</td>
+<td>240MHz</td>
+<td>201.5/110.1K</td>
+<td>359/187</td>
+<td>0/256</td>
+<td>10/19</td>
+</tr>
+<tr class="row-even"><td>Hash Multi-Join (U280)</td>
+<td>Lineitem 6001215 rows
+Orders 1500000 rows</td>
+<td>76.899</td>
+<td>200MHz</td>
+<td>130.6K/133.4K</td>
+<td>204/271</td>
+<td>0/192</td>
+<td>4/99</td>
+</tr>
+<tr class="row-odd"><td>Hash Semi-Join (U280)</td>
+<td>Lineitem 6001215 rows
+Orders 1500000 rows</td>
+<td>18.914</td>
+<td>274MHz</td>
+<td>124.0K/67.6K</td>
+<td>202/120</td>
+<td>0/64</td>
+<td>4/3</td>
+</tr>
+</tbody>
+</table>
+<p>These are details for benchmark result and usage steps.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="benchmark/compound_sort.html">Compound Sort</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark/hash_anti_join.html">Hash Anti-join</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark/hash_group_aggregate.html">Hash Group Aggregate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark/hash_join_v2.html">Hash Join V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark/hash_join_v3.html">Hash Join V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark/hash_join_v4.html">Hash Join V4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark/hash_multi_join.html">Hash Multi-Join</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark/hash_semi_join.html">Hash Semi-Join</a></li>
 </ul>
 </div>
-<div class="section" id="software-platform">
-<h2>Software Platform<a class="headerlink" href="#software-platform" title="Permalink to this headline">¶</a></h2>
-<p>Supported operating systems are RHEL/CentOS 7.4, 7.5 and Ubuntu 16.04.4 LTS, 18.04.1 LTS.</p>
-<p><em>GCC 5.0 or above</em> is required for C++11/C++14 support.
-With CentOS/RHEL 7.4 and 7.5, C++11/C++14 should be enabled via
-<a class="reference external" href="https://www.softwarecollections.org/en/scls/rhscl/devtoolset-6/">devtoolset-6</a>.</p>
 </div>
-<div class="section" id="development-tools">
-<h2>Development Tools<a class="headerlink" href="#development-tools" title="Permalink to this headline">¶</a></h2>
-<p>This library is designed to work with Vitis 2020.2,
-and a matching version of XRT should be installed.</p>
-</div>
-<div class="section" id="dependency">
-<h2>Dependency<a class="headerlink" href="#dependency" title="Permalink to this headline">¶</a></h2>
-<p>This library depends on the Vitis Utility Library, which is assumed to be placed in the
-same path as this library with name <code class="docutils literal notranslate"><span class="pre">utils</span></code>. Hence the directory is organized as follows.</p>
+<div class="section" id="test-overview">
+<h2>Test Overview<a class="headerlink" href="#test-overview" title="Permalink to this headline">¶</a></h2>
+<p>Here are benchmarks of the Vitis Database Library using the Vitis environment.</p>
+<div class="section" id="vitis-database-library">
+<span id="l2-vitis-database"></span><h3>Vitis Database Library<a class="headerlink" href="#vitis-database-library" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Download code</strong></li>
+</ul>
+<p>These database benchmarks can be downloaded from <a class="reference external" href="https://github.com/Xilinx/Vitis_Libraries.git">vitis libraries</a> <code class="docutils literal notranslate"><span class="pre">master</span></code> branch.</p>
 <pre class="highlight literal-block">
-<span></span>/cloned/path/database <span class="c1"># This library, which contains L1, L2, etc.</span>
-/cloned/path/utils # The Vitis Utility Library, which contains its L1.
+<span></span>git clone https://github.com/Xilinx/Vitis_Libraries.git
+<span class="nb">cd</span> Vitis_Libraries
+git checkout master
+<span class="nb">cd</span> database
 </pre>
+<ul class="simple">
+<li><strong>Setup environment</strong></li>
+</ul>
+<p>Specifying the corresponding Vitis, XRT, and path to the platform repository by running following commands.</p>
+<pre class="highlight literal-block">
+<span></span><span class="nb">source</span> &lt;intstall_path&gt;/installs/lin64/Vitis/2021.1_released/settings64.sh
+<span class="nb">source</span> /opt/xilinx/xrt/setup.sh
+<span class="nb">export</span> <span class="nv">PLATFORM_REPO_PATHS</span><span class="o">=</span>/opt/xilinx/platforms
+</pre>
+</div>
 </div>
 </div>
 
@@ -483,10 +609,10 @@ same path as this library with name <code class="docutils literal notranslate"><
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="design_flows.html" class="btn btn-neutral float-right" title="Design Flows" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="benchmark/compound_sort.html" class="btn btn-neutral float-right" title="Compound Sort" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="release.html" class="btn btn-neutral float-left" title="Release Note" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="gqe_guide/gqe_l3_api.html" class="btn btn-neutral float-left" title="GQE L3 APIs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

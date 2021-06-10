@@ -75,7 +75,7 @@
 															<div class="logo-column">
 																<div class="logo">
 																	<a href="https://www.xilinx.com/">
-																	<img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc"/>
+																	<img src="https://github.com/Xilinx/Image-Collateral/blob/main/xilinx-header-logo.svg?raw=true" title="Xilinx Inc"/>
 																	</a>
 																</div>
 															</div>
@@ -343,7 +343,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark.html">Benchmark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/tpc_h.html">TPC-H Queries with GQE</a></li>
 </ul>
 
@@ -424,14 +424,80 @@
 <pre class="highlight overview-code-block literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;gqe_base.hpp&quot;</span>
 </pre>
-<pre class="highlight overview-code-block literal-block" id="cid-xf-database-gqe-base-allochostbuf">
-<span id="doxid-classxf-1-1database-1-1gqe-1-1-base-1a4be9f2b3cd3ec2f20c155fcb915fac96"></span><span id="cid-xf-database-gqe-base-setbufallocmaxnum"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-base-1a93a0464f642d79b8b63e3c7951217f77"></span><span></span><span class="k">class</span> <span class="n">Base</span>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="k">class</span> <span class="n">Base</span>
 
     <span class="c1">// direct descendants</span>
 
     <span class="k">class</span> <a class="reference internal" href="class_xf_database_gqe_Filter.html#doxid-classxf-1-1database-1-1gqe-1-1-filter"><span class="std std-ref">xf::database::gqe::Filter</span></a><span></span>
     <span class="k">class</span> <a class="reference internal" href="class_xf_database_gqe_Joiner.html#doxid-classxf-1-1database-1-1gqe-1-1-joiner"><span class="std std-ref">xf::database::gqe::Joiner</span></a>
 </pre>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setbufallocmaxnum">
+<span id="cid-xf-database-gqe-base-setbufallocmaxnum"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-base-1a93a0464f642d79b8b63e3c7951217f77"></span><h3>SetBufAllocMaxNum<a class="headerlink" href="#setbufallocmaxnum" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">SetBufAllocMaxNum</span> <span class="p">(</span><span class="kt">int</span> <span class="n">_num</span><span class="p">)</span>
+</pre>
+<p>Setting the maximum number of buffers that are allowed to allocate for each ddr.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>_num</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>:</td>
+<td>the maximum ddr buffer num</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="allochostbuf">
+<span id="cid-xf-database-gqe-base-allochostbuf"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-base-1a4be9f2b3cd3ec2f20c155fcb915fac96"></span><h3>AllocHostBuf<a class="headerlink" href="#allochostbuf" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">char</span><span class="o">*</span> <span class="n">AllocHostBuf</span> <span class="p">(</span>
+    <span class="kt">bool</span> <span class="n">_ddr_idx</span><span class="p">,</span>
+    <span class="kt">int64_t</span> <span class="n">_size</span>
+    <span class="p">)</span>
+</pre>
+<p>Request one host buffer in hbuf ddr0/1, the size and starting ptr of this buf is recorded.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>_ddr_idx</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>:</td>
+<td>the device buffer DDR idx that corresponding to requested host buf</td>
+</tr>
+<tr class="row-odd"><td>_size</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>:</td>
+<td>the requested buf size</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="resethostbuf">
+<span id="cid-xf-database-gqe-base-resethostbuf"></span><span id="doxid-classxf-1-1database-1-1gqe-1-1-base-1a86cc498cabb349b10a3b7497e43421d1"></span><h3>ResetHostBuf<a class="headerlink" href="#resethostbuf" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">ResetHostBuf</span> <span class="p">()</span>
+</pre>
+<p>Reset host Buf related record, but won’t destroy host buffer.</p>
+</div>
+</div>
 </div>
 
 
@@ -454,7 +520,7 @@
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on March 23, 2021.
+        Last updated on June 09, 2021.
       </span>
 
     </p>

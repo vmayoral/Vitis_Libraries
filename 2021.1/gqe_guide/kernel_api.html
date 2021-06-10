@@ -81,7 +81,7 @@
 															<div class="logo-column">
 																<div class="logo">
 																	<a href="https://www.xilinx.com/">
-																	<img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc"/>
+																	<img src="https://github.com/Xilinx/Image-Collateral/blob/main/xilinx-header-logo.svg?raw=true" title="Xilinx Inc"/>
 																	</a>
 																</div>
 															</div>
@@ -349,7 +349,11 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">GQE Kernel APIs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gqeaggr">gqeAggr</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gqejoin">gqeJoin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gqepart">gqePart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gqepart">gqePart</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gqepart-overload-1">gqePart overload (1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gqepart-overload-2">gqePart overload (2)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="kernel_config.html">GQE Kernel Configuration APIs</a></li>
@@ -359,7 +363,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark.html">Benchmark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/tpc_h.html">TPC-H Queries with GQE</a></li>
 </ul>
 
@@ -558,51 +562,43 @@
 </table>
 </div>
 <div class="section" id="gqejoin">
-<span id="cid-gqejoin"></span><span id="doxid-gqe-kernel-join-v2-8hpp-1a8ea6abab98287c700b3596e6710268bf"></span><h2>gqeJoin<a class="headerlink" href="#gqejoin" title="Permalink to this headline">¶</a></h2>
+<span id="cid-gqejoin"></span><span id="doxid-gqe-kernel-join-filter-8hpp-1aa2215472e1ccbc49a84cbc37bb96ab32"></span><h2>gqeJoin<a class="headerlink" href="#gqejoin" title="Permalink to this headline">¶</a></h2>
 <pre class="highlight literal-block">
-<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_database/gqe_kernel_join_v2.hpp&quot;</span>
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_database/gqe_kernel_join_filter.hpp&quot;</span>
 </pre>
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="kt">void</span> <span class="n">gqeJoin</span> <span class="p">(</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">buf_A1</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">buf_A2</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">buf_A3</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">buf_A4</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">buf_A5</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">buf_A6</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">buf_A7</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">buf_A8</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
     <span class="kt">size_t</span> <span class="n">_build_probe_flag</span><span class="p">,</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;</span> <span class="n">tin_meta</span> <span class="p">[</span><span class="mi">24</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;</span> <span class="n">tout_meta</span> <span class="p">[</span><span class="mi">24</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1ab4abc4b2266800f3082eb40a2e348aa9"><span class="std std-ref">VEC_LEN</span></a><span></span><span class="o">&gt;</span> <span class="n">buf_C1</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1ab4abc4b2266800f3082eb40a2e348aa9"><span class="std std-ref">VEC_LEN</span></a><span></span><span class="o">&gt;</span> <span class="n">buf_C2</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1ab4abc4b2266800f3082eb40a2e348aa9"><span class="std std-ref">VEC_LEN</span></a><span></span><span class="o">&gt;</span> <span class="n">buf_C3</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1ab4abc4b2266800f3082eb40a2e348aa9"><span class="std std-ref">VEC_LEN</span></a><span></span><span class="o">&gt;</span> <span class="n">buf_C4</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1ab4abc4b2266800f3082eb40a2e348aa9"><span class="std std-ref">VEC_LEN</span></a><span></span><span class="o">&gt;</span> <span class="n">buf_C5</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1ab4abc4b2266800f3082eb40a2e348aa9"><span class="std std-ref">VEC_LEN</span></a><span></span><span class="o">&gt;</span> <span class="n">buf_C6</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1ab4abc4b2266800f3082eb40a2e348aa9"><span class="std std-ref">VEC_LEN</span></a><span></span><span class="o">&gt;</span> <span class="n">buf_C7</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1ab4abc4b2266800f3082eb40a2e348aa9"><span class="std std-ref">VEC_LEN</span></a><span></span><span class="o">&gt;</span> <span class="n">buf_C8</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1ab4abc4b2266800f3082eb40a2e348aa9"><span class="std std-ref">VEC_LEN</span></a><span></span><span class="o">&gt;</span> <span class="n">buf_D</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">htb_buf0</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">htb_buf1</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">htb_buf2</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">htb_buf3</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">htb_buf4</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">htb_buf5</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">htb_buf6</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">htb_buf7</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">stb_buf0</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">stb_buf1</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">stb_buf2</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">stb_buf3</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">stb_buf4</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">stb_buf5</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">stb_buf6</span> <span class="p">[</span><span class="mi">8000</span><span class="p">],</span>
-    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">stb_buf7</span> <span class="p">[</span><span class="mi">8000</span><span class="p">]</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">burst_maxi</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a83f127b7188340c21c20ea83ecbaa10f"><span class="std std-ref">VEC_SCAN</span></a><span></span><span class="o">&gt;&gt;</span> <span class="n">din_col0</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">burst_maxi</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a83f127b7188340c21c20ea83ecbaa10f"><span class="std std-ref">VEC_SCAN</span></a><span></span><span class="o">&gt;&gt;</span> <span class="n">din_col1</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">burst_maxi</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a83f127b7188340c21c20ea83ecbaa10f"><span class="std std-ref">VEC_SCAN</span></a><span></span><span class="o">&gt;&gt;</span> <span class="n">din_col2</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">burst_maxi</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;</span> <span class="n">din_val</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;</span> <span class="n">din_krn_cfg</span> <span class="p">[</span><span class="mi">14</span><span class="p">],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;</span> <span class="n">din_meta</span> <span class="p">[</span><span class="mi">24</span><span class="p">],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;</span> <span class="n">dout_meta</span> <span class="p">[</span><span class="mi">24</span><span class="p">],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1ab4abc4b2266800f3082eb40a2e348aa9"><span class="std std-ref">VEC_LEN</span></a><span></span><span class="o">&gt;*</span> <span class="n">dout_col0</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1ab4abc4b2266800f3082eb40a2e348aa9"><span class="std std-ref">VEC_LEN</span></a><span></span><span class="o">&gt;*</span> <span class="n">dout_col1</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1ab4abc4b2266800f3082eb40a2e348aa9"><span class="std std-ref">VEC_LEN</span></a><span></span><span class="o">&gt;*</span> <span class="n">dout_col2</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1ab4abc4b2266800f3082eb40a2e348aa9"><span class="std std-ref">VEC_LEN</span></a><span></span><span class="o">&gt;*</span> <span class="n">dout_col3</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;*</span> <span class="n">htb_buf0</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;*</span> <span class="n">htb_buf1</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;*</span> <span class="n">htb_buf2</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;*</span> <span class="n">htb_buf3</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;*</span> <span class="n">htb_buf4</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;*</span> <span class="n">htb_buf5</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;*</span> <span class="n">htb_buf6</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;*</span> <span class="n">htb_buf7</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;*</span> <span class="n">stb_buf0</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;*</span> <span class="n">stb_buf1</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;*</span> <span class="n">stb_buf2</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;*</span> <span class="n">stb_buf3</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;*</span> <span class="n">stb_buf4</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;*</span> <span class="n">stb_buf5</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;*</span> <span class="n">stb_buf6</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;*</span> <span class="n">stb_buf7</span>
     <span class="p">)</span>
 </pre>
-<p>GQE join kernel.</p>
+<p>GQE Join/Filter kernel (64-bit key version)</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -611,25 +607,39 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>_build_probe_flag</td>
-<td>kernel mode flag.</td>
+<td>build/probe flag, 0 for build, 1 for probe</td>
 </tr>
-<tr class="row-even"><td>buf_A</td>
-<td>input table buffer</td>
+<tr class="row-even"><td>din_col</td>
+<td>input table columns</td>
 </tr>
-<tr class="row-odd"><td>buf_C</td>
-<td>output table buffer</td>
+<tr class="row-odd"><td>din_val</td>
+<td>validation bits column</td>
+</tr>
+<tr class="row-even"><td>din_krn_cfg</td>
+<td>input kernel configurations</td>
+</tr>
+<tr class="row-odd"><td>din_meta</td>
+<td>input meta info</td>
+</tr>
+<tr class="row-even"><td>dout_meta</td>
+<td>output meta info</td>
+</tr>
+<tr class="row-odd"><td>dout_col</td>
+<td>output table columns</td>
 </tr>
 <tr class="row-even"><td>htb_buf</td>
-<td>hash table.</td>
+<td>HBM buffers used to save build table key/payload</td>
 </tr>
 <tr class="row-odd"><td>stb_buf</td>
-<td>overflow region of hash table.</td>
+<td>HBM buffers used to save overflowed build table key/payload for Join flow, to save hash-table of bloom-filter for Bloom-filter probe only flow</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="gqepart">
 <span id="cid-gqepart"></span><span id="doxid-gqe-kernel-part-v2-8hpp-1af7017a456513937bbf6cbe02478b2bd6"></span><h2>gqePart<a class="headerlink" href="#gqepart" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="gqepart-overload-1">
+<h3>gqePart overload (1)<a class="headerlink" href="#gqepart-overload-1" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_database/gqe_kernel_part_v2.hpp&quot;</span>
 </pre>
@@ -676,6 +686,12 @@
 <tr class="row-odd"><td>bit_num</td>
 <td>number of defined partition, log2(number of partition)</td>
 </tr>
+<tr class="row-even"><td>tin_meta</td>
+<td>input meta info</td>
+</tr>
+<tr class="row-odd"><td>tout_meta</td>
+<td>output meta info</td>
+</tr>
 <tr class="row-even"><td>buf_A</td>
 <td>input table buffer</td>
 </tr>
@@ -687,11 +703,72 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="gqepart-overload-2">
+<span id="cid-gqepart-2"></span><span id="doxid-gqe-kernel-part-v3-8hpp-1a61632acac0619a790498cfac3f578518"></span><h3>gqePart overload (2)<a class="headerlink" href="#gqepart-overload-2" title="Permalink to this headline">¶</a></h3>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;xf_database/gqe_kernel_part_v3.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">gqePart</span> <span class="p">(</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">bucket_depth</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">tab_index</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">log_part</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">burst_maxi</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a83f127b7188340c21c20ea83ecbaa10f"><span class="std std-ref">VEC_SCAN</span></a><span></span><span class="o">&gt;&gt;</span> <span class="n">din_col0</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">burst_maxi</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a83f127b7188340c21c20ea83ecbaa10f"><span class="std std-ref">VEC_SCAN</span></a><span></span><span class="o">&gt;&gt;</span> <span class="n">din_col1</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">burst_maxi</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a83f127b7188340c21c20ea83ecbaa10f"><span class="std std-ref">VEC_SCAN</span></a><span></span><span class="o">&gt;&gt;</span> <span class="n">din_col2</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">burst_maxi</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;&gt;</span> <span class="n">din_val</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;</span> <span class="n">din_krn_cfg</span> <span class="p">[</span><span class="mi">14</span><span class="p">],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;</span> <span class="n">din_meta</span> <span class="p">[</span><span class="mi">24</span><span class="p">],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">512</span><span class="o">&gt;</span> <span class="n">dout_meta</span> <span class="p">[</span><span class="mi">24</span><span class="p">],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1ab4abc4b2266800f3082eb40a2e348aa9"><span class="std std-ref">VEC_LEN</span></a><span></span><span class="o">&gt;*</span> <span class="n">dout_col0</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1ab4abc4b2266800f3082eb40a2e348aa9"><span class="std std-ref">VEC_LEN</span></a><span></span><span class="o">&gt;*</span> <span class="n">dout_col1</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1a044dcca86ec2bb97c01fe14bce2f7900"><span class="std std-ref">TPCH_INT_SZ</span></a><span></span><span class="o">*</span><a class="reference internal" href="../rst_2/global.html#doxid-gqe-kernel-part-v2-8hpp-1ab4abc4b2266800f3082eb40a2e348aa9"><span class="std std-ref">VEC_LEN</span></a><span></span><span class="o">&gt;*</span> <span class="n">dout_col2</span>
+    <span class="p">)</span>
+</pre>
+<p>GQE partition kernel (64-bit key version)</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>bucket_depth</td>
+<td>bucket depth</td>
+</tr>
+<tr class="row-even"><td>table_index</td>
+<td>table index indicating build table or join table</td>
+</tr>
+<tr class="row-odd"><td>log_part</td>
+<td>log of number of partitions</td>
+</tr>
+<tr class="row-even"><td>din_col</td>
+<td>input table columns</td>
+</tr>
+<tr class="row-odd"><td>din_val</td>
+<td>validation bits column</td>
+</tr>
+<tr class="row-even"><td>din_krn_cfg</td>
+<td>input kernel configurations</td>
+</tr>
+<tr class="row-odd"><td>din_meta</td>
+<td>input meta info</td>
+</tr>
+<tr class="row-even"><td>dout_meta</td>
+<td>output meta info</td>
+</tr>
+<tr class="row-odd"><td>dout_col</td>
+<td>output table columns</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">GQE has been tested on Alveo U280 card, and makes use of both HBM and DDR.
 While other cards like U250 and U200 are not supported out-of-box,
 porting and gaining acceleration is surely possible, with tailoring and tuning.</p>
+</div>
 </div>
 </div>
 </div>
@@ -725,7 +802,7 @@ porting and gaining acceleration is surely possible, with tailoring and tuning.<
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on March 23, 2021.
+        Last updated on June 09, 2021.
       </span>
 
     </p>

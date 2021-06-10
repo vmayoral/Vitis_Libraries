@@ -75,7 +75,7 @@
 															<div class="logo-column">
 																<div class="logo">
 																	<a href="https://www.xilinx.com/">
-																	<img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc"/>
+																	<img src="https://github.com/Xilinx/Image-Collateral/blob/main/xilinx-header-logo.svg?raw=true" title="Xilinx Inc"/>
 																	</a>
 																</div>
 															</div>
@@ -343,7 +343,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark.html">Benchmark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/tpc_h.html">TPC-H Queries with GQE</a></li>
 </ul>
 
@@ -443,7 +443,8 @@
 <pre class="highlight title-code-block literal-block">
 <span></span><span class="n">Joiner</span> <span class="p">(</span><a class="reference internal" href="class_xf_database_gqe_FpgaInit.html#doxid-classxf-1-1database-1-1gqe-1-1-fpga-init"><span class="std std-ref">FpgaInit</span></a><span></span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">)</span>
 </pre>
-<p>construct of <a class="reference internal" href="#doxid-classxf-1-1database-1-1gqe-1-1-joiner"><span class="std std-ref">Joiner</span></a> .</p>
+<p>constructor of <a class="reference internal" href="#doxid-classxf-1-1database-1-1gqe-1-1-joiner"><span class="std std-ref">Joiner</span></a> .</p>
+<p>Passing <a class="reference internal" href="class_xf_database_gqe_FpgaInit.html#doxid-classxf-1-1database-1-1gqe-1-1-fpga-init"><span class="std std-ref">FpgaInit</span></a> obj to <a class="reference internal" href="#doxid-classxf-1-1database-1-1gqe-1-1-joiner"><span class="std std-ref">Joiner</span></a> class. Splitting <a class="reference internal" href="class_xf_database_gqe_FpgaInit.html#doxid-classxf-1-1database-1-1gqe-1-1-fpga-init"><span class="std std-ref">FpgaInit</span></a> (OpenCL context, program, commandqueue, host/device buffers creation/allocation etc.) and <a class="reference internal" href="#doxid-classxf-1-1database-1-1gqe-1-1-joiner"><span class="std std-ref">Joiner</span></a> Init, guaranteens OpenCL stuff are not released after each join call. So the joiner may launch multi-times.</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -451,8 +452,8 @@
 <col width="80%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>xclbin</td>
-<td>xclbin path</td>
+<tr class="row-odd"><td>obj</td>
+<td>the <a class="reference internal" href="class_xf_database_gqe_FpgaInit.html#doxid-classxf-1-1database-1-1gqe-1-1-fpga-init"><span class="std std-ref">FpgaInit</span></a> instance.</td>
 </tr>
 </tbody>
 </table>
@@ -472,22 +473,34 @@
     <a class="reference internal" href="class_xf_database_gqe_JoinStrategyBase.html#doxid-classxf-1-1database-1-1gqe-1-1-join-strategy-base"><span class="std std-ref">JoinStrategyBase</span></a><span></span><span class="o">*</span> <span class="n">strategyimp</span> <span class="o">=</span> <span class="k">nullptr</span>
     <span class="p">)</span>
 </pre>
-<p>join function.</p>
+<p>Run join with the input arguments defined strategy, which includes.</p>
+<ul class="simple">
+<li>solution: the join solution (direct-join or partation-join)</li>
+<li>sec_o: left table sec number</li>
+<li>sec_l: right table sec number</li>
+<li>slice_num: the slice number that used in probe</li>
+<li>log_part, the partition number of left/right table</li>
+<li>coef_exp_partO: the expansion coefficient of table O result buffer size / input buffer size, this param affects the output buffer size, but not the perf</li>
+<li>coef_exp_partL: the expansion coefficient of table L result buffer size / input buffer size, this param affects the output buffer size, but not the perf</li>
+<li>coef_exp_join: the expansion coefficient of result buffer size / input buffer size, this param affects the output buffer size, but not the perf</li>
+</ul>
 <p>Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">auto</span> <span class="n">sptr</span> <span class="o">=</span> <span class="n">new</span> <span class="n">gqe</span><span class="p">::</span><span class="n">JoinStrategyManualSet</span><span class="p">(</span><span class="n">solution</span><span class="p">,</span> <span class="n">sec_o</span><span class="p">,</span> <span class="n">sec_l</span><span class="p">,</span> <span class="n">slice_num</span><span class="p">,</span> <span class="n">log_part</span><span class="p">,</span> <span class="n">cpu_aggr</span><span class="p">);</span>
-<span class="n">err_code</span> <span class="o">=</span> <span class="n">bigjoin</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-    <span class="n">tab_o</span><span class="p">,</span> <span class="s2">&quot;19940101&lt;=o_orderdate &amp;&amp; o_orderdate&lt;19950101&quot;</span><span class="p">,</span>
-    <span class="n">tab_l</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;o_orderkey = l_orderkey&quot;</span><span class="p">,</span>
-    <span class="n">tab_c1</span><span class="p">,</span> <span class="s2">&quot;c1=l_extendedprice, c2=l_discount, c3=o_orderdate, c4=l_orderkey&quot;</span><span class="p">,</span>
-    <span class="n">gqe</span><span class="p">::</span><span class="n">INNER_JOIN</span><span class="p">,</span>
-    <span class="n">sptr</span><span class="p">);</span>
-<span class="n">delete</span> <span class="n">smanual</span><span class="p">;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">auto</span> <span class="n">smanual</span> <span class="o">=</span> <span class="n">new</span> <span class="n">gqe</span><span class="p">::</span><span class="n">JoinStrategyManualSet</span><span class="p">(</span><span class="n">solution</span><span class="p">,</span> <span class="n">sec_o</span><span class="p">,</span> <span class="n">sec_l</span><span class="p">,</span> <span class="n">slice_num</span><span class="p">,</span> <span class="n">log_part</span><span class="p">,</span> <span class="n">coef_exp_partO</span><span class="p">,</span>
+<span class="n">coef_exp_partL</span><span class="p">,</span> <span class="n">coef_exp_join</span><span class="p">);</span>
+
+  <span class="n">ErrCode</span> <span class="n">err</span> <span class="o">=</span> <span class="n">bigjoin</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+      <span class="n">tab_o</span><span class="p">,</span> <span class="s2">&quot;o_rowid &gt; 0&quot;</span><span class="p">,</span>
+      <span class="n">tab_l</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;o_orderkey = l_orderkey&quot;</span><span class="p">,</span>
+      <span class="n">tab_c</span><span class="p">,</span> <span class="s2">&quot;c1=l_orderkey, c2=o_rowid, c3=l_rowid&quot;</span><span class="p">,</span>
+      <span class="n">gqe</span><span class="p">::</span><span class="n">INNER_JOIN</span><span class="p">,</span>
+      <span class="n">smanual</span><span class="p">);</span>
+  <span class="n">delete</span> <span class="n">smanual</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Input filter_a/filter_b like “19940101&lt;=o_orderdate &amp;&amp; o_orderdate&lt;19950101”, o_orderdate and o_orderdate must be exsisted colunm names in table a/b when no filter conditions, input “”</p>
-<p>Input join conditions like “left_join_key_0=right_join_key_0” when enable dual key join, use comma as seperator, “left_join_key_0=right_join_key_0,left_join_key_1=right_join_key_1”</p>
-<p>Output strings are like “output_c0 = tab_a_col/tab_b_col”, when contains several columns, use comma as seperator</p>
+<p><a class="reference internal" href="class_xf_database_gqe_Table.html#doxid-classxf-1-1database-1-1gqe-1-1-table"><span class="std std-ref">Table</span></a> tab_o filter condition like “o_rowid &gt; 0”, o_rowid is the col name of tab_o when no filter conditions, given empty fitler condition “”</p>
+<p>The join condition like “left_join_key_0=right_join_key_0” when dual key join is enabled, using comma as the seperator in join condition, e.g. “left_join_key_0=right_join_key_0,left_join_key_1=right_join_key_1”</p>
+<p>Output strings are like “output_c0 = tab_a_col/tab_b_col”, when several columns are output, using comma as the seperator</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -514,7 +527,7 @@
 <td>result table</td>
 </tr>
 <tr class="row-odd"><td>output_str</td>
-<td>output column mapping</td>
+<td>output columns</td>
 </tr>
 <tr class="row-even"><td>join_type</td>
 <td>INNER_JOIN(default) | SEMI_JOIN | ANTI_JOIN.</td>
@@ -548,7 +561,7 @@
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on March 23, 2021.
+        Last updated on June 09, 2021.
       </span>
 
     </p>

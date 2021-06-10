@@ -75,7 +75,7 @@
 															<div class="logo-column">
 																<div class="logo">
 																	<a href="https://www.xilinx.com/">
-																	<img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc"/>
+																	<img src="https://github.com/Xilinx/Image-Collateral/blob/main/xilinx-header-logo.svg?raw=true" title="Xilinx Inc"/>
 																	</a>
 																</div>
 															</div>
@@ -343,7 +343,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Benchmark Result</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../benchmark/benchmark.html">Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmark.html">Benchmark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmark/tpc_h.html">TPC-H Queries with GQE</a></li>
 </ul>
 
@@ -445,19 +445,7 @@
     <span class="p">)</span>
 </pre>
 <p>constructor of <a class="reference internal" href="#doxid-classxf-1-1database-1-1gqe-1-1-bloom-filter-config"><span class="std std-ref">BloomFilterConfig</span></a> .</p>
-<p>This class generates filter configuration bits by column names.</p>
-<p>Input filter_condition like “19940101&lt;=o_orderdate &amp;&amp; o_orderdate&lt;19950101”, o_orderdate and o_orderdate must be exsisted colunm names in input table. When no filter conditions, input “”.</p>
-<p>Input strings for indicating which column(s) from input table to be filtered, like “l_orderkey_0”. When dual key is enabled, use comma as seperator, “l_orderkey_0,l_orderkey_1”.</p>
-<p>Output strings are like “output_c0 = tab_in_col”, when contains several columns, use comma as seperator.</p>
-<p>Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BloomFilterConfig</span>  <span class="n">bfcfg</span><span class="p">(</span><span class="n">tab_in</span><span class="p">,</span>
-                         <span class="s2">&quot;19940101&lt;=l_orderdate &amp;&amp; l_orderdate&lt;19950101&quot;</span><span class="p">,</span>
-                         <span class="s2">&quot;l_orderkey&quot;</span><span class="p">,</span>
-                         <span class="n">bf_size_in_bits</span><span class="p">,</span>
-                         <span class="n">tab_out</span><span class="p">,</span>
-                         <span class="s2">&quot;c1=l_orderkey, c2 = l_orderkey&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
+<p>This class generates filter configuration bits by paring the .run() arguments</p>
 <p class="rubric">Parameters:</p>
 <table border="1" class="colwidths-given docutils">
 <colgroup>
@@ -536,7 +524,7 @@
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on March 23, 2021.
+        Last updated on June 09, 2021.
       </span>
 
     </p>
