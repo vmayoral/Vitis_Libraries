@@ -1,4 +1,18 @@
+..
+   Copyright 2021 Xilinx, Inc.
 
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+   
 .. _5_BENCHMARK:
 
 =============
@@ -25,6 +39,8 @@ Filters
 
 Following table gives results for FIR filter with a wide variety of supported parameters, which are defined in: :ref:`2_CONFIGURATION_PARAMETERS_FILTERS`
 
+:download:`fir_benchmark <../../csv_data_files/L2/fir_benchmark.csv>`
+
 .. csv-table:: FIR benchmark
    :file: ../../csv_data_files/L2/fir_benchmark.csv
    :align: center
@@ -36,6 +52,8 @@ FFT
 ~~~
 
 Following table gives results for the FFT/IFFT function with a wide variety of supported parameters, which are defined in: :ref:`2_CONFIGURATION_PARAMETERS_FFT`.
+
+:download:`fir_benchmark <../../csv_data_files/L2/fft_benchmark.csv>`
 
 .. csv-table:: FFT benchmark
    :file: ../../csv_data_files/L2/fft_benchmark.csv
@@ -49,6 +67,8 @@ Matrix Multiply
 
 Following table gives results for the matrix multiply function with a wide variety of supported parameters, which are defined in: :ref:`2_CONFIGURATION_PARAMETERS_GEMM`.
 
+:download:`fir_benchmark <../../csv_data_files/L2/mat_mult_benchmark.csv>`
+
 .. csv-table:: Matrix Multiply benchmark
    :file: ../../csv_data_files/L2/mat_mult_benchmark.csv
    :align: center
@@ -60,6 +80,8 @@ Widgets
 ~~~~~~~
 
 Following table gives results for the widgets with a wide variety of supported parameters, which are defined in: :ref:`2_CONFIGURATION_PARAMETERS_WIDGETS`.
+
+:download:`fir_benchmark <../../csv_data_files/L2/widget_benchmark.csv>`
 
 .. csv-table:: Widgets benchmark
    :file: ../../csv_data_files/L2/widget_benchmark.csv
@@ -83,8 +105,4 @@ Following table gives results for the widgets with a wide variety of supported p
 .. |image12| image:: ./media/image2.png
 .. |image13| image:: ./media/image2.png
 
-© Copyright 2021 Xilinx, Inc.
 
-*Licensed under the Apache License, Version 2.0 (the “License”); you may not use this file except in compliance with the License. You may obtain a copy of the License at `http://www.apache.org/licenses/LICENSE-2.0 <http://www.apache.org/licenses/LICENSE-2.0>`__.*
-
-*Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.*
