@@ -26,7 +26,7 @@ Release Note
 2021.1
 ***********************
 
-DSPLib contains common parameterizable DSP functions used in many advanced signal processing applications. All functions currently support window interfaces with streaming interface support planned for future releases.
+The AI Engine DSP Library contains common parameterizable DSP functions used in many advanced signal processing applications. All functions currently support window interfaces with streaming interface support planned for future releases.
 
 .. note:: Namespace aliasing can be utilized to shorten instantiations: ``namespace dsplib = xf::dsp::aie;``
 

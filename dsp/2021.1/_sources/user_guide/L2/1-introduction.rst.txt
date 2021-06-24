@@ -19,7 +19,7 @@
 Introduction
 ************
 
-The AIE DSP Library for AI Engine provides a set of DSP library elements. Each library element consists of a main graph class and a corresponding kernel class, but also includes a reference model graph class.
+The DSP Library for AI Engine provides a set of DSP library elements. Each library element consists of a main graph class and a corresponding kernel class, but also includes a reference model graph class.
 
 ====================================
 Navigating Content by Design Process
@@ -27,7 +27,7 @@ Navigating Content by Design Process
 
 Xilinx |reg| documentation is organized around a set of standard design processes to help you find relevant content for your current development task. This document covers the following design processes:
 
--  **AI Engine Development:** Creating the AI Engine graph and kernels, library use, simulation debugging and profiling, and algorithm development. Also includes the integration of the PL and AI Engine kernels. Topics in this document that apply to this design process include:
+-  **AI Engine Development:** Creating the AI Engine graph and kernels, library use, simulation debugging and profiling, and algorithm development. Also includes the integration of the Programmable Logic (PL) and AI Engine kernels. Topics in this document that apply to this design process include:
 
    -  :ref:`1_ORGANIZATION`
 
@@ -46,7 +46,7 @@ Xilinx |reg| documentation is organized around a set of standard design processe
    -  :ref:`5_BENCHMARK`
 
 
--  **System and Solution Planning:** Identifying the components, performance, I/O, and data transfer requirements at a system level. Includes application mapping for the solution to PS, PL, and AI Engine. Topics in this document that apply to this design process include:
+-  **System and Solution Planning:** Identifying the components, performance, I/O, and data transfer requirements at a system level. Includes application mapping for the solution to Processing Subsystem (PS), PL, and AI Engine. Topics in this document that apply to this design process include:
 
    -  :ref:`2_FILTERS`
 

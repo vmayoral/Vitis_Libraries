@@ -19,7 +19,7 @@ Vitis DSP Library
 
 The Vitis |trade| digital signal processing library (DSPLib) provides an implementation of different L1/L2/L3 primitives for digital signal processing.
 
-The DSPLib contains PL and AIE solutions. For documentation on AIE solutions see :ref:`1_INTRODUCTION`.
+The DSPLib contains PL and AI Engine solutions. For documentation on AI Engine solutions, see :ref:`1_INTRODUCTION`.
 
 The current PL library consists of an implementation of a Discrete Fourier Transform using a Fast
 Fourier Transform algorithm for acceleration on Xilinx |reg| FPGAs. The library is planned
@@ -56,7 +56,7 @@ for reference.
    user_guide/L1_2dfft.rst
 
 .. toctree::
-   :caption: L2 AIE DSP Library User Guide
+   :caption: L2 DSP Library User Guide
    :maxdepth: 4
 
    user_guide/L2/1-introduction.rst
