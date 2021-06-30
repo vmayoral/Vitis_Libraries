@@ -333,6 +333,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../source/overview.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../release.html">Release Note</a></li>
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
@@ -413,12 +414,13 @@
 <div class="toctree-wrapper compound">
 </div>
 <pre class="highlight overview-code-block literal-block" id="cid-xlibdata-u50-xclbin">
-<span id="doxid-structxlibdata-1a357a9a7ecd00182a9aa6c9f1222221ba"></span><span id="cid-xlibdata-flush"></span><span id="doxid-structxlibdata-1a9c4814f8637fa6929fcc40f3632908d5"></span><span id="cid-xlibdata-adler32"></span><span id="doxid-structxlibdata-1a60f13588ad585222601a2bcac3380ab0"></span><span id="cid-xlibdata-window-bits"></span><span id="doxid-structxlibdata-1a822c511d79a90b76ac605299260e7ded"></span><span id="cid-xlibdata-strategy"></span><span id="doxid-structxlibdata-1a80237a47cdb64fe118a8b6eb34c45e07"></span><span id="cid-xlibdata-level"></span><span id="doxid-structxlibdata-1ae9403a54b065162b97a38588e85bc32f"></span><span id="cid-xlibdata-output-size"></span><span id="doxid-structxlibdata-1ad4e9193559fc872f3ed148ddb3b32062"></span><span id="cid-xlibdata-input-size"></span><span id="doxid-structxlibdata-1a7a176e85c1843a722fa47cb82d759b07"></span><span id="cid-xlibdata-out-buf"></span><span id="doxid-structxlibdata-1affe6e84a5b174855692304be6c373e25"></span><span id="cid-xlibdata-in-buf"></span><span id="doxid-structxlibdata-1a25a95929b7546db2cd5f0dcac955c398"></span><span></span><span class="c1">// fields</span>
+<span id="doxid-structxlibdata-1a357a9a7ecd00182a9aa6c9f1222221ba"></span><span id="cid-xlibdata-flush"></span><span id="doxid-structxlibdata-1a9c4814f8637fa6929fcc40f3632908d5"></span><span id="cid-xlibdata-adler32"></span><span id="doxid-structxlibdata-1a60f13588ad585222601a2bcac3380ab0"></span><span id="cid-xlibdata-window-bits"></span><span id="doxid-structxlibdata-1a822c511d79a90b76ac605299260e7ded"></span><span id="cid-xlibdata-strategy"></span><span id="doxid-structxlibdata-1a80237a47cdb64fe118a8b6eb34c45e07"></span><span id="cid-xlibdata-level"></span><span id="doxid-structxlibdata-1ae9403a54b065162b97a38588e85bc32f"></span><span id="cid-xlibdata-total-out"></span><span id="doxid-structxlibdata-1ac4e3df1a595889b00bed99bfde42b310"></span><span id="cid-xlibdata-output-size"></span><span id="doxid-structxlibdata-1ad4e9193559fc872f3ed148ddb3b32062"></span><span id="cid-xlibdata-input-size"></span><span id="doxid-structxlibdata-1a7a176e85c1843a722fa47cb82d759b07"></span><span id="cid-xlibdata-out-buf"></span><span id="doxid-structxlibdata-1affe6e84a5b174855692304be6c373e25"></span><span id="cid-xlibdata-in-buf"></span><span id="doxid-structxlibdata-1a25a95929b7546db2cd5f0dcac955c398"></span><span></span><span class="c1">// fields</span>
 
 <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">in_buf</span>
 <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">out_buf</span>
 <span class="kt">uint64_t</span> <span class="n">input_size</span>
 <span class="kt">uint64_t</span> <span class="n">output_size</span>
+<span class="kt">uint32_t</span> <span class="n">total_out</span>
 <span class="kt">int</span> <span class="n">level</span>
 <span class="kt">int</span> <span class="n">strategy</span>
 <span class="kt">int</span> <span class="n">window_bits</span>
@@ -448,7 +450,7 @@
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on June 07, 2021.
+        Last updated on June 30, 2021.
       </span>
 
     </p>

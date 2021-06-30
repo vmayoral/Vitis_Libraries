@@ -336,6 +336,7 @@
 <li class="toctree-l1"><a class="reference internal" href="source/overview.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="source/overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="source/overview.html#trademark-notice">Trademark Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Release Note</a></li>
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
@@ -456,7 +457,7 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 <td>2.13</td>
 <td>290 MB/s</td>
 <td>300MHz</td>
-<td>3.2K</td>
+<td>3K</td>
 <td>5</td>
 <td>6</td>
 </tr>
@@ -464,48 +465,32 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 <td>2.13</td>
 <td>290 MB/s</td>
 <td>300MHz</td>
-<td>3.1K</td>
+<td>3K</td>
 <td>4</td>
 <td>6</td>
-</tr>
-<tr class="row-even"><td><a class="reference external" href="source/L2/lz4_compress.html">LZ4 Memory Mapped</a> (8 Engines with Data Movers)</td>
-<td>2.13</td>
-<td>2.2 GB/s</td>
-<td>295MHz</td>
-<td>47K</td>
-<td>56</td>
-<td>48</td>
-</tr>
-<tr class="row-odd"><td><a class="reference external" href="source/L2/snappy_compress.html">Snappy Memory Mapped</a> (8 Engines with Data Movers)</td>
-<td>2.13</td>
-<td>2.2 GB/s</td>
-<td>300MHz</td>
-<td>47K</td>
-<td>48</td>
-<td>48</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="source/L2/gzipc_block_mm.html">GZip/Zlib Memory Mapped</a> (Dynamic Huffman, 8 Engines with Data Movers)</td>
 <td>2.67</td>
 <td>2 GB/s</td>
 <td>285MHz</td>
-<td>53.8K</td>
-<td>75</td>
+<td>52K</td>
+<td>67</td>
 <td>72</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="source/L2/gzipc.html">GZip/Zlib Compress Stream</a> (Dynamic Huffman, 8 Engines with Data Movers)</td>
 <td>2.67</td>
 <td>2 GB/s</td>
-<td>285MHz</td>
-<td>49.7K</td>
-<td>67</td>
+<td>290MHz</td>
+<td>48.5K</td>
+<td>61</td>
 <td>72</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="source/L2/gzipc_static.html">GZip/Zlib Fixed Huffman File Compress Stream</a></td>
 <td>2.25</td>
 <td>2 GB/s</td>
-<td>285MHz</td>
-<td>34.6K</td>
-<td>48</td>
+<td>300MHz</td>
+<td>33.2K</td>
+<td>45</td>
 <td>64</td>
 </tr>
 </tbody>
@@ -542,38 +527,38 @@ kernel clock frequency met and resource utilization when executed on Alveo U200.
 <tbody valign="top">
 <tr class="row-even"><td><a class="reference external" href="source/L2/lz4_dec_streaming_parallelByte8.html">LZ4 Streaming</a> (Single Engine and Datawidth: 64bit)</td>
 <td>1.8  GB/s</td>
-<td>300MHz</td>
-<td>7.2K</td>
+<td>284MHz</td>
+<td>5.5K</td>
 <td>0</td>
 <td>4</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="source/L2/snappy_dec_streaming_parallelByte8.html">Snappy Streaming</a> (Single Engine and Datawidth: 64bit)</td>
 <td>1.97 GB/s</td>
-<td>300MHz</td>
-<td>8.8K</td>
+<td>290MHz</td>
+<td>6.4K</td>
 <td>0</td>
 <td>4</td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="source/L2/gzip_decompress.html">GZip/Zlib Streaming</a> (High Throughput, Datawidth: 64bit)</td>
-<td>450  MB/s</td>
-<td>252MHz</td>
-<td>11.3K</td>
-<td>6</td>
-<td>3</td>
+<tr class="row-even"><td><a class="reference external" href="source/L2/gzip.html">GZip/Zlib Streaming</a> (High Throughput, Datawidth: 64bit)</td>
+<td>518  MB/s</td>
+<td>273MHz</td>
+<td>6.9K</td>
+<td>0</td>
+<td>2</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="source/L2/zstd_decompress.html">ZStd Streaming</a> (Single Engine and Datawidth: 32bit)</td>
 <td>463  MB/s</td>
-<td>232MHz</td>
-<td>18K</td>
-<td>52</td>
-<td>4</td>
+<td>252MHz</td>
+<td>21K</td>
+<td>33</td>
+<td>6</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="source/L2/zstd_decompress.html">ZStd Full File Streaming</a> (Single Engine with Datawidth: 32bit)</td>
 <td>463  MB/s</td>
-<td>232MHz</td>
-<td>22K</td>
-<td>52</td>
-<td>4</td>
+<td>252MHz</td>
+<td>21K</td>
+<td>33</td>
+<td>6</td>
 </tr>
 </tbody>
 </table>
@@ -664,7 +649,7 @@ applications to run on actual hardware. The generated executable names may diffe
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on June 07, 2021.
+        Last updated on June 30, 2021.
       </span>
 
     </p>
