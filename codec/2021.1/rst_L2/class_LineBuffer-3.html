@@ -55,9 +55,7 @@
   <link rel="stylesheet" href="../_static/css/header-footer.min.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Design Internals" href="internals.html" />
-    <link rel="prev" title="Release Note" href="../release.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -338,17 +336,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L1 User Guide</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Document</a><ul class="simple">
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/api.html">API Document</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="internals.html">Design Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/internals.html">Design Internals</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L2 User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../guide_L2/demo.html">API Document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/api.html">API Document</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/internals.html">Design Internals</a></li>
@@ -403,7 +399,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>API Document</li>
+      <li>template class LineBuffer &lt;ROWS, COLS, T, 0&gt;</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -420,10 +416,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="api-document">
-<h1>API Document<a class="headerlink" href="#api-document" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="template-class-linebuffer-rows-cols-t-0">
+<span id="cid-linebuffer-3"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-010-01-4"></span><span id="index-0"></span><h1>template class LineBuffer &lt;ROWS, COLS, T, 0&gt;<a class="headerlink" href="#template-class-linebuffer-rows-cols-t-0" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;resize_mem.hpp&quot;</span>
+</pre>
+<pre class="highlight overview-code-block literal-block" id="cid-linebuffer-insert-top-2">
+<span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-010-01-4-1a4e018ccb6dbcf85d22d03dcaec72f90a"></span><span id="cid-linebuffer-insert-bottom-2"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-010-01-4-1a33a1723764ce729bc92af912d9327394"></span><span id="cid-linebuffer-shift-down-2"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-010-01-4-1a74ef33663b55c47eeb84be8943e1a150"></span><span id="cid-linebuffer-shift-up-2"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-010-01-4-1a69e80c37693a4cb8cb3a1187cb0dc685"></span><span id="cid-linebuffer-operator-2"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-010-01-4-1a4f8db559ce23e9fb77d0a877468b75b1"></span><span id="cid-linebuffer-getval-2"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-010-01-4-1a4db44a4c6d09a16ac08325351792182c"></span><span id="cid-linebuffer-get-col-2"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-010-01-4-1ab95df81bca4773f1d2f2025ace9820a9"></span><span id="cid-linebuffer-insert-top-row-2"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-010-01-4-1a8e3d4fd0751e18a8355a7ea7151248c1"></span><span id="cid-linebuffer-insert-bottom-row-2"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-010-01-4-1a70bdcd0277c134ae994a8d8996c61258"></span><span id="cid-linebuffer-shift-pixels-down-2"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-010-01-4-1ad266d0741c1ec998ae34600e51a08df9"></span><span id="cid-linebuffer-shift-pixels-up-2"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-010-01-4-1a39f0dacb56b43bda0fbcfcc109435db1"></span><span id="cid-linebuffer-linebuffer-2"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-010-01-4-1a4280755898bfce453c4bc41651c81c31"></span><span id="cid-linebuffer-val-2"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-010-01-4-1acff4177556285d23c7cce2b56254caec"></span><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">ROWS</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">COLS</span><span class="p">,</span>
+    <span class="k">typename</span> <span class="n">T</span>
+    <span class="o">&gt;</span>
+<span class="k">class</span> <span class="n">LineBuffer</span> <span class="o">&lt;</span><span class="n">ROWS</span><span class="p">,</span> <span class="n">COLS</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;</span>
+
+<span class="c1">// fields</span>
+
+<span class="n">T</span> <span class="n">val</span><span class="p">[</span><span class="n">ROWS</span><span class="p">][</span><span class="n">COLS</span><span class="p">]</span>
+</pre>
 </div>
 
 
@@ -439,15 +450,6 @@
 
 
 	  <!-- Sphinx Page Footer block -->
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="internals.html" class="btn btn-neutral float-right" title="Design Internals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../release.html" class="btn btn-neutral float-left" title="Release Note" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

@@ -56,8 +56,8 @@
   <link rel="stylesheet" href="../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Design Internals" href="internals.html" />
-    <link rel="prev" title="Release Note" href="../release.html" /> 
+    <link rel="next" title="struct xf::codec::hls_huff_DHT" href="struct_xf_codec_hls_huff_DHT.html" />
+    <link rel="prev" title="struct xf::codec::decOutput" href="struct_xf_codec_decOutput.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -338,17 +338,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L1 User Guide</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Document</a><ul class="simple">
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/api.html">API Document</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="internals.html">Design Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/internals.html">Design Internals</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L2 User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../guide_L2/demo.html">API Document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/api.html">API Document</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/internals.html">Design Internals</a></li>
@@ -403,7 +401,11 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>API Document</li>
+          <li><a href="../guide_L1/api.html">API Document</a> &raquo;</li>
+        
+          <li><a href="namespace_xf_codec.html">namespace codec</a> &raquo;</li>
+        
+      <li>struct xf::codec::hls_compInfo</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -420,10 +422,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="api-document">
-<h1>API Document<a class="headerlink" href="#api-document" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="struct-xf-codec-hls-compinfo">
+<span id="cid-xf-codec-hls-compinfo"></span><span id="doxid-structxf-1-1codec-1-1hls-comp-info"></span><span id="index-0"></span><h1>struct xf::codec::hls_compInfo<a class="headerlink" href="#struct-xf-codec-hls-compinfo" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;XAcc_jpegdecoder.hpp&quot;</span>
+</pre>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-codec-hls-compinfo-bc">
+<span id="doxid-structxf-1-1codec-1-1hls-comp-info-1afc18f842d82f35c049c6f058075ea4d8"></span><span id="cid-xf-codec-hls-compinfo-bch"></span><span id="doxid-structxf-1-1codec-1-1hls-comp-info-1a0ff5caac6209baef871a2d34a064b458"></span><span id="cid-xf-codec-hls-compinfo-bcv"></span><span id="doxid-structxf-1-1codec-1-1hls-comp-info-1a038e4dcb082b44dc2af244d0644e3048"></span><span id="cid-xf-codec-hls-compinfo-mbs"></span><span id="doxid-structxf-1-1codec-1-1hls-comp-info-1ad240b8e4e9c3041d22aa2bb37befc63e"></span><span id="cid-xf-codec-hls-compinfo-sfh"></span><span id="doxid-structxf-1-1codec-1-1hls-comp-info-1a258b202ba08f7b941957491d30d2f7b7"></span><span id="cid-xf-codec-hls-compinfo-sfv"></span><span id="doxid-structxf-1-1codec-1-1hls-comp-info-1ad22f3e46a0aa27a6bb50b1b79ecfe1a2"></span><span></span><span class="c1">// fields</span>
+
+<span class="kt">int</span> <span class="n">sfv</span>
+<span class="kt">int</span> <span class="n">sfh</span>
+<span class="kt">int</span> <span class="n">mbs</span>
+<span class="kt">int</span> <span class="n">bcv</span>
+<span class="kt">int</span> <span class="n">bch</span>
+<span class="kt">int</span> <span class="n">bc</span>
+</pre>
 </div>
 
 
@@ -442,10 +457,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="internals.html" class="btn btn-neutral float-right" title="Design Internals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="struct_xf_codec_hls_huff_DHT.html" class="btn btn-neutral float-right" title="struct xf::codec::hls_huff_DHT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../release.html" class="btn btn-neutral float-left" title="Release Note" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="struct_xf_codec_decOutput.html" class="btn btn-neutral float-left" title="struct xf::codec::decOutput" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

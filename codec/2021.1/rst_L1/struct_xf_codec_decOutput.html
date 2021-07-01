@@ -56,8 +56,8 @@
   <link rel="stylesheet" href="../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Design Internals" href="internals.html" />
-    <link rel="prev" title="Release Note" href="../release.html" /> 
+    <link rel="next" title="struct xf::codec::hls_compInfo" href="struct_xf_codec_hls_compInfo.html" />
+    <link rel="prev" title="enum xf::codec::COLOR_FORMAT" href="enum_xf_codec_COLOR_FORMAT.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -338,17 +338,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L1 User Guide</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Document</a><ul class="simple">
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/api.html">API Document</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="internals.html">Design Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/internals.html">Design Internals</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L2 User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../guide_L2/demo.html">API Document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/api.html">API Document</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/internals.html">Design Internals</a></li>
@@ -403,7 +401,11 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>API Document</li>
+          <li><a href="../guide_L1/api.html">API Document</a> &raquo;</li>
+        
+          <li><a href="namespace_xf_codec.html">namespace codec</a> &raquo;</li>
+        
+      <li>struct xf::codec::decOutput</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -420,10 +422,30 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="api-document">
-<h1>API Document<a class="headerlink" href="#api-document" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="struct-xf-codec-decoutput">
+<span id="cid-xf-codec-decoutput"></span><span id="doxid-structxf-1-1codec-1-1dec-output"></span><span id="index-0"></span><h1>struct xf::codec::decOutput<a class="headerlink" href="#struct-xf-codec-decoutput" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;XAcc_jpegdecoder.hpp&quot;</span>
+</pre>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-codec-decoutput-axi-num-cmp">
+<span id="doxid-structxf-1-1codec-1-1dec-output-1afb0850a32ddc6975c3cdca1c128331e6"></span><span id="cid-xf-codec-decoutput-axi-num-cmp-mcu"></span><span id="doxid-structxf-1-1codec-1-1dec-output-1ac593f24ff3efa4154936047c7c115d19"></span><span id="cid-xf-codec-decoutput-axi-mcuv"></span><span id="doxid-structxf-1-1codec-1-1dec-output-1a2a006f621030e988391462e88d50ec5b"></span><span id="cid-xf-codec-decoutput-idct-q-table-l"></span><span id="doxid-structxf-1-1codec-1-1dec-output-1ae97ab304dd865e08f9d92e77290c6e86"></span><span id="cid-xf-codec-decoutput-idct-q-table-y"></span><span id="doxid-structxf-1-1codec-1-1dec-output-1a38223d9fbf89ab5a5e0919d1c3e3f4ae"></span><span id="cid-xf-codec-decoutput-idct-q-table-x"></span><span id="doxid-structxf-1-1codec-1-1dec-output-1ab448f784e904e96c0fd05b979984f6c7"></span><span id="cid-xf-codec-decoutput-q-tables"></span><span id="doxid-structxf-1-1codec-1-1dec-output-1a160085514718f1932244a8e2bf020f12"></span><span id="cid-xf-codec-decoutput-min-nois-thld-y"></span><span id="doxid-structxf-1-1codec-1-1dec-output-1a2d3d096c12b60c0ceef74bc195810acb"></span><span id="cid-xf-codec-decoutput-min-nois-thld-x"></span><span id="doxid-structxf-1-1codec-1-1dec-output-1a01927c9965b41ee19790bbea8c28f7f2"></span><span id="cid-xf-codec-decoutput-axi-map-row2cmp"></span><span id="doxid-structxf-1-1codec-1-1dec-output-1a5014f98431c8a5570aab7526dd042ceb"></span><span id="cid-xf-codec-decoutput-axi-height"></span><span id="doxid-structxf-1-1codec-1-1dec-output-1a20c5be8dff81ac7c2c80866d1c2a79fc"></span><span id="cid-xf-codec-decoutput-axi-width"></span><span id="doxid-structxf-1-1codec-1-1dec-output-1ace1618a523d2a41f248f442441e19892"></span><span id="cid-xf-codec-decoutput-format"></span><span id="doxid-structxf-1-1codec-1-1dec-output-1a9be4129f1fd5c32a8c7142072fd8478d"></span><span></span><span class="c1">// fields</span>
+
+<a class="reference internal" href="../rst_L2/enum_xf_codec_COLOR_FORMAT.html#doxid-namespacexf-1-1codec-1ac3b0651528e801370709bb53280e4586"><span class="std std-ref">COLOR_FORMAT</span></a><span></span> <span class="n">format</span>
+<span class="kt">uint16_t</span> <span class="n">axi_width</span><span class="p">[(</span><span class="mi">3</span><span class="p">)]</span>
+<span class="kt">uint16_t</span> <span class="n">axi_height</span><span class="p">[(</span><span class="mi">3</span><span class="p">)]</span>
+<span class="kt">uint8_t</span> <span class="n">axi_map_row2cmp</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<span class="kt">uint8_t</span> <span class="n">min_nois_thld_x</span><span class="p">[(</span><span class="mi">3</span><span class="p">)][</span><span class="mi">64</span><span class="p">]</span>
+<span class="kt">uint8_t</span> <span class="n">min_nois_thld_y</span><span class="p">[(</span><span class="mi">3</span><span class="p">)][</span><span class="mi">64</span><span class="p">]</span>
+<span class="kt">uint8_t</span> <span class="n">q_tables</span><span class="p">[(</span><span class="mi">3</span><span class="p">)][</span><span class="mi">8</span><span class="p">][</span><span class="mi">8</span><span class="p">]</span>
+<span class="kt">int32_t</span> <span class="n">idct_q_table_x</span><span class="p">[(</span><span class="mi">3</span><span class="p">)][</span><span class="mi">8</span><span class="p">][</span><span class="mi">8</span><span class="p">]</span>
+<span class="kt">int32_t</span> <span class="n">idct_q_table_y</span><span class="p">[(</span><span class="mi">3</span><span class="p">)][</span><span class="mi">8</span><span class="p">][</span><span class="mi">8</span><span class="p">]</span>
+<span class="kt">int32_t</span> <span class="n">idct_q_table_l</span><span class="p">[(</span><span class="mi">3</span><span class="p">)][</span><span class="mi">8</span><span class="p">][</span><span class="mi">8</span><span class="p">]</span>
+<span class="kt">uint16_t</span> <span class="n">axi_mcuv</span>
+<span class="kt">uint8_t</span> <span class="n">axi_num_cmp_mcu</span>
+<span class="kt">uint8_t</span> <span class="n">axi_num_cmp</span>
+</pre>
 </div>
 
 
@@ -442,10 +464,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="internals.html" class="btn btn-neutral float-right" title="Design Internals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="struct_xf_codec_hls_compInfo.html" class="btn btn-neutral float-right" title="struct xf::codec::hls_compInfo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../release.html" class="btn btn-neutral float-left" title="Release Note" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="enum_xf_codec_COLOR_FORMAT.html" class="btn btn-neutral float-left" title="enum xf::codec::COLOR_FORMAT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

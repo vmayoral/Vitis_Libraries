@@ -56,8 +56,8 @@
   <link rel="stylesheet" href="../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="JPEG-XL Encoder" href="jpegxlEnc.html" />
-    <link rel="prev" title="Benchmark" href="results.html" /> 
+    <link rel="next" title="PIK Encoder" href="pikEnc.html" />
+    <link rel="prev" title="Benchmark" href="../benchmark.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -77,7 +77,7 @@
 															<div class="logo-column">
 																<div class="logo">
 																	<a href="https://www.xilinx.com/">
-																	<img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc"/>
+																	<img src="https://github.com/Xilinx/Image-Collateral/blob/main/xilinx-header-logo.svg?raw=true" title="Xilinx Inc"/>
 																	</a>
 																</div>
 															</div>
@@ -295,7 +295,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Graph Library
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Vitis Codec Library
           
 
           
@@ -305,7 +305,7 @@
             
             
               <div class="version">
-                2020.2
+                2021.1
               </div>
             
           
@@ -337,20 +337,35 @@
 <li class="toctree-l1"><a class="reference internal" href="../overview.html#trademark-notice">Trademark Notice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
 </ul>
+<p class="caption"><span class="caption-text">L1 User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/api.html">API Document</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/internals.html">Design Internals</a></li>
+</ul>
+<p class="caption"><span class="caption-text">L2 User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/api.html">API Document</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/internals.html">Design Internals</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Benchmark</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="results.html">Benchmark</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="results.html#pictures">Pictures</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="results.html#performance">Performance</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../benchmark.html">Benchmark</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../benchmark.html#pictures">Pictures</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../benchmark.html#performance">Performance</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="jpegHuffmanDecoderIP.html">JPEG Huffman Decoder</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">JPEG Decoder</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#executable-usage">Executable Usage</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#profiling">Profiling</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="jpegxlEnc.html">JPEG-XL Encoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pikEnc.html">PIK Encoder</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="results.html#test-overview">Test Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benchmark.html#test-overview">Test Overview</a></li>
 </ul>
 </li>
 </ul>
@@ -369,7 +384,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Vitis Graph Library</a>
+          <a href="../index.html">Vitis Codec Library</a>
         
       </nav>
 
@@ -400,7 +415,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="results.html">Benchmark</a> &raquo;</li>
+          <li><a href="../benchmark.html">Benchmark</a> &raquo;</li>
         
       <li>JPEG Decoder</li>
     
@@ -427,7 +442,7 @@
 <ul class="simple">
 <li><strong>Work Directory(Step 1)</strong></li>
 </ul>
-<p>The steps for library download and environment setup can be found in <a class="reference internal" href="results.html#l2-vitis-codec"><span class="std std-ref">Vitis Codec Library</span></a>. For getting the design,</p>
+<p>The steps for library download and environment setup can be found in <a class="reference internal" href="../benchmark.html#l2-vitis-codec"><span class="std std-ref">Vitis Codec Library</span></a>. For getting the design,</p>
 <pre class="highlight literal-block">
 <span></span><span class="nb">cd</span> L2/demos/jpegDec
 </pre>
@@ -436,40 +451,40 @@
 </ul>
 <p>Run the following make command to build your XCLBIN and host binary targeting a specific device. Please be noticed that this process will take a long time, maybe couple of hours.</p>
 <pre class="highlight literal-block">
-<span></span>make run <span class="nv">TARGET</span><span class="o">=</span>hw <span class="nv">DEVICE</span><span class="o">=</span>xilinx_u250_xdma_201830_2
+<span></span>make run <span class="nv">TARGET</span><span class="o">=</span>hw <span class="nv">DEVICE</span><span class="o">=</span>xilinx_u50_gen3x16_xdma_201920_3
 </pre>
 <ul class="simple">
 <li><strong>Run kernel(Step 3)</strong></li>
 </ul>
 <p>To get the benchmark results, please run the following command.</p>
 <pre class="highlight literal-block">
-<span></span>./build_dir.hw.xilinx_u250_xdma_201830_2/host.exe -xclbin build_dir.hw.xilinx_u250_xdma_201830_2/jpegDecoder.xclbin -JPEGFile android.jpg
+<span></span>./build_dir.hw.xilinx_u50_gen3x16_xdma_201920_3/host.exe -xclbin build_dir.hw.xilinx_u50_gen3x16_xdma_201920_3/jpegDecoder.xclbin -JPEGFile t0.jpg
 </pre>
 <p>JPEG Decoder Input Arguments:</p>
 <pre class="highlight literal-block">
-<span></span>Usage: host.exe -<span class="o">[</span>-xclbin -dataSetDir -refDir<span class="o">]</span>
+<span></span>Usage: host.exe -<span class="o">[</span>-xclbin -JPEGFile<span class="o">]</span>
        -xclbin:    the kernel name
        -JPEGFile:  the path point to input *.jpg
 </pre>
-<p>Note: Default arguments are set in Makefile, you can use other <a class="reference internal" href="results.html#pictures"><span class="std std-ref">Pictures</span></a> listed in the table.</p>
+<p>Note: Default arguments are set in Makefile, you can use other <a class="reference internal" href="../benchmark.html#pictures"><span class="std std-ref">Pictures</span></a> listed in the table.</p>
 <ul class="simple">
 <li><strong>Example output(Step 4)</strong></li>
 </ul>
 <pre class="highlight literal-block">
 <span></span>Found Platform
 Platform Name: Xilinx
-INFO: Found Device=xilinx_u250_xdma_201830_2
-INFO: Importing build_dir.hw.xilinx_u250_xdma_201830_2/jpegDecoder.xclbin
-Loading: &#39;build_dir.hw.xilinx_u250_xdma_201830_2/jpegDecoder.xclbin&#39;
+INFO: Found Device=xilinx_u50_gen3x16_xdma_201920_3
+INFO: Importing kernelJpegDecoder.xclbin
+Loading: &#39;kernelJpegDecoder.xclbin&#39;
 INFO: Kernel has been created
 INFO: Finish kernel setup
 ...
 
 INFO: Finish kernel execution
 INFO: Finish E2E execution
-INFO: Data transfer from host to device: 40 us
-INFO: Data transfer from device to host: 6 us
-INFO: Average kernel execution per run: 988 us
+INFO: Data transfer from host to device: 108 us
+INFO: Data transfer from device to host: 726 us
+INFO: Average kernel execution per run: 1515 us
 ...
 
 INFO: android.yuv will be generated from the jpeg decoder&#39;s output
@@ -481,37 +496,7 @@ INFO: android.yuv is generated correctly
 <p>The hardware resource utilizations are listed in the following table.
 Different tool versions may result slightly different resource.</p>
 <table border="1" class="docutils align-center" id="id1">
-<caption><span class="caption-text">Table 1 IP resources for jpegDecoder with jfif parser and huffman decoder</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col width="26%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="10%" />
-<col width="19%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>IP</td>
-<td>BRAM</td>
-<td>URAM</td>
-<td>DSP</td>
-<td>FF</td>
-<td>LUT</td>
-<td>Frequency(MHz)</td>
-</tr>
-<tr class="row-even"><td>kernel_parser_decoder</td>
-<td>5</td>
-<td>0</td>
-<td>12</td>
-<td>7615</td>
-<td>8382</td>
-<td>257</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="docutils align-center" id="id2">
-<caption><span class="caption-text">Table 2 Hardware resources for jpegDecoder with jfif parser, huffman decoder, idct</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-text">Table 1 Hardware resources for jpegDecoder with jfif parser, huffman decoder, IQ&amp;IDCT</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="26%" />
 <col width="11%" />
@@ -531,19 +516,37 @@ Different tool versions may result slightly different resource.</p>
 <td>Frequency(MHz)</td>
 </tr>
 <tr class="row-even"><td>jpegDecoder</td>
-<td>7</td>
+<td>28</td>
 <td>0</td>
 <td>39</td>
-<td>12298</td>
-<td>13417</td>
-<td>257</td>
+<td>23653</td>
+<td>24591</td>
+<td>243</td>
 </tr>
 </tbody>
 </table>
 <p>To check the output yuv file, download <a class="reference external" href="https://sourceforge.net/projects/raw-yuvplayer/">https://sourceforge.net/projects/raw-yuvplayer/</a> .
 Then upload the rebuild_image.yuv, set the right sample radio and custom size on the software, and check the yuv file.</p>
-<p>Table 3 : Jpeg Decoder profiling</p>
-<a class="reference internal image-reference" href="../_images/jpegDecoderpofile.png"><img alt="Resource utilization of SingleSourceShortestPath" class="align-center" src="../_images/jpegDecoderpofile.png" style="width: 70%;" /></a>
+<table border="1" class="docutils align-center" id="id2">
+<caption><span class="caption-text">Table 2 Profiling for jpegDecoder kernel</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="56%" />
+<col width="44%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Picture</th>
+<th class="head">Latency(ms)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>android.jpg</td>
+<td>1.515</td>
+</tr>
+<tr class="row-odd"><td>t0.jpg</td>
+<td>0.790</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <div class="last line-block">
@@ -572,10 +575,10 @@ Then upload the rebuild_image.yuv, set the right sample radio and custom size on
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="jpegxlEnc.html" class="btn btn-neutral float-right" title="JPEG-XL Encoder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="pikEnc.html" class="btn btn-neutral float-right" title="PIK Encoder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="results.html" class="btn btn-neutral float-left" title="Benchmark" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../benchmark.html" class="btn btn-neutral float-left" title="Benchmark" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -678,7 +681,7 @@ Then upload the rebuild_image.yuv, set the right sample radio and custom size on
 														<div class="col-md-pull-6 col-lg-pull-6 col-md-6 col-lg-6">
 															<span class="copyright">
                                   
-                                  &copy; 2020, Xilinx Inc.
+                                  &copy; 2021, Xilinx Inc.
                               </span>
 															<ul class="list-inline sub-menu">
 																<li>

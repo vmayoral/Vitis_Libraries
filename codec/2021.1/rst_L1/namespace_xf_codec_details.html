@@ -56,8 +56,8 @@
   <link rel="stylesheet" href="../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Design Internals" href="internals.html" />
-    <link rel="prev" title="Release Note" href="../release.html" /> 
+    <link rel="next" title="enum xf::codec::COLOR_FORMAT" href="enum_xf_codec_COLOR_FORMAT.html" />
+    <link rel="prev" title="namespace codec" href="namespace_xf_codec.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -338,17 +338,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L1 User Guide</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Document</a><ul class="simple">
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/api.html">API Document</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="internals.html">Design Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/internals.html">Design Internals</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L2 User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../guide_L2/demo.html">API Document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/api.html">API Document</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/internals.html">Design Internals</a></li>
@@ -403,7 +401,11 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>API Document</li>
+          <li><a href="../guide_L1/api.html">API Document</a> &raquo;</li>
+        
+          <li><a href="namespace_xf_codec.html">namespace codec</a> &raquo;</li>
+        
+      <li>namespace details</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -420,9 +422,120 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="api-document">
-<h1>API Document<a class="headerlink" href="#api-document" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="namespace-details">
+<span id="cid-xf-codec-details"></span><span id="doxid-namespacexf-1-1codec-1-1details"></span><span id="index-0"></span><h1>namespace details<a class="headerlink" href="#namespace-details" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-codec-details-decoder-jpg-top">
+<span id="doxid-namespacexf-1-1codec-1-1details-1a3c7b910b16edc386bd344875e6aa99d8"></span><span id="cid-xf-codec-details-parser-jpg-top"></span><span id="doxid-namespacexf-1-1codec-1-1details-1a04b7a0213b0cd9b9cdf326545c2dfcc6"></span>
+</pre>
+<div class="section" id="mcu-decoder">
+<span id="cid-xf-codec-details-mcu-decoder"></span><span id="doxid-namespacexf-1-1codec-1-1details-1a0fdbcd8c5ae520201b5c5dba66f7765e"></span><h2>mcu_decoder<a class="headerlink" href="#mcu-decoder" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;XAcc_jpegdecoder.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">mcu_decoder</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><a class="reference internal" href="global.html#doxid-x-acc-jpegdecoder-8hpp-1a1719c471bf3775cb68b5c7a8cb7d26d2"><span class="std std-ref">CHType</span></a><span></span><span class="o">&gt;&amp;</span> <span class="n">image_strm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">eof_strm</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">uint16_t</span> <span class="n">dht_tbl1</span> <span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">9</span><span class="p">)],</span>
+    <span class="k">const</span> <span class="kt">uint16_t</span> <span class="n">dht_tbl2</span> <span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">12</span><span class="o">&gt;</span> <span class="n">hls_cmp</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">uint8_t</span> <span class="n">hls_cs_cmpc</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">uint8_t</span> <span class="n">hls_mbs</span> <span class="p">[(</span><span class="mi">3</span><span class="p">)],</span>
+    <span class="k">const</span> <span class="kt">uint16_t</span> <span class="n">hls_mcuh</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">hls_mcuc</span><span class="p">,</span>
+    <span class="kt">bool</span><span class="o">&amp;</span> <span class="n">rtn2</span><span class="p">,</span>
+    <span class="kt">uint32_t</span><span class="o">&amp;</span> <span class="n">rst_cnt</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">24</span><span class="o">&gt;&gt;&amp;</span> <span class="n">block_strm</span>
+    <span class="p">)</span>
+</pre>
+<p>Level 1 : decode all mcu.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>CH_W</td>
+<td>size of data path in dataflow region, in bit. when CH_W is 16, the decoder could decode one symbol per cycle in about 99% cases. when CH_W is 8 , the decoder could decode one symbol per cycle in about 80% cases, but use less resource.</td>
+</tr>
+<tr class="row-even"><td>image_strm</td>
+<td>the stream of compressed data after SOS marker.</td>
+</tr>
+<tr class="row-odd"><td>eof_strm</td>
+<td>the stream of end flag for image_strm, synchronous signal using false and an addtional true in the end.</td>
+</tr>
+<tr class="row-even"><td>dht_tbl1/dht_tbl2</td>
+<td>the segment data of Define huffman table marker.</td>
+</tr>
+<tr class="row-odd"><td>hls_cmp</td>
+<td>the shift register organized by the index of each color component.</td>
+</tr>
+<tr class="row-even"><td>image</td>
+<td>info include hls_cs_cmpc/hls_mbs/hls_mcuh/hls_mcuc is just for csim tests.</td>
+</tr>
+<tr class="row-odd"><td>block_strm</td>
+<td>the stream of coefficients in block,23:is_rst, 22:is_endblock,21~16:bpos,15~0:block val</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hls-next-mcupos2">
+<span id="cid-xf-codec-details-hls-next-mcupos2"></span><span id="doxid-namespacexf-1-1codec-1-1details-1a7687212f9ce2ff9341e6e65accb0b8ce"></span><h2>hls_next_mcupos2<a class="headerlink" href="#hls-next-mcupos2" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;XAcc_jpegdecoder.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">hls_next_mcupos2</span> <span class="p">(</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">24</span><span class="o">&gt;&gt;&amp;</span> <span class="n">block_strm</span><span class="p">,</span>
+    <span class="kt">int16_t</span> <span class="n">hls_block</span> <span class="p">[(</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1036800</span><span class="p">)</span><span class="o">*</span><span class="mi">64</span><span class="p">],</span>
+    <span class="kt">int</span> <span class="n">hls_sfv</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+    <span class="kt">int</span> <span class="n">hls_sfh</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+    <span class="k">const</span> <span class="kt">uint8_t</span> <span class="n">hls_mbs</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+    <span class="kt">int</span> <span class="n">hls_bch</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">hls_bc</span><span class="p">,</span>
+    <span class="kt">int32_t</span> <span class="n">hls_mcuc</span><span class="p">,</span>
+    <span class="kt">uint8_t</span> <span class="n">hls_cs_cmpc</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">rtn2</span><span class="p">,</span>
+    <span class="kt">int</span><span class="o">&amp;</span> <span class="n">sta</span>
+    <span class="p">)</span>
+</pre>
+<p>convert strm to Aligned_block</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>block_strm</td>
+<td>the stream of coefficients in block,23:is_rst, 22:is_endblock,21~16:bpos,15~0:block val</td>
+</tr>
+<tr class="row-even"><td>hls_block</td>
+<td>the maxsize block, will be copy to the aligned_block</td>
+</tr>
+<tr class="row-odd"><td>hls_sfv</td>
+<td>the sample factor vertical for each component</td>
+</tr>
+<tr class="row-even"><td>hls_sfh</td>
+<td>the sample factor horizontal for each component</td>
+</tr>
+<tr class="row-odd"><td>hls_mbs</td>
+<td>the blocks in mcu for each component.</td>
+</tr>
+<tr class="row-even"><td>hls_bch</td>
+<td>the max block count horizontal (interleaved)</td>
+</tr>
+<tr class="row-odd"><td>hls_bc</td>
+<td>the max block count (all) (interleaved)</td>
+</tr>
+<tr class="row-even"><td>sta</td>
+<td>the status of the process, 0: keep doing, 1: reset decoder(todo), 2: decode done</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -442,10 +555,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="internals.html" class="btn btn-neutral float-right" title="Design Internals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="enum_xf_codec_COLOR_FORMAT.html" class="btn btn-neutral float-right" title="enum xf::codec::COLOR_FORMAT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../release.html" class="btn btn-neutral float-left" title="Release Note" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="namespace_xf_codec.html" class="btn btn-neutral float-left" title="namespace codec" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

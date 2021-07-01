@@ -55,9 +55,7 @@
   <link rel="stylesheet" href="../_static/css/header-footer.min.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Design Internals" href="internals.html" />
-    <link rel="prev" title="Release Note" href="../release.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -338,17 +336,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L1 User Guide</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Document</a><ul class="simple">
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/api.html">API Document</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="internals.html">Design Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/internals.html">Design Internals</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L2 User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../guide_L2/demo.html">API Document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/api.html">API Document</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/internals.html">Design Internals</a></li>
@@ -403,7 +399,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>API Document</li>
+      <li>struct ConfigKernel3</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -420,10 +416,33 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="api-document">
-<h1>API Document<a class="headerlink" href="#api-document" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="struct-configkernel3">
+<span id="cid-configkernel3"></span><span id="doxid-struct-config-kernel3"></span><span id="index-0"></span><h1>struct ConfigKernel3<a class="headerlink" href="#struct-configkernel3" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;XAccPIKKernel3.hpp&quot;</span>
+</pre>
+<pre class="highlight overview-code-block literal-block" id="cid-configkernel3-num-ac">
+<span id="doxid-struct-config-kernel3-1a9c5a59d67299b5121eec7e00495e0bba"></span><span id="cid-configkernel3-num-dc"></span><span id="doxid-struct-config-kernel3-1a4588125e591e624fab8b3ab5570c825b"></span><span id="cid-configkernel3-dc-group"></span><span id="doxid-struct-config-kernel3-1a7ec2e53468a47bfd2a562eed43a65147"></span><span id="cid-configkernel3-ac-group"></span><span id="doxid-struct-config-kernel3-1acfe60f88d7d259f3e04a5e1ac12880cb"></span><span id="cid-configkernel3-dc-ygroup"></span><span id="doxid-struct-config-kernel3-1a8b68a810534c2e7a7db950ab9f068c29"></span><span id="cid-configkernel3-dc-xgroup"></span><span id="doxid-struct-config-kernel3-1ac1ef1755092c52dcf3e4adb358777ed5"></span><span id="cid-configkernel3-ac-ygroup"></span><span id="doxid-struct-config-kernel3-1abb5ce539da32442249dcef60f531d1fe"></span><span id="cid-configkernel3-ac-xgroup"></span><span id="doxid-struct-config-kernel3-1a145c1e4a0eb50e755d737d29bea53d06"></span><span id="cid-configkernel3-yblock64"></span><span id="doxid-struct-config-kernel3-1a8d668449fabda7d7991889e72b0eaec6"></span><span id="cid-configkernel3-xblock64"></span><span id="doxid-struct-config-kernel3-1a283c0cae724265958f5355ef8f725cd9"></span><span id="cid-configkernel3-yblock32"></span><span id="doxid-struct-config-kernel3-1ac55fdc6697a9ba8ed5479387e3ee3760"></span><span id="cid-configkernel3-xblock32"></span><span id="doxid-struct-config-kernel3-1a2a398a5e991cfcd876226dc8fddcc690"></span><span id="cid-configkernel3-yblock8"></span><span id="doxid-struct-config-kernel3-1a70088fb30a1e0edd8d2147e2a8f2d21c"></span><span id="cid-configkernel3-xblock8"></span><span id="doxid-struct-config-kernel3-1a9bc2b0e4e8ef83c086784a4acb8bfa59"></span><span id="cid-configkernel3-ysize"></span><span id="doxid-struct-config-kernel3-1a0817349d80d7ed7a4230ca0b47ab78e0"></span><span id="cid-configkernel3-xsize"></span><span id="doxid-struct-config-kernel3-1a30587cf4ee65a4a5b954c19a63247c67"></span><span></span><span class="c1">// fields</span>
+
+<span class="kt">uint32_t</span> <span class="n">xsize</span>
+<span class="kt">uint32_t</span> <span class="n">ysize</span>
+<span class="kt">uint32_t</span> <span class="n">xblock8</span>
+<span class="kt">uint32_t</span> <span class="n">yblock8</span>
+<span class="kt">uint32_t</span> <span class="n">xblock32</span>
+<span class="kt">uint32_t</span> <span class="n">yblock32</span>
+<span class="kt">uint32_t</span> <span class="n">xblock64</span>
+<span class="kt">uint32_t</span> <span class="n">yblock64</span>
+<span class="kt">uint32_t</span> <span class="n">ac_xgroup</span>
+<span class="kt">uint32_t</span> <span class="n">ac_ygroup</span>
+<span class="kt">uint32_t</span> <span class="n">dc_xgroup</span>
+<span class="kt">uint32_t</span> <span class="n">dc_ygroup</span>
+<span class="kt">uint32_t</span> <span class="n">ac_group</span>
+<span class="kt">uint32_t</span> <span class="n">dc_group</span>
+<span class="kt">uint32_t</span> <span class="n">num_dc</span>
+<span class="kt">uint32_t</span> <span class="n">num_ac</span>
+</pre>
 </div>
 
 
@@ -439,15 +458,6 @@
 
 
 	  <!-- Sphinx Page Footer block -->
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="internals.html" class="btn btn-neutral float-right" title="Design Internals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../release.html" class="btn btn-neutral float-left" title="Release Note" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

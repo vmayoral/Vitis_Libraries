@@ -76,7 +76,7 @@
 															<div class="logo-column">
 																<div class="logo">
 																	<a href="https://www.xilinx.com/">
-																	<img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc"/>
+																	<img src="https://github.com/Xilinx/Image-Collateral/blob/main/xilinx-header-logo.svg?raw=true" title="Xilinx Inc"/>
 																	</a>
 																</div>
 															</div>
@@ -294,7 +294,7 @@
           
 
           
-            <a href="#" class="icon icon-home" alt="Documentation Home"> Vitis Graph Library
+            <a href="#" class="icon icon-home" alt="Documentation Home"> Vitis Codec Library
           
 
           
@@ -304,7 +304,7 @@
             
             
               <div class="version">
-                2020.2
+                2021.1
               </div>
             
           
@@ -336,9 +336,23 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html#trademark-notice">Trademark Notice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release.html">Release Note</a></li>
 </ul>
+<p class="caption"><span class="caption-text">L1 User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L1/api.html">API Document</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L1/internals.html">Design Internals</a></li>
+</ul>
+<p class="caption"><span class="caption-text">L2 User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L2/api.html">API Document</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L2/internals.html">Design Internals</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Benchmark</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="benchmark/results.html">Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">Benchmark</a></li>
 </ul>
 
             
@@ -355,7 +369,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">Vitis Graph Library</a>
+          <a href="#">Vitis Codec Library</a>
         
       </nav>
 
@@ -409,7 +423,7 @@
 <p>Currently, this includes the following algorithm implementation:</p>
 <ul class="simple">
 <li>JPEG Decoder: “JPEG” stands for Joint Photographic Experts Group, the name of the committee that created the JPEG standard and also other still picture coding standards.</li>
-<li>JPEG-XL: JPEG XL is a raster-graphics file format that supports both lossy and lossless compression. It is designed to outperform existing raster formats and thus to become their universal replacement.</li>
+<li>PIK Encoder: PIK is the prototype of JPEG XL, which is a raster-graphics file format supporting both lossy and lossless compression. It is designed to outperform existing raster formats and thus to become their universal replacement.</li>
 </ul>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Library Overview</span></p>
@@ -421,17 +435,50 @@
 </ul>
 </div>
 <div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">L1 User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L1/api.html">API Document</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst_L1/namespace_xf_codec.html">namespace codec</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rst_L1/namespace_xf_codec.html#kernelparserdecodertop">kernelParserDecoderTop</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </div>
 <div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L1/internals.html">Design Internals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_L1/IPs/jpegHuffmanDecoder.html">Internal Design of jpegHuffmanDecoder</a></li>
+</ul>
+</li>
+</ul>
 </div>
 <div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">L2 User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L2/api.html">API Document</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst_L2/namespace_xf_codec.html">namespace codec</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rst_L2/namespace_xf_codec.html#kerneljpegdecodertop">kernelJpegDecoderTop</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </div>
 <div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L2/internals.html">Design Internals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_L2/kernels/jpegDecoder.html">Internal Design of jpegDecoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_L2/kernels/pikEnc.html">PIK Encoder</a></li>
+</ul>
+</li>
+</ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Benchmark</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="benchmark/results.html">Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">Benchmark</a></li>
 </ul>
 </div>
 <div class="section" id="indices-and-tables">
@@ -563,7 +610,7 @@
 														<div class="col-md-pull-6 col-lg-pull-6 col-md-6 col-lg-6">
 															<span class="copyright">
                                   
-                                  &copy; 2020, Xilinx Inc.
+                                  &copy; 2021, Xilinx Inc.
                               </span>
 															<ul class="list-inline sub-menu">
 																<li>

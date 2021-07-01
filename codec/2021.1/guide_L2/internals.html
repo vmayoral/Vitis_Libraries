@@ -56,8 +56,8 @@
   <link rel="stylesheet" href="../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Design Internals" href="internals.html" />
-    <link rel="prev" title="Release Note" href="../release.html" /> 
+    <link rel="next" title="Internal Design of jpegDecoder" href="kernels/jpegDecoder.html" />
+    <link rel="prev" title="struct xf::codec::sos_data" href="../rst_L2/struct_xf_codec_sos_data.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -338,20 +338,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L1 User Guide</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Document</a><ul class="simple">
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/api.html">API Document</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="internals.html">Design Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/internals.html">Design Internals</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L2 User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../guide_L2/demo.html">API Document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Document</a></li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../guide_L2/internals.html">Design Internals</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Design Internals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kernels/jpegDecoder.html">Internal Design of jpegDecoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kernels/pikEnc.html">PIK Encoder</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Benchmark</span></p>
 <ul>
@@ -403,7 +405,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>API Document</li>
+      <li>Design Internals</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -420,9 +422,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="api-document">
-<h1>API Document<a class="headerlink" href="#api-document" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="design-internals">
+<h1>Design Internals<a class="headerlink" href="#design-internals" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="kernels/jpegDecoder.html">Internal Design of jpegDecoder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kernels/pikEnc.html">PIK Encoder</a></li>
+</ul>
 </div>
 </div>
 
@@ -442,10 +448,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="internals.html" class="btn btn-neutral float-right" title="Design Internals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="kernels/jpegDecoder.html" class="btn btn-neutral float-right" title="Internal Design of jpegDecoder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../release.html" class="btn btn-neutral float-left" title="Release Note" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../rst_L2/struct_xf_codec_sos_data.html" class="btn btn-neutral float-left" title="struct xf::codec::sos_data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

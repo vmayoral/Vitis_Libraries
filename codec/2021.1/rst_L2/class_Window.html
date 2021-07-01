@@ -55,9 +55,7 @@
   <link rel="stylesheet" href="../_static/css/header-footer.min.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Design Internals" href="internals.html" />
-    <link rel="prev" title="Release Note" href="../release.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -338,17 +336,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L1 User Guide</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Document</a><ul class="simple">
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/api.html">API Document</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="internals.html">Design Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/internals.html">Design Internals</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L2 User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../guide_L2/demo.html">API Document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/api.html">API Document</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/internals.html">Design Internals</a></li>
@@ -403,7 +399,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>API Document</li>
+      <li>template class Window</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -420,10 +416,26 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="api-document">
-<h1>API Document<a class="headerlink" href="#api-document" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="template-class-window">
+<span id="cid-window"></span><span id="doxid-class-window"></span><span id="index-0"></span><h1>template class Window<a class="headerlink" href="#template-class-window" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;resize_mem.hpp&quot;</span>
+</pre>
+<pre class="highlight overview-code-block literal-block" id="cid-window-window-print">
+<span id="doxid-class-window-1a360453097b61cb1477ef8d97fb67616c"></span><span id="cid-window-restore-val"></span><span id="doxid-class-window-1a2e9094d84017e77beb57bb2a199084d0"></span><span id="cid-window-insert-right"></span><span id="doxid-class-window-1aa2401b1648aed9c3f59ae89bcd2a4424"></span><span id="cid-window-insert-left"></span><span id="doxid-class-window-1a1a934310b65901cc7f02839788c3dffe"></span><span id="cid-window-insert-bottom"></span><span id="doxid-class-window-1a06129267e26bba03c0d2e1da3794ee88"></span><span id="cid-window-insert-top"></span><span id="doxid-class-window-1a098a695cf5f236be3d46f686f91a1487"></span><span id="cid-window-insert"></span><span id="doxid-class-window-1a1be88e41b7cdd2849cbd63132cab27f8"></span><span id="cid-window-shift-down"></span><span id="doxid-class-window-1a5f37e05cf6bd653a886adb42db4f7afe"></span><span id="cid-window-shift-up"></span><span id="doxid-class-window-1aa276b9686e24f291ec2b935cafba4e44"></span><span id="cid-window-shift-right"></span><span id="doxid-class-window-1a13dbd6df288d252582e9377d6308cd41"></span><span id="cid-window-shift-left"></span><span id="doxid-class-window-1a13e4fa951622184f47f3dc317f72a762"></span><span id="cid-window-operator"></span><span id="doxid-class-window-1af0912b38c0e5e20a1a08489c36c4d1be"></span><span id="cid-window-getval"></span><span id="doxid-class-window-1a92a086851665c0d4d7708bbd967be9e7"></span><span id="cid-window-copy-one-col"></span><span id="doxid-class-window-1a46b420e709ba83ee9437f15551dca5a0"></span><span id="cid-window-copy-one-row"></span><span id="doxid-class-window-1a8eae9eaa62f5262a8c96d3cd023b77ac"></span><span id="cid-window-insert-right-col"></span><span id="doxid-class-window-1ae37093fbbe4a92c107e0fb9101581d5b"></span><span id="cid-window-insert-left-col"></span><span id="doxid-class-window-1a76e134d5aee75f14ee5647c65d1155e3"></span><span id="cid-window-insert-col"></span><span id="doxid-class-window-1a20da07b36e031e6de8a192f0c04a498f"></span><span id="cid-window-insert-bottom-row"></span><span id="doxid-class-window-1a9a8d210f315db31b0904e9e16c012af2"></span><span id="cid-window-insert-top-row"></span><span id="doxid-class-window-1a95d69685ef74aad6cac56abfb400cd65"></span><span id="cid-window-insert-row"></span><span id="doxid-class-window-1a15416699693847ac9cf198dd2458b3f2"></span><span id="cid-window-insert-pixel"></span><span id="doxid-class-window-1ae02cc0bc7d3cae3ce95f586ec77b0a01"></span><span id="cid-window-shift-diagonal"></span><span id="doxid-class-window-1ac05bab79a100aeff7268d3b914f42be4"></span><span id="cid-window-shift-pixels-down"></span><span id="doxid-class-window-1a4ec8dc1298d94af216dbfb80831e3005"></span><span id="cid-window-shift-pixels-up"></span><span id="doxid-class-window-1a5a1e2a6ad290ba58c0cc1cc9ef296391"></span><span id="cid-window-shift-pixels-right"></span><span id="doxid-class-window-1a7decd62c247ef765a31d0bec6c00215f"></span><span id="cid-window-shift-pixels-left"></span><span id="doxid-class-window-1a0c074ac3f622d4f1fdcec02037036748"></span><span id="cid-window-window"></span><span id="doxid-class-window-1a850834831a8814a5dbed4ad1cd9e5777"></span><span id="cid-window-val-t"></span><span id="doxid-class-window-1a8861a3c787ad84355e3d6ecd5a0e8df8"></span><span id="cid-window-val"></span><span id="doxid-class-window-1a094cd772a92546e7d30f02f421956d18"></span><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">ROWS</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">COLS</span><span class="p">,</span>
+    <span class="k">typename</span> <span class="n">T</span>
+    <span class="o">&gt;</span>
+<span class="k">class</span> <span class="n">Window</span>
+
+<span class="c1">// fields</span>
+
+<span class="n">T</span> <span class="n">val</span><span class="p">[</span><span class="n">ROWS</span><span class="p">][</span><span class="n">COLS</span><span class="p">]</span>
+<span class="n">T</span> <span class="n">val_t</span><span class="p">[</span><span class="n">ROWS</span><span class="p">][</span><span class="n">COLS</span><span class="p">]</span>
+</pre>
 </div>
 
 
@@ -439,15 +451,6 @@
 
 
 	  <!-- Sphinx Page Footer block -->
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="internals.html" class="btn btn-neutral float-right" title="Design Internals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../release.html" class="btn btn-neutral float-left" title="Release Note" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

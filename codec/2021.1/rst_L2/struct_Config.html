@@ -55,9 +55,7 @@
   <link rel="stylesheet" href="../_static/css/header-footer.min.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Design Internals" href="internals.html" />
-    <link rel="prev" title="Release Note" href="../release.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -338,17 +336,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L1 User Guide</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Document</a><ul class="simple">
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/api.html">API Document</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="internals.html">Design Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/internals.html">Design Internals</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L2 User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../guide_L2/demo.html">API Document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/api.html">API Document</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/internals.html">Design Internals</a></li>
@@ -403,7 +399,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>API Document</li>
+      <li>struct Config</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -420,10 +416,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="api-document">
-<h1>API Document<a class="headerlink" href="#api-document" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="struct-config">
+<span id="cid-config"></span><span id="doxid-struct-config"></span><span id="index-0"></span><h1>struct Config<a class="headerlink" href="#struct-config" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;XAccPIKKernel2.hpp&quot;</span>
+</pre>
+<pre class="highlight overview-code-block literal-block" id="cid-config-src-offset">
+<span id="doxid-struct-config-1a29d9b81d620d1b476f1a7cb8869b8bec"></span><span id="cid-config-src-num"></span><span id="doxid-struct-config-1af718c212adbb256c3ca8cf9fcb0b337a"></span><span id="cid-config-quant-dc"></span><span id="doxid-struct-config-1ad5117e8a998f84791afb2ad984240251"></span><span id="cid-config-intensity-multiplier"></span><span id="doxid-struct-config-1a5a97806f810f7ffffec873b931400004"></span><span id="cid-config-butteraugli-target"></span><span id="doxid-struct-config-1aaa24e24e6034ac056de9e8e900979316"></span><span id="cid-config-kmulinhomogeneity32x32"></span><span id="doxid-struct-config-1a4b3503536f6138435eaf6ea3c3331dc4"></span><span id="cid-config-kmulinhomogeneity16x16"></span><span id="doxid-struct-config-1a3073dfb6742a6321a793276f9500be31"></span><span id="cid-config-discretization-factor"></span><span id="doxid-struct-config-1a3e20b9ec554848bd13f6a7c4e706e17a"></span><span id="cid-config-kchooseacstrategy"></span><span id="doxid-struct-config-1a9556289bcbb50e4f5ee2ce1f55eaef94"></span><span id="cid-config-out-quant-field-num"></span><span id="doxid-struct-config-1a0628847c49add4d83d037dd3c2a8c357"></span><span id="cid-config-acs-num"></span><span id="doxid-struct-config-1a010719865455faf1f2160873f02dd3de"></span><span id="cid-config-dc-num"></span><span id="doxid-struct-config-1ac3f78cf2d3be88dcd27f3b9e09cb014b"></span><span id="cid-config-ac-num"></span><span id="doxid-struct-config-1a74e164b0f06771154e0e6ab420331d3c"></span><span id="cid-config-cmap-num1"></span><span id="doxid-struct-config-1ade7ec232e821da5f061c1aa7ed23f58e"></span><span id="cid-config-cmap-num0"></span><span id="doxid-struct-config-1a9bb418fbb02cd0fb107e687c0275f6bd"></span><span id="cid-config-in-quant-field-num"></span><span id="doxid-struct-config-1aff763b447b76ba75165526586cac907a"></span><span id="cid-config-ygroup"></span><span id="doxid-struct-config-1a8ce1445b414d2d1b7571d2d4a14a5a99"></span><span id="cid-config-xgroup"></span><span id="doxid-struct-config-1abc42b7f5da424a1406ee411b1737e39b"></span><span id="cid-config-yblock32"></span><span id="doxid-struct-config-1a729c06abc45febaf11b6de61b79f1aff"></span><span id="cid-config-xblock32"></span><span id="doxid-struct-config-1a0fb1e1618d211b1ff547aaa52cd02f3a"></span><span id="cid-config-yblock8"></span><span id="doxid-struct-config-1a8c317d0116706e8e0c5359339bb59b88"></span><span id="cid-config-xblock8"></span><span id="doxid-struct-config-1aabb87809d36fa4aba5bab5522001c239"></span><span id="cid-config-ysize"></span><span id="doxid-struct-config-1abf3369d34062b3ef888aa24605ce2c77"></span><span id="cid-config-xsize"></span><span id="doxid-struct-config-1a7e2274271df27d581dba1f879a630061"></span><span></span><span class="c1">// fields</span>
+
+<span class="kt">uint32_t</span> <span class="n">xsize</span>
+<span class="kt">uint32_t</span> <span class="n">ysize</span>
+<span class="kt">uint32_t</span> <span class="n">xblock8</span>
+<span class="kt">uint32_t</span> <span class="n">yblock8</span>
+<span class="kt">uint32_t</span> <span class="n">xblock32</span>
+<span class="kt">uint32_t</span> <span class="n">yblock32</span>
+<span class="kt">uint32_t</span> <span class="n">xgroup</span>
+<span class="kt">uint32_t</span> <span class="n">ygroup</span>
+<span class="kt">int</span> <span class="n">in_quant_field_num</span>
+<span class="kt">int</span> <span class="n">cmap_num0</span>
+<span class="kt">int</span> <span class="n">cmap_num1</span>
+<span class="kt">int</span> <span class="n">ac_num</span>
+<span class="kt">int</span> <span class="n">dc_num</span>
+<span class="kt">int</span> <span class="n">acs_num</span>
+<span class="kt">int</span> <span class="n">out_quant_field_num</span>
+<span class="kt">bool</span> <span class="n">kChooseAcStrategy</span>
+<span class="kt">float</span> <span class="n">discretization_factor</span>
+<span class="kt">float</span> <span class="n">kMulInhomogeneity16x16</span>
+<span class="kt">float</span> <span class="n">kMulInhomogeneity32x32</span>
+<span class="kt">float</span> <span class="n">butteraugli_target</span>
+<span class="kt">float</span> <span class="n">intensity_multiplier</span>
+<span class="kt">float</span> <span class="n">quant_dc</span>
+<span class="kt">int</span> <span class="n">src_num</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="kt">int</span> <span class="n">src_offset</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre>
 </div>
 
 
@@ -439,15 +466,6 @@
 
 
 	  <!-- Sphinx Page Footer block -->
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="internals.html" class="btn btn-neutral float-right" title="Design Internals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../release.html" class="btn btn-neutral float-left" title="Release Note" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

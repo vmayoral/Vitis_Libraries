@@ -55,9 +55,7 @@
   <link rel="stylesheet" href="../_static/css/header-footer.min.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Design Internals" href="internals.html" />
-    <link rel="prev" title="Release Note" href="../release.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -338,17 +336,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L1 User Guide</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Document</a><ul class="simple">
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/api.html">API Document</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="internals.html">Design Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/internals.html">Design Internals</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L2 User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../guide_L2/demo.html">API Document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/api.html">API Document</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/internals.html">Design Internals</a></li>
@@ -403,7 +399,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>API Document</li>
+      <li>struct Quantizer</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -420,10 +416,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="api-document">
-<h1>API Document<a class="headerlink" href="#api-document" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="struct-quantizer">
+<span id="cid-quantizer"></span><span id="doxid-struct-quantizer"></span><span id="index-0"></span><h1>struct Quantizer<a class="headerlink" href="#struct-quantizer" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;XAccPIKKernel2.hpp&quot;</span>
+</pre>
+<pre class="highlight overview-code-block literal-block" id="cid-quantizer-inv-quant-dc">
+<span id="doxid-struct-quantizer-1a2e9ade928e127041b053617414a8ef05"></span><span id="cid-quantizer-inv-global-scale"></span><span id="doxid-struct-quantizer-1a7e76ac6e77562615c608b714317501e6"></span><span id="cid-quantizer-global-scale-float"></span><span id="doxid-struct-quantizer-1a00f93adb56ccdd22c267e9552c1e1418"></span><span id="cid-quantizer-global-scale"></span><span id="doxid-struct-quantizer-1a97ae38802f0ed9ad379a6379199998d9"></span><span id="cid-quantizer-quant-dc"></span><span id="doxid-struct-quantizer-1a5ae3f1cb9a693ec3fdea8875ae567e62"></span><span></span><span class="c1">// fields</span>
+
+<span class="kt">int</span> <span class="n">quant_dc</span>
+<span class="kt">int</span> <span class="n">global_scale</span>
+<span class="kt">float</span> <span class="n">global_scale_float</span>
+<span class="kt">float</span> <span class="n">inv_global_scale</span>
+<span class="kt">float</span> <span class="n">inv_quant_dc</span>
+</pre>
 </div>
 
 
@@ -439,15 +447,6 @@
 
 
 	  <!-- Sphinx Page Footer block -->
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="internals.html" class="btn btn-neutral float-right" title="Design Internals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../release.html" class="btn btn-neutral float-left" title="Release Note" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

@@ -56,8 +56,8 @@
   <link rel="stylesheet" href="../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Design Internals" href="internals.html" />
-    <link rel="prev" title="Release Note" href="../release.html" /> 
+    <link rel="next" title="API Document" href="../guide_L2/api.html" />
+    <link rel="prev" title="Internal Design of jpegHuffmanDecoder" href="../guide_L1/IPs/jpegHuffmanDecoder.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -338,17 +338,26 @@
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L1 User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/api.html">API Document</a></li>
+</ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Document</a><ul class="simple">
+<li class="toctree-l1 current"><a class="reference internal" href="../guide_L1/internals.html">Design Internals</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../guide_L1/IPs/jpegHuffmanDecoder.html">Internal Design of jpegHuffmanDecoder</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../guide_L1/IPs/jpegHuffmanDecoder.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guide_L1/IPs/jpegHuffmanDecoder.html#implemention">Implemention</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../guide_L1/IPs/jpegHuffmanDecoder.html#profiling">Profiling</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">JPEG Huffman Decoder</a></li>
 </ul>
 </li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="internals.html">Design Internals</a></li>
+</li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">L2 User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../guide_L2/demo.html">API Document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/api.html">API Document</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/internals.html">Design Internals</a></li>
@@ -403,7 +412,11 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>API Document</li>
+          <li><a href="../guide_L1/internals.html">Design Internals</a> &raquo;</li>
+        
+          <li><a href="../guide_L1/IPs/jpegHuffmanDecoder.html">Internal Design of jpegHuffmanDecoder</a> &raquo;</li>
+        
+      <li>JPEG Huffman Decoder</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -420,9 +433,108 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="api-document">
-<h1>API Document<a class="headerlink" href="#api-document" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="jpeg-huffman-decoder">
+<span id="l1-manual-jpeg-huffman-decoder"></span><h1>JPEG Huffman Decoder<a class="headerlink" href="#jpeg-huffman-decoder" title="Permalink to this headline">¶</a></h1>
+<p>Jpeg Huffman Decoder example resides in <code class="docutils literal notranslate"><span class="pre">L1/tests/jpegDec</span></code> directory. The tutorial provides a step-by-step guide that covers commands for building and running IP.</p>
+<div class="section" id="executable-usage">
+<h2>Executable Usage<a class="headerlink" href="#executable-usage" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Work Directory(Step 1)</strong></li>
+</ul>
+<p>The steps for library download and environment setup can be found in <span class="xref std std-ref">l1_vitis_codec</span>. For getting the design,</p>
+<pre class="highlight literal-block">
+<span></span><span class="nb">cd</span> L1/tests/jpegDec
+</pre>
+<ul class="simple">
+<li><strong>Run and Build IP(Step 2)</strong></li>
+</ul>
+<p>Run the following make command to build your IP targeting a specific device. Please be noticed that this process will take a long time, maybe couple of hours.</p>
+<pre class="highlight literal-block">
+<span></span>make run <span class="nv">DEVICE</span><span class="o">=</span>xilinx_u50_gen3x16_xdma_201920_3 <span class="nv">VIVADO_IMPL</span><span class="o">=</span><span class="m">1</span>
+
+Usage: host.exe -<span class="o">[</span>-xclbin -JPEGFile<span class="o">]</span>
+       -JPEGFile:  the path point to input *.jpg
+</pre>
+<p>Note: Default arguments are set in Makefile, you can use other <a class="reference internal" href="../benchmark.html#pictures"><span class="std std-ref">Pictures</span></a> listed in the table.</p>
+<ul class="simple">
+<li><strong>Example output(Step 2)</strong></li>
+</ul>
+<pre class="highlight literal-block">
+<span></span>...
+Time resolution is <span class="m">1</span> ps
+...
+RTL Simulation : <span class="m">0</span> / <span class="m">1</span> <span class="o">[</span>n/a<span class="o">]</span> @ <span class="s2">&quot;106000&quot;</span>
+RTL Simulation : <span class="m">1</span> / <span class="m">1</span> <span class="o">[</span>n/a<span class="o">]</span> @ <span class="s2">&quot;345801000&quot;</span>
+...
+INFO: <span class="o">[</span>COSIM <span class="m">212</span>-316<span class="o">]</span> Starting C post checking ...
+INFO: <span class="o">[</span>COSIM <span class="m">212</span>-1000<span class="o">]</span> *** C/RTL co-simulation finished: PASS ***
+...
+Implementation tool: Xilinx Vivado v.2021.1
+Project:             test.prj
+Solution:            solution1
+...
+<span class="c1">#=== Post-Implementation Resource usage ===</span>
+SLICE:            <span class="m">0</span>
+LUT:           <span class="m">7939</span>
+FF:            <span class="m">8043</span>
+DSP:             <span class="m">12</span>
+BRAM:             <span class="m">5</span>
+URAM:             <span class="m">0</span>
+LATCH:            <span class="m">0</span>
+SRL:            <span class="m">717</span>
+CLB:           <span class="m">1748</span>
+
+<span class="c1">#=== Final timing ===</span>
+CP required:                     <span class="m">2</span>.500
+CP achieved post-synthesis:      <span class="m">4</span>.564
+CP achieved post-implementation: <span class="m">3</span>.703
+</pre>
+</div>
+<div class="section" id="profiling">
+<h2>Profiling<a class="headerlink" href="#profiling" title="Permalink to this headline">¶</a></h2>
+<p>The hardware resource utilizations are listed in the following table.
+Different tool versions may result slightly different resource.</p>
+<table border="1" class="docutils align-center" id="id1">
+<caption><span class="caption-text">Table 1 IP resources for jpeg Huffman Decoder with jfif parser and huffman decoder</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="26%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="10%" />
+<col width="19%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>IP</td>
+<td>BRAM</td>
+<td>URAM</td>
+<td>DSP</td>
+<td>FF</td>
+<td>LUT</td>
+<td>Frequency(MHz)</td>
+</tr>
+<tr class="row-even"><td>kernel_parser_decoder</td>
+<td>5</td>
+<td>0</td>
+<td>12</td>
+<td>7939</td>
+<td>8043</td>
+<td>270</td>
+</tr>
+</tbody>
+</table>
+<p>Table 2 : Jpeg Huffman Decoder IP profiling</p>
+<a class="reference internal image-reference" href="../_images/jpegDecoderpofile.png"><img alt="Jpeg huffman Decoder IP profiling" class="align-center" src="../_images/jpegDecoderpofile.png" style="width: 70%;" /></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<div class="last line-block">
+<div class="line">1. MAX_DEC_PIX is for benchmark. If testcase image is larger than 20M, the value of MAX_DEC_PIX should be enlarged following the size of image.</div>
+<div class="line">2. MAXCMP_BC is for benchmark. If testcase image is larger than 20M, the value of MAXCMP_BC should be enlarged following the size of image.</div>
+</div>
+</div>
 <div class="toctree-wrapper compound">
+</div>
 </div>
 </div>
 
@@ -442,10 +554,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="internals.html" class="btn btn-neutral float-right" title="Design Internals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../guide_L2/api.html" class="btn btn-neutral float-right" title="API Document" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../release.html" class="btn btn-neutral float-left" title="Release Note" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../guide_L1/IPs/jpegHuffmanDecoder.html" class="btn btn-neutral float-left" title="Internal Design of jpegHuffmanDecoder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

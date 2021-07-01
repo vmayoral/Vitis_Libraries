@@ -55,9 +55,7 @@
   <link rel="stylesheet" href="../_static/css/header-footer.min.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Design Internals" href="internals.html" />
-    <link rel="prev" title="Release Note" href="../release.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -338,17 +336,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L1 User Guide</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Document</a><ul class="simple">
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/api.html">API Document</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="internals.html">Design Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/internals.html">Design Internals</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L2 User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../guide_L2/demo.html">API Document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/api.html">API Document</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/internals.html">Design Internals</a></li>
@@ -403,7 +399,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>API Document</li>
+      <li>namespace utils_hw</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -420,9 +416,145 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="api-document">
-<h1>API Document<a class="headerlink" href="#api-document" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="namespace-utils-hw">
+<span id="cid-xf-common-utils-hw"></span><span id="doxid-namespacexf-1-1common-1-1utils-hw"></span><span id="index-0"></span><h1>namespace utils_hw<a class="headerlink" href="#namespace-utils-hw" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="c1">// namespaces</span>
+
+<span class="k">namespace</span> <a class="reference internal" href="namespace_xf_common_utils_hw_details.html#doxid-namespacexf-1-1common-1-1utils-hw-1-1details"><span class="std std-ref">xf::common::utils_hw::details</span></a>
+</pre>
+<div class="section" id="axi-to-stream">
+<span id="cid-xf-common-utils-hw-axi-to-stream"></span><span id="doxid-namespacexf-1-1common-1-1utils-hw-1a8f451edc8a14286ef78c6c8b373cab3c"></span><h2>axi_to_stream<a class="headerlink" href="#axi-to-stream" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;jpegDec/axi_to_stream.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">_BurstLen</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">_WAxi</span><span class="p">,</span>
+    <span class="k">typename</span> <span class="n">_TStrm</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">axi_to_stream</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">_WAxi</span><span class="o">&gt;*</span> <span class="n">rbuf</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">_TStrm</span><span class="o">&gt;&amp;</span> <span class="n">ostrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_ostrm</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">num</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">offset_num</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span>
+</pre>
+<p>Loading data elements from AXI master to stream.</p>
+<p>This module requires the data elements to align to its size in buffer. In another word, the start offset is specified by element count from the beginning of a vector of AXI port width.</p>
+<p>This primitive assumes the width of AXI port width is positive integer multiple of data element’s alignment width.</p>
+<p>The alignment width is assumed to be multiple of 8-bit char. The AXI master port width is power of two, and no less than 8.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+--------------------------------------------------------+</span>
+<span class="o">|</span> <span class="n">DDR</span>  <span class="o">-&gt;</span> <span class="n">AXI_BUS</span>  <span class="o">-&gt;</span> <span class="n">FIFO</span>     <span class="o">-&gt;</span> <span class="n">stream</span><span class="p">(</span><span class="n">aligned</span> <span class="n">to</span> <span class="mi">16</span><span class="n">b</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">XXaa</span>    <span class="n">XXaabbcc</span>    <span class="n">XXaabbcc</span>    <span class="n">aa</span>                     <span class="o">|</span>
+<span class="o">|</span> <span class="n">bbcc</span>    <span class="n">ddXX0000</span>    <span class="n">ddXX0000</span>    <span class="n">bb</span>                     <span class="o">|</span>
+<span class="o">|</span> <span class="n">ddXX</span>                            <span class="n">cc</span>                     <span class="o">|</span>
+<span class="o">|</span>                                 <span class="n">dd</span>                     <span class="o">|</span>
+<span class="o">+--------------------------------------------------------+</span>
+</pre></div>
+</div>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>_BurstLen</td>
+<td>burst length of AXI buffer, default is 32.</td>
+</tr>
+<tr class="row-even"><td>_WAxi</td>
+<td>width of AXI port, must be power of 2 and between 8 to 512.</td>
+</tr>
+<tr class="row-odd"><td>_TStrm</td>
+<td>stream’s type, e.g. ap_uint&lt;aligned_width&gt; for a aligned_width stream.</td>
+</tr>
+<tr class="row-even"><td>rbuf</td>
+<td>input AXI port.</td>
+</tr>
+<tr class="row-odd"><td>num</td>
+<td>number of data elements to load from AXI port.</td>
+</tr>
+<tr class="row-even"><td>ostrm</td>
+<td>output stream.</td>
+</tr>
+<tr class="row-odd"><td>e_ostrm</td>
+<td>end flag for output stream.</td>
+</tr>
+<tr class="row-even"><td>offset_num</td>
+<td>offset from the beginning of the buffer, by num of element.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="axi-to-char-stream">
+<span id="cid-xf-common-utils-hw-axi-to-char-stream"></span><span id="doxid-namespacexf-1-1common-1-1utils-hw-1a992a0345d4a270a53fd5b94a4e510c9e"></span><h2>axi_to_char_stream<a class="headerlink" href="#axi-to-char-stream" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;jpegDec/axi_to_stream.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">_BurstLen</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">_WAxi</span><span class="p">,</span>
+    <span class="k">typename</span> <span class="n">_TStrm</span>
+    <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">axi_to_char_stream</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="n">_WAxi</span><span class="o">&gt;*</span> <span class="n">rbuf</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="n">_TStrm</span><span class="o">&gt;&amp;</span> <span class="n">ostrm</span><span class="p">,</span>
+    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span> <span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">e_ostrm</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">len</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span>
+</pre>
+<p>Loading char data from AXI master to stream.</p>
+<p>This primitive relaxes the alignment requirement, and actually load data by 8-bit char. The 8-bit chars are packed as output stream wide word. The last word may contain invalid data in high-bits if enough char has already been packed.</p>
+<p>The alignment width is assumed to be multiple of 8-bit char. The AXI master port width is power of two, and no less than 8.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+-----------------------------------------------------------------+</span>
+<span class="o">|</span> <span class="n">DDR</span>  <span class="o">-&gt;</span> <span class="n">AXI_BUS</span>                           <span class="o">-&gt;</span> <span class="n">FIFO</span>     <span class="o">-&gt;</span> <span class="n">stream</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">XXX1</span>    <span class="n">XXX1234567812345_6781234567812345</span>    <span class="n">XXX12345</span>    <span class="mi">1234</span>   <span class="o">|</span>
+<span class="o">|</span> <span class="o">...</span>     <span class="o">...</span>                                  <span class="mi">67812345</span>    <span class="mi">5678</span>   <span class="o">|</span>
+<span class="o">|</span>                                              <span class="o">...</span>         <span class="o">...</span>    <span class="o">|</span>
+<span class="o">|</span> <span class="mi">32</span><span class="n">XX</span>    <span class="mi">6780000321</span><span class="n">XXXXXX_XXXXXXXXXXXXXXXX</span>    <span class="mi">21</span><span class="n">XXXXXX</span>    <span class="mi">21</span><span class="n">XX</span>   <span class="o">|</span>
+<span class="o">+-----------------------------------------------------------------+</span>
+</pre></div>
+</div>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>_BurstLen</td>
+<td>burst length of AXI buffer, default is 32.</td>
+</tr>
+<tr class="row-even"><td>_WAxi</td>
+<td>width of AXI port, must be power of 2 and between 8 to 512.</td>
+</tr>
+<tr class="row-odd"><td>_TStrm</td>
+<td>stream’s type.</td>
+</tr>
+<tr class="row-even"><td>rbuf</td>
+<td>input AXI port.</td>
+</tr>
+<tr class="row-odd"><td>ostrm</td>
+<td>output stream.</td>
+</tr>
+<tr class="row-even"><td>e_ostrm</td>
+<td>end flag for output stream.</td>
+</tr>
+<tr class="row-odd"><td>len</td>
+<td>number of char to load from AXI port.</td>
+</tr>
+<tr class="row-even"><td>offset</td>
+<td>offset from the beginning of the buffer, in number of char.</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -439,15 +571,6 @@
 
 
 	  <!-- Sphinx Page Footer block -->
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="internals.html" class="btn btn-neutral float-right" title="Design Internals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../release.html" class="btn btn-neutral float-left" title="Release Note" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

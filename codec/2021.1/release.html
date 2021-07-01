@@ -56,7 +56,7 @@
   <link rel="stylesheet" href="_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Benchmark" href="benchmark/results.html" />
+    <link rel="next" title="API Document" href="guide_L1/api.html" />
     <link rel="prev" title="Requirements" href="overview.html" /> 
 	</head>
 	<body>
@@ -77,7 +77,7 @@
 															<div class="logo-column">
 																<div class="logo">
 																	<a href="https://www.xilinx.com/">
-																	<img src="https://www.xilinx.com/etc.clientlibs/site/clientlibs/xilinx/all/resources/imgs/header/xilinx-header-logo.svg" title="Xilinx Inc"/>
+																	<img src="https://github.com/Xilinx/Image-Collateral/blob/main/xilinx-header-logo.svg?raw=true" title="Xilinx Inc"/>
 																	</a>
 																</div>
 															</div>
@@ -295,7 +295,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Vitis Graph Library
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Vitis Codec Library
           
 
           
@@ -305,7 +305,7 @@
             
             
               <div class="version">
-                2020.2
+                2021.1
               </div>
             
           
@@ -336,13 +336,27 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html#trademark-notice">Trademark Notice</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Note</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2021.1</a></li>
 </ul>
 </li>
 </ul>
+<p class="caption"><span class="caption-text">L1 User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L1/api.html">API Document</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L1/internals.html">Design Internals</a></li>
+</ul>
+<p class="caption"><span class="caption-text">L2 User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L2/api.html">API Document</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_L2/internals.html">Design Internals</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Benchmark</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="benchmark/results.html">Benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">Benchmark</a></li>
 </ul>
 
             
@@ -359,7 +373,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Vitis Graph Library</a>
+          <a href="index.html">Vitis Codec Library</a>
         
       </nav>
 
@@ -411,12 +425,13 @@
 <span id="id1"></span><h1>Release Note<a class="headerlink" href="#release-note" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+<p>Codec Library is an open-sourced library written in C/C++ accelerating image processing including JPEG decoder and pik encoder. It now covers a level of acceleration: the module level(L1) and the pre-defined kernel level(L2).</p>
 <div class="section" id="id2">
-<h2>1.0<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>The 1.0 release provides a range of algorithm, includes:</p>
+<h2>2021.1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>The 2021.1 release provides a range of algorithm, includes:</p>
 <ul class="simple">
-<li>JPEG Decoder: “JPEG” stands for Joint Photographic Experts Group, the name of the committee that created the JPEG standard and also other still picture coding standards.</li>
-<li>JPEG-XL: JPEG XL is a raster-graphics file format that supports both lossy and lossless compression. It is designed to outperform existing raster formats and thus to become their universal replacement.</li>
+<li>JPEG Decoder: This API supports the ‘Sequential DCT-based mode’ of ISO/IEC 10918-1 standard. It is a high-performance implementation based-on Xilinx HLS design methodolygy. It can process 1 Huffman token and create up to 8 DCT coeffiects within one cycle. It is also an easy-to-use decoder as it can direct parser the JPEG file header without help of software functions.</li>
+<li>pik Encoder: This API is based on Google’s PIK, which was ‘chosen as the base framework for JPEG XL’. The pikEnc is based on the ‘fast mode’ of PIK which can provide better encoding efficnty than most of other still image encoding methods. The pikEnc is based on Xilinx HLS design methodology and optimized for FPGA arthitecture. It can proved higher throughput and lower latency compared to software-based solutions.</li>
 </ul>
 </div>
 </div>
@@ -437,7 +452,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="benchmark/results.html" class="btn btn-neutral float-right" title="Benchmark" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="guide_L1/api.html" class="btn btn-neutral float-right" title="API Document" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="overview.html" class="btn btn-neutral float-left" title="Requirements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -543,7 +558,7 @@
 														<div class="col-md-pull-6 col-lg-pull-6 col-md-6 col-lg-6">
 															<span class="copyright">
                                   
-                                  &copy; 2020, Xilinx Inc.
+                                  &copy; 2021, Xilinx Inc.
                               </span>
 															<ul class="list-inline sub-menu">
 																<li>

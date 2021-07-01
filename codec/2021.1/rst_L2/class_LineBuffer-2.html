@@ -55,9 +55,7 @@
   <link rel="stylesheet" href="../_static/css/header-footer.min.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Design Internals" href="internals.html" />
-    <link rel="prev" title="Release Note" href="../release.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -338,17 +336,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L1 User Guide</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Document</a><ul class="simple">
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/api.html">API Document</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="internals.html">Design Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/internals.html">Design Internals</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L2 User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../guide_L2/demo.html">API Document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/api.html">API Document</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/internals.html">Design Internals</a></li>
@@ -403,7 +399,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>API Document</li>
+      <li>template class LineBuffer &lt;ROWS, COLS, T, 1&gt;</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -420,10 +416,26 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="api-document">
-<h1>API Document<a class="headerlink" href="#api-document" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="template-class-linebuffer-rows-cols-t-1">
+<span id="cid-linebuffer-2"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-011-01-4"></span><span id="index-0"></span><h1>template class LineBuffer &lt;ROWS, COLS, T, 1&gt;<a class="headerlink" href="#template-class-linebuffer-rows-cols-t-1" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;resize_mem.hpp&quot;</span>
+</pre>
+<pre class="highlight overview-code-block literal-block" id="cid-linebuffer-linebuffer-print">
+<span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-011-01-4-1a53f937e63bed64f810ae041e4e680e46"></span><span id="cid-linebuffer-restore-val"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-011-01-4-1ad3b1666ed2ed4340ecf0c1824441c8c3"></span><span id="cid-linebuffer-insert-top"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-011-01-4-1a862e02d953464451f2077a001773ce09"></span><span id="cid-linebuffer-insert-bottom"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-011-01-4-1a3720f5def23367b49c01cc988c0a8b6f"></span><span id="cid-linebuffer-shift-down"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-011-01-4-1aa8b61b0639964daa19e7b4ff01c13170"></span><span id="cid-linebuffer-shift-up"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-011-01-4-1a5792e4dec2a359f84a79fc2da3694f77"></span><span id="cid-linebuffer-operator"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-011-01-4-1a1e5041571e88699861dbbcfd3fbf57a8"></span><span id="cid-linebuffer-getval"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-011-01-4-1a87084a44c2792955ea3a32d9a524fafb"></span><span id="cid-linebuffer-get-col"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-011-01-4-1aac133f983b6b2aa67d2733dad0a121e0"></span><span id="cid-linebuffer-insert-top-row"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-011-01-4-1a2888d8f87fff559b4770fd1290addc5f"></span><span id="cid-linebuffer-insert-bottom-row"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-011-01-4-1a9b14c1630cf1bc73fe6384f34788401a"></span><span id="cid-linebuffer-shift-pixels-down"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-011-01-4-1a5b4af191317f532cd63989f1829dc04c"></span><span id="cid-linebuffer-shift-pixels-up"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-011-01-4-1a30bd3912e2d86e1b6de5712339385b3d"></span><span id="cid-linebuffer-linebuffer"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-011-01-4-1a9fb02966ef277dc85f77302fb1875fea"></span><span id="cid-linebuffer-val-t"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-011-01-4-1ac3ef856b6a3fae7a338262b0372fb0c8"></span><span id="cid-linebuffer-val"></span><span id="doxid-class-line-buffer-3-01-r-o-w-s-00-01-c-o-l-s-00-01-t-00-011-01-4-1a8ebebfdf21bf609ffcda906007a352bf"></span><span></span><span class="k">template</span> <span class="o">&lt;</span>
+    <span class="kt">int</span> <span class="n">ROWS</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">COLS</span><span class="p">,</span>
+    <span class="k">typename</span> <span class="n">T</span>
+    <span class="o">&gt;</span>
+<span class="k">class</span> <span class="n">LineBuffer</span> <span class="o">&lt;</span><span class="n">ROWS</span><span class="p">,</span> <span class="n">COLS</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span>
+
+<span class="c1">// fields</span>
+
+<span class="n">T</span> <span class="n">val</span><span class="p">[</span><span class="n">ROWS</span><span class="p">][</span><span class="n">COLS</span><span class="p">]</span>
+<span class="n">T</span> <span class="n">val_t</span><span class="p">[</span><span class="n">ROWS</span><span class="p">][</span><span class="n">COLS</span><span class="p">]</span>
+</pre>
 </div>
 
 
@@ -439,15 +451,6 @@
 
 
 	  <!-- Sphinx Page Footer block -->
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="internals.html" class="btn btn-neutral float-right" title="Design Internals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../release.html" class="btn btn-neutral float-left" title="Release Note" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

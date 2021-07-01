@@ -56,8 +56,8 @@
   <link rel="stylesheet" href="../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Design Internals" href="internals.html" />
-    <link rel="prev" title="Release Note" href="../release.html" /> 
+    <link rel="next" title="namespace details" href="namespace_xf_codec_details.html" />
+    <link rel="prev" title="API Document" href="../guide_L2/api.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -338,17 +338,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L1 User Guide</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Document</a><ul class="simple">
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/api.html">API Document</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="internals.html">Design Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/internals.html">Design Internals</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L2 User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../guide_L2/demo.html">API Document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/api.html">API Document</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/internals.html">Design Internals</a></li>
@@ -403,7 +401,9 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>API Document</li>
+          <li><a href="../guide_L2/api.html">API Document</a> &raquo;</li>
+        
+      <li>namespace codec</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -420,9 +420,76 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="api-document">
-<h1>API Document<a class="headerlink" href="#api-document" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="namespace-codec">
+<span id="cid-xf-codec"></span><span id="doxid-namespacexf-1-1codec"></span><span id="index-0"></span><h1>namespace codec<a class="headerlink" href="#namespace-codec" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
+</div>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-codec-hls-icos-base-8192-scaled">
+<span id="doxid-namespacexf-1-1codec-1a2e5da0b8f19effcaf64c6726da50ace2"></span><span id="cid-xf-codec-hls-jpeg-zigzag-to-raster"></span><span id="doxid-namespacexf-1-1codec-1a9d871222775e514a78395ddde346ee5e"></span><span id="cid-xf-codec-idct-out-t"></span><span id="doxid-namespacexf-1-1codec-1a4edc4e258d4cb852c8a3a05280f69a9b"></span><span id="cid-xf-codec-idct-in-t"></span><span id="doxid-namespacexf-1-1codec-1a4e8314bbc5f82d4d68f32f0797340168"></span><span></span><span class="c1">// namespaces</span>
+
+<span class="k">namespace</span> <a class="reference internal" href="namespace_xf_codec_details.html#doxid-namespacexf-1-1codec-1-1details"><span class="std std-ref">xf::codec::details</span></a><span></span>
+
+<span class="c1">// typedefs</span>
+
+<span class="k">typedef</span> <span class="kt">int16_t</span> <span class="n">idct_in_t</span>
+<span class="k">typedef</span> <span class="kt">uint8_t</span> <span class="n">idct_out_t</span>
+
+<span class="c1">// enums</span>
+
+<span class="k">enum</span> <a class="reference internal" href="enum_xf_codec_COLOR_FORMAT.html#doxid-namespacexf-1-1codec-1ac3b0651528e801370709bb53280e4586"><span class="std std-ref">COLOR_FORMAT</span></a><span></span>
+
+<span class="c1">// structs</span>
+
+<span class="k">struct</span> <a class="reference internal" href="struct_xf_codec_bas_info.html#doxid-structxf-1-1codec-1-1bas-info"><span class="std std-ref">bas_info</span></a><span></span>
+<span class="k">struct</span> <a class="reference internal" href="struct_xf_codec_cmp_info.html#doxid-structxf-1-1codec-1-1cmp-info"><span class="std std-ref">cmp_info</span></a><span></span>
+<span class="k">struct</span> <a class="reference internal" href="struct_xf_codec_hls_huff_DHT.html#doxid-structxf-1-1codec-1-1hls-huff-d-h-t"><span class="std std-ref">hls_huff_DHT</span></a><span></span>
+<span class="k">struct</span> <a class="reference internal" href="struct_xf_codec_hls_huff_segment.html#doxid-structxf-1-1codec-1-1hls-huff-segment"><span class="std std-ref">hls_huff_segment</span></a><span></span>
+<span class="k">struct</span> <a class="reference internal" href="struct_xf_codec_img_info.html#doxid-structxf-1-1codec-1-1img-info"><span class="std std-ref">img_info</span></a><span></span>
+<span class="k">struct</span> <a class="reference internal" href="struct_xf_codec_sos_data.html#doxid-structxf-1-1codec-1-1sos-data"><span class="std std-ref">sos_data</span></a><span></span>
+
+<span class="c1">// global variables</span>
+
+<span class="k">static</span> <span class="k">const</span> <span class="kt">uint8_t</span> <span class="n">hls_jpeg_zigzag_to_raster</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span>
+<span class="k">const</span> <span class="kt">short</span> <span class="n">hls_icos_base_8192_scaled</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span>
+</pre>
+<div class="section" id="kerneljpegdecodertop">
+<span id="cid-xf-codec-kerneljpegdecodertop"></span><span id="doxid-namespacexf-1-1codec-1a045c64f702ee630bfb1648cacfc1f662"></span><h2>kernelJpegDecoderTop<a class="headerlink" href="#kerneljpegdecodertop" title="Permalink to this headline">¶</a></h2>
+<pre class="highlight literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;jpegDec/XAcc_idct.hpp&quot;</span>
+</pre>
+<pre class="highlight title-code-block literal-block">
+<span></span><span class="kt">void</span> <span class="n">kernelJpegDecoderTop</span> <span class="p">(</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">&gt;*</span> <span class="n">jpeg_pointer</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">size</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;*</span> <span class="n">yuv_mcu_pointer</span><span class="p">,</span>
+    <span class="n">ap_uint</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;*</span> <span class="n">infos</span>
+    <span class="p">)</span>
+</pre>
+<p>Level 2 : kernel implement for jfif parser + huffman decoder + iQ_iDCT.</p>
+<p class="rubric">Parameters:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>CH_W</td>
+<td>size of data path in dataflow region, in bit. when CH_W is 16, the decoder could decode one symbol per cycle in about 99% cases. when CH_W is 8 , the decoder could decode one symbol per cycle in about 80% cases, but use less resource.</td>
+</tr>
+<tr class="row-even"><td>jpeg_pointer</td>
+<td>the input jpeg to be read from DDR.</td>
+</tr>
+<tr class="row-odd"><td>size</td>
+<td>the total bytes to be read from DDR.</td>
+</tr>
+<tr class="row-even"><td>yuv_mcu_pointer</td>
+<td>the output yuv to DDR in mcu order.</td>
+</tr>
+<tr class="row-odd"><td>info</td>
+<td>information of the image, maybe use in the recovery image.</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -442,10 +509,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="internals.html" class="btn btn-neutral float-right" title="Design Internals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="namespace_xf_codec_details.html" class="btn btn-neutral float-right" title="namespace details" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../release.html" class="btn btn-neutral float-left" title="Release Note" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../guide_L2/api.html" class="btn btn-neutral float-left" title="API Document" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

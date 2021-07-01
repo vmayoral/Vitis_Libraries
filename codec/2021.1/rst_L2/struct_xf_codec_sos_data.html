@@ -56,8 +56,8 @@
   <link rel="stylesheet" href="../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Design Internals" href="internals.html" />
-    <link rel="prev" title="Release Note" href="../release.html" /> 
+    <link rel="next" title="Design Internals" href="../guide_L2/internals.html" />
+    <link rel="prev" title="struct xf::codec::img_info" href="struct_xf_codec_img_info.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -338,17 +338,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L1 User Guide</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Document</a><ul class="simple">
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/api.html">API Document</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="internals.html">Design Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/internals.html">Design Internals</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L2 User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../guide_L2/demo.html">API Document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/api.html">API Document</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/internals.html">Design Internals</a></li>
@@ -403,7 +401,11 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>API Document</li>
+          <li><a href="../guide_L2/api.html">API Document</a> &raquo;</li>
+        
+          <li><a href="namespace_xf_codec.html">namespace codec</a> &raquo;</li>
+        
+      <li>struct xf::codec::sos_data</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -420,10 +422,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="api-document">
-<h1>API Document<a class="headerlink" href="#api-document" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="struct-xf-codec-sos-data">
+<span id="cid-xf-codec-sos-data"></span><span id="doxid-structxf-1-1codec-1-1sos-data"></span><span id="index-0"></span><h1>struct xf::codec::sos_data<a class="headerlink" href="#struct-xf-codec-sos-data" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+<pre class="highlight overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&quot;utils_XAcc_jpeg.hpp&quot;</span>
+</pre>
+<pre class="highlight overview-code-block literal-block" id="cid-xf-codec-sos-data-end-sos">
+<span id="doxid-structxf-1-1codec-1-1sos-data-1a2d8af37cbebdaf5f627145f5b0799770"></span><span id="cid-xf-codec-sos-data-rst"></span><span id="doxid-structxf-1-1codec-1-1sos-data-1abaefcc14423d00d38416a5bc22daab0d"></span><span id="cid-xf-codec-sos-data-data"></span><span id="doxid-structxf-1-1codec-1-1sos-data-1a0385aa966feab164e7265f64f3906e79"></span><span id="cid-xf-codec-sos-data-garbage-bits"></span><span id="doxid-structxf-1-1codec-1-1sos-data-1a55df2a3cc0833ac97623c0d07f652519"></span><span id="cid-xf-codec-sos-data-bits"></span><span id="doxid-structxf-1-1codec-1-1sos-data-1a20e99540855b70a4b19bbd42d6a75c34"></span><span></span><span class="c1">// fields</span>
+
+<span class="kt">uint8_t</span> <span class="n">bits</span>
+<span class="kt">uint8_t</span> <span class="n">garbage_bits</span>
+<a class="reference internal" href="global.html#doxid-utils-x-acc-jpeg-8hpp-1a1719c471bf3775cb68b5c7a8cb7d26d2"><span class="std std-ref">CHType</span></a><span></span> <span class="n">data</span>
+<span class="kt">bool</span> <span class="n">rst</span>
+<span class="kt">bool</span> <span class="n">end_sos</span>
+</pre>
 </div>
 
 
@@ -442,10 +456,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="internals.html" class="btn btn-neutral float-right" title="Design Internals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../guide_L2/internals.html" class="btn btn-neutral float-right" title="Design Internals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../release.html" class="btn btn-neutral float-left" title="Release Note" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="struct_xf_codec_img_info.html" class="btn btn-neutral float-left" title="struct xf::codec::img_info" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

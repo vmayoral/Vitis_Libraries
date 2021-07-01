@@ -56,8 +56,7 @@
   <link rel="stylesheet" href="../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Design Internals" href="internals.html" />
-    <link rel="prev" title="Release Note" href="../release.html" /> 
+    <link rel="prev" title="JPEG Decoder" href="jpegDecoder.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -338,24 +337,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Release Note</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L1 User Guide</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Document</a><ul class="simple">
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/api.html">API Document</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="internals.html">Design Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L1/internals.html">Design Internals</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L2 User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../guide_L2/demo.html">API Document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide_L2/api.html">API Document</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide_L2/internals.html">Design Internals</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Benchmark</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../benchmark.html">Benchmark</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../benchmark.html">Benchmark</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../benchmark.html#pictures">Pictures</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../benchmark.html#performance">Performance</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="jpegHuffmanDecoderIP.html">JPEG Huffman Decoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpegDecoder.html">JPEG Decoder</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PIK Encoder</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#executable-usage">Executable Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiling">Profiling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#result">Result</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../benchmark.html#test-overview">Test Overview</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -403,7 +415,9 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>API Document</li>
+          <li><a href="../benchmark.html">Benchmark</a> &raquo;</li>
+        
+      <li>PIK Encoder</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -420,9 +434,142 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="api-document">
-<h1>API Document<a class="headerlink" href="#api-document" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="pik-encoder">
+<span id="l2-manual-pik-encoder"></span><h1>PIK Encoder<a class="headerlink" href="#pik-encoder" title="Permalink to this headline">¶</a></h1>
+<p>PIK Encoder example resides in <code class="docutils literal notranslate"><span class="pre">L2/demos/pikEnc</span></code> directory. The tutorial provides a step-by-step guide that covers commands for building and running kernel.</p>
+<div class="section" id="executable-usage">
+<h2>Executable Usage<a class="headerlink" href="#executable-usage" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Work Directory(Step 1)</strong></li>
+</ul>
+<p>The steps for library download and environment setup can be found in <a class="reference internal" href="../benchmark.html#l2-vitis-codec"><span class="std std-ref">Vitis Codec Library</span></a>. For getting the design,</p>
+<pre class="highlight literal-block">
+<span></span><span class="nb">cd</span> L2/demos/pikEnc
+</pre>
+<ul class="simple">
+<li><strong>Build kernel(Step 2)</strong></li>
+</ul>
+<p>Run the following make command to build your XCLBIN and host binary targeting a specific device. Please be noticed that this process will take a long time, maybe couple of hours.</p>
+<pre class="highlight literal-block">
+<span></span>make run <span class="nv">TARGET</span><span class="o">=</span>hw <span class="nv">DEVICE</span><span class="o">=</span>xilinx_u200_xdma_201830_2
+</pre>
+<ul class="simple">
+<li><strong>Run kernel(Step 3)</strong></li>
+</ul>
+<p>To get the benchmark results, please run the following command.</p>
+<pre class="highlight literal-block">
+<span></span>./build_dir.hw.xilinx_u200_xdma_201830_2/host.exe --xclbin build_dir.hw.xilinx_u200_xdma_201830_2/lepEnc.xclbin PNGFilePath PIKFilePath --fast
+</pre>
+<p>PIK Encoder Input Arguments:</p>
+<pre class="highlight literal-block">
+<span></span>Usage: host.exe -<span class="o">[</span>-xclbin<span class="o">]</span>
+       --xclbin:         the kernel name
+       --fast:           the encoding mode
+       PNGFilePath:      the path to the input *.PNG
+       PIKFilePath:  the path to the output *.pik
+</pre>
+<p>Note: Default arguments are set in Makefile, you can use other <a class="reference internal" href="../benchmark.html#pictures"><span class="std std-ref">Pictures</span></a> listed in the table.</p>
+<ul class="simple">
+<li><strong>Example output(Step 4)</strong></li>
+</ul>
+<pre class="highlight literal-block">
+<span></span>Found Platform
+Platform Name: Xilinx
+INFO: Found <span class="nv">Device</span><span class="o">=</span>xilinx_u200_xdma_201830_2
+INFO: Importing build_dir.hw.xilinx_u200_xdma_201830_2/pikEnc.xclbin
+Loading: <span class="s1">&#39;build_dir.hw.xilinx_u200_xdma_201830_2/pikEnc.xclbin&#39;</span>
+INFO: Kernel has been created
+INFO: Finish kernel setup
+...
+
+INFO: Finish kernel execution
+INFO: Finish E2E execution
+INFO: Data transfer from host to device: <span class="m">100</span> us
+INFO: Data transfer from device to host: <span class="m">20</span> us
+INFO: Average kernel execution per run: <span class="m">600</span> ms
+</pre>
+</div>
+<div class="section" id="profiling">
+<h2>Profiling<a class="headerlink" href="#profiling" title="Permalink to this headline">¶</a></h2>
+<p>The hardware resource utilizations are listed in the following table.
+Different tool versions may result slightly different resource.</p>
+<table border="1" class="docutils align-center" id="id1">
+<caption><span class="caption-text">Table 1 IP resources for PIK encoder</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="23%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="14%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>IP</td>
+<td>BRAM</td>
+<td>URAM</td>
+<td>DSP</td>
+<td>FF</td>
+<td>LUT</td>
+</tr>
+<tr class="row-even"><td>Kernel1</td>
+<td>25</td>
+<td>93</td>
+<td>568</td>
+<td>125920</td>
+<td>97441</td>
+</tr>
+<tr class="row-odd"><td>Kernel2</td>
+<td>411</td>
+<td>252</td>
+<td>1614</td>
+<td>309222</td>
+<td>262543</td>
+</tr>
+<tr class="row-even"><td>Kernel3</td>
+<td>178</td>
+<td>128</td>
+<td>216</td>
+<td>114845</td>
+<td>90011</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="result">
+<h2>Result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils align-center" id="id2">
+<caption><span class="caption-text">Figure 1 PIK Encoder Performance</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="35%" />
+<col width="22%" />
+<col width="22%" />
+<col width="22%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>SizeTime(ms)</td>
+<td>Kernel1</td>
+<td>Kernel2</td>
+<td>Kernel3</td>
+</tr>
+<tr class="row-even"><td>512x512</td>
+<td>16</td>
+<td>14</td>
+<td>7</td>
+</tr>
+<tr class="row-odd"><td>1024x1024</td>
+<td>52</td>
+<td>48</td>
+<td>24</td>
+</tr>
+<tr class="row-even"><td>2048x2048</td>
+<td>191</td>
+<td>180</td>
+<td>86</td>
+</tr>
+</tbody>
+</table>
 <div class="toctree-wrapper compound">
+</div>
 </div>
 </div>
 
@@ -442,10 +589,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="internals.html" class="btn btn-neutral float-right" title="Design Internals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="../release.html" class="btn btn-neutral float-left" title="Release Note" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="jpegDecoder.html" class="btn btn-neutral float-left" title="JPEG Decoder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
