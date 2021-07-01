@@ -309,7 +309,7 @@
             
             
               <div class="version">
-                2020.1
+                2020.2
               </div>
             
           
@@ -334,22 +334,28 @@
               
             
             
-              <p class="caption"><span class="caption-text">Vitis Library</span></p>
+    <p class="caption"><span class="caption-text">Vitis Library</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="./index.html">     Home</a></li>
-<li class="toctree-l1"><a class="reference external" href="./blas/2020.1/index.html">     Vitis BLAS Library</a></li>
-<li class="toctree-l1"><a class="reference external" href="./database/2020.1/index.html">     Vitis Database Library</a></li>
-<li class="toctree-l1"><a class="reference external" href="./data_analytics/2020.1/index.html">     Vitis Data Analytics Library</a></li>
-<li class="toctree-l1"><a class="reference external" href="./data_compression/2020.1/index.html">     Vitis Data Compression Library</a></li>
-<li class="toctree-l1"><a class="reference external" href="./dsp/2020.1/index.html">     Vitis DSP Library</a></li>
-<li class="toctree-l1"><a class="reference external" href="./graph/2020.1/index.html">    Vitis Graph Library</a></li>
-<li class="toctree-l1"><a class="reference external" href="./quantitative_finance/2020.1/index.html">     Vitis Quantitative Finance Library</a></li>
-<li class="toctree-l1"><a class="reference external" href="./security/2020.1/index.html">     Vitis Security Library</a></li>
-<li class="toctree-l1"><a class="reference external" href="./solver/2020.1/index.html">     Vitis Solver Library</a></li>
-<li class="toctree-l1"><a class="reference external" href="./sparse/2020.1/index.html">     Vitis SPARSE Library</a></li>
-<li class="toctree-l1"><a class="reference external" href="./utils/2020.1/index.html">     Vitis Utilities Library</a></li>
-<li class="toctree-l1"><a class="reference external" href="./vision/2020.1/index.html">     Vitis Vision Library</a></li>
+<li class="toctree-l1"><a class="reference external" href="./blas/2020.2/index.html">     Vitis BLAS Library</a></li>
+<li class="toctree-l1"><a class="reference external" href="./database/2020.2/index.html">     Vitis Database Library</a></li>
+<li class="toctree-l1"><a class="reference external" href="./data_analytics/2020.2/index.html">     Vitis Data Analytics Library</a></li>
+<li class="toctree-l1"><a class="reference external" href="./data_compression/2020.2/index.html">     Vitis Data Compression Library</a></li>
+<li class="toctree-l1"><a class="reference external" href="./dsp/2020.2/index.html">     Vitis DSP Library</a></li>
+<li class="toctree-l1"><a class="reference external" href="./graph/2020.2/index.html">    Vitis Graph Library</a></li>
+<li class="toctree-l1"><a class="reference external" href="./hpc/2020.2/index.html">    Vitis HPC Library</a></li>
+<li class="toctree-l1"><a class="reference external" href="./quantitative_finance/2020.2/index.html">     Vitis Quantitative Finance Library</a></li>
+<li class="toctree-l1"><a class="reference external" href="./security/2020.2/index.html">     Vitis Security Library</a></li>
+<li class="toctree-l1"><a class="reference external" href="./solver/2020.2/index.html">     Vitis Solver Library</a></li>
+<li class="toctree-l1"><a class="reference external" href="./sparse/2020.2/index.html">     Vitis SPARSE Library</a></li>
+<li class="toctree-l1"><a class="reference external" href="./utils/2020.2/index.html">     Vitis Utilities Library</a></li>
+<li class="toctree-l1"><a class="reference external" href="./vision/2020.2/index.html">     Vitis Vision Library</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Release Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="./release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="./dependencies.html">Known Limitations and Dependencies</a></li>
+</lu>
 <p class="caption"><span class="caption-text">Versions</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="./index.html">Master (2021.1)</a></li>
@@ -407,7 +413,7 @@
     
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Vitis Libraries</li>
+      <li>Release Notes</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -427,82 +433,164 @@
            <div itemprop="articleBody">
             
   <div class="section" id="vitis-libraries">
-<h1>Vitis Libraries v2020.1<a class="headerlink" href="#vitis-libraries" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html">Vitis&trade; unified software development platform</a>
-includes an extensive set of open-source, performance-optimized
-libraries that offer out-of-the-box acceleration with minimal to
-zero-code changes to your existing applications.</p>
-<hr/><div class="figure align-left">
-<img alt="Comprehensive Set of Domain-Specific Accelerated Libraries" src="_images/1569434411715.png" />
-</div>
-<div class="section" id="comprehensive-set-of-domain-specific-accelerated-libraries">
-<h2>Comprehensive Set of Domain-Specific Accelerated Libraries<a class="headerlink" href="#comprehensive-set-of-domain-specific-accelerated-libraries" title="Permalink to this headline">¶</a></h2>
-<p>Access a broad range of pre-optimized libraries that you can call as a
-software API to bring plug-n-play acceleration in your application or
-customize to design your own accelerator for Xilinx platforms across
-edge to cloud.</p>
+<h1>v2020.2 Release Notes<a class="headerlink" href="#vitis-libraries" title="Permalink to this headline">¶</a></h1>
+<hr/>
+<div class="section">
+  <h2>Vitis HPC Library<a class="headerlink" >¶</a></h2>
 <ul class="simple">
-<li><p>Common Vitis accelerated-libraries for Math, Statistics, Linear
-Algebra and DSP offer a set of core functionality for a wide range of
-diverse applications.</p></li>
-<li><p>Domain-specific Vitis accelerated libraries offer out-of-the-box
-acceleration for workloads like Vision and Image Processing,
-Quantitative Finance, Database and Data Analytics, Data Compression
-and this list continues to expand with every release.</p></li>
-<li><p>Leverage the rich growing ecosystem of partner-accelerated libraries,
-framework plug-ins and accelerated applications to hit the ground
-running and accelerate your path to production.</p></li>
+  <li><p>FPGA-accelerated library for HPC workloads. Initial release focuses on Seismic Imaging & Geophysics Simulation use-cases.</p>
+	  <ul class="simple">
+	  	<li>Reverse Time Migration (RTM) – Seismic imaging technique for accurate representation of subsurface </li>
+		  <li>High-precision Multi-layer Perceptron (MLP) - Reconstruction of subsurface properties using seismic reflection data (Seismic Inversion)</li>
+	  </ul>
+  </li>
+	<li>Optimized for single precision floating point data types (FP32) which is a key requirement within HPC applications</li>
+	<li>Version 1 of the library offers the following:
+		<ul class="simple">
+		<li>L1 Stencil primitive, L1 MLP activation functions including Sigmoid, Relu, and Prelu</li>
+		<li>L2 2D RTM forward kernel, 2D RTM backward kernels, and 3D RTM forward kernel</li>
+		</ul>
+	</li>
+	<li>L3 2D RTM APIs for supporting shot parallelism</li>
 </ul>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<hr/><div class="figure align-right">
-<img alt="Use in Familiar Programming Languages" src="_images/1569434541001.png" />
 </div>
+<div class="section">
+  <h2>Vitis Vision Library<a class="headerlink" >¶</a></h2>
+<ul class="simple">
+<li>2020.2 ISP Pipeline Example Design Enhancements
+<ul class="simple">
+<li>Supports pixel depth up to 16 bits</li>
+<li>HDR Merge in Bayer Domain (without deghosting support)</li>
+<li>Local tone mapping</li>
+<li>Auto Exposure Correction</li>
+<li>Quantization & Dithering</li>
+<li>Color Correction Matrix</li>
+<li>Black Level Correction</li>
+<li>Lens Shading correction</li>
+<li>3D Look Up Table</li>
+</ul></li>
+<li>New Library Functions
+<ul class="simple">
+<li>Feature Matching - Brute Force Feature Matching</li>
+<li>Smoothing Functions - Mode Filter</li>
+<li>DNN Pre Processing Functions - blobFromImage</li>
+<li>Edge Detection Function - Laplacian Operator</li>
+<li>Image Segmentation Function - Distance Transform</li>
+</ul></li>
+<li>Library Infrastructure & Other Enhancements
+<ul class="simple">
+<li>All library functions support Alveo U50 platform</li>
+<li>Color Conversion: supporting RGBX or fourth channel support</li>
+<li>Line Stride support in Data Converters</li>
+</ul></li>
+</ul>
 </div>
-<div class="section" id="use-in-familiar-programming-languages">
-<h2>Use in Familiar Programming Languages<a class="headerlink" href="#use-in-familiar-programming-languages" title="Permalink to this headline">¶</a></h2>
-<p>Use Vitis accelerated-libraries in commonly-used programming languages
-that you know like C, C++, and Python. Leverage Xilinx platforms as an
-enabler in your applications ? Work at an application level and focus
-your core competencies on solving challenging problems in your domain,
-accelerate time to insight, and innovate.</p>
-<p>Whether you want to accelerate portions of your existing x86 host
-application code or want to develop accelerators for deployment on
-Xilinx embedded platforms, calling a Vitis accelerated-library API or
-Kernel in your code offers the same level of abstraction as any software
-library.</p>
-<hr/><div class="figure align-left">
-<img alt="Scalable and Flexible" src="_images/1569434644122.png" />
+	  
+<div class="section">
+  <h2>Vitis Data Analytics Library<a class="headerlink" >¶</a></h2>
+<ul class="simple">
+<li><p>Text Processing APIs.<br> 
+	  Two major APIs included - the regular expression match and geo-IP lookup. The former API can be used to extract content from unstructured data like logs, 
+	  while the latter is often used in processing web logs, to annotate with geographic information by IP address. 
+	  A demo tool that converts Apache HTTP server log in batch into JSON file is provided with the library.</p></li>
+<li><p>DataFrame APIs for in-memory Data Abstraction <br> 
+	  DataFrame is widely popular for in-memory data abstraction in data analytics domain, the DataFrame write and read APIs should enable data analytics kernel 
+	  developers to store temporal data or interact with open-source software using Apache Arrow DataFrame more easily.</p></li>
+</ul>
 </div>
+	  
+<div class="section">
+  <h2>Vitis Graph Library<a class="headerlink" >¶</a></h2>
+<ul class="simple">
+<li>Single-Source Shortest Path API (singleSourceShortestPath): 2020.2 version now supports the Alveo U50 platform and provides a new output ‘pred32’ for the shortest path information.</li>
+<li>Page Rank APIs: 2020.2 version now supports Alveo U50 platform and including two APIs both named ‘pageRankTop’ - One to leverage a single memory channel and the other to utilize multi-bank memories.  </li>
+<li>Similarity APIs: 3 new APIs to cover different applications: .‘denseSimilarityKernel’ is for dense graph applications, ‘sparseSimilarityKernel’ for Sparse graph applications and ‘generalSimilarityKernel’ for both types of applications with single kernel.</li>
+<li>The following APIs now support Alveo U50 platform:
+<ul class="simple">
+<li>Breadth-First search bfs API (bfs)</li>
+<li>Degree calculation API (calcuDegree)</li>
+<li>Connected component API (connectedComponents)</li>
+<li>Converting format from CSC to CSR API (convertCsrCsc)</li>
+<li>Label propagation API (labelPropagation)</li>
+<li>Strongly connected component API (stronglyConnectedComponents)</li>
+<li>Triangle count API (triangleCount)</li>
+</ul></li>
+</ul>
 </div>
-<div class="section" id="scalable-and-flexible">
-<h2>Scalable and Flexible<a class="headerlink" href="#scalable-and-flexible" title="Permalink to this headline">¶</a></h2>
-<p>Vitis accelerated-libraries are accessible to all developers through
-GitHub and scalable across all Xilinx platforms. Develop your
-applications using these optimized libraries and seamlessly deploy
-across Xilinx platforms at the edge, on-premise or in the cloud without
-having to reimplement your accelerated application.</p>
-<p>For rapid prototyping and quick evaluation of the benefits Xilinx can
-bring to your applications, you can use them as plug-and-play
-accelerators, called directly as an API in the user application for
-several workloads like Computer Vision and Image Processing,
-Quantitative Finance, Database, and Data Analytics among others.</p>
-<div class="figure align-right">
-<img alt="Scalable and Flexible" src="_images/1568760747007.png" />
+	  
+<div class="section">
+  <h2>Vitis BLAS Library<a class="headerlink" >¶</a></h2>
+<ul class="simple">
+<li>New L2 GEMM Kernel</li>
+<li>For FP32 data types, the L3 GEMM performance has been improved from 280 GFLOPS to 340 GFLOPS</li>
+</ul>
 </div>
-<p>To design custom accelerators for your application, use Vitis library
-functions as optimized algorithmic building blocks, modify them to suit
-your specific needs, or use them as a reference to completely design
-your own. Choose the flexibility you need!</p>
-<p>Combine domain-specific Vitis libraries with pre-optimized deep learning
-models from the Vitis AI library or the Vitis AI development kit to
-accelerate your whole application and meet the overall system-level
-functionality and performance goals.</p>
-<div class="toctree-wrapper compound">
+	  
+<div class="section">
+  <h2>Vitis Sparse Library<a class="headerlink" >¶</a></h2>
+<ul class="simple">
+	<li>Introduced FP32 L2 CSCMV kernel (sparse matrix vector multiplication for CSC - Compressed Sparse Column - format matrices) that utilizes 16 HBM channel support on the Alveo U280 accelerator card.</li>
+</ul>
 </div>
-<div class="toctree-wrapper compound">
+	  
+<div class="section">
+  <h2>Vitis Database Library<a class="headerlink" >¶</a></h2>
+<ul class="simple">
+	<li>The 2020.2 release brings a major enhancements and updates to the General Query Engine (GQE) kernel design, and brand-new Level 3 APIs for JOIN and GROUP-BY AGGREGATE.
+<ul class="simple">
+<li> Columns as Input Buffers: The GQE kernels treat each column as an input buffer, simplifying the data preparation in the host code.<br>Additionally, allocating multiple buffers on host side will reduce out-of-memory issues compared to big contiguous memory allocations, especially when the server is under heavy load.</li>
+<li> Command Classes for generating Configuration bits : The L2 layer now provides command classes to generate the configuration bits for GQE kernels.<br>Developers no longer have to dive into the bitmap table to understand which bit(s) to toggle to enable or disable a function in GQE pipeline. Thus, the host code can be more sustainable and less error-prone.</li>
+<li> New Level-3 APIs: New experimental L3 APIs for JOIN and GROUP-BY AGGREGATE are built to scale the problem size that GQE can handle.<br>They can breakdown the tables into parts based on hash and call the GQE kernels multiple rounds in a well-schedule fashion. The strategy of execution is separated from execution, so database gurus can fine-tune the execution based on table statistics, without messing with the OpenCL execution part.</li>
+</ul></li>
+</ul>
 </div>
+	  
+<div class="section">
+  <h2>Vitis Compression Library<a class="headerlink" >¶</a></h2>
+<ul class="simple">
+	<li>LIBZ Library Acceleration using Alveo U50      
+<ul class="simple">       
+<li> Seamless acceleration of libz standard APIs : deflate, compress2 and uncompress</li>
+<li> Ready-to-use libz.so library to accelerate any host code without any code change</li>
+<li> xzlib standalone executable for both gzip/zlib compress & decompress</li>
+</ul></li>
+<li>ZSTD Decompression : New implementation of Facebook ZSTD algorithm available</li>
+<li>Snappy Dual Core Kernel : New implementation of Google snappy Dual Core decompression algorithm achieves 2x throughput improvement for single file decompress.</li>
+<li>GZIP Compress Kernel: New GZIP Quad Core Compress Kernel (in-built , LZ77 , TreeGen, Huffman encoder) implementation available. More than 20% reduction in overall resources and 50% reduction in DDR bandwidth requirement.</li>
+<li>GZIP Compress Streaming Kernel: Fully standard compliance GZIP(include header & footer) implementation available, streaming free running kernels.</li>
+<li>GZIP/ZLIB L3 Application on Alveo U50: GZIP/ZLIB Application available as an L3 API , optimized for Alveo U50 (HBM) and Alveo U250 cards. Single FPGA binary (xclbin) supports both zlib & gzip format for compress and uncompress</li>
+<li>Support for  to Alveo U50 : Library functions (LZ4, Snappy, GZIP, ZLIB) ported to support the Alveo U50 platform.</li>
+<li>Low Latency GZIP/ZLIB Decompress : Initial decompression latency reduced from 5K to 2.5K for 4KB/8KB/16KB block sizes</li>
+</ul>
 </div>
+	  
+<div class="section">
+  <h2>Vitis DSP Library<a class="headerlink" >¶</a></h2>
+<ul class="simple">
+	<li>APIs revised to fully support Vitis HLS compiler</li>
+</ul>
+</div>
+	  
+<div class="section">
+  <h2>Vitis Security Library<a class="headerlink" >¶</a></h2>
+<ul class="simple">
+	<li>New Signature Generation and Verification Algorithms: DSA, ECC, ECDSA(secp256k1) and EdDSA(ed25519)</li>
+<li>New Checksum Algorithms: Adler32 and CRC32.</li>
+<li>Verifiable delay function (VDF) evaluation and verification: Pietrzak's VDF and Wesolowski's VDF.</li>
+<li>Commercial Cryptography constituted by CAS: SM2, SM3 and SM4.</li>
+<li>Stream Cipher: XChacha20.</li>
+<li>Optimization on RSA, GMAC, AES-GCM and SHA3 to improve their performance and resource utilization.</li>
+</ul>
+</div>
+	  
+<div class="section">
+  <h2>Vitis Utilities Library<a class="headerlink" >¶</a></h2>
+<ul class="simple">
+<li>Argument parser (Beta): Parses the options and flags passed from command line and offers automatic help information generation enabling developers to create unified experience on test cases and user applications.</li>
+<li>FIFO multiplexer: This module wraps around a FIFO (implemented through hls::stream in kernel code ) to enable passing data of different type through the same hardware resource. When the data is too wide, it will automatically be transferred using multiple cycles. This module is expected to make the dataflow code more compact and readable.</li>
+</ul>
+</div>
+	  
 </div>
 
 
@@ -520,20 +608,13 @@ functionality and performance goals.</p>
 	  
 	  <!-- Sphinx Page Footer block -->
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="versions.html" class="btn btn-neutral float-right" title="Previous Versions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-    </div>
-  
-
+    
   <hr/>
 
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on April 09, 2020.
+        Last updated on November 24, 2020.
       </span>
 
     </p>
