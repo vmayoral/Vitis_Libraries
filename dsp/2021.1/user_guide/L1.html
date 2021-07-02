@@ -56,7 +56,7 @@
   <link rel="stylesheet" href="../_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2-Dimensional(Matrix) FFT L1 FPGA Module" href="L1_2dfft.html" />
+    <link rel="next" title="2-Dimensional(Matrix) SSR FFT L1 FPGA Module" href="L1_2dfft.html" />
     <link rel="prev" title="Release Note" href="../release.html" /> 
 	</head>
 	<body>
@@ -339,7 +339,7 @@
 </ul>
 <p class="caption"><span class="caption-text">L1 PL DSP Library User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1-Dimensional(Line) FFT L1 FPGA Module</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1-Dimensional(Line) SSR FFT L1 FPGA Module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#multi-instance-support">Multi-Instance Support</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#data-type-support-for-synthesis">Data Type Support for Synthesis</a><ul>
@@ -347,7 +347,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#floating-point">Floating Point</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#managing-bit-growth-in-fft-stages">Managing Bit Growth in FFT Stages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#managing-bit-growth-in-ssr-fft-stages">Managing Bit Growth in SSR FFT Stages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ssr-fft-grow-to-max-width">SSR_FFT_GROW_TO_MAX_WIDTH</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ssr-fft-scale">SSR_FFT_SCALE</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ssr-fft-no-scale">SSR_FFT_NO_SCALE</a></li>
@@ -379,15 +379,15 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#d-fft-examples">1-D FFT Examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#d-fixed-point-fft-example">1-D Fixed Point FFT Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#d-fixed-point-ssr-fft-example">1-D Fixed Point SSR FFT Example</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#compiling-and-building-example-hls-project">Compiling and Building Example HLS Project</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#d-floating-point-fft-example">1-D Floating Point FFT Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#d-floating-point-ssr-fft-example">1-D Floating Point SSR FFT Example</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id3">Compiling and Building Example HLS Project</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#d-fft-tests">1-D FFT Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#d-ssr-fft-tests">1-D SSR FFT Tests</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#launching-an-individual-test">Launching an Individual Test</a></li>
 </ul>
 </li>
@@ -395,7 +395,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="L1_2dfft.html">2-Dimensional(Matrix) FFT L1 FPGA Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L1_2dfft.html">2-Dimensional(Matrix) SSR FFT L1 FPGA Module</a></li>
 </ul>
 <p class="caption"><span class="caption-text">L2 DSP Library User Guide</span></p>
 <ul>
@@ -471,7 +471,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>1-Dimensional(Line) FFT L1 FPGA Module</li>
+      <li>1-Dimensional(Line) SSR FFT L1 FPGA Module</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -493,7 +493,7 @@
   <div class="toctree-wrapper compound" id="l1-fft-label">
 <p class="caption"><span class="caption-text">Table of Contents</span><a class="headerlink" href="#l1-fft-label" title="Permalink to this toctree">¶</a></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1-Dimensional(Line) FFT L1 FPGA Module</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1-Dimensional(Line) SSR FFT L1 FPGA Module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#multi-instance-support">Multi-Instance Support</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#data-type-support-for-synthesis">Data Type Support for Synthesis</a><ul>
@@ -501,7 +501,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#floating-point">Floating Point</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#managing-bit-growth-in-fft-stages">Managing Bit Growth in FFT Stages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#managing-bit-growth-in-ssr-fft-stages">Managing Bit Growth in SSR FFT Stages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ssr-fft-grow-to-max-width">SSR_FFT_GROW_TO_MAX_WIDTH</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ssr-fft-scale">SSR_FFT_SCALE</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ssr-fft-no-scale">SSR_FFT_NO_SCALE</a></li>
@@ -520,23 +520,23 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#d-fft-examples">1-D FFT Examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#d-fixed-point-fft-example">1-D Fixed Point FFT Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#d-floating-point-fft-example">1-D Floating Point FFT Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#d-fft-tests">1-D FFT Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-fixed-point-ssr-fft-example">1-D Fixed Point SSR FFT Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-floating-point-ssr-fft-example">1-D Floating Point SSR FFT Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-ssr-fft-tests">1-D SSR FFT Tests</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section" id="dimensional-line-fft-l1-fpga-module">
-<h1>1-Dimensional(Line) FFT L1 FPGA Module<a class="headerlink" href="#dimensional-line-fft-l1-fpga-module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="dimensional-line-ssr-fft-l1-fpga-module">
+<h1>1-Dimensional(Line) SSR FFT L1 FPGA Module<a class="headerlink" href="#dimensional-line-ssr-fft-l1-fpga-module" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <span id="fixed-fft-params-struct-label"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>Vitis DSP Library offers a fully synthesizable Super Sample data Rate (SSR) FFT with a systolic
 architecture to process multiple input samples every clock cycle. The number of samples
-processed in parallel per cycle is denoted by the SSR factor. The FFT is implemented as a C++
-template function that synthesizes into a streaming architecture. The FFT architecture used for implementation can be parameterized through template parameters, which are grouped in a C++ struct of type <strong>ssr_fft_default_params</strong>. A new structure can be defined by extending the default structure and re-defining required member constants as follows:</p>
+processed in parallel per cycle is denoted by the SSR factor. The SSR FFT is implemented as a C++
+template function that synthesizes into a streaming architecture. The SSR FFT architecture used for implementation can be parameterized through template parameters, which are grouped in a C++ struct of type <strong>ssr_fft_default_params</strong>. A new structure can be defined by extending the default structure and re-defining required member constants as follows:</p>
 <pre class="highlight literal-block">
 <span></span><span class="k">struct</span> <span class="nl">ssr_fft_fix_params</span><span class="p">:</span><span class="n">ssr_fft_default_params</span>
 <span class="p">{</span>
@@ -553,13 +553,13 @@ template function that synthesizes into a streaming architecture. The FFT archit
 <p>The structure above defines:</p>
 <ul class="simple">
 <li>N: Size or length of transform</li>
-<li>R: The number of samples to be processed in parallel SSR Factor and radix of FFT algorithm used</li>
-<li>scaling_mode: The scaling mode as enumeration type (FFT has three different scaling modes)</li>
+<li>R: The number of samples to be processed in parallel SSR Factor and radix of SSR FFT algorithm used</li>
+<li>scaling_mode: The scaling mode as enumeration type (SSR FFT has three different scaling modes)</li>
 <li>output_data_order: Which will decided if data will be in natural order or digit reversed transposed order</li>
 <li>twiddle_table_word_length: Defines total number of bits to be used for storing twiddle table factors</li>
 <li>twiddle_table_integer_part_length: The number of integer bits used for storing integer part of twiddles</li>
-<li>transform_direction : Defines the direction of transform, inverse transform (IFFT) or forward transform (FFT)</li>
-<li>butterfly_rnd_mode : Defines the rounding mode used by butterflies in FFT stages</li>
+<li>transform_direction : Defines the direction of transform, inverse transform (SSR IFFT) or forward transform (SSR FFT)</li>
+<li>butterfly_rnd_mode : Defines the rounding mode used by butterflies in SSR FFT stages</li>
 </ul>
 </div>
 <div class="section" id="multi-instance-support">
@@ -568,7 +568,7 @@ template function that synthesizes into a streaming architecture. The FFT archit
 <pre class="highlight literal-block">
 <span></span><span class="n">xf</span><span class="o">::</span><span class="n">dsp</span><span class="o">::</span><span class="n">fft</span><span class="o">::</span><span class="n">fft</span><span class="o">&lt;</span><span class="n">fftParams</span><span class="o">&gt;&lt;</span><span class="n">ssr_fft_fix_params</span><span class="o">&gt;</span><span class="p">(...);</span>
 </pre>
-<p>The current release of Vitis FFT supports the use of multiple instances of 1-D SSR FFT in a single design. To enable the use of multiple instances, the fft function takes as an input a new template parameter besides the parameter structure. This parameter gets a default value if no value is provided for it. But if multiple instance support is required, all the instances used should be provided with the unique integer template parameter, like:</p>
+<p>The current release of Vitis SSR FFT supports the use of multiple instances of 1-D SSR FFT in a single design. To enable the use of multiple instances, the fft function takes as an input a new template parameter besides the parameter structure. This parameter gets a default value if no value is provided for it. But if multiple instance support is required, all the instances used should be provided with the unique integer template parameter, like:</p>
 <pre class="highlight literal-block">
 <span></span><span class="n">xf</span><span class="o">::</span><span class="n">dsp</span><span class="o">::</span><span class="n">fft</span><span class="o">::</span><span class="n">fft</span><span class="o">&lt;</span><span class="n">fftParams</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;&lt;</span><span class="n">ssr_fft_fix_params</span><span class="o">&gt;</span><span class="p">(...);</span>
 <span class="n">xf</span><span class="o">::</span><span class="n">dsp</span><span class="o">::</span><span class="n">fft</span><span class="o">::</span><span class="n">fft</span><span class="o">&lt;</span><span class="n">fftParams</span><span class="p">,</span><span class="mi">2</span><span class="o">&gt;&lt;</span><span class="n">ssr_fft_fix_params</span><span class="o">&gt;</span><span class="p">(...);</span>
@@ -579,13 +579,13 @@ template function that synthesizes into a streaming architecture. The FFT archit
 <p>Currently 1-D SSR FFT supports fixed point and floating point complex inputs for synthesis.</p>
 <div class="section" id="fixed-point">
 <h3>Fixed Point<a class="headerlink" href="#fixed-point" title="Permalink to this headline">¶</a></h3>
-<p>The fixed point FFT implementation is based on fixed point data types <strong>std::complex&lt;ap_fixed&lt;&gt;&gt;</strong> which are used for synthesis and implementation. It is possible to use floating point types <strong>std::complex&lt;float&gt;</strong> and <strong>std::complex&lt;double&gt;</strong> for simulation but these floating point complex models will consume massive resources if synthesized to hardware.
-For the best results with fixed point type, limit the data bit width to 27 bits (integer + fraction) as it helps to map multiplication and addition within FFT butterflies directly onto a single DSP block. Larger inputs can be used but may lead to slower Fmax and more resource utilization. Finally, note that the complex exponential/twiddle factor storage is on 18 bits (16F+2I bits). The selection of 18-bit is made keeping in view the 18x27 multipliers available within DSP blocks on Xilinx FPGAs.</p>
+<p>The fixed point SSR FFT implementation is based on fixed point data types <strong>std::complex&lt;ap_fixed&lt;&gt;&gt;</strong> which are used for synthesis and implementation. It is possible to use floating point types <strong>std::complex&lt;float&gt;</strong> and <strong>std::complex&lt;double&gt;</strong> for simulation but these floating point complex models will consume massive resources if synthesized to hardware.
+For the best results with fixed point type, limit the data bit width to 27 bits (integer + fraction) as it helps to map multiplication and addition within SSR FFT butterflies directly onto a single DSP block. Larger inputs can be used but may lead to slower Fmax and more resource utilization. Finally, note that the complex exponential/twiddle factor storage is on 18 bits (16F+2I bits). The selection of 18-bit is made keeping in view the 18x27 multipliers available within DSP blocks on Xilinx FPGAs.</p>
 </div>
 <div class="section" id="floating-point">
 <span id="float-fft-params-struct-label"></span><h3>Floating Point<a class="headerlink" href="#floating-point" title="Permalink to this headline">¶</a></h3>
 <p>1-D SSR FFT also supports synthesis for single or double precision floating point type. For synthesizing a complex floating point type, it is required that std::complex type not to be used as a complex wrapper. Since this wrapper has some issues and it is required that a wrapper class provided with the Vitis DSP library called <strong>complex_wrapper&lt;…&gt;</strong> is used for wrapping complex float numbers.
-Also while synthesizing floating point 1-D SSR FFT the parameters in the structure which carry information such as scaling mode, twiddle factor storage bits, butterfly rounding mode etc. which are only related to fixed point data-path, carry no meaning. Instead FFT parameter structure can simply define relevant parameters as shown below:</p>
+Also while synthesizing floating point 1-D SSR FFT the parameters in the structure which carry information such as scaling mode, twiddle factor storage bits, butterfly rounding mode etc. which are only related to fixed point data-path, carry no meaning. Instead SSR FFT parameter structure can simply define relevant parameters as shown below:</p>
 <pre class="highlight literal-block">
 <span></span><span class="k">struct</span> <span class="nl">ssr_fft_fix_params</span><span class="p">:</span><span class="n">ssr_fft_default_params</span>
 <span class="p">{</span>
@@ -597,9 +597,9 @@ Also while synthesizing floating point 1-D SSR FFT the parameters in the structu
 </pre>
 </div>
 </div>
-<div class="section" id="managing-bit-growth-in-fft-stages">
-<h2>Managing Bit Growth in FFT Stages<a class="headerlink" href="#managing-bit-growth-in-fft-stages" title="Permalink to this headline">¶</a></h2>
-<p>The bit growth management is required for fixed point implementation only. The FFT supports three different modes to manage bit growth between FFT stages. These three modes can be used to allow bit growth in every stage, or use scaling in every stage without any
+<div class="section" id="managing-bit-growth-in-ssr-fft-stages">
+<h2>Managing Bit Growth in SSR FFT Stages<a class="headerlink" href="#managing-bit-growth-in-ssr-fft-stages" title="Permalink to this headline">¶</a></h2>
+<p>The bit growth management is required for fixed point implementation only. The SSR FFT supports three different modes to manage bit growth between SSR FFT stages. These three modes can be used to allow bit growth in every stage, or use scaling in every stage without any
 bit growth, or allow bit growth until 27 bits and then start using scaling. The detailed description for the different modes are as follows:</p>
 <div class="section" id="ssr-fft-grow-to-max-width">
 <h3>SSR_FFT_GROW_TO_MAX_WIDTH<a class="headerlink" href="#ssr-fft-grow-to-max-width" title="Permalink to this headline">¶</a></h3>
@@ -628,7 +628,7 @@ that defines the quality of the output signal depends on the choice of these dif
 also on the quantification scheme used for converting real valued continuous signal or ﬂoating point
 signal to fixed point. The range and the resolution of the signal, essentially the integer bits and
 the fraction bits, should be selected carefully to have good signal-to-noise ratio (SNR) at the
-output of the FFT. Following is the recommended ﬂow for working with 1-D SSR FFT HLS IP for fixed point implementation.</p>
+output of the SSR FFT. Following is the recommended ﬂow for working with 1-D SSR FFT HLS IP for fixed point implementation.</p>
 <div class="section" id="start-with-floating-point-model">
 <h3>Start With Floating Point Model<a class="headerlink" href="#start-with-floating-point-model" title="Permalink to this headline">¶</a></h3>
 <p>Currently, 1-D SSR FFT can be used with ap_fxied&lt;&gt;, ﬂoat, and double types. The following table list
@@ -772,16 +772,16 @@ SNR/RMS requirements for given application.</p>
 </div>
 <div class="section" id="d-ssr-fft-library-usage">
 <h2>1-D SSR FFT Library Usage<a class="headerlink" href="#d-ssr-fft-library-usage" title="Permalink to this headline">¶</a></h2>
-<p>Following sections describe how to use FFT from Vitis DSP Library.</p>
+<p>Following sections describe how to use SSR FFT from Vitis DSP Library.</p>
 <div class="section" id="fixed-point-1-d-ssr-fft-usage">
 <h3>Fixed Point 1-D SSR FFT Usage<a class="headerlink" href="#fixed-point-1-d-ssr-fft-usage" title="Permalink to this headline">¶</a></h3>
-<p>The Vitis 1-D FFT L1 module can be used in a C++ HLS design by:
+<p>The Vitis 1-D SSR FFT L1 module can be used in a C++ HLS design by:
 1- cloning the Vitis DSP Library git repository and add the following path to compiler include path:</p>
 <blockquote>
 <div><code class="docutils literal notranslate"><span class="pre">REPO_PATH/dsp/L1/include/hw/vitis_fft/fixed/</span></code></div></blockquote>
 <p>2- Include <code class="docutils literal notranslate"><span class="pre">vt_fft.hpp</span></code></p>
 <p>3- Use namespace <code class="docutils literal notranslate"><span class="pre">xf::dsp::fft</span></code></p>
-<p>4- Define fft parameter structure say call it <code class="docutils literal notranslate"><span class="pre">params_fix</span></code> by extending <code class="docutils literal notranslate"><span class="pre">ssr_fft_default_params</span></code> like <a class="reference internal" href="#fixed-fft-params-struct-label"><span class="std std-ref">Defining 1-D FFT Parameter Structure</span></a></p>
+<p>4- Define fft parameter structure say call it <code class="docutils literal notranslate"><span class="pre">params_fix</span></code> by extending <code class="docutils literal notranslate"><span class="pre">ssr_fft_default_params</span></code> like <a class="reference internal" href="#fixed-fft-params-struct-label"><span class="std std-ref">Defining 1-D SSR FFT Parameter Structure</span></a></p>
 <p>5- call <code class="docutils literal notranslate"><span class="pre">fft&lt;params_fix&gt;(input_array,output_array)</span></code></p>
 <p>The following section gives usage examples and explains some other interface level details for use in C++ based
 HLS design.
@@ -833,13 +833,13 @@ mode based bit-growth and input bit-widths).</p>
 </div>
 <div class="section" id="floating-point-1-d-ssr-fft-usage">
 <h3>Floating Point 1-D SSR FFT Usage<a class="headerlink" href="#floating-point-1-d-ssr-fft-usage" title="Permalink to this headline">¶</a></h3>
-<p>The Vitis 1-D FFT L1 module can be used in a C++ HLS design by:</p>
+<p>The Vitis 1-D SSR FFT L1 module can be used in a C++ HLS design by:</p>
 <p>1- Cloning the Vitis DSP Library git repository and add the following path to compiler include path:</p>
 <blockquote>
 <div><code class="docutils literal notranslate"><span class="pre">REPO_PATH/dsp/L1/include/hw/vitis_fft/float/</span></code></div></blockquote>
 <p>2- Include <code class="docutils literal notranslate"><span class="pre">vt_fft.hpp</span></code></p>
 <p>3- Use namespace <code class="docutils literal notranslate"><span class="pre">xf::dsp::fft</span></code></p>
-<p>4- Define fft parameter structure lets say call it <code class="docutils literal notranslate"><span class="pre">params_float</span></code> by extending <code class="docutils literal notranslate"><span class="pre">ssr_fft_default_params</span></code> like <a class="reference internal" href="#float-fft-params-struct-label"><span class="std std-ref">Defining 1-D FFT Parameter Structure</span></a></p>
+<p>4- Define fft parameter structure lets say call it <code class="docutils literal notranslate"><span class="pre">params_float</span></code> by extending <code class="docutils literal notranslate"><span class="pre">ssr_fft_default_params</span></code> like <a class="reference internal" href="#float-fft-params-struct-label"><span class="std std-ref">Defining 1-D SSR FFT Parameter Structure</span></a></p>
 <p>5- call <code class="docutils literal notranslate"><span class="pre">fft&lt;params_float&gt;(input_array,output_array)</span></code></p>
 <p>The following section gives usage examples and explains some other interface level details for use in C++ based
 HLS design.
@@ -905,7 +905,7 @@ For float types the output type calculation will return the same type as input.<
 <h3>1-D SSR FFT Input Array Reading and Writing Considerations<a class="headerlink" href="#d-ssr-fft-input-array-reading-and-writing-considerations" title="Permalink to this headline">¶</a></h3>
 <p>After synthesis, 1-D SSR FFT HLS IP maps to a processing block with buffer interface at both the input
 and output.</p>
-<p>If user requires a streaming 1-D FFT block with FIFO interface at both the input and output, as shown in the following figure:</p>
+<p>If user requires a streaming 1-D SSR FFT block with FIFO interface at both the input and output, as shown in the following figure:</p>
 <a class="reference internal image-reference" href="../_images/1-ssr_fft_blk_dia.jpg"><img alt="doc tool flow" class="align-center" src="../_images/1-ssr_fft_blk_dia.jpg" style="width: 40%;" /></a>
 <p>They should skip the wrapper <strong>fft</strong> with the buffer-to-stream transformation blocks named array2Stream and stream2Array,
 and directly call the <strong>innerFFT</strong> function in <strong>FFTWrapper</strong> struct.
@@ -956,7 +956,7 @@ doing reading and writing should be unrolled.</p>
 <div class="section" id="d-ssr-fft-usage-in-dataflow-region-streaming-non-streaming-connections">
 <h3>1-D SSR FFT Usage in Dataflow Region, Streaming/Non-Streaming Connections<a class="headerlink" href="#d-ssr-fft-usage-in-dataflow-region-streaming-non-streaming-connections" title="Permalink to this headline">¶</a></h3>
 <p>1-D SSR FFT internally relies heavily on HLS dataflow optimization. The potential use case for 1-D SSR
-FFT could interconnect with an FFT input or output in two ways:</p>
+FFT could interconnect with an SSR FFT input or output in two ways:</p>
 <ul class="simple">
 <li>Streaming Connection</li>
 <li>Non-Streaming Connections</li>
@@ -990,9 +990,9 @@ FFT could interconnect with an FFT input or output in two ways:</p>
 </div>
 <div class="section" id="d-fft-examples">
 <h2>1-D FFT Examples<a class="headerlink" href="#d-fft-examples" title="Permalink to this headline">¶</a></h2>
-<p>The following sections provides brief details of examples provided for 1-D Super Sample Rate FFT.</p>
-<div class="section" id="d-fixed-point-fft-example">
-<h3>1-D Fixed Point FFT Example<a class="headerlink" href="#d-fixed-point-fft-example" title="Permalink to this headline">¶</a></h3>
+<p>The following sections provides brief details of examples provided for 1-D SSR FFT.</p>
+<div class="section" id="d-fixed-point-ssr-fft-example">
+<h3>1-D Fixed Point SSR FFT Example<a class="headerlink" href="#d-fixed-point-ssr-fft-example" title="Permalink to this headline">¶</a></h3>
 <p>The example below follows the sequence of steps described in previous sections to do a transform on impulse signal. The listing give below  <code class="docutils literal notranslate"><span class="pre">data_path.hpp</span></code> describes the datapath, by defining size, SSR, data-path bit-widths, scaling mode, out order etc. It also includes top level library interface header <code class="docutils literal notranslate"><span class="pre">vt_fft.hpp</span></code>  which gives to <code class="docutils literal notranslate"><span class="pre">fft</span></code>  function defined in namespace <code class="docutils literal notranslate"><span class="pre">xf::dsp::fft</span></code></p>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#ifndef _DATA_PATH_H_</span>
@@ -1016,7 +1016,7 @@ FFT could interconnect with an FFT input or output in two ways:</p>
 
 <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="n">ap_fixed</span><span class="o">&lt;</span><span class="n">IN_WL</span><span class="p">,</span> <span class="n">IN_IL</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">T_in</span><span class="p">;</span>
 
-<span class="cm">/* Define parameter structure for FFT that defines</span>
+<span class="cm">/* Define parameter structure for SSR FFT that defines</span>
 <span class="cm"> * holds , size, SSR, scaling mode, output order sin/cos</span>
 <span class="cm"> * bit resoulation for storage*/</span>
 <span class="k">struct</span> <span class="nl">fftParams</span> <span class="p">:</span> <span class="n">ssr_fft_default_params</span> <span class="p">{</span>
@@ -1048,7 +1048,7 @@ FFT could interconnect with an FFT input or output in two ways:</p>
     <span class="n">xf</span><span class="o">::</span><span class="n">dsp</span><span class="o">::</span><span class="n">fft</span><span class="o">::</span><span class="n">fft</span><span class="o">&lt;</span><span class="n">fftParams</span><span class="p">,</span> <span class="n">IID</span><span class="o">&gt;</span><span class="p">(</span><span class="n">p_inData</span><span class="p">,</span> <span class="n">p_outData</span><span class="p">);</span>
 <span class="p">}</span>
 </pre>
-<p>The listing below gives main funtion that generates impulse data for FFT input in a 2-dimensional array which is SSRx(Size/SRR) and feeds it to top level which produces a 2-dimensional output array of same dimensions. The impulse input produces a step which is verified and test declared as passed.</p>
+<p>The listing below gives main funtion that generates impulse data for SSR FFT input in a 2-dimensional array which is SSRx(Size/SRR) and feeds it to top level which produces a 2-dimensional output array of same dimensions. The impulse input produces a step which is verified and test declared as passed.</p>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;top_module.hpp&quot;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
@@ -1109,9 +1109,9 @@ change the setting of environment variable <strong>TA_PATH</strong> to point to 
 Simply go to the directory <code class="docutils literal notranslate"><span class="pre">REPO_PATH/dsp/L1/examples/1Dfix_impluse</span></code> and simulate, build and co-simulate project using : <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">run</span> <span class="pre">XPART='xcu200-fsgd2104-2-e'</span> <span class="pre">CSIM=1</span> <span class="pre">CSYNTH=1</span> <span class="pre">COSIM=1</span></code> you can choose the part number as required and by settting CSIM/CSYNTH/COSIM=0 choose what to build and run with make target.</p>
 </div>
 </div>
-<div class="section" id="d-floating-point-fft-example">
-<h3>1-D Floating Point FFT Example<a class="headerlink" href="#d-floating-point-fft-example" title="Permalink to this headline">¶</a></h3>
-<p>The use of floating point SSR FFT is very similar to fixed point FFT the following listing  <code class="docutils literal notranslate"><span class="pre">data_path.hpp</span></code> gives parameter struct
+<div class="section" id="d-floating-point-ssr-fft-example">
+<h3>1-D Floating Point SSR FFT Example<a class="headerlink" href="#d-floating-point-ssr-fft-example" title="Permalink to this headline">¶</a></h3>
+<p>The use of floating point SSR FFT is very similar to fixed point SSR FFT the following listing  <code class="docutils literal notranslate"><span class="pre">data_path.hpp</span></code> gives parameter struct
 which is simple as compared to fixed point since data-path constants scaling type, input bit-widths etc are not required for floatig point case.
 It essentially requires declaration of Size and SSR factor and output data order by default is set to natural order, if required it can be changed to digital reversed transposed.</p>
 <pre class="highlight literal-block">
@@ -1130,7 +1130,7 @@ It essentially requires declaration of Size and SSR factor and output data order
 <span class="k">typedef</span> <span class="n">complex_wrapper</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">T_in</span><span class="p">;</span>
 <span class="cp">#define IID 0</span>
 
-<span class="c1">// Define parameter structure for FFT</span>
+<span class="c1">// Define parameter structure for SSR FFT</span>
 <span class="k">struct</span> <span class="nl">fftParams</span> <span class="p">:</span> <span class="n">ssr_fft_default_params</span> <span class="p">{</span>
     <span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">FFT_LEN</span><span class="p">;</span>
     <span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">R</span> <span class="o">=</span> <span class="n">SSR</span><span class="p">;</span>
@@ -1156,7 +1156,7 @@ It essentially requires declaration of Size and SSR factor and output data order
         <span class="n">xf</span><span class="o">::</span><span class="n">dsp</span><span class="o">::</span><span class="n">fft</span><span class="o">::</span><span class="n">fft</span><span class="o">&lt;</span><span class="n">fftParams</span><span class="p">,</span> <span class="n">IID</span><span class="o">&gt;</span><span class="p">(</span><span class="n">p_inData</span><span class="p">,</span> <span class="n">p_outData</span><span class="p">);</span>
 <span class="p">}</span>
 </pre>
-<p>The listing below <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code> gives main function which creates an impulse input and verfies if the correct output is produced. The only significant change w.r.t to fixed point is the data type declaration and the param struct otherwise this example is very the same like the use of fixed point FFT.</p>
+<p>The listing below <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code> gives main function which creates an impulse input and verfies if the correct output is produced. The only significant change w.r.t to fixed point is the data type declaration and the param struct otherwise this example is very the same like the use of fixed point SSR FFT.</p>
 <pre class="highlight literal-block">
 <span></span><span class="cp">#include</span> <span class="cpf">&quot;top_module.hpp&quot;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
@@ -1216,9 +1216,9 @@ change the setting of environment variable <strong>TA_PATH</strong> to point to 
 Simply go to the directory <code class="docutils literal notranslate"><span class="pre">REPO_PATH/dsp/L1/examples/1Dfloat_impluse</span></code> and simulate, build and co-simulate project using : <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">run</span> <span class="pre">XPART='xcu200-fsgd2104-2-e'</span> <span class="pre">CSIM=1</span> <span class="pre">CSYNTH=1</span> <span class="pre">COSIM=1</span></code> you can choose the part number as required and by settting CSIM/CSYNTH/COSIM=0 choose what to build and run with make target</p>
 </div>
 </div>
-<div class="section" id="d-fft-tests">
-<h3>1-D FFT Tests<a class="headerlink" href="#d-fft-tests" title="Permalink to this headline">¶</a></h3>
-<p>Different tests are provided for fixed point and floating point 1-D FFT. These tests can be ran individually using the makefile or they can all be lauched at the same time by using a provided script. All the 1-D FFT tests are in folder <code class="docutils literal notranslate"><span class="pre">REPO_PATH/dsp/L1/tests/hw/1dfft</span></code></p>
+<div class="section" id="d-ssr-fft-tests">
+<h3>1-D SSR FFT Tests<a class="headerlink" href="#d-ssr-fft-tests" title="Permalink to this headline">¶</a></h3>
+<p>Different tests are provided for fixed point and floating point 1-D SSR FFT. These tests can be ran individually using the makefile or they can all be lauched at the same time by using a provided script. All the 1-D SSR FFT tests are in folder <code class="docutils literal notranslate"><span class="pre">REPO_PATH/dsp/L1/tests/hw/1dfft</span></code></p>
 <div class="section" id="launching-an-individual-test">
 <h4>Launching an Individual Test<a class="headerlink" href="#launching-an-individual-test" title="Permalink to this headline">¶</a></h4>
 <dl class="docutils">
@@ -1253,7 +1253,7 @@ Simply go to the directory <code class="docutils literal notranslate"><span clas
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="L1_2dfft.html" class="btn btn-neutral float-right" title="2-Dimensional(Matrix) FFT L1 FPGA Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="L1_2dfft.html" class="btn btn-neutral float-right" title="2-Dimensional(Matrix) SSR FFT L1 FPGA Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../release.html" class="btn btn-neutral float-left" title="Release Note" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

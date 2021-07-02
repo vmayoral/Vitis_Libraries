@@ -57,7 +57,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Introduction" href="L2/1-introduction.html" />
-    <link rel="prev" title="1-Dimensional(Line) FFT L1 FPGA Module" href="L1.html" /> 
+    <link rel="prev" title="1-Dimensional(Line) SSR FFT L1 FPGA Module" href="L1.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -339,23 +339,23 @@
 </ul>
 <p class="caption"><span class="caption-text">L1 PL DSP Library User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="L1.html">1-Dimensional(Line) FFT L1 FPGA Module</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2-Dimensional(Matrix) FFT L1 FPGA Module</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="L1.html">1-Dimensional(Line) SSR FFT L1 FPGA Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2-Dimensional(Matrix) SSR FFT L1 FPGA Module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#block-level-interface">Block Level Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#d-fft-architecture">2-D FFT Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#d-ssr-fft-architecture">2-D SSR FFT Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#supported-data-types">Supported Data Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#l1-api-for-2-d-fft">L1 API for 2-D FFT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#l1-api-for-2-d-ssr-fft">L1 API for 2-D SSR FFT</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#template-parameters">Template Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#constraints-on-the-choice-of-template-parameters">Constraints on the Choice of Template Parameters</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#library-usage">Library Usage</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#fixed-point-2-d-fft-l1-module-usage">Fixed Point 2-D FFT L1 Module Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#floating-point-2-d-fft-l1-module-usage">Floating Point 2-D FFT L1 Module Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fixed-point-2-d-ssr-fft-l1-module-usage">Fixed Point 2-D SSR FFT L1 Module Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#floating-point-2-d-ssr-fft-l1-module-usage">Floating Point 2-D SSR FFT L1 Module Usage</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#d-fft-examples">2-D FFT Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#d-ssr-fft-examples">2-D SSR FFT Examples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#d-fixed-point-example">2-D Fixed Point Example</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#top-level-definition-and-main-function">Top Level Definition and main Function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#compiling-and-building-example-hls-project">Compiling and Building Example HLS Project</a></li>
@@ -366,7 +366,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#id2">Compiling and Building Example HLS Project</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#d-fft-tests">2-D FFT Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#d-ssr-fft-tests">2-D SSR FFT Tests</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#launching-an-individual-test">Launching an Individual Test</a></li>
 </ul>
 </li>
@@ -449,7 +449,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>2-Dimensional(Matrix) FFT L1 FPGA Module</li>
+      <li>2-Dimensional(Matrix) SSR FFT L1 FPGA Module</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -471,72 +471,72 @@
   <div class="toctree-wrapper compound" id="l1-2dfft-label">
 <p class="caption"><span class="caption-text">Table of Contents</span><a class="headerlink" href="#l1-2dfft-label" title="Permalink to this toctree">¶</a></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2-Dimensional(Matrix) FFT L1 FPGA Module</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2-Dimensional(Matrix) SSR FFT L1 FPGA Module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#block-level-interface">Block Level Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#d-fft-architecture">2-D FFT Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#d-ssr-fft-architecture">2-D SSR FFT Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#supported-data-types">Supported Data Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#l1-api-for-2-d-fft">L1 API for 2-D FFT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#l1-api-for-2-d-ssr-fft">L1 API for 2-D SSR FFT</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#template-parameters">Template Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#constraints-on-the-choice-of-template-parameters">Constraints on the Choice of Template Parameters</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#library-usage">Library Usage</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#fixed-point-2-d-fft-l1-module-usage">Fixed Point 2-D FFT L1 Module Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#floating-point-2-d-fft-l1-module-usage">Floating Point 2-D FFT L1 Module Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fixed-point-2-d-ssr-fft-l1-module-usage">Fixed Point 2-D SSR FFT L1 Module Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#floating-point-2-d-ssr-fft-l1-module-usage">Floating Point 2-D SSR FFT L1 Module Usage</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#d-fft-examples">2-D FFT Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#d-ssr-fft-examples">2-D SSR FFT Examples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#d-fixed-point-example">2-D Fixed Point Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#d-floating-point-example">2-D Floating Point Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#d-fft-tests">2-D FFT Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-ssr-fft-tests">2-D SSR FFT Tests</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section" id="dimensional-matrix-fft-l1-fpga-module">
-<h1>2-Dimensional(Matrix) FFT L1 FPGA Module<a class="headerlink" href="#dimensional-matrix-fft-l1-fpga-module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="dimensional-matrix-ssr-fft-l1-fpga-module">
+<h1>2-Dimensional(Matrix) SSR FFT L1 FPGA Module<a class="headerlink" href="#dimensional-matrix-ssr-fft-l1-fpga-module" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>Vitis DSP library provides a fully synthesizable 2-Dimensional Fast Fourier Transform(FFT) as an L1 primitive.
 This L1 primitive is designed to be easily transformed into an L2 Vitis kernel by adding memory adapters.
 The L1 primitive is designed to have an array of stream interface, as wide as device DDR memory
-widths on boards like Xilinx U200, U250 and U280. Adding memory adapters requires a plugin at the FFT input
+widths on boards like Xilinx U200, U250 and U280. Adding memory adapters requires a plugin at the SSR FFT input
 side which has AXI interface for connection with DDR memory on one side and other sides need to have
-memory wide streaming interface to connect with the 2-D FFT L1 primitive. A second memory plugin is required
-at the output side of the FFT, which reads in an array of stream data and connects it to the output AXI interface
+memory wide streaming interface to connect with the 2-D SSR FFT L1 primitive. A second memory plugin is required
+at the output side of the SSR FFT, which reads in an array of stream data and connects it to the output AXI interface
 for DDR memory connection.</p>
 </div>
 <div class="section" id="block-level-interface">
 <h2>Block Level Interface<a class="headerlink" href="#block-level-interface" title="Permalink to this headline">¶</a></h2>
-<p>The figure below shows the block level interface for 2-D FFT. Essentially it is an array of
+<p>The figure below shows the block level interface for 2-D SSR FFT. Essentially it is an array of
 stream interface at the input and the output.</p>
 <a class="reference internal image-reference" href="../_images/2-2d_fft_if.jpg"><img alt="doc tool flow" class="align-center" src="../_images/2-2d_fft_if.jpg" style="width: 30%;" /></a>
 </div>
-<div class="section" id="d-fft-architecture">
-<h2>2-D FFT Architecture<a class="headerlink" href="#d-fft-architecture" title="Permalink to this headline">¶</a></h2>
-<p>2-Dimensional FFT is built on top of 1-D FFT. It deploys multiple 1-D FFT processors in parallel to
-accelerate calculations. Potentially 2-D FFT can be accelerated by deploying multiple processors in
-parallel, to process multiple lines(rows/columns) of input data whose 1-D FFT calculation is independent of each other (Data parallelism).
-Essentially decreasing the latency and also increasing the throughput. But 2-D FFT throughput can
-also be increased by using a task level pipeline where one set of 1-D FFT processors also called line
+<div class="section" id="d-ssr-fft-architecture">
+<h2>2-D SSR FFT Architecture<a class="headerlink" href="#d-ssr-fft-architecture" title="Permalink to this headline">¶</a></h2>
+<p>2-Dimensional SSR FFT is built on top of 1-D SSR FFT. It deploys multiple 1-D SSR FFT processors in parallel to
+accelerate calculations. Potentially 2-D SSR FFT can be accelerated by deploying multiple processors in
+parallel, to process multiple lines(rows/columns) of input data whose 1-D SSR FFT calculation is independent of each other (Data parallelism).
+Essentially decreasing the latency and also increasing the throughput. But 2-D SSR FFT throughput can
+also be increased by using a task level pipeline where one set of 1-D SSR FFT processors also called line
 processors work row wise on 2-D input data and another set of line processors work column wise in a task level
-pipeline on data produced by row processors as shown in the figure below. The row processors perform 1-D FFT row by row and column processors
+pipeline on data produced by row processors as shown in the figure below. The row processors perform 1-D SSR FFT row by row and column processors
 perform transforms on columns. Row processors connect to column processors through a matrix transposer.
-The following figure shows a simplified block diagram which gives the 2-D FFT architecture used by the Vitis FFT
+The following figure shows a simplified block diagram which gives the 2-D SSR FFT architecture used by the Vitis SSR FFT
 Library. Essentially it is a big dataflow pipeline of blocks which perform data permutations and 1-D FFT transforms
-working either row wise or column wise. Each of the 1-D FFT processor ( <a class="reference internal" href="L1.html#l1-fft-label"><span class="std std-ref">1-D Vitis FFT</span></a> ) is a Super
-Sample Rate streaming processor. The 1-D FFT processors used along the rows and columns are supposed to have same configuration which
-is specified as described in <a class="reference internal" href="L1.html#float-fft-params-struct-label"><span class="std std-ref">Configuration Parameter Structure for Floating Point FFT</span></a></p>
+working either row wise or column wise. Each of the 1-D SSR FFT processor ( <a class="reference internal" href="L1.html#l1-fft-label"><span class="std std-ref">1-D Vitis SSR FFT</span></a> ) is a Super
+Sample Rate streaming processor. The 1-D SSR FFT processors used along the rows and columns are supposed to have same configuration which
+is specified as described in <a class="reference internal" href="L1.html#float-fft-params-struct-label"><span class="std std-ref">Configuration Parameter Structure for Floating Point SSR FFT</span></a></p>
 <a class="reference internal image-reference" href="../_images/3-2d_fft_blk_dia.jpg"><img alt="doc tool flow" class="align-center" src="../_images/3-2d_fft_blk_dia.jpg" style="width: 30%;" /></a>
 </div>
 <div class="section" id="supported-data-types">
 <h2>Supported Data Types<a class="headerlink" href="#supported-data-types" title="Permalink to this headline">¶</a></h2>
-<p>2-D FFT currently supports <strong>complex&lt;float&gt;</strong> and <strong>complex&lt;ap_fixed&lt;&gt;&gt;</strong> type for simulation and synthesis.
-Also currently Vitis FFT library doesn’t support standard std::complex&lt;float&gt; instead a complex_wrapper class
-in shipped with the Vitis FFT library that can be used for simulation and synthesis.</p>
+<p>2-D SSR FFT currently supports <strong>complex&lt;float&gt;</strong> and <strong>complex&lt;ap_fixed&lt;&gt;&gt;</strong> type for simulation and synthesis.
+Also currently Vitis SSR FFT library doesn’t support standard std::complex&lt;float&gt; instead a complex_wrapper class
+in shipped with the Vitis SSR FFT library that can be used for simulation and synthesis.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="36%" />
@@ -561,9 +561,9 @@ in shipped with the Vitis FFT library that can be used for simulation and synthe
 </tbody>
 </table>
 </div>
-<div class="section" id="l1-api-for-2-d-fft">
-<span id="d-fft-template-params-label"></span><h2>L1 API for 2-D FFT<a class="headerlink" href="#l1-api-for-2-d-fft" title="Permalink to this headline">¶</a></h2>
-<p>2-D FFT is provided as a template function given below:</p>
+<div class="section" id="l1-api-for-2-d-ssr-fft">
+<span id="d-fft-template-params-label"></span><h2>L1 API for 2-D SSR FFT<a class="headerlink" href="#l1-api-for-2-d-ssr-fft" title="Permalink to this headline">¶</a></h2>
+<p>2-D SSR FFT is provided as a template function given below:</p>
 <pre class="highlight literal-block">
 <span></span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_memWidth</span><span class="p">,</span>
         <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">t_numRows</span><span class="p">,</span>
@@ -580,7 +580,7 @@ in shipped with the Vitis FFT library that can be used for simulation and synthe
 <div class="section" id="template-parameters">
 <h3>Template Parameters<a class="headerlink" href="#template-parameters" title="Permalink to this headline">¶</a></h3>
 <p>Function: fft2d is the top level L1 API provided which takes a number of template parameters and in/out streams. These template
-functions describe the architecture and the data-path of 1-D FFT processors deployed as line processors. The
+functions describe the architecture and the data-path of 1-D SSR FFT processors deployed as line processors. The
 description of these parameters is as follows:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -624,19 +624,19 @@ description of these parameters is as follows:</p>
 </table>
 <ul class="simple">
 <li>t_memWidth:   Gives the width of wide stream in complex&lt;inner_type&gt; words can be calculated as: t_memWidth=(wide stream size in bits)/(sizeof(complex&lt;T_elemType&gt;)*8))</li>
-<li>t_numRows:    2-D FFT processes a matrix the number of rows in input matrix are given by t_numRows</li>
-<li>t_numCols:    2-D FFT processes a matrix the number of columns in input matrix are given by t_numCols</li>
-<li>t_numKernels: 2dftt can deploy multiple 1-D FFT processors along rows and columns to processes numerous row/columns in parallel this paramter gives number of processors to be used along rows/columns. Number of columns used along rows and columns are same and equal t_numKernels</li>
-<li>t_ssrFFTParamsRowProc: It is a structure of parameters that describes tranform direction, data-path etc for row processors. The details of configuration parameter structures can be found here <a class="reference internal" href="L1.html#float-fft-params-struct-label"><span class="std std-ref">Configuration Parameter Structure for Floating Point FFT</span></a> for fixed point case (currently not supported) it is <a class="reference internal" href="L1.html#fixed-fft-params-struct-label"><span class="std std-ref">Configuration Parameter Structure for Fixed Point FFT</span></a></li>
-<li>t_ssrFFTParamsColProc: It is a structure of parameters that describes tranform direction, data-path etc for column processors. The details of configuration parameter structures can be found here <a class="reference internal" href="L1.html#float-fft-params-struct-label"><span class="std std-ref">Configuration Parameter Structure for Floating Point FFT</span></a> for fixed point case (currently not supported) it is <a class="reference internal" href="L1.html#fixed-fft-params-struct-label"><span class="std std-ref">Configuration Parameter Structure for Fixed Point FFT</span></a></li>
-<li>t_rowInstanceIDOffset: 2-D FFT deploys multiple 1D FFT processors and it is required that every 1D FFT proessor has a unique ID. If ‘M’ processors are used along rows then their IDs will be in the range: (t_rowInstanceIDOffset+1 , t_rowInstanceIDOffset+M) the selection of offset for rows and columns should be made such that these ranges are unique without any overlap. Essentially it requires that <strong>abs(t_rowInstanceIDOffset - t_colInstanceIDOffset) &gt; M</strong></li>
-<li>t_colInstanceIDOffset: 2-D FFT deploys multiple 1D FFT processors and it is required that every 1D FFT proessor has a unique ID. If ‘M’ processors are used along rows then their IDs will be in the range: (t_rowInstanceIDOffset+1 , t_rowInstanceIDOffset+M) the selection of offset for rows and columns should be made such that these ranges are unique without any overlap. Essentially it requires that <strong>abs(t_rowInstanceIDOffset - t_colInstanceIDOffset) &gt; M</strong></li>
-<li>T_elemType: 2-D FFT processes complex samples and T_elemType gives the inner type used to store real and imaginary parts. Currently it supports only float as inner type for simulation and synthesis.</li>
+<li>t_numRows:    2-D SSR FFT processes a matrix the number of rows in input matrix are given by t_numRows</li>
+<li>t_numCols:    2-D SSR FFT processes a matrix the number of columns in input matrix are given by t_numCols</li>
+<li>t_numKernels: 2-D SSR FFT can deploy multiple 1-D SSR FFT processors along rows and columns to processes numerous row/columns in parallel this paramter gives number of processors to be used along rows/columns. Number of columns used along rows and columns are same and equal t_numKernels</li>
+<li>t_ssrFFTParamsRowProc: It is a structure of parameters that describes tranform direction, data-path etc for row processors. The details of configuration parameter structures can be found here <a class="reference internal" href="L1.html#float-fft-params-struct-label"><span class="std std-ref">Configuration Parameter Structure for Floating Point SSR FFT</span></a> for fixed point case (currently not supported) it is <a class="reference internal" href="L1.html#fixed-fft-params-struct-label"><span class="std std-ref">Configuration Parameter Structure for Fixed Point SSR FFT</span></a></li>
+<li>t_ssrFFTParamsColProc: It is a structure of parameters that describes tranform direction, data-path etc for column processors. The details of configuration parameter structures can be found here <a class="reference internal" href="L1.html#float-fft-params-struct-label"><span class="std std-ref">Configuration Parameter Structure for Floating Point SSR FFT</span></a> for fixed point case (currently not supported) it is <a class="reference internal" href="L1.html#fixed-fft-params-struct-label"><span class="std std-ref">Configuration Parameter Structure for Fixed Point SSR FFT</span></a></li>
+<li>t_rowInstanceIDOffset: 2-D SSR FFT deploys multiple 1D SSR FFT processors and it is required that every 1D SSR FFT proessor has a unique ID. If ‘M’ processors are used along rows then their IDs will be in the range: (t_rowInstanceIDOffset+1 , t_rowInstanceIDOffset+M) the selection of offset for rows and columns should be made such that these ranges are unique without any overlap. Essentially it requires that <strong>abs(t_rowInstanceIDOffset - t_colInstanceIDOffset) &gt; M</strong></li>
+<li>t_colInstanceIDOffset: 2-D SSR FFT deploys multiple 1D SSR FFT processors and it is required that every 1D SSR FFT proessor has a unique ID. If ‘M’ processors are used along rows then their IDs will be in the range: (t_rowInstanceIDOffset+1 , t_rowInstanceIDOffset+M) the selection of offset for rows and columns should be made such that these ranges are unique without any overlap. Essentially it requires that <strong>abs(t_rowInstanceIDOffset - t_colInstanceIDOffset) &gt; M</strong></li>
+<li>T_elemType: 2-D SSR FFT processes complex samples and T_elemType gives the inner type used to store real and imaginary parts. Currently it supports only float as inner type for simulation and synthesis.</li>
 </ul>
 </div>
 <div class="section" id="constraints-on-the-choice-of-template-parameters">
 <h3>Constraints on the Choice of Template Parameters<a class="headerlink" href="#constraints-on-the-choice-of-template-parameters" title="Permalink to this headline">¶</a></h3>
-<p>Currently the template paramters for 2-D FFT should follow the constraints liste below :</p>
+<p>Currently the template paramters for 2-D SSR FFT should follow the constraints liste below :</p>
 <p>1- The radix <code class="docutils literal notranslate"><span class="pre">R</span></code> specified for both the row and column processors in <code class="docutils literal notranslate"><span class="pre">t_ssrFFTParamsRowProc</span></code> and <code class="docutils literal notranslate"><span class="pre">t_ssrFFTParamsColProc</span></code> should be same</p>
 <p>2- The possible radix values are  : 2,4,8,16</p>
 <p>3- The input data should be a square matrix i.e. <code class="docutils literal notranslate"><span class="pre">t_numRows==t_numCols</span></code></p>
@@ -647,20 +647,20 @@ description of these parameters is as follows:</p>
 </div>
 <div class="section" id="library-usage">
 <h2>Library Usage<a class="headerlink" href="#library-usage" title="Permalink to this headline">¶</a></h2>
-<p>This section will provide information about how to use 2-D FFT in your project.</p>
-<div class="section" id="fixed-point-2-d-fft-l1-module-usage">
-<h3>Fixed Point 2-D FFT L1 Module Usage<a class="headerlink" href="#fixed-point-2-d-fft-l1-module-usage" title="Permalink to this headline">¶</a></h3>
-<p>To use the fixed point Vitis 2-D FFT L1 module in a C++ HLS design:</p>
+<p>This section will provide information about how to use 2-D SSR FFT in your project.</p>
+<div class="section" id="fixed-point-2-d-ssr-fft-l1-module-usage">
+<h3>Fixed Point 2-D SSR FFT L1 Module Usage<a class="headerlink" href="#fixed-point-2-d-ssr-fft-l1-module-usage" title="Permalink to this headline">¶</a></h3>
+<p>To use the fixed point Vitis 2-D SSR FFT L1 module in a C++ HLS design:</p>
 <p>1- Clone the Vitis DSP Library git repository and add the following path to compiler include path:</p>
 <blockquote>
 <div><code class="docutils literal notranslate"><span class="pre">REPO_PATH/dsp/L1/include/hw/vitis_2dfft/fixed/</span></code></div></blockquote>
 <p>2- Include <code class="docutils literal notranslate"><span class="pre">vt_fft.hpp</span></code></p>
 <p>3- Use namespace <code class="docutils literal notranslate"><span class="pre">xf::dsp::fft</span></code></p>
-<p>4- Define parameter structures for 1-D FFT processors used along rows and columns lets say call them <code class="docutils literal notranslate"><span class="pre">params_row</span></code> and <code class="docutils literal notranslate"><span class="pre">parms_column</span></code> by extending <code class="docutils literal notranslate"><span class="pre">ssr_fft_default_params</span></code> like <a class="reference internal" href="L1.html#fixed-fft-params-struct-label"><span class="std std-ref">Defining 1-D FFT Parameter Structure</span></a></p>
-<p>5- call <code class="docutils literal notranslate"><span class="pre">fft2d&lt;8,</span> <span class="pre">16,</span> <span class="pre">16,</span> <span class="pre">2,</span> <span class="pre">params_row,</span> <span class="pre">params_column,</span> <span class="pre">0,3,</span> <span class="pre">std::complex&lt;ap_fixed&lt;...&gt;&gt;</span> <span class="pre">&gt;(p_inStream,</span> <span class="pre">p_outStream);</span></code> description for template parameters can be found in <a class="reference internal" href="#d-fft-template-params-label"><span class="std std-ref">2-D FFT Template Parameters</span></a></p>
+<p>4- Define parameter structures for 1-D SSR FFT processors used along rows and columns lets say call them <code class="docutils literal notranslate"><span class="pre">params_row</span></code> and <code class="docutils literal notranslate"><span class="pre">parms_column</span></code> by extending <code class="docutils literal notranslate"><span class="pre">ssr_fft_default_params</span></code> like <a class="reference internal" href="L1.html#fixed-fft-params-struct-label"><span class="std std-ref">Defining 1-D SSR FFT Parameter Structure</span></a></p>
+<p>5- call <code class="docutils literal notranslate"><span class="pre">fft2d&lt;8,</span> <span class="pre">16,</span> <span class="pre">16,</span> <span class="pre">2,</span> <span class="pre">params_row,</span> <span class="pre">params_column,</span> <span class="pre">0,3,</span> <span class="pre">std::complex&lt;ap_fixed&lt;...&gt;&gt;</span> <span class="pre">&gt;(p_inStream,</span> <span class="pre">p_outStream);</span></code> description for template parameters can be found in <a class="reference internal" href="#d-fft-template-params-label"><span class="std std-ref">2-D SSR FFT Template Parameters</span></a></p>
 <p>Following section gives usage examples and explains some other interface level details for use in C++ based
 HLS design.
-To use the 2-D FFT L1 library:</p>
+To use the 2-D SSR FFT L1 library:</p>
 <ol class="arabic simple">
 <li>Include the <code class="docutils literal notranslate"><span class="pre">vt_fft.hpp</span></code> header:</li>
 </ol>
@@ -718,19 +718,19 @@ To use the 2-D FFT L1 library:</p>
      <span class="o">&gt;</span><span class="p">(</span><span class="n">p_inStream</span><span class="p">,</span> <span class="n">p_outStream</span><span class="p">);</span>
 </pre>
 </div>
-<div class="section" id="floating-point-2-d-fft-l1-module-usage">
-<h3>Floating Point 2-D FFT L1 Module Usage<a class="headerlink" href="#floating-point-2-d-fft-l1-module-usage" title="Permalink to this headline">¶</a></h3>
-<p>To use the Vitis 2-D FFT L1 module in a C++ HLS design:</p>
+<div class="section" id="floating-point-2-d-ssr-fft-l1-module-usage">
+<h3>Floating Point 2-D SSR FFT L1 Module Usage<a class="headerlink" href="#floating-point-2-d-ssr-fft-l1-module-usage" title="Permalink to this headline">¶</a></h3>
+<p>To use the Vitis 2-D SSR FFT L1 module in a C++ HLS design:</p>
 <p>1- Clone the Vitis DSP Library git repository and add the following path to compiler include path:</p>
 <blockquote>
 <div><code class="docutils literal notranslate"><span class="pre">REPO_PATH/dsp/L1/include/hw/vitis_2dfft/float/</span></code></div></blockquote>
 <p>2- Include <code class="docutils literal notranslate"><span class="pre">vt_fft.hpp</span></code></p>
 <p>3- Use namespace <code class="docutils literal notranslate"><span class="pre">xf::dsp::fft</span></code></p>
-<p>4- Define parameter structures for 1-D FFT processors used along rows and columns lets say call them <code class="docutils literal notranslate"><span class="pre">params_row</span></code> and <code class="docutils literal notranslate"><span class="pre">parms_column</span></code> by extending <code class="docutils literal notranslate"><span class="pre">ssr_fft_default_params</span></code> like <a class="reference internal" href="L1.html#float-fft-params-struct-label"><span class="std std-ref">Defining 1-D FFT Parameter Structure</span></a></p>
-<p>5- call <code class="docutils literal notranslate"><span class="pre">fft2d&lt;8,</span> <span class="pre">16,</span> <span class="pre">16,</span> <span class="pre">2,</span> <span class="pre">params_row,</span> <span class="pre">params_column,</span> <span class="pre">0,3,</span> <span class="pre">complex_wrapper&lt;float&gt;</span> <span class="pre">&gt;(p_inStream,</span> <span class="pre">p_outStream);</span></code> description for template parameters can be found in <a class="reference internal" href="#d-fft-template-params-label"><span class="std std-ref">2-D FFT Template Parameters</span></a></p>
+<p>4- Define parameter structures for 1-D SSR FFT processors used along rows and columns lets say call them <code class="docutils literal notranslate"><span class="pre">params_row</span></code> and <code class="docutils literal notranslate"><span class="pre">parms_column</span></code> by extending <code class="docutils literal notranslate"><span class="pre">ssr_fft_default_params</span></code> like <a class="reference internal" href="L1.html#float-fft-params-struct-label"><span class="std std-ref">Defining 1-D SSR FFT Parameter Structure</span></a></p>
+<p>5- call <code class="docutils literal notranslate"><span class="pre">fft2d&lt;8,</span> <span class="pre">16,</span> <span class="pre">16,</span> <span class="pre">2,</span> <span class="pre">params_row,</span> <span class="pre">params_column,</span> <span class="pre">0,3,</span> <span class="pre">complex_wrapper&lt;float&gt;</span> <span class="pre">&gt;(p_inStream,</span> <span class="pre">p_outStream);</span></code> description for template parameters can be found in <a class="reference internal" href="#d-fft-template-params-label"><span class="std std-ref">2-D SSR FFT Template Parameters</span></a></p>
 <p>Following section gives usage examples and explains some other interface level details for use in C++ based
 HLS design.
-To use the 2-D FFT L1 library:</p>
+To use the 2-D SSR FFT L1 library:</p>
 <ol class="arabic simple">
 <li>Include the <code class="docutils literal notranslate"><span class="pre">vt_fft.hpp</span></code> header:</li>
 </ol>
@@ -764,7 +764,7 @@ To use the 2-D FFT L1 library:</p>
 <span class="p">};</span>
 </pre>
 <ol class="arabic simple" start="4">
-<li>Call 2-D FFT L1 module as follows:</li>
+<li>Call 2-D SSR FFT L1 module as follows:</li>
 </ol>
 <pre class="highlight literal-block">
 <span></span><span class="n">fft2d</span><span class="o">&lt;</span>
@@ -781,17 +781,17 @@ To use the 2-D FFT L1 library:</p>
 </pre>
 </div>
 </div>
-<div class="section" id="d-fft-examples">
-<h2>2-D FFT Examples<a class="headerlink" href="#d-fft-examples" title="Permalink to this headline">¶</a></h2>
-<p>The following section gives examples for 2-d floating and fixed point FFT.</p>
+<div class="section" id="d-ssr-fft-examples">
+<h2>2-D SSR FFT Examples<a class="headerlink" href="#d-ssr-fft-examples" title="Permalink to this headline">¶</a></h2>
+<p>The following section gives examples for 2-D floating and fixed point SSR FFT.</p>
 <div class="section" id="d-fixed-point-example">
 <h3>2-D Fixed Point Example<a class="headerlink" href="#d-fixed-point-example" title="Permalink to this headline">¶</a></h3>
-<p>Following section briefly describes how an example project using Vitis FFT library can be build that uses 2d- fixed point FFT.
+<p>Following section briefly describes how an example project using Vitis SSR FFT can be build that uses 2-D fixed point SSR FFT.
 The source code files are listed which can be used to build HLS project by adding include path that points to
 local copy of Vitis FFT library.</p>
 <div class="section" id="top-level-definition-and-main-function">
 <h4>Top Level Definition and main Function<a class="headerlink" href="#top-level-definition-and-main-function" title="Permalink to this headline">¶</a></h4>
-<p>Following section lists a complete example test that uses 2-D fixed FFT L1 module. The header file named <code class="docutils literal notranslate"><span class="pre">top_2d_fft_test.hpp</span></code> listed
+<p>Following section lists a complete example test that uses 2-D fixed point SSR FFT L1 module. The header file named <code class="docutils literal notranslate"><span class="pre">top_2d_fft_test.hpp</span></code> listed
 below provides definition of most of the template parameters and data types used in test and also
 the declaration of top level function <code class="docutils literal notranslate"><span class="pre">top_fft2d</span></code> that will be synthesized.</p>
 <pre class="highlight literal-block">
@@ -864,7 +864,7 @@ the declaration of top level function <code class="docutils literal notranslate"
 
 <span class="cp">#ifndef __SYNTHESIS__</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;================================================================================&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;---------------------Calling 2D FFT Kernel with Parameters----------------------&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;-------------------Calling 2D SSR FFT Kernel with Parameters--------------------&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;================================================================================&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;    The Main Memory Width (no. complex&lt;ap_fixed&gt;)   : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">k_memWidth</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;    The Size of 1D Row Kernel                    : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">FFTParams</span><span class="o">::</span><span class="n">N</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
@@ -932,7 +932,7 @@ the declaration of top level function <code class="docutils literal notranslate"
         <span class="n">top_fft2d</span><span class="p">(</span><span class="n">l_matToStream</span><span class="p">,</span> <span class="n">fftOutputStream</span><span class="p">);</span>
 
         <span class="n">printMatStream</span><span class="o">&lt;</span><span class="n">k_fftKernelSize</span><span class="p">,</span> <span class="n">k_fftKernelSize</span><span class="p">,</span> <span class="n">k_memWidth</span><span class="p">,</span> <span class="n">MemWideIFTypeOut</span><span class="o">&gt;</span><span class="p">(</span>
-            <span class="n">fftOutputStream</span><span class="p">,</span> <span class="s">&quot;2D FFT Output Natural Order...&quot;</span><span class="p">);</span>
+            <span class="n">fftOutputStream</span><span class="p">,</span> <span class="s">&quot;2D SSR FFT Output Natural Order...&quot;</span><span class="p">);</span>
         <span class="n">streamToMatrix</span><span class="o">&lt;</span><span class="n">k_fftKernelSize</span><span class="p">,</span> <span class="n">k_fftKernelSize</span><span class="p">,</span> <span class="n">k_memWidth</span><span class="p">,</span> <span class="n">T_outType</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fftOutputStream</span><span class="p">,</span> <span class="n">l_outMat</span><span class="p">);</span>
     <span class="p">}</span> <span class="c1">// runs loop</span>
 
@@ -966,12 +966,12 @@ Simply go to the directory <code class="docutils literal notranslate"><span clas
 </div>
 <div class="section" id="d-floating-point-example">
 <h3>2-D Floating Point Example<a class="headerlink" href="#d-floating-point-example" title="Permalink to this headline">¶</a></h3>
-<p>Following section briefly describes how an example project using Vitis FFT library can be build that uses 2d-FFT.
+<p>Following section briefly describes how an example project using Vitis SSR FFT can be build that uses 2-D SSR FFT.
 The source code files are listed which can be used to build HLS project by adding include path that points to
 local copy of Vitis FFT library.</p>
 <div class="section" id="id1">
 <h4>Top Level Definition and main Function<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
-<p>Following section lists a complete example test that uses 2-D FFT L1 module. The header file named <code class="docutils literal notranslate"><span class="pre">top_2d_fft_test.hpp</span></code> listed
+<p>Following section lists a complete example test that uses 2-D SSR FFT L1 module. The header file named <code class="docutils literal notranslate"><span class="pre">top_2d_fft_test.hpp</span></code> listed
 below provides definition of most of the template parameters and data types used in test and also
 the declaration of top level function <code class="docutils literal notranslate"><span class="pre">top_fft2d</span></code> that will be synthesized.</p>
 <pre class="highlight literal-block">
@@ -1043,7 +1043,7 @@ the declaration of top level function <code class="docutils literal notranslate"
 
 <span class="cp">#ifndef __SYNTHESIS__</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;================================================================================&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;---------------------Calling 2D FFT Kernel with Parameters----------------------&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;-------------------Calling 2D SSR FFT Kernel with Parameters--------------------&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;================================================================================&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;    The Main Memory Width (no. complex&lt;float&gt;)   : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">k_memWidth</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;    The Size of 1D Row Kernel                    : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">FFTParams</span><span class="o">::</span><span class="n">N</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
@@ -1111,7 +1111,7 @@ the declaration of top level function <code class="docutils literal notranslate"
         <span class="n">top_fft2d</span><span class="p">(</span><span class="n">l_matToStream</span><span class="p">,</span> <span class="n">fftOutputStream</span><span class="p">);</span>
 
         <span class="n">printMatStream</span><span class="o">&lt;</span><span class="n">k_fftKernelSize</span><span class="p">,</span> <span class="n">k_fftKernelSize</span><span class="p">,</span> <span class="n">k_memWidth</span><span class="p">,</span> <span class="n">MemWideIFTypeOut</span><span class="o">&gt;</span><span class="p">(</span>
-            <span class="n">fftOutputStream</span><span class="p">,</span> <span class="s">&quot;2D FFT Output Natural Order...&quot;</span><span class="p">);</span>
+            <span class="n">fftOutputStream</span><span class="p">,</span> <span class="s">&quot;2D SSR FFT Output Natural Order...&quot;</span><span class="p">);</span>
         <span class="n">streamToMatrix</span><span class="o">&lt;</span><span class="n">k_fftKernelSize</span><span class="p">,</span> <span class="n">k_fftKernelSize</span><span class="p">,</span> <span class="n">k_memWidth</span><span class="p">,</span> <span class="n">T_outType</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fftOutputStream</span><span class="p">,</span> <span class="n">l_outMat</span><span class="p">);</span>
     <span class="p">}</span> <span class="c1">// runs loop</span>
 
@@ -1143,9 +1143,9 @@ change the setting of environment variable <strong>TA_PATH</strong> to point to 
 Simply go to the directory <code class="docutils literal notranslate"><span class="pre">REPO_PATH/dsp/L1/examples/2Dfloat_impluse</span></code> and simulat, build and co-simulate project using : <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">run</span> <span class="pre">XPART='xcu200-fsgd2104-2-e'</span> <span class="pre">CSIM=1</span> <span class="pre">CSYNTH=1</span> <span class="pre">COSIM=1</span></code> you can choose the part number as required and by settting CSIM/CSYNTH/COSIM=0 choose what to build and run with make target.</p>
 </div>
 </div>
-<div class="section" id="d-fft-tests">
-<h3>2-D FFT Tests<a class="headerlink" href="#d-fft-tests" title="Permalink to this headline">¶</a></h3>
-<p>Different tests are provided for fixed point and floating point 2-D FFT. These test can be ran indivisually using the makefile or they can all be lauched at the same time by using a provided script. All the 2-D FFT tests are in folder <code class="docutils literal notranslate"><span class="pre">REPO_PATH/dsp/L1/tests/hw/2dfft</span></code></p>
+<div class="section" id="d-ssr-fft-tests">
+<h3>2-D SSR FFT Tests<a class="headerlink" href="#d-ssr-fft-tests" title="Permalink to this headline">¶</a></h3>
+<p>Different tests are provided for fixed point and floating point 2-D SSR FFT. These test can be ran indivisually using the makefile or they can all be lauched at the same time by using a provided script. All the 2-D SSR FFT tests are in folder <code class="docutils literal notranslate"><span class="pre">REPO_PATH/dsp/L1/tests/hw/2dfft</span></code></p>
 <div class="section" id="launching-an-individual-test">
 <h4>Launching an Individual Test<a class="headerlink" href="#launching-an-individual-test" title="Permalink to this headline">¶</a></h4>
 <dl class="docutils">
@@ -1183,7 +1183,7 @@ Simply go to the directory <code class="docutils literal notranslate"><span clas
         <a href="L2/1-introduction.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="L1.html" class="btn btn-neutral float-left" title="1-Dimensional(Line) FFT L1 FPGA Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="L1.html" class="btn btn-neutral float-left" title="1-Dimensional(Line) SSR FFT L1 FPGA Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
