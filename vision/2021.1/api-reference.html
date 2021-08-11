@@ -62,8 +62,8 @@
   <link rel="stylesheet" href="_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Benchmark" href="Benchmark.html" />
-    <link rel="prev" title="Overview" href="overview.html" /> 
+    <link rel="next" title="xfcvDataMovers" href="api-reference-aie.html" />
+    <link rel="prev" title="Overview" href="overview-aie.html" /> 
 	</head>
 	<body>
 		<div class="xilinx-bs3"/>
@@ -343,6 +343,12 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html#getting-started-with-hls">Getting Started with HLS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html#design-examples-using-vitis-vision-library">Design Examples Using Vitis Vision Library</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Vitis Vision AIE Library User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview-aie.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview-aie.html#getting-started-with-vitis-vision-aie">Getting Started with Vitis Vision AIE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview-aie.html#design-example-using-vitis-vision-aie-library">Design example Using Vitis Vision AIE Library</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Vitis Vision Library API Reference</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a></li>
@@ -563,6 +569,11 @@
 </ul>
 </li>
 </ul>
+<p class="caption"><span class="caption-text">Vitis Vision AIE Library API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-reference-aie.html">xfcvDataMovers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference-aie.html#vitis-vision-aie-library-functions-api-list-with-performance-estimates">Vitis Vision AIE Library Functions API list with performance estimates</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Benchmark</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Benchmark.html">Benchmark</a></li>
@@ -659,47 +670,134 @@ image data and its attributes.</p>
 </div>
 <div class="section" id="class-definition">
 <span id="xfmat-calls-def"></span><h2>Class Definition<a class="headerlink" href="#class-definition" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">T</span><span class="p">,</span> <span class="kt">int</span> <span class="n">ROWS</span><span class="p">,</span> <span class="kt">int</span> <span class="n">COLS</span><span class="p">,</span> <span class="kt">int</span> <span class="n">NPC</span><span class="p">,</span> <span class="kt">int</span> <span class="n">XFCVDEPTH</span> <span class="o">=</span> <span class="mi">2</span><span class="o">&gt;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">T</span><span class="p">,</span> <span class="kt">int</span> <span class="n">ROWS</span><span class="p">,</span> <span class="kt">int</span> <span class="n">COLS</span><span class="p">,</span> <span class="kt">int</span> <span class="n">NPC</span><span class="p">,</span> <span class="kt">int</span> <span class="n">XFCVDEPTH</span> <span class="o">=</span> <span class="n">_XFCVDEPTH_DEFAULT</span><span class="o">&gt;</span>
 <span class="n">class</span> <span class="n">Mat</span> <span class="p">{</span>
    <span class="nl">public</span><span class="p">:</span>
-    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">allocatedFlag</span><span class="p">;</span> <span class="c1">// flag to mark memory allocation in this class</span>
-    <span class="kt">int</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">size</span><span class="p">;</span>        <span class="c1">// actual image size</span>
+        <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">allocatedFlag</span><span class="p">;</span> <span class="c1">// flag to mark memory allocation in this class</span>
+        <span class="kt">int</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">size</span><span class="p">;</span>        <span class="c1">// actual image size</span>
 
-    <span class="k">typedef</span> <span class="nf">XF_TNAME</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">NPC</span><span class="p">)</span> <span class="n">DATATYPE</span><span class="p">;</span>
+        <span class="k">typedef</span> <span class="nf">XF_TNAME</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">NPC</span><span class="p">)</span> <span class="n">DATATYPE</span><span class="p">;</span>
+        <span class="n">using</span> <span class="n">_DATATTYPE</span> <span class="o">=</span> <span class="kr">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">conditional</span><span class="o">&lt;</span>
+                <span class="p">(</span><span class="n">XFCVDEPTH</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="n">DATATYPE</span><span class="o">*</span><span class="p">,</span>                 <span class="c1">// Case of Memory Mapped pointer</span>
+                <span class="kr">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">conditional</span><span class="o">&lt;</span> <span class="c1">// Case of Stream</span>
+                        <span class="p">(</span><span class="n">XFCVDEPTH</span> <span class="o">==</span> <span class="mi">0</span><span class="p">),</span>
+                        <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">DATATYPE</span><span class="o">&gt;</span><span class="p">,</span>           <span class="c1">// Case of default Dtream depth or user can override outside</span>
+                        <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">DATATYPE</span><span class="p">,</span> <span class="n">XFCVDEPTH</span><span class="o">&gt;</span> <span class="c1">// Case of Stream depth specified</span>
+                        <span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+        <span class="n">_DATATTYPE</span> <span class="n">data</span><span class="p">;</span>
 
-<span class="cp">#if defined(__SYNTHESIS__) &amp;&amp; !defined(__SDA_MEM_MAP__)</span>
-    <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">DATATYPE</span><span class="p">,</span> <span class="n">XFCVDEPTH</span><span class="o">&gt;</span> <span class="n">data</span><span class="p">;</span>
-<span class="cp">#else</span>
-    <span class="n">DATATYPE</span><span class="o">*</span> <span class="n">data</span><span class="p">;</span>
+        <span class="n">Mat</span><span class="p">();</span> <span class="c1">// default constructor</span>
+        <span class="n">Mat</span><span class="p">(</span><span class="n">Size</span> <span class="n">_sz</span><span class="p">);</span>
+        <span class="n">Mat</span><span class="p">(</span><span class="kt">int</span> <span class="n">_rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_cols</span><span class="p">);</span>
+        <span class="n">Mat</span><span class="p">(</span><span class="kt">int</span> <span class="n">_size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_cols</span><span class="p">);</span>
+        <span class="n">Mat</span><span class="p">(</span><span class="kt">int</span> <span class="n">_rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_cols</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">_data</span><span class="p">);</span>
+        <span class="n">Mat</span><span class="p">(</span><span class="k">const</span> <span class="n">Mat</span><span class="o">&amp;</span><span class="p">);</span> <span class="c1">// copy constructor</span>
+
+        <span class="o">~</span><span class="n">Mat</span><span class="p">();</span>
+
+        <span class="n">Mat</span><span class="o">&amp;</span> <span class="n">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Mat</span><span class="o">&amp;</span><span class="p">);</span> <span class="c1">// Assignment operator</span>
+
+        <span class="n">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">D</span> <span class="o">=</span> <span class="n">XFCVDEPTH</span><span class="p">,</span> <span class="kr">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if</span><span class="o">&lt;</span><span class="p">(</span><span class="n">D</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">*</span> <span class="o">=</span> <span class="n">nullptr</span><span class="o">&gt;</span>
+        <span class="kt">void</span> <span class="n">alloc_data</span><span class="p">()</span> <span class="p">{</span>
+<span class="cp">#ifndef __SYNTHESIS__</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">DATATYPE</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">size</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">DATATYPE</span><span class="p">));</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="n">data</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Failed to allocate memory</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                        <span class="n">allocatedFlag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="p">}</span>
 <span class="cp">#endif</span>
+        <span class="p">}</span>
 
-    <span class="n">Mat</span><span class="p">();</span> <span class="c1">// default constructor</span>
-    <span class="n">Mat</span><span class="p">(</span><span class="n">Size</span> <span class="n">_sz</span><span class="p">);</span>
-    <span class="n">Mat</span><span class="p">(</span><span class="kt">int</span> <span class="n">_rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_cols</span><span class="p">);</span>
-    <span class="n">Mat</span><span class="p">(</span><span class="kt">int</span> <span class="n">_size</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_cols</span><span class="p">);</span>
-    <span class="n">Mat</span><span class="p">(</span><span class="kt">int</span> <span class="n">_rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_cols</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">_data</span><span class="p">);</span>
-    <span class="n">Mat</span><span class="p">(</span><span class="k">const</span> <span class="n">Mat</span><span class="o">&amp;</span><span class="p">);</span> <span class="c1">// copy constructor</span>
+        <span class="n">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">D</span> <span class="o">=</span> <span class="n">XFCVDEPTH</span><span class="p">,</span> <span class="kr">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if</span><span class="o">&lt;</span><span class="p">(</span><span class="n">D</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">*</span> <span class="o">=</span> <span class="n">nullptr</span><span class="o">&gt;</span>
+        <span class="kt">void</span> <span class="n">alloc_data</span><span class="p">()</span> <span class="p">{</span>
+                <span class="c1">// This is a stream</span>
+        <span class="p">}</span>
 
-    <span class="o">~</span><span class="n">Mat</span><span class="p">();</span>
+        <span class="n">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">D</span> <span class="o">=</span> <span class="n">XFCVDEPTH</span><span class="p">,</span> <span class="kr">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if</span><span class="o">&lt;</span><span class="p">(</span><span class="n">D</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">*</span> <span class="o">=</span> <span class="n">nullptr</span><span class="o">&gt;</span>
+        <span class="kt">void</span> <span class="n">free_data</span><span class="p">()</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">data</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+<span class="cp">#ifndef __SYNTHESIS__</span>
+                        <span class="n">free</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+<span class="cp">#endif</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
 
-    <span class="n">Mat</span><span class="o">&amp;</span> <span class="n">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Mat</span><span class="o">&amp;</span><span class="p">);</span> <span class="c1">// Assignment operator</span>
-    <span class="c1">//  XF_TNAME(T, XF_NPPC1) operator() (unsigned int r, unsigned int c);</span>
-    <span class="c1">//  XF_CTUNAME(T, NPC) operator() (unsigned int r, unsigned int c, unsigned int ch);</span>
-    <span class="n">XF_TNAME</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">NPC</span><span class="p">)</span> <span class="n">read</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">);</span>
-    <span class="kt">float</span> <span class="nf">read_float</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">);</span>
-    <span class="kt">void</span> <span class="nf">write</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">,</span> <span class="n">XF_TNAME</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">NPC</span><span class="p">)</span> <span class="n">val</span><span class="p">);</span>
-    <span class="kt">void</span> <span class="nf">write_float</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">,</span> <span class="kt">float</span> <span class="n">val</span><span class="p">);</span>
+        <span class="n">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">D</span> <span class="o">=</span> <span class="n">XFCVDEPTH</span><span class="p">,</span> <span class="kr">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if</span><span class="o">&lt;</span><span class="p">(</span><span class="n">D</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">*</span> <span class="o">=</span> <span class="n">nullptr</span><span class="o">&gt;</span>
+        <span class="kt">void</span> <span class="n">free_data</span><span class="p">()</span> <span class="p">{}</span>
 
-    <span class="kt">void</span> <span class="nf">init</span><span class="p">(</span><span class="kt">int</span> <span class="n">_rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_cols</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">allocate</span> <span class="o">=</span> <span class="nb">true</span><span class="p">);</span>
-    <span class="kt">void</span> <span class="nf">copyTo</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">fromData</span><span class="p">);</span>
-    <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*</span> <span class="nf">copyFrom</span><span class="p">();</span>
+        <span class="n">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">D</span> <span class="o">=</span> <span class="n">XFCVDEPTH</span><span class="p">,</span> <span class="kr">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if</span><span class="o">&lt;</span><span class="p">(</span><span class="n">D</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">*</span> <span class="o">=</span> <span class="n">nullptr</span><span class="o">&gt;</span>
+        <span class="kt">void</span> <span class="n">copyData</span><span class="p">(</span><span class="k">const</span> <span class="n">Mat</span><span class="o">&amp;</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">rows</span> <span class="o">*</span> <span class="p">((</span><span class="n">cols</span> <span class="o">+</span> <span class="n">NPC</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">XF_BITSHIFT</span><span class="p">(</span><span class="n">NPC</span><span class="p">)));</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">src</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
 
-    <span class="k">const</span> <span class="kt">int</span> <span class="nf">type</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-    <span class="k">const</span> <span class="kt">int</span> <span class="nf">depth</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-    <span class="k">const</span> <span class="kt">int</span> <span class="nf">channels</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+        <span class="n">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">D</span> <span class="o">=</span> <span class="n">XFCVDEPTH</span><span class="p">,</span> <span class="kr">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if</span><span class="o">&lt;</span><span class="p">(</span><span class="n">D</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">*</span> <span class="o">=</span> <span class="n">nullptr</span><span class="o">&gt;</span>
+        <span class="kt">void</span> <span class="n">copyData</span><span class="p">(</span><span class="k">const</span> <span class="n">Mat</span><span class="o">&amp;</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// This is a stream</span>
+                <span class="n">assert</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="p">}</span>
 
-    <span class="n">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">DST_T</span><span class="o">&gt;</span>
-    <span class="kt">void</span> <span class="n">convertTo</span><span class="p">(</span><span class="n">Mat</span><span class="o">&lt;</span><span class="n">DST_T</span><span class="p">,</span> <span class="n">ROWS</span><span class="p">,</span> <span class="n">COLS</span><span class="p">,</span> <span class="n">NPC</span><span class="p">,</span> <span class="n">XFCVDEPTH</span><span class="o">&gt;&amp;</span> <span class="n">dst</span><span class="p">,</span> <span class="kt">int</span> <span class="n">otype</span><span class="p">,</span> <span class="kt">double</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="kt">double</span> <span class="n">beta</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">D</span> <span class="o">=</span> <span class="n">XFCVDEPTH</span><span class="p">,</span> <span class="kr">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if</span><span class="o">&lt;</span><span class="p">(</span><span class="n">D</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">*</span> <span class="o">=</span> <span class="n">nullptr</span><span class="o">&gt;</span>
+        <span class="kt">void</span> <span class="n">assignDataPtr</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">_data</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">DATATYPE</span><span class="o">*</span><span class="p">)</span><span class="n">_data</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="n">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">D</span> <span class="o">=</span> <span class="n">XFCVDEPTH</span><span class="p">,</span> <span class="kr">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if</span><span class="o">&lt;</span><span class="p">(</span><span class="n">D</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">*</span> <span class="o">=</span> <span class="n">nullptr</span><span class="o">&gt;</span>
+        <span class="kt">void</span> <span class="n">assignDataPtr</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">_data</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// This is a stream</span>
+                <span class="n">assert</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="n">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">D</span> <span class="o">=</span> <span class="n">XFCVDEPTH</span><span class="p">,</span> <span class="kr">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if</span><span class="o">&lt;</span><span class="p">(</span><span class="n">D</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">*</span> <span class="o">=</span> <span class="n">nullptr</span><span class="o">&gt;</span>
+        <span class="n">XF_TNAME</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">NPC</span><span class="p">)</span>
+        <span class="n">read</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+        <span class="p">}</span>
+
+        <span class="n">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">D</span> <span class="o">=</span> <span class="n">XFCVDEPTH</span><span class="p">,</span> <span class="kr">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if</span><span class="o">&lt;</span><span class="p">(</span><span class="n">D</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">*</span> <span class="o">=</span> <span class="n">nullptr</span><span class="o">&gt;</span>
+        <span class="n">XF_TNAME</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">NPC</span><span class="p">)</span>
+        <span class="n">read</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">data</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="kt">float</span> <span class="n">read_float</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">);</span>
+
+        <span class="n">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">D</span> <span class="o">=</span> <span class="n">XFCVDEPTH</span><span class="p">,</span> <span class="kr">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if</span><span class="o">&lt;</span><span class="p">(</span><span class="n">D</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">*</span> <span class="o">=</span> <span class="n">nullptr</span><span class="o">&gt;</span>
+        <span class="kt">void</span> <span class="n">write</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">,</span> <span class="n">XF_TNAME</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">NPC</span><span class="p">)</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="n">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">D</span> <span class="o">=</span> <span class="n">XFCVDEPTH</span><span class="p">,</span> <span class="kr">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if</span><span class="o">&lt;</span><span class="p">(</span><span class="n">D</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">*</span> <span class="o">=</span> <span class="n">nullptr</span><span class="o">&gt;</span>
+        <span class="kt">void</span> <span class="n">write</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">,</span> <span class="n">XF_TNAME</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">NPC</span><span class="p">)</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">data</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="kt">void</span> <span class="n">write_float</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">,</span> <span class="kt">float</span> <span class="n">val</span><span class="p">);</span>
+
+        <span class="n">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">D</span> <span class="o">=</span> <span class="n">XFCVDEPTH</span><span class="p">,</span> <span class="kr">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if</span><span class="o">&lt;</span><span class="p">(</span><span class="n">D</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">*</span> <span class="o">=</span> <span class="n">nullptr</span><span class="o">&gt;</span>
+        <span class="kt">void</span> <span class="n">init</span><span class="p">(</span><span class="kt">int</span> <span class="n">_rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_cols</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">_data</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">init</span><span class="p">(</span><span class="n">_rows</span><span class="p">,</span> <span class="n">_cols</span><span class="p">);</span>
+                <span class="n">copyTo</span><span class="p">(</span><span class="n">_data</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="n">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">D</span> <span class="o">=</span> <span class="n">XFCVDEPTH</span><span class="p">,</span> <span class="kr">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if</span><span class="o">&lt;</span><span class="p">(</span><span class="n">D</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">*</span> <span class="o">=</span> <span class="n">nullptr</span><span class="o">&gt;</span>
+        <span class="kt">void</span> <span class="n">init</span><span class="p">(</span><span class="kt">int</span> <span class="n">_rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_cols</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">_data</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">init</span><span class="p">(</span><span class="n">_rows</span><span class="p">,</span> <span class="n">_cols</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+                <span class="n">assignDataPtr</span><span class="p">(</span><span class="n">_data</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="kt">void</span> <span class="n">init</span><span class="p">(</span><span class="kt">int</span> <span class="n">_rows</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_cols</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">allocate</span> <span class="o">=</span> <span class="nb">true</span><span class="p">);</span>
+        <span class="kt">void</span> <span class="nf">copyTo</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">fromData</span><span class="p">);</span>
+        <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*</span> <span class="nf">copyFrom</span><span class="p">();</span>
+
+        <span class="k">const</span> <span class="kt">int</span> <span class="nf">type</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+        <span class="k">const</span> <span class="kt">int</span> <span class="nf">depth</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+        <span class="k">const</span> <span class="kt">int</span> <span class="nf">channels</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
+        <span class="n">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">DST_T</span><span class="o">&gt;</span>
+        <span class="kt">void</span> <span class="n">convertTo</span><span class="p">(</span><span class="n">Mat</span><span class="o">&lt;</span><span class="n">DST_T</span><span class="p">,</span> <span class="n">ROWS</span><span class="p">,</span> <span class="n">COLS</span><span class="p">,</span> <span class="n">NPC</span><span class="p">,</span> <span class="n">XFCVDEPTH</span><span class="o">&gt;&amp;</span> <span class="n">dst</span><span class="p">,</span> <span class="kt">int</span> <span class="n">otype</span><span class="p">,</span> <span class="kt">double</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="kt">double</span> <span class="n">beta</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
 <span class="p">};</span>
 </pre></div>
 </div>
@@ -790,11 +888,7 @@ otype, double
 alpha=1,
 double
 beta=0)</p></td>
-<td><blockquote>
-<div><p>Refer to</p>
-</div></blockquote>
-<p><a class="reference external" href="api-reference.html#xf-convertto">xf::cv::convertTo</a></p>
-</td>
+<td><p>Refer to <a class="reference internal" href="#xf-cv-convertto">xf::cv::convertTo</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>copyTo(*
 fromData)</p></td>
@@ -3725,11 +3819,11 @@ Xczu9eg-ffvb1156-1-i-es1, to process a grayscale HD (1080x1920) image.</p>
 </div>
 <div class="section" id="bitwise-or">
 <span id="id8"></span><h2>Bitwise OR<a class="headerlink" href="#bitwise-or" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">bitwise_or</span></code> function performs the pixel wise bitwise OR
+operation between two input images, and returns an output image.</p>
 <blockquote>
-<div><p>The <code class="docutils literal notranslate"><span class="pre">bitwise_or</span></code> function performs the pixel wise bitwise OR</p>
+<div><p><img alt="image22" class="image" src="_images/wai1554997365850.png" /></p>
 </div></blockquote>
-<p>operation between two input images, and returns an output image.
-<img alt="image22" class="image" src="_images/wai1554997365850.png" /></p>
 <p>Where,</p>
 <ul class="simple">
 <li><p><img alt="image23" class="image" src="_images/oqz1554997327566.png" /> is the intensity of output image at (x, y) position</p></li>
@@ -4553,13 +4647,13 @@ Xczu9eg-ffvb1156-1-i-es1 FPGA.</p>
 <table class="docutils align-default" id="id167">
 <caption><span class="caption-text">Table 62. boundingbox Function Resource Utilization Summary</span><a class="headerlink" href="#id167" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 18%" />
-<col style="width: 30%" />
+<col style="width: 17%" />
+<col style="width: 29%" />
 <col style="width: 24%" />
 <col style="width: 12%" />
-<col style="width: 4%" />
 <col style="width: 6%" />
 <col style="width: 6%" />
+<col style="width: 5%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Operating Mode</p></th>
@@ -17917,10 +18011,8 @@ over-determined. A better solution is obtained with the “least square
 fit” method. Below is the final solution, which is a problem with two
 equations and two unknowns:</p>
 <p><img alt="image98" class="image" src="_images/tms1554997253713.png" /></p>
-<blockquote>
-<div><p>This solution fails when a large motion is involved and so pyramids are</p>
-</div></blockquote>
-<p>used. Going up in the pyramid, small motions are removed and large
+<p>This solution fails when a large motion is involved and so pyramids are
+used. Going up in the pyramid, small motions are removed and large
 motions become small motions and so by applying Lucas-Kanade, the
 optical flow along with the scale is obtained.</p>
 <p class="rubric">API Syntax</p>
@@ -18992,7 +19084,7 @@ row index and <img alt="image129" class="image" src="_images/ooa1559108606429.sv
 </div>
 </div>
 <div class="section" id="laplacian-operator">
-<h2>Laplacian Operator<a class="headerlink" href="#laplacian-operator" title="Permalink to this headline">¶</a></h2>
+<span id="laplacian"></span><h2>Laplacian Operator<a class="headerlink" href="#laplacian-operator" title="Permalink to this headline">¶</a></h2>
 <p>This function calculates the Laplacian of the input image. This function internally uses the filter2D kernel to compute the Laplacian.
 The filter coefficients are calculated using cv::getDerivKernels OpenCV function on the host side.</p>
 <p class="rubric">API Syntax</p>
@@ -25541,10 +25633,10 @@ Pattern Recognition, 2005.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Benchmark.html" class="btn btn-neutral float-right" title="Benchmark" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="api-reference-aie.html" class="btn btn-neutral float-right" title="xfcvDataMovers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="overview-aie.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -25554,7 +25646,7 @@ Pattern Recognition, 2005.</p>
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on June 23, 2021.
+        Last updated on August 10, 2021.
       </span>
 
     </p>

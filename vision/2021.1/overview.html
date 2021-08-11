@@ -82,7 +82,7 @@
   <link rel="stylesheet" href="_static/css/pro.min.css" media="all" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Overview" href="api-reference.html" />
+    <link rel="next" title="Overview" href="overview-aie.html" />
     <link rel="prev" title="Vitis Vision Library" href="index.html" /> 
 	</head>
 	<body>
@@ -441,7 +441,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id9">Color Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">Color Detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#difference-gaussian-filter">Difference of Gaussian Filter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#stereo-vision">Stereo Vision Pipeline</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#x-mlpipeline">Blob From Image</a></li>
@@ -453,11 +453,22 @@
 </ul>
 </li>
 </ul>
+<p class="caption"><span class="caption-text">Vitis Vision AIE Library User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview-aie.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview-aie.html#getting-started-with-vitis-vision-aie">Getting Started with Vitis Vision AIE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview-aie.html#design-example-using-vitis-vision-aie-library">Design example Using Vitis Vision AIE Library</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Vitis Vision Library API Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api-reference.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api-reference.html#xf-cv-mat-image-container-class">xf::cv::Mat Image Container Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api-reference.html#vitis-vision-library-functions">Vitis Vision Library Functions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Vitis Vision AIE Library API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-reference-aie.html">xfcvDataMovers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference-aie.html#vitis-vision-aie-library-functions-api-list-with-performance-estimates">Vitis Vision AIE Library Functions API list with performance estimates</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Benchmark</span></p>
 <ul>
@@ -544,7 +555,7 @@ Vitis vision library functions are mostly similar in functionality to their
 OpenCV equivalent. Any deviations, if present, are documented.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>For more information on the Vitis vision library prerequisites, see <a class="reference internal" href="#prerequisites">Prerequisites</a>.</p>
+<p>For more information on the Vitis vision library please refer <a class="reference internal" href="#prerequisites-hls"><span class="std std-ref">Prerequisites</span></a> section</p>
 </div>
 <p>To familiarize yourself with the steps required to use the Vitis vision library
 functions, see the <a class="reference external" href="using-the-vitis-vision-library.html">Using the Vitis vision
@@ -583,8 +594,8 @@ Class</a>.</p>
 <div class="section" id="vitis-vision-library-contents">
 <span id="xfopencv-lib-contents"></span><h2>Vitis Vision Library Contents<a class="headerlink" href="#vitis-vision-library-contents" title="Permalink to this headline">¶</a></h2>
 <p>The following table lists the contents of the Vitis vision library.</p>
-<table class="docutils align-default" id="id19">
-<caption><span class="caption-text">Vitis Vision Library Contents</span><a class="headerlink" href="#id19" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id18">
+<caption><span class="caption-text">Vitis Vision Library Contents</span><a class="headerlink" href="#id18" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -723,7 +734,7 @@ platforms in Vitis. The subsequent section also explains the
 methodology to verify the kernel in various emulation modes and on the
 hardware.</p>
 <div class="section" id="prerequisites">
-<span id="id3"></span><h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<span id="prerequisites-hls"></span><h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Valid installation of Vitis™ 2021.1 or later version and the
 corresponding licenses.</p></li>
@@ -859,8 +870,8 @@ first pixel of the next row.</p>
 <span class="kt">void</span> <span class="n">Array2xfMat</span><span class="p">(</span><span class="n">ap_uint</span><span class="o">&lt;</span> <span class="n">PTR_WIDTH</span> <span class="o">&gt;</span> <span class="o">*</span><span class="n">srcPtr</span><span class="p">,</span> <span class="n">xf</span><span class="o">::</span><span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="o">&lt;</span><span class="n">MAT_T</span><span class="p">,</span><span class="n">ROWS</span><span class="p">,</span><span class="n">COLS</span><span class="p">,</span><span class="n">NPC</span><span class="o">&gt;&amp;</span> <span class="n">dstMat</span><span class="p">,</span> <span class="kt">int</span> <span class="n">stride</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils align-default" id="id20">
-<caption><span class="caption-text">Table. Array2xfMat Parmater Description</span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-text">Table. Array2xfMat Parmater Description</span><a class="headerlink" href="#id19" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -921,8 +932,8 @@ first pixel of the next row.</p>
 <span class="kt">void</span> <span class="n">xfMat2Array</span><span class="p">(</span><span class="n">xf</span><span class="o">::</span><span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="o">&lt;</span><span class="n">MAT_T</span><span class="p">,</span><span class="n">ROWS</span><span class="p">,</span><span class="n">COLS</span><span class="p">,</span><span class="n">NPC</span><span class="o">&gt;&amp;</span> <span class="n">srcMat</span><span class="p">,</span> <span class="n">ap_uint</span><span class="o">&lt;</span> <span class="n">PTR_WIDTH</span> <span class="o">&gt;</span> <span class="o">*</span><span class="n">dstPtr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">stride</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils align-default" id="id21">
-<caption><span class="caption-text">Table . xfMat2Array Parameter Description</span><a class="headerlink" href="#id21" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id20">
+<caption><span class="caption-text">Table . xfMat2Array Parameter Description</span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -976,8 +987,8 @@ Default value is srcMat.cols</p></td>
 <h4>Interface pointer widths<a class="headerlink" href="#interface-pointer-widths" title="Permalink to this headline">¶</a></h4>
 <p>Minimum pointer widths for different configurations is shown in the
 following table:</p>
-<table class="docutils align-default" id="id22">
-<caption><span class="caption-text">Table . Minimum and maximum pointer widths for different Mat types</span><a class="headerlink" href="#id22" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id21">
+<caption><span class="caption-text">Table . Minimum and maximum pointer widths for different Mat types</span><a class="headerlink" href="#id21" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 25%" />
@@ -1039,7 +1050,7 @@ following table:</p>
 <h4>Kernel-to-Kernel streaming<a class="headerlink" href="#kernel-to-kernel-streaming" title="Permalink to this headline">¶</a></h4>
 <p>There are two utility functions available in Vitis Vision, axiStrm2xfMat and xfMat2axiStrm to support streaming
 of data between two kernels. For more details on kernel-to-kernel streaming, refer to the “Streaming Data Transfers Between the
-Kernels” section of UG1277 document.</p>
+Kernels” section of [UG1393](<a class="reference external" href="https://www.xilinx.com/support/documentation/sw_manuals/xilinx2021_1/ug1393-vitis-application-acceleration.pdf">https://www.xilinx.com/support/documentation/sw_manuals/xilinx2021_1/ug1393-vitis-application-acceleration.pdf</a>) document.</p>
 </div>
 <div class="section" id="axistrm2xfmat">
 <h4>axiStrm2xfMat<a class="headerlink" href="#axistrm2xfmat" title="Permalink to this headline">¶</a></h4>
@@ -1051,8 +1062,8 @@ on particular configuration (bit-depth, channels, pixel-parallelism) the xf::cv:
 <span class="kt">void</span> <span class="n">axiStrm2xfMat</span><span class="p">(</span><span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">ap_axiu</span><span class="o">&lt;</span><span class="n">PTR_WIDTH</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="o">&gt;&amp;</span> <span class="n">srcPtr</span><span class="p">,</span> <span class="n">xf</span><span class="o">::</span><span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="o">&lt;</span><span class="n">MAT_T</span><span class="p">,</span> <span class="n">ROWS</span><span class="p">,</span> <span class="n">COLS</span><span class="p">,</span> <span class="n">NPC</span><span class="o">&gt;&amp;</span> <span class="n">dstMat</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils align-default" id="id23">
-<caption><span class="caption-text">Table . Parameter description of axiStrm2xfMat function</span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id22">
+<caption><span class="caption-text">Table . Parameter description of axiStrm2xfMat function</span><a class="headerlink" href="#id22" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 17%" />
 <col style="width: 83%" />
@@ -1095,8 +1106,8 @@ This function converts the input xf:cv::Mat to AXI stream based on particular co
 <span class="kt">void</span> <span class="n">xfMat2axiStrm</span><span class="p">(</span><span class="n">xf</span><span class="o">::</span><span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="o">&lt;</span><span class="n">MAT_T</span><span class="p">,</span> <span class="n">ROWS</span><span class="p">,</span> <span class="n">COLS</span><span class="p">,</span> <span class="n">NPC</span><span class="o">&gt;&amp;</span> <span class="n">srcMat</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">ap_axiu</span><span class="o">&lt;</span><span class="n">PTR_WIDTH</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="o">&gt;&amp;</span> <span class="n">dstPtr</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils align-default" id="id24">
-<caption><span class="caption-text">Table . Parameter description of xfMat2axiStrm function</span><a class="headerlink" href="#id24" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id23">
+<caption><span class="caption-text">Table . Parameter description of xfMat2axiStrm function</span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 17%" />
 <col style="width: 83%" />
@@ -1451,8 +1462,8 @@ Reference</a> using the examples
 in the examples folder as reference.</p>
 <p>The following table gives the name of the header file, including the
 folder name, which contains the library function.</p>
-<table class="docutils align-default" id="id25">
-<caption><span class="caption-text">Table : Vitis Vision Library</span><a class="headerlink" href="#id25" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id24">
+<caption><span class="caption-text">Table : Vitis Vision Library</span><a class="headerlink" href="#id24" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 55%" />
 <col style="width: 45%" />
@@ -1743,8 +1754,8 @@ hpp</p></td>
 <p>The following table lists the Vitis vision library functions and the command
 to run the respective examples on hardware. It is assumed that your
 design is completely built and the board has booted up correctly.</p>
-<table class="docutils align-default" id="id26">
-<caption><span class="caption-text">Table : Using the Vitis vision Library Function on Hardware</span><a class="headerlink" href="#id26" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id25">
+<caption><span class="caption-text">Table : Using the Vitis vision Library Function on Hardware</span><a class="headerlink" href="#id25" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 21%" />
 <col style="width: 40%" />
@@ -2479,8 +2490,8 @@ Vitis vision functions in the Vivado® IP integrator.
 are used on the host side.</p>
 <p>An example function, ‘axiconv’, depicting the usage of these functions
 is provided in the L1/examples directory.</p>
-<table class="docutils align-default" id="id27">
-<caption><span class="caption-text">Table. AXI Video Interface Functions</span><a class="headerlink" href="#id27" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id26">
+<caption><span class="caption-text">Table. AXI Video Interface Functions</span><a class="headerlink" href="#id26" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 41%" />
 <col style="width: 59%" />
@@ -2520,8 +2531,8 @@ AXI4 Streaming Video and produces an <code class="docutils literal notranslate">
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id28">
-<caption><span class="caption-text">Table. AXIvideo2cvMatxf Function Parameter Description</span><a class="headerlink" href="#id28" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id27">
+<caption><span class="caption-text">Table. AXIvideo2cvMatxf Function Parameter Description</span><a class="headerlink" href="#id27" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -2580,8 +2591,8 @@ video protocol.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id29">
-<caption><span class="caption-text">Table. xfMat2AXIvideo Function Parameter Description</span><a class="headerlink" href="#id29" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id28">
+<caption><span class="caption-text">Table. xfMat2AXIvideo Function Parameter Description</span><a class="headerlink" href="#id28" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -2639,8 +2650,8 @@ representation and produces the AXI4 streaming video of image.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id30">
-<caption><span class="caption-text">Table. AXIvideo2cvMatxf Function Parameter Description</span><a class="headerlink" href="#id30" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id29">
+<caption><span class="caption-text">Table. AXIvideo2cvMatxf Function Parameter Description</span><a class="headerlink" href="#id29" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -2683,8 +2694,8 @@ and produces the cv::Mat representation of image</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id31">
-<caption><span class="caption-text">Table. AXIvideo2cvMatxf Function Parameter Description</span><a class="headerlink" href="#id31" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id30">
+<caption><span class="caption-text">Table. AXIvideo2cvMatxf Function Parameter Description</span><a class="headerlink" href="#id30" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -2735,8 +2746,8 @@ hls::stream to store the data whereas xf::cv::Mat uses a pointer. Therefore,
 hls:: Mat cannot be exactly replaced with xf::cv::Mat for migrating.</p>
 <p>Below table summarizes the differences between member functions of
 hls::Mat to xf::cv::Mat.</p>
-<table class="docutils align-default" id="id32">
-<caption><span class="caption-text">Table : Infrastructure Functions and Classes</span><a class="headerlink" href="#id32" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id31">
+<caption><span class="caption-text">Table : Infrastructure Functions and Classes</span><a class="headerlink" href="#id31" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 31%" />
 <col style="width: 31%" />
@@ -2881,8 +2892,8 @@ the pixel data type.</p>
 <h4>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions" title="Permalink to this headline">¶</a></h4>
 <p>The following table lists the xf::cv::Window class members and their
 descriptions.</p>
-<table class="docutils align-default" id="id33">
-<caption><span class="caption-text">Table : Window Function Parameter Descriptions</span><a class="headerlink" href="#id33" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id32">
+<caption><span class="caption-text">Table : Window Function Parameter Descriptions</span><a class="headerlink" href="#id32" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 75%" />
@@ -2901,8 +2912,8 @@ descriptions.</p>
 </div>
 <div class="section" id="member-function-description">
 <h4>Member Function Description<a class="headerlink" href="#member-function-description" title="Permalink to this headline">¶</a></h4>
-<table class="docutils align-default" id="id34">
-<caption><span class="caption-text">Table : Member Function Description</span><a class="headerlink" href="#id34" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id33">
+<caption><span class="caption-text">Table : Member Function Description</span><a class="headerlink" href="#id33" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -2993,8 +3004,8 @@ window buffer onto console.</p></td>
 </div>
 <div class="section" id="template-parameter-description">
 <h4>Template Parameter Description<a class="headerlink" href="#template-parameter-description" title="Permalink to this headline">¶</a></h4>
-<table class="docutils align-default" id="id35">
-<caption><span class="caption-text">Table : Template Parameter Description</span><a class="headerlink" href="#id35" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id34">
+<caption><span class="caption-text">Table : Template Parameter Description</span><a class="headerlink" href="#id34" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 21%" />
 <col style="width: 79%" />
@@ -3028,7 +3039,7 @@ window buffer onto console.</p></td>
 specify the number of rows, columns in window buffer and the pixel data
 type.</p>
 <div class="section" id="class-definition-1">
-<span id="id4"></span><h4>Class definition<a class="headerlink" href="#class-definition-1" title="Permalink to this headline">¶</a></h4>
+<span id="id3"></span><h4>Class definition<a class="headerlink" href="#class-definition-1" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">template</span><span class="o">&lt;</span><span class="kt">int</span> <span class="n">ROWS</span><span class="p">,</span> <span class="kt">int</span> <span class="n">COLS</span><span class="p">,</span> <span class="kr">typename</span> <span class="n">T</span><span class="p">,</span> <span class="n">XF_ramtype_e</span> <span class="n">MEM_TYPE</span><span class="o">=</span><span class="n">RAM_S2P_BRAM</span><span class="p">,</span> <span class="kt">int</span> <span class="n">RESHAPE_FACTOR</span><span class="o">=</span><span class="mi">1</span><span class="o">&gt;</span>
  <span class="n">class</span> <span class="n">LineBuffer</span> <span class="p">{</span>
 <span class="nl">public</span><span class="p">:</span>
@@ -3059,11 +3070,11 @@ type.</p>
 </div>
 </div>
 <div class="section" id="parameter-descriptions-1">
-<span id="id5"></span><h4>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions-1" title="Permalink to this headline">¶</a></h4>
+<span id="id4"></span><h4>Parameter Descriptions<a class="headerlink" href="#parameter-descriptions-1" title="Permalink to this headline">¶</a></h4>
 <p>The following table lists the xf::cv::LineBuffer class members and their
 descriptions.</p>
-<table class="docutils align-default" id="id36">
-<caption><span class="caption-text">Table : Line Buffer Function Parameter Descriptions</span><a class="headerlink" href="#id36" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id35">
+<caption><span class="caption-text">Table : Line Buffer Function Parameter Descriptions</span><a class="headerlink" href="#id35" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 75%" />
@@ -3082,8 +3093,8 @@ descriptions.</p>
 </div>
 <div class="section" id="member-functions-description">
 <h4>Member Functions Description<a class="headerlink" href="#member-functions-description" title="Permalink to this headline">¶</a></h4>
-<table class="docutils align-default" id="id37">
-<caption><span class="caption-text">Table : Member Functions Description</span><a class="headerlink" href="#id37" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id36">
+<caption><span class="caption-text">Table : Member Functions Description</span><a class="headerlink" href="#id36" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -3131,9 +3142,9 @@ column).</p></td>
 </table>
 </div>
 <div class="section" id="template-parameter-description-1">
-<span id="id6"></span><h4>Template Parameter Description<a class="headerlink" href="#template-parameter-description-1" title="Permalink to this headline">¶</a></h4>
-<table class="docutils align-default" id="id38">
-<caption><span class="caption-text">Table : Template Parameter Description</span><a class="headerlink" href="#id38" title="Permalink to this table">¶</a></caption>
+<span id="id5"></span><h4>Template Parameter Description<a class="headerlink" href="#template-parameter-description-1" title="Permalink to this headline">¶</a></h4>
+<table class="docutils align-default" id="id37">
+<caption><span class="caption-text">Table : Template Parameter Description</span><a class="headerlink" href="#id37" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -3179,8 +3190,8 @@ array.</p></td>
 <p>The following table summarizes the video processing functions ported
 from HLS Video Library into Vitis vision Library along with the API
 modifications.</p>
-<table class="docutils align-default" id="id39">
-<caption><span class="caption-text">Table : Video Processing Functions</span><a class="headerlink" href="#id39" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id38">
+<caption><span class="caption-text">Table : Video Processing Functions</span><a class="headerlink" href="#id38" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 8%" />
 <col style="width: 39%" />
@@ -3617,7 +3628,7 @@ examples are described in this section:</p>
 <li><p><a class="reference external" href="#isp-201hdr">Image Sensor Processing pipeline with HDR</a></p></li>
 </ul>
 <div class="section" id="interative-pyramidal">
-<span id="id7"></span><h2>Iterative Pyramidal Dense Optical Flow<a class="headerlink" href="#interative-pyramidal" title="Permalink to this headline">¶</a></h2>
+<span id="id6"></span><h2>Iterative Pyramidal Dense Optical Flow<a class="headerlink" href="#interative-pyramidal" title="Permalink to this headline">¶</a></h2>
 <p>The Dense Pyramidal Optical Flow example uses the <code class="docutils literal notranslate"><span class="pre">xf::cv::pyrDown</span></code> and
 <code class="docutils literal notranslate"><span class="pre">xf::cv::densePyrOpticalFlow</span></code> hardware functions from the Vitis vision
 library, to create an image pyramid, iterate over it and compute the
@@ -3652,7 +3663,7 @@ function swaps the flow vector inputs and outputs to the hardware
 function to iteratively solve the optimization problem.</p>
 </div>
 <div class="section" id="corner-tracking">
-<span id="id8"></span><h2>Corner Tracking Using Optical Flow<a class="headerlink" href="#corner-tracking" title="Permalink to this headline">¶</a></h2>
+<span id="id7"></span><h2>Corner Tracking Using Optical Flow<a class="headerlink" href="#corner-tracking" title="Permalink to this headline">¶</a></h2>
 <p>This example illustrates how to detect and track the characteristic
 feature points in a set of successive frames of video. A Harris corner
 detector is used as the feature detector, and a modified version of
@@ -3688,8 +3699,8 @@ corners on a 720p image, adding very minimal latency to the pipeline.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the template and the function parameters.</p>
-<table class="docutils align-default" id="id40">
-<caption><span class="caption-text">Table: CornerUpdate Function Parameter Descriptions</span><a class="headerlink" href="#id40" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id39">
+<caption><span class="caption-text">Table: CornerUpdate Function Parameter Descriptions</span><a class="headerlink" href="#id39" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 14%" />
 <col style="width: 86%" />
@@ -3766,8 +3777,8 @@ using the Vitis vision library.</p>
 </div>
 <p class="rubric">Parameter Descriptions</p>
 <p>The following table describes the function parameters.</p>
-<table class="docutils align-default" id="id41">
-<caption><span class="caption-text">Table: CornerImgToList Function Parameter Descriptions</span><a class="headerlink" href="#id41" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id40">
+<caption><span class="caption-text">Table: CornerImgToList Function Parameter Descriptions</span><a class="headerlink" href="#id40" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 14%" />
 <col style="width: 86%" />
@@ -3833,8 +3844,8 @@ location.</p>
 </div>
 </div>
 </div>
-<div class="section" id="id9">
-<span id="id10"></span><h2>Color Detection<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<span id="id9"></span><h2>Color Detection<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
 <p>The Color Detection algorithm is basically used for color object
 tracking and object detection, based on the color of the object. The
 color based methods are very useful for object detection and
@@ -3938,7 +3949,7 @@ function, the output of that function is passed to the
 output image are returned.</p>
 </div>
 <div class="section" id="difference-gaussian-filter">
-<span id="id11"></span><h2>Difference of Gaussian Filter<a class="headerlink" href="#difference-gaussian-filter" title="Permalink to this headline">¶</a></h2>
+<span id="id10"></span><h2>Difference of Gaussian Filter<a class="headerlink" href="#difference-gaussian-filter" title="Permalink to this headline">¶</a></h2>
 <p>The Difference of Gaussian Filter example uses four hardware functions
 from the Vitis vision library. They are:</p>
 <ul class="simple">
@@ -4001,7 +4012,7 @@ and imgin3, but here imgin3 has to wait up to at least one pixel of
 imgin4 generation. Finally the subtraction performed on imgin3 and imgin4.</p>
 </div>
 <div class="section" id="stereo-vision">
-<span id="id12"></span><h2>Stereo Vision Pipeline<a class="headerlink" href="#stereo-vision" title="Permalink to this headline">¶</a></h2>
+<span id="id11"></span><h2>Stereo Vision Pipeline<a class="headerlink" href="#stereo-vision" title="Permalink to this headline">¶</a></h2>
 <p>Disparity map generation is one of the first steps in creating a three
 dimensional map of the environment. The Vitis vision library has components
 to build an image processing pipeline to compute a disparity map given
@@ -4125,7 +4136,7 @@ additional input to the pipeline.</p>
 </div>
 </div>
 <div class="section" id="x-mlpipeline">
-<span id="id13"></span><h2>Blob From Image<a class="headerlink" href="#x-mlpipeline" title="Permalink to this headline">¶</a></h2>
+<span id="id12"></span><h2>Blob From Image<a class="headerlink" href="#x-mlpipeline" title="Permalink to this headline">¶</a></h2>
 <p>This example shows how various xfOpenCV funtions can be used to accelerate preprocessing of input images before feeding them to a Deep Neural Network (DNN) accelerator.</p>
 <p>This specific application shows how pre-processing for Googlenet_v1 can be accelerated which involves resizing the input image to 224 x 224 size followed by mean subtraction. The two main
 functions from Vitis vision library which are used to build this pipeline are <code class="docutils literal notranslate"><span class="pre">xf::cv::resize()</span></code> and <code class="docutils literal notranslate"><span class="pre">xf::cv::preProcess()</span></code> which operate in dataflow.</p>
@@ -4176,10 +4187,10 @@ functions from Vitis vision library which are used to build this pipeline are <c
 </ul>
 </div>
 <div class="section" id="letter-box">
-<span id="id14"></span><h2>Letterbox<a class="headerlink" href="#letter-box" title="Permalink to this headline">¶</a></h2>
+<span id="id13"></span><h2>Letterbox<a class="headerlink" href="#letter-box" title="Permalink to this headline">¶</a></h2>
 <p>The Letterbox algorithm is used for scaling input image to desired output size while preserving aspect ratio of original image. If required, zeroes are padded for preserving the aspect ratio post resize.</p>
 <p>An application of letterbox is in the pre-processing block of machine learning pipelines used in image processing.</p>
-<p><a class="image reference internal" href="_images/letterbox.png"><img alt="pp_image1" class="image" src="_images/letterbox.png" style="width: 1000px;" /></a></p>
+<p><a class="image reference internal" href="_images/letterbox.PNG"><img alt="pp_image1" class="image" src="_images/letterbox.PNG" style="width: 1000px;" /></a></p>
 <p>The following example demonstrates the Letterbox algorithm.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">letterbox_accel</span><span class="p">(</span><span class="n">ap_uint</span><span class="o">&lt;</span><span class="n">INPUT_PTR_WIDTH</span><span class="o">&gt;*</span> <span class="n">img_inp</span><span class="p">,</span>
                     <span class="n">ap_uint</span><span class="o">&lt;</span><span class="n">OUTPUT_PTR_WIDTH</span><span class="o">&gt;*</span> <span class="n">img_out</span><span class="p">,</span>
@@ -4287,7 +4298,7 @@ The output of that function is passed to the xf::cv::insertBorder module and the
 </table>
 </div>
 <div class="section" id="isp">
-<span id="id15"></span><h2>Image Sensor Processing pipeline<a class="headerlink" href="#isp" title="Permalink to this headline">¶</a></h2>
+<span id="id14"></span><h2>Image Sensor Processing pipeline<a class="headerlink" href="#isp" title="Permalink to this headline">¶</a></h2>
 <p>Image Sensor Processing (ISP) is a pipeline of image processing functions processing the raw image from the sensor.</p>
 <p>Current ISP includes following 4 blocks:</p>
 <ul class="simple">
@@ -4361,7 +4372,7 @@ The output of that function is passed to the xf::cv::insertBorder module and the
 </div>
 </div>
 <div class="section" id="isp-202">
-<span id="id16"></span><h2>Image Sensor Processing pipeline - 2020.2 version<a class="headerlink" href="#isp-202" title="Permalink to this headline">¶</a></h2>
+<span id="id15"></span><h2>Image Sensor Processing pipeline - 2020.2 version<a class="headerlink" href="#isp-202" title="Permalink to this headline">¶</a></h2>
 <p>This ISP includes following 8 blocks:</p>
 <ul class="simple">
 <li><p>Black level correction : Black level leads to the whitening of image in dark region and perceived loss of overall
@@ -4475,7 +4486,7 @@ contrast. The Blacklevelcorrection algorithm corrects the black and white levels
 </div>
 </div>
 <div class="section" id="isp-201">
-<span id="id17"></span><h2>Image Sensor Processing pipeline - 2021.1 version<a class="headerlink" href="#isp-201" title="Permalink to this headline">¶</a></h2>
+<span id="id16"></span><h2>Image Sensor Processing pipeline - 2021.1 version<a class="headerlink" href="#isp-201" title="Permalink to this headline">¶</a></h2>
 <p>This ISP includes following blocks:</p>
 <ul class="simple">
 <li><p>Black level correction : Black level leads to the whitening of image in dark region and perceived loss of overall
@@ -4492,8 +4503,8 @@ contrast. The Blacklevelcorrection algorithm corrects the black and white levels
 <p>Current design example demonstrates how to use ISP functions in a pipeline.</p>
 <p>User can dynamically configure the below parameters to the pipeline.</p>
 <p><a class="image reference internal" href="_images/isp2021nonhdr.png"><img alt="pp_image_isp_20211" class="image" src="_images/isp2021nonhdr.png" style="width: 1000px;" /></a></p>
-<table class="docutils align-default" id="id42">
-<caption><span class="caption-text">Runtime parameters for the pipeline</span><a class="headerlink" href="#id42" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id41">
+<caption><span class="caption-text">Runtime parameters for the pipeline</span><a class="headerlink" href="#id41" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 78%" />
@@ -4533,8 +4544,8 @@ image.</p></td>
 </tbody>
 </table>
 <p>User can also use below compile time parameters to the pipeline.</p>
-<table class="docutils align-default" id="id43">
-<caption><span class="caption-text">Compiletime parameters for the pipeline</span><a class="headerlink" href="#id43" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id42">
+<caption><span class="caption-text">Compiletime parameters for the pipeline</span><a class="headerlink" href="#id42" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 24%" />
 <col style="width: 76%" />
@@ -4645,7 +4656,7 @@ supported formats are RGGB,BGGR,GBRG,GRBG.</p></td>
 </div>
 </div>
 <div class="section" id="isp-201hdr">
-<span id="id18"></span><h2>Image Sensor Processing pipeline with HDR<a class="headerlink" href="#isp-201hdr" title="Permalink to this headline">¶</a></h2>
+<span id="id17"></span><h2>Image Sensor Processing pipeline with HDR<a class="headerlink" href="#isp-201hdr" title="Permalink to this headline">¶</a></h2>
 <p>This ISP includes HDR function with 2021.1 pipeline with out color space conversion. It takes two exposure frames as inputs(Short exposure frame and Long exposure frame) and
 after HDR fusion it will return hdr merged output frame. The HDR output goes to ISP 2021.1 pipeline and returns the output RGB image.</p>
 <ul class="simple">
@@ -4765,7 +4776,7 @@ after HDR fusion it will return hdr merged output frame. The HDR output goes to 
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="api-reference.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="overview-aie.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="Vitis Vision Library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -4778,7 +4789,7 @@ after HDR fusion it will return hdr merged output frame. The HDR output goes to 
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on June 23, 2021.
+        Last updated on August 10, 2021.
       </span>
 
     </p>

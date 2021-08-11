@@ -342,11 +342,22 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html#getting-started-with-hls">Getting Started with HLS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html#design-examples-using-vitis-vision-library">Design Examples Using Vitis Vision Library</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Vitis Vision AIE Library User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview-aie.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview-aie.html#getting-started-with-vitis-vision-aie">Getting Started with Vitis Vision AIE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview-aie.html#design-example-using-vitis-vision-aie-library">Design example Using Vitis Vision AIE Library</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Vitis Vision Library API Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api-reference.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api-reference.html#xf-cv-mat-image-container-class">xf::cv::Mat Image Container Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api-reference.html#vitis-vision-library-functions">Vitis Vision Library Functions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Vitis Vision AIE Library API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-reference-aie.html">xfcvDataMovers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference-aie.html#vitis-vision-aie-library-functions-api-list-with-performance-estimates">Vitis Vision AIE Library Functions API list with performance estimates</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Benchmark</span></p>
 <ul>
@@ -458,7 +469,7 @@ Vitis vision library provides a software interface for computer vision functions
 <li class="toctree-l1"><a class="reference internal" href="overview.html#design-examples-using-vitis-vision-library">Design Examples Using Vitis Vision Library</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#interative-pyramidal">Iterative Pyramidal Dense Optical Flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#corner-tracking">Corner Tracking Using Optical Flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#id9">Color Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#id8">Color Detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#difference-gaussian-filter">Difference of Gaussian Filter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#stereo-vision">Stereo Vision Pipeline</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#x-mlpipeline">Blob From Image</a></li>
@@ -467,6 +478,29 @@ Vitis vision library provides a software interface for computer vision functions
 <li class="toctree-l2"><a class="reference internal" href="overview.html#isp-202">Image Sensor Processing pipeline - 2020.2 version</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#isp-201">Image Sensor Processing pipeline - 2021.1 version</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#isp-201hdr">Image Sensor Processing pipeline with HDR</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Vitis Vision AIE Library User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview-aie.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview-aie.html#basic-features">Basic Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview-aie.html#vitis-vision-aie-library-contents">Vitis Vision AIE Library Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="overview-aie.html#getting-started-with-vitis-vision-aie">Getting Started with Vitis Vision AIE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview-aie.html#aie-prerequisites">AIE Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview-aie.html#vitis-aie-design-methodology">Vitis AIE Design Methodology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview-aie.html#evaluating-the-functionality">Evaluating the Functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="overview-aie.html#design-example-using-vitis-vision-aie-library">Design example Using Vitis Vision AIE Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview-aie.html#adf-graph">ADF Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview-aie.html#platform-ports">Platform Ports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview-aie.html#host-code">Host code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview-aie.html#makefile">Makefile</a></li>
 </ul>
 </li>
 </ul>
@@ -590,6 +624,16 @@ Vitis vision library provides a software interface for computer vision functions
 </ul>
 </div>
 <div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Vitis Vision AIE Library API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-reference-aie.html">xfcvDataMovers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-reference-aie.html#class-definition">Class Definition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference-aie.html#vitis-vision-aie-library-functions-api-list-with-performance-estimates">Vitis Vision AIE Library Functions API list with performance estimates</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Benchmark</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Benchmark.html">Benchmark</a><ul>
@@ -640,7 +684,7 @@ Vitis vision library provides a software interface for computer vision functions
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on June 23, 2021.
+        Last updated on August 10, 2021.
       </span>
 
     </p>

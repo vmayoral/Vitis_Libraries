@@ -341,11 +341,22 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html#getting-started-with-hls">Getting Started with HLS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html#design-examples-using-vitis-vision-library">Design Examples Using Vitis Vision Library</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Vitis Vision AIE Library User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview-aie.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview-aie.html#getting-started-with-vitis-vision-aie">Getting Started with Vitis Vision AIE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview-aie.html#design-example-using-vitis-vision-aie-library">Design example Using Vitis Vision AIE Library</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Vitis Vision Library API Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api-reference.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api-reference.html#xf-cv-mat-image-container-class">xf::cv::Mat Image Container Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api-reference.html#vitis-vision-library-functions">Vitis Vision Library Functions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Vitis Vision AIE Library API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-reference-aie.html">xfcvDataMovers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference-aie.html#vitis-vision-aie-library-functions-api-list-with-performance-estimates">Vitis Vision AIE Library Functions API list with performance estimates</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Benchmark</span></p>
 <ul>
@@ -1010,7 +1021,7 @@ functions from Vitis vision library which are used to build this pipeline are <c
 <span id="id8"></span><h2>Letterbox<a class="headerlink" href="#letter-box" title="Permalink to this headline">¶</a></h2>
 <p>The Letterbox algorithm is used for scaling input image to desired output size while preserving aspect ratio of original image. If required, zeroes are padded for preserving the aspect ratio post resize.</p>
 <p>An application of letterbox is in the pre-processing block of machine learning pipelines used in image processing.</p>
-<p><a class="image reference internal" href="_images/letterbox.png"><img alt="pp_image1" class="image" src="_images/letterbox.png" style="width: 1000px;" /></a></p>
+<p><a class="image reference internal" href="_images/letterbox.PNG"><img alt="pp_image1" class="image" src="_images/letterbox.PNG" style="width: 1000px;" /></a></p>
 <p>The following example demonstrates the Letterbox algorithm.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">letterbox_accel</span><span class="p">(</span><span class="n">ap_uint</span><span class="o">&lt;</span><span class="n">INPUT_PTR_WIDTH</span><span class="o">&gt;*</span> <span class="n">img_inp</span><span class="p">,</span>
                     <span class="n">ap_uint</span><span class="o">&lt;</span><span class="n">OUTPUT_PTR_WIDTH</span><span class="o">&gt;*</span> <span class="n">img_out</span><span class="p">,</span>
@@ -1600,7 +1611,7 @@ after HDR fusion it will return hdr merged output frame. The HDR output goes to 
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on June 23, 2021.
+        Last updated on August 10, 2021.
       </span>
 
     </p>

@@ -341,11 +341,22 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html#getting-started-with-hls">Getting Started with HLS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html#design-examples-using-vitis-vision-library">Design Examples Using Vitis Vision Library</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Vitis Vision AIE Library User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview-aie.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview-aie.html#getting-started-with-vitis-vision-aie">Getting Started with Vitis Vision AIE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview-aie.html#design-example-using-vitis-vision-aie-library">Design example Using Vitis Vision AIE Library</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Vitis Vision Library API Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api-reference.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api-reference.html#xf-cv-mat-image-container-class">xf::cv::Mat Image Container Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api-reference.html#vitis-vision-library-functions">Vitis Vision Library Functions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Vitis Vision AIE Library API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-reference-aie.html">xfcvDataMovers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference-aie.html#vitis-vision-aie-library-functions-api-list-with-performance-estimates">Vitis Vision AIE Library Functions API list with performance estimates</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Benchmark</span></p>
 <ul>
@@ -432,7 +443,7 @@ platforms in Vitis. The subsequent section also explains the
 methodology to verify the kernel in various emulation modes and on the
 hardware.</p>
 <div class="section" id="prerequisites">
-<span id="id1"></span><h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<span id="prerequisites-hls"></span><h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Valid installation of Vitis™ 2021.1 or later version and the
 corresponding licenses.</p></li>
@@ -568,8 +579,8 @@ first pixel of the next row.</p>
 <span class="kt">void</span> <span class="n">Array2xfMat</span><span class="p">(</span><span class="n">ap_uint</span><span class="o">&lt;</span> <span class="n">PTR_WIDTH</span> <span class="o">&gt;</span> <span class="o">*</span><span class="n">srcPtr</span><span class="p">,</span> <span class="n">xf</span><span class="o">::</span><span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="o">&lt;</span><span class="n">MAT_T</span><span class="p">,</span><span class="n">ROWS</span><span class="p">,</span><span class="n">COLS</span><span class="p">,</span><span class="n">NPC</span><span class="o">&gt;&amp;</span> <span class="n">dstMat</span><span class="p">,</span> <span class="kt">int</span> <span class="n">stride</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils align-default" id="id2">
-<caption><span class="caption-text">Table. Array2xfMat Parmater Description</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Table. Array2xfMat Parmater Description</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -630,8 +641,8 @@ first pixel of the next row.</p>
 <span class="kt">void</span> <span class="n">xfMat2Array</span><span class="p">(</span><span class="n">xf</span><span class="o">::</span><span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="o">&lt;</span><span class="n">MAT_T</span><span class="p">,</span><span class="n">ROWS</span><span class="p">,</span><span class="n">COLS</span><span class="p">,</span><span class="n">NPC</span><span class="o">&gt;&amp;</span> <span class="n">srcMat</span><span class="p">,</span> <span class="n">ap_uint</span><span class="o">&lt;</span> <span class="n">PTR_WIDTH</span> <span class="o">&gt;</span> <span class="o">*</span><span class="n">dstPtr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">stride</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils align-default" id="id3">
-<caption><span class="caption-text">Table . xfMat2Array Parameter Description</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Table . xfMat2Array Parameter Description</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -685,8 +696,8 @@ Default value is srcMat.cols</p></td>
 <h4>Interface pointer widths<a class="headerlink" href="#interface-pointer-widths" title="Permalink to this headline">¶</a></h4>
 <p>Minimum pointer widths for different configurations is shown in the
 following table:</p>
-<table class="docutils align-default" id="id4">
-<caption><span class="caption-text">Table . Minimum and maximum pointer widths for different Mat types</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text">Table . Minimum and maximum pointer widths for different Mat types</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 25%" />
@@ -748,7 +759,7 @@ following table:</p>
 <h4>Kernel-to-Kernel streaming<a class="headerlink" href="#kernel-to-kernel-streaming" title="Permalink to this headline">¶</a></h4>
 <p>There are two utility functions available in Vitis Vision, axiStrm2xfMat and xfMat2axiStrm to support streaming
 of data between two kernels. For more details on kernel-to-kernel streaming, refer to the “Streaming Data Transfers Between the
-Kernels” section of UG1277 document.</p>
+Kernels” section of [UG1393](<a class="reference external" href="https://www.xilinx.com/support/documentation/sw_manuals/xilinx2021_1/ug1393-vitis-application-acceleration.pdf">https://www.xilinx.com/support/documentation/sw_manuals/xilinx2021_1/ug1393-vitis-application-acceleration.pdf</a>) document.</p>
 </div>
 <div class="section" id="axistrm2xfmat">
 <h4>axiStrm2xfMat<a class="headerlink" href="#axistrm2xfmat" title="Permalink to this headline">¶</a></h4>
@@ -760,8 +771,8 @@ on particular configuration (bit-depth, channels, pixel-parallelism) the xf::cv:
 <span class="kt">void</span> <span class="n">axiStrm2xfMat</span><span class="p">(</span><span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">ap_axiu</span><span class="o">&lt;</span><span class="n">PTR_WIDTH</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="o">&gt;&amp;</span> <span class="n">srcPtr</span><span class="p">,</span> <span class="n">xf</span><span class="o">::</span><span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="o">&lt;</span><span class="n">MAT_T</span><span class="p">,</span> <span class="n">ROWS</span><span class="p">,</span> <span class="n">COLS</span><span class="p">,</span> <span class="n">NPC</span><span class="o">&gt;&amp;</span> <span class="n">dstMat</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils align-default" id="id5">
-<caption><span class="caption-text">Table . Parameter description of axiStrm2xfMat function</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">Table . Parameter description of axiStrm2xfMat function</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 17%" />
 <col style="width: 83%" />
@@ -804,8 +815,8 @@ This function converts the input xf:cv::Mat to AXI stream based on particular co
 <span class="kt">void</span> <span class="n">xfMat2axiStrm</span><span class="p">(</span><span class="n">xf</span><span class="o">::</span><span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="o">&lt;</span><span class="n">MAT_T</span><span class="p">,</span> <span class="n">ROWS</span><span class="p">,</span> <span class="n">COLS</span><span class="p">,</span> <span class="n">NPC</span><span class="o">&gt;&amp;</span> <span class="n">srcMat</span><span class="p">,</span> <span class="n">hls</span><span class="o">::</span><span class="n">stream</span><span class="o">&lt;</span><span class="n">ap_axiu</span><span class="o">&lt;</span><span class="n">PTR_WIDTH</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="o">&gt;&amp;</span> <span class="n">dstPtr</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils align-default" id="id6">
-<caption><span class="caption-text">Table . Parameter description of xfMat2axiStrm function</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-text">Table . Parameter description of xfMat2axiStrm function</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 17%" />
 <col style="width: 83%" />
@@ -1153,7 +1164,7 @@ export XCL_BINDIR=&lt; xclbin-folder-present-in-the-sd_card &gt; #For example, &
   <div role="contentinfo" class="copyright">
     <p class="footerinfo">
       <span class="lastupdated">
-        Last updated on June 23, 2021.
+        Last updated on August 10, 2021.
       </span>
 
     </p>
